@@ -1,6 +1,7 @@
 ---
-sidebar_position: 1
+id: vision
 title: Vision
+sidebar_position: 1
 description: The vision and philosophy behind the Open Manuscript Initiative.
 ---
 
