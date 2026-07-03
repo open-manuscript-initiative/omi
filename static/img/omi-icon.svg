@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Open Manuscript Initiative Icon</title>
+  <desc id="desc">Stylized OM monogram with an open manuscript.</desc>
+  <rect width="512" height="512" rx="96" fill="#FFFFFF"/>
+  <path d="M146 134 C91 134 54 177 54 239 C54 301 91 344 146 344 C199 344 236 301 236 239 C236 177 199 134 146 134Z" fill="none" stroke="#0F172A" stroke-width="28" stroke-linecap="round"/>
+  <path d="M272 346V146L368 251L464 146V346" fill="none" stroke="#0F172A" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M106 358 C154 348 202 356 256 386 C310 356 358 348 406 358" fill="none" stroke="#0F172A" stroke-width="16" stroke-linecap="round"/>
+  <path d="M256 386 C224 347 180 322 124 306" fill="none" stroke="#0F172A" stroke-width="13" stroke-linecap="round"/>
+  <path d="M256 386 C228 332 190 293 147 267" fill="none" stroke="#3E6F64" stroke-width="13" stroke-linecap="round"/>
+  <path d="M256 386 C221 370 174 369 102 386" fill="none" stroke="#0F172A" stroke-width="10" stroke-linecap="round" opacity=".9"/>
+</svg>
