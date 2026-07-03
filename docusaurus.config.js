@@ -11,7 +11,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Open Manuscript Initiative',
-  tagline: 'Write naturally. Structure once. Submit anywhere',
+  tagline: 'Write naturally. Structure once. Publish everywhere.',
   favicon: 'img/favicon.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
