@@ -76,7 +76,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: 'Vision',
+            label: 'Project',
           },
          
           {
@@ -90,7 +90,7 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Vision',
+            title: 'Project',
             items: [
               {
                 label: 'Vision',
