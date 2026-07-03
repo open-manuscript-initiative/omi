@@ -83,10 +83,10 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'My Site',
+        title: 'Open Manuscript Initiative',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Open Manuscript Initiative',
+          src: 'img/omi-navbar.svg',
         },
         items: [
           {
