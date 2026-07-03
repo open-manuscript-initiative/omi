@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title">
+  <title id="title">OMI hero logo for light backgrounds</title>
+  
+  <g transform="translate(40,38) scale(0.56)">
+    <path d="M146 134 C91 134 54 177 54 239 C54 301 91 344 146 344 C199 344 236 301 236 239 C236 177 199 134 146 134Z" fill="none" stroke="#0F172A" stroke-width="30" stroke-linecap="round"/>
+    <path d="M272 346V146L368 251L464 146V346" fill="none" stroke="#0F172A" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M106 358 C154 348 202 356 256 386 C310 356 358 348 406 358" fill="none" stroke="#0F172A" stroke-width="17" stroke-linecap="round"/>
+    <path d="M256 386 C224 347 180 322 124 306" fill="none" stroke="#0F172A" stroke-width="14" stroke-linecap="round"/>
+    <path d="M256 386 C228 332 190 293 147 267" fill="none" stroke="#3E6F64" stroke-width="14" stroke-linecap="round"/>
+  </g>
+  <text x="340" y="140" font-family="Inter, Arial, Helvetica, sans-serif" font-size="58" font-weight="800" letter-spacing="4" fill="#0F172A">OPEN MANUSCRIPT</text>
+  <text x="344" y="204" font-family="Inter, Arial, Helvetica, sans-serif" font-size="35" font-weight="700" letter-spacing="14" fill="#3E6F64">INITIATIVE</text>
+  <line x1="344" y1="235" x2="930" y2="235" stroke="#3E6F64" stroke-opacity=".55" stroke-width="4"/>
+  <text x="344" y="286" font-family="Inter, Arial, Helvetica, sans-serif" font-size="28" font-weight="500" fill="#475569">Open standards for portable scholarly publishing</text>
+</svg>

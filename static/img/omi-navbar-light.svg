@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 110" role="img" aria-labelledby="title">
+  <title id="title">OMI navbar logo for light mode</title>
+  
+  <g transform="translate(8,10) scale(0.18)">
+    <path d="M146 134 C91 134 54 177 54 239 C54 301 91 344 146 344 C199 344 236 301 236 239 C236 177 199 134 146 134Z" fill="none" stroke="#0F172A" stroke-width="30" stroke-linecap="round"/>
+    <path d="M272 346V146L368 251L464 146V346" fill="none" stroke="#0F172A" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M106 358 C154 348 202 356 256 386 C310 356 358 348 406 358" fill="none" stroke="#0F172A" stroke-width="17" stroke-linecap="round"/>
+    <path d="M256 386 C224 347 180 322 124 306" fill="none" stroke="#0F172A" stroke-width="14" stroke-linecap="round"/>
+    <path d="M256 386 C228 332 190 293 147 267" fill="none" stroke="#3E6F64" stroke-width="14" stroke-linecap="round"/>
+  </g>
+  <text x="112" y="48" font-family="Inter, Arial, Helvetica, sans-serif" font-size="30" font-weight="800" fill="#0F172A">Open Manuscript</text>
+  <text x="112" y="78" font-family="Inter, Arial, Helvetica, sans-serif" font-size="20" font-weight="700" letter-spacing="5" fill="#3E6F64">INITIATIVE</text>
+</svg>
