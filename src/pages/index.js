@@ -1,42 +1,57 @@
-import clsx from 'clsx';
+import React from 'react';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-
-import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/vision">
-            Explore the Vision
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
-
 export default function Home() {
-  const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
+      title="Open Manuscript Initiative"
+      description="Open standards for portable scholarly publishing">
       <main>
-        <HomepageFeatures />
+        <section className={styles.hero}>
+          <img
+            src="/img/omi-hero-dark.svg"
+            alt="Open Manuscript Initiative"
+            className={styles.logo}
+          />
+
+          <h1>Open Manuscript Initiative</h1>
+
+          <p className={styles.kicker}>
+            Open standards for portable scholarly publishing
+          </p>
+
+          <p className={styles.tagline}>
+            Write naturally. Structure once. Publish everywhere.
+          </p>
+
+          <div className={styles.buttons}>
+            <Link className="button button--primary button--lg" to="/docs/vision">
+              Explore the Vision
+            </Link>
+            <Link
+              className="button button--secondary button--lg"
+              to="https://github.com/open-manuscript-initiative/omf">
+              GitHub
+            </Link>
+          </div>
+        </section>
+
+        <section className={styles.cards}>
+          <div>
+            <h2>Meaning Before Appearance</h2>
+            <p>Authors describe what content means, not how it should look.</p>
+          </div>
+          <div>
+            <h2>Functional Manuscripts</h2>
+            <p>Structure scholarly concepts such as titles, abstracts, citations, figures, and references.</p>
+          </div>
+          <div>
+            <h2>Publish Everywhere</h2>
+            <p>Generate HTML, PDF, EPUB, JATS XML, Crossref XML and future publishing formats from one source.</p>
+          </div>
+        </section>
       </main>
     </Layout>
   );
