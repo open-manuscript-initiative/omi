@@ -1,3 +1,4 @@
+```text
 paper.omi
 ├── META-INF/
 │   ├── manifest.json
@@ -20,3 +21,4 @@ paper.omi
 │   └── datasets/
 ├── profiles/
 └── plugins/
+```
