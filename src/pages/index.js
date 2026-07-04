@@ -137,7 +137,7 @@ export default function Home() {
       <p>The semantic foundation of scholarly writing.</p>
     </Link>
 
-    <Link className={styles.docCard} to="/docs/governance">
+    <Link className={styles.docCard} to="/docs/GOVERNANCE">
       <h3>Governance</h3>
       <p>How the project is organised.</p>
     </Link>
