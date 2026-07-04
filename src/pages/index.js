@@ -38,7 +38,7 @@ export default function Home() {
 
               <Link
                 className="button button--secondary button--lg"
-                to="https://github.com/open-manuscript-initiative/omf">
+                to="https://github.com/open-manuscript-initiative/omi">
                 GitHub
               </Link>
           </div>
@@ -154,7 +154,7 @@ export default function Home() {
 
   <Link
     className="button button--primary button--lg"
-    to="https://github.com/open-manuscript-initiative/omf">
+    to="https://github.com/open-manuscript-initiative/omi">
     Contribute on GitHub
   </Link>
 </section>
