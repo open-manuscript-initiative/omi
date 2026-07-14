@@ -25,6 +25,9 @@ const config = {
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
+  // Generate and link canonical document URLs with a trailing slash
+  trailingSlash: true,
+
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'open-manuscript-initiative', // Usually your GitHub org/user name.
