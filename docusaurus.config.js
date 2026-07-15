@@ -52,6 +52,12 @@ const config = {
           sidebarPath: './sidebars.js',
         },
         blog: false,
+      sitemap: {
+        filename: 'sitemap.xml',
+        changefreq: 'weekly',
+        priority: 0.5,
+        lastmod: 'date',
+      },
         theme: {
           customCss: './src/css/custom.css',
         },
