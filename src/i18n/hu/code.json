@@ -18,10 +18,10 @@
     "message": "Nyílt szabványok a hordozható tudományos publikáláshoz"
   },
   "homepage.hero.tagline": {
-    "message": "Írjon természetesen. Strukturáljon egyszer. Publikáljon bárhol."
+    "message": "Írj természetesen. Strukturálj egyszer. Publikálj bárhol."
   },
   "homepage.hero.exploreVision": {
-    "message": "Az OMI jövőképe"
+    "message": "Ismerd meg a jövőképet"
   },
   "homepage.cards.meaning.title": {
     "message": "A jelentés megelőzi a megjelenést"
@@ -33,13 +33,13 @@
     "message": "Funkcionális kéziratok"
   },
   "homepage.cards.functional.description": {
-    "message": "Strukturálja a tudományos tartalom elemeit, például a címeket, absztraktokat, hivatkozásokat, ábrákat, táblázatokat és bibliográfiai tételeket."
+    "message": "Strukturáld a tudományos tartalom elemeit, például a címeket, absztraktokat, hivatkozásokat, ábrákat, táblázatokat és bibliográfiai tételeket."
   },
   "homepage.cards.publish.title": {
     "message": "Publikálás minden formátumban"
   },
   "homepage.cards.publish.description": {
-    "message": "Hozzon létre egyetlen forrásból HTML-, PDF-, EPUB-, JATS XML-, Crossref XML- és további publikációs formátumokat."
+    "message": "Hozz létre egyetlen forrásból HTML-, PDF-, EPUB-, JATS XML-, Crossref XML- és további publikációs formátumokat."
   },
   "homepage.why.title": {
     "message": "Miért van szükség az Open Manuscript Initiative-re?"
@@ -57,25 +57,25 @@
     "message": "Írás"
   },
   "homepage.workflow.write.description": {
-    "message": "Készítse el kéziratát természetes módon."
+    "message": "Készítsd el a kéziratodat természetes módon."
   },
   "homepage.workflow.structure.title": {
     "message": "Strukturálás"
   },
   "homepage.workflow.structure.description": {
-    "message": "A formázás helyett rögzítse a tudományos tartalom jelentését."
+    "message": "A formázás helyett rögzítsd a tudományos tartalom jelentését."
   },
   "homepage.workflow.review.title": {
     "message": "Lektorálás"
   },
   "homepage.workflow.review.description": {
-    "message": "Működjön együtt szemantikus annotációk használatával."
+    "message": "Dolgozzatok együtt szemantikus annotációk használatával."
   },
   "homepage.workflow.publish.title": {
     "message": "Publikálás"
   },
   "homepage.workflow.publish.description": {
-    "message": "Exportálja a kéziratot minden fontos tudományos publikációs formátumba."
+    "message": "Exportáld a kéziratot minden fontos tudományos publikációs formátumba."
   },
   "homepage.documentation.title": {
     "message": "Dokumentáció"
@@ -105,10 +105,10 @@
     "message": "A projekt szervezeti és döntéshozatali rendszere."
   },
   "homepage.cta.title": {
-    "message": "Csatlakozzon a kezdeményezéshez"
+    "message": "Csatlakozz a kezdeményezéshez"
   },
   "homepage.cta.description": {
-    "message": "Legyen kutató, szerkesztő, fejlesztő vagy kiadó, szakértelmével hozzájárulhat a tudományos kommunikáció jövőjének alakításához."
+    "message": "Akár kutató, szerkesztő, fejlesztő vagy kiadó vagy, szakértelmeddel hozzájárulhatsz a tudományos kommunikáció jövőjének alakításához."
   },
   "homepage.cta.github": {
     "message": "Közreműködés a GitHubon"
