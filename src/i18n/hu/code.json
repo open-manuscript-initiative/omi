@@ -18,10 +18,10 @@
     "message": "Nyílt szabványok a hordozható tudományos publikáláshoz"
   },
   "homepage.hero.tagline": {
-    "message": "Írj természetesen. Strukturálj egyszer. Publikálj bárhol."
+    "message": "Írjon természetesen. Strukturáljon egyszer. Publikáljon bárhol."
   },
   "homepage.hero.exploreVision": {
-    "message": "Ismerd meg a jövőképet"
+    "message": "A jövőkép megismerése"
   },
   "homepage.cards.meaning.title": {
     "message": "A jelentés megelőzi a megjelenést"
@@ -33,22 +33,22 @@
     "message": "Funkcionális kéziratok"
   },
   "homepage.cards.functional.description": {
-    "message": "Strukturáld a tudományos tartalom elemeit, például a címeket, absztraktokat, hivatkozásokat, ábrákat, táblázatokat és bibliográfiai tételeket."
+    "message": "A tudományos tartalom elemei – például a címek, összefoglalók, hivatkozások, ábrák, táblázatok és bibliográfiai tételek – strukturált formában jelennek meg."
   },
   "homepage.cards.publish.title": {
     "message": "Publikálás minden formátumban"
   },
   "homepage.cards.publish.description": {
-    "message": "Hozz létre egyetlen forrásból HTML-, PDF-, EPUB-, JATS XML-, Crossref XML- és további publikációs formátumokat."
+    "message": "Egyetlen forrásból HTML, PDF, EPUB, JATS XML, Crossref XML és jövőbeli publikációs formátumok állíthatók elő."
   },
   "homepage.why.title": {
     "message": "Miért van szükség az Open Manuscript Initiative-re?"
   },
   "homepage.why.fragmentedWorkflow": {
-    "message": "A tudományos publikálás ma is egymástól elszigetelt eszközökre épül. A szerzők szövegszerkesztőben dolgoznak, a lektorok PDF-fájlokat jegyzetelnek, a szerkesztők folyóirat-kezelő rendszereket használnak, a kiadók pedig újra létrehozzák a kéziratokat XML-formátumban."
+    "message": "A tudományos publikálás ma is egymástól elkülönülő eszközökre épül. A szerzők szövegszerkesztőkben dolgoznak, a lektorok PDF-fájlokat jegyzetelnek, a szerkesztők folyóirat-kezelő rendszereket használnak, a kiadók pedig újra létrehozzák a kéziratokat XML-formátumban."
   },
   "homepage.why.omiSolution": {
-    "message": "Az OMI ezt a széttagolt munkafolyamatot egyetlen szemantikus kézirattal váltja fel, amely az első vázlattól a hosszú távú megőrzésig végigkíséri a kutatási eredményt."
+    "message": "Az OMI ezt a töredezett munkafolyamatot egyetlen szemantikus kézirattal váltja fel, amely az első vázlattól a hosszú távú megőrzésig végigkíséri a kutatást."
   },
   "homepage.workflow.title": {
     "message": "Hogyan működik az OMI?"
@@ -57,25 +57,25 @@
     "message": "Írás"
   },
   "homepage.workflow.write.description": {
-    "message": "Készítsd el a kéziratodat természetes módon."
+    "message": "Készítse el kéziratát természetes módon."
   },
   "homepage.workflow.structure.title": {
     "message": "Strukturálás"
   },
   "homepage.workflow.structure.description": {
-    "message": "A formázás helyett rögzítsd a tudományos tartalom jelentését."
+    "message": "A formázás helyett a tudományos jelentést rögzítse."
   },
   "homepage.workflow.review.title": {
     "message": "Lektorálás"
   },
   "homepage.workflow.review.description": {
-    "message": "Dolgozzatok együtt szemantikus annotációk használatával."
+    "message": "Dolgozzon együtt szemantikus annotációk segítségével."
   },
   "homepage.workflow.publish.title": {
     "message": "Publikálás"
   },
   "homepage.workflow.publish.description": {
-    "message": "Exportáld a kéziratot minden fontos tudományos publikációs formátumba."
+    "message": "Exportálja a kéziratot minden tudományos publikációs formátumba."
   },
   "homepage.documentation.title": {
     "message": "Dokumentáció"
@@ -84,19 +84,19 @@
     "message": "Jövőkép"
   },
   "homepage.documentation.vision.description": {
-    "message": "Az OMI mögött álló szemlélet és célkitűzések."
+    "message": "Az OMI mögött álló alapelvek."
   },
   "homepage.documentation.architecture.title": {
     "message": "Architektúra"
   },
   "homepage.documentation.architecture.description": {
-    "message": "A rendszer felépítése és alapelvei."
+    "message": "Rendszerterv és alapvető működési elvek."
   },
   "homepage.documentation.documentModel.title": {
     "message": "Dokumentummodell"
   },
   "homepage.documentation.documentModel.description": {
-    "message": "A tudományos szövegalkotás szemantikus alapja."
+    "message": "A tudományos írás szemantikai alapja."
   },
   "homepage.documentation.governance.title": {
     "message": "Irányítás"
@@ -105,10 +105,10 @@
     "message": "A projekt szervezeti és döntéshozatali rendszere."
   },
   "homepage.cta.title": {
-    "message": "Csatlakozz a kezdeményezéshez"
+    "message": "Csatlakozzon a kezdeményezéshez"
   },
   "homepage.cta.description": {
-    "message": "Akár kutató, szerkesztő, fejlesztő vagy kiadó vagy, szakértelmeddel hozzájárulhatsz a tudományos kommunikáció jövőjének alakításához."
+    "message": "Akár kutató, szerkesztő, fejlesztő vagy kiadó, szakértelmével hozzájárulhat a tudományos kommunikáció jövőjének alakításához."
   },
   "homepage.cta.github": {
     "message": "Közreműködés a GitHubon"
