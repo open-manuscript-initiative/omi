@@ -1,327 +1,358 @@
 ---
-title: Annotation Model
-sidebar_position: 11
+id: annotation-model
+title: OMI-SPEC-003 — Annotation Model
+sidebar_position: 3
+description: Semantic annotation architecture for portable scholarly manuscripts.
 ---
 
-# OMI-SPEC-002: Annotation Model
+# OMI-SPEC-003 — Annotation Model
 
-## Status
-
-**Draft**
-
-Version: 0.1
-
----
-
-# Purpose
-
-Annotations are a fundamental component of scholarly communication.
-
-Rather than treating annotations as static footnotes tied to page layout, OMI models them as semantic objects attached to meaningful portions of a manuscript.
-
-Annotations exist independently of visual presentation.
+**Status:** Draft  
+**Version:** 0.2  
+**Depends on:** OMI-SPEC-001 (Document Model), OMI-SPEC-002 (Anchor Model)
 
 ---
 
-# Design Principles
+## Abstract
 
-The Annotation Model is based on the following principles:
+The Annotation Model defines how semantic information is attached to scholarly objects within an Open Manuscript Initiative (OMI) document.
 
-- Semantic anchoring
-- Layout independence
-- Multiple annotation types
-- Persistent identifiers
-- Collaborative editing
-- Machine readability
-- Long-term preservation
+Unlike traditional word processors, annotations are **independent scholarly objects**. They are linked to stable anchors rather than page positions, enabling manuscripts to remain portable, machine-readable, and publication-independent throughout their lifecycle.
+
+This model serves as the foundation for notes, comments, peer review, AI suggestions, editorial instructions, semantic citations, and future annotation types.
 
 ---
 
-# What Is an Annotation?
+# 1. Motivation
 
-An annotation is a semantic object associated with one or more elements of a manuscript.
+Traditional document editors treat annotations as formatting artifacts tied to a visual layout.
 
-Unlike traditional footnotes, annotations are attached to **content**, not to page positions.
+This approach has significant limitations:
 
----
+- notes break during editing
+- comments are application-specific
+- review data cannot easily be exchanged
+- AI annotations cannot be preserved
+- publication formats require conversion rather than transformation
 
-# Semantic Anchors
+OMI replaces this model with a semantic architecture.
 
-Every annotation is connected to one or more **Anchors**.
-
-An Anchor defines the exact scope to which an annotation applies.
-
-Examples:
-
-- one word
-- multiple words
-- an entire sentence
-- several paragraphs
-- a figure
-- a table
-- an equation
-- a bibliography entry
+Annotations are attached to scholarly objects—not to pages.
 
 ---
 
-# Anchor Types
+# 2. Design Principles
 
-Examples include:
+Annotations SHALL:
 
-- Text Range
-- Paragraph
-- Section
-- Figure
-- Table
-- Formula
-- Citation
-- Metadata
-- Whole Document
+- exist independently from document layout
+- reference stable anchors
+- survive structural editing
+- support multiple annotation layers
+- remain machine-readable
+- remain human-editable
+- be portable across publication formats
 
----
+Annotations NEVER belong to a rendered page.
 
-# Annotation Types
-
-OMI supports multiple annotation categories.
-
-## Scholarly Notes
-
-- Footnote
-- Endnote
-- Explanatory Note
-- Commentary
+They belong to semantic objects.
 
 ---
 
-## Editorial Notes
+# 3. Architecture
 
-- Copyediting
-- Proofreading
-- Formatting Suggestion
+```
+Manuscript
 
----
-
-## Peer Review
-
-- Reviewer Comment
-- Confidential Comment
-- Editorial Decision
-- Revision Request
-
----
-
-## Collaboration
-
-- Discussion
-- Suggestion
-- Question
-- Task
-
----
-
-## AI Assistance
-
-- Language Suggestion
-- Style Recommendation
-- Metadata Suggestion
-- Citation Suggestion
-- Accessibility Suggestion
-
-AI annotations are always distinguishable from human annotations.
-
----
-
-# Multiple Anchors
-
-A single annotation may refer to multiple locations.
-
-Example:
-
-```text
-Paragraph 2
-Paragraph 5
-Figure 3
+├── Metadata
+├── Sections
+├── Blocks
+├── Figures
+├── Tables
+├── Equations
+├── References
+├── Notes
+└── Annotations
 ```
 
-All are connected to one annotation object.
+Annotations form an independent collection.
+
+Document objects never contain embedded annotation data.
 
 ---
 
-# Overlapping Anchors
+# 4. Target Model
 
-Annotations may overlap.
+Every annotation references one or more anchors.
 
-Example:
-
-```text
-┌───────────────┐
-This sentence contains several semantic objects.
-     └──────────────┐
+```
+Annotation
+      │
+      ▼
+Anchor
+      │
+      ▼
+Scholarly Object
 ```
 
-The system must preserve all relationships.
+Anchors are defined by the Anchor Model and provide stable references even after editing.
 
 ---
 
-# Annotation Metadata
+# 5. Supported Targets
 
-Each annotation contains:
+Annotations MAY target:
 
-- Identifier
-- Type
-- Author
-- Timestamp
-- Status
-- Visibility
-- Anchor
-- Content
-- Version History
+- manuscript
+- section
+- subsection
+- paragraph
+- inline text range
+- figure
+- figure region
+- table
+- table cell
+- equation
+- bibliography entry
+- citation
+- glossary entry
+- metadata field
+- author
+- review comment
+- external resource
 
----
-
-# Visibility
-
-Annotations may be visible to different audiences.
-
-Examples:
-
-- Private
-- Authors
-- Reviewers
-- Editors
-- Publishers
-- Public
+Future object types MAY extend this list.
 
 ---
 
-# Lifecycle
+# 6. Annotation Types
 
-Annotations evolve during the manuscript lifecycle.
+OMI defines annotations by semantic role rather than presentation.
 
-Example:
-
-Author
-
-↓
-
-Reviewer Comment
-
-↓
-
-Author Reply
-
-↓
-
-Editorial Decision
-
-↓
-
-Published Footnote
-
----
-
-# Rendering
-
-Annotations are presentation independent.
-
-The same annotation may appear as:
+## Notes
 
 - footnote
 - endnote
-- margin note
-- tooltip
-- inline comment
-- review panel
-- popup
-
-Rendering depends on the selected publication format.
+- author note
+- editor note
+- translator note
 
 ---
 
-# Publishing
+## Comments
 
-Publication profiles define how annotations are rendered.
+- comment
+- reply
+- discussion thread
+- resolved comment
+
+---
+
+## Review
+
+- major revision
+- minor revision
+- question
+- recommendation
+- approval
+- rejection
+
+---
+
+## Citation
+
+- supports claim
+- contradicts
+- background
+- primary source
+- secondary source
+
+---
+
+## AI
+
+- rewrite suggestion
+- grammar suggestion
+- translation
+- terminology suggestion
+- fact-check
+- consistency warning
+
+---
+
+## Publishing
+
+- copyediting
+- proofreading
+- production instruction
+- typesetting instruction
+- publisher note
+
+---
+
+# 7. Data Model
+
+Example:
+
+```json
+{
+  "id": "annotation-001",
+
+  "type": "footnote",
+
+  "target": {
+    "anchor": "anchor-15"
+  },
+
+  "body": {
+    "content": "The original manuscript contains a different reading."
+  },
+
+  "creator": "orcid:0000-0002-1234-5678",
+
+  "created": "2026-07-21T12:00:00Z",
+
+  "modified": "2026-07-21T12:10:00Z"
+}
+```
+
+---
+
+# 8. Multiple Targets
+
+One annotation MAY reference multiple scholarly objects.
+
+Example:
+
+```
+Paragraph 2
+
++
+
+Figure 5
+
++
+
+Table 3
+```
+
+This allows one scholarly explanation to describe several related objects simultaneously.
+
+---
+
+# 9. Rich Annotation Bodies
+
+Annotation bodies are themselves OMI documents.
+
+Therefore annotations MAY contain:
+
+- formatted text
+- citations
+- mathematical expressions
+- figures
+- tables
+- semantic links
+- nested annotations
+
+Annotations are not limited to plain text.
+
+---
+
+# 10. Stable Anchoring
+
+Annotations MUST NOT depend on:
+
+- page numbers
+- rendered coordinates
+- visual layout
+
+Instead they reference stable anchors defined by OMI-SPEC-002.
+
+---
+
+# 11. Rendering
+
+Presentation is renderer-dependent.
+
+The same annotation may appear as:
+
+| Output | Rendering |
+|---------|-----------|
+| HTML | Popup |
+| PDF | Footnote |
+| EPUB | Endnote |
+| DOCX | Native footnote |
+| JATS XML | `<fn>` |
+| Web Review | Sidebar comment |
+
+The manuscript itself never changes.
+
+Only the rendering changes.
+
+---
+
+# 12. Collaboration
+
+Annotations support collaborative workflows.
+
+Each annotation stores its own:
+
+- creator
+- timestamps
+- revision history
+- status
+- permissions
+
+This enables:
+
+- collaborative writing
+- peer review
+- editorial workflows
+- AI-assisted editing
+
+---
+
+# 13. Extensibility
+
+Publishers and software MAY introduce additional annotation types.
 
 Examples:
 
-PDF
+- legal note
+- taxonomic annotation
+- linguistic analysis
+- historical source note
+- chemical warning
+- clinical observation
 
-↓
-
-Footnotes
-
-HTML
-
-↓
-
-Tooltips
-
-EPUB
-
-↓
-
-Endnotes
-
-JATS XML
-
-↓
-
-Semantic elements
+Custom annotation types SHOULD declare their semantic role to preserve interoperability.
 
 ---
 
-# Versioning
+# 14. Relationship to Other Specifications
 
-Annotations participate in version control.
+This specification depends on:
 
-Every change is recorded.
+- OMI-SPEC-001 — Document Model
+- OMI-SPEC-002 — Anchor Model
 
-Previous versions remain recoverable.
-
----
-
-# Interoperability
-
-Annotations should be exchangeable with external systems whenever possible.
-
-Future mappings may include:
-
-- Web Annotation Data Model
-- JATS
-- DOCX Comments
-- PDF Annotations
-- Hypothes.is
-- OJS Review Comments
-
----
-
-# Extensibility
-
-Additional annotation types may be introduced through plugins.
-
-Examples:
-
-- Legal Annotation
-- Mathematical Proof Comment
-- Historical Source Commentary
-- Linguistic Annotation
-
----
-
-# Future Work
-
-Future specifications will define:
+and provides the foundation for:
 
 - Review Model
 - Collaboration Model
-- AI Annotation API
-- Conflict Resolution
-- Annotation Storage
+- Citation Model
+- AI Assistant Model
+- Publishing Model
+- Scholarly Object Model
 
 ---
 
-# Summary
+# 15. Philosophy
 
-The OMI Annotation Model replaces layout-dependent notes with semantic annotations connected to persistent anchors.
+In OMI, annotations are first-class scholarly objects.
 
-This approach enables a single manuscript to support scholarly notes, peer review, editorial workflows, AI assistance, and publication-specific rendering while preserving semantic meaning across every publication format.
+A footnote, peer-review remark, editorial instruction, AI suggestion, or semantic citation are all instances of the same concept:
+
+> **A semantic relationship attached to a stable scholarly anchor.**
+
+By separating content, relationships, and presentation, OMI enables truly portable scholarly manuscripts that can evolve throughout writing, review, publication, preservation, and reuse without losing semantic meaning.
