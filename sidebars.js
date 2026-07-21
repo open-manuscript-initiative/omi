@@ -15,6 +15,7 @@ const sidebars = {
       items: [
         'foundations/core-principles',
         'foundations/architecture-map',
+        'specifications/core/scholarly-object-model',
       ],
     },
     {
