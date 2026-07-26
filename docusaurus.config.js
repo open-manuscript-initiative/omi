@@ -120,6 +120,9 @@ const config = {
                 label: 'Vision',
                 to: '/docs/vision',
               },
+          {
+            label: 'Studio',
+            to: 'https://studio.openmanuscript.org',
             ],
           },
 
