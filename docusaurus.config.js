@@ -114,15 +114,24 @@ const config = {
 
         links: [
           {
-            title: 'Project',
+            title: 'Open Manuscript Initiative',
             items: [
               {
                 label: 'Vision',
                 to: '/docs/vision',
               },
-          {
-            label: 'Studio',
-            to: 'https://studio.openmanuscript.org',
+              {
+                label: 'Documentation',
+                to: '/docs/intro',
+              },
+              {
+                label: 'Roadmap',
+                to: '/docs/roadmap',
+              },
+              {
+                label: 'Studio',
+                href: 'https://studio.openmanuscript.org',
+              },
             ],
           },
 
@@ -133,11 +142,36 @@ const config = {
                 label: 'GitHub',
                 href: 'https://github.com/open-manuscript-initiative/omi',
               },
+              {
+                label: 'Facebook',
+                href: 'https://www.facebook.com/share/19AmDMBVoe/',
+              },
+            ],
+          },
+
+          {
+            title: 'Project',
+            items: [
+              {
+                label: 'MIT License',
+                href: 'https://github.com/open-manuscript-initiative/omi/blob/main/LICENSE',
+              },
             ],
           },
         ],
 
-        copyright: `Copyright © ${new Date().getFullYear()} Open Manuscript Initiative Contributors. Built with Docusaurus.`,
+        copyright: `
+          <div class="omi-footer-message">
+            <strong>Open Manuscript Initiative</strong>
+            <span>Write naturally. Structure once. Publish everywhere.</span>
+            <span>Open standards for scholarly publishing.</span>
+            <span>
+              © ${new Date().getFullYear()}
+              Open Manuscript Initiative Contributors.
+            </span>
+            <span>Built with Docusaurus.</span>
+          </div>
+        `,
       },
 
       prism: {
