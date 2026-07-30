@@ -122,7 +122,7 @@ const config = {
               },
               {
                 label: 'Documentation',
-                to: '/docs/intro',
+                to: '/docs/vision',
               },
               {
                 label: 'Roadmap',
