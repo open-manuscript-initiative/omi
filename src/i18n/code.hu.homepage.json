@@ -1,0 +1,341 @@
+{
+  "homepage.meta.title": {
+    "message": "Open Manuscript Initiative"
+  },
+  "homepage.meta.description": {
+    "message": "Nyílt szabványok a strukturált, hordozható és együttműködő tudományos publikáláshoz."
+  },
+  "homepage.logo.alt": {
+    "message": "Open Manuscript Initiative"
+  },
+  "homepage.hero.title": {
+    "message": "Open Manuscript Initiative"
+  },
+  "homepage.hero.kicker": {
+    "message": "Nyílt szabványok a hordozható tudományos publikáláshoz"
+  },
+  "homepage.hero.tagline": {
+    "message": "Írj természetesen. Strukturálj egyszer. Publikálj bárhol."
+  },
+  "homepage.hero.description": {
+    "message": "Az OMI nyílt és interoperábilis alapot határoz meg a tudományos kéziratok létrehozásához, lektorálásához, cseréjéhez, publikálásához és megőrzéséhez."
+  },
+  "homepage.hero.exploreVision": {
+    "message": "Ismerd meg a jövőképet"
+  },
+  "homepage.introduction.kicker": {
+    "message": "Közös alap a tudományos dokumentumokhoz"
+  },
+  "homepage.introduction.title": {
+    "message": "A tudományos kézirat több mint formázott szöveg"
+  },
+  "homepage.introduction.currentProblem": {
+    "message": "A tudományos publikációk ma is szövegszerkesztők, PDF-fájlok, benyújtási rendszerek, szerkesztőségi platformok, XML-konverziós szolgáltatások és kiadói sablonok között mozognak. A szerzők és szerkesztők eközben újra és újra létrehozzák ugyanazt a szerkezetet és metaadatokat."
+  },
+  "homepage.introduction.omiApproach": {
+    "message": "Az Open Manuscript Initiative közös szemantikai modellt biztosít a kéziratokhoz. Rögzíti, mit jelent a dokumentum minden része, miközben a szerkesztők és kiadói rendszerek dönthetik el, hogyan jelenjen meg a tartalom."
+  },
+  "homepage.introduction.goal": {
+    "message": "A cél egyszerű: a szerzők természetes módon írhassanak, miközben a kézirat strukturált, hordozható, géppel olvasható és többféle publikációs munkafolyamathoz használható marad."
+  },
+  "homepage.cards.meaning.title": {
+    "message": "Jelentés a megjelenés előtt"
+  },
+  "homepage.cards.meaning.description": {
+    "message": "A szerzők azt írják le, mit jelent a tartalom, nem pedig azt, hogyan nézzen ki. A címek, absztraktok, idézetek, jegyzetek és hivatkozások azonosítható tudományos objektumok maradnak."
+  },
+  "homepage.cards.functional.title": {
+    "message": "Funkcionális kéziratok"
+  },
+  "homepage.cards.functional.description": {
+    "message": "A kézirat teljes életciklusa során támogathatja a szerkesztést, ellenőrzést, együttműködést, lektorálást, fordítást, konverziót és hosszú távú megőrzést."
+  },
+  "homepage.cards.publish.title": {
+    "message": "Publikálás mindenhol"
+  },
+  "homepage.cards.publish.description": {
+    "message": "Készíts HTML-, PDF-, EPUB-, JATS XML-, Crossref XML- és jövőbeli publikációs formátumokat egyetlen hiteles forrásból."
+  },
+  "homepage.why.kicker": {
+    "message": "A probléma"
+  },
+  "homepage.why.title": {
+    "message": "Miért van szükség az Open Manuscript Initiative-re?"
+  },
+  "homepage.why.fragmentedWorkflow": {
+    "message": "A tudományos publikálás ma is egymástól elszigetelt eszközöktől függ. A szerzők szövegszerkesztőkben írnak, a lektorok PDF-eket jegyzetelnek, a szerkesztők folyóirat-rendszereket kezelnek, a kiadók pedig XML-ben vagy zárt gyártási környezetekben építik újra a kéziratokat."
+  },
+  "homepage.why.repeatedWork": {
+    "message": "Minden konverzió információvesztést, hibákat vagy kézi javítást okozhat. A metaadatokat rendszerek között másolják, a hivatkozásokat ismételten újraformázzák, a dokumentumszerkezetet pedig gyakran csak a publikálás végén építik újra."
+  },
+  "homepage.why.omiSolution": {
+    "message": "Az OMI ezt a töredezett munkafolyamatot egyetlen szemantikai kézirattal váltja fel, amely az első vázlattól a lektoráláson és publikáláson át a terjesztésig és hosszú távú megőrzésig kíséri a kutatást."
+  },
+  "homepage.outputs.kicker": {
+    "message": "Egy forrás, sok kimenet"
+  },
+  "homepage.outputs.title": {
+    "message": "Strukturáld egyszer, használd mindenhol"
+  },
+  "homepage.outputs.description": {
+    "message": "A tartalom és a megjelenés elválik egymástól. Ugyanaz a strukturált kézirat különböző közönségekhez, platformokhoz és megőrzési követelményekhez alakítható anélkül, hogy újra kellene építeni."
+  },
+  "homepage.outputs.web.title": {
+    "message": "Webes publikálás"
+  },
+  "homepage.outputs.web.description": {
+    "message": "Akadálymentes és reszponzív HTML folyóiratokhoz, repozitóriumokhoz és intézményi webhelyekhez."
+  },
+  "homepage.outputs.print.title": {
+    "message": "PDF és nyomtatás"
+  },
+  "homepage.outputs.print.description": {
+    "message": "Publikálásra kész elrendezések folyóirati, kiadói vagy intézményi stílusok szerint."
+  },
+  "homepage.outputs.xml.title": {
+    "message": "Tudományos XML"
+  },
+  "homepage.outputs.xml.description": {
+    "message": "Strukturált formátumok, például JATS XML és Crossref-metaadatok indexeléshez, adatcseréhez és regisztrációhoz."
+  },
+  "homepage.outputs.archive.title": {
+    "message": "Megőrzési csomagok"
+  },
+  "homepage.outputs.archive.description": {
+    "message": "Dokumentált és géppel olvasható kutatási objektumok repozitóriumokhoz és hosszú távú archívumokhoz."
+  },
+  "homepage.principles.kicker": {
+    "message": "Alapelvek"
+  },
+  "homepage.principles.title": {
+    "message": "Nyílt tudományos infrastruktúrához tervezve"
+  },
+  "homepage.principles.readMore": {
+    "message": "Az alapelvek megtekintése"
+  },
+  "homepage.workflow.kicker": {
+    "message": "A kézirat életciklusa"
+  },
+  "homepage.workflow.title": {
+    "message": "Hogyan működik az OMI?"
+  },
+  "homepage.workflow.description": {
+    "message": "Egyetlen kézirat maradhat a hiteles tudományos objektum az írás, együttműködés, lektorálás, publikálás és megőrzés teljes folyamata során."
+  },
+  "homepage.audience.kicker": {
+    "message": "A teljes ökoszisztéma számára"
+  },
+  "homepage.audience.title": {
+    "message": "Kinek készül az OMI?"
+  },
+  "homepage.studio.kicker": {
+    "message": "Referenciaimplementáció"
+  },
+  "homepage.studio.title": {
+    "message": "Open Manuscript Studio"
+  },
+  "homepage.studio.description": {
+    "message": "Az Open Manuscript Studio bemutatja, hogyan támogathatják az OMI-specifikációk a korszerű, többnyelvű és együttműködő tudományos szerzői környezetet."
+  },
+  "homepage.studio.referenceImplementation": {
+    "message": "A Studio nem az egyetlen OMI-szerkesztő kíván lenni. Referenciaimplementációként teszteli a specifikációkat és újrafelhasználható mintákat biztosít más alkalmazásokhoz."
+  },
+  "homepage.studio.open": {
+    "message": "A Studio megnyitása"
+  },
+  "homepage.studio.source": {
+    "message": "Forráskód megtekintése"
+  },
+  "homepage.studio.features.title": {
+    "message": "Fejlesztési területek"
+  },
+  "homepage.documentation.kicker": {
+    "message": "További információ"
+  },
+  "homepage.documentation.title": {
+    "message": "Dokumentáció"
+  },
+  "homepage.documentation.description": {
+    "message": "Ismerd meg az Open Manuscript Initiative elméleti alapjait, architektúráját és műszaki specifikációit."
+  },
+  "homepage.development.kicker": {
+    "message": "Nyílt fejlesztés"
+  },
+  "homepage.development.title": {
+    "message": "Nyíltan és közösen fejlesztve"
+  },
+  "homepage.development.description": {
+    "message": "Az Open Manuscript Initiative nyílt forráskódú, közösségi szemléletű projekt. Specifikációi, dokumentációja és referenciaimplementációi nyilvánosan készülnek."
+  },
+  "homepage.development.status": {
+    "message": "Az OMI jelenleg aktív fejlesztés alatt áll. A korai specifikációk és alkalmazásverziók változhatnak, ahogy a modellt implementációkban, publikációs munkafolyamatokban és közösségi visszajelzésekkel teszteljük."
+  },
+  "homepage.cta.title": {
+    "message": "Segíts kialakítani a tudományos kéziratok nyílt jövőjét"
+  },
+  "homepage.cta.description": {
+    "message": "Kutatóként, szerkesztőként, könyvtárosként, fejlesztőként, lektorként vagy kiadóként a szakértelmed hozzájárulhat egy nyíltabb, hordozhatóbb és interoperábilisabb tudományos kommunikációs infrastruktúrához."
+  },
+  "homepage.cta.github": {
+    "message": "Közreműködés a GitHubon"
+  },
+  "homepage.cta.documentation": {
+    "message": "Dokumentáció megtekintése"
+  },
+  "homepage.principles.open.title": {
+    "message": "Tervezetten nyílt"
+  },
+  "homepage.principles.open.description": {
+    "message": "A dokumentummodell, a specifikációk és referenciaimplementációk nyíltan dokumentáltak és önállóan megvalósíthatók."
+  },
+  "homepage.principles.portable.title": {
+    "message": "Alapértelmezetten hordozható"
+  },
+  "homepage.principles.portable.description": {
+    "message": "A kézirat nem függhet egyetlen alkalmazástól, tárhelyszolgáltatótól, kiadótól vagy zárt gyártási rendszertől."
+  },
+  "homepage.principles.semantic.title": {
+    "message": "Szemantikailag strukturált"
+  },
+  "homepage.principles.semantic.description": {
+    "message": "A tudományos elemek megőrzik jelentésüket és kapcsolataikat, nem redukálódnak puszta vizuális formázásra."
+  },
+  "homepage.principles.identifiable.title": {
+    "message": "Pontosan azonosítható"
+  },
+  "homepage.principles.identifiable.description": {
+    "message": "Stabil azonosítók és horgonyok teszik lehetővé a pontos annotációkat, hivatkozásokat, lektorálást és verzió-összehasonlítást."
+  },
+  "homepage.principles.interoperable.title": {
+    "message": "Interoperábilis"
+  },
+  "homepage.principles.interoperable.description": {
+    "message": "Az OMI szerzői eszközök, szerkesztőségi rendszerek, repozitóriumok, publikációs szolgáltatások és kutatási infrastruktúrák összekapcsolására készült."
+  },
+  "homepage.principles.durable.title": {
+    "message": "Tartós"
+  },
+  "homepage.principles.durable.description": {
+    "message": "A tudományos tartalomnak az eredeti szoftver megváltozása után is olvashatónak, értelmezhetőnek és feldolgozhatónak kell maradnia."
+  },
+  "homepage.workflow.write.title": {
+    "message": "Írás"
+  },
+  "homepage.workflow.write.description": {
+    "message": "A kézirat természetes módon készülhet XML és kiadói sablonok kezelése nélkül."
+  },
+  "homepage.workflow.structure.title": {
+    "message": "Strukturálás"
+  },
+  "homepage.workflow.structure.description": {
+    "message": "A tudományos jelentés, kapcsolatok és metaadatok rögzítése puszta vizuális formázás helyett."
+  },
+  "homepage.workflow.review.title": {
+    "message": "Lektorálás"
+  },
+  "homepage.workflow.review.description": {
+    "message": "Együttműködés szerepkörökkel, stabil dokumentumhorgonyokkal és szemantikai annotációkkal."
+  },
+  "homepage.workflow.validate.title": {
+    "message": "Ellenőrzés"
+  },
+  "homepage.workflow.validate.description": {
+    "message": "A dokumentumszerkezet, kötelező metaadatok és tudományos kapcsolatok ellenőrzése publikálás előtt."
+  },
+  "homepage.workflow.publish.title": {
+    "message": "Publikálás"
+  },
+  "homepage.workflow.publish.description": {
+    "message": "A jóváhagyott kézirat exportálása több tudományos publikációs és megőrzési formátumba."
+  },
+  "homepage.audience.authors.title": {
+    "message": "Szerzők"
+  },
+  "homepage.audience.authors.description": {
+    "message": "Kevesebb időt kell újraformázásra, többet kutatásra és együttműködésre fordítani."
+  },
+  "homepage.audience.editors.title": {
+    "message": "Szerkesztők és folyóiratok"
+  },
+  "homepage.audience.editors.description": {
+    "message": "Következetesebb kéziratok, gazdagabb metaadatok és automatikusan ellenőrizhető szerkezetek."
+  },
+  "homepage.audience.publishers.title": {
+    "message": "Kiadók"
+  },
+  "homepage.audience.publishers.description": {
+    "message": "Több publikációs formátum készítése közös forrásból a kézirat ismételt újraépítése nélkül."
+  },
+  "homepage.audience.reviewers.title": {
+    "message": "Lektorok és fordítók"
+  },
+  "homepage.audience.reviewers.description": {
+    "message": "Pontos annotációk, azonosítható dokumentumelemek és szerepköralapú hozzáférés."
+  },
+  "homepage.audience.libraries.title": {
+    "message": "Könyvtárak és repozitóriumok"
+  },
+  "homepage.audience.libraries.description": {
+    "message": "Jól dokumentált, géppel olvasható tudományos objektumok megőrzése explicit szerkezettel és metaadatokkal."
+  },
+  "homepage.audience.developers.title": {
+    "message": "Fejlesztők"
+  },
+  "homepage.audience.developers.description": {
+    "message": "Szerkesztők, validátorok, konverterek, repozitóriumi eszközök és integrációk építése nyílt dokumentummodellre."
+  },
+  "homepage.studio.features.editing": {
+    "message": "Strukturált kéziratszerkesztés"
+  },
+  "homepage.studio.features.collaboration": {
+    "message": "Szerepköralapú együttműködés"
+  },
+  "homepage.studio.features.multilingual": {
+    "message": "Többnyelvű kéziratok és fordítási munkafolyamatok"
+  },
+  "homepage.studio.features.annotations": {
+    "message": "Szemantikai annotációk és lektorálás"
+  },
+  "homepage.studio.features.metadata": {
+    "message": "Metaadat-kezelés és ellenőrzés"
+  },
+  "homepage.studio.features.export": {
+    "message": "Kiadói előnézetek, import és export"
+  },
+  "homepage.documentation.vision.title": {
+    "message": "Jövőkép"
+  },
+  "homepage.documentation.vision.description": {
+    "message": "Az OMI által kezelt publikációs problémák és a támogatni kívánt jövő."
+  },
+  "homepage.documentation.principles.title": {
+    "message": "Alapelvek"
+  },
+  "homepage.documentation.principles.description": {
+    "message": "A kezdeményezést és specifikációit irányító tervezési alapelvek."
+  },
+  "homepage.documentation.architecture.title": {
+    "message": "Architektúratérkép"
+  },
+  "homepage.documentation.architecture.description": {
+    "message": "A központi modell, specifikációk, szolgáltatások és alkalmazások kapcsolata."
+  },
+  "homepage.documentation.documentModel.title": {
+    "message": "Dokumentummodell"
+  },
+  "homepage.documentation.documentModel.description": {
+    "message": "A tudományos kéziratok reprezentációjának szemantikai alapja."
+  },
+  "homepage.documentation.anchorModel.title": {
+    "message": "Horgonymodell"
+  },
+  "homepage.documentation.anchorModel.description": {
+    "message": "Stabil hivatkozások dokumentumelemekre, tartományokra és tudományos objektumokra."
+  },
+  "homepage.documentation.annotationModel.title": {
+    "message": "Annotációs modell"
+  },
+  "homepage.documentation.annotationModel.description": {
+    "message": "Közös szerkezet megjegyzésekhez, lektori jelentésekhez és szemantikai annotációkhoz."
+  }
+}
