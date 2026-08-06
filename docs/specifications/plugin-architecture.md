@@ -1,15 +1,19 @@
 ---
-title: Plugin Architecture
+id: plugin-architecture
+title: OMI-SPEC-300 — Plugin Architecture
+sidebar_label: Plugin Architecture
 sidebar_position: 17
 ---
 
-# OMI-SPEC-008: Plugin Architecture
+# OMI-SPEC-300 — Plugin Architecture
 
 ## Status
 
 **Draft**
 
-Version: 0.1
+Version: 0.1.0
+
+**Legacy identifier:** `OMI-SPEC-008`
 
 ---
 
@@ -404,6 +408,12 @@ Future specifications will define:
 - UI Extension API
 - Renderer API
 - Repository Protocol
+
+---
+
+# Change history
+
+- **0.1.0** — Migrated from provisional `OMI-SPEC-008` to canonical `OMI-SPEC-300`.
 
 ---
 
