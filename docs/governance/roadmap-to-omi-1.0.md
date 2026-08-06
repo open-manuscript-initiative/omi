@@ -14,7 +14,7 @@ description: Current programme, completed foundations, active priorities, and re
 |---|---|
 | Document type | Governance and planning |
 | Status | Draft |
-| Version | 0.3.0 |
+| Version | 0.3.1 |
 | Normative language | English |
 | Last updated | 2026-08-06 |
 | Planning horizon | OMI 1.0 |
@@ -63,7 +63,7 @@ The programme has moved beyond the initial documentation-audit stage. The govern
 | Structural refactoring | Largely completed | The sidebar was reorganised, duplicate Scholarly Object Model material was consolidated, and legacy routing was retained. |
 | Navigation internationalisation | Completed | English, Hungarian, and German navigation labels are aligned. |
 | Core semantic models | In progress | `OMI-SPEC-150` and `OMI-SPEC-160` are active, template-aligned Drafts; translation, validation, and collaboration models remain reserved. |
-| Reference implementation | In progress | The Studio partially implements `OMI-SPEC-150`; `OMI-SPEC-160` has an implementation plan but no revision ledger yet. |
+| Reference implementation | In progress | The Studio partially implements `OMI-SPEC-150` and the Core Revision History subset of `OMI-SPEC-160`; working-state batching and checkpoint semantics are the next implementation milestone. |
 | Workflow and bibliography models | Partially completed | Review, citation, bibliographic record, reference-library, and publishing drafts exist. |
 | Platform and exchange models | Partially completed | Plugin, API, file-format, and container drafts exist. |
 | Schemas and conformance tests | Not yet completed | Canonical schemas, fixtures, validator behaviour, and conformance suites remain future work. |
@@ -109,7 +109,7 @@ The canonical specification family is organised by permanent identifier range.
 | `OMI-SPEC-140` | Metadata Model | Active | Draft |
 | `OMI-SPEC-150` | Identity and Contributor Model | Active | Draft |
 | `OMI-SPEC-160` | Versioning and Change Model | Active | Draft |
-| `OMI-SPEC-170` | Translation Model | Reserved | Next model after revision-ledger implementation begins |
+| `OMI-SPEC-170` | Translation Model | Reserved | Next model after revision batching and checkpoint work |
 | `OMI-SPEC-180` | Validation Model | Reserved | Planned |
 | `OMI-SPEC-190` | Collaboration and Permission Model | Reserved | Planned |
 
@@ -240,16 +240,29 @@ Existing Draft specifications:
 - `OMI-SPEC-150` Identity and Contributor Model;
 - `OMI-SPEC-160` Versioning and Change Model.
 
+Completed reference-implementation milestones:
+
+- account-to-agent separation and contextual contributions for `OMI-SPEC-150`;
+- multilingual contributor editing and legacy author migration;
+- an immutable linear `OMI-SPEC-160` revision ledger in Open Manuscript Studio;
+- semantic change sets and events for manuscript and contributor mutations;
+- conservative actor attribution through the account-to-agent relationship;
+- complete versus shallow snapshots;
+- non-destructive reverts represented as new revisions;
+- revision-history UI and portable history export;
+- focused identity and versioning unit tests.
+
 Priority deliverables:
 
-- implement the `OMI-SPEC-160` Core Revision History profile in Open Manuscript Studio;
-- wrap current manuscript and contributor mutations in semantic change sets;
-- associate committed changes with portable agent identities;
-- add immutable revisions, snapshots, reverts, and tombstones;
+- add working-state batching so ordinary typing does not create excessively fine-grained committed revisions;
+- define explicit checkpoint commits for meaningful user-visible revision boundaries;
+- map the implemented Core Revision History subset to `REQ-VCH-*` and record deviations;
+- add tombstone semantics and integrity/state digests;
 - publish the first canonical identity and versioning schemas and fixtures;
 - complete explicit object identity and lifecycle rules;
 - maintain the model dependency map;
-- consolidate earlier active core Drafts onto the current template.
+- consolidate earlier active core Drafts onto the current template;
+- defer branching and merge implementation until the linear/checkpoint model is stable.
 
 Exit criterion:
 
@@ -364,7 +377,8 @@ Exit criterion:
 
 Completed deliverables:
 
-- initial [Implementation Status Matrix](./implementation-status-matrix.md) covering all registered identifiers and the current evidence baseline.
+- initial [Implementation Status Matrix](./implementation-status-matrix.md) covering all registered identifiers and the current evidence baseline;
+- maintained repository-backed evidence for the first Studio identity and revision-history implementations.
 
 Remaining deliverables:
 
@@ -372,10 +386,12 @@ Remaining deliverables:
 - named conformance classes;
 - validator reference implementation;
 - conformance test suite;
-- test results from Open Manuscript Studio;
+- requirement-mapped test results from Open Manuscript Studio;
 - at least one independent implementation or interoperability prototype where feasible;
 - documented deviations and specification corrections;
 - continuing evidence-based maintenance of the matrix.
+
+Focused Studio unit tests are implementation evidence but do not yet constitute formal OMI conformance testing.
 
 Exit criterion:
 
@@ -441,17 +457,17 @@ Official translations remain informative unless a later governance decision expl
 
 The next programme sequence is:
 
-1. implement an immutable linear revision ledger for `OMI-SPEC-160` in Open Manuscript Studio;
-2. record title, abstract, block, section, and contributor changes as semantic change sets;
-3. connect change authorship to the Studio account-to-agent relationship established by `OMI-SPEC-150`;
-4. add snapshots, history export, reverts, tombstones, and requirement-mapped tests;
+1. add working-state batching to the Studio `OMI-SPEC-160` implementation so low-level typing updates are grouped before becoming committed revisions;
+2. add explicit checkpoint commits and meaningful commit boundaries for rich-text, metadata, contributor, and structural editing;
+3. map the implemented Core Revision History subset to `REQ-VCH-*` and record deviations;
+4. add tombstone and integrity/state-digest behaviour;
 5. publish canonical identity and versioning schemas with valid and invalid fixtures;
 6. draft `OMI-SPEC-170`, **Translation Model**;
 7. draft `OMI-SPEC-190`, **Collaboration and Permission Model**;
 8. migrate the earlier active foundational Drafts to the canonical Specification Template;
 9. define the Contribution and Decision Process and Implementation and Conformance Policy.
 
-These priorities move the project from static structured manuscripts toward attributable, reversible, interoperable scholarly editing.
+These priorities stabilise meaningful revision boundaries before branching, merge, or real-time collaboration is introduced.
 
 ## 9. Implementation status matrix
 
@@ -509,7 +525,7 @@ OMI 1.0 must not be declared Stable until all of the following are true:
 - conformance classes and requirements are testable;
 - validation and error behaviour are defined;
 - compatibility and migration rules are documented;
-- revision, change, revert, and partial-history behaviour are explicit;
+- revision, change, checkpoint, revert, and partial-history behaviour are explicit;
 - import, export, and information-loss behaviour are explicit;
 - security, privacy, accessibility, internationalisation, and preservation considerations have been reviewed;
 - Open Manuscript Studio has been tested against the conformance suite;
@@ -558,6 +574,7 @@ Success will not be measured by whether every institution uses one OMI applicati
 
 | Version | Date | Summary |
 |---|---|---|
+| 0.3.1 | 2026-08-06 | Recorded the merged Studio `OMI-SPEC-160` immutable linear revision ledger as Partial implementation evidence and advanced the immediate implementation priority to working-state batching, checkpoint commits, requirement mapping, tombstones, and integrity evidence. |
 | 0.3.0 | 2026-08-06 | Activated `OMI-SPEC-160` as a template-aligned Draft, recorded the partial Studio implementation of `OMI-SPEC-150`, and advanced the immediate programme to a linear revision ledger, history export, schemas, and the Translation Model. |
 | 0.2.2 | 2026-08-06 | Activated `OMI-SPEC-150` as a Draft, recorded the first specification authored on the canonical template, and advanced the next priority to `OMI-SPEC-160` and implementation alignment. |
 | 0.2.1 | 2026-08-06 | Recorded publication of the initial Implementation Status Matrix, marked Phase 10 as started, and advanced the immediate programme priorities to the Identity and Contributor and Versioning and Change models. |
