@@ -14,7 +14,7 @@ description: Current programme, completed foundations, active priorities, and re
 |---|---|
 | Document type | Governance and planning |
 | Status | Draft |
-| Version | 0.3.0 |
+| Version | 0.3.1 |
 | Normative language | English |
 | Last updated | 2026-08-06 |
 | Planning horizon | OMI 1.0 |
@@ -24,54 +24,38 @@ description: Current programme, completed foundations, active priorities, and re
 
 This roadmap defines the work required to transform the Open Manuscript Initiative from an evolving project architecture into a coherent, implementable, testable, and governable open standard for scholarly manuscripts.
 
-It records:
-
-- the work already completed;
-- the current specification architecture;
-- the remaining governance and documentation tasks;
-- the sequence of model, schema, interoperability, and conformance work;
-- the evidence required before OMI 1.0 can be declared Stable.
+It records completed work, the current specification architecture, remaining governance and documentation tasks, the sequence of model/schema/interoperability/conformance work, and the evidence required before OMI 1.0 can be declared Stable.
 
 The roadmap is a planning document. The [OMI Specification Registry](./specification-registry.md) is authoritative for specification identifiers, titles, canonical paths, allocation states, lifecycle states, and versions.
 
 ## 2. Strategic direction
 
-OMI is not intended to become only another manuscript editor, journal platform, or publishing workflow.
-
-Its long-term objective is to define an implementation-independent semantic standard that can be adopted by:
-
-- authors and research groups;
-- journals and publishers;
-- repositories and preservation services;
-- universities and libraries;
-- editorial and peer-review systems;
-- conversion, validation, and rendering tools;
-- independently developed scholarly software.
+OMI is not intended to become only another manuscript editor, journal platform, or publishing workflow. Its long-term objective is to define an implementation-independent semantic standard that can be adopted by authors, research groups, journals, publishers, repositories, preservation services, universities, libraries, editorial systems, conversion tools, validators, renderers, and independently developed scholarly software.
 
 Open Manuscript Studio is the primary reference implementation. It tests and demonstrates OMI specifications, but it does not define their normative meaning.
 
 ## 3. Progress summary
 
-The programme has moved beyond the initial documentation-audit stage. The governance foundation, identifier system, documentation architecture, and first active specification family are now established.
+The programme has moved beyond documentation architecture into active specification-to-implementation feedback.
 
 | Programme area | Status | Summary |
 |---|---|---|
 | Documentation audit | Completed | The original English documentation was inventoried and assessed. |
 | Governance foundation | Largely completed | Charter, lifecycle, versioning, style, terminology, registry, documentation architecture, and specification template are published. |
-| Implementation evidence baseline | Published and maintained | The Implementation Status Matrix covers all 23 registered identifiers and now records the first substantive Studio implementation evidence. |
+| Implementation evidence baseline | Published and maintained | The Implementation Status Matrix covers all 23 registered identifiers and tracks specification maturity separately from implementation evidence. |
 | Identifier migration | Completed for active specifications | Active specifications use the canonical `OMI-SPEC-000`, `100–240`, and `300–350` architecture where allocated. |
-| Structural refactoring | Largely completed | The sidebar was reorganised, duplicate Scholarly Object Model material was consolidated, and legacy routing was retained. |
+| Structural refactoring | Largely completed | Sidebar reorganisation, duplicate consolidation, and legacy routing are in place. |
 | Navigation internationalisation | Completed | English, Hungarian, and German navigation labels are aligned. |
 | Core semantic models | In progress | `OMI-SPEC-150` and `OMI-SPEC-160` are active, template-aligned Drafts; translation, validation, and collaboration models remain reserved. |
-| Reference implementation | In progress | The Studio partially implements `OMI-SPEC-150`; `OMI-SPEC-160` has an implementation plan but no revision ledger yet. |
+| Reference implementation | In progress | Studio partially implements both `OMI-SPEC-150` and the Core Revision History subset of `OMI-SPEC-160`. |
 | Workflow and bibliography models | Partially completed | Review, citation, bibliographic record, reference-library, and publishing drafts exist. |
 | Platform and exchange models | Partially completed | Plugin, API, file-format, and container drafts exist. |
-| Schemas and conformance tests | Not yet completed | Canonical schemas, fixtures, validator behaviour, and conformance suites remain future work. |
+| Schemas and formal conformance tests | Not yet completed | Canonical schemas, fixtures, validator behaviour, and accepted conformance suites remain future work. |
 | Full official translations | Not started | Navigation is translated; normative document bodies remain English. |
 
 ## 4. Completed foundation work
 
-The following governance and architecture deliverables are already present:
+Published governance and architecture deliverables include:
 
 - [OMI Charter](./charter.md);
 - [Architecture Audit](./architecture-audit.md);
@@ -84,18 +68,9 @@ The following governance and architecture deliverables are already present:
 - [OMI Specification Template](./specification-template.md);
 - [OMI Implementation Status Matrix](./implementation-status-matrix.md).
 
-The documentation site also has:
-
-- a six-category canonical sidebar architecture;
-- explicit registration of active documents;
-- stable routes for retained documents;
-- a supersession notice for the duplicate Scholarly Object Model route;
-- Hungarian and German navigation translations;
-- concise, language-specific sidebar labels that do not overload navigation with permanent identifiers.
+The documentation site also has a six-category canonical sidebar, explicit active-document registration, stable retained routes, a supersession notice for duplicate Scholarly Object Model material, and aligned English/Hungarian/German navigation.
 
 ## 5. Current specification architecture
-
-The canonical specification family is organised by permanent identifier range.
 
 ### 5.1 Foundations and core semantic models
 
@@ -109,7 +84,7 @@ The canonical specification family is organised by permanent identifier range.
 | `OMI-SPEC-140` | Metadata Model | Active | Draft |
 | `OMI-SPEC-150` | Identity and Contributor Model | Active | Draft |
 | `OMI-SPEC-160` | Versioning and Change Model | Active | Draft |
-| `OMI-SPEC-170` | Translation Model | Reserved | Next model after revision-ledger implementation begins |
+| `OMI-SPEC-170` | Translation Model | Reserved | Next semantic model after revision batching/checkpoint work |
 | `OMI-SPEC-180` | Validation Model | Reserved | Planned |
 | `OMI-SPEC-190` | Collaboration and Permission Model | Reserved | Planned |
 
@@ -135,24 +110,24 @@ The canonical specification family is organised by permanent identifier range.
 | `OMI-SPEC-340` | Import and Export Model | Reserved | Planned |
 | `OMI-SPEC-350` | Capability and Conformance Model | Reserved | Planned |
 
-The registry remains the authoritative source when this summary and the registry differ.
+The registry remains authoritative when this summary and the registry differ.
 
 ## 6. Objectives for OMI 1.0
 
-The OMI 1.0 programme has the following objectives:
+OMI 1.0 aims to:
 
-1. maintain a stable and understandable specification hierarchy;
+1. maintain a stable specification hierarchy;
 2. preserve one canonical document and route for each normative concept;
 3. use permanent identifiers consistently across prose, schemas, examples, and tests;
-4. complete the missing semantic, identity, change, validation, collaboration, and translation models;
-5. migrate active Draft specifications to the canonical specification structure;
+4. complete missing semantic, identity, change, validation, collaboration, and translation models;
+5. migrate active Drafts to the canonical specification structure;
 6. publish canonical machine-readable schemas and controlled vocabularies;
 7. provide valid, invalid, minimal, comprehensive, multilingual, and discipline-sensitive examples;
 8. define explicit conformance classes and testable requirements;
 9. document compatibility, migration, error handling, and information-loss behaviour;
-10. validate the specifications through reference and independent implementations;
+10. validate specifications through reference and independent implementations;
 11. publish a stable normative English suite before full official translations;
-12. establish governance capable of maintaining the standard after version 1.0.
+12. maintain governance capable of sustaining the standard after 1.0.
 
 ## 7. Programme phases
 
@@ -160,41 +135,22 @@ The OMI 1.0 programme has the following objectives:
 
 **Status:** Completed
 
-Completed deliverables:
+Completed deliverables include the English documentation inventory, classification of duplicate/obsolete/missing material, identification of identifier and terminology conflicts, the architecture audit, and migration recommendations.
 
-- inventory of the English documentation;
-- classification of current, partial, duplicate, obsolete, and missing material;
-- identification of identifier conflicts and terminology inconsistencies;
-- architecture audit report;
-- recommended canonical locations and migration priorities.
-
-Completion evidence:
-
-- the [Architecture Audit](./architecture-audit.md) records the initial findings;
-- later governance documents supersede its provisional identifier plan where necessary.
+Exit evidence: [Architecture Audit](./architecture-audit.md).
 
 ### Phase 2 — Governance foundation
 
 **Status:** Largely completed
 
-Completed deliverables:
+Completed: Charter, Specification Lifecycle, Versioning Policy, Style Guide, Terminology, authoritative Registry, Documentation Architecture, Specification Template, and Implementation Status Matrix.
 
-- OMI Charter;
-- Specification Lifecycle;
-- Versioning Policy;
-- Specification Style Guide;
-- Terminology and Definitions;
-- authoritative Specification Registry;
-- Documentation Architecture;
-- canonical Specification Template;
-- initial Implementation Status Matrix.
-
-Remaining deliverables:
+Remaining:
 
 - Contribution and Decision Process;
 - Implementation and Conformance Policy;
-- explicit maintainer and reviewer responsibilities;
-- formal change-approval rules for Review Candidate, Implementation Candidate, and Stable transitions.
+- explicit maintainer/reviewer responsibilities;
+- formal change-approval rules for later lifecycle transitions.
 
 Exit criterion:
 
@@ -204,20 +160,12 @@ Exit criterion:
 
 **Status:** Largely completed
 
-Completed deliverables:
+Completed: six-category documentation sidebar, explicit active-document registration, consolidation of duplicate Scholarly Object Model content, legacy-route notice, canonical identifier migration, and aligned multilingual navigation.
 
-- coherent six-category documentation sidebar;
-- explicit active-document registration;
-- consolidation of duplicate Scholarly Object Model content;
-- stable legacy-route notice;
-- canonical identifier migration for active specifications;
-- concise and aligned English, Hungarian, and German navigation labels.
+Remaining:
 
-Remaining deliverables:
-
-- reconcile old identifier examples in historical governance documents;
-- reconcile any registry paths that no longer match actual canonical filenames;
-- migrate active Draft specifications to the canonical Specification Template structure;
+- reconcile legacy identifier examples and path inconsistencies;
+- migrate earlier Drafts to the canonical Specification Template;
 - normalise visible metadata, conformance sections, dependencies, and change histories;
 - add automated checks for broken links, duplicate identifiers, stale sidebar keys, and invalid front matter.
 
@@ -240,16 +188,30 @@ Existing Draft specifications:
 - `OMI-SPEC-150` Identity and Contributor Model;
 - `OMI-SPEC-160` Versioning and Change Model.
 
+Reference-implementation milestones completed:
+
+- account/agent and contextual contribution separation for `OMI-SPEC-150`;
+- multilingual contributor editing and legacy author migration;
+- first `OMI-SPEC-160` Core Revision History subset in Studio;
+- immutable root and child revisions with one-parent linear ancestry;
+- semantic change sets/events for manuscript and contributor mutations;
+- complete versus shallow snapshot disclosure;
+- conservative actor attribution through the account-to-agent relationship;
+- non-destructive revert as a new revision;
+- revision-history UI and portable `.omi.json` history export;
+- focused unit tests for identity and versioning behaviour.
+
 Priority deliverables:
 
-- implement the `OMI-SPEC-160` Core Revision History profile in Open Manuscript Studio;
-- wrap current manuscript and contributor mutations in semantic change sets;
-- associate committed changes with portable agent identities;
-- add immutable revisions, snapshots, reverts, and tombstones;
-- publish the first canonical identity and versioning schemas and fixtures;
-- complete explicit object identity and lifecycle rules;
-- maintain the model dependency map;
-- consolidate earlier active core Drafts onto the current template.
+- working-state batching so ordinary typing does not create one committed revision per low-level editor update;
+- explicit checkpoint-commit semantics for meaningful user-visible revisions;
+- `REQ-VCH-*` requirement-to-implementation mapping and deviation tracking;
+- tombstone semantics and integrity/state digests;
+- canonical manuscript, identity, and versioning schemas and valid/invalid fixtures;
+- explicit object identity and lifecycle rules;
+- model dependency map maintenance;
+- template consolidation of earlier core Drafts;
+- branching and merge implementation only after the linear/checkpoint model is stable.
 
 Exit criterion:
 
@@ -259,12 +221,9 @@ Exit criterion:
 
 **Status:** Partially started
 
-Existing Draft specifications:
+Existing Drafts: `OMI-SPEC-130` Annotation Model and `OMI-SPEC-200` Review Model.
 
-- `OMI-SPEC-130` Annotation Model;
-- `OMI-SPEC-200` Review Model.
-
-Remaining priority deliverables:
+Remaining priorities:
 
 - `OMI-SPEC-170` Translation Model;
 - `OMI-SPEC-190` Collaboration and Permission Model;
@@ -281,20 +240,9 @@ Exit criterion:
 
 **Status:** Partially completed
 
-Existing Draft specifications:
+Existing Drafts: `OMI-SPEC-210`, `OMI-SPEC-220`, and `OMI-SPEC-221`.
 
-- `OMI-SPEC-210` Citation Model;
-- `OMI-SPEC-220` Bibliographic Record Model;
-- `OMI-SPEC-221` Reference Library and Registry Architecture.
-
-Remaining deliverables:
-
-- source-provenance and deduplication rules;
-- identifier reconciliation behaviour;
-- import and export mappings for common bibliographic formats;
-- reference-resolution examples;
-- validation rules for unresolved, ambiguous, or conflicting records;
-- later evaluation of citation-intent and citation-graph extensions.
+Remaining: source provenance, deduplication, identifier reconciliation, common-format mappings, resolution examples, validation for ambiguous records, and later citation-intent/graph evaluation.
 
 Exit criterion:
 
@@ -304,36 +252,17 @@ Exit criterion:
 
 **Status:** Planned
 
-Deliverables:
-
-- `OMI-SPEC-180` Validation Model;
-- machine-readable validation-report format;
-- `OMI-SPEC-240` Rendering and Publication Profile Model;
-- consolidation of `OMI-SPEC-230` Publishing Model;
-- profile-specific requirements;
-- error and warning classifications;
-- semantic-source preservation requirements.
+Deliverables include `OMI-SPEC-180`, machine-readable validation reports, `OMI-SPEC-240`, Publishing Model consolidation, profile requirements, error/warning classes, and semantic-source preservation rules.
 
 Exit criterion:
 
-> Implementations can determine whether a manuscript satisfies a declared profile and can generate publication outputs without silently changing the semantic source.
+> Implementations can determine whether a manuscript satisfies a declared profile and generate publication outputs without silently changing the semantic source.
 
 ### Phase 8 — Canonical schemas and examples
 
 **Status:** Planned
 
-Deliverables:
-
-- versioned canonical JSON Schema set;
-- stable schema identifiers and publication URLs;
-- schema-to-prose authority rules;
-- minimal valid manuscript;
-- full scholarly article example;
-- multilingual example;
-- reference-rich example;
-- version-history examples;
-- invalid fixtures for conformance testing;
-- schema compatibility and migration rules.
+Deliverables include a versioned canonical JSON Schema set, stable schema URLs, prose/schema authority rules, minimal and comprehensive examples, multilingual and reference-rich examples, version-history examples, invalid fixtures, and schema migration rules.
 
 Exit criterion:
 
@@ -343,16 +272,7 @@ Exit criterion:
 
 **Status:** Planned
 
-Deliverables:
-
-- `OMI-SPEC-340` Import and Export Model;
-- mappings to JATS XML, CSL JSON, BibTeX, RIS, Crossref, and DataCite where applicable;
-- import-loss and export-loss reporting rules;
-- round-trip expectations;
-- partial-history and snapshot-only exchange rules;
-- treatment of unsupported and extension content;
-- preservation-package guidance;
-- mapping fixtures and compatibility reports.
+Deliverables include `OMI-SPEC-340`, mappings to JATS XML, CSL JSON, BibTeX, RIS, Crossref, and DataCite where applicable, explicit loss reporting, round-trip expectations, partial-history exchange, unsupported-content handling, preservation guidance, and mapping fixtures.
 
 Exit criterion:
 
@@ -362,20 +282,19 @@ Exit criterion:
 
 **Status:** Started
 
-Completed deliverables:
+Completed: initial and maintained [Implementation Status Matrix](./implementation-status-matrix.md), including repository-backed evidence for the first Studio identity and revision-history implementations.
 
-- initial [Implementation Status Matrix](./implementation-status-matrix.md) covering all registered identifiers and the current evidence baseline.
-
-Remaining deliverables:
+Remaining:
 
 - `OMI-SPEC-350` Capability and Conformance Model;
 - named conformance classes;
 - validator reference implementation;
-- conformance test suite;
-- test results from Open Manuscript Studio;
-- at least one independent implementation or interoperability prototype where feasible;
-- documented deviations and specification corrections;
-- continuing evidence-based maintenance of the matrix.
+- formal conformance suite;
+- requirement-mapped Studio results;
+- independent implementation or interoperability prototype;
+- documented deviations and specification corrections.
+
+Focused Studio unit tests are implementation evidence but do not yet satisfy the definition of formal OMI conformance testing.
 
 Exit criterion:
 
@@ -385,14 +304,7 @@ Exit criterion:
 
 **Status:** Planned
 
-Deliverables:
-
-- complete Review Candidate specification suite;
-- public issue process for normative review;
-- identified review milestones;
-- resolved, accepted, or explicitly deferred substantive comments;
-- migration guidance from pre-1.0 Drafts;
-- release notes and compatibility statement.
+Deliverables: complete Review Candidate suite, public normative review, resolved/accepted/deferred comments, migration guidance, release notes, and compatibility statement.
 
 Exit criterion:
 
@@ -402,15 +314,7 @@ Exit criterion:
 
 **Status:** Planned
 
-Deliverables:
-
-- Stable specification suite;
-- canonical schemas and examples;
-- conformance test release;
-- versioned website publication;
-- archived and reproducible release package;
-- implementation-status report;
-- governance and maintenance plan for the 1.x series.
+Deliverables: Stable specification suite, canonical schemas/examples, conformance test release, versioned website publication, archived reproducible release package, implementation-status report, and 1.x governance plan.
 
 Exit criterion:
 
@@ -420,20 +324,9 @@ Exit criterion:
 
 **Status:** Navigation completed; full document translation deferred
 
-Completed:
+Completed: Hungarian and German navigation labels plus translated category titles/descriptions.
 
-- Hungarian navigation labels;
-- German navigation labels;
-- translated category titles and descriptions.
-
-Deferred until the normative English suite is sufficiently stable:
-
-- full Hungarian specification translations;
-- full German specification translations;
-- translation revision metadata;
-- source-version synchronisation status;
-- approved language-specific terminology lists;
-- translation-drift checks.
+Deferred until the normative English suite is sufficiently stable: full Hungarian and German specification translations, translation revision metadata, source-version synchronisation, approved terminology lists, and translation-drift checks.
 
 Official translations remain informative unless a later governance decision explicitly assigns normative authority.
 
@@ -441,123 +334,71 @@ Official translations remain informative unless a later governance decision expl
 
 The next programme sequence is:
 
-1. implement an immutable linear revision ledger for `OMI-SPEC-160` in Open Manuscript Studio;
-2. record title, abstract, block, section, and contributor changes as semantic change sets;
-3. connect change authorship to the Studio account-to-agent relationship established by `OMI-SPEC-150`;
-4. add snapshots, history export, reverts, tombstones, and requirement-mapped tests;
-5. publish canonical identity and versioning schemas with valid and invalid fixtures;
+1. implement working-state batching in Open Manuscript Studio so low-level typing updates are grouped before they become committed `OMI-SPEC-160` revisions;
+2. add explicit checkpoint commits and clear commit boundaries for title, abstract, rich-text, contributor, and structural editing;
+3. map the implemented Core Revision History subset to `REQ-VCH-*` and record deviations;
+4. add tombstone and integrity/state-digest behaviour required by the selected versioning profile;
+5. publish canonical manuscript, identity, and versioning schemas with valid and invalid fixtures;
 6. draft `OMI-SPEC-170`, **Translation Model**;
 7. draft `OMI-SPEC-190`, **Collaboration and Permission Model**;
-8. migrate the earlier active foundational Drafts to the canonical Specification Template;
+8. migrate earlier foundational Drafts to the canonical Specification Template;
 9. define the Contribution and Decision Process and Implementation and Conformance Policy.
 
-These priorities move the project from static structured manuscripts toward attributable, reversible, interoperable scholarly editing.
+These priorities stabilise meaningful revision semantics before branching, merge, or real-time collaboration is introduced.
 
 ## 9. Implementation status matrix
 
-The [OMI Implementation Status Matrix](./implementation-status-matrix.md) covers every registered specification identifier and is maintained as implementation evidence changes.
+The [OMI Implementation Status Matrix](./implementation-status-matrix.md) covers every registered specification identifier and is maintained whenever specification, schema, implementation, validator, test, or independent evidence changes.
 
-It records:
-
-- identifier, version, lifecycle, and allocation state;
-- specification-template migration status;
-- machine-readable artefact and fixture status;
-- Open Manuscript Studio implementation evidence;
-- validator and conformance-test status;
-- known deviations and primary gaps;
-- independent implementation evidence;
-- rules for advancing implementation-status claims.
-
-The baseline distinguishes the following implementation states:
-
-- not started;
-- exploratory;
-- partial;
-- implemented;
-- tested;
-- conformant;
-- not applicable;
-- not verified.
-
-The matrix must be updated when specification, schema, implementation, validator, test, or independent evidence changes. Specification maturity remains separate from implementation completeness: a complete implementation of a Draft does not make the specification Stable.
+Specification maturity remains separate from implementation completeness: a substantial implementation of a Draft does not make the specification Stable, and ordinary unit tests do not by themselves establish OMI conformance.
 
 ## 10. Repository and publication strategy
 
-OMI maintains a separation of responsibilities:
+OMI separates responsibilities:
 
 - **OMI specifications** define normative models, schemas, conformance rules, and examples;
-- **Open Manuscript Studio** provides a reference implementation and implementation feedback;
+- **Open Manuscript Studio** provides reference implementation and implementation feedback;
 - **the OMI website** publishes public documentation and project information.
 
-A future repository split should occur only when it reduces maintenance risk and preserves:
-
-- authoritative versioning;
-- permanent identifiers;
-- canonical URLs;
-- release automation;
-- archived publication sets;
-- cross-repository traceability.
+Any future repository split must preserve authoritative versioning, permanent identifiers, canonical URLs, release automation, archived publication sets, and cross-repository traceability.
 
 ## 11. Release criteria for OMI 1.0
 
-OMI 1.0 must not be declared Stable until all of the following are true:
+OMI 1.0 must not be declared Stable until:
 
 - the OMI 1.0 core specification set is explicitly defined;
 - every normative specification has a permanent identifier and exact version;
-- all active specifications use internally consistent terminology and metadata;
+- terminology and metadata are internally consistent;
 - canonical schemas and examples are published at stable locations;
 - conformance classes and requirements are testable;
 - validation and error behaviour are defined;
 - compatibility and migration rules are documented;
-- revision, change, revert, and partial-history behaviour are explicit;
+- revision, change, checkpoint, revert, and partial-history behaviour are explicit;
 - import, export, and information-loss behaviour are explicit;
 - security, privacy, accessibility, internationalisation, and preservation considerations have been reviewed;
 - Open Manuscript Studio has been tested against the conformance suite;
-- independent implementation or interoperability evidence exists for the central behaviour;
+- independent implementation or interoperability evidence exists for central behaviour;
 - all known critical interoperability issues are resolved or explicitly scoped out;
 - governance and maintenance procedures are active;
 - the release is archived, reproducible, and publicly citable.
 
 ## 12. Operational maintenance
 
-Routine dependency updates, security advisories, build-system maintenance, and deployment repairs are necessary project operations but are not independent roadmap phases.
-
-The project should maintain:
-
-- automated dependency monitoring;
-- prompt review of security advisories;
-- reproducible dependency lockfiles;
-- build and link validation;
-- documented supported Node.js and Docusaurus versions;
-- separation of security maintenance from normative specification changes.
-
-Operational maintenance must not silently alter OMI normative behaviour.
+Routine dependency updates, security advisories, build-system maintenance, and deployment repairs are necessary operations but are not independent roadmap phases. The project should maintain automated dependency monitoring, prompt advisory review, reproducible lockfiles, build/link validation, documented Node.js/Docusaurus support, and separation of operational maintenance from normative changes.
 
 ## 13. Work after 1.0
 
-Potential post-1.0 work includes:
-
-- discipline-specific profiles;
-- citation-intent and citation-graph models;
-- richer research-object packaging;
-- collaborative event protocols;
-- preservation certification profiles;
-- additional official translations;
-- extension and capability registries;
-- broader independent implementation testing.
-
-Post-1.0 development must preserve the compatibility commitments of the 1.x series or identify incompatible work as a future major version.
+Potential post-1.0 work includes discipline-specific profiles, citation-intent and citation-graph models, richer research-object packaging, collaborative event protocols, preservation certification profiles, additional official translations, extension/capability registries, and broader independent implementation testing.
 
 ## 14. Long-term goal
 
-The Open Manuscript Initiative aims to provide a common semantic language for scholarly manuscripts that can be implemented independently and used across the full research lifecycle.
-
-Success will not be measured by whether every institution uses one OMI application. It will be measured by whether different applications and organisations can exchange, validate, review, publish, and preserve scholarly manuscripts without repeatedly reconstructing their meaning and structure.
+OMI aims to provide a common semantic language for scholarly manuscripts across the research lifecycle. Success is measured by whether independent applications and organisations can exchange, validate, review, publish, and preserve manuscripts without repeatedly reconstructing their meaning and structure.
 
 ## 15. Change history
 
 | Version | Date | Summary |
 |---|---|---|
+| 0.3.1 | 2026-08-06 | Recorded the merged Studio `OMI-SPEC-160` immutable linear revision ledger as Partial implementation evidence and advanced the immediate implementation priority to working-state batching, checkpoint commits, requirement mapping, tombstones, and integrity evidence. |
 | 0.3.0 | 2026-08-06 | Activated `OMI-SPEC-160` as a template-aligned Draft, recorded the partial Studio implementation of `OMI-SPEC-150`, and advanced the immediate programme to a linear revision ledger, history export, schemas, and the Translation Model. |
 | 0.2.2 | 2026-08-06 | Activated `OMI-SPEC-150` as a Draft, recorded the first specification authored on the canonical template, and advanced the next priority to `OMI-SPEC-160` and implementation alignment. |
 | 0.2.1 | 2026-08-06 | Recorded publication of the initial Implementation Status Matrix, marked Phase 10 as started, and advanced the immediate programme priorities to the Identity and Contributor and Versioning and Change models. |
