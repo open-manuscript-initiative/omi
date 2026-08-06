@@ -1,15 +1,16 @@
 ---
 id: annotation-model
-title: OMI-SPEC-003 — Annotation Model
+title: OMI-SPEC-130 — Annotation Model
 sidebar_position: 3
 description: Semantic annotation architecture for portable scholarly manuscripts.
 ---
 
-# OMI-SPEC-003 — Annotation Model
+# OMI-SPEC-130 — Annotation Model
 
 **Status:** Draft  
-**Version:** 0.2  
-**Depends on:** OMI-SPEC-001 (Document Model), OMI-SPEC-002 (Anchor Model)
+**Version:** 0.2.0  
+**Legacy identifier:** `OMI-SPEC-003`  
+**Depends on:** OMI-SPEC-100 (Document Model), OMI-SPEC-110 (Anchor Model), OMI-SPEC-120 (Scholarly Object Model)
 
 ---
 
@@ -266,7 +267,7 @@ Annotations MUST NOT depend on:
 - rendered coordinates
 - visual layout
 
-Instead they reference stable anchors defined by OMI-SPEC-002.
+Instead they reference stable anchors defined by OMI-SPEC-110.
 
 ---
 
@@ -333,21 +334,26 @@ Custom annotation types SHOULD declare their semantic role to preserve interoper
 
 This specification depends on:
 
-- OMI-SPEC-001 — Document Model
-- OMI-SPEC-002 — Anchor Model
+- OMI-SPEC-100 — Document Model
+- OMI-SPEC-110 — Anchor Model
+- OMI-SPEC-120 — Scholarly Object Model
 
 and provides the foundation for:
 
-- Review Model
-- Collaboration Model
-- Citation Model
-- AI Assistant Model
-- Publishing Model
-- Scholarly Object Model
+- OMI-SPEC-200 — Review Model
+- OMI-SPEC-190 — Collaboration and Permission Model
+- OMI-SPEC-210 — Citation Model
+- OMI-SPEC-230 — Publishing Model
 
 ---
 
-# 15. Philosophy
+# 15. Change history
+
+- **0.2.0** — Migrated from provisional `OMI-SPEC-003` to canonical `OMI-SPEC-130` and corrected dependencies.
+
+---
+
+# 16. Philosophy
 
 In OMI, annotations are first-class scholarly objects.
 

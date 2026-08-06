@@ -1,15 +1,19 @@
 ---
-title: Metadata Model
+id: metadata-model
+title: OMI-SPEC-140 — Metadata Model
+sidebar_label: Metadata Model
 sidebar_position: 13
 ---
 
-# OMI-SPEC-004: Metadata Model
+# OMI-SPEC-140 — Metadata Model
 
 ## Status
 
 **Draft**
 
-Version: 0.1
+Version: 0.1.0
+
+**Legacy identifier:** `OMI-SPEC-004`
 
 ---
 
@@ -324,6 +328,12 @@ Future specifications will define:
 - Preservation Model
 - Linked Open Data
 - Knowledge Graph Integration
+
+---
+
+# Change history
+
+- **0.1.0** — Migrated from provisional `OMI-SPEC-004` to canonical `OMI-SPEC-140`.
 
 ---
 

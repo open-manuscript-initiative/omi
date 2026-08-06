@@ -1,15 +1,19 @@
 ---
-title: Platform API
+id: platform-api
+title: OMI-SPEC-310 — Platform API
+sidebar_label: Platform API
 sidebar_position: 19
 ---
 
-# OMI-SPEC-010: Platform API
+# OMI-SPEC-310 — Platform API
 
 ## Status
 
 **Draft**
 
-Version: 0.1
+Version: 0.1.0
+
+**Legacy identifier:** `OMI-SPEC-010`
 
 ---
 
@@ -342,6 +346,12 @@ Future specifications will define:
 - Object API
 - Synchronisation API
 - AI Extension API
+
+---
+
+# Change history
+
+- **0.1.0** — Migrated from provisional `OMI-SPEC-010` to canonical `OMI-SPEC-310`.
 
 ---
 

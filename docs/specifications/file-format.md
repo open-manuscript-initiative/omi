@@ -1,15 +1,19 @@
 ---
-title: File Format
+id: file-format
+title: OMI-SPEC-320 — File Format
+sidebar_label: File Format
 sidebar_position: 20
 ---
 
-# OMI-SPEC-011: File Format
+# OMI-SPEC-320 — File Format
 
 ## Status
 
 **Draft**
 
-Version: 0.1
+Version: 0.1.0
+
+**Legacy identifier:** `OMI-SPEC-011`
 
 ---
 
@@ -303,6 +307,12 @@ Future specifications will define:
 - Digital Signatures
 - Incremental Storage
 - Distributed Manuscripts
+
+---
+
+# Change history
+
+- **0.1.0** — Migrated from provisional `OMI-SPEC-011` to canonical `OMI-SPEC-320`.
 
 ---
 

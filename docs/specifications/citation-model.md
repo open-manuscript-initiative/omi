@@ -1,15 +1,19 @@
 ---
-title: Citation Model
+id: citation-model
+title: OMI-SPEC-210 — Citation Model
+sidebar_label: Citation Model
 sidebar_position: 14
 ---
 
-# OMI-SPEC-005: Citation Model
+# OMI-SPEC-210 — Citation Model
 
 ## Status
 
 **Draft**
 
-Version: 0.2
+Version: 0.2.0
+
+**Legacy identifier:** `OMI-SPEC-005`
 
 ---
 
@@ -405,6 +409,12 @@ Future specifications may define:
 - citation-context analysis;
 - verifiable citation provenance;
 - collaborative citation verification.
+
+---
+
+## Change history
+
+- **0.2.0** — Migrated from provisional `OMI-SPEC-005` to canonical `OMI-SPEC-210`.
 
 ---
 

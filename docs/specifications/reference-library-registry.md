@@ -1,15 +1,19 @@
 ---
-title: Reference Library and Registry
+id: reference-library-registry
+title: OMI-SPEC-221 — Reference Library and Registry Architecture
+sidebar_label: Reference Library and Registry
 sidebar_position: 15
 ---
 
-# OMI-SPEC-007: Reference Library and Registry Architecture
+# OMI-SPEC-221 — Reference Library and Registry Architecture
 
 ## Status
 
 **Draft**
 
-Version: 0.1
+Version: 0.1.0
+
+**Legacy identifier:** `OMI-SPEC-007`
 
 ---
 
@@ -433,6 +437,12 @@ Future specifications may define:
 - collaborative record curation;
 - provenance scoring;
 - links between cited claims and exact source passages.
+
+---
+
+## Change history
+
+- **0.1.0** — Migrated from provisional `OMI-SPEC-007` to canonical `OMI-SPEC-221`.
 
 ---
 
