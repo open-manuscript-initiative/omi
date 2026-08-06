@@ -1,15 +1,19 @@
 ---
-title: Document Model
+id: document-model
+title: OMI-SPEC-100 — Document Model
+sidebar_label: Document Model
 sidebar_position: 10
 ---
 
-# OMI-SPEC-001: Document Model
+# OMI-SPEC-100 — Document Model
 
 ## Status
 
 **Draft**
 
-Version: 0.1
+Version: 0.1.0
+
+**Legacy identifier:** `OMI-SPEC-001`
 
 ---
 
@@ -343,6 +347,12 @@ Future specifications will define:
 - Publishing Model
 - Plugin API
 - File Format Specification
+
+---
+
+# Change history
+
+- **0.1.0** — Migrated from provisional `OMI-SPEC-001` to canonical `OMI-SPEC-100`.
 
 ---
 
