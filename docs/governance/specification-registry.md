@@ -13,10 +13,11 @@ description: Authoritative registry of Open Manuscript Initiative specification 
 |---|---|
 | Document type | Governance registry |
 | Status | Draft |
-| Version | 0.1.0 |
+| Version | 0.2.0 |
 | Normative language | English |
 | Registry namespace | `OMI-SPEC` |
 | Applies to | Normative OMI specifications and reserved specification identifiers |
+| Last updated | 2026-08-06 |
 
 ## 1. Purpose
 
@@ -132,7 +133,7 @@ Development ended before the specification became Stable. The identifier remains
 | `OMI-SPEC-120` | Scholarly Object Model | Active | Draft | 0.1.0 | `docs/specifications/core/scholarly-object-model.md` |
 | `OMI-SPEC-130` | Annotation Model | Active | Draft | 0.2.0 | `docs/specifications/annotation-model.md` |
 | `OMI-SPEC-140` | Metadata Model | Active | Draft | 0.1.0 | `docs/specifications/metadata-model.md` |
-| `OMI-SPEC-150` | Identity and Contributor Model | Reserved | — | — | `docs/specifications/identity-contributor-model.md` |
+| `OMI-SPEC-150` | Identity and Contributor Model | Active | Draft | 0.1.0 | `docs/specifications/identity-contributor-model.md` |
 | `OMI-SPEC-160` | Versioning and Change Model | Reserved | — | — | `docs/specifications/versioning-change-model.md` |
 | `OMI-SPEC-170` | Translation Model | Reserved | — | — | `docs/specifications/translation-model.md` |
 | `OMI-SPEC-180` | Validation Model | Reserved | — | — | `docs/specifications/validation-model.md` |
@@ -417,7 +418,7 @@ A registry entry SHOULD link to such artefacts when they exist.
 
 The registry records specification identity and maturity, not implementation conformance.
 
-Until an evidence-based implementation matrix is adopted, the implementation status of all entries is **Not assessed** unless a separate reviewed record states otherwise.
+The evidence-based [OMI Implementation Status Matrix](./implementation-status-matrix.md) records implementation, schema, fixture, validator, testing, and independent-implementation evidence for every registered identifier.
 
 The existence of similarly named code in Open Manuscript Studio is not sufficient evidence of specification conformance.
 
@@ -476,7 +477,7 @@ dependsOn:
   - OMI-SPEC-221
 legacyAliases:
   - OMI-SPEC-005
-implementationStatus: not-assessed
+implementationStatus: see-implementation-matrix
 ```
 
 The machine-readable form MUST NOT silently diverge from the reviewed registry. Automated validation should eventually check:
@@ -504,6 +505,8 @@ The following documents govern the specification suite but do not themselves rec
 | Specification Style Guide | `docs/governance/style-guide.md` |
 | Terminology and Definitions | `docs/governance/terminology.md` |
 | Specification Registry | `docs/governance/specification-registry.md` |
+| Specification Template | `docs/governance/specification-template.md` |
+| Implementation Status Matrix | `docs/governance/implementation-status-matrix.md` |
 
 These governance documents may contain normative project requirements without becoming implementer-facing data-model specifications.
 
@@ -515,9 +518,9 @@ After adoption of this registry, the recommended migration order is:
 2. consolidate the two Scholarly Object Model documents under `OMI-SPEC-120`;
 3. update dependency declarations and internal references;
 4. reorganise the Docusaurus sidebar around the registered architecture;
-5. create the Reserved core specifications in dependency order;
+5. create the remaining Reserved core specifications in dependency order;
 6. introduce machine-readable registry validation;
-7. publish an implementation-status matrix;
+7. maintain the implementation-status matrix;
 8. bind schemas, examples, and conformance tests to exact specification versions.
 
 ## 26. Change control
@@ -561,7 +564,14 @@ Adoption of this registry has the following immediate effects:
 
 The adoption does not by itself change the lifecycle status of any specification to Stable and does not constitute an implementation conformance claim.
 
-## 28. Summary
+## 28. Change history
+
+| Version | Date | Summary |
+|---|---|---|
+| 0.2.0 | 2026-08-06 | Activated `OMI-SPEC-150`, Identity and Contributor Model, as Draft version 0.1.0; linked the implementation matrix and updated governance-document registration. |
+| 0.1.0 | 2026-08-06 | Established the canonical OMI specification identifier architecture and initial registry. |
+
+## 29. Summary
 
 The OMI Specification Registry provides one durable identity system for the complete standards suite.
 
