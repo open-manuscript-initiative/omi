@@ -1,15 +1,19 @@
 ---
-title: Bibliographic Record Model
+id: bibliographic-record-model
+title: OMI-SPEC-220 — Bibliographic Record Model
+sidebar_label: Bibliographic Record Model
 sidebar_position: 13
 ---
 
-# OMI-SPEC-006: Bibliographic Record Model
+# OMI-SPEC-220 — Bibliographic Record Model
 
 ## Status
 
 **Draft**
 
-Version: 0.1
+Version: 0.1.0
+
+**Legacy identifier:** `OMI-SPEC-006`
 
 ---
 
@@ -446,6 +450,12 @@ Validation severity may be informational, warning, or error.
   "status": "resolved"
 }
 ```
+
+---
+
+## Change history
+
+- **0.1.0** — Migrated from provisional `OMI-SPEC-006` to canonical `OMI-SPEC-220`.
 
 ---
 
