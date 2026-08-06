@@ -226,6 +226,11 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'governance/specification-template',
+          label: 'Specification Template',
+        },
+        {
+          type: 'doc',
           id: 'governance/specification-registry',
           label: 'Specification Registry',
         },
