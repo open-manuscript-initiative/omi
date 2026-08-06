@@ -20,7 +20,7 @@ keywords:
 |---|---|
 | Document type | Governance status report |
 | Status | Draft |
-| Version | 0.1.0 |
+| Version | 0.1.1 |
 | Normative language | English |
 | Last updated | 2026-08-06 |
 | Coverage | Every identifier in the OMI Specification Registry |
@@ -78,6 +78,7 @@ A specification may be a mature document without an implementation. An implement
 |---|---|
 | **Active Draft** | A canonical specification document exists and is registered with Draft lifecycle status. |
 | **Reserved** | The identifier and subject are allocated, but no accepted Draft specification exists. |
+| **Current template** | The active specification was created or comprehensively rewritten using the current Specification Template. |
 | **Migration required** | The active document predates the canonical Specification Template or does not yet contain all required metadata, conformance, compatibility, evidence, and change-history sections. |
 | **Not published** | The relevant canonical schema, fixture set, report format, or other machine-readable artefact is not present at an authoritative repository location. |
 | **Not started** | No repository evidence of substantive work was verified for the stated dimension. |
@@ -125,8 +126,9 @@ Open Manuscript Studio currently refers to the URI `https://openmanuscript.org/s
 | Measure | Current baseline |
 |---|---:|
 | Registered specification identifiers | 23 |
-| Active Draft specifications | 15 |
-| Reserved specifications | 8 |
+| Active Draft specifications | 16 |
+| Reserved specifications | 7 |
+| Active specifications using the current template | 1 |
 | Active specifications requiring template migration | 15 |
 | Canonical machine-readable specification artefact sets published | 0 verified |
 | Published conformance fixture sets | 0 verified |
@@ -152,7 +154,7 @@ These counts describe the evidence categories used in this document. They do not
 | `OMI-SPEC-120` | [Scholarly Object Model](../specifications/core/scholarly-object-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-130` | [Annotation Model](../specifications/annotation-model.md) | Active Draft | 0.2.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-140` | [Metadata Model](../specifications/metadata-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-150` | Identity and Contributor Model | Reserved | — | Not applicable | Not started | Not started |
+| `OMI-SPEC-150` | [Identity and Contributor Model](../specifications/identity-contributor-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
 | `OMI-SPEC-160` | Versioning and Change Model | Reserved | — | Not applicable | Not started | Not started |
 | `OMI-SPEC-170` | Translation Model | Reserved | — | Not applicable | Not started | Not started |
 | `OMI-SPEC-180` | Validation Model | Reserved | — | Not applicable | Not started | Not started |
@@ -196,7 +198,7 @@ No validator support, formal conformance tests, or independent implementation ev
 | `OMI-SPEC-120` | Partial | A typed manuscript aggregate contains persons, sections, blocks, annotations, citations, identifiers, and timestamps. | Align object boundaries and lifecycles with the specification; publish schema and validation evidence. |
 | `OMI-SPEC-130` | Partial | `OmiAnnotation` defines an identifier, type, target block, optional target text, body, and rendering hint; annotations are exposed in manuscript state. | Canonical targets, motivations, authorship, lifecycle, threading, permissions, validation, and interchange. |
 | `OMI-SPEC-140` | Partial | Manuscript state represents locale, title, subtitle, abstract, keywords, authors, identifiers, and timestamps. | Metadata provenance, controlled terms, cardinalities, profiles, validation, and external mappings. |
-| `OMI-SPEC-150` | Exploratory | `OmiPerson` and the Studio `User` model represent names, affiliation, ORCID, external identities, preferences, and working languages. | Write the specification; distinguish accounts, agents, contributors, roles, assertions, and manuscript attribution. |
+| `OMI-SPEC-150` | Exploratory | `OmiPerson`, `User`, and `WorkspaceMember` represent names, affiliation text, ORCID, external login identities, preferences, and contextual workspace roles. | Separate accounts from agents; add contribution objects, multiple name forms, contextual affiliations, provenance-bearing identifier assertions, visibility controls, reconciliation, and requirement mapping. |
 | `OMI-SPEC-160` | Exploratory | Manuscripts contain a version string plus creation and update timestamps. | Immutable revisions, change sets, events, authorship, provenance, branching, merge semantics, and compatibility rules. |
 | `OMI-SPEC-170` | Exploratory | Manuscripts have a locale; user and workspace models include working languages and a translator role. | Translation objects, source-target relationships, equivalence, divergence, synchronization, and provenance. |
 | `OMI-SPEC-180` | Not started | No canonical validator or validation-report model was verified. | Draft the Validation Model and publish machine-readable report semantics and test fixtures. |
@@ -228,7 +230,7 @@ No validator support, formal conformance tests, or independent implementation ev
 
 ### 8.1 Specification-template migration
 
-All 15 active specifications existed before publication of the canonical Specification Template. Each requires a controlled migration that preserves its permanent identifier, canonical route, and change history while adding the required metadata and evidence sections.
+`OMI-SPEC-150` is the first active specification created directly from the canonical Specification Template. The other 15 active specifications predate the template and require controlled migration that preserves permanent identifiers, canonical routes, and change histories while adding the required metadata and evidence sections.
 
 ### 8.2 Unpublished schema reference
 
@@ -329,18 +331,18 @@ The complete matrix should be reviewed before each OMI release and at every life
 
 The next evidence-producing work should proceed in this order:
 
-1. create `OMI-SPEC-150`, Identity and Contributor Model;
-2. create `OMI-SPEC-160`, Versioning and Change Model;
-3. migrate the active core specifications to the canonical Specification Template;
-4. publish the first canonical manuscript schema and minimal valid and invalid fixtures;
+1. create `OMI-SPEC-160`, Versioning and Change Model;
+2. map the Studio account, person, contributor, affiliation, and workspace-role structures to `OMI-SPEC-150` requirements;
+3. migrate the remaining active core specifications to the canonical Specification Template;
+4. publish the first canonical manuscript and identity schemas with minimal valid and invalid fixtures;
 5. define the Validation Model and validation-report format;
-6. map Studio types and behaviours to exact specification requirements;
-7. establish automated schema and conformance checks;
-8. record known deviations as linked issues;
-9. seek an independently developed parser, validator, or interoperability prototype.
+6. establish automated schema and conformance checks;
+7. record known deviations as linked issues;
+8. seek an independently developed parser, validator, or interoperability prototype.
 
 ## 12. Change history
 
 | Version | Date | Summary |
 |---|---|---|
+| 0.1.1 | 2026-08-06 | Activated `OMI-SPEC-150` in the readiness matrix, recorded it as the first specification using the current template, and updated the immediate evidence programme. |
 | 0.1.0 | 2026-08-06 | Initial evidence-based matrix covering all 23 registered identifiers, current specification artefacts, Open Manuscript Studio support, validation, testing, deviations, and status-advancement rules. |
