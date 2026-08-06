@@ -81,7 +81,7 @@ const sidebars = {
         type: 'generated-index',
         title: 'Core Semantic Specifications',
         description:
-          'Normative models for manuscript structure, stable anchoring, annotations, and scholarly metadata.',
+          'Normative models for manuscript structure, stable anchoring, annotations, scholarly metadata, identity, and contribution.',
         slug: '/core-semantic-specifications',
       },
       items: [
@@ -104,6 +104,11 @@ const sidebars = {
           type: 'doc',
           id: 'specifications/metadata-model',
           label: 'Metadata Model',
+        },
+        {
+          type: 'doc',
+          id: 'specifications/identity-contributor-model',
+          label: 'Identity and Contributor Model',
         },
       ],
     },
