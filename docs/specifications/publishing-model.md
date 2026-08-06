@@ -1,15 +1,19 @@
 ---
-title: Publishing Model
+id: publishing-model
+title: OMI-SPEC-230 — Publishing Model
+sidebar_label: Publishing Model
 sidebar_position: 16
 ---
 
-# OMI-SPEC-007: Publishing Model
+# OMI-SPEC-230 — Publishing Model
 
 ## Status
 
 **Draft**
 
-Version: 0.1
+Version: 0.1.0
+
+**Legacy identifier:** `OMI-SPEC-007`
 
 ---
 
@@ -433,6 +437,12 @@ Future specifications will define:
 - Workflow Automation
 - Continuous Publishing
 - Dynamic Publications
+
+---
+
+# Change history
+
+- **0.1.0** — Migrated from provisional `OMI-SPEC-007` to canonical `OMI-SPEC-230`.
 
 ---
 
