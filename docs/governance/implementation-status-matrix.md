@@ -174,7 +174,7 @@ These counts describe the evidence categories used in this document. They do not
 | Identifier | Specification | Registry state | Version | Template | Machine-readable artefacts | Conformance fixtures |
 |---|---|---|---|---|---|---|
 | `OMI-SPEC-300` | [Plugin Architecture](../specifications/plugin-architecture.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-310` | [Platform API](../specifications/platform-api.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
+| `OMI-SPEC-310` | [Platform API](../specifications/api.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-320` | [File Format](../specifications/file-format.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-330` | [Container Architecture](../specifications/container-architecture.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-340` | Import and Export Model | Reserved | — | Not applicable | Not started | Not started |
