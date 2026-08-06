@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "Open Manuscript Initiative",
+    "description": "The title in the navbar"
+  },
+  "item.label.Project": {
+    "message": "Projekt",
+    "description": "Navbar item with label Project"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}
