@@ -171,6 +171,10 @@
     "message": "Stilrichtlinie für Spezifikationen",
     "description": "The label for the doc item 'Specification Style Guide' in sidebar 'tutorialSidebar', linking to the doc governance/style-guide"
   },
+  "sidebar.tutorialSidebar.doc.Specification Template": {
+    "message": "Spezifikationsvorlage",
+    "description": "The label for the doc item 'Specification Template' in sidebar 'tutorialSidebar', linking to the doc governance/specification-template"
+  },
   "sidebar.tutorialSidebar.doc.Specification Registry": {
     "message": "Spezifikationsregister",
     "description": "The label for the doc item 'Specification Registry' in sidebar 'tutorialSidebar', linking to the doc governance/specification-registry"
