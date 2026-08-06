@@ -1,0 +1,178 @@
+{
+  "sidebar.tutorialSidebar.category.Introduction": {
+    "message": "Einführung",
+    "description": "The label for category 'Introduction' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.title": {
+    "message": "Einführung",
+    "description": "The generated-index page title for category 'Introduction' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.description": {
+    "message": "Zweck, Vision und übergeordnete Architektur der Open Manuscript Initiative.",
+    "description": "The generated-index page description for category 'Introduction' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.doc.Vision": {
+    "message": "Vision",
+    "description": "The label for the doc item 'Vision' in sidebar 'tutorialSidebar', linking to the doc vision"
+  },
+  "sidebar.tutorialSidebar.doc.Architecture Overview": {
+    "message": "Architekturübersicht",
+    "description": "The label for the doc item 'Architecture Overview' in sidebar 'tutorialSidebar', linking to the doc foundations/architecture-map"
+  },
+  "sidebar.tutorialSidebar.category.Foundations": {
+    "message": "Grundlagen",
+    "description": "The label for category 'Foundations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.title": {
+    "message": "Grundlagen",
+    "description": "The generated-index page title for category 'Foundations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.description": {
+    "message": "Die gemeinsamen Prinzipien, das Objektmodell und die kontrollierte Terminologie der OMI-Spezifikationsfamilie.",
+    "description": "The generated-index page description for category 'Foundations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.doc.OMI-SPEC-000 — Core Principles": {
+    "message": "OMI-SPEC-000 — Grundprinzipien",
+    "description": "The label for the doc item 'OMI-SPEC-000 — Core Principles' in sidebar 'tutorialSidebar', linking to the doc foundations/core-principles"
+  },
+  "sidebar.tutorialSidebar.doc.OMI-SPEC-120 — Scholarly Object Model": {
+    "message": "OMI-SPEC-120 — Modell wissenschaftlicher Objekte",
+    "description": "The label for the doc item 'OMI-SPEC-120 — Scholarly Object Model' in sidebar 'tutorialSidebar', linking to the doc specifications/core/scholarly-object-model"
+  },
+  "sidebar.tutorialSidebar.doc.Terminology and Definitions": {
+    "message": "Terminologie und Definitionen",
+    "description": "The label for the doc item 'Terminology and Definitions' in sidebar 'tutorialSidebar', linking to the doc governance/terminology"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications": {
+    "message": "Zentrale semantische Spezifikationen",
+    "description": "The label for category 'Core Semantic Specifications' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.title": {
+    "message": "Zentrale semantische Spezifikationen",
+    "description": "The generated-index page title for category 'Core Semantic Specifications' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.description": {
+    "message": "Normative Modelle für Manuskriptstruktur, stabile Verankerung, Annotationen und wissenschaftliche Metadaten.",
+    "description": "The generated-index page description for category 'Core Semantic Specifications' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.doc.OMI-SPEC-100 — Document Model": {
+    "message": "OMI-SPEC-100 — Dokumentmodell",
+    "description": "The label for the doc item 'OMI-SPEC-100 — Document Model' in sidebar 'tutorialSidebar', linking to the doc specifications/document-model"
+  },
+  "sidebar.tutorialSidebar.doc.OMI-SPEC-110 — Anchor Model": {
+    "message": "OMI-SPEC-110 — Ankermodell",
+    "description": "The label for the doc item 'OMI-SPEC-110 — Anchor Model' in sidebar 'tutorialSidebar', linking to the doc specifications/anchor-model"
+  },
+  "sidebar.tutorialSidebar.doc.OMI-SPEC-130 — Annotation Model": {
+    "message": "OMI-SPEC-130 — Annotationsmodell",
+    "description": "The label for the doc item 'OMI-SPEC-130 — Annotation Model' in sidebar 'tutorialSidebar', linking to the doc specifications/annotation-model"
+  },
+  "sidebar.tutorialSidebar.doc.OMI-SPEC-140 — Metadata Model": {
+    "message": "OMI-SPEC-140 — Metadatenmodell",
+    "description": "The label for the doc item 'OMI-SPEC-140 — Metadata Model' in sidebar 'tutorialSidebar', linking to the doc specifications/metadata-model"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing": {
+    "message": "Wissenschaftlicher Workflow und Publikation",
+    "description": "The label for category 'Scholarly Workflow and Publishing' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.title": {
+    "message": "Wissenschaftlicher Workflow und Publikation",
+    "description": "The generated-index page title for category 'Scholarly Workflow and Publishing' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.description": {
+    "message": "Spezifikationen für Begutachtung, Zitationen, bibliografische Datensätze, Referenzbibliotheken und Publikationsworkflows.",
+    "description": "The generated-index page description for category 'Scholarly Workflow and Publishing' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.doc.OMI-SPEC-200 — Review Model": {
+    "message": "OMI-SPEC-200 — Begutachtungsmodell",
+    "description": "The label for the doc item 'OMI-SPEC-200 — Review Model' in sidebar 'tutorialSidebar', linking to the doc specifications/review-model"
+  },
+  "sidebar.tutorialSidebar.doc.OMI-SPEC-210 — Citation Model": {
+    "message": "OMI-SPEC-210 — Zitationsmodell",
+    "description": "The label for the doc item 'OMI-SPEC-210 — Citation Model' in sidebar 'tutorialSidebar', linking to the doc specifications/citation-model"
+  },
+  "sidebar.tutorialSidebar.doc.OMI-SPEC-220 — Bibliographic Record Model": {
+    "message": "OMI-SPEC-220 — Modell bibliografischer Datensätze",
+    "description": "The label for the doc item 'OMI-SPEC-220 — Bibliographic Record Model' in sidebar 'tutorialSidebar', linking to the doc specifications/bibliographic-record-model"
+  },
+  "sidebar.tutorialSidebar.doc.OMI-SPEC-221 — Reference Library and Registry Architecture": {
+    "message": "OMI-SPEC-221 — Architektur der Referenzbibliothek und des Registers",
+    "description": "The label for the doc item 'OMI-SPEC-221 — Reference Library and Registry Architecture' in sidebar 'tutorialSidebar', linking to the doc specifications/reference-library-registry"
+  },
+  "sidebar.tutorialSidebar.doc.OMI-SPEC-230 — Publishing Model": {
+    "message": "OMI-SPEC-230 — Publikationsmodell",
+    "description": "The label for the doc item 'OMI-SPEC-230 — Publishing Model' in sidebar 'tutorialSidebar', linking to the doc specifications/publishing-model"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange": {
+    "message": "Plattform und Datenaustausch",
+    "description": "The label for category 'Platform and Exchange' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.title": {
+    "message": "Plattform und Datenaustausch",
+    "description": "The generated-index page title for category 'Platform and Exchange' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.description": {
+    "message": "Spezifikationen für Erweiterbarkeit, APIs, Dateiaustausch, Paketierung, Validierung und Langzeitarchivierung.",
+    "description": "The generated-index page description for category 'Platform and Exchange' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.doc.OMI-SPEC-300 — Plugin Architecture": {
+    "message": "OMI-SPEC-300 — Plugin-Architektur",
+    "description": "The label for the doc item 'OMI-SPEC-300 — Plugin Architecture' in sidebar 'tutorialSidebar', linking to the doc specifications/plugin-architecture"
+  },
+  "sidebar.tutorialSidebar.doc.OMI-SPEC-310 — Platform API": {
+    "message": "OMI-SPEC-310 — Plattform-API",
+    "description": "The label for the doc item 'OMI-SPEC-310 — Platform API' in sidebar 'tutorialSidebar', linking to the doc specifications/platform-api"
+  },
+  "sidebar.tutorialSidebar.doc.OMI-SPEC-320 — File Format": {
+    "message": "OMI-SPEC-320 — Dateiformat",
+    "description": "The label for the doc item 'OMI-SPEC-320 — File Format' in sidebar 'tutorialSidebar', linking to the doc specifications/file-format"
+  },
+  "sidebar.tutorialSidebar.doc.OMI-SPEC-330 — Container Architecture": {
+    "message": "OMI-SPEC-330 — Container-Architektur",
+    "description": "The label for the doc item 'OMI-SPEC-330 — Container Architecture' in sidebar 'tutorialSidebar', linking to the doc specifications/container-architecture"
+  },
+  "sidebar.tutorialSidebar.category.Governance": {
+    "message": "Governance",
+    "description": "The label for category 'Governance' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Governance.link.generated-index.title": {
+    "message": "Governance",
+    "description": "The generated-index page title for category 'Governance' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Governance.link.generated-index.description": {
+    "message": "Richtlinien zu Autorität, Fahrplan, Reifegrad, Versionierung, Autorschaft, Identität und Pflege der OMI-Spezifikationen.",
+    "description": "The generated-index page description for category 'Governance' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.doc.Charter": {
+    "message": "Charta",
+    "description": "The label for the doc item 'Charter' in sidebar 'tutorialSidebar', linking to the doc governance/charter"
+  },
+  "sidebar.tutorialSidebar.doc.Roadmap to OMI 1.0": {
+    "message": "Fahrplan zu OMI 1.0",
+    "description": "The label for the doc item 'Roadmap to OMI 1.0' in sidebar 'tutorialSidebar', linking to the doc governance/roadmap-to-omi-1.0"
+  },
+  "sidebar.tutorialSidebar.doc.Architecture Audit": {
+    "message": "Architekturprüfung",
+    "description": "The label for the doc item 'Architecture Audit' in sidebar 'tutorialSidebar', linking to the doc governance/architecture-audit"
+  },
+  "sidebar.tutorialSidebar.doc.Documentation Architecture": {
+    "message": "Dokumentationsarchitektur",
+    "description": "The label for the doc item 'Documentation Architecture' in sidebar 'tutorialSidebar', linking to the doc governance/documentation-architecture"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Lifecycle": {
+    "message": "Lebenszyklus der Spezifikationen",
+    "description": "The label for the doc item 'Specification Lifecycle' in sidebar 'tutorialSidebar', linking to the doc governance/specification-lifecycle"
+  },
+  "sidebar.tutorialSidebar.doc.Versioning Policy": {
+    "message": "Versionierungsrichtlinie",
+    "description": "The label for the doc item 'Versioning Policy' in sidebar 'tutorialSidebar', linking to the doc governance/versioning-policy"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Style Guide": {
+    "message": "Stilrichtlinie für Spezifikationen",
+    "description": "The label for the doc item 'Specification Style Guide' in sidebar 'tutorialSidebar', linking to the doc governance/style-guide"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Registry": {
+    "message": "Spezifikationsregister",
+    "description": "The label for the doc item 'Specification Registry' in sidebar 'tutorialSidebar', linking to the doc governance/specification-registry"
+  }
+}
