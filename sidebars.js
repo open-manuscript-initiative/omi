@@ -10,6 +10,9 @@
  * Navigation labels use concise human-readable titles. Permanent OMI-SPEC
  * identifiers remain in the specification documents and registry.
  *
+ * Generated category landing pages use dedicated routes when their natural
+ * slugs would collide with existing documentation routes.
+ *
  * @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}
  */
 const sidebars = {
@@ -24,7 +27,7 @@ const sidebars = {
         title: 'Introduction',
         description:
           'The purpose, vision, and high-level architecture of the Open Manuscript Initiative.',
-        slug: '/introduction',
+        slug: '/category/introduction',
       },
       items: [
         {
@@ -189,7 +192,7 @@ const sidebars = {
         title: 'Governance',
         description:
           'Policies governing the authority, roadmap, maturity, versioning, authorship, identity, and maintenance of OMI specifications.',
-        slug: '/governance',
+        slug: '/category/governance',
       },
       items: [
         {
