@@ -204,6 +204,11 @@ const sidebars = {
         },
         {
           type: 'doc',
+          id: 'governance/implementation-status-matrix',
+          label: 'Implementation Status Matrix',
+        },
+        {
+          type: 'doc',
           id: 'governance/architecture-audit',
           label: 'Architecture Audit',
         },
