@@ -14,7 +14,7 @@ description: Current programme, completed foundations, active priorities, and re
 |---|---|
 | Document type | Governance and planning |
 | Status | Draft |
-| Version | 0.2.1 |
+| Version | 0.2.2 |
 | Normative language | English |
 | Last updated | 2026-08-06 |
 | Planning horizon | OMI 1.0 |
@@ -62,7 +62,7 @@ The programme has moved beyond the initial documentation-audit stage. The govern
 | Identifier migration | Completed for active specifications | Active specifications use the canonical `OMI-SPEC-000`, `100–240`, and `300–350` architecture where allocated. |
 | Structural refactoring | Largely completed | The sidebar was reorganised, duplicate Scholarly Object Model material was consolidated, and legacy routing was retained. |
 | Navigation internationalisation | Completed | English, Hungarian, and German navigation labels are aligned. |
-| Core semantic models | In progress | Several active Draft models exist; important reserved models remain to be written. |
+| Core semantic models | In progress | `OMI-SPEC-150` is now an active, template-aligned Draft; `OMI-SPEC-160` and other reserved core models remain to be written. |
 | Workflow and bibliography models | Partially completed | Review, citation, bibliographic record, reference-library, and publishing drafts exist. |
 | Platform and exchange models | Partially completed | Plugin, API, file-format, and container drafts exist. |
 | Schemas and conformance tests | Not yet completed | Canonical schemas, fixtures, validator behaviour, and conformance suites remain future work. |
@@ -106,8 +106,8 @@ The canonical specification family is organised by permanent identifier range.
 | `OMI-SPEC-120` | Scholarly Object Model | Active | Draft |
 | `OMI-SPEC-130` | Annotation Model | Active | Draft |
 | `OMI-SPEC-140` | Metadata Model | Active | Draft |
-| `OMI-SPEC-150` | Identity and Contributor Model | Reserved | Next-priority specification |
-| `OMI-SPEC-160` | Versioning and Change Model | Reserved | Planned |
+| `OMI-SPEC-150` | Identity and Contributor Model | Active | Draft |
+| `OMI-SPEC-160` | Versioning and Change Model | Reserved | Next-priority specification |
 | `OMI-SPEC-170` | Translation Model | Reserved | Planned |
 | `OMI-SPEC-180` | Validation Model | Reserved | Planned |
 | `OMI-SPEC-190` | Collaboration and Permission Model | Reserved | Planned |
@@ -235,16 +235,18 @@ Existing Draft specifications:
 - `OMI-SPEC-110` Anchor Model;
 - `OMI-SPEC-120` Scholarly Object Model;
 - `OMI-SPEC-130` Annotation Model;
-- `OMI-SPEC-140` Metadata Model.
+- `OMI-SPEC-140` Metadata Model;
+- `OMI-SPEC-150` Identity and Contributor Model.
 
 Priority deliverables:
 
-- `OMI-SPEC-150` Identity and Contributor Model;
 - `OMI-SPEC-160` Versioning and Change Model;
+- mapping of Studio account, person, workspace-role, and attribution structures to `OMI-SPEC-150` requirements;
+- the first canonical identity schema and valid and invalid fixtures;
 - explicit object identity and lifecycle rules;
 - provenance and change-event semantics;
 - model dependency map;
-- template-based consolidation of all active core Drafts.
+- template-based consolidation of all earlier active core Drafts.
 
 Exit criterion:
 
@@ -434,15 +436,15 @@ Official translations remain informative unless a later governance decision expl
 
 The next programme sequence is:
 
-1. draft `OMI-SPEC-150`, **Identity and Contributor Model**;
-2. draft `OMI-SPEC-160`, **Versioning and Change Model**;
+1. draft `OMI-SPEC-160`, **Versioning and Change Model**;
+2. map Open Manuscript Studio account, person, contributor, affiliation, and workspace-role structures to `OMI-SPEC-150` requirements;
 3. reconcile remaining legacy identifier examples and canonical-path inconsistencies in governance documents;
-4. migrate the active foundational Drafts to the canonical Specification Template;
+4. migrate the earlier active foundational Drafts to the canonical Specification Template;
 5. define the Contribution and Decision Process;
 6. define the Implementation and Conformance Policy;
 7. begin publishing canonical schemas, fixtures, and requirement-to-implementation mappings identified by the Implementation Status Matrix.
 
-These priorities complete the missing governance bridge between the current Draft suite and systematic model development.
+These priorities complete the missing governance and semantic bridge between the current Draft suite and systematic implementation work.
 
 ## 9. Implementation status matrix
 
@@ -548,6 +550,7 @@ Success will not be measured by whether every institution uses one OMI applicati
 
 | Version | Date | Summary |
 |---|---|---|
+| 0.2.2 | 2026-08-06 | Activated `OMI-SPEC-150` as a Draft, recorded the first specification authored on the canonical template, and advanced the next priority to `OMI-SPEC-160` and implementation alignment. |
 | 0.2.1 | 2026-08-06 | Recorded publication of the initial Implementation Status Matrix, marked Phase 10 as started, and advanced the immediate programme priorities to the Identity and Contributor and Versioning and Change models. |
 | 0.2.0 | 2026-08-06 | Replaced provisional identifiers with the canonical registry architecture; recorded completed governance, identifier migration, structural refactoring, and navigation translation work; added phase statuses, immediate priorities, operational maintenance, and updated OMI 1.0 release criteria. |
 | 0.1.0 | 2026-08-06 | Initial roadmap defining the OMI 1.0 work programme. |
