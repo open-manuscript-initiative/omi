@@ -161,7 +161,7 @@ const sidebars = {
         },
         {
           type: 'doc',
-          id: 'specifications/api',
+          id: 'specifications/platform-api',
           label: 'OMI-SPEC-310 — Platform API',
         },
         {
