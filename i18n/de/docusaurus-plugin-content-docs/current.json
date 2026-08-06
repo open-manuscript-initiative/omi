@@ -37,6 +37,7 @@
   "sidebar.tutorialSidebar.doc.Container Architecture": {"message": "Container-Architektur"},
   "sidebar.tutorialSidebar.doc.Charter": {"message": "Charta"},
   "sidebar.tutorialSidebar.doc.Roadmap to OMI 1.0": {"message": "Fahrplan zu OMI 1.0"},
+  "sidebar.tutorialSidebar.doc.Implementation Status Matrix": {"message": "Implementierungsstatus-Matrix"},
   "sidebar.tutorialSidebar.doc.Architecture Audit": {"message": "Architekturprüfung"},
   "sidebar.tutorialSidebar.doc.Documentation Architecture": {"message": "Dokumentationsarchitektur"},
   "sidebar.tutorialSidebar.doc.Specification Lifecycle": {"message": "Lebenszyklus der Spezifikationen"},
