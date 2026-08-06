@@ -13,7 +13,7 @@ description: Authoritative registry of Open Manuscript Initiative specification 
 |---|---|
 | Document type | Governance registry |
 | Status | Draft |
-| Version | 0.2.0 |
+| Version | 0.3.0 |
 | Normative language | English |
 | Registry namespace | `OMI-SPEC` |
 | Applies to | Normative OMI specifications and reserved specification identifiers |
@@ -134,7 +134,7 @@ Development ended before the specification became Stable. The identifier remains
 | `OMI-SPEC-130` | Annotation Model | Active | Draft | 0.2.0 | `docs/specifications/annotation-model.md` |
 | `OMI-SPEC-140` | Metadata Model | Active | Draft | 0.1.0 | `docs/specifications/metadata-model.md` |
 | `OMI-SPEC-150` | Identity and Contributor Model | Active | Draft | 0.1.0 | `docs/specifications/identity-contributor-model.md` |
-| `OMI-SPEC-160` | Versioning and Change Model | Reserved | — | — | `docs/specifications/versioning-change-model.md` |
+| `OMI-SPEC-160` | Versioning and Change Model | Active | Draft | 0.1.0 | `docs/specifications/versioning-change-model.md` |
 | `OMI-SPEC-170` | Translation Model | Reserved | — | — | `docs/specifications/translation-model.md` |
 | `OMI-SPEC-180` | Validation Model | Reserved | — | — | `docs/specifications/validation-model.md` |
 | `OMI-SPEC-190` | Collaboration and Permission Model | Reserved | — | — | `docs/specifications/collaboration-permission-model.md` |
@@ -568,6 +568,7 @@ The adoption does not by itself change the lifecycle status of any specification
 
 | Version | Date | Summary |
 |---|---|---|
+| 0.3.0 | 2026-08-06 | Activated `OMI-SPEC-160`, Versioning and Change Model, as Draft version 0.1.0. |
 | 0.2.0 | 2026-08-06 | Activated `OMI-SPEC-150`, Identity and Contributor Model, as Draft version 0.1.0; linked the implementation matrix and updated governance-document registration. |
 | 0.1.0 | 2026-08-06 | Established the canonical OMI specification identifier architecture and initial registry. |
 
