@@ -7,6 +7,9 @@
  * Documents are registered explicitly so that legacy migration pages and
  * future reserved specifications do not appear as active documentation.
  *
+ * Navigation labels use concise human-readable titles. Permanent OMI-SPEC
+ * identifiers remain in the specification documents and registry.
+ *
  * @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}
  */
 const sidebars = {
@@ -52,12 +55,12 @@ const sidebars = {
         {
           type: 'doc',
           id: 'foundations/core-principles',
-          label: 'OMI-SPEC-000 — Core Principles',
+          label: 'Core Principles',
         },
         {
           type: 'doc',
           id: 'specifications/core/scholarly-object-model',
-          label: 'OMI-SPEC-120 — Scholarly Object Model',
+          label: 'Scholarly Object Model',
         },
         {
           type: 'doc',
@@ -82,22 +85,22 @@ const sidebars = {
         {
           type: 'doc',
           id: 'specifications/document-model',
-          label: 'OMI-SPEC-100 — Document Model',
+          label: 'Document Model',
         },
         {
           type: 'doc',
           id: 'specifications/anchor-model',
-          label: 'OMI-SPEC-110 — Anchor Model',
+          label: 'Anchor Model',
         },
         {
           type: 'doc',
           id: 'specifications/annotation-model',
-          label: 'OMI-SPEC-130 — Annotation Model',
+          label: 'Annotation Model',
         },
         {
           type: 'doc',
           id: 'specifications/metadata-model',
-          label: 'OMI-SPEC-140 — Metadata Model',
+          label: 'Metadata Model',
         },
       ],
     },
@@ -117,27 +120,27 @@ const sidebars = {
         {
           type: 'doc',
           id: 'specifications/review-model',
-          label: 'OMI-SPEC-200 — Review Model',
+          label: 'Review Model',
         },
         {
           type: 'doc',
           id: 'specifications/citation-model',
-          label: 'OMI-SPEC-210 — Citation Model',
+          label: 'Citation Model',
         },
         {
           type: 'doc',
           id: 'specifications/bibliographic-record-model',
-          label: 'OMI-SPEC-220 — Bibliographic Record Model',
+          label: 'Bibliographic Record Model',
         },
         {
           type: 'doc',
           id: 'specifications/reference-library-registry',
-          label: 'OMI-SPEC-221 — Reference Library and Registry Architecture',
+          label: 'Reference Library and Registry Architecture',
         },
         {
           type: 'doc',
           id: 'specifications/publishing-model',
-          label: 'OMI-SPEC-230 — Publishing Model',
+          label: 'Publishing Model',
         },
       ],
     },
@@ -157,22 +160,22 @@ const sidebars = {
         {
           type: 'doc',
           id: 'specifications/plugin-architecture',
-          label: 'OMI-SPEC-300 — Plugin Architecture',
+          label: 'Plugin Architecture',
         },
         {
           type: 'doc',
           id: 'specifications/platform-api',
-          label: 'OMI-SPEC-310 — Platform API',
+          label: 'Platform API',
         },
         {
           type: 'doc',
           id: 'specifications/file-format',
-          label: 'OMI-SPEC-320 — File Format',
+          label: 'File Format',
         },
         {
           type: 'doc',
           id: 'specifications/container-architecture',
-          label: 'OMI-SPEC-330 — Container Architecture',
+          label: 'Container Architecture',
         },
       ],
     },
