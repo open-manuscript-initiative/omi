@@ -14,7 +14,7 @@ description: Current programme, completed foundations, active priorities, and re
 |---|---|
 | Document type | Governance and planning |
 | Status | Draft |
-| Version | 0.2.0 |
+| Version | 0.2.1 |
 | Normative language | English |
 | Last updated | 2026-08-06 |
 | Planning horizon | OMI 1.0 |
@@ -58,6 +58,7 @@ The programme has moved beyond the initial documentation-audit stage. The govern
 |---|---|---|
 | Documentation audit | Completed | The original English documentation was inventoried and assessed. |
 | Governance foundation | Largely completed | Charter, lifecycle, versioning, style, terminology, registry, documentation architecture, and specification template are published. |
+| Implementation evidence baseline | Published | The initial Implementation Status Matrix covers all 23 registered identifiers and separates specification maturity from implementation, validation, and conformance evidence. |
 | Identifier migration | Completed for active specifications | Active specifications use the canonical `OMI-SPEC-000`, `100–240`, and `300–350` architecture where allocated. |
 | Structural refactoring | Largely completed | The sidebar was reorganised, duplicate Scholarly Object Model material was consolidated, and legacy routing was retained. |
 | Navigation internationalisation | Completed | English, Hungarian, and German navigation labels are aligned. |
@@ -79,7 +80,8 @@ The following governance and architecture deliverables are already present:
 - [Terminology and Definitions](./terminology.md);
 - [OMI Specification Registry](./specification-registry.md);
 - [Documentation Architecture](./documentation-architecture.md);
-- [OMI Specification Template](./specification-template.md).
+- [OMI Specification Template](./specification-template.md);
+- [OMI Implementation Status Matrix](./implementation-status-matrix.md).
 
 The documentation site also has:
 
@@ -183,7 +185,8 @@ Completed deliverables:
 - Terminology and Definitions;
 - authoritative Specification Registry;
 - Documentation Architecture;
-- canonical Specification Template.
+- canonical Specification Template;
+- initial Implementation Status Matrix.
 
 Remaining deliverables:
 
@@ -350,18 +353,22 @@ Exit criterion:
 
 ### Phase 10 — Capability and conformance testing
 
-**Status:** Planned
+**Status:** Started
 
-Deliverables:
+Completed deliverables:
+
+- initial [Implementation Status Matrix](./implementation-status-matrix.md) covering all registered identifiers and the current evidence baseline.
+
+Remaining deliverables:
 
 - `OMI-SPEC-350` Capability and Conformance Model;
-- implementation status matrix;
 - named conformance classes;
 - validator reference implementation;
 - conformance test suite;
 - test results from Open Manuscript Studio;
 - at least one independent implementation or interoperability prototype where feasible;
-- documented deviations and specification corrections.
+- documented deviations and specification corrections;
+- continuing evidence-based maintenance of the matrix.
 
 Exit criterion:
 
@@ -427,34 +434,32 @@ Official translations remain informative unless a later governance decision expl
 
 The next programme sequence is:
 
-1. publish an **Implementation Status Matrix** covering every registered specification;
-2. draft `OMI-SPEC-150`, **Identity and Contributor Model**;
-3. draft `OMI-SPEC-160`, **Versioning and Change Model**;
-4. reconcile remaining legacy identifier examples and canonical-path inconsistencies in governance documents;
-5. migrate the active foundational Drafts to the canonical Specification Template;
-6. define the Contribution and Decision Process;
-7. define the Implementation and Conformance Policy.
+1. draft `OMI-SPEC-150`, **Identity and Contributor Model**;
+2. draft `OMI-SPEC-160`, **Versioning and Change Model**;
+3. reconcile remaining legacy identifier examples and canonical-path inconsistencies in governance documents;
+4. migrate the active foundational Drafts to the canonical Specification Template;
+5. define the Contribution and Decision Process;
+6. define the Implementation and Conformance Policy;
+7. begin publishing canonical schemas, fixtures, and requirement-to-implementation mappings identified by the Implementation Status Matrix.
 
 These priorities complete the missing governance bridge between the current Draft suite and systematic model development.
 
 ## 9. Implementation status matrix
 
-The project will maintain an implementation matrix showing, for every registered specification:
+The initial [OMI Implementation Status Matrix](./implementation-status-matrix.md) is published and covers every registered specification identifier.
 
-- identifier and exact version;
-- lifecycle status;
-- allocation state;
-- schema status;
-- example-fixture status;
-- Open Manuscript Studio implementation status;
-- validator support;
-- API support;
-- import/export support;
-- conformance-test coverage;
-- known deviations;
-- independent implementation evidence.
+It records:
 
-Recommended implementation states are:
+- identifier, version, lifecycle, and allocation state;
+- specification-template migration status;
+- machine-readable artefact and fixture status;
+- Open Manuscript Studio implementation evidence;
+- validator and conformance-test status;
+- known deviations and primary gaps;
+- independent implementation evidence;
+- rules for advancing implementation-status claims.
+
+The baseline distinguishes the following implementation states:
 
 - not started;
 - exploratory;
@@ -462,9 +467,10 @@ Recommended implementation states are:
 - implemented;
 - tested;
 - conformant;
-- not applicable.
+- not applicable;
+- not verified.
 
-The matrix must distinguish specification maturity from implementation completeness. A complete implementation of a Draft does not make the specification Stable.
+The matrix must be updated when specification, schema, implementation, validator, test, or independent evidence changes. Specification maturity remains separate from implementation completeness: a complete implementation of a Draft does not make the specification Stable.
 
 ## 10. Repository and publication strategy
 
@@ -542,5 +548,6 @@ Success will not be measured by whether every institution uses one OMI applicati
 
 | Version | Date | Summary |
 |---|---|---|
+| 0.2.1 | 2026-08-06 | Recorded publication of the initial Implementation Status Matrix, marked Phase 10 as started, and advanced the immediate programme priorities to the Identity and Contributor and Versioning and Change models. |
 | 0.2.0 | 2026-08-06 | Replaced provisional identifiers with the canonical registry architecture; recorded completed governance, identifier migration, structural refactoring, and navigation translation work; added phase statuses, immediate priorities, operational maintenance, and updated OMI 1.0 release criteria. |
 | 0.1.0 | 2026-08-06 | Initial roadmap defining the OMI 1.0 work programme. |
