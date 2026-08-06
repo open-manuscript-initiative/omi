@@ -1,15 +1,19 @@
 ---
-title: Anchor Model
+id: anchor-model
+title: OMI-SPEC-110 — Anchor Model
+sidebar_label: Anchor Model
 sidebar_position: 12
 ---
 
-# OMI-SPEC-003: Anchor Model
+# OMI-SPEC-110 — Anchor Model
 
 ## Status
 
 **Draft**
 
-Version: 0.1
+Version: 0.1.0
+
+**Legacy identifier:** `OMI-SPEC-003`
 
 ---
 
@@ -332,6 +336,12 @@ Future specifications will define:
 - Persistent Global Anchors
 - Linked Data Integration
 - Collaborative Conflict Resolution
+
+---
+
+# Change history
+
+- **0.1.0** — Migrated from provisional `OMI-SPEC-003` to canonical `OMI-SPEC-110`.
 
 ---
 
