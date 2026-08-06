@@ -1,15 +1,19 @@
 ---
-title: Review Model
+id: review-model
+title: OMI-SPEC-200 — Review Model
+sidebar_label: Review Model
 sidebar_position: 15
 ---
 
-# OMI-SPEC-006: Review Model
+# OMI-SPEC-200 — Review Model
 
 ## Status
 
 **Draft**
 
-Version: 0.1
+Version: 0.1.0
+
+**Legacy identifier:** `OMI-SPEC-006`
 
 ---
 
@@ -317,6 +321,12 @@ Future specifications will define:
 - AI Review API
 - Review Analytics
 - Reviewer Reputation
+
+---
+
+# Change history
+
+- **0.1.0** — Migrated from provisional `OMI-SPEC-006` to canonical `OMI-SPEC-200`.
 
 ---
 
