@@ -37,6 +37,7 @@
   "sidebar.tutorialSidebar.doc.Container Architecture": {"message": "Konténerarchitektúra"},
   "sidebar.tutorialSidebar.doc.Charter": {"message": "Charta"},
   "sidebar.tutorialSidebar.doc.Roadmap to OMI 1.0": {"message": "Útiterv az OMI 1.0-hoz"},
+  "sidebar.tutorialSidebar.doc.Implementation Status Matrix": {"message": "Megvalósítási állapotmátrix"},
   "sidebar.tutorialSidebar.doc.Architecture Audit": {"message": "Architektúra-audit"},
   "sidebar.tutorialSidebar.doc.Documentation Architecture": {"message": "Dokumentációs architektúra"},
   "sidebar.tutorialSidebar.doc.Specification Lifecycle": {"message": "Specifikációs életciklus"},
