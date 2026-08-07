@@ -64,6 +64,7 @@ const sidebars = {
       items: [
         {type: 'doc', id: 'integrations/architecture', label: 'Integration Architecture'},
         {type: 'doc', id: 'integrations/integration-api-v1', label: 'Integration API v1'},
+        {type: 'doc', id: 'integrations/ojs-profile-v1', label: 'OJS Integration Profile v1'},
       ],
     },
     {
