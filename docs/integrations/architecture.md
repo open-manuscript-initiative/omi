@@ -36,7 +36,7 @@ Each connected system remains authoritative for the data it owns.
 | Editorial stage and decisions | Publishing platform |
 | Reviewer invitation and assignment | Publishing platform |
 | Review deadlines and workflow state | Publishing platform |
-| Publication and issue management | Publishing platform |
+| Publication, issue, or catalog management | Publishing platform |
 | Manuscript structure and content model | OMI / Studio |
 | Stable anchors | OMI / Studio |
 | Structured annotations | OMI / Studio |
@@ -44,7 +44,7 @@ Each connected system remains authoritative for the data it owns.
 | Manuscript revisions and structural history | OMI / Studio |
 | Structured review annotations | OMI / Studio |
 
-Cross-system identifiers connect these records without merging their persistence models. An OMI object MAY retain an external installation identifier, context or journal identifier, submission identifier, review-round identifier, and other stable external references.
+Cross-system identifiers connect these records without merging their persistence models. An OMI object MAY retain an external installation identifier, context identifier, journal or press identifier, submission identifier, review-round identifier, publication identifier, and other stable external references.
 
 ## Integration levels
 
@@ -54,41 +54,23 @@ OMI defines integration as a progressive capability model. An implementation MAY
 
 The external platform provides an **Open in Studio** action. A short-lived signed launch request identifies the installation, context, object and user. Studio verifies the request and opens or creates the corresponding workspace.
 
-This is the smallest useful integration and does not require manuscript synchronization.
-
 ### Level 2 — Metadata integration
 
-The adapter exposes manuscript or submission metadata, including localized titles, abstracts, keywords, contributors, identifiers and publication context.
-
-Synchronization MUST define which system is authoritative for each synchronized field. External identifiers SHOULD be preserved so that repeated synchronization updates the same object rather than creating duplicates.
+The adapter exposes manuscript or submission metadata, including localized titles, abstracts or descriptions, keywords, contributors, identifiers and publication context. Synchronization MUST define which system is authoritative for each synchronized field.
 
 ### Level 3 — File integration
 
-Studio retrieves permitted manuscript files through authenticated application endpoints. Studio MUST NOT access a publishing platform's private files directory directly.
-
-A connector SHOULD expose file metadata independently from protected file download operations. Revisions returned from Studio SHOULD normally create traceable new versions instead of silently replacing historical files.
+Studio retrieves permitted manuscript files through authenticated application endpoints. Studio MUST NOT access a publishing platform's private files directory directly. Revisions returned from Studio SHOULD normally create traceable new versions instead of silently replacing historical files.
 
 ### Level 4 — Manuscript synchronization
 
-A richer connector maps an OMI manuscript package to the external platform. Exchange formats MAY include the native OMI package, JATS XML, HTML, DOCX-derived content and associated assets.
-
-Synchronization SHOULD be revision-oriented. Published, submitted or reviewed historical states SHOULD remain traceable and immutable where required by the host workflow.
+A richer connector maps an OMI manuscript package to the external platform. Exchange formats MAY include the native OMI package, JATS XML, HTML, DOCX-derived content and associated assets. Synchronization SHOULD be revision-oriented.
 
 ### Level 5 — Peer review integration
 
 The publishing platform remains the system of record for reviewer assignments, review rounds, deadlines, recommendations and editorial decisions. Studio provides the scholarly review workspace.
 
-A Studio review workspace MAY support:
-
-- single-blind, double-blind and open review;
-- inline comments attached to stable OMI anchors;
-- author-visible and editor-only comments;
-- structured review forms;
-- suggested changes;
-- reviewer recommendations;
-- author responses;
-- resolved and unresolved annotation state;
-- multiple review rounds.
+A Studio review workspace MAY support single-blind, double-blind and open review; inline comments attached to stable OMI anchors; author-visible and editor-only comments; structured review forms; suggested changes; reviewer recommendations; author responses; resolution state; and multiple review rounds.
 
 Reviewer and author anonymity MUST be enforced server-side according to the policy received from the authoritative workflow system.
 
@@ -111,11 +93,9 @@ Review round 2
 Editorial decision in publishing platform
 ```
 
-Review annotations SHOULD target stable scholarly objects rather than rendered page coordinates whenever possible. This permits review history to survive layout changes and makes the review record machine-readable.
-
 ### Level 6 — Publication integration
 
-After acceptance, Studio MAY generate publication-ready derivatives such as OMI packages, JATS, HTML or other supported formats. The publishing platform normally remains authoritative for publication state, scheduling, issue assignment and public delivery.
+After acceptance, Studio MAY generate publication-ready derivatives such as OMI packages, JATS, HTML or other supported formats. The publishing platform normally remains authoritative for publication state, scheduling, issue or catalog assignment and public delivery.
 
 ## Deployment patterns
 
@@ -123,6 +103,7 @@ After acceptance, Studio MAY generate publication-ready derivatives such as OMI 
 
 ```text
 https://example.org/ojs/
+https://example.org/omp/
 https://example.org/omi/
 ```
 
@@ -132,6 +113,7 @@ This pattern is convenient for smaller self-hosted installations. The applicatio
 
 ```text
 https://journal.example.org/
+https://press.example.org/
 https://studio.example.org/
 ```
 
@@ -140,6 +122,12 @@ Separate virtual hosts provide cleaner routing, security boundaries and runtime 
 ### Separate infrastructure
 
 The publishing system and Studio MAY run on different servers or be operated by different organizations. The same versioned protocol applies over HTTPS. This also permits a hosted Studio service to integrate with self-hosted publishing platforms.
+
+## PKP integration family
+
+OJS and OMP share important PKP platform concepts, but they represent different scholarly publishing workflows. OMI therefore treats them as separate integration profiles built on a common PKP-oriented connector foundation where practical.
+
+A shared implementation MAY reuse authentication, signed launch, metadata mapping, file-transfer and capability-negotiation components. Journal-specific and monograph-specific workflow semantics MUST remain explicit rather than being hidden behind an inaccurate common model.
 
 ## OJS integration profile
 
@@ -150,7 +138,7 @@ OJS
   |
   | OMI / Studio Integration Plugin
   | - launch
-  | - metadata
+  | - article metadata
   | - contributors
   | - submission files
   | - review assignments
@@ -164,27 +152,90 @@ Open Manuscript Studio
 
 The OJS plugin SHOULD use supported OJS hooks, repositories and services. It MUST NOT patch OJS core files or provide Studio with direct database access.
 
-OJS remains authoritative for submission workflow, reviewer assignments, review rounds and editorial decisions. Studio remains authoritative for its manuscript object model, anchors, annotations, collaborative editing and structured review workspace.
+OJS remains authoritative for journal submission workflow, reviewer assignments, review rounds, editorial decisions, issues and publication state. Studio remains authoritative for its manuscript object model, anchors, annotations, collaborative editing and structured review workspace.
 
-The OJS adapter is therefore deliberately thin. OMI does not become an OJS subsystem merely because an OJS installation uses Studio.
+## OMP integration profile
+
+Open Monograph Press (OMP) is a first-class OMI integration target for scholarly books, edited volumes, critical editions, chapters and other monograph-oriented publications.
+
+The recommended architecture mirrors the OJS integration pattern while preserving OMP's press and monograph semantics:
+
+```text
+OMP
+  |
+  | OMI / Studio Integration Plugin
+  | - launch
+  | - press and submission metadata
+  | - contributors
+  | - chapters / publication components
+  | - submission files
+  | - review assignments
+  | - revisions
+  | - publication / catalog metadata
+  v
+Versioned OMI Integration API
+  |
+  v
+Open Manuscript Studio
+```
+
+OMP SHOULD remain authoritative for press workflow, submission state, reviewer assignments, editorial decisions, publication state, series and catalog-facing information. Studio SHOULD remain authoritative for the structured scholarly manuscript, anchors, annotations, collaborative editing and structured review work performed inside Studio.
+
+### Monograph structure
+
+An OMP integration SHOULD preserve structures that are more complex than a journal article. Depending on the publication, an OMI workspace MAY represent:
+
+- a complete monograph;
+- an edited volume;
+- independently authored chapters;
+- front matter and back matter;
+- bibliographies and appendices;
+- figures, tables and supplementary assets;
+- critical-edition components;
+- multilingual versions or translations.
+
+The connector SHOULD preserve OMP identifiers for the submission and relevant publication components so that Studio objects can be synchronized without losing their relationship to the press workflow.
+
+### Edited volumes and chapter authorship
+
+OMP integration MUST NOT assume that every contributor is an author of the complete book. Contributor roles and scope SHOULD be preserved. A contributor MAY be associated with the entire work, one or more chapters, translation, editing, introduction, commentary or another scholarly contribution.
+
+This maps naturally to the OMI Identity and Contributor Model and permits chapter-level collaboration without flattening an edited volume into a single author list.
+
+### Monograph peer review
+
+OMP peer review can use the same OMI review infrastructure as journal review while targeting a complete book, selected chapters, or other stable scholarly objects. Review assignments and editorial decisions remain controlled by OMP, while Studio MAY provide anchored annotations, structured reports, author responses and revision tracking.
+
+### Production and publication
+
+After acceptance, Studio MAY return structured OMI content or generated derivatives for OMP production. Potential outputs include JATS-compatible XML where appropriate, HTML, DOCX-derived production files and other press-specific formats.
+
+OMP remains authoritative for publication scheduling, series assignment, catalog metadata, publication formats and public distribution unless a deployment explicitly delegates a responsibility.
+
+### Shared OJS/OMP plugin strategy
+
+Because OJS and OMP are both PKP applications, implementations SHOULD reuse a common integration protocol and shared library code where their APIs and lifecycle hooks permit it. However, the deployable adapters MAY remain separate plugins so that each plugin can express the correct host-platform terminology, permissions and workflow behavior.
+
+Conceptually:
+
+```text
+                 OMI Integration API v1
+                          |
+              +-----------+-----------+
+              |                       |
+        OJS Connector             OMP Connector
+              |                       |
+        OJS integration           OMP integration
+            plugin                   plugin
+```
+
+This approach avoids making the OMI protocol dependent on either journals or monographs while still taking advantage of the common PKP technology stack.
 
 ## Other integration profiles
 
-The same architecture can support additional adapters without changing the OMI core model.
+The same architecture can support additional adapters without changing the OMI core model. Potential targets include other journal management systems, conference and proceedings platforms, preprint servers, institutional and subject repositories, research information and CRIS systems, repository deposit workflows, preservation services, identifier and metadata registries, and standalone authoring installations with no publishing platform.
 
-Potential integration targets include:
-
-- other journal management systems;
-- conference and proceedings platforms;
-- preprint servers;
-- institutional and subject repositories;
-- research information and CRIS systems;
-- repository deposit workflows;
-- preservation services;
-- identifier and metadata registries;
-- standalone authoring installations with no journal platform.
-
-An adapter does not need to reproduce the OJS connector. It needs to map the external platform's concepts and permissions to the versioned OMI integration contract.
+An adapter needs to map the external platform's concepts and permissions to the versioned OMI integration contract; it does not need to reproduce either the OJS or OMP connector internally.
 
 ## Integration patterns beyond publishing systems
 
@@ -210,21 +261,9 @@ No external workflow platform is required. Studio MAY operate as an independent 
 
 ## Authentication and trust
 
-Integration endpoints MUST use HTTPS in production and authenticated requests.
+Integration endpoints MUST use HTTPS in production and authenticated requests. A tightly coupled self-hosted installation MAY use HMAC-signed short-lived launch tokens. Integrations between independent organizations SHOULD support stronger service credentials or asymmetric signing where appropriate.
 
-A tightly coupled self-hosted installation MAY use HMAC-signed short-lived launch tokens. Integrations between independent organizations SHOULD support stronger service credentials or asymmetric signing where appropriate.
-
-The protocol SHOULD provide:
-
-- expiration;
-- replay protection;
-- installation identity;
-- explicit authorization scopes;
-- auditable external object identifiers;
-- key rotation;
-- least-privilege access.
-
-An external user identifier is an identity assertion from another system. It MUST NOT automatically grant broader Studio permissions.
+The protocol SHOULD provide expiration, replay protection, installation identity, explicit authorization scopes, auditable external object identifiers, key rotation and least-privilege access. An external user identifier MUST NOT automatically grant broader Studio permissions.
 
 ## Versioned Integration API
 
@@ -234,24 +273,7 @@ Integration endpoints SHOULD be versioned from the beginning, for example:
 /api/integrations/v1/...
 ```
 
-Backward-incompatible changes require a new protocol version. Compatible fields and capabilities MAY be added within a version when clients can safely ignore unknown values.
-
-A future capability-discovery endpoint SHOULD allow an adapter to determine whether a Studio installation supports features such as:
-
-```json
-{
-  "protocol": "omi-integration/1",
-  "capabilities": [
-    "launch",
-    "metadata.read",
-    "files.read",
-    "manuscript.sync",
-    "review",
-    "revision.write",
-    "publication.export"
-  ]
-}
-```
+Backward-incompatible changes require a new protocol version. A future capability-discovery endpoint SHOULD allow an adapter to determine whether a Studio installation supports features such as launch, metadata synchronization, file transfer, manuscript synchronization, review, revision import and publication export.
 
 Connectors SHOULD negotiate capabilities instead of assuming that every OMI implementation supports every integration level.
 
