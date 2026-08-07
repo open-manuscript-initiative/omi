@@ -63,6 +63,7 @@ const sidebars = {
       link: {type: 'generated-index', title: 'Integrations', description: 'Platform-neutral integration architecture and profiles for connecting OMI to publishing, review, repository, and scholarly infrastructure.', slug: '/integrations'},
       items: [
         {type: 'doc', id: 'integrations/architecture', label: 'Integration Architecture'},
+        {type: 'doc', id: 'integrations/integration-api-v1', label: 'Integration API v1'},
       ],
     },
     {
