@@ -95,13 +95,16 @@ const config = {
             position: 'left',
             label: 'Project',
           },
-
+          {
+            to: '/studio',
+            label: 'Studio',
+            position: 'left',
+          },
           {
             href: 'https://github.com/open-manuscript-initiative/omi',
             label: 'GitHub',
             position: 'right',
           },
-
           {
             type: 'localeDropdown',
             position: 'right',
@@ -130,11 +133,10 @@ const config = {
               },
               {
                 label: 'Studio',
-                href: 'https://studio.openmanuscript.org',
+                to: '/studio',
               },
             ],
           },
-
           {
             title: 'Community',
             items: [
@@ -148,7 +150,6 @@ const config = {
               },
             ],
           },
-
           {
             title: 'Project',
             items: [
