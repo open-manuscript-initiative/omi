@@ -2,10 +2,62 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import Translate, {translate} from '@docusaurus/Translate';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import styles from './index.module.css';
 
+const studioCopy = {
+  en: {
+    kicker: 'Reference implementation',
+    title: 'Open Manuscript Studio',
+    description: 'Open Manuscript Studio is now a usable alpha reference implementation with structured scholarly editing, multilingual authoring, server-backed accounts, peer review, publishing-system integration and multi-format export.',
+    reference: 'The Studio remains a reference implementation rather than the only OMI editor. Its working features test the specifications in real author, reviewer, editor and publishing workflows, while incomplete integrations and formal conformance work remain clearly identified.',
+    open: 'Open the Studio',
+    source: 'View Source Code',
+    featuresTitle: 'Available in the current Studio',
+    editing: 'Structured rich-text editing, document navigation, search and replace',
+    collaboration: 'Accounts, roles, ORCID-ready identity workflows and collaboration foundations',
+    multilingual: '24-language interface and help with multilingual manuscript support',
+    annotations: 'Double-blind peer review, reviewer workspaces and editor review dashboards',
+    metadata: 'OJS workflow integration, metadata handling and integration-provider infrastructure',
+    export: 'DOCX import, publishing profiles, broad scholarly export and desktop apps',
+  },
+  hu: {
+    kicker: 'Referencia-megvalósítás',
+    title: 'Open Manuscript Studio',
+    description: 'Az Open Manuscript Studio már használható alpha referencia-megvalósítás: strukturált tudományos szerkesztést, többnyelvű munkát, szerveroldali fiókokat, szakmai lektorálást, kiadói rendszerintegrációt és többformátumú exportot biztosít.',
+    reference: 'A Studio továbbra sem az egyetlen OMI-szerkesztő kíván lenni. Működő funkciói valós szerzői, lektori, szerkesztői és publikációs munkafolyamatokban tesztelik a specifikációkat, miközben a még hiányos integrációk és a formális konformitási munka külön jelölve maradnak.',
+    open: 'A Studio megnyitása',
+    source: 'Forráskód megtekintése',
+    featuresTitle: 'A jelenlegi Studio képességei',
+    editing: 'Strukturált rich-text szerkesztés, dokumentumnavigáció, keresés és csere',
+    collaboration: 'Felhasználói fiókok, szerepkörök, ORCID-alapú identitás és együttműködési alapok',
+    multilingual: '24 nyelvű felület és súgó, többnyelvű kézirattámogatással',
+    annotations: 'Double-blind peer review, lektori munkaterület és szerkesztői lektorálási áttekintő',
+    metadata: 'OJS munkafolyamat-integráció, metaadat-kezelés és integrációs szolgáltatói infrastruktúra',
+    export: 'DOCX-import, kiadói profilok, széles tudományos exportkészlet és asztali alkalmazások',
+  },
+  de: {
+    kicker: 'Referenzimplementierung',
+    title: 'Open Manuscript Studio',
+    description: 'Open Manuscript Studio ist inzwischen eine nutzbare Alpha-Referenzimplementierung mit strukturierter wissenschaftlicher Bearbeitung, mehrsprachigem Arbeiten, servergestützten Konten, Peer Review, Publikationssystem-Integration und Export in zahlreiche Formate.',
+    reference: 'Studio bleibt eine Referenzimplementierung und soll nicht der einzige OMI-Editor sein. Die vorhandenen Funktionen erproben die Spezifikationen in realen Autoren-, Gutachter-, Redaktions- und Publikationsabläufen; unvollständige Integrationen und formale Konformitätsarbeit werden weiterhin ausdrücklich getrennt ausgewiesen.',
+    open: 'Studio öffnen',
+    source: 'Quellcode ansehen',
+    featuresTitle: 'Im aktuellen Studio verfügbar',
+    editing: 'Strukturierte Rich-Text-Bearbeitung, Dokumentnavigation sowie Suchen und Ersetzen',
+    collaboration: 'Konten, Rollen, ORCID-fähige Identitätsabläufe und Grundlagen der Zusammenarbeit',
+    multilingual: 'Benutzeroberfläche und Hilfe in 24 Sprachen mit Unterstützung mehrsprachiger Manuskripte',
+    annotations: 'Double-Blind-Peer-Review, Gutachter-Arbeitsbereiche und redaktionelle Review-Übersichten',
+    metadata: 'OJS-Workflow-Integration, Metadatenverwaltung und Infrastruktur für Integrationsanbieter',
+    export: 'DOCX-Import, Publikationsprofile, breite wissenschaftliche Exportmöglichkeiten und Desktop-Apps',
+  },
+};
+
 export default function Home() {
+  const {i18n} = useDocusaurusContext();
+  const studio = studioCopy[i18n.currentLocale as keyof typeof studioCopy] ?? studioCopy.en;
+
   return (
     <Layout
       title={translate({
@@ -376,44 +428,30 @@ export default function Home() {
 
         <section className={styles.studio}>
           <div className={styles.studioContent}>
-            <p className={styles.sectionKicker}>
-              <Translate id="homepage.studio.kicker">Reference implementation</Translate>
-            </p>
-            <h2><Translate id="homepage.studio.title">Open Manuscript Studio</Translate></h2>
-            <p>
-              <Translate id="homepage.studio.description">
-                Open Manuscript Studio demonstrates how the OMI specifications
-                can support a modern, multilingual and collaborative scholarly
-                authoring environment.
-              </Translate>
-            </p>
-            <p>
-              <Translate id="homepage.studio.referenceImplementation">
-                The Studio is not intended to become the only OMI editor. It is
-                a reference implementation that tests the specifications and
-                provides reusable patterns for other applications.
-              </Translate>
-            </p>
+            <p className={styles.sectionKicker}>{studio.kicker}</p>
+            <h2>{studio.title}</h2>
+            <p>{studio.description}</p>
+            <p>{studio.reference}</p>
 
             <div className={styles.studioActions}>
               <Link className="button button--primary button--lg" to="https://studio.openmanuscript.org">
-                <Translate id="homepage.studio.open">Open the Studio</Translate>
+                {studio.open}
               </Link>
               <Link className="button button--secondary button--lg" to="https://github.com/open-manuscript-initiative/open-manuscript-studio">
-                <Translate id="homepage.studio.source">View Source Code</Translate>
+                {studio.source}
               </Link>
             </div>
           </div>
 
           <div className={styles.studioFeatures}>
-            <h3><Translate id="homepage.studio.features.title">Development areas</Translate></h3>
+            <h3>{studio.featuresTitle}</h3>
             <ul>
-              <li><Translate id="homepage.studio.features.editing">Structured manuscript editing</Translate></li>
-              <li><Translate id="homepage.studio.features.collaboration">Role-based collaboration</Translate></li>
-              <li><Translate id="homepage.studio.features.multilingual">Multilingual manuscripts and translation workflows</Translate></li>
-              <li><Translate id="homepage.studio.features.annotations">Semantic annotations and peer review</Translate></li>
-              <li><Translate id="homepage.studio.features.metadata">Metadata management and validation</Translate></li>
-              <li><Translate id="homepage.studio.features.export">Publishing previews, import and export</Translate></li>
+              <li>{studio.editing}</li>
+              <li>{studio.collaboration}</li>
+              <li>{studio.multilingual}</li>
+              <li>{studio.annotations}</li>
+              <li>{studio.metadata}</li>
+              <li>{studio.export}</li>
             </ul>
           </div>
         </section>

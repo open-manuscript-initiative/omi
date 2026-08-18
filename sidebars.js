@@ -60,8 +60,9 @@ const sidebars = {
     },
     {
       type: 'category', label: 'Integrations', collapsible: true, collapsed: false,
-      link: {type: 'generated-index', title: 'Integrations', description: 'Platform-neutral integration architecture and profiles for connecting OMI to publishing, review, repository, and scholarly infrastructure.', slug: '/integrations'},
+      link: {type: 'generated-index', title: 'Integrations', description: 'Platform-neutral integration architecture, current implementation status, and profiles for connecting OMI to publishing, review, repository, and scholarly infrastructure.', slug: '/integrations'},
       items: [
+        {type: 'doc', id: 'integrations/implementation-status', label: 'Integration Status'},
         {type: 'doc', id: 'integrations/architecture', label: 'Integration Architecture'},
         {type: 'doc', id: 'integrations/integration-api-v1', label: 'Integration API v1'},
         {type: 'doc', id: 'integrations/ojs-profile-v1', label: 'OJS Integration Profile v1'},
