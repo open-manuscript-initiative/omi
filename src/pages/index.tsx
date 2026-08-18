@@ -48,17 +48,23 @@ export default function Home() {
         <section className={styles.studio}>
           <div className={styles.studioContent}>
             <p className={styles.sectionKicker}>Open Manuscript Studio</p>
-            <h2>{t.currentTitle}</h2>
+            <h2>{t.status}</h2>
+            <h3>{t.currentTitle}</h3>
             <p>{t.current}</p>
             <div className={styles.studioActions}>
               <Link className="button button--primary button--lg" to="/studio">{t.studio}</Link>
               <Link className="button button--secondary button--lg" to="/docs/governance/studio-implementation-status">{t.status}</Link>
             </div>
           </div>
+
           <div className={styles.studioFeatures}>
-            <h3>Open Manuscript Initiative</h3>
-            <p>{t.description}</p>
-            <Link to="https://github.com/open-manuscript-initiative/omi">{t.github}</Link>
+            <h3>0.1.0-alpha.2</h3>
+            <p>Web · Windows · Linux · macOS</p>
+            <p><strong>24</strong> UI languages</p>
+            <p>✓ {t.features[2]}</p>
+            <p>✓ {t.features[3]}</p>
+            <p>✓ {t.features[5]}</p>
+            <p>◐ Code signing / notarization</p>
           </div>
         </section>
 
