@@ -16,9 +16,18 @@ const downloads = {
   linuxDeb: `${RELEASE_BASE}/Open-Manuscript-Studio-Linux-x64.deb`,
 };
 
+const CAPABILITY_DOC_TARGETS: Record<number, string> = {
+  0: '/docs/specifications/document-model',
+  3: '/docs/specifications/review-model',
+  4: '/docs/integrations/ojs-profile-v1',
+  5: '/docs/specifications/publishing-model',
+  6: '/docs/integrations/implementation-status',
+};
+
 export default function StudioDownloads() {
   const {i18n} = useDocusaurusContext();
-  const t = getPublicPageCopy(i18n.currentLocale).studio;
+  const copy = getPublicPageCopy(i18n.currentLocale);
+  const t = copy.studio;
 
   return (
     <Layout title="Open Manuscript Studio" description={t.lead}>
@@ -45,7 +54,14 @@ export default function StudioDownloads() {
           <div className={styles.container}>
             <h2>{t.capabilitiesTitle}</h2>
             <div className={styles.grid}>
-              {t.capabilities.map((item) => <article className={styles.card} key={item}><h3>{item}</h3></article>)}
+              {t.capabilities.map((item, index) => {
+                const target = CAPABILITY_DOC_TARGETS[index];
+                return (
+                  <article className={styles.card} key={item}>
+                    <h3>{target ? <Link to={target}>{item}</Link> : item}</h3>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -86,6 +102,11 @@ export default function StudioDownloads() {
           <div className={styles.container}>
             <h2>{t.alphaTitle}</h2>
             <p>{t.alphaText}</p>
+            <p>
+              <Link to="/docs/governance/studio-implementation-status">{copy.home.status}</Link>
+              {' · '}
+              <Link to="/docs/integrations/implementation-status">{t.capabilities[6]}</Link>
+            </p>
             <Link to="https://github.com/open-manuscript-initiative/open-manuscript-studio/releases">{t.releases}</Link>
           </div>
         </section>

@@ -1,9 +1,12 @@
 ---
-title: Architecture
+title: Architecture (legacy URL)
+unlisted: true
 ---
 
-# Architecture
+# Architecture moved
 
-The Open Manuscript Initiative is designed as a modular, platform-independent ecosystem for scholarly authoring, peer review, publishing, and preservation.
+This legacy URL is retained only for existing external links.
 
-This document will describe the conceptual architecture of the project.
+The current architecture overview is maintained at:
+
+[OMI Architecture Overview](/docs/foundations/architecture-map)
