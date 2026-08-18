@@ -395,8 +395,8 @@ export default function Home() {
               <Link className="button button--primary button--lg" to="https://studio.openmanuscript.org">
                 <Translate id="homepage.studio.open">Open the Studio</Translate>
               </Link>
-              <Link className="button button--secondary button--lg" to="/studio">
-                <Translate id="homepage.studio.source">Studio &amp; Downloads</Translate>
+              <Link className="button button--secondary button--lg" to="https://github.com/open-manuscript-initiative/open-manuscript-studio">
+                <Translate id="homepage.studio.source">View Source Code</Translate>
               </Link>
             </div>
           </div>
