@@ -74,7 +74,8 @@ const sidebars = {
       items: [
         {type: 'doc', id: 'governance/charter', label: 'Charter'},
         {type: 'doc', id: 'governance/roadmap-to-omi-1.0', label: 'Roadmap to OMI 1.0'},
-        {type: 'doc', id: 'governance/implementation-status-matrix', label: 'Implementation Status Matrix'},
+        {type: 'doc', id: 'governance/studio-implementation-status', label: 'Studio Implementation Status'},
+        {type: 'doc', id: 'governance/implementation-status-matrix', label: 'Specification Implementation Matrix'},
         {type: 'doc', id: 'governance/architecture-audit', label: 'Architecture Audit'},
         {type: 'doc', id: 'governance/documentation-architecture', label: 'Documentation Architecture'},
         {type: 'doc', id: 'governance/specification-lifecycle', label: 'Specification Lifecycle'},
