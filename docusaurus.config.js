@@ -15,6 +15,7 @@ const config = {
   organizationName: 'open-manuscript-initiative',
   projectName: 'omi',
   onBrokenLinks: 'throw',
+  clientModules: ['./src/client/localeRedirect.js'],
 
   i18n: {
     defaultLocale: 'en',
@@ -84,7 +85,7 @@ const config = {
           {type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Project'},
           {to: '/studio', label: 'Studio', position: 'left'},
           {href: 'https://github.com/open-manuscript-initiative/omi', label: 'GitHub', position: 'right'},
-          {type: 'localeDropdown', position: 'right'},
+          {type: 'localeDropdown', position: 'right', queryString: '?persistLocale=true'},
         ],
       },
       footer: {
