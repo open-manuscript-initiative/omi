@@ -70,7 +70,7 @@ const sidebars = {
     },
     {
       type: 'category', label: 'Governance', collapsible: true, collapsed: false,
-      link: {type: 'generated-index', title: 'Governance', description: 'Policies governing the authority, roadmap, maturity, versioning, authorship, identity, and maintenance of OMI specifications.', slug: '/category/governance'},
+      link: {type: 'generated-index', title: 'Governance', description: 'Policies governing the authority, roadmap, maturity, versioning, authorship, identity, maintenance, and release security of OMI specifications and reference implementations.', slug: '/category/governance'},
       items: [
         {type: 'doc', id: 'governance/charter', label: 'Charter'},
         {type: 'doc', id: 'governance/roadmap-to-omi-1.0', label: 'Roadmap to OMI 1.0'},
@@ -79,6 +79,7 @@ const sidebars = {
         {type: 'doc', id: 'governance/documentation-architecture', label: 'Documentation Architecture'},
         {type: 'doc', id: 'governance/specification-lifecycle', label: 'Specification Lifecycle'},
         {type: 'doc', id: 'governance/versioning-policy', label: 'Versioning Policy'},
+        {type: 'doc', id: 'governance/code-signing-policy', label: 'Code Signing Policy'},
         {type: 'doc', id: 'governance/style-guide', label: 'Specification Style Guide'},
         {type: 'doc', id: 'governance/specification-template', label: 'Specification Template'},
         {type: 'doc', id: 'governance/specification-registry', label: 'Specification Registry'},
