@@ -382,16 +382,12 @@ export default function Home() {
             <h2><Translate id="homepage.studio.title">Open Manuscript Studio</Translate></h2>
             <p>
               <Translate id="homepage.studio.description">
-                Open Manuscript Studio demonstrates how the OMI specifications
-                can support a modern, multilingual and collaborative scholarly
-                authoring environment.
+                Open Manuscript Studio is now a usable alpha reference implementation with structured scholarly editing, multilingual authoring, server-backed accounts, peer review, publishing-system integration and multi-format export.
               </Translate>
             </p>
             <p>
               <Translate id="homepage.studio.referenceImplementation">
-                The Studio is not intended to become the only OMI editor. It is
-                a reference implementation that tests the specifications and
-                provides reusable patterns for other applications.
+                The Studio remains a reference implementation rather than the only OMI editor. Its working features test the specifications in real author, reviewer, editor and publishing workflows, while incomplete integrations and formal conformance work remain clearly identified.
               </Translate>
             </p>
 
@@ -399,21 +395,21 @@ export default function Home() {
               <Link className="button button--primary button--lg" to="https://studio.openmanuscript.org">
                 <Translate id="homepage.studio.open">Open the Studio</Translate>
               </Link>
-              <Link className="button button--secondary button--lg" to="https://github.com/open-manuscript-initiative/open-manuscript-studio">
-                <Translate id="homepage.studio.source">View Source Code</Translate>
+              <Link className="button button--secondary button--lg" to="/studio">
+                <Translate id="homepage.studio.source">Studio &amp; Downloads</Translate>
               </Link>
             </div>
           </div>
 
           <div className={styles.studioFeatures}>
-            <h3><Translate id="homepage.studio.features.title">Development areas</Translate></h3>
+            <h3><Translate id="homepage.studio.features.title">Available in the current Studio</Translate></h3>
             <ul>
-              <li><Translate id="homepage.studio.features.editing">Structured manuscript editing</Translate></li>
-              <li><Translate id="homepage.studio.features.collaboration">Role-based collaboration</Translate></li>
-              <li><Translate id="homepage.studio.features.multilingual">Multilingual manuscripts and translation workflows</Translate></li>
-              <li><Translate id="homepage.studio.features.annotations">Semantic annotations and peer review</Translate></li>
-              <li><Translate id="homepage.studio.features.metadata">Metadata management and validation</Translate></li>
-              <li><Translate id="homepage.studio.features.export">Publishing previews, import and export</Translate></li>
+              <li><Translate id="homepage.studio.features.editing">Structured rich-text editing, document navigation, search and replace</Translate></li>
+              <li><Translate id="homepage.studio.features.collaboration">Accounts, roles, ORCID-ready identity workflows and collaboration foundations</Translate></li>
+              <li><Translate id="homepage.studio.features.multilingual">24-language interface and help with multilingual manuscript support</Translate></li>
+              <li><Translate id="homepage.studio.features.annotations">Double-blind peer review, reviewer workspaces and editor review dashboards</Translate></li>
+              <li><Translate id="homepage.studio.features.metadata">OJS workflow integration, metadata handling and integration-provider infrastructure</Translate></li>
+              <li><Translate id="homepage.studio.features.export">DOCX import, publishing profiles, broad scholarly export and desktop apps</Translate></li>
             </ul>
           </div>
         </section>
