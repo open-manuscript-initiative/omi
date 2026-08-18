@@ -6,6 +6,13 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {getPublicPageCopy} from '../i18n/publicPages';
 import styles from './index.module.css';
 
+const FEATURE_DOC_TARGETS: Record<number, string> = {
+  0: '/docs/specifications/document-model',
+  2: '/docs/specifications/review-model',
+  3: '/docs/integrations/ojs-profile-v1',
+  5: '/docs/specifications/publishing-model',
+};
+
 export default function Home() {
   const {i18n} = useDocusaurusContext();
   const t = getPublicPageCopy(i18n.currentLocale).home;
@@ -38,17 +45,22 @@ export default function Home() {
           <div className={styles.container}>
             <h2>{t.featuresTitle}</h2>
             <div className={styles.principleGrid}>
-              {t.features.map((feature) => (
-                <article className={styles.principleCard} key={feature}><h3>{feature}</h3></article>
-              ))}
+              {t.features.map((feature, index) => {
+                const target = FEATURE_DOC_TARGETS[index];
+                return (
+                  <article className={styles.principleCard} key={feature}>
+                    <h3>{target ? <Link to={target}>{feature}</Link> : feature}</h3>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        <section className={styles.studio}>
+        <section className={styles.studio} aria-labelledby="current-development-status">
           <div className={styles.studioContent}>
-            <p className={styles.sectionKicker}>Open Manuscript Studio</p>
-            <h2>{t.status}</h2>
+            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.1.0-alpha.2</p>
+            <h2 id="current-development-status">{t.status}</h2>
             <h3>{t.currentTitle}</h3>
             <p>{t.current}</p>
             <div className={styles.studioActions}>
@@ -57,15 +69,17 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.studioFeatures}>
+          <aside className={styles.studioFeatures} aria-label={t.status}>
             <h3>0.1.0-alpha.2</h3>
             <p>Web · Windows · Linux · macOS</p>
             <p><strong>24</strong> UI languages</p>
-            <p>✓ {t.features[2]}</p>
-            <p>✓ {t.features[3]}</p>
-            <p>✓ {t.features[5]}</p>
+            <nav className={styles.contextLinks} aria-label={t.status}>
+              <Link to="/docs/specifications/review-model">✓ {t.features[2]}</Link>
+              <Link to="/docs/integrations/implementation-status">✓ {t.features[3]}</Link>
+              <Link to="/docs/specifications/publishing-model">✓ {t.features[5]}</Link>
+            </nav>
             <p>◐ Code signing / notarization</p>
-          </div>
+          </aside>
         </section>
 
         <section className={styles.cta}>
