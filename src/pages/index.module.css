@@ -242,6 +242,19 @@
   margin: 0;
 }
 
+.principleCard h3 a,
+.contextLinks a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.principleCard h3 a:hover,
+.contextLinks a:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .card p,
 .outputItem p,
 .principleCard p,
@@ -386,6 +399,17 @@
 
 .studioFeatures li {
   margin: 0.7rem 0;
+}
+
+.contextLinks {
+  display: grid;
+  margin: 1.25rem 0;
+  gap: 0.8rem;
+}
+
+.contextLinks a {
+  display: block;
+  line-height: 1.45;
 }
 
 .docs {
