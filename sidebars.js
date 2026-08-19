@@ -21,6 +21,7 @@ const sidebars = {
       link: {type: 'generated-index', title: 'Foundations', description: 'The principles, common object model, and controlled terminology shared by the OMI specification suite.', slug: '/foundations'},
       items: [
         {type: 'doc', id: 'foundations/core-principles', label: 'Core Principles'},
+        {type: 'doc', id: 'foundations/cross-platform-studio', label: 'Cross-platform Studio'},
         {type: 'doc', id: 'specifications/core/scholarly-object-model', label: 'Scholarly Object Model'},
         {type: 'doc', id: 'governance/terminology', label: 'Terminology and Definitions'},
       ],
