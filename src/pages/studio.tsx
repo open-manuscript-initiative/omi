@@ -7,6 +7,7 @@ import {getPublicPageCopy} from '../i18n/publicPages';
 import styles from './studio.module.css';
 
 const RELEASE_BASE = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/releases/latest/download';
+const ANDROID_RELEASE_BASE = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/releases/download/v0.1.0-alpha.3';
 const downloads = {
   windowsExe: `${RELEASE_BASE}/Open-Manuscript-Studio-Windows-x64-Setup.exe`,
   windowsMsi: `${RELEASE_BASE}/Open-Manuscript-Studio-Windows-x64.msi`,
@@ -14,7 +15,7 @@ const downloads = {
   macIntel: `${RELEASE_BASE}/Open-Manuscript-Studio-macOS-Intel.dmg`,
   linuxAppImage: `${RELEASE_BASE}/Open-Manuscript-Studio-Linux-x64.AppImage`,
   linuxDeb: `${RELEASE_BASE}/Open-Manuscript-Studio-Linux-x64.deb`,
-  android: `${RELEASE_BASE}/Open-Manuscript-Studio-Android-universal.apk`,
+  android: `${ANDROID_RELEASE_BASE}/Open-Manuscript-Studio-Android-universal.apk`,
 };
 
 const CAPABILITY_DOC_TARGETS: Record<number, string> = {
