@@ -14,6 +14,7 @@ const downloads = {
   macIntel: `${RELEASE_BASE}/Open-Manuscript-Studio-macOS-Intel.dmg`,
   linuxAppImage: `${RELEASE_BASE}/Open-Manuscript-Studio-Linux-x64.AppImage`,
   linuxDeb: `${RELEASE_BASE}/Open-Manuscript-Studio-Linux-x64.deb`,
+  android: `${RELEASE_BASE}/Open-Manuscript-Studio-Android-universal.apk`,
 };
 
 const CAPABILITY_DOC_TARGETS: Record<number, string> = {
@@ -74,6 +75,9 @@ export default function StudioDownloads() {
               <DownloadCard title={t.windows} description={t.windowsText}>
                 <DownloadButton href={downloads.windowsExe}>{t.setup}</DownloadButton>
                 <DownloadButton href={downloads.windowsMsi} secondary>{t.msi}</DownloadButton>
+              </DownloadCard>
+              <DownloadCard title={t.android ?? 'Android'} description={t.androidText ?? 'Installable universal APK for Android devices.'}>
+                <DownloadButton href={downloads.android}>{t.apk ?? 'Download Android APK'}</DownloadButton>
               </DownloadCard>
               <DownloadCard title={t.macArm} description={t.macArmText}>
                 <DownloadButton href={downloads.macArm}>{t.arm}</DownloadButton>
