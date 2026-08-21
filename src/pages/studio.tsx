@@ -76,6 +76,7 @@ export default function StudioDownloads() {
               <DownloadCard title={t.windows} description={t.windowsText}>
                 <DownloadButton href={downloads.windowsExe}>{t.setup}</DownloadButton>
                 <DownloadButton href={downloads.windowsMsi} secondary>{t.msi}</DownloadButton>
+                <p><Link to="/docs/governance/code-signing-policy">Code signing policy</Link></p>
               </DownloadCard>
               <DownloadCard title={t.android ?? 'Android'} description={t.androidText ?? 'Installable universal APK for Android devices.'}>
                 <DownloadButton href={downloads.android}>{t.apk ?? 'Download Android APK'}</DownloadButton>
@@ -111,6 +112,8 @@ export default function StudioDownloads() {
               <Link to="/docs/governance/studio-implementation-status">{copy.home.status}</Link>
               {' · '}
               <Link to="/docs/integrations/implementation-status">{t.capabilities[6]}</Link>
+              {' · '}
+              <Link to="/docs/governance/code-signing-policy">Code signing policy</Link>
             </p>
             <Link to="https://github.com/open-manuscript-initiative/open-manuscript-studio/releases">{t.releases}</Link>
           </div>
