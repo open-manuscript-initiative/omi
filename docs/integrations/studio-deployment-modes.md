@@ -1,6 +1,6 @@
 # Studio deployment modes
 
-Open Manuscript Studio uses one codebase and one family of web, desktop, and mobile clients. A server-side deployment profile determines who manages external-service credentials and how organization-level integrations are expected to evolve.
+Open Manuscript Studio uses one codebase and one family of web, desktop, and mobile clients. A server-side deployment profile determines who manages external-service credentials.
 
 ## Personal mode
 
@@ -8,24 +8,17 @@ Open Manuscript Studio uses one codebase and one family of web, desktop, and mob
 DEPLOYMENT_MODE=personal
 ```
 
-Personal mode is intended for standalone authors and individual users. The Studio must never ask the user for an ORCID password. ORCID authentication takes place on ORCID's own authorization page through OAuth/OpenID Connect.
+Personal mode is intended for standalone authors and individual users. Studio never asks for an ORCID password. ORCID authentication takes place on ORCID's own authorization page through OAuth/OpenID Connect.
 
-The target architecture for Personal mode is:
+Personal mode uses the Personal/OMI-managed credential namespace:
 
-```text
-Open Manuscript Studio
-        │
-        ▼
-    OMI Identity
-        │
-        ▼
- ORCID OAuth/OIDC
-        │
-        ▼
- User ORCID account
+```dotenv
+ORCID_CLIENT_ID=APP-...
+ORCID_CLIENT_SECRET=...
+ORCID_REDIRECT_URI=https://studio.example.org/api/auth/orcid/callback
 ```
 
-In this model, centrally managed OMI Identity credentials can broker the ORCID flow so individual authors do not need to obtain or maintain ORCID API credentials themselves.
+The target architecture remains OMI Identity brokering the ORCID flow so individual authors do not need to obtain or maintain ORCID API credentials themselves.
 
 ## Institutional mode
 
@@ -33,78 +26,70 @@ In this model, centrally managed OMI Identity credentials can broker the ORCID f
 DEPLOYMENT_MODE=institutional
 ```
 
-Institutional mode is intended for publishers, journals, universities, repositories, research infrastructures, and managed OJS/OMP installations. The institution can use organization-owned integration credentials, including ORCID Public API or Member API credentials where appropriate.
+Institutional mode is intended for publishers, journals, universities, repositories, research infrastructures, and managed OJS/OMP installations. The institution uses a separate organization-owned credential namespace:
 
-The target architecture is:
-
-```text
-Open Manuscript Studio
-        │
-        ▼
-Institution-managed integration
-        │
-        ├── ORCID Public API
-        ├── ORCID Member API
-        ├── OJS / OMP
-        └── other managed services
+```dotenv
+INSTITUTIONAL_ORCID_CLIENT_ID=APP-...
+INSTITUTIONAL_ORCID_CLIENT_SECRET=...
+INSTITUTIONAL_ORCID_REDIRECT_URI=https://publisher.example.org/api/auth/orcid/callback
+INSTITUTIONAL_ORCID_API_TYPE=public
 ```
 
-Integration secrets remain server-side. They must not be exposed through browser storage, frontend build variables, or client-side configuration.
+`INSTITUTIONAL_ORCID_API_TYPE` accepts `public` or `member`. Integration secrets remain server-side and must never be exposed through browser storage, frontend build variables, or client-side configuration.
 
-## ORCID security model
+## Credential isolation
 
-The deployment profile does not change the basic ORCID authentication rule: Studio never collects, transmits, or stores the user's ORCID password. The user authenticates directly with ORCID, including two-factor authentication when enabled, and Studio receives only the OAuth/OpenID Connect result.
+Credential routing is deterministic and controlled by `DEPLOYMENT_MODE`:
 
-Personal and Institutional modes therefore differ primarily in credential ownership and administration, not in how the user's ORCID password is handled.
+- `personal` uses only `ORCID_CLIENT_ID`, `ORCID_CLIENT_SECRET`, and `ORCID_REDIRECT_URI`.
+- `institutional` uses only the `INSTITUTIONAL_ORCID_*` credential set.
+- Institutional mode never silently falls back to Personal/OMI-owned credentials.
+- If the active credential set is missing, ORCID is reported as unconfigured.
+- A partial active credential pair causes server configuration validation to fail.
+- Studio never exposes either client secret through its runtime status API.
 
-## Runtime visibility
+The ORCID network is selected independently:
 
-The active deployment profile is exposed by the Studio backend and can be shown in the application footer:
-
-```text
-OMI Studio · Personal
+```dotenv
+ORCID_ENVIRONMENT=sandbox
 ```
 
 or:
 
-```text
-OMI Studio · Institutional
-```
-
-When ORCID is configured against the Sandbox network, the footer may additionally display:
-
-```text
-ORCID Sandbox
-```
-
-This is intentionally a visible test-state indicator. Production ORCID does not need an equivalent warning badge.
-
-## Configuration
-
-Standalone author installation:
-
 ```dotenv
-DEPLOYMENT_MODE=personal
-```
-
-Publisher or university installation:
-
-```dotenv
-DEPLOYMENT_MODE=institutional
-```
-
-An institutional production configuration may later include:
-
-```dotenv
-NODE_ENV=production
-DEPLOYMENT_MODE=institutional
 ORCID_ENVIRONMENT=production
-ORCID_CLIENT_ID=APP-...
-ORCID_CLIENT_SECRET=...
-ORCID_REDIRECT_URI=https://example.org/api/auth/orcid/callback
 ```
 
-For test deployments, `ORCID_ENVIRONMENT=sandbox` should remain explicit until production credentials are approved and installed.
+This permits safe Institutional testing against ORCID Sandbox before production activation.
+
+## ORCID security model
+
+The deployment profile does not change the authentication rule: Studio never collects, transmits, or stores the user's ORCID password. The user authenticates directly with ORCID, including two-factor authentication when enabled, and Studio receives only the OAuth/OpenID Connect result.
+
+Personal and Institutional modes differ in credential ownership and administration, not in user-password handling.
+
+## Runtime visibility
+
+The active deployment profile is exposed by the Studio backend and shown in the application footer as `OMI Studio · Personal` or `OMI Studio · Institutional`. When ORCID uses the Sandbox network, the footer additionally displays `ORCID Sandbox`.
+
+`GET /api/auth/providers` also exposes non-secret ORCID metadata such as:
+
+```json
+{
+  "deployment": {
+    "mode": "institutional",
+    "label": "Institutional"
+  },
+  "providers": {
+    "orcid": {
+      "enabled": true,
+      "environment": "sandbox",
+      "credentialSource": "institutional",
+      "apiType": "public"
+    }
+  }
+}
+```
 
 ## Design constraints
 
@@ -113,9 +98,9 @@ For test deployments, `ORCID_ENVIRONMENT=sandbox` should remain explicit until p
 - The same Studio binaries can be used for Personal and Institutional deployments.
 - ORCID passwords are never handled by Studio.
 - Sandbox and production ORCID identities remain separated by issuer.
-- Institutional credential management should be protected by role-based access control.
+- Institutional credential management must remain server-side and should be protected by role-based access control when an administration UI is introduced.
 - Personal mode may route authentication through OMI Identity without changing the user-facing ORCID sign-in interaction.
 
 ## Implementation status
 
-The deployment-mode contract is being introduced incrementally. The first implementation exposes `personal` and `institutional` as stable runtime profiles and reports the active mode to the user interface. Credential-source routing is intentionally separated into a later implementation step so the existing, working ORCID OAuth/OpenID Connect flow can remain stable during the transition.
+Deployment-specific ORCID credential routing is now implemented in the Studio reference implementation. The next institutional layer can add role-protected administration for organization-owned credentials without changing the client binaries or the ORCID user-authentication model.
