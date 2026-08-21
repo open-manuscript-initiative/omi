@@ -38,15 +38,15 @@ For SignPath-signed releases:
 5. signing credentials, project identifiers, and service secrets must not be committed to the repository;
 6. official signed release artifacts must not be modified after signing.
 
-## Project roles
+## Project roles and members
 
-The signing process distinguishes the following responsibilities:
+The current designated signing roles are:
 
-- **Authors / Committers** contribute source code and documentation through the project's normal GitHub development process.
-- **Reviewers** review changes that affect release generation, packaging, security-sensitive configuration, and code-signing workflows.
-- **Approvers** authorize production signing requests and official signed releases. Approval authority is restricted to designated OMI maintainers.
+- **Authors / Committers:** Open Manuscript Initiative maintainers with write access to the official repositories. Current designated maintainer: [`vargaijanos`](https://github.com/vargaijanos).
+- **Reviewers:** Open Manuscript Initiative maintainers who review pull requests and changes affecting release generation, packaging, security-sensitive configuration, and code-signing workflows. Current designated reviewer: [`vargaijanos`](https://github.com/vargaijanos).
+- **Approvers:** maintainers trusted to authorize production signing requests and official signed releases. Current designated signing approver: [`vargaijanos`](https://github.com/vargaijanos).
 
-A person may hold more than one role when necessary for a small open-source project, but production signing remains an explicit release action and is not treated as an implicit consequence of arbitrary source changes.
+A person may hold more than one role when necessary for a small open-source project. Production signing nevertheless remains an explicit release action and is not an implicit consequence of arbitrary source changes.
 
 ## Authentication and access control
 
@@ -56,7 +56,7 @@ Signing-service credentials and tokens must be stored using the secret-managemen
 
 ## Signing approval
 
-Production code signing requires an approved signing request in accordance with the SignPath Foundation requirements applicable to the project. Signing approval must be associated with an identifiable release artifact and source revision.
+Every production release signing request requires manual approval in accordance with the SignPath Foundation requirements applicable to the project. Signing approval must be associated with an identifiable release artifact and source revision.
 
 A release must not be represented as signed by the project unless its signature can be successfully validated against the expected certificate chain.
 
@@ -73,15 +73,17 @@ Cryptographic signing establishes provenance and integrity. It does not replace 
 
 ## Privacy
 
-The signing workflow is intended to process release artifacts and the technical metadata necessary to establish build provenance and approve signing. OMI must not intentionally include user manuscript content, user credentials, production database contents, or other private application data in signing requests.
+The Open Manuscript Studio privacy policy is published at [Privacy Policy](./privacy-policy.md).
+
+The signing workflow processes release artifacts and the technical metadata necessary to establish build provenance and approve signing. OMI must not intentionally include user manuscript content, user credentials, production database contents, or other private application data in signing requests.
+
+Network communication by the application occurs only when a user deliberately uses a network-backed feature or when an installation is configured to provide such a service. Connected identity, publishing, storage, or integration providers may have their own privacy policies and terms.
 
 The project's use of SignPath is also subject to the privacy and service terms published by SignPath and SignPath Foundation.
 
 ## Database and server-side services
 
-The OMI Studio server-side PostgreSQL integration is being developed separately from desktop code signing. The production database connection is **not currently a prerequisite for signing the desktop installers** and must not be represented as completed merely because signed desktop packages are available.
-
-Database credentials and production data are outside the code-signing artifact boundary and must never be included in desktop release artifacts or signing requests.
+The OMI Studio server-side PostgreSQL integration is separate from desktop code signing. Database credentials and production data are outside the code-signing artifact boundary and must never be included in desktop release artifacts or signing requests.
 
 ## Security reports
 
@@ -89,4 +91,4 @@ Security issues affecting Open Manuscript Studio, its build process, or release 
 
 ## Policy changes
 
-Material changes to the signing provider, certificate ownership, trusted build system, production signing policy, or approval model must be documented here before the changed process is presented as the official OMI release-signing process.
+Material changes to the signing provider, certificate ownership, trusted build system, production signing policy, role assignments, or approval model must be documented here before the changed process is presented as the official OMI release-signing process.
