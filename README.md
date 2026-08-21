@@ -1,142 +1,96 @@
 # Open Manuscript Initiative (OMI)
 
-> **From manuscript to publication — in one open ecosystem.**
+> **Write naturally. Structure once. Publish everywhere.**
 
-An open-source, platform-independent ecosystem for scholarly writing, peer review, publishing, and long-term preservation.
+The **Open Manuscript Initiative (OMI)** is an open-source, platform-independent ecosystem for structured scholarly writing, peer review, publishing, interchange and preservation.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-## Overview
 
-The **Open Manuscript Initiative (OMI)** is an open-source platform designed to support the complete lifecycle of scholarly manuscripts—from drafting and collaborative writing through peer review to publication and long-term preservation.
+## What OMI is
 
-Unlike traditional journal management systems, OMI focuses on the manuscript itself as the central object. It is designed to work independently or integrate with publishing platforms such as OJS, OMP, OPS, repositories, and institutional infrastructures.
+OMI treats the scholarly manuscript — its structure, metadata, contributors, citations, annotations, revisions and review context — as the central portable object.
 
-## Vision
+The goal is not to replace journal or publishing-management systems. OMI is designed to work independently or connect to platforms such as **Open Journal Systems (OJS)** and **Open Monograph Press (OMP)** through explicit integration boundaries.
 
-Scientific publishing relies on many disconnected tools:
+## Open Manuscript Studio
 
-- word processors
-- reference managers
-- collaborative editing platforms
-- peer review systems
-- publishing platforms
-- archival repositories
+**Open Manuscript Studio** is the working reference implementation of the OMI architecture.
 
-OMI aims to unify these workflows into a single, open ecosystem while remaining modular and platform-independent.
+Current `0.1.0-alpha.4` capabilities include:
 
-## Core Principles
+- structured scholarly editing and search/replace;
+- 24-language interface and localized help;
+- server-backed accounts and profile management;
+- ORCID authentication/linking infrastructure;
+- double-blind peer review and editor/reviewer workflows;
+- OJS manuscript and review integration;
+- DOCX structural import with notes, inline semantics, lists and tables;
+- portable `.omi.zip` and OMI JSON interchange;
+- publishing exports including JATS XML, semantic HTML, DOCX, EPUB, PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX;
+- publisher profiles and publication-oriented rendering;
+- WebDAV/Nextcloud direct backup, restore and connection management;
+- provider-aware local synchronized-folder workflows for OneDrive, SharePoint, Google Drive, Dropbox, Nextcloud, iCloud Drive and other desktop sync clients;
+- browser, Windows, Linux, macOS and Android delivery from a shared React/TypeScript + Tauri 2 code line;
+- native save dialogs and file delivery in installed clients;
+- desktop updater support and reproducible CI/release builds.
 
-- Platform independent
-- Open standards
-- Interoperability
-- Modular architecture
-- AI-assisted workflows
-- Human-centered editing
-- Transparent scholarly communication
-- Long-term preservation
+The hosted Studio is available at **studio.openmanuscript.org**. Native installers and the Android universal APK are published through the `open-manuscript-initiative/open-manuscript-studio` repository.
 
-## Planned Features
+## Current maturity
 
-### Manuscript Editor
+**Project status:** active alpha / beta-readiness stabilization.
 
-- Rich text editing
-- Semantic document structure
-- Automatic section numbering
-- Figures and tables
-- Mathematical formulas
-- Code blocks
-- Flexible note system
-- Version history
+The project has moved beyond the early design/prototype stage. Core editing, accounts, review, OJS integration, structured import/export, native packaging and storage workflows are implemented and actively exercised. Current work focuses on regression testing, interoperability, recovery/error handling, OMP completion, platform signing/notarization and formal conformance evidence.
 
-### References
+See:
 
-- Citation management
-- CSL support
-- DOI lookup
-- ORCID integration
-- Crossref integration
-- Automatic bibliography generation
+- `docs/governance/studio-implementation-status.md` for the current Studio product snapshot;
+- `docs/integrations/implementation-status.md` for integration maturity;
+- `docs/governance/implementation-status-matrix.md` for specification-level implementation status;
+- `docs/governance/roadmap-to-omi-1.0.md` for the standards roadmap.
 
-### Review
+## Core principles
 
-- Single-blind review
-- Double-blind review
-- Open peer review
-- Reviewer annotations
-- Editorial decisions
-- Revision tracking
-
-### Publishing
-
-- JATS XML
-- PDF
-- HTML
-- EPUB
-- DOCX
-- Markdown
-
-### Integrations
-
-- Open Journal Systems (OJS)
-- Open Monograph Press (OMP)
-- Open Preprint Systems (OPS)
-- ORCID
-- Crossref
-- DataCite
-- Zenodo
-- GitHub
-
-### AI Assistance
-
-- Language improvement
-- Consistency checking
-- Reference validation
-- Metadata generation
-- Accessibility checks
-- Publishing recommendations
+- open standards and open-source reference implementations;
+- semantic structure before presentation;
+- manuscript portability and local-first ownership;
+- interoperable publishing-system boundaries;
+- identity and contributor separation;
+- platform independence;
+- human-centered scholarly editing;
+- transparent versioning and review;
+- long-term preservation and reproducibility.
 
 ## Architecture
 
-OMI is designed as a modular ecosystem.
-
+```text
+OMI specifications and scholarly object model
+                  │
+          Open Manuscript Studio
+                  │
+     ┌────────────┼────────────┐
+     │            │            │
+    Web        Desktop       Mobile
+                  │            │
+                Tauri 2      Tauri 2
+     │            │            │
+ Studio API ─ PostgreSQL ─ Integration adapters
+                              │
+                  OJS · OMP · ORCID · storage · future services
 ```
-Core
- ├── Editor
- ├── References
- ├── Review
- ├── Publishing
- ├── Collaboration
- ├── AI Services
- ├── Plugins
- └── API
-```
 
-## Status
+The manuscript model remains independent of the operating system and of external service credentials. Native capabilities and provider-specific integrations are layered around the shared scholarly core.
 
-**Project status:** Early design and architecture phase.
+## Security and release engineering
 
-The repository currently contains planning documents and initial architectural work. Implementation will gradually begin as the project matures.
+The current Studio line includes API rate limiting, hardened server-side remote requests for publishing-system integrations, runtime request validation, safer import/export escaping and reduced browser persistence of sensitive integration credentials. Automated CI and security scanning are part of ongoing development.
 
-## Roadmap
-
-- [ ] Core architecture
-- [ ] Document model
-- [ ] Editor prototype
-- [ ] Citation engine
-- [ ] Review workflow
-- [ ] JATS export
-- [ ] Plugin API
-- [ ] OJS integration
-- [ ] Stable release
+JavaScript and Rust/Tauri dependency graphs are lockfile-controlled. GitHub Actions builds the shared web/native product line for Windows, Linux, macOS and Android. Windows code-signing preparation is documented separately and remains pending external signing-service acceptance/integration.
 
 ## Contributing
 
-Contributions, ideas, discussions, and feedback are welcome.
-
-Please see **CONTRIBUTING.md**.
+Contributions, implementation feedback, interoperability testing and specification review are welcome. Please see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-This project is licensed under the MIT License.
-
-See the **LICENSE** file for details.
+The repository is licensed under the MIT License. See [LICENSE](LICENSE).
