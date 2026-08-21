@@ -7,196 +7,150 @@ description: The vision and philosophy behind the Open Manuscript Initiative.
 
 # Vision
 
-## Rethinking Scholarly Writing
+## Rethinking scholarly writing
 
 For decades, scholarly manuscripts have been created using word processors originally designed for office documents.
 
-These applications ask authors to make typographic decisions rather than scholarly ones.
+These applications ask authors to make typographic decisions rather than scholarly ones. Questions such as font size, spacing, indentation or manual layout have little to do with scientific communication, yet publishing workflows repeatedly force authors and editors to reconstruct structure from visual formatting.
 
-Questions such as:
+The result is familiar:
 
-- Should this text be bold?
-- Which font size should be used?
-- How much spacing should follow a heading?
-- Should this paragraph be indented?
+- inconsistent formatting;
+- hidden document artifacts;
+- incompatible templates;
+- repeated conversion and cleanup;
+- duplicated metadata entry;
+- and information loss between authoring, review and publication systems.
 
-have little to do with scientific communication.
+OMI starts from a different premise: the scholarly manuscript should remain a structured, portable object throughout its lifecycle.
 
-Researchers are experts in their disciplines—not in typography, layout, or publishing workflows.
+## Meaning before appearance
 
-Yet today's publishing ecosystem still expects authors to perform tasks that properly belong to editors, designers, and publishing platforms.
+Authors should describe **what** a piece of content is, not merely **how** it should look.
 
-The result is familiar to every journal editor:
+A manuscript is not a collection of fonts and formatting. It is a structured collection of scholarly concepts such as:
 
-- inconsistent formatting,
-- hidden formatting artifacts,
-- incompatible templates,
-- time-consuming cleanup,
-- repeated conversions,
-- and unnecessary information loss.
+- title, authors and affiliations;
+- abstract and keywords;
+- sections and headings;
+- quotations, figures and tables;
+- notes, citations and references;
+- acknowledgements, funding statements and data-availability statements;
+- annotations, revisions and review material.
 
----
+These elements define scholarly meaning. Their presentation can then be generated for a journal, repository, book workflow, web publication, print output or archival package without rewriting the manuscript model.
 
-## Meaning Before Appearance
+## Structure once
 
-The Open Manuscript Initiative proposes a different philosophy.
+OMI uses a semantic manuscript model. Instead of repeatedly rebuilding structure during conversion, the structure is preserved as first-class data.
 
-Authors should describe **what** a piece of content is—not **how** it should look.
+This makes it possible for one manuscript to move between authoring, peer review, editorial processing and publication while retaining stable scholarly identity, metadata and relationships.
 
-A manuscript is not a collection of fonts and formatting.
+The same principle applies to contributors, citations, annotations and version history: they should survive workflow transitions as meaningful objects rather than being flattened into typography whenever a file changes hands.
 
-It is a structured collection of scholarly concepts.
+## Publish everywhere
 
-Examples include:
+The current Open Manuscript Studio reference implementation already demonstrates the direction of this model. A structured manuscript can be delivered as portable OMI data and transformed into publishing-oriented outputs including:
 
-- Title
-- Author
-- Affiliation
-- Abstract
-- Keywords
-- Section
-- Quotation
-- Figure
-- Table
-- Citation
-- Reference
-- Acknowledgement
-- Funding Statement
-- Data Availability Statement
+- JATS XML;
+- semantic HTML;
+- DOCX;
+- EPUB;
+- PDF;
+- IDML;
+- XPress Tags;
+- FrameMaker MIF;
+- Scribus SLA;
+- and LaTeX.
 
-These elements define the meaning of a scholarly work.
+Future adapters can add further publisher, repository, preservation and metadata-deposit targets without changing the scholarly source model.
 
-Their visual appearance should be generated automatically by the publishing platform—not manually created by the author.
+Presentation becomes an output. Meaning remains the source.
 
----
+## Open by design
 
-## Functional Writing
+The Open Manuscript Initiative is an open standards project. Its specifications, schemas, documentation and reference implementations are intended to remain publicly available under open licenses.
 
-OMI introduces a **functional manuscript model**.
+Anyone should be able to:
 
-Instead of formatting text, authors assign meaning.
+- implement the specifications;
+- build compatible authoring or publishing software;
+- create converters and validators;
+- develop plugins and integrations;
+- connect OMI workflows to publishing or repository infrastructure;
+- and preserve OMI manuscripts independently of a particular vendor or hosted service.
 
-Instead of choosing fonts, they identify document elements.
+No proprietary application should become the sole authority over the scholarly object.
 
-Instead of creating layout, they create knowledge.
+## Local-first and interoperable
 
-The manuscript becomes a semantic document rather than a formatted page.
+Portability also means that authors should not have to surrender manuscript ownership to a specific cloud platform simply to use modern scholarly tooling.
 
-By separating meaning from presentation, a single manuscript can be published in multiple formats without rewriting or manual reformatting.
+OMI therefore supports a local-first architecture in which manuscripts can remain on the author's computer, be stored in portable OMI packages, or be placed in folders synchronized by the author's chosen storage provider. Server services are used where they provide real shared value — accounts, collaboration, peer review, publishing-system integration or direct remote services — rather than as a prerequisite for owning the manuscript.
 
----
+External platforms such as OJS and OMP remain authoritative for their own workflow state. OMI integrates through explicit APIs and profiles instead of coupling the manuscript model directly to another application's database.
 
-## Write Once. Publish Everywhere.
+## Review is part of the scholarly object
 
-One OMF manuscript can generate:
+Peer review should not be treated as disposable text surrounding a document. OMI models review assignments, annotations, comments and identity boundaries as structured scholarly workflow data.
 
-- HTML
-- PDF
-- EPUB
-- JATS XML
-- Crossref XML
-- DataCite XML
-- repository packages
-- and future publishing formats
+The reference implementation already supports double-blind review and role-aware author, editor and reviewer workflows. The long-term goal is to make review state portable and interoperable while preserving the confidentiality rules required by the publishing workflow.
 
-without changing the original source document.
+## Identity without lock-in
 
-Presentation becomes an output.
+Authentication identity and scholarly contributor identity are related, but they are not the same thing.
 
-Meaning remains the source.
+An account answers who is allowed to use a service. A contributor record expresses authorship, affiliation, ORCID and scholarly role. OMI keeps these concepts separate so that external identity providers can be linked without redefining authorship or embedding one authentication provider into the manuscript format.
 
----
+## Sustainable through services
 
-## Open by Design
+Open standards still require sustainable maintenance. OMI can support optional hosted or professional services such as:
 
-The Open Manuscript Format (OMF) is, and will always remain, an open standard.
+- managed collaboration and workflow infrastructure;
+- validation and interoperability services;
+- publishing-system integrations;
+- repository and preservation adapters;
+- institutional deployment support;
+- translation or AI-assisted services;
+- and managed hosting.
 
-Its specification, schemas, documentation, reference implementations, and core tools will always be freely available under open-source licenses.
+These services may extend the ecosystem, but they should never restrict access to the standard, the manuscript model or the open reference implementation.
 
-Anyone may:
+## Beyond a file format
 
-- implement the standard,
-- build compatible software,
-- create converters,
-- develop plugins,
-- integrate OMF into existing publishing workflows.
+OMI is not simply another document format. It is an ecosystem of interoperable components:
 
-No permission or commercial license will ever be required to use the standard.
+- semantic specifications;
+- a scholarly object model;
+- portable manuscript containers;
+- validation rules and conformance classes;
+- reference implementations;
+- APIs and integration profiles;
+- publishing and conversion tools;
+- review workflows;
+- and long-term preservation architecture.
 
----
+Open Manuscript Studio is the current reference implementation used to exercise these ideas in a real authoring, review and publishing environment across web, desktop and mobile clients.
 
-## Sustainable Through Services
+## Community first
 
-Open standards require continuous maintenance.
+Scientific communication belongs to the scholarly community. The Open Manuscript Initiative welcomes contributions from researchers, publishers, software developers, librarians, universities, journals and research institutions.
 
-To ensure the long-term sustainability of the project, the Open Manuscript Initiative will offer optional professional services.
+Open collaboration allows the specification to evolve around scholarly needs rather than the limitations of a proprietary editor or publishing platform.
 
-These may include:
+## Our goal
 
-- cloud-based validation
-- workflow automation
-- AI-assisted manuscript quality checks
-- DOI and ORCID integration
-- publishing services
-- repository and archival services
-- enterprise support
-- managed hosting
+We envision a workflow in which researchers can focus on scholarship while software preserves structure, identity and relationships throughout the publication lifecycle.
 
-These services extend the ecosystem.
-
-They never restrict access to the standard itself.
-
----
-
-## Beyond a File Format
-
-The Open Manuscript Initiative is not simply another document format.
-
-It is a complete ecosystem for scholarly publishing.
-
-Its long-term vision includes:
-
-- the Open Manuscript Format (OMF)
-- open schemas
-- validation tools
-- developer SDKs
-- publishing plugins
-- conversion engines
-- APIs
-- cloud services
-- reference implementations
-- documentation
-- community-driven development
-
-Together these components create a publishing workflow that is portable, interoperable, transparent, and sustainable.
-
----
-
-## Community First
-
-Scientific communication belongs to the scholarly community.
-
-The Open Manuscript Initiative welcomes contributions from researchers, publishers, software developers, librarians, universities, and research institutions worldwide.
-
-Open collaboration ensures that the standard evolves according to the needs of scholarship—not the limitations of proprietary software.
-
----
-
-## Our Goal
-
-We envision a future where researchers no longer think about formatting.
-
-They simply write.
-
-The manuscript understands its own structure.
+The manuscript remains understandable to machines and people.
 
 Publishing systems take responsibility for presentation.
 
-Knowledge becomes portable.
+Review remains structured and accountable.
+
+Knowledge remains portable.
 
 Publishing becomes interoperable.
-
-Science becomes more open.
 
 > **Write naturally.  
 > Structure once.  
