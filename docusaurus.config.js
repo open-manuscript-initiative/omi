@@ -110,6 +110,8 @@ const config = {
           {
             title: 'Project',
             items: [
+              {label: 'Code signing policy', to: '/docs/governance/code-signing-policy'},
+              {label: 'Privacy policy', to: '/docs/governance/privacy-policy'},
               {label: 'MIT License', href: 'https://github.com/open-manuscript-initiative/omi/blob/main/LICENSE'},
             ],
           },
