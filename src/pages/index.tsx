@@ -59,7 +59,7 @@ export default function Home() {
 
         <section className={styles.studio} aria-labelledby="current-development-status">
           <div className={styles.studioContent}>
-            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.1.0-alpha.2</p>
+            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.1.0-alpha.4 · beta-readiness</p>
             <h2 id="current-development-status">{t.status}</h2>
             <h3>{t.currentTitle}</h3>
             <p>{t.current}</p>
@@ -70,15 +70,17 @@ export default function Home() {
           </div>
 
           <aside className={styles.studioFeatures} aria-label={t.status}>
-            <h3>0.1.0-alpha.2</h3>
-            <p>Web · Windows · Linux · macOS</p>
+            <h3>0.1.0-alpha.4</h3>
+            <p>Web · Windows · Linux · macOS · Android</p>
             <p><strong>24</strong> UI languages</p>
             <nav className={styles.contextLinks} aria-label={t.status}>
               <Link to="/docs/specifications/review-model">✓ {t.features[2]}</Link>
               <Link to="/docs/integrations/implementation-status">✓ {t.features[3]}</Link>
               <Link to="/docs/specifications/publishing-model">✓ {t.features[5]}</Link>
             </nav>
-            <p>◐ Code signing / notarization</p>
+            <p>✓ Android public alpha</p>
+            <p>◐ Windows code signing — SignPath application pending</p>
+            <p>◐ macOS notarization</p>
           </aside>
         </section>
 
