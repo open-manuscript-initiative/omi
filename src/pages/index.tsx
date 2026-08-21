@@ -10,6 +10,7 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
   0: '/docs/specifications/document-model',
   2: '/docs/specifications/review-model',
   3: '/docs/integrations/ojs-profile-v1',
+  4: '/docs/foundations/cross-platform-studio',
   5: '/docs/specifications/publishing-model',
 };
 
@@ -76,6 +77,7 @@ export default function Home() {
             <nav className={styles.contextLinks} aria-label={t.status}>
               <Link to="/docs/specifications/review-model">✓ {t.features[2]}</Link>
               <Link to="/docs/integrations/implementation-status">✓ {t.features[3]}</Link>
+              <Link to="/docs/foundations/cross-platform-studio">✓ {t.features[4]}</Link>
               <Link to="/docs/specifications/publishing-model">✓ {t.features[5]}</Link>
             </nav>
             <p>✓ Android public alpha</p>
