@@ -14,9 +14,39 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
   5: '/docs/specifications/publishing-model',
 };
 
+const STUDIO_UPDATE = {
+  en: {
+    summary: 'The current alpha is now in beta-readiness stabilization. It includes browser, desktop and Android clients; multi-document desktop tabs; optimized large-DOCX import; double-blind peer review; OJS/OMP integration foundations; ORCID identity and cryptographic author signing; local spellcheck; and opt-in grammar/style proofreading.',
+    multiDocument: 'Multi-document desktop editing',
+    largeDocx: 'Large DOCX import optimization',
+    identity: 'ORCID identity and author signatures',
+    proofreading: 'Spelling, grammar and style checks',
+  },
+  hu: {
+    summary: 'A jelenlegi alpha már béta-előkészítő stabilizációs szakaszban van. Böngészős, asztali és Android klienst, többdokumentumos asztali füleket, nagy DOCX-ek optimalizált importját, double-blind peer review-t, OJS/OMP integrációs alapokat, ORCID-identitást és szerzői kriptográfiai aláírást, helyi helyesírás-ellenőrzést, valamint bekapcsolható nyelvhelyességi és stílusellenőrzést tartalmaz.',
+    multiDocument: 'Több dokumentum kezelése asztali nézetben',
+    largeDocx: 'Nagy DOCX-ek optimalizált importja',
+    identity: 'ORCID-identitás és szerzői aláírás',
+    proofreading: 'Helyesírás-, nyelvhelyesség- és stílusellenőrzés',
+  },
+  de: {
+    summary: 'Die aktuelle Alpha befindet sich inzwischen in der Beta-Readiness-Stabilisierung. Sie umfasst Browser-, Desktop- und Android-Clients, mehrere Dokument-Tabs auf dem Desktop, optimierten Import großer DOCX-Dateien, Double-blind Peer Review, OJS/OMP-Integrationsgrundlagen, ORCID-Identität und kryptografische Autorensignaturen sowie lokale Rechtschreib- und optionale Grammatik-/Stilprüfung.',
+    multiDocument: 'Mehrere Dokumente in der Desktop-Ansicht',
+    largeDocx: 'Optimierter Import großer DOCX-Dateien',
+    identity: 'ORCID-Identität und Autorensignaturen',
+    proofreading: 'Rechtschreib-, Grammatik- und Stilprüfung',
+  },
+} as const;
+
+function getStudioUpdate(locale: string) {
+  if (locale === 'hu' || locale === 'de') return STUDIO_UPDATE[locale];
+  return STUDIO_UPDATE.en;
+}
+
 export default function Home() {
   const {i18n} = useDocusaurusContext();
   const t = getPublicPageCopy(i18n.currentLocale).home;
+  const studioUpdate = getStudioUpdate(i18n.currentLocale);
 
   return (
     <Layout title="Open Manuscript Initiative" description={t.description}>
@@ -60,10 +90,10 @@ export default function Home() {
 
         <section className={styles.studio} aria-labelledby="current-development-status">
           <div className={styles.studioContent}>
-            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.1.0-alpha.4 · beta-readiness</p>
+            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.1.0-alpha.4 · beta-readiness stabilization</p>
             <h2 id="current-development-status">{t.status}</h2>
             <h3>{t.currentTitle}</h3>
-            <p>{t.current}</p>
+            <p>{studioUpdate.summary}</p>
             <div className={styles.studioActions}>
               <Link className="button button--primary button--lg" to="/studio">{t.studio}</Link>
               <Link className="button button--secondary button--lg" to="/docs/governance/studio-implementation-status">{t.status}</Link>
@@ -77,8 +107,10 @@ export default function Home() {
             <nav className={styles.contextLinks} aria-label={t.status}>
               <Link to="/docs/specifications/review-model">✓ {t.features[2]}</Link>
               <Link to="/docs/integrations/implementation-status">✓ {t.features[3]}</Link>
-              <Link to="/docs/foundations/cross-platform-studio">✓ {t.features[4]}</Link>
-              <Link to="/docs/specifications/publishing-model">✓ {t.features[5]}</Link>
+              <Link to="/docs/foundations/cross-platform-studio">✓ {studioUpdate.multiDocument}</Link>
+              <Link to="/docs/governance/studio-implementation-status">✓ {studioUpdate.largeDocx}</Link>
+              <Link to="/docs/governance/studio-implementation-status">✓ {studioUpdate.identity}</Link>
+              <Link to="/docs/governance/studio-implementation-status">✓ {studioUpdate.proofreading}</Link>
             </nav>
             <p>✓ Android public alpha</p>
             <p>◐ Windows code signing — SignPath application pending</p>
