@@ -15,12 +15,12 @@ The project does not maintain unrelated applications for each operating system. 
 |---|---|---|
 | Web | **Operational** | Hosted Studio |
 | Windows | **Operational** | Tauri 2 EXE/MSI |
-| macOS | **Build target** | Intel and Apple Silicon DMG; signing/notarization hardening remains |
-| Linux | **Build target** | AppImage and DEB |
-| Android | **Operational development build** | Universal APK for testing; store-oriented packaging later |
-| iOS / iPadOS | **Planned on shared architecture** | Signed App Store build after platform validation |
+| macOS | **Automated build target** | Intel and Apple Silicon DMG; signing/notarization hardening remains |
+| Linux | **Automated build target** | AppImage and DEB |
+| Android | **Operational public alpha** | Universal APK from the shared release workflow; store-oriented packaging later |
+| iOS / iPadOS | **Planned on shared architecture** | Signed distribution after platform validation |
 
-Android is no longer only an architectural target: the Tauri application has been built and exercised on a physical Android client, including server-backed account login. Mobile UI hardening remains active work.
+Android is no longer only an architectural or development target. A public universal APK is generated from the shared Tauri 2 code line and uses the same account, document, review, integration and export logic as the other clients, with mobile-specific responsive presentation.
 
 ## One Studio core
 
@@ -53,7 +53,7 @@ A feature implemented in the shared core should therefore become available to ev
 
 ## Platform adapter layer
 
-Native operating-system services are isolated behind platform adapters instead of being embedded throughout the editor or scholarly model. Typical responsibilities include opening and saving local files, secure credential/token storage, share/open-with workflows, application updates, deep links, notifications, background synchronization and permission handling.
+Native operating-system services are isolated behind platform adapters instead of being embedded throughout the editor or scholarly model. Current examples include native folder/file selection, native save dialogs, filesystem writes, persistent user-granted filesystem scope and desktop updater behaviour. Future adapters can cover deeper share/open-with workflows, notifications, background synchronization and platform credential stores.
 
 Native authentication also requires transport behaviour appropriate to application origins. The current Tauri client path supports authenticated Studio API access without assuming that the client is running as an ordinary hosted browser page.
 
@@ -63,15 +63,34 @@ Cross-platform does not mean forcing the same screen layout onto every device.
 
 Desktop Studio can use multi-panel workspaces with document navigation, editor and properties visible together. Mobile Studio uses the same manuscript and editing logic but presents it through touch-oriented navigation, compact controls, drawers and responsive panels. Tablets can progressively restore multi-panel editing where screen size permits it.
 
-Current Android testing is also being used to harden practical responsive behaviour: long-document scrolling, insertion controls, search access, language switching, footer/navigation visibility, sign-out behaviour and consistent Studio branding. These are presentation-layer issues; they do not require a separate Android manuscript model.
+Current Android work includes responsive bottom navigation, document and details views, account/profile access, insertion controls, search access, language switching, sign-out behaviour, native export delivery and consistent OMI Studio branding. These are presentation/platform concerns; they do not require a separate Android manuscript model.
 
 ## Local-first portability
 
-The cross-platform model reinforces a core OMI principle: the manuscript should not become dependent on a particular application installation or operating system.
+The cross-platform model reinforces a core OMI principle: the manuscript should not become dependent on a particular application installation, cloud provider or operating system.
 
-A manuscript created on Windows should be usable on Linux, macOS, Android, iOS or in the browser without conversion into a platform-specific document model. Local storage and synchronized storage remain possible, while server services are used where collaboration, accounts, publishing workflows or integrations require them.
+A manuscript created on Windows should be usable on Linux, macOS, Android, iOS or in the browser without conversion into a platform-specific document model. Portable `.omi.zip` and OMI JSON forms provide explicit interchange targets, while server services are used only where collaboration, accounts, publishing workflows or direct integrations require them.
 
-The OMI document model — not the operating system — remains the authoritative representation of the scholarly work.
+### Locally synchronized folders
+
+Desktop Studio can save portable OMI backups into a folder already synchronized by OneDrive, SharePoint, Google Drive, Dropbox, Nextcloud, iCloud Drive or another desktop synchronization client. In this mode:
+
+- Studio does not receive the provider password or OAuth token;
+- the user selects the folder through the native Tauri folder dialog;
+- the selected path is stored only on the local device;
+- the setting is isolated by signed-in user, provider and personal/business account type;
+- the user-granted filesystem scope is persisted across restarts;
+- access remains limited to explicitly granted paths instead of broad home-directory permissions.
+
+The cloud provider's own desktop client performs the network synchronization. This gives authors a useful provider-independent local-first workflow without requiring every provider API to be implemented first.
+
+## Cross-platform export delivery
+
+The export layer now separates **format generation** from **file delivery**.
+
+The hosted Studio uses ordinary browser downloads. Installed Tauri clients use native save dialogs and binary filesystem writes for supported export formats. This shared delivery layer is used for portable OMI output and publishing-oriented formats including OMI JSON, JATS, DOCX, EPUB, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX. Semantic HTML is delivered as the offline HTML package so referenced assets travel with the document; PDF remains tied to the publication-profile print flow.
+
+This avoids browser-only download assumptions in native applications while keeping one exporter implementation for all platforms.
 
 ## Shared account and workflow services
 
@@ -83,26 +102,30 @@ Web and native clients use the same Studio service boundary for account identity
 
 This separation is important for portability: changing from browser to Windows or Android does not redefine the manuscript or peer-review protocol.
 
+## Multilingual and regional settings
+
+The shared client currently exposes 24 European UI languages. Interface-language, manuscript-language and metadata-language preferences are managed together in a compact responsive settings surface. Time zones use standard IANA identifiers with UTC offsets and system-zone detection rather than free-text values, so account preferences remain portable across operating systems.
+
 ## Mobile workflow direction
 
-The mobile clients are intended to support active scholarly work rather than passive reading. The shared target includes account login and manuscript access, structured editing, document navigation and metadata editing, autosave/synchronization, author/editor/reviewer roles, double-blind peer review, OJS/OMP workflow access, native document import/sharing and secure credential storage.
+The mobile clients are intended to support active scholarly work rather than passive reading. The shared target includes account login and manuscript access, structured editing, document navigation and metadata editing, author/editor/reviewer roles, double-blind peer review, publishing-system workflow access, native document import/export and secure platform capabilities.
 
 Later native capabilities can include deeper offline operation, deep links, biometrics and push notifications without moving those concerns into the OMI document model.
 
 ## Release engineering
 
-Release automation builds platform artifacts from the shared repository. Reproducibility is strengthened by locking the Rust/Tauri dependency graph with `src-tauri/Cargo.lock`, reducing differences between a successful local native build and later CI resolution.
+Release automation builds Windows, Linux, macOS and Android artifacts from the shared repository. Reproducibility is strengthened by lockfile-controlled JavaScript and Rust/Tauri dependency graphs and CI installation paths that reject lockfile drift.
 
 The distribution model separates artifact creation from trust infrastructure. Windows code signing, macOS signing/notarization and mobile-store signing are release-hardening concerns layered on top of the shared application build.
 
 ## Why this matters for scholarly publishing
 
-Cross-platform support is not only a deployment convenience. Authors, reviewers, editors, publishers and institutions should be able to participate in the same scholarly workflow from different devices without creating incompatible copies of the work. Structure, annotations, citations, review state, metadata and publication semantics should remain stable when the user changes operating system or form factor.
+Cross-platform support is not only a deployment convenience. Authors, reviewers, editors, publishers and institutions should be able to participate in the same scholarly workflow from different devices without creating incompatible copies of the work. Structure, annotations, citations, review state, metadata and publication semantics should remain stable when the user changes operating system, storage provider or form factor.
 
 In this architecture, **the scholarly manuscript is portable by design, and the application follows the manuscript rather than locking the manuscript to the application.**
 
 ## Implementation status
 
-Web and Windows delivery are operational parts of Studio, and Android has reached an operational development-build stage with authenticated API access exercised on-device. Linux/macOS remain automated native build targets, while iOS/iPadOS follows the same Tauri 2 architecture as a later validated distribution target.
+Web and Windows delivery are operational parts of Studio, Android is a public alpha target, and Linux/macOS are automated native build targets. The shared client now includes native file delivery and persistent user-approved synchronized-folder access in addition to the browser workflow. iOS/iPadOS remains a later validated distribution target on the same Tauri 2 architecture.
 
 For current implementation details, see [Studio Implementation Status](../governance/studio-implementation-status.md) and [Integration Implementation Status](../integrations/implementation-status.md).

@@ -7,7 +7,7 @@ import {getPublicPageCopy} from '../i18n/publicPages';
 import styles from './studio.module.css';
 
 const RELEASE_BASE = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/releases/latest/download';
-const ANDROID_RELEASE_BASE = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/releases/download/v0.1.0-alpha.3';
+const ANDROID_RELEASE_BASE = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/releases/download/v0.1.0-alpha.4';
 const downloads = {
   windowsExe: `${RELEASE_BASE}/Open-Manuscript-Studio-Windows-x64-Setup.exe`,
   windowsMsi: `${RELEASE_BASE}/Open-Manuscript-Studio-Windows-x64.msi`,
