@@ -18,9 +18,11 @@ The project does not maintain unrelated applications for each operating system. 
 | macOS | **Automated build target** | Intel and Apple Silicon DMG; signing/notarization hardening remains |
 | Linux | **Automated build target** | AppImage and DEB |
 | Android | **Operational public alpha** | Universal APK from the shared release workflow; store-oriented packaging later |
-| iOS / iPadOS | **Planned on shared architecture** | Signed distribution after platform validation |
+| iOS / iPadOS | **Validated native build target** | iPhone/iPad simulator build succeeds; TestFlight/App Store distribution requires Apple Developer signing and final Universal Link association |
 
 Android is no longer only an architectural or development target. A public universal APK is generated from the shared Tauri 2 code line and uses the same account, document, review, integration and export logic as the other clients, with mobile-specific responsive presentation and Android-native Documents/Storage Access Framework file handling.
+
+iOS/iPadOS has also moved beyond architecture-only planning. CI now generates the Tauri/Xcode project, compiles the Apple Silicon iPhone/iPad simulator application and uploads the resulting simulator artifact. The remaining Apple-specific boundary is physical-device/public distribution: real Apple Developer signing, provisioning, Universal Link association and TestFlight/App Store validation are still required before a public iOS release is claimed.
 
 ## One Studio core
 
@@ -33,8 +35,8 @@ Android is no longer only an architectural or development target. A public unive
                │                │                │
             Browser           Tauri 2          Tauri 2
                                 │                │
-                      ┌─────────┼─────────┐   ┌──┴───┐
-                    Windows    macOS    Linux Android iOS
+                      ┌─────────┼─────────┐   ┌──┴────┐
+                    Windows    macOS    Linux Android iOS/iPadOS
 ```
 
 The shared core includes, wherever technically possible:
@@ -54,7 +56,7 @@ A feature implemented in the shared core should therefore become available to ev
 
 ## Platform adapter layer
 
-Native operating-system services are isolated behind platform adapters instead of being embedded throughout the editor or scholarly model. Current examples include native folder/file selection, native save dialogs, Android Documents/SAF access, filesystem writes, persistent user-granted filesystem scope, desktop updater behaviour and native external-authentication handoff.
+Native operating-system services are isolated behind platform adapters instead of being embedded throughout the editor or scholarly model. Current examples include native folder/file selection, native save dialogs, Android Documents/SAF access, Apple Files/UIDocumentPicker access, filesystem writes, persistent or security-scoped user-granted filesystem access, desktop updater behaviour and native external-authentication handoff.
 
 Native authentication uses transport appropriate to application origins. Tauri clients can use bearer-session transport and share one-time external authentication handoff flows for ORCID and configured OIDC providers rather than assuming browser-only cookies.
 
@@ -64,25 +66,25 @@ Cross-platform does not mean forcing the same screen layout onto every device.
 
 Desktop Studio now supports browser-style multi-document tabs, full-window Studio/Account surfaces and a toggleable Word-like document outline beside the editor. Mobile Studio uses the same manuscript and editing logic but presents it through touch-oriented navigation, compact controls, drawers and responsive panels. Tablets can progressively restore multi-panel editing where screen size permits it.
 
-Current Android work includes responsive navigation, document and details views, account/profile access, insertion controls, search, language switching, sign-out, ORCID/OIDC in-app-browser return handling, Documents/SAF opening and saving, native export delivery and consistent OMI Studio branding. These are presentation/platform concerns; they do not require a separate Android manuscript model.
+Current mobile work includes responsive navigation, document and details views, account/profile access, insertion controls, search, language switching, sign-out, ORCID/OIDC in-app-browser return handling, native file-provider opening/saving, native export delivery and consistent OMI Studio branding. Android uses Documents/SAF; iPhone/iPad uses Files/UIDocumentPicker. These are presentation/platform concerns; they do not require separate Android or Apple manuscript models.
 
 ## Local-first portability and device trust
 
 The cross-platform model reinforces a core OMI principle: the manuscript should not become dependent on a particular application installation, cloud provider or operating system.
 
-A manuscript created on Windows should be usable on Linux, macOS, Android, iOS or in the browser without conversion into a platform-specific document model. Portable `.omi.zip` and OMI JSON forms provide explicit interchange targets, while server services are used only where identity, collaboration, publishing workflows or direct integrations require them.
+A manuscript created on Windows should be usable on Linux, macOS, Android, iOS/iPadOS or in the browser without conversion into a platform-specific document model. Portable `.omi.zip` and OMI JSON forms provide explicit interchange targets, while server services are used only where identity, collaboration, publishing workflows or direct integrations require them.
 
 Installed clients now add a device-local trust distinction.
 
 ### Own device
 
-When the signed-in user marks an installed device as their own, Studio can retain normal native working-file locations. Desktop targets can use local folders, mounted/network storage and folders synchronized by provider desktop clients. Android can use system-selected document destinations.
+When the signed-in user marks an installed device as their own, Studio can retain normal native working-file locations. Desktop targets can use local folders, mounted/network storage and folders synchronized by provider desktop clients. Android can use system-selected Documents/SAF destinations, while iPhone/iPad can use system-selected Files/UIDocumentPicker locations including iCloud Drive and available third-party document providers.
 
 ### Shared or foreign device
 
 Newly seen devices default to shared/foreign-device mode. In this mode Studio does not retain the selected local working-file path. The normal persistent workflow prefers cloud connections belonging to the signed-in profile.
 
-The user can still explicitly open or save a file to removable/portable storage, but the location is treated as a one-off destination and is not remembered as the current working file.
+The user can still explicitly open or save a file to removable/portable storage or another system-provided document location, but the location is treated as a one-off destination and is not remembered as the current working file.
 
 This avoids pretending that portable removable-drive detection is identical across every operating system while preserving the important security property: shared-device local paths are not retained.
 
@@ -115,6 +117,21 @@ The current Android workflow supports:
 
 Raw `content://` identifiers are implementation details and are not presented to the user as ordinary filesystem paths.
 
+## iOS/iPadOS-native file workflow
+
+iPhone and iPad use the Apple Files / UIDocumentPicker surface rather than broad filesystem access. Open operations request security-scoped document access and the Tauri filesystem layer reads/writes the user-selected `file://` URL.
+
+Depending on installed providers and device configuration, the picker can expose:
+
+- On My iPhone / On My iPad;
+- iCloud Drive;
+- connected external storage supported by iOS/iPadOS;
+- third-party Files providers supplied by installed cloud-storage applications.
+
+The iOS/iPadOS client uses the same mobile export set as Android: OMI package/JSON, JATS XML, HTML package, DOCX, LaTeX and EPUB. Desktop-oriented IDML, XTG, MIF, SLA and browser print/PDF choices are hidden instead of being shown as non-functional mobile actions.
+
+For Apple-specific build, signing and Universal Link details, see [Open Manuscript Studio on iOS and iPadOS](./ios-ipados-studio.md).
+
 ## Cross-platform account identity
 
 The same Studio account is designed to work across browser, desktop and mobile clients. Current shared identity features include:
@@ -129,11 +146,13 @@ The same Studio account is designed to work across browser, desktop and mobile c
 
 External provider identities are linked by stable issuer/subject identity rather than by display name, and existing accounts are not silently merged on e-mail match alone.
 
+Mobile clients use a one-time native authentication handoff. The preferred HTTPS application return is hosted under `app.openmanuscript.org`, with the `openmanuscript://` custom scheme retained as fallback. On iOS/iPadOS the production HTTPS return additionally requires Apple Universal Link association with the real Apple Development Team ID.
+
 ## Cross-platform export delivery
 
 The export layer separates **format generation** from **file delivery**.
 
-Hosted Studio uses ordinary browser downloads. Installed desktop clients use native save dialogs and binary filesystem writes. Android uses Documents/SAF destinations and intentionally limits the visible export list to formats meaningful on the platform.
+Hosted Studio uses ordinary browser downloads. Installed desktop clients use native save dialogs and binary filesystem writes. Android uses Documents/SAF destinations; iOS/iPadOS uses Files/UIDocumentPicker destinations. Both mobile targets intentionally limit the visible export list to formats meaningful on the platform.
 
 This keeps one exporter implementation for the scholarly formats while allowing each platform to use an appropriate file-delivery mechanism.
 
@@ -146,7 +165,7 @@ Web and native clients use the same Studio service boundary for account identity
 3. **organization authority** — institution membership and central administration;
 4. **platform capability** — native file access, packaging, updater behaviour and mobile/desktop shell integration.
 
-This separation is important for portability: changing from browser to Windows or Android does not redefine the manuscript or peer-review protocol, and becoming an institution administrator does not automatically grant access to scholarly content.
+This separation is important for portability: changing from browser to Windows, Android or iPad does not redefine the manuscript or peer-review protocol, and becoming an institution administrator does not automatically grant access to scholarly content.
 
 ## Multilingual and regional settings
 
@@ -160,9 +179,11 @@ Later native capabilities can include deeper offline operation, richer share/ope
 
 ## Release engineering
 
-Release automation builds Windows, Linux, macOS and Android artifacts from the shared repository. Reproducibility is strengthened by lockfile-controlled JavaScript and Rust/Tauri dependency graphs and CI installation paths that reject lockfile drift.
+Release automation builds Windows, Linux, macOS and Android artifacts from the shared repository. iOS/iPadOS now has a PR-triggered simulator smoke build that generates the Xcode project, compiles the Apple Silicon simulator application and stores the app artifact. A separate manual Apple release workflow is prepared for signed device/App Store Connect packaging once Apple Developer credentials are supplied.
 
-The distribution model separates artifact creation from trust infrastructure. Windows code signing, macOS signing/notarization and mobile-store signing are release-hardening concerns layered on top of the shared application build.
+Reproducibility is strengthened by lockfile-controlled JavaScript and Rust/Tauri dependency graphs and CI installation paths that reject lockfile drift.
+
+The distribution model separates artifact creation from trust infrastructure. Windows code signing, macOS signing/notarization and Apple/Google mobile-store signing are release-hardening concerns layered on top of the shared application build.
 
 ## Why this matters for scholarly publishing
 
@@ -172,6 +193,6 @@ In this architecture, **the scholarly manuscript is portable by design, and the 
 
 ## Implementation status
 
-Web and Windows delivery are operational parts of Studio, Android is a public alpha target, and Linux/macOS are automated native build targets. The shared client now includes multi-document desktop work, device-aware native storage, Android Documents/SAF file handling, cross-device account identity and federated authentication in addition to the browser workflow. iOS/iPadOS remains a later validated distribution target on the same Tauri 2 architecture.
+Web and Windows delivery are operational parts of Studio, Android is a public alpha target, Linux/macOS are automated native build targets, and iOS/iPadOS is now a validated native simulator build target on the same Tauri 2 architecture. The shared client includes multi-document desktop work, device-aware native storage, Android Documents/SAF handling, Apple Files/UIDocumentPicker handling, cross-device account identity and federated authentication in addition to the browser workflow. Public iOS/iPadOS distribution remains gated by Apple Developer signing, provisioning, Universal Link association and TestFlight/App Store validation.
 
-For current implementation details, see [Studio Implementation Status](../governance/studio-implementation-status.md), [Integration Implementation Status](../integrations/implementation-status.md) and [Institutional and Central Administration](../integrations/institutional-administration.md).
+For current implementation details, see [Studio Implementation Status](../governance/studio-implementation-status.md), [Open Manuscript Studio on iOS and iPadOS](./ios-ipados-studio.md), [Integration Implementation Status](../integrations/implementation-status.md) and [Institutional and Central Administration](../integrations/institutional-administration.md).

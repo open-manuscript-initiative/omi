@@ -22,6 +22,7 @@ const sidebars = {
       items: [
         {type: 'doc', id: 'foundations/core-principles', label: 'Core Principles'},
         {type: 'doc', id: 'foundations/cross-platform-studio', label: 'Cross-platform Studio'},
+        {type: 'doc', id: 'foundations/ios-ipados-studio', label: 'iOS and iPadOS Studio'},
         {type: 'doc', id: 'specifications/core/scholarly-object-model', label: 'Scholarly Object Model'},
         {type: 'doc', id: 'governance/terminology', label: 'Terminology and Definitions'},
       ],

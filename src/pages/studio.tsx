@@ -38,10 +38,16 @@ const CURRENT_UPDATE = {
       ['Federated sign-in', 'Google, Microsoft and configurable institutional OpenID Connect providers use Authorization Code + PKCE, state/nonce checks and issuer/audience validation. Existing accounts require explicit identity linking rather than e-mail auto-linking.'],
       ['Device-aware storage', 'Installed clients distinguish trusted personal devices from shared/foreign devices. Own devices can use native local/system storage; shared devices prefer profile cloud connections and do not retain local working paths.'],
       ['Android-native file workflow', 'Android uses the system Documents / Storage Access Framework picker for opening, saving, Save As and portable OMI backup/export destinations instead of broad shared-storage permissions.'],
+      ['iOS and iPadOS native target', 'The shared Tauri client now generates and compiles as an Apple Silicon iPhone/iPad simulator app. Files/UIDocumentPicker storage, mobile export delivery and native authentication handoff are implemented; TestFlight/App Store distribution still requires Apple Developer signing, provisioning and Universal Link association.'],
       ['Institutional and central administration', 'Personal and institutional profiles are separated. Institution MEMBER/ADMIN/OWNER roles, administrator sign-in, OMI central administration, scoped institution Admin API credentials and append-only admin audit events are implemented without granting manuscript access.'],
       ['Verified scholarly identity', 'ORCID linking is integrated with cryptographic author signing: immutable committed revisions can be bound to verified ORCID identity and portable WebAuthn/issuer verification evidence.'],
       ['Publishing-system workflows', 'OJS author/editor/reviewer workflows are operational when configured, and the OMP connector architecture remains under end-to-end hardening.'],
     ],
+    nativeAppsTitle: 'Native applications and platform builds',
+    nativeAppsDescription: 'Studio uses one OMI application core across desktop and mobile. Download public native builds where available; validated targets that still require platform-store signing are clearly marked instead of exposing non-existent packages.',
+    iosTitle: 'iOS / iPadOS',
+    iosDescription: 'Validated native iPhone/iPad simulator target using the same Studio core. Public TestFlight/App Store installation is not yet available because Apple signing/provisioning and the final Universal Link association are still required.',
+    iosAction: 'iOS/iPadOS implementation details',
     maturity: 'The current release remains alpha, but the project is in beta-readiness stabilization. Regression testing, large-document performance, error recovery, interoperability, migration discipline and release trust remain the primary gates.',
   },
   hu: {
@@ -55,10 +61,16 @@ const CURRENT_UPDATE = {
       ['Federált bejelentkezés', 'Google, Microsoft és konfigurálható intézményi OpenID Connect szolgáltatók Authorization Code + PKCE, state/nonce és issuer/audience ellenőrzést használnak. Meglévő fiókhoz külső identitás csak kifejezett összekapcsolással rendelhető.'],
       ['Eszköztudatos tárhelykezelés', 'A telepített kliensek megkülönböztetik a saját és a megosztott/idegen eszközt. Saját eszközön használható a natív helyi vagy rendszerszintű tárhely; megosztott eszközön a profilhoz kötött felhőkapcsolat az elsődleges, és a helyi munkafájl útvonala nem marad meg.'],
       ['Android natív fájlmunkafolyamat', 'Androidon a rendszer Dokumentumok / Storage Access Framework választója kezeli a megnyitást, mentést, más helyre mentést és az OMI biztonsági mentések/exportok célját, általános tárhely-hozzáférés nélkül.'],
+      ['iOS és iPadOS natív célverzió', 'A közös Tauri kliens már Apple Silicon iPhone/iPad szimulátoros alkalmazásként is generálható és sikeresen fordul. Elkészült a Files/UIDocumentPicker tárhelykezelés, a mobil export és a natív hitelesítési visszatérés; a TestFlight/App Store terjesztéshez még Apple Developer aláírás, provisioning és Universal Link társítás szükséges.'],
       ['Intézményi és központi adminisztráció', 'A személyes és intézményi profilok különváltak. Elkészült az intézményi MEMBER/ADMIN/OWNER modell, az adminisztrátori belépés, az OMI központi adminisztráció, a scope-olt intézményi Admin API és az adminisztrációs auditnapló — kéziratokhoz való automatikus hozzáférés nélkül.'],
       ['Hitelesített tudományos identitás', 'Az ORCID-kapcsolás bekerült a kriptográfiai szerzői aláírásba: változtathatatlan, szerveren rögzített revízió köthető ellenőrzött ORCID-identitáshoz és hordozható WebAuthn/issuer ellenőrzési bizonyítékhoz.'],
       ['Publikációs rendszerkapcsolatok', 'A konfigurált OJS szerzői, szerkesztői és lektori munkafolyamatok működnek; az OMP-kapcsolat architektúrája elkészült és végponttól végpontig tartó stabilizálás alatt áll.'],
     ],
+    nativeAppsTitle: 'Natív alkalmazások és platformbuildek',
+    nativeAppsDescription: 'A Studio ugyanazt az OMI alkalmazásmagot használja asztali és mobil rendszereken. A nyilvános natív buildek letölthetők; a még platformáruházi aláírásra váró validált célverziókat külön jelöljük, nem kínálunk hozzájuk nem létező telepítőt.',
+    iosTitle: 'iOS / iPadOS',
+    iosDescription: 'Validált natív iPhone/iPad szimulátoros célverzió ugyanazzal a Studio-maggal. Nyilvános TestFlight/App Store telepítés még nincs, mert ehhez Apple aláírás/provisioning és a végleges Universal Link társítás szükséges.',
+    iosAction: 'iOS/iPadOS megvalósítás részletei',
     maturity: 'A jelenlegi kiadás továbbra is alpha, de a projekt béta-előkészítő stabilizációs szakaszban van. A regressziós tesztelés, nagy dokumentumok teljesítménye, hibából való helyreállás, interoperabilitás, migrációs fegyelem és a kiadások megbízhatósága a fő hátralévő kapuk.',
   },
   de: {
@@ -72,10 +84,16 @@ const CURRENT_UPDATE = {
       ['Föderierte Anmeldung', 'Google, Microsoft und konfigurierbare institutionelle OpenID-Connect-Provider verwenden Authorization Code + PKCE sowie State/Nonce- und Issuer/Audience-Prüfung. Bestehende Konten werden nicht allein anhand der E-Mail automatisch verknüpft.'],
       ['Gerätebewusste Speicherung', 'Installierte Clients unterscheiden eigene von gemeinsam genutzten/fremden Geräten. Eigene Geräte können nativen lokalen/Systemspeicher verwenden; auf gemeinsam genutzten Geräten werden profilgebundene Cloud-Verbindungen bevorzugt und lokale Arbeitswege nicht behalten.'],
       ['Android-native Dateiabläufe', 'Android verwendet den systemeigenen Dokument-/Storage-Access-Framework-Dialog für Öffnen, Speichern, Speichern unter sowie OMI-Backups/Exporte statt breit angelegter Speicherberechtigungen.'],
+      ['iOS- und iPadOS-Nativziel', 'Der gemeinsame Tauri-Client wird inzwischen als Apple-Silicon-iPhone/iPad-Simulator-App erzeugt und erfolgreich kompiliert. Files/UIDocumentPicker, mobile Exportausgabe und nativer Authentifizierungs-Handoff sind implementiert; für TestFlight/App Store fehlen noch Apple-Developer-Signierung, Provisioning und die endgültige Universal-Link-Zuordnung.'],
       ['Institutionelle und zentrale Administration', 'Persönliche und institutionelle Profile sind getrennt. MEMBER/ADMIN/OWNER-Rollen, Administrator-Anmeldung, zentrale OMI-Administration, bereichsgebundene Institution-Admin-API-Zugangsdaten und Admin-Auditereignisse sind implementiert, ohne Manuskriptzugriff zu verleihen.'],
       ['Verifizierte wissenschaftliche Identität', 'ORCID-Verknüpfung ist mit kryptografischer Autorensignatur verbunden: unveränderliche committed Revisionen können an eine verifizierte ORCID-Identität und portable WebAuthn/Issuer-Verifikation gebunden werden.'],
       ['Publikationssystem-Workflows', 'Konfigurierte OJS-Workflows für Autoren, Redakteure und Gutachter sind funktionsfähig; die OMP-Connector-Architektur wird weiterhin end-to-end stabilisiert.'],
     ],
+    nativeAppsTitle: 'Native Anwendungen und Plattform-Builds',
+    nativeAppsDescription: 'Studio verwendet denselben OMI-Anwendungskern auf Desktop- und Mobilplattformen. Öffentliche native Builds können heruntergeladen werden; validierte Ziele, die noch Store-Signierung benötigen, werden klar markiert, statt nicht vorhandene Pakete anzubieten.',
+    iosTitle: 'iOS / iPadOS',
+    iosDescription: 'Validiertes natives iPhone/iPad-Simulatorziel mit demselben Studio-Kern. Eine öffentliche TestFlight/App-Store-Installation ist noch nicht verfügbar, da Apple-Signierung/Provisioning und die endgültige Universal-Link-Zuordnung erforderlich sind.',
+    iosAction: 'Details zur iOS/iPadOS-Implementierung',
     maturity: 'Die aktuelle Version bleibt Alpha, befindet sich aber in der Beta-Readiness-Stabilisierung. Regressionstests, Leistung bei großen Dokumenten, Fehlerbehebung, Interoperabilität, saubere Migrationen und Release-Vertrauen bleiben die wichtigsten Gates.',
   },
 } as const;
@@ -146,8 +164,8 @@ export default function StudioDownloads() {
 
         <section className={styles.sectionAlt}>
           <div className={styles.container}>
-            <h2>{t.desktopTitle}</h2>
-            <p className={styles.sectionLead}>{t.desktopText}</p>
+            <h2>{update.nativeAppsTitle}</h2>
+            <p className={styles.sectionLead}>{update.nativeAppsDescription}</p>
             <div className={styles.grid}>
               <DownloadCard title={t.windows} description={t.windowsText}>
                 <DownloadButton href={downloads.windowsExe}>{t.setup}</DownloadButton>
@@ -156,6 +174,9 @@ export default function StudioDownloads() {
               </DownloadCard>
               <DownloadCard title={t.android ?? 'Android'} description={t.androidText ?? 'Installable universal APK for Android devices.'}>
                 <DownloadButton href={downloads.android}>{t.apk ?? 'Download Android APK'}</DownloadButton>
+              </DownloadCard>
+              <DownloadCard title={update.iosTitle} description={update.iosDescription}>
+                <Link className="button button--secondary" to="/docs/foundations/ios-ipados-studio">{update.iosAction}</Link>
               </DownloadCard>
               <DownloadCard title={t.macArm} description={t.macArmText}>
                 <DownloadButton href={downloads.macArm}>{t.arm}</DownloadButton>
@@ -187,6 +208,8 @@ export default function StudioDownloads() {
             <p>{update.maturity}</p>
             <p>
               <Link to="/docs/governance/studio-implementation-status">{copy.home.status}</Link>
+              {' · '}
+              <Link to="/docs/foundations/ios-ipados-studio">iOS/iPadOS</Link>
               {' · '}
               <Link to="/docs/integrations/implementation-status">{t.capabilities[6]}</Link>
               {' · '}
