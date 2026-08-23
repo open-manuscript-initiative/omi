@@ -7,6 +7,8 @@ keywords:
   - Open Manuscript Studio
   - implementation status
   - Android
+  - iOS
+  - iPadOS
   - peer review
   - OJS
   - OMP
@@ -31,7 +33,7 @@ keywords:
 | Source repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web target | Modern browsers |
 | Desktop targets | Windows x64, Linux x64, macOS Intel, macOS Apple Silicon |
-| Mobile targets | Android public universal APK; iOS/iPadOS planned on the shared Tauri 2 architecture |
+| Mobile targets | Android public universal APK; iOS/iPadOS validated native simulator target, with TestFlight/App Store distribution pending Apple Developer signing |
 | Web deployment | `studio.openmanuscript.org` |
 
 This page describes **implemented product capabilities**, not OMI specification conformance. Formal specification maturity and conformance evidence are tracked separately in the [OMI Implementation Status Matrix](./implementation-status-matrix.md).
@@ -53,7 +55,7 @@ This page describes **implemented product capabilities**, not OMI specification 
 | Multilingual user interface | **Operational** | 24 supported European UI languages with shared language selection. Interface, manuscript and metadata language preferences are managed in one compact responsive settings surface. |
 | Time-zone preferences | **Operational** | Standard IANA time-zone selection with current UTC offsets and automatic system-zone defaulting. |
 | Multilingual help | **Operational** | Integrated localized help coverage across the supported Studio UI locales. |
-| Accounts and authentication | **Operational** | Server-backed registration/login, logout and authenticated API access work in web and native clients. The same central account can be used across Windows, Android and browser clients. Native clients use bearer-session transport compatible with Tauri application origins. |
+| Accounts and authentication | **Operational** | Server-backed registration/login, logout and authenticated API access work in web and native clients. The same central account can be used across Windows, Android, iOS/iPadOS and browser clients. Native clients use bearer-session transport compatible with Tauri application origins. |
 | Password recovery | **Configuration-dependent** | Forgot-password/reset flow uses single-use expiring reset tokens stored only as hashes, generic account-existence responses and all-session revocation after successful password change. Requires working server mail delivery. |
 | Federated sign-in | **Configuration-dependent** | Google, Microsoft and configurable generic/institutional OIDC providers use Authorization Code + PKCE, state/nonce validation, discovery/JWKS validation and explicit account linking. Existing accounts are never auto-linked by e-mail alone. |
 | Connected sign-in identities | **Operational / configuration-dependent providers** | Account settings list password and connected ORCID/OIDC identities, allow configured providers to be linked/unlinked and prevent removal of the last usable sign-in method. |
@@ -77,23 +79,24 @@ This page describes **implemented product capabilities**, not OMI specification 
 | Integration audit and extension registry | **Operational foundation / configuration-dependent execution** | Integration execution records operation metadata/digests without storing manuscript text or secrets. Extension manifests support version compatibility, permissions, capabilities and HTTPS-only external endpoints. |
 | Portable OMI export | **Operational** | Portable `.omi.zip` and OMI JSON outputs are available as first-class interchange forms. |
 | Scholarly/publishing exports | **Operational** | JATS XML, semantic offline HTML package, DOCX, EPUB, PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX are represented in the current export layer. |
-| Cross-platform export delivery | **Operational** | Hosted Studio uses browser downloads; installed Tauri clients use native save dialogs and binary writes for supported export targets. |
+| Cross-platform export delivery | **Operational** | Hosted Studio uses browser downloads; installed Tauri clients use native save/document-provider dialogs and binary writes for supported export targets. Mobile clients expose a platform-appropriate subset rather than desktop-only publishing choices. |
 | Publisher profiles | **Operational** | Publisher profile, export stylesheet and print stylesheet handling are separated from manuscript semantics. |
 | Device-aware storage mode | **Operational on installed clients** | Studio keeps a per-user, per-device “own device” trust preference. Own devices can retain normal native working paths; newly seen/shared devices default to a restricted mode that does not retain local working paths. |
 | Profile cloud connections | **Operational / provider-dependent** | Direct WebDAV/Nextcloud credentials are encrypted server-side and scoped to the signed-in user, so profile cloud connections can follow the account across devices. Future OAuth cloud connections use the same profile-scoped model. |
 | Portable storage on shared devices | **Operational on installed clients** | Shared-device mode still permits explicit one-off open/save to removable or portable locations without keeping the selected path as the current working file. |
 | Locally synchronized folders | **Operational on desktop** | OneDrive, SharePoint, Google Drive, Dropbox, Nextcloud, iCloud Drive and other desktop-synchronized folders are treated as connection methods of their actual provider. Studio writes portable OMI files locally while the provider client performs authentication/synchronization. |
 | Android native save workflow | **Operational public alpha** | Android uses the system Documents / Storage Access Framework picker for opening, Save, Save As, portable `.omi.zip` backup and supported export destinations instead of broad shared-storage permissions. |
+| iOS/iPadOS native Files workflow | **Validated native implementation** | iPhone/iPad uses the Apple Files / UIDocumentPicker workflow with security-scoped document access for opening/saving OMI files and mobile-relevant export destinations. Available system providers can include On My iPhone/iPad, iCloud Drive, supported external storage and installed third-party Files providers. |
 | WebDAV / Nextcloud direct storage | **Configuration-dependent** | Direct WebDAV/Nextcloud connections support encrypted server-side credentials, connection testing, portable backup upload, restore and deletion. |
 | Integrations catalogue | **Operational** | Provider registry, catalogue UI, status client, declared authentication modes and execution surfaces are present. |
 | Windows desktop application | **Operational** | Tauri 2 Windows application, EXE/MSI packaging, native authentication, local-file access and native save flows are implemented. |
 | Linux and macOS packaging | **Operational build targets** | Release automation defines Linux AppImage/DEB and macOS Intel/Apple Silicon DMG targets. Platform signing/notarization remains separate release-hardening work. |
 | Android application | **Operational public alpha** | A universal Android APK is produced by the shared Tauri 2 release workflow. Server-backed auth, OIDC/ORCID native return handling, responsive navigation, native Documents/SAF file handling, export delivery and OMI branding are part of the shared client line. |
-| iOS / iPadOS | **Foundation / planned distribution** | The shared architecture is designed for iOS/iPadOS, but this snapshot does not claim a tested public iOS build. |
+| iOS / iPadOS application | **Validated native build target** | Tauri iOS project generation and the Apple Silicon iPhone/iPad simulator build succeed in CI, including native Files integration and shared mobile authentication/export code. Public TestFlight/App Store distribution still requires Apple Developer signing, provisioning, Universal Link association and physical-device validation. |
 | Desktop update flow | **Operational** | Update notification and installer flow is implemented in the desktop application and updater artifacts are produced by the release configuration. |
-| Cross-platform release automation | **Operational** | GitHub Actions produces Windows, Linux, macOS and Android artifacts from the shared source tree. |
+| Cross-platform release automation | **Operational** | GitHub Actions produces Windows, Linux, macOS and Android artifacts from the shared source tree and runs an iOS/iPadOS simulator smoke build. A manual signed Apple release workflow is prepared for App Store Connect once Apple credentials are configured. |
 | Release dependency reproducibility | **Operational** | JavaScript and Rust dependency graphs are lockfile-controlled; CI uses reproducible install paths including `npm ci` for the server. |
-| Application branding | **Operational** | OMI Studio branding and generated native icon assets are used across the application shell and release packaging, including Android. |
+| Application branding | **Operational** | OMI Studio branding and generated native icon assets are used across the application shell and release packaging, including Android and the generated iOS/iPadOS target. |
 | Security hardening | **Operational baseline** | Server-side rate limiting, SSRF restrictions, OIDC state/nonce/PKCE and issuer validation, restricted secret persistence, hashed reset/Admin-API tokens, integration/admin auditing, safer import/export escaping and automated security scanning are incorporated into the current development line. |
 | Windows code signing | **Application submitted / pending** | Public code-signing and privacy policies are published and the SignPath Foundation open-source application has been prepared/submitted. Windows installers remain unsigned until acceptance and production signing integration. |
 
@@ -102,6 +105,8 @@ This page describes **implemented product capabilities**, not OMI specification 
 Studio has a concrete shared-client architecture rather than separate web and native product lines. React/TypeScript, the OMI manuscript model, editor behavior, authentication flows, peer review, integrations and import/export logic are shared. Tauri 2 supplies native packaging and platform capabilities for desktop and mobile clients.
 
 The responsive UI intentionally differs by form factor: desktop can expose multi-document tabs, a persistent document outline and multi-panel editing, while mobile uses compact navigation, drawers, touch-oriented controls and platform-native file pickers. This is a presentation difference, not a separate manuscript model.
+
+The iOS/iPadOS target uses the same shared mobile client. Apple-specific work is confined to native packaging, Files/UIDocumentPicker document access, application metadata, signing/provisioning and Universal Link association.
 
 ## Architecture boundaries
 
@@ -131,7 +136,11 @@ For connected OJS workflows, OJS remains authoritative for submission workflow s
 
 ## Release and distribution
 
-GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. The public Studio download page exposes browser access and native packages, including the Android universal APK for the current `0.1.0-alpha.4` release line.
+GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. The public Studio download page exposes browser access and those native packages, including the Android universal APK for the current `0.1.0-alpha.4` release line.
+
+iOS/iPadOS currently has a successful CI simulator build rather than a public IPA. The Apple distribution path is prepared but deliberately separated from simulator validation: public/device builds require the real Apple Development Team ID, distribution certificate, provisioning profile and final `apple-app-site-association` configuration before TestFlight/App Store publication can be claimed.
+
+See [Open Manuscript Studio on iOS and iPadOS](../foundations/ios-ipados-studio.md).
 
 The project remains alpha while beta-readiness work concentrates on regression coverage, interoperability, error recovery, database migration discipline, release trust and elimination of blocker/critical defects rather than on basic product scaffolding.
 
@@ -144,7 +153,7 @@ A beta release is appropriate when the primary workflows can be exercised withou
 3. DOCX import and representative structured export paths on web and native clients;
 4. OJS manuscript round-trip and role-aware author/editor/reviewer workflows;
 5. double-blind peer review without identity leakage;
-6. native file handling, profile cloud access, Android Documents/SAF lifecycle behavior and responsive navigation;
+6. native file handling, profile cloud access, Android Documents/SAF lifecycle behavior, iOS/iPadOS Files/UIDocumentPicker behavior and responsive navigation;
 7. institution/central administration without privilege leakage into manuscript content;
 8. understandable user-facing error handling for network, authentication, migration and integration failures.
 
@@ -152,7 +161,7 @@ Experimental or configuration-dependent integrations do not need to be feature-c
 
 ## What remains before beta
 
-- complete focused Windows and Android regression passes across the expanded beta-readiness gate;
+- complete focused Windows, Android and iOS/iPadOS native regression passes across the expanded beta-readiness gate;
 - exercise password reset, OIDC linking/unlinking and cross-device session behavior against production-like mail/provider configuration;
 - run migration and authorization regression tests for institution membership, central administration and institution Admin API credentials;
 - continue OJS round-trip and cross-version interoperability testing;
@@ -160,7 +169,9 @@ Experimental or configuration-dependent integrations do not need to be feature-c
 - strengthen recovery behavior for interrupted network, cloud and synchronization operations;
 - replace remaining technical/raw error surfaces with actionable user-facing messages;
 - integrate Windows production code signing if/when the SignPath Foundation application is accepted;
-- continue macOS signing/notarization and store-oriented mobile distribution work;
+- continue macOS signing/notarization work;
+- configure Apple Developer signing/provisioning, production Universal Link association and TestFlight/device validation before claiming public iOS/iPadOS distribution;
+- continue store-oriented Android distribution work;
 - develop conformance suites mapping implementation behaviour directly to normative OMI requirements;
 - establish release-level compatibility guarantees for supported import/export targets.
 
