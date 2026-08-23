@@ -43,6 +43,8 @@ const CURRENT_UPDATE = {
       ['Verified scholarly identity', 'ORCID linking is integrated with cryptographic author signing: immutable committed revisions can be bound to verified ORCID identity and portable WebAuthn/issuer verification evidence.'],
       ['Publishing-system workflows', 'OJS author/editor/reviewer workflows are operational when configured, and the OMP connector architecture remains under end-to-end hardening.'],
     ],
+    nativeAppsTitle: 'Native applications and platform builds',
+    nativeAppsDescription: 'Studio uses one OMI application core across desktop and mobile. Download public native builds where available; validated targets that still require platform-store signing are clearly marked instead of exposing non-existent packages.',
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validated native iPhone/iPad simulator target using the same Studio core. Public TestFlight/App Store installation is not yet available because Apple signing/provisioning and the final Universal Link association are still required.',
     iosAction: 'iOS/iPadOS implementation details',
@@ -64,6 +66,8 @@ const CURRENT_UPDATE = {
       ['Hitelesített tudományos identitás', 'Az ORCID-kapcsolás bekerült a kriptográfiai szerzői aláírásba: változtathatatlan, szerveren rögzített revízió köthető ellenőrzött ORCID-identitáshoz és hordozható WebAuthn/issuer ellenőrzési bizonyítékhoz.'],
       ['Publikációs rendszerkapcsolatok', 'A konfigurált OJS szerzői, szerkesztői és lektori munkafolyamatok működnek; az OMP-kapcsolat architektúrája elkészült és végponttól végpontig tartó stabilizálás alatt áll.'],
     ],
+    nativeAppsTitle: 'Natív alkalmazások és platformbuildek',
+    nativeAppsDescription: 'A Studio ugyanazt az OMI alkalmazásmagot használja asztali és mobil rendszereken. A nyilvános natív buildek letölthetők; a még platformáruházi aláírásra váró validált célverziókat külön jelöljük, nem kínálunk hozzájuk nem létező telepítőt.',
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validált natív iPhone/iPad szimulátoros célverzió ugyanazzal a Studio-maggal. Nyilvános TestFlight/App Store telepítés még nincs, mert ehhez Apple aláírás/provisioning és a végleges Universal Link társítás szükséges.',
     iosAction: 'iOS/iPadOS megvalósítás részletei',
@@ -85,6 +89,8 @@ const CURRENT_UPDATE = {
       ['Verifizierte wissenschaftliche Identität', 'ORCID-Verknüpfung ist mit kryptografischer Autorensignatur verbunden: unveränderliche committed Revisionen können an eine verifizierte ORCID-Identität und portable WebAuthn/Issuer-Verifikation gebunden werden.'],
       ['Publikationssystem-Workflows', 'Konfigurierte OJS-Workflows für Autoren, Redakteure und Gutachter sind funktionsfähig; die OMP-Connector-Architektur wird weiterhin end-to-end stabilisiert.'],
     ],
+    nativeAppsTitle: 'Native Anwendungen und Plattform-Builds',
+    nativeAppsDescription: 'Studio verwendet denselben OMI-Anwendungskern auf Desktop- und Mobilplattformen. Öffentliche native Builds können heruntergeladen werden; validierte Ziele, die noch Store-Signierung benötigen, werden klar markiert, statt nicht vorhandene Pakete anzubieten.',
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validiertes natives iPhone/iPad-Simulatorziel mit demselben Studio-Kern. Eine öffentliche TestFlight/App-Store-Installation ist noch nicht verfügbar, da Apple-Signierung/Provisioning und die endgültige Universal-Link-Zuordnung erforderlich sind.',
     iosAction: 'Details zur iOS/iPadOS-Implementierung',
@@ -158,8 +164,8 @@ export default function StudioDownloads() {
 
         <section className={styles.sectionAlt}>
           <div className={styles.container}>
-            <h2>{t.desktopTitle}</h2>
-            <p className={styles.sectionLead}>{t.desktopText}</p>
+            <h2>{update.nativeAppsTitle}</h2>
+            <p className={styles.sectionLead}>{update.nativeAppsDescription}</p>
             <div className={styles.grid}>
               <DownloadCard title={t.windows} description={t.windowsText}>
                 <DownloadButton href={downloads.windowsExe}>{t.setup}</DownloadButton>
