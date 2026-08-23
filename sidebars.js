@@ -66,6 +66,7 @@ const sidebars = {
         {type: 'doc', id: 'integrations/implementation-status', label: 'Integration Status'},
         {type: 'doc', id: 'integrations/architecture', label: 'Integration Architecture'},
         {type: 'doc', id: 'integrations/studio-deployment-modes', label: 'Studio Deployment Modes'},
+        {type: 'doc', id: 'integrations/institutional-administration', label: 'Institutional Administration'},
         {type: 'doc', id: 'integrations/integration-api-v1', label: 'Integration API v1'},
         {type: 'doc', id: 'integrations/ojs-profile-v1', label: 'OJS Integration Profile v1'},
         {type: 'doc', id: 'integrations/ojs-file-import', label: 'OJS Manuscript File Import'},
