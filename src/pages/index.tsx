@@ -16,25 +16,31 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
 
 const STUDIO_UPDATE = {
   en: {
-    summary: 'The current alpha is now in beta-readiness stabilization. It includes browser, desktop and Android clients; multi-document desktop tabs; optimized large-DOCX import; double-blind peer review; OJS/OMP integration foundations; ORCID identity and cryptographic author signing; local spellcheck; and opt-in grammar/style proofreading.',
-    multiDocument: 'Multi-document desktop editing',
+    summary: 'The current alpha is in beta-readiness stabilization and now combines browser, desktop and Android clients with multi-document editing, optimized large-DOCX import, device-aware local/cloud storage, secure password recovery, Google/Microsoft/institutional OIDC sign-in, connected identity management, double-blind peer review, OJS/OMP workflows, ORCID-bound author signatures, proofreading and institution-level administration.',
+    multiDocument: 'Multi-document desktop editing and document outline',
     largeDocx: 'Large DOCX import optimization',
-    identity: 'ORCID identity and author signatures',
-    proofreading: 'Spelling, grammar and style checks',
+    accounts: 'Cross-device accounts, recovery and connected identities',
+    storage: 'Own-device, cloud and Android-native storage workflows',
+    institutional: 'Institutional profiles, central administration and Admin API',
+    proofreading: 'Spelling, grammar, style, translation and agent integrations',
   },
   hu: {
-    summary: 'A jelenlegi alpha már béta-előkészítő stabilizációs szakaszban van. Böngészős, asztali és Android klienst, többdokumentumos asztali füleket, nagy DOCX-ek optimalizált importját, double-blind peer review-t, OJS/OMP integrációs alapokat, ORCID-identitást és szerzői kriptográfiai aláírást, helyi helyesírás-ellenőrzést, valamint bekapcsolható nyelvhelyességi és stílusellenőrzést tartalmaz.',
-    multiDocument: 'Több dokumentum kezelése asztali nézetben',
+    summary: 'A jelenlegi alpha béta-előkészítő stabilizációs szakaszban van. A böngészős, asztali és Android kliensek mellett már többdokumentumos szerkesztést, nagy DOCX-ek optimalizált importját, eszköztudatos helyi/felhős tárhelykezelést, biztonságos jelszó-visszaállítást, Google/Microsoft/intézményi OIDC-belépést, kapcsolt identitáskezelést, double-blind peer review-t, OJS/OMP munkafolyamatokat, ORCID-hez kötött szerzői aláírást, nyelvi ellenőrzést és intézményi adminisztrációt is tartalmaz.',
+    multiDocument: 'Többdokumentumos asztali szerkesztés és dokumentumvázlat',
     largeDocx: 'Nagy DOCX-ek optimalizált importja',
-    identity: 'ORCID-identitás és szerzői aláírás',
-    proofreading: 'Helyesírás-, nyelvhelyesség- és stílusellenőrzés',
+    accounts: 'Eszközök között közös fiók, jelszó-visszaállítás és kapcsolt identitások',
+    storage: 'Saját eszköz, felhő és Android natív tárhelymunkafolyamatok',
+    institutional: 'Intézményi profilok, központi adminisztráció és Admin API',
+    proofreading: 'Helyesírás, nyelvhelyesség, fordítás és integrált ügynökök',
   },
   de: {
-    summary: 'Die aktuelle Alpha befindet sich inzwischen in der Beta-Readiness-Stabilisierung. Sie umfasst Browser-, Desktop- und Android-Clients, mehrere Dokument-Tabs auf dem Desktop, optimierten Import großer DOCX-Dateien, Double-blind Peer Review, OJS/OMP-Integrationsgrundlagen, ORCID-Identität und kryptografische Autorensignaturen sowie lokale Rechtschreib- und optionale Grammatik-/Stilprüfung.',
-    multiDocument: 'Mehrere Dokumente in der Desktop-Ansicht',
+    summary: 'Die aktuelle Alpha befindet sich in der Beta-Readiness-Stabilisierung. Browser-, Desktop- und Android-Clients werden inzwischen durch Mehrdokument-Bearbeitung, optimierten Import großer DOCX-Dateien, gerätebewusste lokale/Cloud-Speicherung, sichere Passwort-Wiederherstellung, Google/Microsoft/institutionelles OIDC, Verwaltung verbundener Identitäten, Double-blind Peer Review, OJS/OMP-Workflows, ORCID-gebundene Autorensignaturen, Korrekturhilfen und institutionelle Administration ergänzt.',
+    multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
     largeDocx: 'Optimierter Import großer DOCX-Dateien',
-    identity: 'ORCID-Identität und Autorensignaturen',
-    proofreading: 'Rechtschreib-, Grammatik- und Stilprüfung',
+    accounts: 'Geräteübergreifende Konten, Wiederherstellung und verbundene Identitäten',
+    storage: 'Eigene Geräte, Cloud und Android-native Speicher-Workflows',
+    institutional: 'Institutionelle Profile, zentrale Administration und Admin API',
+    proofreading: 'Rechtschreibung, Grammatik, Übersetzung und integrierte Agenten',
   },
 } as const;
 
@@ -105,12 +111,12 @@ export default function Home() {
             <p>Web · Windows · Linux · macOS · Android</p>
             <p><strong>24</strong> UI languages</p>
             <nav className={styles.contextLinks} aria-label={t.status}>
-              <Link to="/docs/specifications/review-model">✓ {t.features[2]}</Link>
-              <Link to="/docs/integrations/implementation-status">✓ {t.features[3]}</Link>
               <Link to="/docs/foundations/cross-platform-studio">✓ {studioUpdate.multiDocument}</Link>
               <Link to="/docs/governance/studio-implementation-status">✓ {studioUpdate.largeDocx}</Link>
-              <Link to="/docs/governance/studio-implementation-status">✓ {studioUpdate.identity}</Link>
-              <Link to="/docs/governance/studio-implementation-status">✓ {studioUpdate.proofreading}</Link>
+              <Link to="/docs/governance/studio-implementation-status">✓ {studioUpdate.accounts}</Link>
+              <Link to="/docs/governance/studio-implementation-status">✓ {studioUpdate.storage}</Link>
+              <Link to="/docs/integrations/institutional-administration">✓ {studioUpdate.institutional}</Link>
+              <Link to="/docs/integrations/implementation-status">✓ {studioUpdate.proofreading}</Link>
             </nav>
             <p>✓ Android public alpha</p>
             <p>◐ Windows code signing — SignPath application pending</p>
