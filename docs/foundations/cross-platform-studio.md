@@ -20,7 +20,7 @@ The project does not maintain unrelated applications for each operating system. 
 | Android | **Operational public alpha** | Universal APK from the shared release workflow; store-oriented packaging later |
 | iOS / iPadOS | **Planned on shared architecture** | Signed distribution after platform validation |
 
-Android is no longer only an architectural or development target. A public universal APK is generated from the shared Tauri 2 code line and uses the same account, document, review, integration and export logic as the other clients, with mobile-specific responsive presentation.
+Android is no longer only an architectural or development target. A public universal APK is generated from the shared Tauri 2 code line and uses the same account, document, review, integration and export logic as the other clients, with mobile-specific responsive presentation and Android-native Documents/Storage Access Framework file handling.
 
 ## One Studio core
 
@@ -43,64 +43,110 @@ The shared core includes, wherever technically possible:
 - structured editing and Tiptap-based document behavior;
 - metadata, contributor, citation, annotation and versioning logic;
 - multilingual interface and authoring support;
-- authentication and account workflows;
+- authentication, password recovery and connected-identity workflows;
 - double-blind peer review behavior;
 - OJS and OMP integration workflows;
+- institution membership and administration clients;
 - import, export and publication-profile logic;
-- validation and synchronization rules.
+- validation, integration and storage rules.
 
 A feature implemented in the shared core should therefore become available to every supported platform unless the operating system or form factor requires a different presentation or native implementation.
 
 ## Platform adapter layer
 
-Native operating-system services are isolated behind platform adapters instead of being embedded throughout the editor or scholarly model. Current examples include native folder/file selection, native save dialogs, filesystem writes, persistent user-granted filesystem scope and desktop updater behaviour. Future adapters can cover deeper share/open-with workflows, notifications, background synchronization and platform credential stores.
+Native operating-system services are isolated behind platform adapters instead of being embedded throughout the editor or scholarly model. Current examples include native folder/file selection, native save dialogs, Android Documents/SAF access, filesystem writes, persistent user-granted filesystem scope, desktop updater behaviour and native external-authentication handoff.
 
-Native authentication also requires transport behaviour appropriate to application origins. The current Tauri client path supports authenticated Studio API access without assuming that the client is running as an ordinary hosted browser page.
+Native authentication uses transport appropriate to application origins. Tauri clients can use bearer-session transport and share one-time external authentication handoff flows for ORCID and configured OIDC providers rather than assuming browser-only cookies.
 
 ## Desktop and mobile interfaces
 
 Cross-platform does not mean forcing the same screen layout onto every device.
 
-Desktop Studio can use multi-panel workspaces with document navigation, editor and properties visible together. Mobile Studio uses the same manuscript and editing logic but presents it through touch-oriented navigation, compact controls, drawers and responsive panels. Tablets can progressively restore multi-panel editing where screen size permits it.
+Desktop Studio now supports browser-style multi-document tabs, full-window Studio/Account surfaces and a toggleable Word-like document outline beside the editor. Mobile Studio uses the same manuscript and editing logic but presents it through touch-oriented navigation, compact controls, drawers and responsive panels. Tablets can progressively restore multi-panel editing where screen size permits it.
 
-Current Android work includes responsive bottom navigation, document and details views, account/profile access, insertion controls, search access, language switching, sign-out behaviour, native export delivery and consistent OMI Studio branding. These are presentation/platform concerns; they do not require a separate Android manuscript model.
+Current Android work includes responsive navigation, document and details views, account/profile access, insertion controls, search, language switching, sign-out, ORCID/OIDC in-app-browser return handling, Documents/SAF opening and saving, native export delivery and consistent OMI Studio branding. These are presentation/platform concerns; they do not require a separate Android manuscript model.
 
-## Local-first portability
+## Local-first portability and device trust
 
 The cross-platform model reinforces a core OMI principle: the manuscript should not become dependent on a particular application installation, cloud provider or operating system.
 
-A manuscript created on Windows should be usable on Linux, macOS, Android, iOS or in the browser without conversion into a platform-specific document model. Portable `.omi.zip` and OMI JSON forms provide explicit interchange targets, while server services are used only where collaboration, accounts, publishing workflows or direct integrations require them.
+A manuscript created on Windows should be usable on Linux, macOS, Android, iOS or in the browser without conversion into a platform-specific document model. Portable `.omi.zip` and OMI JSON forms provide explicit interchange targets, while server services are used only where identity, collaboration, publishing workflows or direct integrations require them.
 
-### Locally synchronized folders
+Installed clients now add a device-local trust distinction.
 
-Desktop Studio can save portable OMI backups into a folder already synchronized by OneDrive, SharePoint, Google Drive, Dropbox, Nextcloud, iCloud Drive or another desktop synchronization client. In this mode:
+### Own device
 
-- Studio does not receive the provider password or OAuth token;
-- the user selects the folder through the native Tauri folder dialog;
-- the selected path is stored only on the local device;
-- the setting is isolated by signed-in user, provider and personal/business account type;
-- the user-granted filesystem scope is persisted across restarts;
-- access remains limited to explicitly granted paths instead of broad home-directory permissions.
+When the signed-in user marks an installed device as their own, Studio can retain normal native working-file locations. Desktop targets can use local folders, mounted/network storage and folders synchronized by provider desktop clients. Android can use system-selected document destinations.
 
-The cloud provider's own desktop client performs the network synchronization. This gives authors a useful provider-independent local-first workflow without requiring every provider API to be implemented first.
+### Shared or foreign device
+
+Newly seen devices default to shared/foreign-device mode. In this mode Studio does not retain the selected local working-file path. The normal persistent workflow prefers cloud connections belonging to the signed-in profile.
+
+The user can still explicitly open or save a file to removable/portable storage, but the location is treated as a one-off destination and is not remembered as the current working file.
+
+This avoids pretending that portable removable-drive detection is identical across every operating system while preserving the important security property: shared-device local paths are not retained.
+
+## Provider-specific synchronized folders
+
+Desktop Studio treats a locally synchronized folder as a connection method of the actual provider rather than as a generic pseudo-provider.
+
+For OneDrive, SharePoint, Google Drive, Dropbox, Nextcloud, iCloud Drive and similar desktop-sync providers:
+
+- the provider's own client performs authentication and synchronization;
+- Studio never receives the provider password or OAuth token for this mode;
+- the user selects a provider-synchronized folder through the native dialog;
+- the path remains device-local and is isolated by signed-in user/provider/account type;
+- user-granted filesystem scope can persist on an own device;
+- Studio writes portable OMI files while the provider client handles network synchronization.
+
+Direct WebDAV/Nextcloud connections remain a separate profile-scoped server integration with encrypted credentials.
+
+## Android-native file workflow
+
+Android uses the system Documents / Storage Access Framework surface rather than broad shared-storage permissions.
+
+The current Android workflow supports:
+
+- opening an existing OMI document through the system picker;
+- Save to the current selected document target;
+- Save to another location;
+- portable `.omi.zip` backup;
+- Android-relevant export formats including OMI JSON/package, JATS XML, HTML package, DOCX, LaTeX and EPUB.
+
+Raw `content://` identifiers are implementation details and are not presented to the user as ordinary filesystem paths.
+
+## Cross-platform account identity
+
+The same Studio account is designed to work across browser, desktop and mobile clients. Current shared identity features include:
+
+- password registration/login/logout;
+- single-use, expiring password-reset flow;
+- ORCID sign-in/linking;
+- Google, Microsoft and configurable institutional OpenID Connect;
+- connected sign-in method management with lockout protection;
+- personal profile data separated from institution-specific memberships;
+- institution and central administration privileges kept separate from manuscript permissions.
+
+External provider identities are linked by stable issuer/subject identity rather than by display name, and existing accounts are not silently merged on e-mail match alone.
 
 ## Cross-platform export delivery
 
-The export layer now separates **format generation** from **file delivery**.
+The export layer separates **format generation** from **file delivery**.
 
-The hosted Studio uses ordinary browser downloads. Installed Tauri clients use native save dialogs and binary filesystem writes for supported export formats. This shared delivery layer is used for portable OMI output and publishing-oriented formats including OMI JSON, JATS, DOCX, EPUB, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX. Semantic HTML is delivered as the offline HTML package so referenced assets travel with the document; PDF remains tied to the publication-profile print flow.
+Hosted Studio uses ordinary browser downloads. Installed desktop clients use native save dialogs and binary filesystem writes. Android uses Documents/SAF destinations and intentionally limits the visible export list to formats meaningful on the platform.
 
-This avoids browser-only download assumptions in native applications while keeping one exporter implementation for all platforms.
+This keeps one exporter implementation for the scholarly formats while allowing each platform to use an appropriate file-delivery mechanism.
 
 ## Shared account and workflow services
 
-Web and native clients use the same Studio service boundary for account identity, peer review and external integrations. The architecture therefore separates three concerns:
+Web and native clients use the same Studio service boundary for account identity, institution membership, peer review and external integrations. The architecture separates four concerns:
 
 1. **scholarly state** — manuscript, metadata, contributors, annotations and review content;
 2. **service identity/state** — accounts, sessions and server-backed collaboration data;
-3. **platform capability** — native file access, packaging, updater behaviour and mobile/desktop shell integration.
+3. **organization authority** — institution membership and central administration;
+4. **platform capability** — native file access, packaging, updater behaviour and mobile/desktop shell integration.
 
-This separation is important for portability: changing from browser to Windows or Android does not redefine the manuscript or peer-review protocol.
+This separation is important for portability: changing from browser to Windows or Android does not redefine the manuscript or peer-review protocol, and becoming an institution administrator does not automatically grant access to scholarly content.
 
 ## Multilingual and regional settings
 
@@ -110,7 +156,7 @@ The shared client currently exposes 24 European UI languages. Interface-language
 
 The mobile clients are intended to support active scholarly work rather than passive reading. The shared target includes account login and manuscript access, structured editing, document navigation and metadata editing, author/editor/reviewer roles, double-blind peer review, publishing-system workflow access, native document import/export and secure platform capabilities.
 
-Later native capabilities can include deeper offline operation, deep links, biometrics and push notifications without moving those concerns into the OMI document model.
+Later native capabilities can include deeper offline operation, richer share/open-with workflows, biometrics and push notifications without moving those concerns into the OMI document model.
 
 ## Release engineering
 
@@ -126,6 +172,6 @@ In this architecture, **the scholarly manuscript is portable by design, and the 
 
 ## Implementation status
 
-Web and Windows delivery are operational parts of Studio, Android is a public alpha target, and Linux/macOS are automated native build targets. The shared client now includes native file delivery and persistent user-approved synchronized-folder access in addition to the browser workflow. iOS/iPadOS remains a later validated distribution target on the same Tauri 2 architecture.
+Web and Windows delivery are operational parts of Studio, Android is a public alpha target, and Linux/macOS are automated native build targets. The shared client now includes multi-document desktop work, device-aware native storage, Android Documents/SAF file handling, cross-device account identity and federated authentication in addition to the browser workflow. iOS/iPadOS remains a later validated distribution target on the same Tauri 2 architecture.
 
-For current implementation details, see [Studio Implementation Status](../governance/studio-implementation-status.md) and [Integration Implementation Status](../integrations/implementation-status.md).
+For current implementation details, see [Studio Implementation Status](../governance/studio-implementation-status.md), [Integration Implementation Status](../integrations/implementation-status.md) and [Institutional and Central Administration](../integrations/institutional-administration.md).
