@@ -6,7 +6,7 @@ description: Current implementation status of Open Manuscript Studio integration
 
 # Integration Implementation Status
 
-**Status date:** 2026-08-22  
+**Status date:** 2026-08-23  
 **Scope:** Open Manuscript Studio reference implementation  
 **Authority:** Informative implementation report; the integration specifications remain normative where applicable.
 
@@ -17,7 +17,7 @@ This page separates **implemented product behaviour** from **protocol design** a
 | Status | Meaning |
 |---|---|
 | **Operational** | Implemented and exercised in the current Studio workflow. Deployment-specific configuration may still be required. |
-| **Configuration-dependent** | Implemented in Studio, but requires administrator credentials, endpoints, OAuth registration, or an external service. |
+| **Configuration-dependent** | Implemented in Studio, but requires administrator credentials, endpoints, OAuth/OIDC registration, mail delivery, database migration, or an external service. |
 | **Foundation** | Data model, UI, provider registry, client or configuration scaffolding exists, but the end-to-end production integration is not yet complete. |
 | **Specification only** | The protocol/profile is documented, but the reference implementation does not yet provide the complete connector. |
 | **Planned** | Intended integration area without a complete implementation baseline. |
@@ -28,13 +28,24 @@ This page separates **implemented product behaviour** from **protocol design** a
 |---|---|---|---|
 | **OJS** | **Operational / configuration-dependent** | Signed launch assertions; role-aware author/editor/reviewer context; metadata and file exchange; DOCX manuscript import including structural and note handling; external review assignment hand-off; double-blind reviewer workspace; authenticated Studio workflows; hardened trusted-origin request handling. | Continue round-trip synchronization and publication-return hardening, compatibility testing across supported OJS versions and operator documentation. |
 | **OMP** | **Specification + implementation target** | OMP Integration Profile v1 and a dedicated OMP plugin/integration code line exist as the basis for monograph, chapter, contributor, review and production mapping. | Complete and validate the deployable adapter/plugin and exercise the full Studio ↔ OMP workflow end to end. |
-| **ORCID OAuth/OIDC** | **Configuration-dependent** | Account authentication/linking infrastructure, deployment-specific personal/institutional credential routing, Sandbox/Production selection and user-visible environment indication are implemented. | Production credential registration, callback configuration, operational monitoring and broader identity-linking UX. |
-| **Locally synchronized storage** | **Operational on desktop** | Studio can write portable `.omi.zip` backups into folders already synchronized by OneDrive, SharePoint, Google Drive, Dropbox, Nextcloud, iCloud Drive or another desktop sync client. No provider password or OAuth token is given to OMI for this mode. The selected folder is remembered per signed-in user/provider/account type and its user-granted filesystem scope persists across app restarts. | Continue recovery testing for interrupted local/provider synchronization and broaden native-platform validation. |
-| **WebDAV / Nextcloud direct storage** | **Configuration-dependent** | Direct connections support encrypted server-side credentials, connection testing, portable backup upload, integrity verification, restore and deletion. | Provider-specific UX polish, operational monitoring and broader interoperability testing. |
-| **Cloud provider catalogue** | **Operational foundation** | Provider → personal/business account type → connection-method selection is implemented for local folder, Nextcloud, WebDAV, OneDrive, SharePoint, Google Drive, Dropbox and iCloud Drive. Platform capability determines which connection method is offered. | Add direct OAuth 2.0 connectors progressively for providers where native/local synchronization is not the desired mode. |
-| **DeepL** | **Foundation** | Integration provider registry, authentication-mode metadata, catalogue UI and DeepL configuration/status scaffolding exist. | Authenticated translation requests, secure credential handling, language mapping, quotas/errors and manuscript-level translation workflow integration. |
-| **Integration provider catalogue** | **Operational** | Studio exposes an Integrations area, provider registry, authentication-mode metadata, availability/configuration state and storage configuration UI. | Add production connectors progressively without coupling the OMI manuscript model to individual vendors. |
-| **Bibliographic / identifier services** | **Partial / configuration-dependent** | ORCID and ROR-related identity support and bibliographic lookup foundations exist. Browser persistence of sensitive provider API keys has been reduced as part of security hardening. | Consolidated provider policies, provenance/reconciliation rules, caching and broader registry coverage. |
+| **ORCID OAuth/OIDC** | **Configuration-dependent** | Account authentication/linking, personal/institutional credential routing, Sandbox/Production selection, native browser/App-Link handoff and direct ORCID verification from the author-signature flow are implemented. | Production credential registration, callback configuration, operational monitoring and broader cross-platform regression testing. |
+| **Google / Microsoft / institutional OIDC** | **Configuration-dependent** | Authorization Code + PKCE, state and nonce validation, discovery/JWKS verification, issuer/audience checks, explicit account linking and shared native handoff are implemented. | Production provider registration, tenant/provider-specific deployment testing and operational monitoring. |
+| **Connected identity management** | **Operational / provider-dependent** | Account settings list password, ORCID and OIDC identities, show connection/last-use metadata, support explicit linking/unlinking and prevent removal of the final usable sign-in method. | Broader provider UX and future SAML management surface. |
+| **Institutional administration** | **Configuration-dependent** | Institution memberships, `MEMBER`/`ADMIN`/`OWNER` roles, dedicated administrator sign-in, server-side role enforcement, central OMI administration and last-owner protection are implemented. | Production migration/configuration guidance, authorization regression coverage and institution integration-management expansion. |
+| **Institution Admin API** | **Configuration-dependent** | Institution-bound machine credentials use one-time token display, SHA-256 hashed storage, expiry/revocation, explicit scopes and append-only administration audit events. v1 member/context endpoints are implemented. | Add institution-scoped integration-management endpoints behind the reserved `integrations:read` / `integrations:write` scopes and broaden automation documentation. |
+| **Device-aware native storage** | **Operational on installed clients** | Installed clients distinguish own devices from shared/foreign devices. Own devices can retain native working paths; shared devices do not retain local paths and prefer profile-scoped cloud connections. One-off portable/removable storage remains available. | Continue recovery testing and platform-specific edge-case validation. |
+| **Android Documents / SAF storage** | **Operational public alpha** | Android uses the system Documents / Storage Access Framework picker for opening, Save, Save As, portable OMI backup and supported exports instead of broad shared-storage permissions. | Device/vendor regression testing and store-distribution hardening. |
+| **Locally synchronized storage** | **Operational on desktop** | OneDrive, SharePoint, Google Drive, Dropbox, Nextcloud and iCloud Drive are represented as provider-specific locally synchronized folder methods. Studio writes portable OMI files locally while the provider client performs authentication/synchronization. Paths remain device-local. | Continue recovery testing for interrupted local/provider synchronization and broaden native-platform validation. |
+| **Profile-scoped WebDAV / Nextcloud** | **Configuration-dependent** | Direct connections support encrypted server-side credentials, connection testing, portable backup upload, integrity verification, restore and deletion. Connections are scoped to the authenticated Studio profile and can follow the user across devices. | Provider-specific UX polish, operational monitoring and broader interoperability testing. |
+| **Cloud provider catalogue** | **Operational foundation** | Provider → personal/business account type → connection-method selection is implemented for Nextcloud, WebDAV, OneDrive, SharePoint, Google Drive, Dropbox and iCloud Drive. Local synchronized folders are methods of the real provider rather than a pseudo-provider. | Add direct OAuth 2.0 connectors progressively where native/local synchronization is not the desired mode. |
+| **DeepL structured translation** | **Configuration-dependent** | Server-side DeepL execution is implemented for selection, block, section and whole-manuscript scopes. Structured segmentation preserves inline marks and excludes citations, cross-references, code, equations and bibliography records; larger translations can be stored as separate language variants. | Production credential/quota monitoring, provider error UX and broader language-pair testing. |
+| **Grammar/style services** | **Configuration-dependent** | Optional LanguageTool-compatible checking and configured AI language-editor execution return structured spelling/grammar/punctuation/style issues without direct server-side manuscript mutation. | Production provider tuning, latency/error handling and broader language coverage. |
+| **OMI AI agents** | **Configuration-dependent** | Provider-neutral language editor, metadata assistant, summarizer and citation checker execute through a configurable HTTPS chat-completions endpoint. Suggestions require explicit user application. Review-confidential content is blocked unless explicitly allowed. | Provider interoperability testing, evaluation fixtures, quota/latency handling and further agent-specific safety constraints. |
+| **Integration audit trail** | **Operational** | External execution records operation/provider/scope metadata, sizes and SHA-256 digests rather than manuscript text, prompts, outputs or secrets. | Reporting/retention controls and operational dashboards. |
+| **Integration Extension API v1** | **Operational foundation** | Extension manifest registry, compatibility/version checks, scoped permissions, capabilities, HTTPS-only endpoints and SDK documentation are implemented. | Third-party extension examples, signing/trust policy and conformance fixtures. |
+| **Integration provider catalogue** | **Operational** | Studio exposes an Integrations area, provider registry, authentication-mode metadata, configuration state, storage configuration, translation/agent tools, audit information and extension surfaces. | Add production connectors progressively without coupling the OMI manuscript model to individual vendors. |
+| **Bibliographic structured services** | **Operational foundation** | Crossref, DataCite, OpenAlex and MTMT structured lookups map into a shared bibliographic model with DOI normalization and deduplication. ROR and ORCID identity lookups are also integrated. | Caching, reconciliation/provenance policy, more identifier registries and provider-specific reliability handling. |
+| **Signed-in bibliographic web providers** | **Operational foundation / provider-dependent** | Academia.edu preset and configurable HTTPS signed-in web providers can be opened without Studio collecting passwords. Tauri retains provider WebView sessions and supports explicit local sign-out cleanup. | Provider-specific compatibility testing and clearer trust/session UX. |
 | **Repository / preservation deposit** | **Planned** | Architecture supports external deposit and preservation adapters. | Define concrete connector profiles and implement reference adapters. |
 
 ## OJS implementation note
@@ -55,27 +66,37 @@ OMP remains a first-class integration target and has a dedicated implementation 
 
 ## Storage integration model
 
-Studio now distinguishes two storage patterns rather than treating every cloud provider as a remote API connector.
+Studio now uses three explicit storage contexts.
 
-**Locally synchronized folder.** The author's existing provider client performs authentication and synchronization. Studio only receives a local folder selected through the native file dialog, writes the portable OMI package there, and persists the narrowly granted filesystem scope on the device. The folder path is not sent to the Studio API.
+**Own device / native system storage.** On a trusted installed device, Studio can use normal platform-native storage chosen by the author. Desktop targets can use local folders, mounted/network storage and provider-synchronized folders. Android uses the system Documents / Storage Access Framework surface.
 
-**Direct connection.** Studio itself connects to a storage service. The currently implemented direct path is WebDAV/Nextcloud with encrypted server-side credentials. OAuth 2.0 is the intended direct-authentication path for providers such as OneDrive, SharePoint, Google Drive and Dropbox, but those OAuth connectors are not represented as operational until implemented and tested.
+**Shared or foreign device.** Newly seen installed devices default to restricted local persistence. Studio does not retain the local working-file path and prefers cloud connections belonging to the signed-in profile. One-off removable/portable storage remains possible without persisting the chosen path.
 
-This distinction keeps local-first storage useful immediately while avoiding misleading claims about direct provider integrations that do not yet exist.
+**Direct profile connection.** Studio itself connects to a storage service. The currently implemented direct path is WebDAV/Nextcloud with encrypted server-side credentials scoped to the authenticated user. Future OAuth provider connections should follow the same profile-scoped model.
+
+This design preserves local-first ownership without assuming that every cloud provider must be controlled by Studio or that a shared device should retain the author's local path.
 
 ## Native-client integration boundary
 
-The web, desktop and Android applications share the Studio API and integration contracts. Native Tauri clients use authentication transport compatible with native application origins rather than assuming browser-only cookie behaviour. Native clients also use platform save dialogs for supported export and local-backup operations, while the hosted Studio uses browser downloads.
+The web, desktop and Android applications share the Studio API and integration contracts. Native Tauri clients use authentication transport compatible with native application origins rather than assuming browser-only cookie behaviour. ORCID and OIDC can return through the shared native handoff path.
+
+Native file handling is platform-appropriate: desktop applications use native file/folder dialogs, while Android uses Documents/SAF. Hosted Studio uses browser downloads for export delivery.
 
 ## Authentication modes
 
-The Studio integration layer distinguishes provider authentication models instead of assuming that every service can use the same credential type. Depending on the provider, an integration may use OAuth/OIDC, API keys or tokens, service credentials, signed launch assertions, deployment-managed credentials, or no OMI-held provider credential at all when a local synchronization client performs authentication.
+The Studio integration layer distinguishes provider authentication models instead of assuming that every service can use the same credential type. Depending on the provider, an integration may use OAuth/OIDC, API keys or tokens, service credentials, signed launch assertions, deployment-managed credentials, institution-scoped API credentials, or no OMI-held provider credential at all when a local synchronization client performs authentication.
 
 User-facing username/password login is only appropriate when the external provider explicitly supports such a flow. Credentials must not be inferred from a provider's consumer website login form.
 
-## Identity separation
+## Identity and administration separation
 
-Studio account identity and scholarly contributor identity are intentionally distinct. Authentication establishes who may access Studio services; contributor records express scholarly authorship, affiliation, ORCID and contribution roles. External identity providers can link these layers without collapsing them into one data model.
+Studio account identity, scholarly contributor identity, institution membership and central administration are intentionally distinct.
+
+Authentication establishes who may access Studio services. Contributor records express scholarly authorship, affiliation, ORCID and contribution roles. Institution membership expresses organization-specific affiliation and `MEMBER`/`ADMIN`/`OWNER` authority. Central administration is a separate cross-institution privilege plane.
+
+Neither institution administration nor central administration grants manuscript/review/editorial-content access by itself.
+
+See [Institutional and Central Administration](./institutional-administration.md) for the administration model.
 
 ## Product status versus OMI conformance
 

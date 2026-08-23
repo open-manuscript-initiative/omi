@@ -28,43 +28,55 @@ const CAPABILITY_DOC_TARGETS: Record<number, string> = {
 
 const CURRENT_UPDATE = {
   en: {
-    title: 'Beta-readiness improvements',
-    lead: 'Recent development has shifted from basic product scaffolding toward daily scholarly-workflow usability and stabilization.',
+    title: 'Current beta-readiness development',
+    lead: 'Recent work now covers not only editing and publishing workflows, but also account portability, device-aware storage, institutional administration and centrally governed service access.',
     items: [
-      ['Multi-document desktop workspace', 'Browser-style tabs keep several manuscripts open at the same time on desktop while mobile retains a compact single-document workflow.'],
-      ['Large DOCX handling', 'Large Word imports use deferred editor mounting to reduce memory and rendering cost, and imported DOCX files open directly as OMI manuscripts.'],
-      ['Proofreading', 'Local spellcheck follows manuscript language; optional grammar and style checking can use configured external language services.'],
-      ['Verified scholarly identity', 'ORCID linking is integrated with the author-signature workflow, followed by WebAuthn/passkey signing of immutable manuscript revisions.'],
-      ['Publishing-system workflows', 'OJS author/editor/reviewer workflows are operational when configured, and the OMP connector architecture is implemented and under end-to-end hardening.'],
-      ['Cross-platform application', 'Web, Windows, Linux, macOS and Android share the same manuscript model and application codebase, with native file handling where supported.'],
+      ['Desktop manuscript workspace', 'Browser-style document tabs, full-window Studio/Account surfaces and a toggleable Word-like document outline support long-form desktop work without changing the mobile structure workflow.'],
+      ['Large DOCX and rich-text usability', 'Large Word imports use deferred editor mounting and open directly as OMI manuscripts. The expanded formatting menu is viewport-safe, and inline language selection comes from configured manuscript languages.'],
+      ['Proofreading, translation and agents', 'Local spellcheck follows manuscript language. Optional grammar/style services, DeepL execution, provider-neutral AI agents and integration audit records operate through explicit, scoped external-service flows.'],
+      ['Cross-device account security', 'Password recovery uses single-use expiring reset tokens and revokes prior sessions after password change. Connected sign-in methods can be managed from the account panel without conflating account identity with manuscript permissions.'],
+      ['Federated sign-in', 'Google, Microsoft and configurable institutional OpenID Connect providers use Authorization Code + PKCE, state/nonce checks and issuer/audience validation. Existing accounts require explicit identity linking rather than e-mail auto-linking.'],
+      ['Device-aware storage', 'Installed clients distinguish trusted personal devices from shared/foreign devices. Own devices can use native local/system storage; shared devices prefer profile cloud connections and do not retain local working paths.'],
+      ['Android-native file workflow', 'Android uses the system Documents / Storage Access Framework picker for opening, saving, Save As and portable OMI backup/export destinations instead of broad shared-storage permissions.'],
+      ['Institutional and central administration', 'Personal and institutional profiles are separated. Institution MEMBER/ADMIN/OWNER roles, administrator sign-in, OMI central administration, scoped institution Admin API credentials and append-only admin audit events are implemented without granting manuscript access.'],
+      ['Verified scholarly identity', 'ORCID linking is integrated with cryptographic author signing: immutable committed revisions can be bound to verified ORCID identity and portable WebAuthn/issuer verification evidence.'],
+      ['Publishing-system workflows', 'OJS author/editor/reviewer workflows are operational when configured, and the OMP connector architecture remains under end-to-end hardening.'],
     ],
-    maturity: 'The current release remains alpha, but the project is now in beta-readiness stabilization: regression testing, large-document performance, error recovery, interoperability and release trust are the primary remaining gates.',
+    maturity: 'The current release remains alpha, but the project is in beta-readiness stabilization. Regression testing, large-document performance, error recovery, interoperability, migration discipline and release trust remain the primary gates.',
   },
   hu: {
-    title: 'Béta-előkészítő fejlesztések',
-    lead: 'A fejlesztés súlypontja az alapfunkciókról egyre inkább a napi tudományos munkára való alkalmasságra és a stabilizálásra került.',
+    title: 'A béta-előkészítés jelenlegi fejlesztései',
+    lead: 'Az újabb fejlesztések már nemcsak a szerkesztési és publikációs munkafolyamatokat, hanem a fiókhordozhatóságot, az eszköztudatos tárhelykezelést, az intézményi adminisztrációt és a központilag szabályozott szolgáltatáshozzáférést is lefedik.',
     items: [
-      ['Többdokumentumos asztali munkatér', 'Böngészőszerű fülekkel egyszerre több kézirat tartható nyitva asztali nézetben; mobilon megmarad a kompakt egy dokumentumos munkafolyamat.'],
-      ['Nagy DOCX-ek kezelése', 'A nagy Word-importoknál késleltetett szerkesztőbetöltés csökkenti a memória- és renderelési terhelést, az importált DOCX pedig közvetlenül OMI-kéziratként nyílik meg.'],
-      ['Helyesírás és nyelvhelyesség', 'A helyi helyesírás-ellenőrzés követi a kézirat nyelvét; külön bekapcsolható nyelvhelyességi és stílusellenőrzés külső nyelvi szolgáltatással is használható.'],
-      ['Hitelesített tudományos identitás', 'Az ORCID-kapcsolás bekerült a szerzői aláírási folyamatba, amelyet WebAuthn/passkey alapú, változtathatatlan revízióra vonatkozó kriptográfiai aláírás követhet.'],
+      ['Asztali kézirat-munkatér', 'Böngészőszerű dokumentumfülek, teljes ablakos Studio/Fiók felületek és kapcsolható, Word-szerű dokumentumvázlat segíti a hosszabb asztali munkát; mobilon megmarad a külön dokumentumszerkezeti nézet.'],
+      ['Nagy DOCX és rich-text használhatóság', 'A nagy Word-importok késleltetett szerkesztőbetöltést használnak és közvetlenül OMI-kéziratként nyílnak meg. A kibővített formázómenü nem csúszik ki a képernyőről, a szövegrész nyelve pedig az előre beállított kéziratnyelvekből választható.'],
+      ['Nyelvi ellenőrzés, fordítás és ügynökök', 'A helyi helyesírás-ellenőrzés követi a kézirat nyelvét. A bekapcsolható nyelvhelyességi/stílusellenőrzés, a DeepL-fordítás, a szolgáltatófüggetlen AI-ügynökök és az integrációs audit explicit, scope-olt külső szolgáltatási folyamatokon keresztül működnek.'],
+      ['Eszközök között használható biztonságos fiók', 'A jelszó-visszaállítás egyszer használható, lejáró tokeneket használ, a sikeres jelszócsere pedig megszünteti a korábbi munkameneteket. A kapcsolt bejelentkezési módok a Fiókban kezelhetők a kéziratjogosultságoktól elkülönítve.'],
+      ['Federált bejelentkezés', 'Google, Microsoft és konfigurálható intézményi OpenID Connect szolgáltatók Authorization Code + PKCE, state/nonce és issuer/audience ellenőrzést használnak. Meglévő fiókhoz külső identitás csak kifejezett összekapcsolással rendelhető.'],
+      ['Eszköztudatos tárhelykezelés', 'A telepített kliensek megkülönböztetik a saját és a megosztott/idegen eszközt. Saját eszközön használható a natív helyi vagy rendszerszintű tárhely; megosztott eszközön a profilhoz kötött felhőkapcsolat az elsődleges, és a helyi munkafájl útvonala nem marad meg.'],
+      ['Android natív fájlmunkafolyamat', 'Androidon a rendszer Dokumentumok / Storage Access Framework választója kezeli a megnyitást, mentést, más helyre mentést és az OMI biztonsági mentések/exportok célját, általános tárhely-hozzáférés nélkül.'],
+      ['Intézményi és központi adminisztráció', 'A személyes és intézményi profilok különváltak. Elkészült az intézményi MEMBER/ADMIN/OWNER modell, az adminisztrátori belépés, az OMI központi adminisztráció, a scope-olt intézményi Admin API és az adminisztrációs auditnapló — kéziratokhoz való automatikus hozzáférés nélkül.'],
+      ['Hitelesített tudományos identitás', 'Az ORCID-kapcsolás bekerült a kriptográfiai szerzői aláírásba: változtathatatlan, szerveren rögzített revízió köthető ellenőrzött ORCID-identitáshoz és hordozható WebAuthn/issuer ellenőrzési bizonyítékhoz.'],
       ['Publikációs rendszerkapcsolatok', 'A konfigurált OJS szerzői, szerkesztői és lektori munkafolyamatok működnek; az OMP-kapcsolat architektúrája elkészült és végponttól végpontig tartó stabilizálás alatt áll.'],
-      ['Cross-platform alkalmazás', 'A webes, Windows, Linux, macOS és Android változat ugyanazt a kéziratmodellt és közös alkalmazáskódot használja, natív fájlkezeléssel, ahol a platform ezt támogatja.'],
     ],
-    maturity: 'A jelenlegi kiadás továbbra is alpha, de a projekt már béta-előkészítő stabilizációs szakaszban van: a regressziós tesztelés, nagy dokumentumok teljesítménye, hibából való helyreállás, interoperabilitás és a kiadások megbízhatósága a fő hátralévő kapuk.',
+    maturity: 'A jelenlegi kiadás továbbra is alpha, de a projekt béta-előkészítő stabilizációs szakaszban van. A regressziós tesztelés, nagy dokumentumok teljesítménye, hibából való helyreállás, interoperabilitás, migrációs fegyelem és a kiadások megbízhatósága a fő hátralévő kapuk.',
   },
   de: {
-    title: 'Verbesserungen für die Beta-Reife',
-    lead: 'Der Entwicklungsschwerpunkt verschiebt sich von der grundlegenden Produktstruktur hin zu Alltagstauglichkeit und Stabilisierung wissenschaftlicher Workflows.',
+    title: 'Aktuelle Entwicklung zur Beta-Reife',
+    lead: 'Die neueren Arbeiten umfassen neben Bearbeitung und Publikation inzwischen auch Kontoportabilität, gerätebewusste Speicherung, institutionelle Administration und zentral geregelten Dienstzugriff.',
     items: [
-      ['Mehrere Dokumente auf dem Desktop', 'Browserähnliche Tabs halten mehrere Manuskripte gleichzeitig geöffnet; mobil bleibt der kompakte Ein-Dokument-Workflow erhalten.'],
-      ['Große DOCX-Dateien', 'Große Word-Importe verwenden verzögertes Editor-Mounting zur Reduzierung von Speicher- und Rendering-Kosten und öffnen direkt als OMI-Manuskript.'],
-      ['Korrekturlesen', 'Die lokale Rechtschreibprüfung folgt der Manuskriptsprache; Grammatik- und Stilprüfung kann optional über konfigurierte externe Sprachdienste erfolgen.'],
-      ['Verifizierte wissenschaftliche Identität', 'ORCID-Verknüpfung ist in den Autorensignatur-Workflow integriert; unveränderliche Revisionen können anschließend per WebAuthn/Passkey kryptografisch signiert werden.'],
-      ['Publikationssystem-Workflows', 'Konfigurierte OJS-Workflows für Autoren, Redakteure und Gutachter sind funktionsfähig; die OMP-Connector-Architektur wird derzeit end-to-end stabilisiert.'],
-      ['Plattformübergreifende Anwendung', 'Web, Windows, Linux, macOS und Android teilen dasselbe Manuskriptmodell und dieselbe Codebasis mit nativer Dateiverarbeitung, wo verfügbar.'],
+      ['Desktop-Manuskriptarbeitsbereich', 'Browserähnliche Dokument-Tabs, Vollfenster-Ansichten für Studio/Konto und eine einblendbare Word-ähnliche Dokumentgliederung unterstützen lange Desktop-Arbeiten; mobil bleibt der separate Struktur-Workflow erhalten.'],
+      ['Große DOCX-Dateien und Rich-Text-Bedienung', 'Große Word-Importe verwenden verzögertes Editor-Mounting und öffnen direkt als OMI-Manuskript. Das erweiterte Formatierungsmenü bleibt im Viewport, und Inline-Sprachen werden aus den konfigurierten Manuskriptsprachen gewählt.'],
+      ['Korrektur, Übersetzung und Agenten', 'Lokale Rechtschreibprüfung folgt der Manuskriptsprache. Optionale Grammatik-/Stildienste, DeepL, providerneutrale KI-Agenten und Integrations-Auditdaten laufen über explizite, bereichsgebundene externe Dienstflüsse.'],
+      ['Sichere geräteübergreifende Konten', 'Passwort-Wiederherstellung verwendet einmalige, ablaufende Tokens und beendet nach Passwortänderung vorhandene Sitzungen. Verknüpfte Anmeldemethoden werden im Konto getrennt von Manuskriptberechtigungen verwaltet.'],
+      ['Föderierte Anmeldung', 'Google, Microsoft und konfigurierbare institutionelle OpenID-Connect-Provider verwenden Authorization Code + PKCE sowie State/Nonce- und Issuer/Audience-Prüfung. Bestehende Konten werden nicht allein anhand der E-Mail automatisch verknüpft.'],
+      ['Gerätebewusste Speicherung', 'Installierte Clients unterscheiden eigene von gemeinsam genutzten/fremden Geräten. Eigene Geräte können nativen lokalen/Systemspeicher verwenden; auf gemeinsam genutzten Geräten werden profilgebundene Cloud-Verbindungen bevorzugt und lokale Arbeitswege nicht behalten.'],
+      ['Android-native Dateiabläufe', 'Android verwendet den systemeigenen Dokument-/Storage-Access-Framework-Dialog für Öffnen, Speichern, Speichern unter sowie OMI-Backups/Exporte statt breit angelegter Speicherberechtigungen.'],
+      ['Institutionelle und zentrale Administration', 'Persönliche und institutionelle Profile sind getrennt. MEMBER/ADMIN/OWNER-Rollen, Administrator-Anmeldung, zentrale OMI-Administration, bereichsgebundene Institution-Admin-API-Zugangsdaten und Admin-Auditereignisse sind implementiert, ohne Manuskriptzugriff zu verleihen.'],
+      ['Verifizierte wissenschaftliche Identität', 'ORCID-Verknüpfung ist mit kryptografischer Autorensignatur verbunden: unveränderliche committed Revisionen können an eine verifizierte ORCID-Identität und portable WebAuthn/Issuer-Verifikation gebunden werden.'],
+      ['Publikationssystem-Workflows', 'Konfigurierte OJS-Workflows für Autoren, Redakteure und Gutachter sind funktionsfähig; die OMP-Connector-Architektur wird weiterhin end-to-end stabilisiert.'],
     ],
-    maturity: 'Die aktuelle Version bleibt Alpha, befindet sich aber in der Beta-Readiness-Stabilisierung. Regressionstests, Leistung bei großen Dokumenten, Fehlerbehebung, Interoperabilität und Release-Vertrauen sind die wichtigsten verbleibenden Gates.',
+    maturity: 'Die aktuelle Version bleibt Alpha, befindet sich aber in der Beta-Readiness-Stabilisierung. Regressionstests, Leistung bei großen Dokumenten, Fehlerbehebung, Interoperabilität, saubere Migrationen und Release-Vertrauen bleiben die wichtigsten Gates.',
   },
 } as const;
 
@@ -177,6 +189,8 @@ export default function StudioDownloads() {
               <Link to="/docs/governance/studio-implementation-status">{copy.home.status}</Link>
               {' · '}
               <Link to="/docs/integrations/implementation-status">{t.capabilities[6]}</Link>
+              {' · '}
+              <Link to="/docs/integrations/institutional-administration">Institutional administration</Link>
               {' · '}
               <Link to="/docs/governance/code-signing-policy">Code signing policy</Link>
             </p>

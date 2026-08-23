@@ -13,6 +13,9 @@ keywords:
   - desktop
   - multilingual
   - export
+  - institutional administration
+  - OIDC
+  - storage
 ---
 
 # Open Manuscript Studio — Current Implementation Status
@@ -22,7 +25,7 @@ keywords:
 | Field | Value |
 |---|---|
 | Status | Alpha / beta-readiness stabilization |
-| Snapshot date | 2026-08-22 |
+| Snapshot date | 2026-08-23 |
 | Current release line | `0.1.0-alpha.4` |
 | Reference implementation | Open Manuscript Studio |
 | Source repository | `open-manuscript-initiative/open-manuscript-studio` |
@@ -36,7 +39,7 @@ This page describes **implemented product capabilities**, not OMI specification 
 ## Status vocabulary
 
 - **Operational** — implemented in the current Studio development line and available when its normal runtime prerequisites are present.
-- **Configuration-dependent** — implemented, but requires installation-specific server credentials, OAuth registration, an external service, or a publishing-system connection.
+- **Configuration-dependent** — implemented, but requires installation-specific server credentials, OAuth/OIDC registration, mail delivery, an external service, database migration, or a publishing-system connection.
 - **Foundation** — architecture, registry, UI or configuration support exists, but the complete end-user service is not yet claimed as operational.
 
 ## Current capabilities
@@ -44,59 +47,83 @@ This page describes **implemented product capabilities**, not OMI specification 
 | Area | Status | Current implementation |
 |---|---|---|
 | Structured manuscript editing | **Operational** | Semantic sections, rich text, headings, inline formatting, lists, notes, references, tables and structured content handling. |
+| Desktop multi-document workspace | **Operational** | Browser-style document tabs keep multiple manuscripts open on desktop. Full-window Studio/Account surfaces and a toggleable Word-like document outline support long-form navigation while mobile retains its compact structure workflow. |
+| Rich-text formatting controls | **Operational** | Compact inline formatting remains available near the selection; the expanded desktop menu is docked and viewport-safe, while inline language is selected from configured manuscript languages rather than free text. Automatic floating formatting can be disabled in editor settings. |
 | Structured search and replace | **Operational** | Search/replace overlay, scopes and result navigation with responsive access shared by desktop and mobile layouts. |
 | Multilingual user interface | **Operational** | 24 supported European UI languages with shared language selection. Interface, manuscript and metadata language preferences are managed in one compact responsive settings surface. |
 | Time-zone preferences | **Operational** | Standard IANA time-zone selection with current UTC offsets and automatic system-zone defaulting. |
 | Multilingual help | **Operational** | Integrated localized help coverage across the supported Studio UI locales. |
-| Accounts and authentication | **Operational** | Server-backed registration/login, logout and authenticated API access work in web and native clients. Native clients use bearer-session transport compatible with Tauri application origins. |
-| Account/profile interface | **Operational** | Shared server-backed profile editing is available in desktop and mobile layouts, with account identity separated from manuscript contributor metadata. |
+| Accounts and authentication | **Operational** | Server-backed registration/login, logout and authenticated API access work in web and native clients. The same central account can be used across Windows, Android and browser clients. Native clients use bearer-session transport compatible with Tauri application origins. |
+| Password recovery | **Configuration-dependent** | Forgot-password/reset flow uses single-use expiring reset tokens stored only as hashes, generic account-existence responses and all-session revocation after successful password change. Requires working server mail delivery. |
+| Federated sign-in | **Configuration-dependent** | Google, Microsoft and configurable generic/institutional OIDC providers use Authorization Code + PKCE, state/nonce validation, discovery/JWKS validation and explicit account linking. Existing accounts are never auto-linked by e-mail alone. |
+| Connected sign-in identities | **Operational / configuration-dependent providers** | Account settings list password and connected ORCID/OIDC identities, allow configured providers to be linked/unlinked and prevent removal of the last usable sign-in method. |
+| Account/profile interface | **Operational** | Shared server-backed personal profile editing is available across desktop/mobile layouts, with account identity separated from manuscript contributor metadata and organization-specific institutional membership. |
+| Institutional profiles | **Operational** | A Studio account can hold multiple institution memberships with one default affiliation. Shared institution name/ROR data is separated from membership-specific department, position, institutional e-mail, linked identity and role. |
+| Institution administrator roles | **Configuration-dependent** | Institution `MEMBER`, `ADMIN` and `OWNER` roles are server-authoritative. Institutional deployments expose dedicated administrator sign-in and role-protected member administration with last-owner protection. |
+| Central OMI administration | **Configuration-dependent** | A separate `ADMIN`/`OWNER` central privilege plane can manage institutions, institution administrators, institution API credentials and administration audit events without obtaining manuscript/editorial-content access. |
+| Institution Admin API | **Configuration-dependent** | Institution-bound machine credentials use one-time raw token display, hashed storage, expiry/revocation and explicit scopes (`institution:read`, `members:read`, `members:write`, reserved integration scopes). Machine credentials cannot change owner roles. |
 | Contributor identity model | **Operational** | Contributors, roles, affiliations, identity assertions and author-profile workflows are represented separately from account identity. |
 | ORCID authentication | **Configuration-dependent** | ORCID OAuth/OIDC sign-in and linking infrastructure is implemented. Personal and institutional deployment credential sets are separated, and the active Sandbox/Production environment is visible in the Studio UI. |
+| Portable ORCID-bound author signatures | **Configuration-dependent** | Server-committed immutable revision snapshots, ORCID author binding, WebAuthn signing, encrypted installation issuer keys and portable offline verification evidence are implemented. |
 | Double-blind peer review | **Operational** | Anonymous reviewer projection, review assignments, reviewer workspace, comments and review persistence. |
 | Editorial review dashboard | **Operational** | Editor-facing overview and role-aware review portal for assigned peer-review work. |
 | External/OJS review assignments | **Configuration-dependent** | OJS-connected author, editor and reviewer workflows and external assignment context are implemented when the OJS integration is configured. |
 | OJS manuscript launch/import | **Configuration-dependent** | Signed launch assertions, manuscript/file retrieval and structured import of metadata and manuscript content from OJS. |
-| DOCX structural import | **Operational** | Headings, inline semantics, list inheritance, footnotes/endnotes, references and structured tables are handled by the current import pipeline. |
+| DOCX structural import | **Operational** | Headings, inline semantics, list inheritance, footnotes/endnotes, references and structured tables are handled. Large imports use deferred editor mounting and imported DOCX files open directly as OMI manuscripts. |
+| Local spelling | **Operational** | Persisted local spellcheck follows manuscript language through the platform/browser spellchecking layer. |
+| Grammar and style proofreading | **Configuration-dependent** | Opt-in advanced checking can use LanguageTool-compatible and configured AI language services. Issues are shown in the manuscript and suggestions are explicitly applied by the user. |
+| Translation execution | **Configuration-dependent** | Structured DeepL translation operates on selection/block/section/manuscript scopes while preserving inline semantics and excluding citations, code, equations and bibliography records from unsafe flattening. Language variants can be stored separately. |
+| AI integration agents | **Configuration-dependent** | Provider-neutral language editor, metadata assistant, summarizer and citation-checker agents return suggestions through scoped server-side execution. External transmission of review-confidential content requires explicit permission. |
+| Integration audit and extension registry | **Operational foundation / configuration-dependent execution** | Integration execution records operation metadata/digests without storing manuscript text or secrets. Extension manifests support version compatibility, permissions, capabilities and HTTPS-only external endpoints. |
 | Portable OMI export | **Operational** | Portable `.omi.zip` and OMI JSON outputs are available as first-class interchange forms. |
 | Scholarly/publishing exports | **Operational** | JATS XML, semantic offline HTML package, DOCX, EPUB, PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX are represented in the current export layer. |
 | Cross-platform export delivery | **Operational** | Hosted Studio uses browser downloads; installed Tauri clients use native save dialogs and binary writes for supported export targets. |
 | Publisher profiles | **Operational** | Publisher profile, export stylesheet and print stylesheet handling are separated from manuscript semantics. |
-| Cloud storage provider layer | **Operational** | Provider-aware flow selects storage provider, personal/business account type and connection method according to platform capability. |
-| Locally synchronized folders | **Operational on desktop** | OneDrive, SharePoint, Google Drive, Dropbox, Nextcloud, iCloud Drive and other desktop-synchronized folders can be used without giving OMI the provider password. Studio writes portable OMI backups to the author-selected local folder and the provider client performs synchronization. |
-| Persistent synchronized-folder access | **Operational on desktop** | The chosen folder is remembered per signed-in user, provider and account type. Tauri persists the user-granted filesystem scope across restarts without granting broad home-directory access. |
+| Device-aware storage mode | **Operational on installed clients** | Studio keeps a per-user, per-device “own device” trust preference. Own devices can retain normal native working paths; newly seen/shared devices default to a restricted mode that does not retain local working paths. |
+| Profile cloud connections | **Operational / provider-dependent** | Direct WebDAV/Nextcloud credentials are encrypted server-side and scoped to the signed-in user, so profile cloud connections can follow the account across devices. Future OAuth cloud connections use the same profile-scoped model. |
+| Portable storage on shared devices | **Operational on installed clients** | Shared-device mode still permits explicit one-off open/save to removable or portable locations without keeping the selected path as the current working file. |
+| Locally synchronized folders | **Operational on desktop** | OneDrive, SharePoint, Google Drive, Dropbox, Nextcloud, iCloud Drive and other desktop-synchronized folders are treated as connection methods of their actual provider. Studio writes portable OMI files locally while the provider client performs authentication/synchronization. |
+| Android native save workflow | **Operational public alpha** | Android uses the system Documents / Storage Access Framework picker for opening, Save, Save As, portable `.omi.zip` backup and supported export destinations instead of broad shared-storage permissions. |
 | WebDAV / Nextcloud direct storage | **Configuration-dependent** | Direct WebDAV/Nextcloud connections support encrypted server-side credentials, connection testing, portable backup upload, restore and deletion. |
-| Integrations catalogue | **Operational** | Provider registry, catalogue UI, status client and declared authentication modes are present. |
-| DeepL integration | **Foundation** | Provider/configuration scaffolding exists; this status does not claim a complete production translation workflow. |
+| Integrations catalogue | **Operational** | Provider registry, catalogue UI, status client, declared authentication modes and execution surfaces are present. |
 | Windows desktop application | **Operational** | Tauri 2 Windows application, EXE/MSI packaging, native authentication, local-file access and native save flows are implemented. |
 | Linux and macOS packaging | **Operational build targets** | Release automation defines Linux AppImage/DEB and macOS Intel/Apple Silicon DMG targets. Platform signing/notarization remains separate release-hardening work. |
-| Android application | **Operational public alpha** | A universal Android APK is produced by the shared Tauri 2 release workflow. Server-backed login/logout, responsive navigation, account/document/detail views, insertion UI, native export delivery and OMI launcher branding are part of the shared client line. |
+| Android application | **Operational public alpha** | A universal Android APK is produced by the shared Tauri 2 release workflow. Server-backed auth, OIDC/ORCID native return handling, responsive navigation, native Documents/SAF file handling, export delivery and OMI branding are part of the shared client line. |
 | iOS / iPadOS | **Foundation / planned distribution** | The shared architecture is designed for iOS/iPadOS, but this snapshot does not claim a tested public iOS build. |
 | Desktop update flow | **Operational** | Update notification and installer flow is implemented in the desktop application and updater artifacts are produced by the release configuration. |
 | Cross-platform release automation | **Operational** | GitHub Actions produces Windows, Linux, macOS and Android artifacts from the shared source tree. |
 | Release dependency reproducibility | **Operational** | JavaScript and Rust dependency graphs are lockfile-controlled; CI uses reproducible install paths including `npm ci` for the server. |
 | Application branding | **Operational** | OMI Studio branding and generated native icon assets are used across the application shell and release packaging, including Android. |
-| Security hardening | **Operational baseline** | Server-side rate limiting, SSRF restrictions for publishing-system integrations, runtime type validation, safer import/export escaping, restricted secret persistence and automated security scanning are incorporated into the current development line. |
+| Security hardening | **Operational baseline** | Server-side rate limiting, SSRF restrictions, OIDC state/nonce/PKCE and issuer validation, restricted secret persistence, hashed reset/Admin-API tokens, integration/admin auditing, safer import/export escaping and automated security scanning are incorporated into the current development line. |
 | Windows code signing | **Application submitted / pending** | Public code-signing and privacy policies are published and the SignPath Foundation open-source application has been prepared/submitted. Windows installers remain unsigned until acceptance and production signing integration. |
 
 ## Cross-platform architecture
 
-Studio now has a concrete shared-client architecture rather than separate web and native product lines. React/TypeScript, the OMI manuscript model, editor behavior, authentication flows, peer review, integrations and import/export logic are shared. Tauri 2 supplies native packaging and platform capabilities for desktop and mobile clients.
+Studio has a concrete shared-client architecture rather than separate web and native product lines. React/TypeScript, the OMI manuscript model, editor behavior, authentication flows, peer review, integrations and import/export logic are shared. Tauri 2 supplies native packaging and platform capabilities for desktop and mobile clients.
 
-The responsive UI intentionally differs by form factor: desktop can expose multi-panel editing, while mobile uses compact navigation, drawers and touch-oriented controls. This is a presentation difference, not a separate manuscript model.
+The responsive UI intentionally differs by form factor: desktop can expose multi-document tabs, a persistent document outline and multi-panel editing, while mobile uses compact navigation, drawers, touch-oriented controls and platform-native file pickers. This is a presentation difference, not a separate manuscript model.
 
 ## Architecture boundaries
 
 ### Local-first manuscript ownership
 
-The native application can keep manuscripts in storage chosen by the author. A manuscript does not need to become proprietary server state merely because server-backed collaboration or integrations are enabled. Desktop users can also place portable OMI backups into folders already synchronized by their preferred cloud client, with the selected path and filesystem permission kept locally on the device.
+The native application can keep manuscripts in storage chosen by the author. A manuscript does not need to become proprietary server state merely because server-backed identity, collaboration or integrations are enabled.
+
+Installed Studio clients now distinguish a trusted personal device from a shared/foreign device. On an own device, normal local/system-storage working paths can be retained. On a shared device, Studio prefers profile-scoped cloud connections and does not retain the selected local path; one-off portable/removable storage remains available.
 
 ### Server-backed identity and services
 
-Accounts, collaboration, peer review, direct cloud connectors and publishing-system integrations use the Studio API and PostgreSQL-backed services. Authentication identity is kept distinct from scholarly contributor identity. These features depend on the deployment being correctly configured and migrated.
+Accounts, password recovery, connected identities, federated sign-in, collaboration, peer review, direct cloud connectors, institution administration and publishing-system integrations use the Studio API and PostgreSQL-backed services. Authentication identity is kept distinct from scholarly contributor identity and from institution membership. These features depend on the deployment being correctly configured and migrated.
+
+### Institutional administration boundary
+
+Institution membership (`MEMBER` / `ADMIN` / `OWNER`) and OMI central administration (`ADMIN` / `OWNER`) are separate authorization planes. Neither grants manuscript/review/editorial-content access by itself. Institution machine API credentials are bound to one institution and explicit scopes, and cannot alter owner roles.
+
+See [Institutional and Central Administration](../integrations/institutional-administration.md).
 
 ### External integrations
 
-OMI separates manuscript semantics from provider-specific authentication and transport. OJS, OMP, cloud storage, ORCID and future translation providers therefore connect through integration layers rather than becoming part of the core document model.
+OMI separates manuscript semantics from provider-specific authentication and transport. OJS, OMP, cloud storage, ORCID, OIDC identity providers, translation services and AI agents therefore connect through integration layers rather than becoming part of the core document model.
 
 ### Publishing-system authority
 
@@ -106,28 +133,31 @@ For connected OJS workflows, OJS remains authoritative for submission workflow s
 
 GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. The public Studio download page exposes browser access and native packages, including the Android universal APK for the current `0.1.0-alpha.4` release line.
 
-The project remains alpha while beta-readiness work concentrates on regression coverage, interoperability, error recovery, release trust and elimination of blocker/critical defects rather than on basic product scaffolding.
+The project remains alpha while beta-readiness work concentrates on regression coverage, interoperability, error recovery, database migration discipline, release trust and elimination of blocker/critical defects rather than on basic product scaffolding.
 
 ## Beta-readiness gate
 
 A beta release is appropriate when the primary workflows can be exercised without data loss or blocker/critical defects, particularly:
 
-1. registration/login/logout and session restoration;
-2. manuscript creation, opening, editing, saving and reopening;
+1. registration/login/logout, password recovery, federated/linked identities and session restoration;
+2. manuscript creation, opening, editing, saving and reopening across trusted and shared-device modes;
 3. DOCX import and representative structured export paths on web and native clients;
 4. OJS manuscript round-trip and role-aware author/editor/reviewer workflows;
 5. double-blind peer review without identity leakage;
-6. native file handling, persistent synchronized-folder access, responsive navigation and Android lifecycle behavior;
-7. understandable user-facing error handling for network, authentication and integration failures.
+6. native file handling, profile cloud access, Android Documents/SAF lifecycle behavior and responsive navigation;
+7. institution/central administration without privilege leakage into manuscript content;
+8. understandable user-facing error handling for network, authentication, migration and integration failures.
 
 Experimental or configuration-dependent integrations do not need to be feature-complete to enter beta, provided their maturity is clearly identified and they do not compromise the stable core workflows.
 
 ## What remains before beta
 
-- complete focused Windows and Android regression passes across the beta-readiness gate;
+- complete focused Windows and Android regression passes across the expanded beta-readiness gate;
+- exercise password reset, OIDC linking/unlinking and cross-device session behavior against production-like mail/provider configuration;
+- run migration and authorization regression tests for institution membership, central administration and institution Admin API credentials;
 - continue OJS round-trip and cross-version interoperability testing;
 - complete implementation and end-to-end testing of the OMP connector;
-- strengthen recovery behavior for interrupted network and synchronization operations;
+- strengthen recovery behavior for interrupted network, cloud and synchronization operations;
 - replace remaining technical/raw error surfaces with actionable user-facing messages;
 - integrate Windows production code signing if/when the SignPath Foundation application is accepted;
 - continue macOS signing/notarization and store-oriented mobile distribution work;
