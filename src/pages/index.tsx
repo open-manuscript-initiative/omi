@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -56,9 +57,40 @@ export default function Home() {
   const {i18n} = useDocusaurusContext();
   const t = getPublicPageCopy(i18n.currentLocale).home;
   const studioUpdate = getStudioUpdate(i18n.currentLocale);
+  const localizedUrl = i18n.currentLocale === 'en'
+    ? 'https://openmanuscript.org/'
+    : `https://openmanuscript.org/${i18n.currentLocale}/`;
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': 'https://openmanuscript.org/#organization',
+        name: 'Open Manuscript Initiative',
+        url: 'https://openmanuscript.org/',
+        logo: 'https://openmanuscript.org/android-chrome-512x512.png',
+        sameAs: [
+          'https://github.com/open-manuscript-initiative',
+          'https://www.facebook.com/share/19AmDMBVoe/',
+        ],
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://openmanuscript.org/#website',
+        url: localizedUrl,
+        name: 'Open Manuscript Initiative',
+        description: t.description,
+        inLanguage: i18n.currentLocale,
+        publisher: {'@id': 'https://openmanuscript.org/#organization'},
+      },
+    ],
+  };
 
   return (
     <Layout title="Open Manuscript Initiative" description={t.description}>
+      <Head>
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+      </Head>
       <main className={styles.page}>
         <section className={styles.hero}>
           <div className={styles.logoWrap}>
@@ -103,6 +135,7 @@ export default function Home() {
             <h2 id="current-development-status">{t.status}</h2>
             <h3>{t.currentTitle}</h3>
             <p>{studioUpdate.summary}</p>
+            <p>{t.current}</p>
             <div className={styles.studioActions}>
               <Link className="button button--primary button--lg" to="/studio">{t.studio}</Link>
               <Link className="button button--secondary button--lg" to="/docs/governance/studio-implementation-status">{t.status}</Link>
@@ -132,7 +165,7 @@ export default function Home() {
 
         <section className={styles.cta}>
           <h2>{t.tagline}</h2>
-          <p>{t.description}</p>
+          <p>{t.current}</p>
           <div className={styles.buttons}>
             <Link className="button button--primary button--lg" to="/studio">{t.studio}</Link>
             <Link className="button button--secondary button--lg" to="https://github.com/open-manuscript-initiative/omi">{t.github}</Link>
