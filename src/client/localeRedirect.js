@@ -7,7 +7,6 @@ const SUPPORTED_LOCALES = [
 
 const DEFAULT_LOCALE = 'en';
 const STORAGE_KEY = 'omi.preferredLocale';
-const PERSIST_QUERY = 'persistLocale';
 
 function normalizeLocale(value) {
   if (!value) return null;
@@ -15,9 +14,9 @@ function normalizeLocale(value) {
   return SUPPORTED_LOCALES.includes(base) ? base : null;
 }
 
-function localeFromPathname(pathname) {
+function explicitLocaleFromPathname(pathname) {
   const firstSegment = pathname.split('/').filter(Boolean)[0];
-  return SUPPORTED_LOCALES.includes(firstSegment) ? firstSegment : DEFAULT_LOCALE;
+  return SUPPORTED_LOCALES.includes(firstSegment) ? firstSegment : null;
 }
 
 function preferredBrowserLocale() {
@@ -33,23 +32,14 @@ function preferredBrowserLocale() {
   return DEFAULT_LOCALE;
 }
 
-function cleanPersistenceQuery(url) {
-  url.searchParams.delete(PERSIST_QUERY);
-  const query = url.searchParams.toString();
-  const cleanUrl = `${url.pathname}${query ? `?${query}` : ''}${url.hash}`;
-  window.history.replaceState(window.history.state, '', cleanUrl);
-}
-
 if (ExecutionEnvironment.canUseDOM) {
-  const url = new URL(window.location.href);
+  const {pathname} = window.location;
+  const isRoot = pathname === '/' || pathname === '';
 
-  // The Docusaurus locale dropdown appends this parameter. Treat that as an
-  // explicit user choice and remember it for future visits to the bare root.
-  if (url.searchParams.get(PERSIST_QUERY) === 'true') {
-    const selectedLocale = localeFromPathname(url.pathname);
-    window.localStorage.setItem(STORAGE_KEY, selectedLocale);
-    cleanPersistenceQuery(url);
-  } else if (url.pathname === '/' || url.pathname === '') {
+  if (!isRoot) {
+    const selectedLocale = explicitLocaleFromPathname(pathname);
+    if (selectedLocale) window.localStorage.setItem(STORAGE_KEY, selectedLocale);
+  } else {
     const storedLocale = normalizeLocale(window.localStorage.getItem(STORAGE_KEY));
     const targetLocale = storedLocale ?? preferredBrowserLocale();
 
