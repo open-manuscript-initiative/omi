@@ -47,6 +47,50 @@ INSTITUTIONAL_ADMIN_EMAILS=
 
 A configured administrator e-mail does not by itself grant institution ownership. The matching Studio account must already have a linked OIDC or SAML identity before automatic initial `OWNER` provisioning can occur.
 
+## Institutional administrator bootstrap and sign-in
+
+The institution-administrator sign-in surface is enabled only when the server runs in institutional mode. A minimal bootstrap configuration is:
+
+```dotenv
+DEPLOYMENT_MODE=institutional
+INSTITUTIONAL_NAME="Example University Press"
+INSTITUTIONAL_ADMIN_EMAILS="admin@example.org"
+```
+
+If the institution has a ROR identifier, it should also be configured:
+
+```dotenv
+INSTITUTIONAL_ROR_ID="https://ror.org/012345678"
+```
+
+Multiple bootstrap administrator addresses can be supplied as a comma-separated allow-list:
+
+```dotenv
+INSTITUTIONAL_ADMIN_EMAILS="admin@example.org,second.admin@example.org"
+```
+
+The bootstrap process intentionally requires two independent conditions:
+
+1. the Studio account e-mail must match an address in `INSTITUTIONAL_ADMIN_EMAILS`; and
+2. the same Studio account must already have a linked `OIDC` or `SAML` identity.
+
+A local e-mail-and-password account alone is not sufficient for automatic `OWNER` provisioning. This prevents possession of a locally configured password from being treated as proof of institutional control.
+
+When the eligible administrator signs in, Studio performs the following server-side sequence:
+
+1. authenticates the Studio account;
+2. checks the configured institutional bootstrap policy;
+3. creates the institution record if it does not yet exist;
+4. creates or upgrades the matching institution membership to `OWNER`;
+5. associates the membership with the linked federated identity; and
+6. accepts the institution-administrator session only after confirming an active `ADMIN` or `OWNER` membership.
+
+The administrator can then use the **Institution administrator** sign-in mode on the Studio login page. E-mail/password authentication can be used to start this sign-in flow, and configured OIDC providers can also be used, but the backend always performs the institution-role check before granting the administrative context.
+
+Administrator permission cannot be self-registered from the public registration form. Subsequent administrators should be assigned through the institution-administration workflow rather than by extending the bootstrap allow-list indefinitely.
+
+After changing deployment or identity-provider environment variables, restart the Studio API service so the new server configuration is loaded. Verify the active deployment profile through the Studio footer or the non-secret authentication provider status endpoint before attempting the bootstrap sign-in.
+
 ## Credential isolation
 
 Credential routing is deterministic and controlled by `DEPLOYMENT_MODE`:
