@@ -20,7 +20,10 @@ const config = {
   organizationName: 'open-manuscript-initiative',
   projectName: 'omi',
   onBrokenLinks: 'throw',
-  clientModules: ['./src/client/localeRedirect.js'],
+  clientModules: [
+    './src/client/localeRedirect.js',
+    './src/client/socialShare.js',
+  ],
 
   i18n: {
     defaultLocale: 'en',
