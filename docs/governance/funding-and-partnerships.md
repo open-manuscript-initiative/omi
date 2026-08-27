@@ -10,6 +10,8 @@ The Open Manuscript Initiative (OMI) is an open-source effort to build interoper
 
 OMI distinguishes community support from institutional and research cooperation. Financial contributions can help sustain the project, but partnership can also mean research collaboration, infrastructure provision, interoperability work, pilot deployments, evaluation, dissemination or participation in a funded consortium.
 
+> **Preparing a proposal or consortium?** See the [OMI Grant Readiness Pack](/docs/governance/grant-readiness-pack) for reusable project descriptions, partner profiles, work-package structures, impact framing, budget planning, KPIs and proposal-preparation material.
+
 ## Ways to support and cooperate
 
 ### Individual supporters
@@ -90,6 +92,8 @@ For a concrete call, the partnership discussion should identify:
 - sustainability and exploitation plan;
 - open-source, data-management and intellectual-property requirements;
 - impact indicators and dissemination commitments.
+
+The [Grant Readiness Pack](/docs/governance/grant-readiness-pack) expands these points into a reusable consortium and proposal framework.
 
 This page describes OMI's general partnership readiness; it is not a claim of eligibility for any particular funding programme or call.
 

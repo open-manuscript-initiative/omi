@@ -19,6 +19,10 @@ const COPY = {
     sponsorTitle: 'Sponsor the project',
     sponsorText: 'The preferred sponsorship channel is GitHub Sponsors. Institutional sponsorship and collaboration are also welcome.',
     github: 'Support OMI on GitHub Sponsors',
+    partnershipTitle: 'Institutional and research partnerships',
+    partnershipText: 'Universities, libraries, scholarly societies, publishers, research infrastructures and funders can also work with OMI through pilots, research cooperation, infrastructure support and funded consortia.',
+    partnershipButton: 'Funding & Partnerships',
+    grantButton: 'Grant Readiness Pack',
     contact: 'For institutional sponsorship, infrastructure support or partnership proposals, contact the Open Manuscript Initiative through the project website or GitHub organization.',
     transparency: 'Sponsorship supports the development and operation of the open-source project. It does not buy influence over editorial, peer-review or scholarly decisions.',
   },
@@ -37,6 +41,10 @@ const COPY = {
     sponsorTitle: 'A projekt támogatása',
     sponsorText: 'Az elsődleges támogatási csatorna a GitHub Sponsors. Intézményi támogatást és együttműködést is örömmel fogadunk.',
     github: 'Az OMI támogatása a GitHub Sponsorson',
+    partnershipTitle: 'Intézményi és kutatási partnerségek',
+    partnershipText: 'Egyetemek, könyvtárak, tudományos társaságok, kiadók, kutatási infrastruktúrák és támogatók pilotokkal, kutatási együttműködéssel, infrastruktúra-támogatással és pályázati konzorciumokban is kapcsolódhatnak az OMI-hoz.',
+    partnershipButton: 'Finanszírozás és partnerségek',
+    grantButton: 'Pályázati előkészítő csomag',
     contact: 'Intézményi támogatás, infrastruktúra-hozzájárulás vagy együttműködési javaslat esetén az Open Manuscript Initiative a projekt honlapján vagy GitHub-szervezetén keresztül érhető el.',
     transparency: 'A támogatás a nyílt forráskódú projekt fejlesztését és működtetését szolgálja. Nem biztosít befolyást szerkesztői, lektori vagy tudományos döntésekre.',
   },
@@ -55,6 +63,10 @@ const COPY = {
     sponsorTitle: 'Projekt unterstützen',
     sponsorText: 'Der bevorzugte Sponsoring-Kanal ist GitHub Sponsors. Institutionelle Förderung und Zusammenarbeit sind ebenfalls willkommen.',
     github: 'OMI über GitHub Sponsors unterstützen',
+    partnershipTitle: 'Institutionelle und Forschungspartnerschaften',
+    partnershipText: 'Universitäten, Bibliotheken, Fachgesellschaften, Verlage, Forschungsinfrastrukturen und Förderer können über Pilotprojekte, Forschungskooperation, Infrastrukturunterstützung und geförderte Konsortien mit OMI zusammenarbeiten.',
+    partnershipButton: 'Förderung & Partnerschaften',
+    grantButton: 'Grant Readiness Pack',
     contact: 'Für institutionelle Förderung, Infrastrukturunterstützung oder Kooperationsvorschläge erreichen Sie die Open Manuscript Initiative über die Projektwebsite oder die GitHub-Organisation.',
     transparency: 'Sponsoring unterstützt Entwicklung und Betrieb des Open-Source-Projekts. Es gewährt keinen Einfluss auf redaktionelle, Peer-Review- oder wissenschaftliche Entscheidungen.',
   },
@@ -105,6 +117,17 @@ export default function SupportPage() {
                 </a>
               </p>
               <p>{t.contact}</p>
+            </div>
+          </section>
+
+          <section className="card margin-bottom--lg">
+            <div className="card__body">
+              <h2>{t.partnershipTitle}</h2>
+              <p>{t.partnershipText}</p>
+              <div style={{display: 'flex', gap: '0.75rem', flexWrap: 'wrap'}}>
+                <a className="button button--secondary" href="/docs/governance/funding-and-partnerships">{t.partnershipButton}</a>
+                <a className="button button--secondary" href="/docs/governance/grant-readiness-pack">{t.grantButton}</a>
+              </div>
             </div>
           </section>
 
