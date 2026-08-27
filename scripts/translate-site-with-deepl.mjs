@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, readdir, stat, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, stat, writeFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import process from 'node:process';
@@ -76,15 +76,21 @@ for (const item of audit) {
 
   const localeRoot = path.join(I18N_ROOT, locale);
   const isHandMaintained = HAND_MAINTAINED.has(locale);
+  const wasMissing = !item.localeExists;
 
-  if (!(await exists(localeRoot))) {
+  if (wasMissing) {
     console.log(`\nScaffolding Docusaurus locale ${locale}...`);
     runDocusaurusWriteTranslations(locale);
   }
 
   console.log(`\nTranslating site locale ${locale} -> ${targetLang}`);
-  await translateJsonTree(localeRoot, targetLang, authKey, apiBase, { force: force && !isHandMaintained });
-  await translateDocs(locale, targetLang, authKey, apiBase, { force: force && !isHandMaintained });
+  await translateJsonTree(localeRoot, targetLang, authKey, apiBase, {
+    translateExisting: wasMissing,
+    force: force && !isHandMaintained,
+  });
+  await translateDocs(locale, targetLang, authKey, apiBase, {
+    force: force && !isHandMaintained,
+  });
 }
 
 console.log('\nTranslation run complete. Review changes, then run npm run build before committing.');
@@ -119,6 +125,7 @@ function runDocusaurusWriteTranslations(locale) {
 }
 
 async function translateJsonTree(localeRoot, targetLang, authKey, apiBase, options) {
+  if (!options.translateExisting && !options.force) return;
   const files = await listFiles(localeRoot, (file) => file.endsWith('.json'));
   for (const file of files) {
     const raw = await readFile(file, 'utf8');
@@ -127,13 +134,6 @@ async function translateJsonTree(localeRoot, targetLang, authKey, apiBase, optio
     const strings = [];
     collectStrings(value, strings);
     if (!strings.length) continue;
-
-    // Newly scaffolded locale files contain English values. Existing hand-maintained
-    // locale files are preserved unless they are missing entirely; --force never
-    // overwrites hu/de.
-    const shouldTranslate = options.force || !HAND_MAINTAINED.has(path.basename(localeRoot));
-    if (!shouldTranslate) continue;
-
     const translated = await translateBatch(strings, targetLang, authKey, apiBase);
     let cursor = 0;
     value = replaceStrings(value, () => translated[cursor++]);
@@ -177,7 +177,7 @@ async function translateMarkdown(source, targetLang, authKey, apiBase) {
     if (frontmatter) {
       const match = line.match(/^(\s*)(title|sidebar_label|description):\s*(.+)$/);
       if (!match) continue;
-      indexes.push({ index: i, prefix: `${match[1]}${match[2]}: `, suffix: '' });
+      indexes.push({ index: i, prefix: `${match[1]}${match[2]}: ` });
       candidates.push(stripWrappingQuotes(match[3]));
       continue;
     }
@@ -187,13 +187,13 @@ async function translateMarkdown(source, targetLang, authKey, apiBase) {
 
     const { prefix, body } = splitMarkdownPrefix(line);
     if (!body || !/[A-Za-z]/.test(body)) continue;
-    indexes.push({ index: i, prefix, suffix: '' });
+    indexes.push({ index: i, prefix });
     candidates.push(body);
   }
 
   if (!candidates.length) return source;
   const translated = await translateBatch(candidates, targetLang, authKey, apiBase);
-  indexes.forEach((entry, idx) => { lines[entry.index] = `${entry.prefix}${translated[idx]}${entry.suffix}`; });
+  indexes.forEach((entry, idx) => { lines[entry.index] = `${entry.prefix}${translated[idx]}`; });
   return lines.join('\n');
 }
 
