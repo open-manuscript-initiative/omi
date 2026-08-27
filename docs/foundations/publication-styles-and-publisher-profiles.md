@@ -2,11 +2,13 @@
 id: publication-styles-and-publisher-profiles
 title: Publication Styles and Publisher Profiles
 sidebar_label: Publication Styles and Publisher Profiles
-description: How Open Manuscript Studio separates manuscript semantics, publisher identity and reusable publication styling for PDF, HTML and CSS export.
+description: How Open Manuscript Studio separates manuscript semantics, publisher identity and reusable publication styling for PDF, HTML and CSS export, including InDesign IDML style-set import.
 keywords:
   - Open Manuscript Studio
   - publication style
   - publisher profile
+  - Adobe InDesign
+  - IDML
   - CSS export
   - PDF export
   - HTML export
@@ -26,7 +28,7 @@ This separation allows the same OMI manuscript to be rendered for different jour
 
 ## Current implementation status
 
-The feature set described on this page is implemented in the current Studio development line and is part of the project's beta-readiness work.
+The feature set described on this page is implemented in the current Studio development line and is part of the project's beta-readiness work. The public binary release remains `0.1.0-alpha.4`; newer capabilities described here may first appear in the development line before the next packaged release.
 
 ### Reusable named publication styles
 
@@ -40,7 +42,8 @@ A publisher or journal profile can maintain multiple named publication styles. U
 - edit style values with a live preview;
 - save the active style locally;
 - export the style definition;
-- download generated CSS from the current editor state.
+- download generated CSS from the current editor state;
+- import an Adobe InDesign style set from an IDML package.
 
 The currently selected style is the active style used by the PDF and HTML export paths.
 
@@ -60,6 +63,28 @@ The graphical editor exposes publishing-oriented controls rather than manuscript
 - print-oriented page geometry.
 
 The live preview is manuscript-aware: title, subtitle, authors, affiliations, headings, body text and footnotes are derived from the currently open manuscript where available. Sample publication data is not substituted for missing manuscript metadata.
+
+## Adobe InDesign IDML style-set import
+
+Studio can import reusable publication styling from an **Adobe InDesign IDML** package. The purpose is style interoperability, not full InDesign document conversion: native `.indd` files and complete IDML document import remain outside the scope of this importer.
+
+The importer reads the relevant XML resources from the IDML ZIP package and can transfer recognizable publication-style information such as:
+
+- page width and height;
+- top, bottom, inner and outer margins;
+- paragraph font family and point size;
+- leading;
+- paragraph alignment;
+- first-line indentation;
+- space before and after;
+- italic and common bold/semi-bold style information;
+- `BasedOn` paragraph-style inheritance.
+
+Common English, Hungarian and German InDesign style names are mapped automatically to OMI publication roles, including body text, article title and subtitle, first- and second-level headings, footnotes, figure and table captions, and bibliography entries. Styles that cannot be identified automatically remain reported as unmapped rather than being forced into the manuscript model.
+
+A successful IDML import creates a **new reusable OMI publication style**, selects it as the active style and refreshes the graphical Publication Style editor. It does **not** rewrite headings, paragraphs or any other manuscript semantics. This preserves the architectural boundary between scholarly structure and presentation.
+
+This makes it possible for a journal or publisher to migrate an existing InDesign typographic system into Studio and reuse it for OMI manuscripts without embedding InDesign-specific semantics in the document itself.
 
 ## Publisher profile
 
@@ -135,7 +160,9 @@ These structures remain tied to manuscript semantics and anchors rather than to 
 
 ## Security boundary
 
-Publication export must treat manuscript and profile text as data, not executable markup. The current export implementation avoids reinterpreting dynamic DOM text through unsafe `document.write()` paths and uses structured DOM/text assignment or isolated generated-document loading instead. Automated CodeQL scanning is part of the current security-hardening workflow.
+Publication export and style import treat manuscript, profile and imported IDML text as data, not executable markup. The export implementation avoids reinterpreting dynamic DOM text through unsafe `document.write()` paths and uses structured DOM/text assignment or isolated generated-document loading instead.
+
+The IDML importer applies a separate trust boundary before XML parsing: unsupported `DOCTYPE`, entity declarations and stylesheet processing instructions are rejected. Parser/package error strings derived from an untrusted IDML file are not rendered back into the Studio interface; users receive a fixed localized import-failure message instead. Automated CodeQL scanning is used to trace these source-to-DOM data flows during security hardening.
 
 ## Architectural principle
 
@@ -143,4 +170,8 @@ The intended relationship is:
 
 **OMI manuscript → publisher profile + selected publication style → output renderer → PDF / HTML / CSS**
 
-The manuscript remains portable and semantically stable, while presentation becomes reusable, replaceable and publisher-specific.
+An additional interoperability path is:
+
+**InDesign IDML style set → OMI publication style → same output renderer**
+
+The manuscript remains portable and semantically stable, while presentation becomes reusable, replaceable, importable and publisher-specific.

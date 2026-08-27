@@ -17,10 +17,10 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
 
 const STUDIO_UPDATE = {
   en: {
-    summary: 'The current alpha is in beta-readiness stabilization and now combines browser, desktop, Android and a validated iOS/iPadOS native target with multi-document editing, optimized large-DOCX import, reusable publication styles and publisher profiles, style-driven PDF/HTML/CSS export, generated document lists and indexes, device-aware local/cloud storage, secure password recovery, federated sign-in, double-blind peer review, OJS/OMP workflows, ORCID-bound author signatures, proofreading and institution-level administration.',
+    summary: 'The current alpha is in beta-readiness stabilization and now combines browser, desktop, Android and a validated iOS/iPadOS native target with multi-document editing, optimized large-DOCX import, reusable publication styles and publisher profiles, Adobe InDesign IDML style-set import, style-driven PDF/HTML/CSS export, generated document lists and indexes, device-aware local/cloud storage, secure password recovery, federated sign-in, double-blind peer review, OJS/OMP workflows, ORCID-bound author signatures, proofreading and institution-level administration.',
     multiDocument: 'Multi-document desktop editing and document outline',
     largeDocx: 'Large DOCX import optimization and generated lists',
-    publishing: 'Reusable publication styles, publisher profiles and PDF/HTML/CSS export',
+    publishing: 'Reusable publication styles, InDesign IDML import and PDF/HTML/CSS export',
     accounts: 'Cross-device accounts, recovery and connected identities',
     storage: 'Own-device, cloud and mobile-native storage workflows',
     institutional: 'Institutional profiles, central administration and Admin API',
@@ -28,10 +28,10 @@ const STUDIO_UPDATE = {
     ios: 'Validated iPhone/iPad simulator build and Files integration',
   },
   hu: {
-    summary: 'A jelenlegi alpha béta-előkészítő stabilizációs szakaszban van. A böngészős, asztali és Android kliensek mellett már validált iOS/iPadOS natív célverziót, többdokumentumos szerkesztést, nagy DOCX-ek optimalizált importját, újrafelhasználható kiadványstílusokat és kiadói profilokat, stílusvezérelt PDF/HTML/CSS exportot, generált jegyzékeket és mutatókat, eszköztudatos helyi/felhős tárhelykezelést, federált bejelentkezést, double-blind peer review-t, OJS/OMP munkafolyamatokat, ORCID-hez kötött szerzői aláírást, nyelvi ellenőrzést és intézményi adminisztrációt is tartalmaz.',
+    summary: 'A jelenlegi alpha béta-előkészítő stabilizációs szakaszban van. A böngészős, asztali és Android kliensek mellett már validált iOS/iPadOS natív célverziót, többdokumentumos szerkesztést, nagy DOCX-ek optimalizált importját, újrafelhasználható kiadványstílusokat és kiadói profilokat, Adobe InDesign IDML stíluskészlet-importot, stílusvezérelt PDF/HTML/CSS exportot, generált jegyzékeket és mutatókat, eszköztudatos helyi/felhős tárhelykezelést, federált bejelentkezést, double-blind peer review-t, OJS/OMP munkafolyamatokat, ORCID-hez kötött szerzői aláírást, nyelvi ellenőrzést és intézményi adminisztrációt is tartalmaz.',
     multiDocument: 'Többdokumentumos asztali szerkesztés és dokumentumvázlat',
     largeDocx: 'Nagy DOCX-ek optimalizált importja és generált jegyzékek',
-    publishing: 'Újrafelhasználható kiadványstílusok, kiadói profilok és PDF/HTML/CSS export',
+    publishing: 'Újrafelhasználható kiadványstílusok, InDesign IDML import és PDF/HTML/CSS export',
     accounts: 'Eszközök között közös fiók, jelszó-visszaállítás és kapcsolt identitások',
     storage: 'Saját eszköz, felhő és mobil natív tárhelymunkafolyamatok',
     institutional: 'Intézményi profilok, központi adminisztráció és Admin API',
@@ -39,10 +39,10 @@ const STUDIO_UPDATE = {
     ios: 'Validált iPhone/iPad szimulátoros build és Files-integráció',
   },
   de: {
-    summary: 'Die aktuelle Alpha befindet sich in der Beta-Readiness-Stabilisierung. Browser-, Desktop- und Android-Clients werden inzwischen durch ein validiertes natives iOS/iPadOS-Ziel, Mehrdokument-Bearbeitung, optimierten Import großer DOCX-Dateien, wiederverwendbare Publikationsstile und Verlagsprofile, stilgesteuerten PDF/HTML/CSS-Export, generierte Verzeichnisse und Register, gerätebewusste lokale/Cloud-Speicherung, föderierte Anmeldung, Double-blind Peer Review, OJS/OMP-Workflows, ORCID-gebundene Autorensignaturen, Korrekturhilfen und institutionelle Administration ergänzt.',
+    summary: 'Die aktuelle Alpha befindet sich in der Beta-Readiness-Stabilisierung. Browser-, Desktop- und Android-Clients werden inzwischen durch ein validiertes natives iOS/iPadOS-Ziel, Mehrdokument-Bearbeitung, optimierten Import großer DOCX-Dateien, wiederverwendbare Publikationsstile und Verlagsprofile, den Import von Adobe-InDesign-IDML-Stilsätzen, stilgesteuerten PDF/HTML/CSS-Export, generierte Verzeichnisse und Register, gerätebewusste lokale/Cloud-Speicherung, föderierte Anmeldung, Double-blind Peer Review, OJS/OMP-Workflows, ORCID-gebundene Autorensignaturen, Korrekturhilfen und institutionelle Administration ergänzt.',
     multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
     largeDocx: 'Optimierter Import großer DOCX-Dateien und generierte Verzeichnisse',
-    publishing: 'Wiederverwendbare Publikationsstile, Verlagsprofile und PDF/HTML/CSS-Export',
+    publishing: 'Wiederverwendbare Publikationsstile, InDesign-IDML-Import und PDF/HTML/CSS-Export',
     accounts: 'Geräteübergreifende Konten, Wiederherstellung und verbundene Identitäten',
     storage: 'Eigene Geräte, Cloud und mobile native Speicher-Workflows',
     institutional: 'Institutionelle Profile, zentrale Administration und Admin API',
