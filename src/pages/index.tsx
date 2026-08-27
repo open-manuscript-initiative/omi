@@ -51,15 +51,27 @@ const STUDIO_UPDATE = {
   },
 } as const;
 
+const SUPPORT_LABELS = {
+  en: 'Support OMI',
+  hu: 'Támogasd az OMI-t',
+  de: 'OMI unterstützen',
+} as const;
+
 function getStudioUpdate(locale: string) {
   if (locale === 'hu' || locale === 'de') return STUDIO_UPDATE[locale];
   return STUDIO_UPDATE.en;
+}
+
+function getSupportLabel(locale: string) {
+  if (locale === 'hu' || locale === 'de') return SUPPORT_LABELS[locale];
+  return SUPPORT_LABELS.en;
 }
 
 export default function Home() {
   const {i18n} = useDocusaurusContext();
   const t = getPublicPageCopy(i18n.currentLocale).home;
   const studioUpdate = getStudioUpdate(i18n.currentLocale);
+  const supportLabel = getSupportLabel(i18n.currentLocale);
   const localizedUrl = i18n.currentLocale === 'en'
     ? 'https://openmanuscript.org/'
     : `https://openmanuscript.org/${i18n.currentLocale}/`;
@@ -173,6 +185,7 @@ export default function Home() {
           <div className={styles.buttons}>
             <Link className="button button--primary button--lg" to="/studio">{t.studio}</Link>
             <Link className="button button--secondary button--lg" to="https://github.com/open-manuscript-initiative/omi">{t.github}</Link>
+            <Link className="button button--secondary button--lg" to="/support">{supportLabel}</Link>
           </div>
         </section>
       </main>
