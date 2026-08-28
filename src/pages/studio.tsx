@@ -6,7 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {getPublicPageCopy} from '../i18n/publicPages';
 import styles from './studio.module.css';
 
-const STUDIO_RELEASE_TAG = 'v0.1.0-alpha.4';
+const STUDIO_RELEASE_TAG = 'v0.1.0-beta.1';
 const RELEASE_BASE = `https://github.com/open-manuscript-initiative/open-manuscript-studio/releases/download/${STUDIO_RELEASE_TAG}`;
 const downloads = {
   windowsExe: `${RELEASE_BASE}/Open-Manuscript-Studio-Windows-x64-Setup.exe`,
@@ -28,11 +28,13 @@ const CAPABILITY_DOC_TARGETS: Record<number, string> = {
 
 const CURRENT_UPDATE = {
   en: {
-    title: 'Current beta-readiness development',
-    lead: 'Recent work now covers not only editing and publishing workflows, but also account portability, device-aware storage, institutional administration and centrally governed service access.',
+    title: 'Open Manuscript Studio public beta',
+    lead: 'Version 0.1.0-beta.1 marks the transition from alpha development to public beta testing across browser, desktop and Android workflows.',
     items: [
       ['Desktop manuscript workspace', 'Browser-style document tabs, full-window Studio/Account surfaces and a toggleable Word-like document outline support long-form desktop work without changing the mobile structure workflow.'],
-      ['Large DOCX and rich-text usability', 'Large Word imports use deferred editor mounting and open directly as OMI manuscripts. The expanded formatting menu is viewport-safe, and inline language selection comes from configured manuscript languages.'],
+      ['Large DOCX and rich-text usability', 'Large Word imports use deferred editor mounting and open directly as OMI manuscripts. Lazy previews now use final typography from the first render, avoiding visible line-spacing shifts while additional content loads.'],
+      ['Dynamic indexes', 'Word XE markers are imported as semantic index targets instead of page-number text. Studio can present each name once with clickable links to real occurrences, while DOCX export writes XE and INDEX fields so final page numbers are generated from the exported layout.'],
+      ['Search, replace and block structure', 'Document search now exposes search-and-replace directly and highlights matches. The current paragraph or selected blocks can be transformed between normal paragraphs, headings, block quotes, bullet lists, numbered lists and code blocks.'],
       ['Proofreading, translation and agents', 'Local spellcheck follows manuscript language. Optional grammar/style services, DeepL execution, provider-neutral AI agents and integration audit records operate through explicit, scoped external-service flows.'],
       ['Cross-device account security', 'Password recovery uses single-use expiring reset tokens and revokes prior sessions after password change. Connected sign-in methods can be managed from the account panel without conflating account identity with manuscript permissions.'],
       ['Federated sign-in', 'Google, Microsoft and configurable institutional OpenID Connect providers use Authorization Code + PKCE, state/nonce checks and issuer/audience validation. Existing accounts require explicit identity linking rather than e-mail auto-linking.'],
@@ -44,18 +46,22 @@ const CURRENT_UPDATE = {
       ['Publishing-system workflows', 'OJS author/editor/reviewer workflows are operational when configured, and the OMP connector architecture remains under end-to-end hardening.'],
     ],
     nativeAppsTitle: 'Native applications and platform builds',
-    nativeAppsDescription: 'Studio uses one OMI application core across desktop and mobile. Download public native builds where available; validated targets that still require platform-store signing are clearly marked instead of exposing non-existent packages.',
+    nativeAppsDescription: 'Studio uses one OMI application core across desktop and mobile. Download public beta native builds where available; validated targets that still require platform-store signing are clearly marked instead of exposing non-existent packages.',
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validated native iPhone/iPad simulator target using the same Studio core. Public TestFlight/App Store installation is not yet available because Apple signing/provisioning and the final Universal Link association are still required.',
     iosAction: 'iOS/iPadOS implementation details',
-    maturity: 'The current release remains alpha, but the project is in beta-readiness stabilization. Regression testing, large-document performance, error recovery, interoperability, migration discipline and release trust remain the primary gates.',
+    betaTitle: 'Public beta release',
+    betaText: 'OMI Studio 0.1.0-beta.1 is intended for broader real-world testing. Core authoring, DOCX import/export, document lifecycle, search/replace, semantic indexes and configured OJS review workflows are available, while compatibility, performance, recovery and platform distribution continue to be hardened before 1.0.',
+    maturity: 'The project is now in public beta. Beta development prioritizes regression testing, large-document performance, error recovery, interoperability, migration discipline and release trust on the path to the first release candidate.',
   },
   hu: {
-    title: 'A béta-előkészítés jelenlegi fejlesztései',
-    lead: 'Az újabb fejlesztések már nemcsak a szerkesztési és publikációs munkafolyamatokat, hanem a fiókhordozhatóságot, az eszköztudatos tárhelykezelést, az intézményi adminisztrációt és a központilag szabályozott szolgáltatáshozzáférést is lefedik.',
+    title: 'Az Open Manuscript Studio nyilvános bétája',
+    lead: 'A 0.1.0-beta.1 verzióval a Studio az alfa fejlesztési szakaszból nyilvános béta tesztelésbe lép a webes, asztali és Android munkafolyamatokon.',
     items: [
       ['Asztali kézirat-munkatér', 'Böngészőszerű dokumentumfülek, teljes ablakos Studio/Fiók felületek és kapcsolható, Word-szerű dokumentumvázlat segíti a hosszabb asztali munkát; mobilon megmarad a külön dokumentumszerkezeti nézet.'],
-      ['Nagy DOCX és rich-text használhatóság', 'A nagy Word-importok késleltetett szerkesztőbetöltést használnak és közvetlenül OMI-kéziratként nyílnak meg. A kibővített formázómenü nem csúszik ki a képernyőről, a szövegrész nyelve pedig az előre beállított kéziratnyelvekből választható.'],
+      ['Nagy DOCX és rich-text használhatóság', 'A nagy Word-importok késleltetett szerkesztőbetöltést használnak és közvetlenül OMI-kéziratként nyílnak meg. A lazy előnézet már az első rendernél a végleges tipográfiát használja, ezért további részek betöltésekor nincs látható sorköz-átugrás.'],
+      ['Dinamikus mutatók', 'A Word XE jelölései szemantikus mutatókapcsolatként importálódnak, nem oldalszám-szövegként. A Studio a neveket egyszer jelenítheti meg, a valós előfordulásokhoz kattintható kapcsolatokkal; DOCX exportkor XE és INDEX mezők készülnek, így a végleges oldalszámokat az exportált tördelés állítja elő.'],
+      ['Keresés, csere és blokkszerkezet', 'A dokumentumkeresőben közvetlenül elérhető a keresés és csere, a találatok pedig kiemelést kapnak. Az aktuális bekezdés vagy kijelölt blokkok sima bekezdéssé, címsorrá, idézetté, felsorolássá, számozott listává vagy kódblokkká alakíthatók.'],
       ['Nyelvi ellenőrzés, fordítás és ügynökök', 'A helyi helyesírás-ellenőrzés követi a kézirat nyelvét. A bekapcsolható nyelvhelyességi/stílusellenőrzés, a DeepL-fordítás, a szolgáltatófüggetlen AI-ügynökök és az integrációs audit explicit, scope-olt külső szolgáltatási folyamatokon keresztül működnek.'],
       ['Eszközök között használható biztonságos fiók', 'A jelszó-visszaállítás egyszer használható, lejáró tokeneket használ, a sikeres jelszócsere pedig megszünteti a korábbi munkameneteket. A kapcsolt bejelentkezési módok a Fiókban kezelhetők a kéziratjogosultságoktól elkülönítve.'],
       ['Federált bejelentkezés', 'Google, Microsoft és konfigurálható intézményi OpenID Connect szolgáltatók Authorization Code + PKCE, state/nonce és issuer/audience ellenőrzést használnak. Meglévő fiókhoz külső identitás csak kifejezett összekapcsolással rendelhető.'],
@@ -67,18 +73,22 @@ const CURRENT_UPDATE = {
       ['Publikációs rendszerkapcsolatok', 'A konfigurált OJS szerzői, szerkesztői és lektori munkafolyamatok működnek; az OMP-kapcsolat architektúrája elkészült és végponttól végpontig tartó stabilizálás alatt áll.'],
     ],
     nativeAppsTitle: 'Natív alkalmazások és platformbuildek',
-    nativeAppsDescription: 'A Studio ugyanazt az OMI alkalmazásmagot használja asztali és mobil rendszereken. A nyilvános natív buildek letölthetők; a még platformáruházi aláírásra váró validált célverziókat külön jelöljük, nem kínálunk hozzájuk nem létező telepítőt.',
+    nativeAppsDescription: 'A Studio ugyanazt az OMI alkalmazásmagot használja asztali és mobil rendszereken. A nyilvános béta natív buildek letölthetők; a még platformáruházi aláírásra váró validált célverziókat külön jelöljük, nem kínálunk hozzájuk nem létező telepítőt.',
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validált natív iPhone/iPad szimulátoros célverzió ugyanazzal a Studio-maggal. Nyilvános TestFlight/App Store telepítés még nincs, mert ehhez Apple aláírás/provisioning és a végleges Universal Link társítás szükséges.',
     iosAction: 'iOS/iPadOS megvalósítás részletei',
-    maturity: 'A jelenlegi kiadás továbbra is alpha, de a projekt béta-előkészítő stabilizációs szakaszban van. A regressziós tesztelés, nagy dokumentumok teljesítménye, hibából való helyreállás, interoperabilitás, migrációs fegyelem és a kiadások megbízhatósága a fő hátralévő kapuk.',
+    betaTitle: 'Nyilvános béta kiadás',
+    betaText: 'Az OMI Studio 0.1.0-beta.1 szélesebb körű, valós használati tesztelésre készült. Az alapvető kéziratszerkesztés, DOCX import/export, dokumentuméletciklus, keresés és csere, szemantikus mutatók és a konfigurált OJS lektori munkafolyamatok használhatók; az 1.0 előtt tovább folytatódik a kompatibilitás, teljesítmény, hibából való helyreállás és platformterjesztés keményítése.',
+    maturity: 'A projekt mostantól nyilvános béta. A béta szakasz fő feladata a regressziós tesztelés, a nagy dokumentumok teljesítménye, a hibából való helyreállás, az interoperabilitás, a migrációs fegyelem és a kiadások megbízhatósága az első release candidate felé.',
   },
   de: {
-    title: 'Aktuelle Entwicklung zur Beta-Reife',
-    lead: 'Die neueren Arbeiten umfassen neben Bearbeitung und Publikation inzwischen auch Kontoportabilität, gerätebewusste Speicherung, institutionelle Administration und zentral geregelten Dienstzugriff.',
+    title: 'Öffentliche Beta von Open Manuscript Studio',
+    lead: 'Mit Version 0.1.0-beta.1 wechselt Studio von der Alpha-Entwicklung in die öffentliche Beta-Erprobung für Browser-, Desktop- und Android-Workflows.',
     items: [
       ['Desktop-Manuskriptarbeitsbereich', 'Browserähnliche Dokument-Tabs, Vollfenster-Ansichten für Studio/Konto und eine einblendbare Word-ähnliche Dokumentgliederung unterstützen lange Desktop-Arbeiten; mobil bleibt der separate Struktur-Workflow erhalten.'],
-      ['Große DOCX-Dateien und Rich-Text-Bedienung', 'Große Word-Importe verwenden verzögertes Editor-Mounting und öffnen direkt als OMI-Manuskript. Das erweiterte Formatierungsmenü bleibt im Viewport, und Inline-Sprachen werden aus den konfigurierten Manuskriptsprachen gewählt.'],
+      ['Große DOCX-Dateien und Rich-Text-Bedienung', 'Große Word-Importe verwenden verzögertes Editor-Mounting und öffnen direkt als OMI-Manuskript. Lazy-Vorschauen verwenden bereits beim ersten Rendern die endgültige Typografie, sodass beim Nachladen keine sichtbaren Zeilenabstands-Sprünge entstehen.'],
+      ['Dynamische Register', 'Word-XE-Markierungen werden als semantische Registerziele statt als Seitenzahltext importiert. Studio kann jeden Namen einmal mit klickbaren Verweisen auf reale Vorkommen anzeigen; beim DOCX-Export werden XE- und INDEX-Felder erzeugt, damit die endgültigen Seitenzahlen aus dem exportierten Layout entstehen.'],
+      ['Suchen, Ersetzen und Blockstruktur', 'Die Dokumentsuche bietet Suchen und Ersetzen direkt an und hebt Treffer hervor. Der aktuelle Absatz oder ausgewählte Blöcke können in normale Absätze, Überschriften, Blockzitate, Aufzählungen, nummerierte Listen oder Codeblöcke umgewandelt werden.'],
       ['Korrektur, Übersetzung und Agenten', 'Lokale Rechtschreibprüfung folgt der Manuskriptsprache. Optionale Grammatik-/Stildienste, DeepL, providerneutrale KI-Agenten und Integrations-Auditdaten laufen über explizite, bereichsgebundene externe Dienstflüsse.'],
       ['Sichere geräteübergreifende Konten', 'Passwort-Wiederherstellung verwendet einmalige, ablaufende Tokens und beendet nach Passwortänderung vorhandene Sitzungen. Verknüpfte Anmeldemethoden werden im Konto getrennt von Manuskriptberechtigungen verwaltet.'],
       ['Föderierte Anmeldung', 'Google, Microsoft und konfigurierbare institutionelle OpenID-Connect-Provider verwenden Authorization Code + PKCE sowie State/Nonce- und Issuer/Audience-Prüfung. Bestehende Konten werden nicht allein anhand der E-Mail automatisch verknüpft.'],
@@ -90,11 +100,13 @@ const CURRENT_UPDATE = {
       ['Publikationssystem-Workflows', 'Konfigurierte OJS-Workflows für Autoren, Redakteure und Gutachter sind funktionsfähig; die OMP-Connector-Architektur wird weiterhin end-to-end stabilisiert.'],
     ],
     nativeAppsTitle: 'Native Anwendungen und Plattform-Builds',
-    nativeAppsDescription: 'Studio verwendet denselben OMI-Anwendungskern auf Desktop- und Mobilplattformen. Öffentliche native Builds können heruntergeladen werden; validierte Ziele, die noch Store-Signierung benötigen, werden klar markiert, statt nicht vorhandene Pakete anzubieten.',
+    nativeAppsDescription: 'Studio verwendet denselben OMI-Anwendungskern auf Desktop- und Mobilplattformen. Öffentliche Beta-Builds können heruntergeladen werden; validierte Ziele, die noch Store-Signierung benötigen, werden klar markiert, statt nicht vorhandene Pakete anzubieten.',
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validiertes natives iPhone/iPad-Simulatorziel mit demselben Studio-Kern. Eine öffentliche TestFlight/App-Store-Installation ist noch nicht verfügbar, da Apple-Signierung/Provisioning und die endgültige Universal-Link-Zuordnung erforderlich sind.',
     iosAction: 'Details zur iOS/iPadOS-Implementierung',
-    maturity: 'Die aktuelle Version bleibt Alpha, befindet sich aber in der Beta-Readiness-Stabilisierung. Regressionstests, Leistung bei großen Dokumenten, Fehlerbehebung, Interoperabilität, saubere Migrationen und Release-Vertrauen bleiben die wichtigsten Gates.',
+    betaTitle: 'Öffentliche Beta-Version',
+    betaText: 'OMI Studio 0.1.0-beta.1 ist für breitere Tests unter realen Bedingungen vorgesehen. Kernfunktionen für Autorenschaft, DOCX-Import/-Export, Dokumentlebenszyklus, Suchen/Ersetzen, semantische Register und konfigurierte OJS-Begutachtungsabläufe sind verfügbar; Kompatibilität, Leistung, Wiederherstellung und Plattformverteilung werden vor 1.0 weiter gehärtet.',
+    maturity: 'Das Projekt befindet sich jetzt in der öffentlichen Beta. Im Mittelpunkt stehen Regressionstests, Leistung bei großen Dokumenten, Fehlerwiederherstellung, Interoperabilität, saubere Migrationen und verlässliche Releases auf dem Weg zum ersten Release Candidate.',
   },
 } as const;
 
@@ -114,7 +126,7 @@ export default function StudioDownloads() {
       <main className={styles.page}>
         <section className={styles.hero}>
           <img src="/img/favicon.svg" alt="Open Manuscript Initiative" className={styles.icon} />
-          <p className={styles.kicker}>Open Manuscript Initiative · 0.1.0-alpha.4 · beta-readiness stabilization</p>
+          <p className={styles.kicker}>Open Manuscript Initiative · 0.1.0-beta.1 · public beta</p>
           <h1>Open Manuscript Studio</h1>
           <p className={styles.lead}>{t.lead}</p>
           <div className={styles.actions}>
@@ -203,8 +215,8 @@ export default function StudioDownloads() {
 
         <section className={styles.notice}>
           <div className={styles.container}>
-            <h2>{t.alphaTitle}</h2>
-            <p>{t.alphaText}</p>
+            <h2>{update.betaTitle}</h2>
+            <p>{update.betaText}</p>
             <p>{update.maturity}</p>
             <p>
               <Link to="/docs/governance/studio-implementation-status">{copy.home.status}</Link>

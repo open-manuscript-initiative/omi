@@ -17,9 +17,9 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
 
 const STUDIO_UPDATE = {
   en: {
-    summary: 'The current alpha is in beta-readiness stabilization and now combines browser, desktop, Android and a validated iOS/iPadOS native target with multi-document editing, optimized large-DOCX import, reusable publication styles and publisher profiles, Adobe InDesign IDML style-set import, style-driven PDF/HTML/CSS export, generated document lists and indexes, device-aware local/cloud storage, secure password recovery, federated sign-in, double-blind peer review, OJS/OMP workflows, ORCID-bound author signatures, proofreading and institution-level administration.',
+    summary: 'Open Manuscript Studio 0.1.0-beta.1 is now in public beta. It combines browser, desktop, Android and a validated iOS/iPadOS native target with multi-document editing, optimized large-DOCX import, dynamic semantic indexes, search-and-replace with highlighted matches, block-type transformations, reusable publication styles and publisher profiles, Adobe InDesign IDML style-set import, style-driven PDF/HTML/CSS export, device-aware local/cloud storage, secure password recovery, federated sign-in, double-blind peer review, OJS/OMP workflows, ORCID-bound author signatures, proofreading and institution-level administration.',
     multiDocument: 'Multi-document desktop editing and document outline',
-    largeDocx: 'Large DOCX import optimization and generated lists',
+    largeDocx: 'Large DOCX import optimization and stable lazy rendering',
     publishing: 'Reusable publication styles, InDesign IDML import and PDF/HTML/CSS export',
     accounts: 'Cross-device accounts, recovery and connected identities',
     storage: 'Own-device, cloud and mobile-native storage workflows',
@@ -28,9 +28,9 @@ const STUDIO_UPDATE = {
     ios: 'Validated iPhone/iPad simulator build and Files integration',
   },
   hu: {
-    summary: 'A jelenlegi alpha béta-előkészítő stabilizációs szakaszban van. A böngészős, asztali és Android kliensek mellett már validált iOS/iPadOS natív célverziót, többdokumentumos szerkesztést, nagy DOCX-ek optimalizált importját, újrafelhasználható kiadványstílusokat és kiadói profilokat, Adobe InDesign IDML stíluskészlet-importot, stílusvezérelt PDF/HTML/CSS exportot, generált jegyzékeket és mutatókat, eszköztudatos helyi/felhős tárhelykezelést, federált bejelentkezést, double-blind peer review-t, OJS/OMP munkafolyamatokat, ORCID-hez kötött szerzői aláírást, nyelvi ellenőrzést és intézményi adminisztrációt is tartalmaz.',
+    summary: 'Az Open Manuscript Studio 0.1.0-beta.1 mostantól nyilvános béta. A böngészős, asztali és Android kliensek mellett validált iOS/iPadOS natív célverziót, többdokumentumos szerkesztést, nagy DOCX-ek optimalizált importját, dinamikus szemantikus mutatókat, találatkiemeléses keresés–cserét, blokktípus-átalakítást, újrafelhasználható kiadványstílusokat és kiadói profilokat, Adobe InDesign IDML stíluskészlet-importot, stílusvezérelt PDF/HTML/CSS exportot, eszköztudatos helyi/felhős tárhelykezelést, federált bejelentkezést, double-blind peer review-t, OJS/OMP munkafolyamatokat, ORCID-hez kötött szerzői aláírást, nyelvi ellenőrzést és intézményi adminisztrációt is tartalmaz.',
     multiDocument: 'Többdokumentumos asztali szerkesztés és dokumentumvázlat',
-    largeDocx: 'Nagy DOCX-ek optimalizált importja és generált jegyzékek',
+    largeDocx: 'Nagy DOCX-ek optimalizált importja és stabil lazy betöltése',
     publishing: 'Újrafelhasználható kiadványstílusok, InDesign IDML import és PDF/HTML/CSS export',
     accounts: 'Eszközök között közös fiók, jelszó-visszaállítás és kapcsolt identitások',
     storage: 'Saját eszköz, felhő és mobil natív tárhelymunkafolyamatok',
@@ -39,9 +39,9 @@ const STUDIO_UPDATE = {
     ios: 'Validált iPhone/iPad szimulátoros build és Files-integráció',
   },
   de: {
-    summary: 'Die aktuelle Alpha befindet sich in der Beta-Readiness-Stabilisierung. Browser-, Desktop- und Android-Clients werden inzwischen durch ein validiertes natives iOS/iPadOS-Ziel, Mehrdokument-Bearbeitung, optimierten Import großer DOCX-Dateien, wiederverwendbare Publikationsstile und Verlagsprofile, den Import von Adobe-InDesign-IDML-Stilsätzen, stilgesteuerten PDF/HTML/CSS-Export, generierte Verzeichnisse und Register, gerätebewusste lokale/Cloud-Speicherung, föderierte Anmeldung, Double-blind Peer Review, OJS/OMP-Workflows, ORCID-gebundene Autorensignaturen, Korrekturhilfen und institutionelle Administration ergänzt.',
+    summary: 'Open Manuscript Studio 0.1.0-beta.1 befindet sich jetzt in der öffentlichen Beta. Browser-, Desktop- und Android-Clients werden durch ein validiertes natives iOS/iPadOS-Ziel, Mehrdokument-Bearbeitung, optimierten Import großer DOCX-Dateien, dynamische semantische Register, Suchen/Ersetzen mit Trefferhervorhebung, Blocktyp-Umwandlung, wiederverwendbare Publikationsstile und Verlagsprofile, den Import von Adobe-InDesign-IDML-Stilsätzen, stilgesteuerten PDF/HTML/CSS-Export, gerätebewusste lokale/Cloud-Speicherung, föderierte Anmeldung, Double-blind Peer Review, OJS/OMP-Workflows, ORCID-gebundene Autorensignaturen, Korrekturhilfen und institutionelle Administration ergänzt.',
     multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
-    largeDocx: 'Optimierter Import großer DOCX-Dateien und generierte Verzeichnisse',
+    largeDocx: 'Optimierter Import großer DOCX-Dateien und stabiles Lazy Rendering',
     publishing: 'Wiederverwendbare Publikationsstile, InDesign-IDML-Import und PDF/HTML/CSS-Export',
     accounts: 'Geräteübergreifende Konten, Wiederherstellung und verbundene Identitäten',
     storage: 'Eigene Geräte, Cloud und mobile native Speicher-Workflows',
@@ -146,7 +146,7 @@ export default function Home() {
 
         <section className={styles.studio} aria-labelledby="current-development-status">
           <div className={styles.studioContent}>
-            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.1.0-alpha.4 · beta-readiness stabilization</p>
+            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.1.0-beta.1 · public beta</p>
             <h2 id="current-development-status">{t.status}</h2>
             <h3>{t.currentTitle}</h3>
             <p>{studioUpdate.summary}</p>
@@ -158,7 +158,7 @@ export default function Home() {
           </div>
 
           <aside className={styles.studioFeatures} aria-label={t.status}>
-            <h3>0.1.0-alpha.4</h3>
+            <h3>0.1.0-beta.1</h3>
             <p>Web · Windows · Linux · macOS · Android · iOS/iPadOS</p>
             <p><strong>24</strong> UI languages</p>
             <nav className={styles.contextLinks} aria-label={t.status}>
@@ -171,7 +171,7 @@ export default function Home() {
               <Link to="/docs/integrations/implementation-status">✓ {studioUpdate.proofreading}</Link>
               <Link to="/docs/foundations/ios-ipados-studio">✓ {studioUpdate.ios}</Link>
             </nav>
-            <p>✓ Android public alpha</p>
+            <p>✓ Android public beta</p>
             <p>✓ iOS/iPadOS simulator build</p>
             <p>◐ TestFlight/App Store — Apple Developer signing required</p>
             <p>◐ Windows code signing — SignPath application pending</p>
