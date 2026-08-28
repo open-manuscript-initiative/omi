@@ -17,33 +17,36 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
 
 const STUDIO_UPDATE = {
   en: {
-    summary: 'Open Manuscript Studio 0.1.0-beta.1 is now in public beta. It combines browser, desktop, Android and a validated iOS/iPadOS native target with multi-document editing, optimized large-DOCX import, dynamic semantic indexes, search-and-replace with highlighted matches, block-type transformations, reusable publication styles and publisher profiles, Adobe InDesign IDML style-set import, style-driven PDF/HTML/CSS export, device-aware local/cloud storage, secure password recovery, federated sign-in, double-blind peer review, OJS/OMP workflows, ORCID-bound author signatures, proofreading and institution-level administration.',
+    summary: 'Open Manuscript Studio 0.1.0-beta.1 is now in public beta. It combines browser, desktop, Android and a validated iOS/iPadOS native target with multi-document editing, optimized large-DOCX import, dynamic semantic indexes, search-and-replace with highlighted matches, block-type transformations, reusable publication styles and publisher profiles, Adobe InDesign IDML style-set import, style-driven PDF/HTML/CSS export, device-aware local/cloud storage, secure password recovery, Google and Microsoft federated sign-in, double-blind peer review, OJS/OMP workflows, ORCID-bound cryptographic author signatures, proofreading and institution-level administration.',
     multiDocument: 'Multi-document desktop editing and document outline',
     largeDocx: 'Large DOCX import optimization and stable lazy rendering',
     publishing: 'Reusable publication styles, InDesign IDML import and PDF/HTML/CSS export',
-    accounts: 'Cross-device accounts, recovery and connected identities',
+    accounts: 'Google and Microsoft sign-in, recovery and connected identities',
+    identity: 'ORCID-bound cryptographic author signatures and verification evidence',
     storage: 'Own-device, cloud and mobile-native storage workflows',
     institutional: 'Institutional profiles, central administration and Admin API',
     proofreading: 'Spelling, grammar, style, translation and agent integrations',
     ios: 'Validated iPhone/iPad simulator build and Files integration',
   },
   hu: {
-    summary: 'Az Open Manuscript Studio 0.1.0-beta.1 mostantól nyilvános béta. A böngészős, asztali és Android kliensek mellett validált iOS/iPadOS natív célverziót, többdokumentumos szerkesztést, nagy DOCX-ek optimalizált importját, dinamikus szemantikus mutatókat, találatkiemeléses keresés–cserét, blokktípus-átalakítást, újrafelhasználható kiadványstílusokat és kiadói profilokat, Adobe InDesign IDML stíluskészlet-importot, stílusvezérelt PDF/HTML/CSS exportot, eszköztudatos helyi/felhős tárhelykezelést, federált bejelentkezést, double-blind peer review-t, OJS/OMP munkafolyamatokat, ORCID-hez kötött szerzői aláírást, nyelvi ellenőrzést és intézményi adminisztrációt is tartalmaz.',
+    summary: 'Az Open Manuscript Studio 0.1.0-beta.1 mostantól nyilvános béta. A böngészős, asztali és Android kliensek mellett validált iOS/iPadOS natív célverziót, többdokumentumos szerkesztést, nagy DOCX-ek optimalizált importját, dinamikus szemantikus mutatókat, találatkiemeléses keresés–cserét, blokktípus-átalakítást, újrafelhasználható kiadványstílusokat és kiadói profilokat, Adobe InDesign IDML stíluskészlet-importot, stílusvezérelt PDF/HTML/CSS exportot, eszköztudatos helyi/felhős tárhelykezelést, Google- és Microsoft-bejelentkezést, double-blind peer review-t, OJS/OMP munkafolyamatokat, ORCID-hez kötött kriptográfiai szerzői aláírást, nyelvi ellenőrzést és intézményi adminisztrációt is tartalmaz.',
     multiDocument: 'Többdokumentumos asztali szerkesztés és dokumentumvázlat',
     largeDocx: 'Nagy DOCX-ek optimalizált importja és stabil lazy betöltése',
     publishing: 'Újrafelhasználható kiadványstílusok, InDesign IDML import és PDF/HTML/CSS export',
-    accounts: 'Eszközök között közös fiók, jelszó-visszaállítás és kapcsolt identitások',
+    accounts: 'Google- és Microsoft-bejelentkezés, jelszó-visszaállítás és kapcsolt identitások',
+    identity: 'ORCID-hez kötött kriptográfiai szerzői aláírás és ellenőrzési bizonyíték',
     storage: 'Saját eszköz, felhő és mobil natív tárhelymunkafolyamatok',
     institutional: 'Intézményi profilok, központi adminisztráció és Admin API',
     proofreading: 'Helyesírás, nyelvhelyesség, fordítás és integrált ügynökök',
     ios: 'Validált iPhone/iPad szimulátoros build és Files-integráció',
   },
   de: {
-    summary: 'Open Manuscript Studio 0.1.0-beta.1 befindet sich jetzt in der öffentlichen Beta. Browser-, Desktop- und Android-Clients werden durch ein validiertes natives iOS/iPadOS-Ziel, Mehrdokument-Bearbeitung, optimierten Import großer DOCX-Dateien, dynamische semantische Register, Suchen/Ersetzen mit Trefferhervorhebung, Blocktyp-Umwandlung, wiederverwendbare Publikationsstile und Verlagsprofile, den Import von Adobe-InDesign-IDML-Stilsätzen, stilgesteuerten PDF/HTML/CSS-Export, gerätebewusste lokale/Cloud-Speicherung, föderierte Anmeldung, Double-blind Peer Review, OJS/OMP-Workflows, ORCID-gebundene Autorensignaturen, Korrekturhilfen und institutionelle Administration ergänzt.',
+    summary: 'Open Manuscript Studio 0.1.0-beta.1 befindet sich jetzt in der öffentlichen Beta. Browser-, Desktop- und Android-Clients werden durch ein validiertes natives iOS/iPadOS-Ziel, Mehrdokument-Bearbeitung, optimierten Import großer DOCX-Dateien, dynamische semantische Register, Suchen/Ersetzen mit Trefferhervorhebung, Blocktyp-Umwandlung, wiederverwendbare Publikationsstile und Verlagsprofile, den Import von Adobe-InDesign-IDML-Stilsätzen, stilgesteuerten PDF/HTML/CSS-Export, gerätebewusste lokale/Cloud-Speicherung, Google- und Microsoft-Anmeldung, Double-blind Peer Review, OJS/OMP-Workflows, ORCID-gebundene kryptografische Autorensignaturen, Korrekturhilfen und institutionelle Administration ergänzt.',
     multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
     largeDocx: 'Optimierter Import großer DOCX-Dateien und stabiles Lazy Rendering',
     publishing: 'Wiederverwendbare Publikationsstile, InDesign-IDML-Import und PDF/HTML/CSS-Export',
-    accounts: 'Geräteübergreifende Konten, Wiederherstellung und verbundene Identitäten',
+    accounts: 'Google- und Microsoft-Anmeldung, Wiederherstellung und verbundene Identitäten',
+    identity: 'ORCID-gebundene kryptografische Autorensignaturen und Verifikationsnachweise',
     storage: 'Eigene Geräte, Cloud und mobile native Speicher-Workflows',
     institutional: 'Institutionelle Profile, zentrale Administration und Admin API',
     proofreading: 'Rechtschreibung, Grammatik, Übersetzung und integrierte Agenten',
@@ -166,6 +169,7 @@ export default function Home() {
               <Link to="/docs/foundations/studio-long-form-authoring">✓ {studioUpdate.largeDocx}</Link>
               <Link to="/docs/foundations/publication-styles-and-publisher-profiles">✓ {studioUpdate.publishing}</Link>
               <Link to="/docs/governance/studio-implementation-status">✓ {studioUpdate.accounts}</Link>
+              <Link to="/docs/governance/studio-implementation-status">✓ {studioUpdate.identity}</Link>
               <Link to="/docs/governance/studio-implementation-status">✓ {studioUpdate.storage}</Link>
               <Link to="/docs/integrations/institutional-administration">✓ {studioUpdate.institutional}</Link>
               <Link to="/docs/integrations/implementation-status">✓ {studioUpdate.proofreading}</Link>
