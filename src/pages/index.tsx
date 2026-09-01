@@ -76,11 +76,16 @@ function getSupportLabel(locale: string) {
   return SUPPORT_LABELS.en;
 }
 
+function currentBetaCopy(value: string) {
+  return value.replace(/\balpha\b/giu, 'beta');
+}
+
 export default function Home() {
   const {i18n} = useDocusaurusContext();
   const t = getPublicPageCopy(i18n.currentLocale).home;
   const studioUpdate = getStudioUpdate(i18n.currentLocale);
   const supportLabel = getSupportLabel(i18n.currentLocale);
+  const current = currentBetaCopy(t.current);
   const localizedUrl = i18n.currentLocale === 'en'
     ? 'https://openmanuscript.org/'
     : `https://openmanuscript.org/${i18n.currentLocale}/`;
@@ -159,7 +164,7 @@ export default function Home() {
             <h2 id="current-development-status">{t.status}</h2>
             <h3>{t.currentTitle}</h3>
             <p>{studioUpdate.summary}</p>
-            <p>{t.current}</p>
+            <p>{current}</p>
             <div className={styles.studioActions}>
               <Link className="button button--primary button--lg" to="/studio">{t.studio}</Link>
               <Link className="button button--secondary button--lg" to="/docs/foundations/word-like-manuscript-editing">Word-like editing</Link>
@@ -195,7 +200,7 @@ export default function Home() {
 
         <section className={styles.cta}>
           <h2>{t.tagline}</h2>
-          <p>{t.current}</p>
+          <p>{current}</p>
           <div className={styles.buttons}>
             <Link className="button button--primary button--lg" to="/studio">{t.studio}</Link>
             <Link className="button button--secondary button--lg" to="https://github.com/open-manuscript-initiative/omi">{t.github}</Link>
