@@ -17,34 +17,43 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
 
 const STUDIO_UPDATE = {
   en: {
-    summary: 'Open Manuscript Studio 0.1.0-beta.1 is now in public beta. It combines browser, desktop, Android and a validated iOS/iPadOS native target with multi-document editing, optimized large-DOCX import, dynamic semantic indexes, search-and-replace with highlighted matches, block-type transformations, reusable publication styles and publisher profiles, Adobe InDesign IDML style-set import, style-driven PDF/HTML/CSS export, device-aware local/cloud storage, secure password recovery, federated sign-in, double-blind peer review, OJS/OMP workflows, ORCID-bound author signatures, proofreading and institution-level administration.',
+    summary: 'Open Manuscript Studio 0.1.0-beta.1 is in public beta. The September 2026 development line adds manuscript-wide Word-like editing across OMI block and section boundaries, paragraph split/merge on physical and mobile keyboards, whole-document Ctrl+A/Cmd+A selection, improved mobile selection actions, structural PDF import with bbox-based footnote reconstruction, and native Android PDF routing. These additions build on multi-document editing, large-DOCX import, semantic indexes, reusable publication styles, device-aware storage, federated sign-in, double-blind peer review, OJS/OMP workflows and institutional administration.',
     multiDocument: 'Multi-document desktop editing and document outline',
+    wordLike: 'Word-like manuscript-wide split, merge and selection',
+    pdf: 'Structural PDF import with geometry-aware footnotes',
     largeDocx: 'Large DOCX import optimization and stable lazy rendering',
     publishing: 'Reusable publication styles, InDesign IDML import and PDF/HTML/CSS export',
     accounts: 'Cross-device accounts, recovery and connected identities',
     storage: 'Own-device, cloud and mobile-native storage workflows',
+    cloud: 'Planned federated OMI Cloud with portable institutional storage',
     institutional: 'Institutional profiles, central administration and Admin API',
     proofreading: 'Spelling, grammar, style, translation and agent integrations',
     ios: 'Validated iPhone/iPad simulator build and Files integration',
   },
   hu: {
-    summary: 'Az Open Manuscript Studio 0.1.0-beta.1 mostantól nyilvános béta. A böngészős, asztali és Android kliensek mellett validált iOS/iPadOS natív célverziót, többdokumentumos szerkesztést, nagy DOCX-ek optimalizált importját, dinamikus szemantikus mutatókat, találatkiemeléses keresés–cserét, blokktípus-átalakítást, újrafelhasználható kiadványstílusokat és kiadói profilokat, Adobe InDesign IDML stíluskészlet-importot, stílusvezérelt PDF/HTML/CSS exportot, eszköztudatos helyi/felhős tárhelykezelést, federált bejelentkezést, double-blind peer review-t, OJS/OMP munkafolyamatokat, ORCID-hez kötött szerzői aláírást, nyelvi ellenőrzést és intézményi adminisztrációt is tartalmaz.',
+    summary: 'Az Open Manuscript Studio 0.1.0-beta.1 nyilvános béta. A 2026. szeptemberi fejlesztési ág kézirat-szintű, Word-szerű szerkesztést ad az OMI blokk- és szakaszhatárokon át, fizikai és mobil billentyűzeten működő bekezdés-szétválasztással és -egyesítéssel, teljes dokumentumot kijelölő Ctrl+A/Cmd+A működéssel, javított mobil kijelölési műveletekkel, bbox-geometriára épülő strukturált PDF- és lábjegyzet-rekonstrukcióval, valamint natív Android PDF-importtal. Mindez a többdokumentumos szerkesztésre, a nagy DOCX-ek importjára, a szemantikus mutatókra, a kiadványstílusokra, a felhős és helyi tárhelyre, a federált bejelentkezésre, a double-blind peer review-ra, az OJS/OMP munkafolyamatokra és az intézményi adminisztrációra épül.',
     multiDocument: 'Többdokumentumos asztali szerkesztés és dokumentumvázlat',
+    wordLike: 'Word-szerű, kézirat-szintű szétválasztás, egyesítés és kijelölés',
+    pdf: 'Strukturált PDF-import geometria-alapú lábjegyzet-felismeréssel',
     largeDocx: 'Nagy DOCX-ek optimalizált importja és stabil lazy betöltése',
     publishing: 'Újrafelhasználható kiadványstílusok, InDesign IDML import és PDF/HTML/CSS export',
     accounts: 'Eszközök között közös fiók, jelszó-visszaállítás és kapcsolt identitások',
     storage: 'Saját eszköz, felhő és mobil natív tárhelymunkafolyamatok',
+    cloud: 'Tervezett föderált OMI Cloud hordozható intézményi tárhellyel',
     institutional: 'Intézményi profilok, központi adminisztráció és Admin API',
     proofreading: 'Helyesírás, nyelvhelyesség, fordítás és integrált ügynökök',
     ios: 'Validált iPhone/iPad szimulátoros build és Files-integráció',
   },
   de: {
-    summary: 'Open Manuscript Studio 0.1.0-beta.1 befindet sich jetzt in der öffentlichen Beta. Browser-, Desktop- und Android-Clients werden durch ein validiertes natives iOS/iPadOS-Ziel, Mehrdokument-Bearbeitung, optimierten Import großer DOCX-Dateien, dynamische semantische Register, Suchen/Ersetzen mit Trefferhervorhebung, Blocktyp-Umwandlung, wiederverwendbare Publikationsstile und Verlagsprofile, den Import von Adobe-InDesign-IDML-Stilsätzen, stilgesteuerten PDF/HTML/CSS-Export, gerätebewusste lokale/Cloud-Speicherung, föderierte Anmeldung, Double-blind Peer Review, OJS/OMP-Workflows, ORCID-gebundene Autorensignaturen, Korrekturhilfen und institutionelle Administration ergänzt.',
+    summary: 'Open Manuscript Studio 0.1.0-beta.1 befindet sich in der öffentlichen Beta. Die Entwicklungsreihe vom September 2026 ergänzt manuskriptweites, Word-ähnliches Bearbeiten über OMI-Block- und Abschnittsgrenzen hinweg, Absatzteilen und -zusammenführen auf physischen und mobilen Tastaturen, vollständige Dokumentauswahl mit Ctrl+A/Cmd+A, verbesserte mobile Auswahlaktionen, strukturellen PDF-Import mit bbox-basierter Fußnotenrekonstruktion und natives Android-PDF-Routing. Diese Arbeiten bauen auf Mehrdokument-Bearbeitung, großem DOCX-Import, semantischen Registern, Publikationsstilen, gerätebewusster Speicherung, föderierter Anmeldung, Double-blind Peer Review, OJS/OMP-Workflows und institutioneller Administration auf.',
     multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
+    wordLike: 'Word-ähnliches manuskriptweites Teilen, Zusammenführen und Auswählen',
+    pdf: 'Strukturierter PDF-Import mit geometriebasierter Fußnotenerkennung',
     largeDocx: 'Optimierter Import großer DOCX-Dateien und stabiles Lazy Rendering',
     publishing: 'Wiederverwendbare Publikationsstile, InDesign-IDML-Import und PDF/HTML/CSS-Export',
     accounts: 'Geräteübergreifende Konten, Wiederherstellung und verbundene Identitäten',
     storage: 'Eigene Geräte, Cloud und mobile native Speicher-Workflows',
+    cloud: 'Geplante föderierte OMI Cloud mit portabler institutioneller Speicherung',
     institutional: 'Institutionelle Profile, zentrale Administration und Admin API',
     proofreading: 'Rechtschreibung, Grammatik, Übersetzung und integrierte Agenten',
     ios: 'Validierter iPhone/iPad-Simulator-Build und Files-Integration',
@@ -153,6 +162,8 @@ export default function Home() {
             <p>{t.current}</p>
             <div className={styles.studioActions}>
               <Link className="button button--primary button--lg" to="/studio">{t.studio}</Link>
+              <Link className="button button--secondary button--lg" to="/docs/foundations/word-like-manuscript-editing">Word-like editing</Link>
+              <Link className="button button--secondary button--lg" to="/docs/foundations/omi-cloud-federated-infrastructure">OMI Cloud</Link>
               <Link className="button button--secondary button--lg" to="/docs/governance/studio-implementation-status">{t.status}</Link>
             </div>
           </div>
@@ -162,11 +173,14 @@ export default function Home() {
             <p>Web · Windows · Linux · macOS · Android · iOS/iPadOS</p>
             <p><strong>24</strong> UI languages</p>
             <nav className={styles.contextLinks} aria-label={t.status}>
+              <Link to="/docs/foundations/word-like-manuscript-editing">✓ {studioUpdate.wordLike}</Link>
+              <Link to="/docs/foundations/studio-long-form-authoring">✓ {studioUpdate.pdf}</Link>
               <Link to="/docs/foundations/cross-platform-studio">✓ {studioUpdate.multiDocument}</Link>
               <Link to="/docs/foundations/studio-long-form-authoring">✓ {studioUpdate.largeDocx}</Link>
               <Link to="/docs/foundations/publication-styles-and-publisher-profiles">✓ {studioUpdate.publishing}</Link>
               <Link to="/docs/governance/studio-implementation-status">✓ {studioUpdate.accounts}</Link>
               <Link to="/docs/governance/studio-implementation-status">✓ {studioUpdate.storage}</Link>
+              <Link to="/docs/foundations/omi-cloud-federated-infrastructure">→ {studioUpdate.cloud}</Link>
               <Link to="/docs/integrations/institutional-administration">✓ {studioUpdate.institutional}</Link>
               <Link to="/docs/integrations/implementation-status">✓ {studioUpdate.proofreading}</Link>
               <Link to="/docs/foundations/ios-ipados-studio">✓ {studioUpdate.ios}</Link>
