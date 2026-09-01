@@ -18,12 +18,14 @@ const sidebars = {
     },
     {
       type: 'category', label: 'Foundations', collapsible: true, collapsed: false,
-      link: {type: 'generated-index', title: 'Foundations', description: 'The principles, common object model, and controlled terminology shared by the OMI specification suite.', slug: '/foundations'},
+      link: {type: 'generated-index', title: 'Foundations', description: 'The principles, common object model, authoring architecture, and controlled terminology shared by the OMI specification suite.', slug: '/foundations'},
       items: [
         {type: 'doc', id: 'foundations/core-principles', label: 'Core Principles'},
         {type: 'doc', id: 'foundations/cross-platform-studio', label: 'Cross-platform Studio'},
         {type: 'doc', id: 'foundations/ios-ipados-studio', label: 'iOS and iPadOS Studio'},
         {type: 'doc', id: 'foundations/studio-long-form-authoring', label: 'Long-form Authoring'},
+        {type: 'doc', id: 'foundations/word-like-manuscript-editing', label: 'Word-like Manuscript Editing'},
+        {type: 'doc', id: 'foundations/omi-cloud-federated-infrastructure', label: 'OMI Cloud and Federated Infrastructure'},
         {type: 'doc', id: 'foundations/publication-styles-and-publisher-profiles', label: 'Publication Styles and Publisher Profiles'},
         {type: 'doc', id: 'specifications/core/scholarly-object-model', label: 'Scholarly Object Model'},
         {type: 'doc', id: 'governance/terminology', label: 'Terminology and Definitions'},
