@@ -8,7 +8,7 @@ on:
         required: false
         type: string
       force:
-        description: 'Regenerate existing machine-translated locales (never forces hand-maintained hu/de)'
+        description: 'Regenerate existing machine translations (never forces hand-maintained hu/de)'
         required: false
         default: false
         type: boolean
@@ -21,12 +21,17 @@ concurrency:
   group: deepl-i18n
   cancel-in-progress: false
 
+env:
+  PROGRESS_BRANCH: i18n/deepl-progress
+
 jobs:
   translate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -37,14 +42,30 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Translate with DeepL
+      - name: Resume translation progress
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          if git ls-remote --exit-code --heads origin "refs/heads/${PROGRESS_BRANCH}" >/dev/null 2>&1; then
+            git fetch origin "${PROGRESS_BRANCH}:${PROGRESS_BRANCH}"
+            git switch "${PROGRESS_BRANCH}"
+            git merge --no-edit origin/main
+          else
+            git switch -c "${PROGRESS_BRANCH}"
+          fi
+
+      - name: Translate incrementally with DeepL
+        id: translate
         env:
           DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
           INPUT_LOCALES: ${{ inputs.locales }}
           INPUT_FORCE: ${{ inputs.force }}
         shell: bash
         run: |
-          set -euo pipefail
+          set -uo pipefail
           args=(--write)
           if [[ -n "${INPUT_LOCALES:-}" ]]; then
             args+=("--locales=${INPUT_LOCALES}")
@@ -52,49 +73,141 @@ jobs:
           if [[ "${INPUT_FORCE:-false}" == "true" ]]; then
             args+=(--force)
           fi
-          node scripts/translate-site-with-deepl.mjs "${args[@]}"
 
-      - name: Validate Docusaurus build
-        run: npm run build
+          set +e
+          node scripts/translate-site-incremental-with-deepl.mjs "${args[@]}"
+          rc=$?
+          set -e
+
+          if [[ "$rc" -eq 0 ]]; then
+            status=complete
+          elif [[ "$rc" -eq 75 ]]; then
+            status=quota
+          else
+            status=error
+          fi
+
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          echo "exit_code=$rc" >> "$GITHUB_OUTPUT"
+          echo "DeepL status: $status (exit $rc)"
 
       - name: Detect translation changes
         id: changes
         shell: bash
         run: |
+          set -euo pipefail
+          changed=false
           if [[ -n "$(git status --porcelain -- i18n)" ]]; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "changed=false" >> "$GITHUB_OUTPUT"
+            changed=true
           fi
+          if [[ -d .deepl && -n "$(git status --porcelain -- .deepl)" ]]; then
+            changed=true
+          fi
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
 
-      - name: Create translation branch and commit
+      - name: Commit translation progress
         if: steps.changes.outputs.changed == 'true'
-        id: commit
         shell: bash
         run: |
           set -euo pipefail
-          branch="i18n/deepl-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git switch -c "$branch"
-          git add i18n
-          git commit -m "i18n: update Docusaurus translations with DeepL"
-          git push origin "$branch"
-          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+          git add -A -- i18n
+          if [[ -d .deepl ]]; then
+            git add -A -- .deepl
+          fi
+          git commit -m "i18n: update incremental DeepL translation progress"
 
-      - name: Open pull request
-        if: steps.changes.outputs.changed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          BRANCH: ${{ steps.commit.outputs.branch }}
+      - name: Push translation progress
         shell: bash
         run: |
-          gh pr create \
-            --base "${GITHUB_REF_NAME}" \
-            --head "$BRANCH" \
-            --title "i18n: update Docusaurus translations with DeepL" \
-            --body $'Automated Docusaurus translation update generated with the repository DeepL workflow.\n\n- Source locale: English\n- DeepL API key: repository secret (not exposed)\n- Docusaurus build validated before PR creation\n- Existing hand-maintained Hungarian and German content is not force-regenerated\n\nPlease review machine-translated content before merging.'
+          set -euo pipefail
+          git push origin "HEAD:${PROGRESS_BRANCH}"
 
-      - name: No changes
-        if: steps.changes.outputs.changed != 'true'
-        run: echo "Translations are already up to date; no pull request was created."
+      - name: Validate completed Docusaurus build
+        id: build
+        if: steps.translate.outputs.status == 'complete'
+        continue-on-error: true
+        run: npm run build
+
+      - name: Create or update translation pull request
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TRANSLATE_STATUS: ${{ steps.translate.outputs.status }}
+          BUILD_OUTCOME: ${{ steps.build.outcome }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if git diff --quiet origin/main...HEAD; then
+            echo "No translation diff remains against main."
+            exit 0
+          fi
+
+          case "$TRANSLATE_STATUS" in
+            complete)
+              if [[ "$BUILD_OUTCOME" == "success" ]]; then
+                status_line='✅ Complete — incremental translation finished and the Docusaurus build passed.'
+                action_line='Review this PR and merge it when ready.'
+              else
+                status_line='❌ Translation finished, but the Docusaurus build failed.'
+                action_line='Do not merge until the build failure is fixed.'
+              fi
+              ;;
+            quota)
+              status_line='⏸️ Partial — DeepL API quota was exhausted.'
+              action_line='Do not merge yet. After quota is available again, rerun the workflow; it will continue on this same branch without retranslating completed segments.'
+              ;;
+            *)
+              status_line='❌ Partial — translation stopped because of a non-quota error.'
+              action_line='Do not merge yet. Partial translations and state were preserved for troubleshooting and continuation.'
+              ;;
+          esac
+
+          body_file="$RUNNER_TEMP/deepl-pr-body.md"
+          cat > "$body_file" <<BODY
+          $status_line
+
+          $action_line
+
+          This PR is maintained by the DeepL Docusaurus workflow on the persistent `${PROGRESS_BRANCH}` branch.
+
+          - Source locale: English
+          - Unchanged Markdown/MDX segments are reused from `.deepl/i18n-state.json` without DeepL API calls.
+          - Changed source segments and new strings are translated only when their SHA-256 source hash changes.
+          - Docusaurus JSON messages are refreshed from the current source and unchanged translations are restored from state.
+          - Existing hand-maintained Hungarian and German documents are not overwritten.
+          - The DeepL API key is read only from the repository secret.
+          BODY
+
+          pr_number=$(gh pr list --state open --base main --head "$PROGRESS_BRANCH" --json number --jq '.[0].number // empty')
+          if [[ -n "$pr_number" ]]; then
+            gh pr edit "$pr_number" --body-file "$body_file"
+            echo "number=$pr_number" >> "$GITHUB_OUTPUT"
+          else
+            url=$(gh pr create \
+              --base main \
+              --head "$PROGRESS_BRANCH" \
+              --title "i18n: update Docusaurus translations with DeepL" \
+              --body-file "$body_file")
+            echo "url=$url" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Finalize workflow status
+        env:
+          TRANSLATE_STATUS: ${{ steps.translate.outputs.status }}
+          BUILD_OUTCOME: ${{ steps.build.outcome }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$TRANSLATE_STATUS" == "quota" ]]; then
+            echo "::warning::DeepL quota exceeded. Progress was pushed and the PR can be resumed later."
+            exit 1
+          fi
+          if [[ "$TRANSLATE_STATUS" == "error" ]]; then
+            echo "::error::DeepL translation stopped with a non-quota error. Progress was pushed for inspection."
+            exit 1
+          fi
+          if [[ "$BUILD_OUTCOME" != "success" ]]; then
+            echo "::error::Docusaurus build failed after translation."
+            exit 1
+          fi
