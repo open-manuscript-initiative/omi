@@ -1,0 +1,286 @@
+{
+  "version.label": {
+    "message": "Næste",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Introduction": {
+    "message": "Indledning",
+    "description": "The label for category 'Introduction' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.title": {
+    "message": "Indledning",
+    "description": "The generated-index page title for category 'Introduction' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.description": {
+    "message": "Open Manuscript Initiative’s formål, vision og overordnede arkitektur.",
+    "description": "The generated-index page description for category 'Introduction' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Foundations": {
+    "message": "Grundlag",
+    "description": "The label for category 'Foundations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.title": {
+    "message": "Grundlag",
+    "description": "The generated-index page title for category 'Foundations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.description": {
+    "message": "De principper, den fælles objektmodel, udviklingsarkitekturen og den kontrollerede terminologi, der er fælles for specifikationssættet »OMI«.",
+    "description": "The generated-index page description for category 'Foundations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications": {
+    "message": "Væsentlige semantiske specifikationer",
+    "description": "The label for category 'Core Semantic Specifications' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.title": {
+    "message": "Væsentlige semantiske specifikationer",
+    "description": "The generated-index page title for category 'Core Semantic Specifications' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.description": {
+    "message": "Normative modeller for manuskriptstruktur, stabil forankring, annoteringer, videnskabelige metadata, identitet, bidrag, versionsstyring og ændringer.",
+    "description": "The generated-index page description for category 'Core Semantic Specifications' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing": {
+    "message": "Videnskabelig arbejdsgang og publikation",
+    "description": "The label for category 'Scholarly Workflow and Publishing' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.title": {
+    "message": "Videnskabelig arbejdsgang og publikation",
+    "description": "The generated-index page title for category 'Scholarly Workflow and Publishing' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.description": {
+    "message": "Specifikationer vedrørende peer review, citater, bibliografiske poster, referencebiblioteker og publikationsprocesser.",
+    "description": "The generated-index page description for category 'Scholarly Workflow and Publishing' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange": {
+    "message": "Platform og børs",
+    "description": "The label for category 'Platform and Exchange' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.title": {
+    "message": "Platform og børs",
+    "description": "The generated-index page title for category 'Platform and Exchange' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.description": {
+    "message": "Specifikationer vedrørende udvidelsesmuligheder, API'er, filudveksling, pakning, validering og bevaring.",
+    "description": "The generated-index page description for category 'Platform and Exchange' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Integrations": {
+    "message": "Integrationer",
+    "description": "The label for category 'Integrations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Integrations.link.generated-index.title": {
+    "message": "Integrationer",
+    "description": "The generated-index page title for category 'Integrations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Integrations.link.generated-index.description": {
+    "message": "Platformsneutral integrationsarkitektur, den aktuelle implementeringsstatus samt profiler til sammenkobling af OMI med publikations-, peer review-, arkiv- og videnskabelige infrastrukturer.",
+    "description": "The generated-index page description for category 'Integrations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Governance": {
+    "message": "Styring",
+    "description": "The label for category 'Governance' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Governance.link.generated-index.title": {
+    "message": "Styring",
+    "description": "The generated-index page title for category 'Governance' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Governance.link.generated-index.description": {
+    "message": "Retningslinjer for kompetence, køreplan, modenhed, versionsstyring, forfatterskab, identitet, vedligeholdelse og sikkerhed ved udgivelse af specifikationer og referenceimplementeringer på OMI.",
+    "description": "The generated-index page description for category 'Governance' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.doc.Vision": {
+    "message": "Vision",
+    "description": "The label for the doc item 'Vision' in sidebar 'tutorialSidebar', linking to the doc vision"
+  },
+  "sidebar.tutorialSidebar.doc.Architecture Overview": {
+    "message": "Oversigt over arkitekturen",
+    "description": "The label for the doc item 'Architecture Overview' in sidebar 'tutorialSidebar', linking to the doc foundations/architecture-map"
+  },
+  "sidebar.tutorialSidebar.doc.Core Principles": {
+    "message": "Grundlæggende principper",
+    "description": "The label for the doc item 'Core Principles' in sidebar 'tutorialSidebar', linking to the doc foundations/core-principles"
+  },
+  "sidebar.tutorialSidebar.doc.Cross-platform Studio": {
+    "message": "Platformuafhængigt Studio",
+    "description": "The label for the doc item 'Cross-platform Studio' in sidebar 'tutorialSidebar', linking to the doc foundations/cross-platform-studio"
+  },
+  "sidebar.tutorialSidebar.doc.iOS and iPadOS Studio": {
+    "message": "iOS og iPadOS Studio",
+    "description": "The label for the doc item 'iOS and iPadOS Studio' in sidebar 'tutorialSidebar', linking to the doc foundations/ios-ipados-studio"
+  },
+  "sidebar.tutorialSidebar.doc.Long-form Authoring": {
+    "message": "Udarbejdelse af længere tekster",
+    "description": "The label for the doc item 'Long-form Authoring' in sidebar 'tutorialSidebar', linking to the doc foundations/studio-long-form-authoring"
+  },
+  "sidebar.tutorialSidebar.doc.Word-like Manuscript Editing": {
+    "message": "Redigering af manuskripter i Word-lignende format",
+    "description": "The label for the doc item 'Word-like Manuscript Editing' in sidebar 'tutorialSidebar', linking to the doc foundations/word-like-manuscript-editing"
+  },
+  "sidebar.tutorialSidebar.doc.OMI Cloud and Federated Infrastructure": {
+    "message": "OMI Cloud og fødereret infrastruktur",
+    "description": "The label for the doc item 'OMI Cloud and Federated Infrastructure' in sidebar 'tutorialSidebar', linking to the doc foundations/omi-cloud-federated-infrastructure"
+  },
+  "sidebar.tutorialSidebar.doc.Publication Styles and Publisher Profiles": {
+    "message": "Publikationsformater og forlagsprofiler",
+    "description": "The label for the doc item 'Publication Styles and Publisher Profiles' in sidebar 'tutorialSidebar', linking to the doc foundations/publication-styles-and-publisher-profiles"
+  },
+  "sidebar.tutorialSidebar.doc.Scholarly Object Model": {
+    "message": "Videnskabelig objektmodel",
+    "description": "The label for the doc item 'Scholarly Object Model' in sidebar 'tutorialSidebar', linking to the doc specifications/core/scholarly-object-model"
+  },
+  "sidebar.tutorialSidebar.doc.Terminology and Definitions": {
+    "message": "Terminologi og definitioner",
+    "description": "The label for the doc item 'Terminology and Definitions' in sidebar 'tutorialSidebar', linking to the doc governance/terminology"
+  },
+  "sidebar.tutorialSidebar.doc.Document Model": {
+    "message": "Dokumentmodel",
+    "description": "The label for the doc item 'Document Model' in sidebar 'tutorialSidebar', linking to the doc specifications/document-model"
+  },
+  "sidebar.tutorialSidebar.doc.Anchor Model": {
+    "message": "Anker-modellen",
+    "description": "The label for the doc item 'Anchor Model' in sidebar 'tutorialSidebar', linking to the doc specifications/anchor-model"
+  },
+  "sidebar.tutorialSidebar.doc.Annotation Model": {
+    "message": "Annotationsmodel",
+    "description": "The label for the doc item 'Annotation Model' in sidebar 'tutorialSidebar', linking to the doc specifications/annotation-model"
+  },
+  "sidebar.tutorialSidebar.doc.Metadata Model": {
+    "message": "Metadatamodel",
+    "description": "The label for the doc item 'Metadata Model' in sidebar 'tutorialSidebar', linking to the doc specifications/metadata-model"
+  },
+  "sidebar.tutorialSidebar.doc.Identity and Contributor Model": {
+    "message": "Identitet og bidragydermodel",
+    "description": "The label for the doc item 'Identity and Contributor Model' in sidebar 'tutorialSidebar', linking to the doc specifications/identity-contributor-model"
+  },
+  "sidebar.tutorialSidebar.doc.Versioning and Change Model": {
+    "message": "Versionsstyring og ændringsmodel",
+    "description": "The label for the doc item 'Versioning and Change Model' in sidebar 'tutorialSidebar', linking to the doc specifications/versioning-change-model"
+  },
+  "sidebar.tutorialSidebar.doc.Review Model": {
+    "message": "Gennemgangsmodel",
+    "description": "The label for the doc item 'Review Model' in sidebar 'tutorialSidebar', linking to the doc specifications/review-model"
+  },
+  "sidebar.tutorialSidebar.doc.Citation Model": {
+    "message": "Citeringsmodel",
+    "description": "The label for the doc item 'Citation Model' in sidebar 'tutorialSidebar', linking to the doc specifications/citation-model"
+  },
+  "sidebar.tutorialSidebar.doc.Bibliographic Record Model": {
+    "message": "Model for bibliografiske poster",
+    "description": "The label for the doc item 'Bibliographic Record Model' in sidebar 'tutorialSidebar', linking to the doc specifications/bibliographic-record-model"
+  },
+  "sidebar.tutorialSidebar.doc.Reference Library and Registry Architecture": {
+    "message": "Referencelibrary og registerarkitektur",
+    "description": "The label for the doc item 'Reference Library and Registry Architecture' in sidebar 'tutorialSidebar', linking to the doc specifications/reference-library-registry"
+  },
+  "sidebar.tutorialSidebar.doc.Publishing Model": {
+    "message": "Udgivelsesmodel",
+    "description": "The label for the doc item 'Publishing Model' in sidebar 'tutorialSidebar', linking to the doc specifications/publishing-model"
+  },
+  "sidebar.tutorialSidebar.doc.Plugin Architecture": {
+    "message": "Plugin-arkitektur",
+    "description": "The label for the doc item 'Plugin Architecture' in sidebar 'tutorialSidebar', linking to the doc specifications/plugin-architecture"
+  },
+  "sidebar.tutorialSidebar.doc.Platform API": {
+    "message": "API til platformen",
+    "description": "The label for the doc item 'Platform API' in sidebar 'tutorialSidebar', linking to the doc specifications/platform-api"
+  },
+  "sidebar.tutorialSidebar.doc.File Format": {
+    "message": "Filformat",
+    "description": "The label for the doc item 'File Format' in sidebar 'tutorialSidebar', linking to the doc specifications/file-format"
+  },
+  "sidebar.tutorialSidebar.doc.Container Architecture": {
+    "message": "Containerarkitektur",
+    "description": "The label for the doc item 'Container Architecture' in sidebar 'tutorialSidebar', linking to the doc specifications/container-architecture"
+  },
+  "sidebar.tutorialSidebar.doc.Integration Status": {
+    "message": "Integrationsstatus",
+    "description": "The label for the doc item 'Integration Status' in sidebar 'tutorialSidebar', linking to the doc integrations/implementation-status"
+  },
+  "sidebar.tutorialSidebar.doc.Integration Architecture": {
+    "message": "Integrationsarkitektur",
+    "description": "The label for the doc item 'Integration Architecture' in sidebar 'tutorialSidebar', linking to the doc integrations/architecture"
+  },
+  "sidebar.tutorialSidebar.doc.Studio Deployment Modes": {
+    "message": "Driftsformer for studier",
+    "description": "The label for the doc item 'Studio Deployment Modes' in sidebar 'tutorialSidebar', linking to the doc integrations/studio-deployment-modes"
+  },
+  "sidebar.tutorialSidebar.doc.Institutional Administration": {
+    "message": "Institutionel administration",
+    "description": "The label for the doc item 'Institutional Administration' in sidebar 'tutorialSidebar', linking to the doc integrations/institutional-administration"
+  },
+  "sidebar.tutorialSidebar.doc.OMI Agents AI Provider Setup": {
+    "message": "OMI Opsætning af AI-udbyder for agenter",
+    "description": "The label for the doc item 'OMI Agents AI Provider Setup' in sidebar 'tutorialSidebar', linking to the doc integrations/omi-agents-ai-provider-setup"
+  },
+  "sidebar.tutorialSidebar.doc.Integration API v1": {
+    "message": "IntegrationsAPI, version 1",
+    "description": "The label for the doc item 'Integration API v1' in sidebar 'tutorialSidebar', linking to the doc integrations/integration-api-v1"
+  },
+  "sidebar.tutorialSidebar.doc.OJS Plugin — Docs & Download": {
+    "message": "OJS Plugin — Dokumenter og download",
+    "description": "The label for the doc item 'OJS Plugin — Docs & Download' in sidebar 'tutorialSidebar', linking to the doc integrations/ojs-plugin"
+  },
+  "sidebar.tutorialSidebar.doc.OJS Integration Profile v1": {
+    "message": "OJS Integrationsprofil v1",
+    "description": "The label for the doc item 'OJS Integration Profile v1' in sidebar 'tutorialSidebar', linking to the doc integrations/ojs-profile-v1"
+  },
+  "sidebar.tutorialSidebar.doc.OJS Manuscript File Import": {
+    "message": "OJS Import af manuskriptfiler",
+    "description": "The label for the doc item 'OJS Manuscript File Import' in sidebar 'tutorialSidebar', linking to the doc integrations/ojs-file-import"
+  },
+  "sidebar.tutorialSidebar.doc.OMP Plugin — Docs & Download": {
+    "message": "OMP Plugin — Dokumenter og download",
+    "description": "The label for the doc item 'OMP Plugin — Docs & Download' in sidebar 'tutorialSidebar', linking to the doc integrations/omp-plugin"
+  },
+  "sidebar.tutorialSidebar.doc.OMP Integration Profile v1": {
+    "message": "OMP Integrationsprofil v1",
+    "description": "The label for the doc item 'OMP Integration Profile v1' in sidebar 'tutorialSidebar', linking to the doc integrations/omp-profile-v1"
+  },
+  "sidebar.tutorialSidebar.doc.Charter": {
+    "message": "Vedtægter",
+    "description": "The label for the doc item 'Charter' in sidebar 'tutorialSidebar', linking to the doc governance/charter"
+  },
+  "sidebar.tutorialSidebar.doc.Roadmap to OMI 1.0": {
+    "message": "Køreplan for »OMI« 1.0",
+    "description": "The label for the doc item 'Roadmap to OMI 1.0' in sidebar 'tutorialSidebar', linking to the doc governance/roadmap-to-omi-1.0"
+  },
+  "sidebar.tutorialSidebar.doc.Studio Implementation Status": {
+    "message": "Status for implementering af studiet",
+    "description": "The label for the doc item 'Studio Implementation Status' in sidebar 'tutorialSidebar', linking to the doc governance/studio-implementation-status"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Implementation Matrix": {
+    "message": "Matrix for implementering af specifikationer",
+    "description": "The label for the doc item 'Specification Implementation Matrix' in sidebar 'tutorialSidebar', linking to the doc governance/implementation-status-matrix"
+  },
+  "sidebar.tutorialSidebar.doc.Architecture Audit": {
+    "message": "Arkitekturrevision",
+    "description": "The label for the doc item 'Architecture Audit' in sidebar 'tutorialSidebar', linking to the doc governance/architecture-audit"
+  },
+  "sidebar.tutorialSidebar.doc.Documentation Architecture": {
+    "message": "Dokumentationsarkitektur",
+    "description": "The label for the doc item 'Documentation Architecture' in sidebar 'tutorialSidebar', linking to the doc governance/documentation-architecture"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Lifecycle": {
+    "message": "Specifikationens livscyklus",
+    "description": "The label for the doc item 'Specification Lifecycle' in sidebar 'tutorialSidebar', linking to the doc governance/specification-lifecycle"
+  },
+  "sidebar.tutorialSidebar.doc.Versioning Policy": {
+    "message": "Politik for versionsstyring",
+    "description": "The label for the doc item 'Versioning Policy' in sidebar 'tutorialSidebar', linking to the doc governance/versioning-policy"
+  },
+  "sidebar.tutorialSidebar.doc.Code Signing Policy": {
+    "message": "Politik for kodesignering",
+    "description": "The label for the doc item 'Code Signing Policy' in sidebar 'tutorialSidebar', linking to the doc governance/code-signing-policy"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Style Guide": {
+    "message": "Vejledning i udformning af specifikationer",
+    "description": "The label for the doc item 'Specification Style Guide' in sidebar 'tutorialSidebar', linking to the doc governance/style-guide"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Template": {
+    "message": "Specifikationsskabelon",
+    "description": "The label for the doc item 'Specification Template' in sidebar 'tutorialSidebar', linking to the doc governance/specification-template"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Registry": {
+    "message": "Specifikationsregister",
+    "description": "The label for the doc item 'Specification Registry' in sidebar 'tutorialSidebar', linking to the doc governance/specification-registry"
+  }
+}

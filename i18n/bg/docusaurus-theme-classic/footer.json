@@ -1,0 +1,74 @@
+{
+  "link.title.Open Manuscript Initiative": {
+    "message": "Open Manuscript Initiative",
+    "description": "The title of the footer links column with title=Open Manuscript Initiative in the footer"
+  },
+  "link.title.Community": {
+    "message": "Общност",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.Project": {
+    "message": "Проект",
+    "description": "The title of the footer links column with title=Project in the footer"
+  },
+  "link.item.label.Vision": {
+    "message": "Визия",
+    "description": "The label of footer link with label=Vision linking to /docs/vision"
+  },
+  "link.item.label.Documentation": {
+    "message": "Документация",
+    "description": "The label of footer link with label=Documentation linking to /docs/vision"
+  },
+  "link.item.label.Roadmap": {
+    "message": "Пътна карта",
+    "description": "The label of footer link with label=Roadmap linking to /docs/governance/roadmap-to-omi-1.0"
+  },
+  "link.item.label.Studio": {
+    "message": "Студио",
+    "description": "The label of footer link with label=Studio linking to /studio"
+  },
+  "link.item.label.Support": {
+    "message": "Поддръжка",
+    "description": "The label of footer link with label=Support linking to /support"
+  },
+  "link.item.label.GitHub Sponsors": {
+    "message": "GitHub Спонсори",
+    "description": "The label of footer link with label=GitHub Sponsors linking to https://github.com/sponsors/open-manuscript-initiative"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/open-manuscript-initiative/omi"
+  },
+  "link.item.label.Wiki": {
+    "message": "Уики",
+    "description": "The label of footer link with label=Wiki linking to https://github.com/open-manuscript-initiative/open-manuscript-studio/wiki"
+  },
+  "link.item.label.Facebook": {
+    "message": "Facebook",
+    "description": "The label of footer link with label=Facebook linking to https://www.facebook.com/share/19AmDMBVoe/"
+  },
+  "link.item.label.Funding & Partnerships": {
+    "message": "Финансиране и партньорства",
+    "description": "The label of footer link with label=Funding & Partnerships linking to /docs/governance/funding-and-partnerships"
+  },
+  "link.item.label.Grant Readiness Pack": {
+    "message": "Пакет за подготовка за кандидатстване за безвъзмездна помощ",
+    "description": "The label of footer link with label=Grant Readiness Pack linking to /docs/governance/grant-readiness-pack"
+  },
+  "link.item.label.Code signing policy": {
+    "message": "Политика за подписване на код",
+    "description": "The label of footer link with label=Code signing policy linking to /docs/governance/code-signing-policy"
+  },
+  "link.item.label.Privacy policy": {
+    "message": "Политика за поверителност",
+    "description": "The label of footer link with label=Privacy policy linking to /docs/governance/privacy-policy"
+  },
+  "link.item.label.MIT License": {
+    "message": "Лиценз на MIT",
+    "description": "The label of footer link with label=MIT License linking to https://github.com/open-manuscript-initiative/omi/blob/main/LICENSE"
+  },
+  "copyright": {
+    "message": "\n          <div class=\"omi-footer-message\">\n          \n            <span>\n          Open Manuscript Initiative\n          </span>\n          \n            <span>\n          Пишете естествено. Структурирайте веднъж. Публикувайте навсякъде.</span>\n          \n            <span>\n          Отворени стандарти за научно публикуване.</span>\n          \n            <span>\n          © 2026 Open Manuscript Initiative\n          Съавтори.</span>\n          \n            <span>\n          Създаден с Docusaurus\n          .</span>\n          \n          </div>\n        ",
+    "description": "The footer copyright"
+  }
+}

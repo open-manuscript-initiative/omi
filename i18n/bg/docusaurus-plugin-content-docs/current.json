@@ -1,0 +1,286 @@
+{
+  "version.label": {
+    "message": "Следваща",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Introduction": {
+    "message": "Въведение",
+    "description": "The label for category 'Introduction' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.title": {
+    "message": "Въведение",
+    "description": "The generated-index page title for category 'Introduction' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.description": {
+    "message": "Целта, визията и архитектурата на високо ниво на платформата „Open Manuscript Initiative“.",
+    "description": "The generated-index page description for category 'Introduction' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Foundations": {
+    "message": "Основи",
+    "description": "The label for category 'Foundations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.title": {
+    "message": "Основи",
+    "description": "The generated-index page title for category 'Foundations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.description": {
+    "message": "Принципите, общият обектен модел, архитектурата за създаване на съдържание и контролираната терминология, които са общи за набора от спецификации „OMI“.",
+    "description": "The generated-index page description for category 'Foundations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications": {
+    "message": "Основни семантични спецификации",
+    "description": "The label for category 'Core Semantic Specifications' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.title": {
+    "message": "Основни семантични спецификации",
+    "description": "The generated-index page title for category 'Core Semantic Specifications' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.description": {
+    "message": "Нормативни модели за структурата на ръкописите, стабилното им закрепване, анотациите, научните метаданни, идентичността, приноса, версионирането и промените.",
+    "description": "The generated-index page description for category 'Core Semantic Specifications' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing": {
+    "message": "Научен работен процес и публикуване",
+    "description": "The label for category 'Scholarly Workflow and Publishing' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.title": {
+    "message": "Научен работен процес и публикуване",
+    "description": "The generated-index page title for category 'Scholarly Workflow and Publishing' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.description": {
+    "message": "Спецификации за рецензиране, цитиране, библиографски записи, справочни библиотеки и работни процеси по публикуване.",
+    "description": "The generated-index page description for category 'Scholarly Workflow and Publishing' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange": {
+    "message": "Платформа и борса",
+    "description": "The label for category 'Platform and Exchange' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.title": {
+    "message": "Платформа и борса",
+    "description": "The generated-index page title for category 'Platform and Exchange' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.description": {
+    "message": "Спецификации за разширяемост, API, обмен на файлове, пакетиране, валидиране и съхранение.",
+    "description": "The generated-index page description for category 'Platform and Exchange' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Integrations": {
+    "message": "Интеграции",
+    "description": "The label for category 'Integrations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Integrations.link.generated-index.title": {
+    "message": "Интеграции",
+    "description": "The generated-index page title for category 'Integrations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Integrations.link.generated-index.description": {
+    "message": "Архитектура за интеграция, независима от платформата, текущо състояние на внедряването и профили за свързване на „OMI“ с системи за публикуване, рецензиране, хранилища и научна инфраструктура.",
+    "description": "The generated-index page description for category 'Integrations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Governance": {
+    "message": "Управление",
+    "description": "The label for category 'Governance' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Governance.link.generated-index.title": {
+    "message": "Управление",
+    "description": "The generated-index page title for category 'Governance' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Governance.link.generated-index.description": {
+    "message": "Политики, регулиращи правомощията, пътната карта, зрелостта, версионирането, авторството, идентичността, поддръжката и сигурността при пускането на спецификациите и референтните реализации на OMI.",
+    "description": "The generated-index page description for category 'Governance' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.doc.Vision": {
+    "message": "Визия",
+    "description": "The label for the doc item 'Vision' in sidebar 'tutorialSidebar', linking to the doc vision"
+  },
+  "sidebar.tutorialSidebar.doc.Architecture Overview": {
+    "message": "Общ преглед на архитектурата",
+    "description": "The label for the doc item 'Architecture Overview' in sidebar 'tutorialSidebar', linking to the doc foundations/architecture-map"
+  },
+  "sidebar.tutorialSidebar.doc.Core Principles": {
+    "message": "Основни принципи",
+    "description": "The label for the doc item 'Core Principles' in sidebar 'tutorialSidebar', linking to the doc foundations/core-principles"
+  },
+  "sidebar.tutorialSidebar.doc.Cross-platform Studio": {
+    "message": "Мултиплатформена среда за разработка",
+    "description": "The label for the doc item 'Cross-platform Studio' in sidebar 'tutorialSidebar', linking to the doc foundations/cross-platform-studio"
+  },
+  "sidebar.tutorialSidebar.doc.iOS and iPadOS Studio": {
+    "message": "iOS и iPadOS Studio",
+    "description": "The label for the doc item 'iOS and iPadOS Studio' in sidebar 'tutorialSidebar', linking to the doc foundations/ios-ipados-studio"
+  },
+  "sidebar.tutorialSidebar.doc.Long-form Authoring": {
+    "message": "Създаване на дълги текстове",
+    "description": "The label for the doc item 'Long-form Authoring' in sidebar 'tutorialSidebar', linking to the doc foundations/studio-long-form-authoring"
+  },
+  "sidebar.tutorialSidebar.doc.Word-like Manuscript Editing": {
+    "message": "Редактиране на ръкописи в стила на Word",
+    "description": "The label for the doc item 'Word-like Manuscript Editing' in sidebar 'tutorialSidebar', linking to the doc foundations/word-like-manuscript-editing"
+  },
+  "sidebar.tutorialSidebar.doc.OMI Cloud and Federated Infrastructure": {
+    "message": "OMI Облачна и федеративна инфраструктура",
+    "description": "The label for the doc item 'OMI Cloud and Federated Infrastructure' in sidebar 'tutorialSidebar', linking to the doc foundations/omi-cloud-federated-infrastructure"
+  },
+  "sidebar.tutorialSidebar.doc.Publication Styles and Publisher Profiles": {
+    "message": "Стил на публикуване и профили на издателите",
+    "description": "The label for the doc item 'Publication Styles and Publisher Profiles' in sidebar 'tutorialSidebar', linking to the doc foundations/publication-styles-and-publisher-profiles"
+  },
+  "sidebar.tutorialSidebar.doc.Scholarly Object Model": {
+    "message": "Модел на научния обект",
+    "description": "The label for the doc item 'Scholarly Object Model' in sidebar 'tutorialSidebar', linking to the doc specifications/core/scholarly-object-model"
+  },
+  "sidebar.tutorialSidebar.doc.Terminology and Definitions": {
+    "message": "Терминология и определения",
+    "description": "The label for the doc item 'Terminology and Definitions' in sidebar 'tutorialSidebar', linking to the doc governance/terminology"
+  },
+  "sidebar.tutorialSidebar.doc.Document Model": {
+    "message": "Модел на документа",
+    "description": "The label for the doc item 'Document Model' in sidebar 'tutorialSidebar', linking to the doc specifications/document-model"
+  },
+  "sidebar.tutorialSidebar.doc.Anchor Model": {
+    "message": "Модел „Анкор“",
+    "description": "The label for the doc item 'Anchor Model' in sidebar 'tutorialSidebar', linking to the doc specifications/anchor-model"
+  },
+  "sidebar.tutorialSidebar.doc.Annotation Model": {
+    "message": "Модел за анотиране",
+    "description": "The label for the doc item 'Annotation Model' in sidebar 'tutorialSidebar', linking to the doc specifications/annotation-model"
+  },
+  "sidebar.tutorialSidebar.doc.Metadata Model": {
+    "message": "Модел на метаданните",
+    "description": "The label for the doc item 'Metadata Model' in sidebar 'tutorialSidebar', linking to the doc specifications/metadata-model"
+  },
+  "sidebar.tutorialSidebar.doc.Identity and Contributor Model": {
+    "message": "Модел за идентичност и сътрудници",
+    "description": "The label for the doc item 'Identity and Contributor Model' in sidebar 'tutorialSidebar', linking to the doc specifications/identity-contributor-model"
+  },
+  "sidebar.tutorialSidebar.doc.Versioning and Change Model": {
+    "message": "Модел за версии и промени",
+    "description": "The label for the doc item 'Versioning and Change Model' in sidebar 'tutorialSidebar', linking to the doc specifications/versioning-change-model"
+  },
+  "sidebar.tutorialSidebar.doc.Review Model": {
+    "message": "Модел за преглед",
+    "description": "The label for the doc item 'Review Model' in sidebar 'tutorialSidebar', linking to the doc specifications/review-model"
+  },
+  "sidebar.tutorialSidebar.doc.Citation Model": {
+    "message": "Модел за цитиране",
+    "description": "The label for the doc item 'Citation Model' in sidebar 'tutorialSidebar', linking to the doc specifications/citation-model"
+  },
+  "sidebar.tutorialSidebar.doc.Bibliographic Record Model": {
+    "message": "Модел на библиографска записка",
+    "description": "The label for the doc item 'Bibliographic Record Model' in sidebar 'tutorialSidebar', linking to the doc specifications/bibliographic-record-model"
+  },
+  "sidebar.tutorialSidebar.doc.Reference Library and Registry Architecture": {
+    "message": "Архитектура на справочната библиотека и регистъра",
+    "description": "The label for the doc item 'Reference Library and Registry Architecture' in sidebar 'tutorialSidebar', linking to the doc specifications/reference-library-registry"
+  },
+  "sidebar.tutorialSidebar.doc.Publishing Model": {
+    "message": "Модел на публикуване",
+    "description": "The label for the doc item 'Publishing Model' in sidebar 'tutorialSidebar', linking to the doc specifications/publishing-model"
+  },
+  "sidebar.tutorialSidebar.doc.Plugin Architecture": {
+    "message": "Архитектура на плъгините",
+    "description": "The label for the doc item 'Plugin Architecture' in sidebar 'tutorialSidebar', linking to the doc specifications/plugin-architecture"
+  },
+  "sidebar.tutorialSidebar.doc.Platform API": {
+    "message": "ПлатформаAPI",
+    "description": "The label for the doc item 'Platform API' in sidebar 'tutorialSidebar', linking to the doc specifications/platform-api"
+  },
+  "sidebar.tutorialSidebar.doc.File Format": {
+    "message": "Формат на файла",
+    "description": "The label for the doc item 'File Format' in sidebar 'tutorialSidebar', linking to the doc specifications/file-format"
+  },
+  "sidebar.tutorialSidebar.doc.Container Architecture": {
+    "message": "Архитектура на контейнерите",
+    "description": "The label for the doc item 'Container Architecture' in sidebar 'tutorialSidebar', linking to the doc specifications/container-architecture"
+  },
+  "sidebar.tutorialSidebar.doc.Integration Status": {
+    "message": "Статус на интеграцията",
+    "description": "The label for the doc item 'Integration Status' in sidebar 'tutorialSidebar', linking to the doc integrations/implementation-status"
+  },
+  "sidebar.tutorialSidebar.doc.Integration Architecture": {
+    "message": "Архитектура на интеграцията",
+    "description": "The label for the doc item 'Integration Architecture' in sidebar 'tutorialSidebar', linking to the doc integrations/architecture"
+  },
+  "sidebar.tutorialSidebar.doc.Studio Deployment Modes": {
+    "message": "Режими на внедряване в студио",
+    "description": "The label for the doc item 'Studio Deployment Modes' in sidebar 'tutorialSidebar', linking to the doc integrations/studio-deployment-modes"
+  },
+  "sidebar.tutorialSidebar.doc.Institutional Administration": {
+    "message": "Институционално управление",
+    "description": "The label for the doc item 'Institutional Administration' in sidebar 'tutorialSidebar', linking to the doc integrations/institutional-administration"
+  },
+  "sidebar.tutorialSidebar.doc.OMI Agents AI Provider Setup": {
+    "message": "OMI Настройка на доставчика на изкуствен интелект за агенти",
+    "description": "The label for the doc item 'OMI Agents AI Provider Setup' in sidebar 'tutorialSidebar', linking to the doc integrations/omi-agents-ai-provider-setup"
+  },
+  "sidebar.tutorialSidebar.doc.Integration API v1": {
+    "message": "Интеграция с „API“ версия 1",
+    "description": "The label for the doc item 'Integration API v1' in sidebar 'tutorialSidebar', linking to the doc integrations/integration-api-v1"
+  },
+  "sidebar.tutorialSidebar.doc.OJS Plugin — Docs & Download": {
+    "message": "OJS Плъгин — Документация и изтегляне",
+    "description": "The label for the doc item 'OJS Plugin — Docs & Download' in sidebar 'tutorialSidebar', linking to the doc integrations/ojs-plugin"
+  },
+  "sidebar.tutorialSidebar.doc.OJS Integration Profile v1": {
+    "message": "OJS Профил за интеграция v1",
+    "description": "The label for the doc item 'OJS Integration Profile v1' in sidebar 'tutorialSidebar', linking to the doc integrations/ojs-profile-v1"
+  },
+  "sidebar.tutorialSidebar.doc.OJS Manuscript File Import": {
+    "message": "OJS Импортиране на файл с ръкопис",
+    "description": "The label for the doc item 'OJS Manuscript File Import' in sidebar 'tutorialSidebar', linking to the doc integrations/ojs-file-import"
+  },
+  "sidebar.tutorialSidebar.doc.OMP Plugin — Docs & Download": {
+    "message": "OMP Плъгин — Документация и изтегляне",
+    "description": "The label for the doc item 'OMP Plugin — Docs & Download' in sidebar 'tutorialSidebar', linking to the doc integrations/omp-plugin"
+  },
+  "sidebar.tutorialSidebar.doc.OMP Integration Profile v1": {
+    "message": "OMP Профил за интеграция v1",
+    "description": "The label for the doc item 'OMP Integration Profile v1' in sidebar 'tutorialSidebar', linking to the doc integrations/omp-profile-v1"
+  },
+  "sidebar.tutorialSidebar.doc.Charter": {
+    "message": "Устав",
+    "description": "The label for the doc item 'Charter' in sidebar 'tutorialSidebar', linking to the doc governance/charter"
+  },
+  "sidebar.tutorialSidebar.doc.Roadmap to OMI 1.0": {
+    "message": "План за развитие на „OMI“ 1.0",
+    "description": "The label for the doc item 'Roadmap to OMI 1.0' in sidebar 'tutorialSidebar', linking to the doc governance/roadmap-to-omi-1.0"
+  },
+  "sidebar.tutorialSidebar.doc.Studio Implementation Status": {
+    "message": "Статус на внедряването на студиото",
+    "description": "The label for the doc item 'Studio Implementation Status' in sidebar 'tutorialSidebar', linking to the doc governance/studio-implementation-status"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Implementation Matrix": {
+    "message": "Матрица за внедряване на спецификациите",
+    "description": "The label for the doc item 'Specification Implementation Matrix' in sidebar 'tutorialSidebar', linking to the doc governance/implementation-status-matrix"
+  },
+  "sidebar.tutorialSidebar.doc.Architecture Audit": {
+    "message": "Архитектурен одит",
+    "description": "The label for the doc item 'Architecture Audit' in sidebar 'tutorialSidebar', linking to the doc governance/architecture-audit"
+  },
+  "sidebar.tutorialSidebar.doc.Documentation Architecture": {
+    "message": "Архитектура на документацията",
+    "description": "The label for the doc item 'Documentation Architecture' in sidebar 'tutorialSidebar', linking to the doc governance/documentation-architecture"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Lifecycle": {
+    "message": "Животният цикъл на спецификацията",
+    "description": "The label for the doc item 'Specification Lifecycle' in sidebar 'tutorialSidebar', linking to the doc governance/specification-lifecycle"
+  },
+  "sidebar.tutorialSidebar.doc.Versioning Policy": {
+    "message": "Политика за версиите",
+    "description": "The label for the doc item 'Versioning Policy' in sidebar 'tutorialSidebar', linking to the doc governance/versioning-policy"
+  },
+  "sidebar.tutorialSidebar.doc.Code Signing Policy": {
+    "message": "Политика за подписване на код",
+    "description": "The label for the doc item 'Code Signing Policy' in sidebar 'tutorialSidebar', linking to the doc governance/code-signing-policy"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Style Guide": {
+    "message": "Ръководство за стил на спецификациите",
+    "description": "The label for the doc item 'Specification Style Guide' in sidebar 'tutorialSidebar', linking to the doc governance/style-guide"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Template": {
+    "message": "Шаблон за спецификация",
+    "description": "The label for the doc item 'Specification Template' in sidebar 'tutorialSidebar', linking to the doc governance/specification-template"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Registry": {
+    "message": "Регистър на спецификациите",
+    "description": "The label for the doc item 'Specification Registry' in sidebar 'tutorialSidebar', linking to the doc governance/specification-registry"
+  }
+}

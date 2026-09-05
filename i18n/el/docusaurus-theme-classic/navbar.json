@@ -1,0 +1,30 @@
+{
+  "title": {
+    "message": "Open Manuscript Initiative",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Open Manuscript Initiative",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Project": {
+    "message": "Έργο",
+    "description": "Navbar item with label Project"
+  },
+  "item.label.Studio": {
+    "message": "Στούντιο",
+    "description": "Navbar item with label Studio"
+  },
+  "item.label.Funding & Partnerships": {
+    "message": "Χρηματοδότηση και συνεργασίες",
+    "description": "Navbar item with label Funding & Partnerships"
+  },
+  "item.label.Support": {
+    "message": "Υποστήριξη",
+    "description": "Navbar item with label Support"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}
