@@ -10,17 +10,15 @@ The **OMI OMP Integration Plugin** connects Open Monograph Press (OMP) 3.5.x wit
 
 ## Current release
 
-**Stable release:** `v1.2.2`  
+**Stable release:** `v1.2.6`  
 **Target platform:** OMP 3.5.x  
 **License:** GNU GPL v3.0
 
-A PKP-compliance hardening update is being prepared as `v1.2.3`; until it is released, the downloads below point to the current stable `v1.2.2` package.
-
 ### Download
 
-- **[Download OMP plugin v1.2.2 — ZIP](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.2/studioIntegration-omp-3.5-v1.2.2.zip)**
-- **[Download OMP plugin v1.2.2 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.2/studioIntegration-omp-3.5-v1.2.2.tar.gz)**
-- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.2/SHA256SUMS.txt)
+- **[Download OMP plugin v1.2.6 — ZIP](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/studioIntegration-omp-3.5-v1.2.6.zip)**
+- **[Download OMP plugin v1.2.6 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/studioIntegration-omp-3.5-v1.2.6.tar.gz)**
+- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/SHA256SUMS.txt)
 - [Latest GitHub release](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/latest)
 
 The release archive uses `studioIntegration/` as its package root for PKP-compatible installation.
@@ -42,7 +40,9 @@ The OMP connector is monograph-aware and preserves OMP-specific workflow semanti
 - review-round-scoped author revision upload;
 - internal-review and external-review revision stages;
 - native capability discovery for OMP-specific review behavior;
-- signed review comment/form writeback.
+- signed review comment/form writeback;
+- reviewer projection limited to the single assigned study, excluding parent-monograph, sibling-study and contributor identity data;
+- native OMP 3.5 end-to-end verification of launch, files, review forms, corrections, separated feedback and signed writeback.
 
 OMP 3.5 currently reports that customizable reviewer recommendations are not supported by the host application. The connector therefore does not fabricate OJS-style recommendation identifiers and does not encode synthetic recommendation values into comments.
 
