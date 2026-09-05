@@ -12,8 +12,8 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "i18n:deepl:site:check": "node scripts/translate-site-with-deepl.mjs",
-    "i18n:deepl:site": "node scripts/translate-site-with-deepl.mjs --write",
+    "i18n:deepl:site:check": "node scripts/translate-site-incremental-with-deepl.mjs",
+    "i18n:deepl:site": "node scripts/translate-site-incremental-with-deepl.mjs --write",
     "test:file-format": "node scripts/validate-file-format-fixtures.mjs"
   },
   "dependencies": {
