@@ -1,0 +1,100 @@
+name: DeepL Docusaurus translations
+
+on:
+  workflow_dispatch:
+    inputs:
+      locales:
+        description: 'Comma-separated target locales (default: all configured targets)'
+        required: false
+        type: string
+      force:
+        description: 'Regenerate existing machine-translated locales (never forces hand-maintained hu/de)'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: deepl-i18n
+  cancel-in-progress: false
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Translate with DeepL
+        env:
+          DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
+          INPUT_LOCALES: ${{ inputs.locales }}
+          INPUT_FORCE: ${{ inputs.force }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          args=(--write)
+          if [[ -n "${INPUT_LOCALES:-}" ]]; then
+            args+=("--locales=${INPUT_LOCALES}")
+          fi
+          if [[ "${INPUT_FORCE:-false}" == "true" ]]; then
+            args+=(--force)
+          fi
+          node scripts/translate-site-with-deepl.mjs "${args[@]}"
+
+      - name: Validate Docusaurus build
+        run: npm run build
+
+      - name: Detect translation changes
+        id: changes
+        shell: bash
+        run: |
+          if [[ -n "$(git status --porcelain -- i18n)" ]]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create translation branch and commit
+        if: steps.changes.outputs.changed == 'true'
+        id: commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          branch="i18n/deepl-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add i18n
+          git commit -m "i18n: update Docusaurus translations with DeepL"
+          git push origin "$branch"
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+
+      - name: Open pull request
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ steps.commit.outputs.branch }}
+        shell: bash
+        run: |
+          gh pr create \
+            --base "${GITHUB_REF_NAME}" \
+            --head "$BRANCH" \
+            --title "i18n: update Docusaurus translations with DeepL" \
+            --body $'Automated Docusaurus translation update generated with the repository DeepL workflow.\n\n- Source locale: English\n- DeepL API key: repository secret (not exposed)\n- Docusaurus build validated before PR creation\n- Existing hand-maintained Hungarian and German content is not force-regenerated\n\nPlease review machine-translated content before merging.'
+
+      - name: No changes
+        if: steps.changes.outputs.changed != 'true'
+        run: echo "Translations are already up to date; no pull request was created."
