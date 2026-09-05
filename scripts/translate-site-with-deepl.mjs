@@ -255,12 +255,12 @@ function protectMarkup(text) {
   for (const pattern of patterns) {
     value = value.replace(pattern, (match) => {
       const id = tokens.push(match)-1;
-      return `<keep>__OMI_TOKEN_${id}__</keep>`;
+      return `<keep>OMITOKEN${id}</keep>`;
     });
   }
   const termPattern = new RegExp(PROTECTED_TERMS.map(escapeRegExp).join('|'),'g');
   value = value.replace(termPattern, (match) => `<keep>${escapeXml(match)}</keep>`);
-  value = value.replace(/<keep>__OMI_TOKEN_(\d+)__<\/keep>/g, (_, index) => `<keep>${escapeXml(tokens[Number(index)])}</keep>`);
+  value = value.replace(/<keep>OMITOKEN(\d+)<\/keep>/g, (_, index) => `<keep>${escapeXml(tokens[Number(index)])}</keep>`);
   return value;
 }
 
