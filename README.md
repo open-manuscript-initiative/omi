@@ -12,10 +12,10 @@ OMI treats the scholarly manuscript — structure, metadata, contributors, citat
 
 **Open Manuscript Studio** is the OMI reference implementation.
 
-Current public release line: **`0.1.0-beta.1`**.  
+Current public release line: **`0.1.0-beta.3`**.  
 Project state: **public beta / active stabilization and interoperability development**.
 
-The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. Android is an operational public-beta target; iOS/iPadOS simulator/native builds are validated while public Apple distribution remains dependent on signing, provisioning and device/TestFlight validation.
+The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. The OJS 3.5 and OMP 3.5 integration lines now have native end-to-end coverage for signed author/editor/reviewer launches, anonymous review projections, assignment-scoped files, review forms, corrections, separated feedback and signed writeback. Android is an operational public-beta target; iOS/iPadOS simulator/native builds are validated while public Apple distribution remains dependent on signing, provisioning and device/TestFlight validation.
 
 ### Latest development line
 
