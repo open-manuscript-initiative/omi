@@ -10,15 +10,15 @@ The **OMI OJS Integration Plugin** connects Open Journal Systems (OJS) 3.5.x wit
 
 ## Current release
 
-**Stable release:** `v1.2.0`  
+**Stable release:** `v1.2.1`  
 **Target platform:** OJS 3.5.x  
 **License:** GNU GPL v3.0
 
 ### Download
 
-- **[Download OJS plugin v1.2.0 — ZIP](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.0/studioIntegration-ojs-3.5-v1.2.0.zip)**
-- **[Download OJS plugin v1.2.0 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.0/studioIntegration-ojs-3.5-v1.2.0.tar.gz)**
-- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.0/SHA256SUMS.txt)
+- **[Download OJS plugin v1.2.1 — ZIP](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.1/studioIntegration-ojs-3.5-v1.2.1.zip)**
+- **[Download OJS plugin v1.2.1 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.1/studioIntegration-ojs-3.5-v1.2.1.tar.gz)**
+- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.1/SHA256SUMS.txt)
 - [Latest GitHub release](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/latest)
 
 The release archive contains the plugin under the `studioIntegration/` package root expected by PKP plugin installation workflows.
@@ -38,7 +38,8 @@ The current connector provides role-aware Studio launch and signed integration a
 - author-visible and editor-only review comments;
 - double-blind reviewer access boundaries;
 - server-to-server HMAC-signed writeback;
-- stable file-genre metadata for source-file selection.
+- stable file-genre metadata for source-file selection;
+- native OJS 3.5 end-to-end verification of anonymous reviewer access, required review forms, manuscript corrections, separated feedback and signed review writeback.
 
 Reviewer launch assertions intentionally do not receive contributor or reviewer-identity scopes. Reviewer files are constrained by the PKP review assignment rather than by a broad submission-level file permission.
 
