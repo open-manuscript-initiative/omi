@@ -30,8 +30,8 @@ keywords:
 | Field | Value |
 |---|---|
 | Status | **Beta** |
-| Snapshot date | **2026-08-30** |
-| Current release line | `0.1.0-beta.1` |
+| Snapshot date | **2026-09-05** |
+| Current release line | `0.1.0-beta.3` |
 | Reference implementation | Open Manuscript Studio |
 | Source repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web target | Modern browsers |
@@ -39,7 +39,7 @@ keywords:
 | Mobile targets | Android public universal APK; iOS/iPadOS validated native simulator target, with TestFlight/App Store distribution pending Apple Developer signing |
 | Web deployment | `studio.openmanuscript.org` |
 
-The Studio development line entered **beta** with `0.1.0-beta.1` on 2026-08-28. Beta means that the primary authoring, import/export, authentication, native-client and OJS review workflows are implemented and the project has moved from feature scaffolding to interoperability, regression, recovery and release-hardening work. It does **not** mean that every optional integration or distribution channel is production-complete.
+The current Studio beta is **`0.1.0-beta.3`**. Beta means that the primary authoring, import/export, authentication, native-client and OJS/OMP review workflows are implemented and the project has moved from feature scaffolding to interoperability, regression, recovery and release-hardening work. It does **not** mean that every optional integration or distribution channel is production-complete.
 
 This page describes **implemented product capabilities**, not OMI specification conformance. Formal specification maturity and conformance evidence are tracked separately in the [OMI Implementation Status Matrix](./implementation-status-matrix.md).
 
@@ -80,7 +80,9 @@ This page describes **implemented product capabilities**, not OMI specification 
 | Native OJS review forms | **Configuration-dependent / validated** | OJS review-form definitions can be imported into the reviewer workspace, rendered as Studio controls, localized safely and written back to OJS with the submitted review. Server handling keeps provider markup opaque and client rendering extracts text safely. |
 | External/OJS review assignments | **Configuration-dependent** | OJS-connected author, editor and reviewer workflows and external assignment context are implemented when the OJS integration is configured. |
 | OJS manuscript launch/import | **Configuration-dependent** | Signed launch assertions, manuscript/file retrieval and structured import of metadata and manuscript content from OJS. |
-| OJS 3.5 interoperability | **Validated integration line** | PKP/OJS 3.5 compatibility is documented, including role-aware launch/import and two-round review testing. Cross-version regression remains ongoing release work. |
+| OJS 3.5 interoperability | **Validated integration line** | PKP/OJS 3.5 compatibility is documented and exercised in native end-to-end author, editor and double-anonymous reviewer workflows, including assigned files, review forms, corrections, separated feedback and signed writeback. Cross-version regression remains ongoing release work. |
+| OMP manuscript/study launch and review | **Configuration-dependent / validated** | Signed launch assertions map monographs and publications into Studio while reviewer access is restricted to the assigned study. Author, editor and double-anonymous reviewer flows cover assigned files, review forms, corrections, separated feedback and signed writeback. |
+| OMP 3.5 interoperability | **Validated integration line** | The deployable OMP plugin and Studio integration are exercised end to end against OMP 3.5. Wider cross-version regression and production hardening remain ongoing release work. |
 | DOCX structural import | **Operational** | Headings, inline semantics, list inheritance, footnotes/endnotes, references, structured tables and semantic index fields are handled. Large imports use deferred editor mounting and imported DOCX files open directly as OMI manuscripts. |
 | Dynamic indexes and lists | **Operational** | Imported Word index fields are represented semantically rather than as stale page-number text. Index occurrences navigate to document locations; unresolved occurrence controls are suppressed. Name-index import normalizes letter/number boundaries and filters Arabic-number page-reference noise while retaining name-relevant Roman numerals. |
 | Local spelling | **Operational** | Persisted local spellcheck follows manuscript language through the platform/browser spellchecking layer. |
@@ -143,13 +145,13 @@ OMI separates manuscript semantics from provider-specific authentication and tra
 
 ### Publishing-system authority
 
-For connected OJS workflows, OJS remains authoritative for submission workflow state, assignments, rounds and editorial decisions. Studio acts as the structured authoring and review workspace and exchanges information through defined application endpoints rather than direct database coupling.
+For connected OJS and OMP workflows, the publishing system remains authoritative for submission workflow state, assignments, rounds and editorial decisions. Studio acts as the structured authoring and review workspace and exchanges information through defined application endpoints rather than direct database coupling.
 
-The current OJS integration is bidirectional for review work: Studio can consume role-scoped launch context and native review-form definitions, and can return signed review submissions through the integration endpoint. This does not transfer workflow authority from OJS to Studio.
+The current OJS and OMP integrations are bidirectional for review work: Studio can consume role-scoped launch context, assigned files and native review-form definitions, and can return signed review submissions, corrections and separated author/editor feedback through the integration endpoint. OMP additionally preserves monograph/publication/study mapping and restricts reviewers to their assigned study. This does not transfer workflow authority from OJS or OMP to Studio.
 
 ## Release and distribution
 
-`0.1.0-beta.1` is the first Studio beta release line. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. The public Studio download page exposes browser access and the available native packages, including the Android universal APK.
+`0.1.0-beta.3` is the current Studio beta release line. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. The public Studio download page exposes browser access and the available native packages, including the Android universal APK.
 
 iOS/iPadOS currently has a successful CI simulator build rather than a public IPA. The Apple distribution path is prepared but deliberately separated from simulator validation: public/device builds require the real Apple Development Team ID, distribution certificate, provisioning profile and final `apple-app-site-association` configuration before TestFlight/App Store publication can be claimed.
 
@@ -162,7 +164,7 @@ The beta line shifts the release gate from “is the primary workflow implemente
 1. manuscript creation, opening, editing, saving, explicit closing, session restoration and reopening without data loss;
 2. large and structurally complex DOCX imports, including notes, tables, lists, fields and dynamic indexes;
 3. representative structured export paths on web and native clients;
-4. OJS manuscript round-trip and role-aware author/editor/reviewer workflows, including multi-round review and native OJS review forms;
+4. OJS and OMP manuscript round-trip and role-aware author/editor/reviewer workflows, including assigned-file scoping, multi-round review, native review forms and signed writeback;
 5. double-blind peer review without identity leakage and with least-privilege integration scopes;
 6. Android Documents/SAF lifecycle behavior and responsive mobile navigation;
 7. iOS/iPadOS Files/UIDocumentPicker behavior once signed physical-device testing is available;
@@ -178,7 +180,7 @@ Configuration-dependent integrations do not need to be universally available for
 - exercise password reset, OIDC linking/unlinking and cross-device session behavior against production-like mail/provider configuration;
 - run migration and authorization regression tests for institution membership, central administration and institution Admin API credentials;
 - continue OJS 3.5 round-trip, multi-round review and cross-version interoperability testing;
-- complete implementation and end-to-end testing of the OMP connector;
+- continue OMP 3.5 cross-version interoperability, deployment and recovery hardening;
 - strengthen recovery behavior for interrupted network, cloud and synchronization operations;
 - replace remaining technical/raw error surfaces with actionable user-facing messages;
 - integrate Windows production code signing if/when the SignPath Foundation application is accepted;

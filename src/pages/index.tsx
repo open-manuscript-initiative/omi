@@ -17,7 +17,7 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
 
 const STUDIO_UPDATE = {
   en: {
-    summary: 'Open Manuscript Studio 0.1.0-beta.1 is in public beta. The September 2026 development line adds manuscript-wide Word-like editing across OMI block and section boundaries, paragraph split/merge on physical and mobile keyboards, whole-document Ctrl+A/Cmd+A selection, improved mobile selection actions, structural PDF import with bbox-based footnote reconstruction, and native Android PDF routing. These additions build on multi-document editing, large-DOCX import, semantic indexes, reusable publication styles, device-aware storage, federated sign-in, double-blind peer review, OJS/OMP workflows and institutional administration.',
+    summary: 'Open Manuscript Studio 0.1.0-beta.3 is in public beta. The September 2026 development line adds manuscript-wide Word-like editing across OMI block and section boundaries, paragraph split/merge on physical and mobile keyboards, whole-document Ctrl+A/Cmd+A selection, improved mobile selection actions, structural PDF import with bbox-based footnote reconstruction, and native Android PDF routing. These additions build on multi-document editing, large-DOCX import, semantic indexes, reusable publication styles, device-aware storage, federated sign-in, double-blind peer review, OJS/OMP workflows and institutional administration. OJS and OMP 3.5 review round-trips are now verified in native end-to-end environments, including anonymity, assignment-scoped files, review forms, corrections and signed writeback.',
     multiDocument: 'Multi-document desktop editing and document outline',
     wordLike: 'Word-like manuscript-wide split, merge and selection',
     pdf: 'Structural PDF import with geometry-aware footnotes',
@@ -31,7 +31,7 @@ const STUDIO_UPDATE = {
     ios: 'Validated iPhone/iPad simulator build and Files integration',
   },
   hu: {
-    summary: 'Az Open Manuscript Studio 0.1.0-beta.1 nyilvános béta. A 2026. szeptemberi fejlesztési ág kézirat-szintű, Word-szerű szerkesztést ad az OMI blokk- és szakaszhatárokon át, fizikai és mobil billentyűzeten működő bekezdés-szétválasztással és -egyesítéssel, teljes dokumentumot kijelölő Ctrl+A/Cmd+A működéssel, javított mobil kijelölési műveletekkel, bbox-geometriára épülő strukturált PDF- és lábjegyzet-rekonstrukcióval, valamint natív Android PDF-importtal. Mindez a többdokumentumos szerkesztésre, a nagy DOCX-ek importjára, a szemantikus mutatókra, a kiadványstílusokra, a felhős és helyi tárhelyre, a federált bejelentkezésre, a double-blind peer review-ra, az OJS/OMP munkafolyamatokra és az intézményi adminisztrációra épül.',
+    summary: 'Az Open Manuscript Studio 0.1.0-beta.3 nyilvános béta. A 2026. szeptemberi fejlesztési ág kézirat-szintű, Word-szerű szerkesztést ad az OMI blokk- és szakaszhatárokon át, fizikai és mobil billentyűzeten működő bekezdés-szétválasztással és -egyesítéssel, teljes dokumentumot kijelölő Ctrl+A/Cmd+A működéssel, javított mobil kijelölési műveletekkel, bbox-geometriára épülő strukturált PDF- és lábjegyzet-rekonstrukcióval, valamint natív Android PDF-importtal. Mindez a többdokumentumos szerkesztésre, a nagy DOCX-ek importjára, a szemantikus mutatókra, a kiadványstílusokra, a felhős és helyi tárhelyre, a federált bejelentkezésre, a double-blind peer review-ra, az OJS/OMP munkafolyamatokra és az intézményi adminisztrációra épül. Az OJS és OMP 3.5 lektori körfolyamatokat immár natív végponttól végpontig tartó környezet ellenőrzi, beleértve az anonimitást, a hozzárendelt fájlokat, a lektori űrlapokat, a javításokat és az aláírt visszaírást.',
     multiDocument: 'Többdokumentumos asztali szerkesztés és dokumentumvázlat',
     wordLike: 'Word-szerű, kézirat-szintű szétválasztás, egyesítés és kijelölés',
     pdf: 'Strukturált PDF-import geometria-alapú lábjegyzet-felismeréssel',
@@ -45,7 +45,7 @@ const STUDIO_UPDATE = {
     ios: 'Validált iPhone/iPad szimulátoros build és Files-integráció',
   },
   de: {
-    summary: 'Open Manuscript Studio 0.1.0-beta.1 befindet sich in der öffentlichen Beta. Die Entwicklungsreihe vom September 2026 ergänzt manuskriptweites, Word-ähnliches Bearbeiten über OMI-Block- und Abschnittsgrenzen hinweg, Absatzteilen und -zusammenführen auf physischen und mobilen Tastaturen, vollständige Dokumentauswahl mit Ctrl+A/Cmd+A, verbesserte mobile Auswahlaktionen, strukturellen PDF-Import mit bbox-basierter Fußnotenrekonstruktion und natives Android-PDF-Routing. Diese Arbeiten bauen auf Mehrdokument-Bearbeitung, großem DOCX-Import, semantischen Registern, Publikationsstilen, gerätebewusster Speicherung, föderierter Anmeldung, Double-blind Peer Review, OJS/OMP-Workflows und institutioneller Administration auf.',
+    summary: 'Open Manuscript Studio 0.1.0-beta.3 befindet sich in der öffentlichen Beta. Die Entwicklungsreihe vom September 2026 ergänzt manuskriptweites, Word-ähnliches Bearbeiten über OMI-Block- und Abschnittsgrenzen hinweg, Absatzteilen und -zusammenführen auf physischen und mobilen Tastaturen, vollständige Dokumentauswahl mit Ctrl+A/Cmd+A, verbesserte mobile Auswahlaktionen, strukturellen PDF-Import mit bbox-basierter Fußnotenrekonstruktion und natives Android-PDF-Routing. Diese Arbeiten bauen auf Mehrdokument-Bearbeitung, großem DOCX-Import, semantischen Registern, Publikationsstilen, gerätebewusster Speicherung, föderierter Anmeldung, Double-blind Peer Review, OJS/OMP-Workflows und institutioneller Administration auf. OJS- und OMP-3.5-Begutachtungsrunden werden nun in nativen End-to-End-Umgebungen einschließlich Anonymität, zugewiesener Dateien, Formulare, Korrekturen und signierter Rückschreibung geprüft.',
     multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
     wordLike: 'Word-ähnliches manuskriptweites Teilen, Zusammenführen und Auswählen',
     pdf: 'Strukturierter PDF-Import mit geometriebasierter Fußnotenerkennung',
@@ -160,7 +160,7 @@ export default function Home() {
 
         <section className={styles.studio} aria-labelledby="current-development-status">
           <div className={styles.studioContent}>
-            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.1.0-beta.1 · public beta</p>
+            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.1.0-beta.3 · public beta</p>
             <h2 id="current-development-status">{t.status}</h2>
             <h3>{t.currentTitle}</h3>
             <p>{studioUpdate.summary}</p>
@@ -174,7 +174,7 @@ export default function Home() {
           </div>
 
           <aside className={styles.studioFeatures} aria-label={t.status}>
-            <h3>0.1.0-beta.1</h3>
+            <h3>0.1.0-beta.3</h3>
             <p>Web · Windows · Linux · macOS · Android · iOS/iPadOS</p>
             <p><strong>24</strong> UI languages</p>
             <nav className={styles.contextLinks} aria-label={t.status}>

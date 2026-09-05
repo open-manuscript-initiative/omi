@@ -13,10 +13,10 @@ For the current product-level status of individual connectors, see [Integration 
 
 ## Current implementation snapshot
 
-As of 2026-08-18:
+As of 2026-09-05:
 
-- **OJS** is the most mature publishing-platform integration and is operational in the current Studio workflow, subject to deployment configuration;
-- **OMP** has a documented v1 profile but does not yet have equivalent verified end-to-end implementation;
+- **OJS** is operational in the current Studio workflow, subject to deployment configuration, and its complete anonymous review round-trip is verified in a native OJS 3.5 environment;
+- **OMP** is operational subject to deployment configuration, with assigned-study isolation and complete anonymous review round-trip verification in a native OMP 3.5 environment;
 - **ORCID OAuth** and connected storage are configuration-dependent integrations;
 - the **integration provider catalog** and provider authentication-mode model are implemented foundations;
 - **DeepL** currently has provider/configuration scaffolding, not a complete production translation workflow;
@@ -134,15 +134,15 @@ Open Manuscript Studio
 
 OJS remains authoritative for journal submission workflow, reviewer assignments, rounds, editorial decisions, issues and publication state. Studio remains authoritative for the OMI manuscript model and Studio-native manuscript/review state.
 
-The implementation has moved beyond a conceptual connector: signed launch, source-file retrieval/import, external review assignment handling and role-aware review workflow are present. The complete [OJS Integration Profile v1](./ojs-profile-v1.md) remains broader than the currently verified production path, so not every profile operation should be described as conformant or complete.
+The implementation has moved beyond a conceptual connector: signed launch, source-file retrieval/import, external review assignment handling, required native review forms, manuscript corrections, separated reviewer feedback and signed writeback are present. Native OJS 3.5 end-to-end tests verify anonymous reviewer projections and assignment-scoped access. The complete [OJS Integration Profile v1](./ojs-profile-v1.md) remains broader than the currently verified production path, so not every profile operation should be described as conformant or complete.
 
 ## OMP integration
 
 OMP remains a first-class target for monographs, edited volumes, chapters and press workflows.
 
-The [OMP Integration Profile v1](./omp-profile-v1.md) defines the architectural mapping, including component-level authorship and review. Its current reference-implementation status is **specification only**: a complete deployable OMP connector still needs implementation and end-to-end verification.
+The [OMP Integration Profile v1](./omp-profile-v1.md) defines the architectural mapping, including component-level authorship and review. The deployable OMP plugin now implements signed role-aware launch, monograph and study mapping, assignment-scoped file access, native review forms, corrections, separated feedback and signed writeback.
 
-This distinction is important. Sharing PKP technology with OJS makes code reuse possible, but it does not make the OMP workflow automatically implemented.
+Native OMP 3.5 end-to-end tests verify that a reviewer receives only the assigned study projected as an anonymous article. Parent-monograph metadata, sibling studies, unassigned files and contributor identity remain outside that review projection. Formal OMI conformance and wider OMP-version compatibility remain separate future work.
 
 ## Integration provider catalog
 
