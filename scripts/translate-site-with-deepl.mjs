@@ -3,294 +3,46 @@ import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import process from 'node:process';
 
-const ALL_LOCALES = [
-  'bg','cs','da','de','el','en','es','et','fi','fr','ga','hr','hu','it','lt','lv','mt','nl','pl','pt','ro','sk','sl','sv',
-];
+const ALL_LOCALES = ['bg','cs','da','de','el','en','es','et','fi','fr','ga','hr','hu','it','lt','lv','mt','nl','pl','pt','ro','sk','sl','sv'];
 const SOURCE_LOCALE = 'en';
 const HAND_MAINTAINED = new Set(['en','hu','de']);
 const DOCS_ROOT = path.resolve('docs');
 const I18N_ROOT = path.resolve('i18n');
 const DOCS_PLUGIN_PATH = path.join('docusaurus-plugin-content-docs', 'current');
-const PROTECTED_TERMS = [
-  'Open Manuscript Initiative','Open Manuscript Studio','OMI Studio','WebAuthn','SHA-256','ORCID','ROR','DOI','OJS','OMP','DOCX','IDML','JATS','CSL','OMI','CSS','HTML','PDF','EPUB','XTG','MIF','SLA','LaTeX','GitHub','Docusaurus','API','OAuth','JSON','XML','YAML','Markdown','MDX','JavaScript','TypeScript','React','Node.js','npm','@page','passkey',
-].sort((a,b)=>b.length-a.length);
-
+const PROTECTED_TERMS = ['Open Manuscript Initiative','Open Manuscript Studio','OMI Studio','WebAuthn','SHA-256','ORCID','ROR','DOI','OJS','OMP','DOCX','IDML','JATS','CSL','OMI','CSS','HTML','PDF','EPUB','XTG','MIF','SLA','LaTeX','GitHub','Docusaurus','API','OAuth','JSON','XML','YAML','Markdown','MDX','JavaScript','TypeScript','React','Node.js','npm','@page','passkey'].sort((a,b)=>b.length-a.length);
 const args = process.argv.slice(2);
 const write = args.includes('--write');
 const force = args.includes('--force');
 const requested = readListArg('--locales=') ?? ALL_LOCALES;
 const locales = requested.filter((locale) => locale !== SOURCE_LOCALE);
-
-if (!locales.length) {
-  console.log('No target locales selected.');
-  process.exit(0);
-}
-
+if (!locales.length) { console.log('No target locales selected.'); process.exit(0); }
 const sourceDocs = await listFiles(DOCS_ROOT, (file) => /\.mdx?$/.test(file));
-console.log(`Source docs: ${sourceDocs.length}`);
-console.log(`Target locales: ${locales.join(', ')}`);
-console.log(`Mode: ${write ? 'WRITE' : 'DRY RUN'}`);
-
-const audit = [];
-for (const locale of locales) {
-  const localeRoot = path.join(I18N_ROOT, locale);
-  const docsRoot = path.join(localeRoot, DOCS_PLUGIN_PATH);
-  const localeExists = await exists(localeRoot);
-  const translatedDocs = localeExists && await exists(docsRoot)
-    ? await listFiles(docsRoot, (file) => /\.mdx?$/.test(file))
-    : [];
-  const translatedRelative = new Set(translatedDocs.map((file) => path.relative(docsRoot, file)));
-  const missingDocs = sourceDocs
-    .map((file) => path.relative(DOCS_ROOT, file))
-    .filter((relative) => !translatedRelative.has(relative));
-  audit.push({ locale, localeExists, translatedDocs: translatedDocs.length, missingDocs });
-}
-
-for (const item of audit) {
-  console.log(`\n${item.locale}: ${item.localeExists ? 'locale exists' : 'locale missing'}`);
-  console.log(`  translated docs: ${item.translatedDocs}/${sourceDocs.length}`);
-  console.log(`  missing docs: ${item.missingDocs.length}`);
-  if (item.missingDocs.length && item.missingDocs.length <= 12) {
-    for (const file of item.missingDocs) console.log(`    - ${file}`);
-  }
-}
-
-if (!write) {
-  console.log('\nDry run complete. No DeepL request was sent and no file was changed.');
-  console.log('Use --write to scaffold and translate missing content. Use --force only to deliberately regenerate existing machine-translated locales.');
-  process.exit(0);
-}
-
-const authKey = process.env.DEEPL_API_KEY?.trim();
-if (!authKey) throw new Error('DEEPL_API_KEY is required in --write mode.');
-const apiBase = resolveApiBase(authKey);
-const supportedTargets = await fetchSupportedTargetLanguages(apiBase, authKey);
-
-for (const item of audit) {
-  const locale = item.locale;
-  const targetLang = resolveTargetLanguageCode(locale, supportedTargets);
-  if (!targetLang) {
-    console.warn(`Skipping ${locale}: DeepL account does not report a compatible target language.`);
-    continue;
-  }
-
-  const localeRoot = path.join(I18N_ROOT, locale);
-  const isHandMaintained = HAND_MAINTAINED.has(locale);
-  const wasMissing = !item.localeExists;
-
-  if (wasMissing) {
-    console.log(`\nScaffolding Docusaurus locale ${locale}...`);
-    runDocusaurusWriteTranslations(locale);
-  }
-
-  console.log(`\nTranslating site locale ${locale} -> ${targetLang}`);
-  await translateJsonTree(localeRoot, targetLang, authKey, apiBase, {
-    translateExisting: wasMissing,
-    force: force && !isHandMaintained,
-  });
-  await translateDocs(locale, targetLang, authKey, apiBase, {
-    force: force && !isHandMaintained,
-  });
-}
-
+console.log(`Source docs: ${sourceDocs.length}`); console.log(`Target locales: ${locales.join(', ')}`); console.log(`Mode: ${write ? 'WRITE' : 'DRY RUN'}`);
+const audit=[];
+for(const locale of locales){const localeRoot=path.join(I18N_ROOT,locale);const docsRoot=path.join(localeRoot,DOCS_PLUGIN_PATH);const localeExists=await exists(localeRoot);const translatedDocs=localeExists&&await exists(docsRoot)?await listFiles(docsRoot,(file)=>/\.mdx?$/.test(file)):[];const translatedRelative=new Set(translatedDocs.map((file)=>path.relative(docsRoot,file)));const missingDocs=sourceDocs.map((file)=>path.relative(DOCS_ROOT,file)).filter((relative)=>!translatedRelative.has(relative));audit.push({locale,localeExists,translatedDocs:translatedDocs.length,missingDocs});}
+for(const item of audit){console.log(`\n${item.locale}: ${item.localeExists?'locale exists':'locale missing'}`);console.log(`  translated docs: ${item.translatedDocs}/${sourceDocs.length}`);console.log(`  missing docs: ${item.missingDocs.length}`);if(item.missingDocs.length&&item.missingDocs.length<=12)for(const file of item.missingDocs)console.log(`    - ${file}`);}
+if(!write){console.log('\nDry run complete. No DeepL request was sent and no file was changed.');console.log('Use --write to scaffold and translate missing content. Use --force only to deliberately regenerate existing machine-translated locales.');process.exit(0);}
+const authKey=process.env.DEEPL_API_KEY?.trim();if(!authKey)throw new Error('DEEPL_API_KEY is required in --write mode.');const apiBase=resolveApiBase(authKey);const supportedTargets=await fetchSupportedTargetLanguages(apiBase,authKey);
+for(const item of audit){const locale=item.locale;const targetLang=resolveTargetLanguageCode(locale,supportedTargets);if(!targetLang){console.warn(`Skipping ${locale}: DeepL account does not report a compatible target language.`);continue;}const localeRoot=path.join(I18N_ROOT,locale);const isHandMaintained=HAND_MAINTAINED.has(locale);const wasMissing=!item.localeExists;if(wasMissing){console.log(`\nScaffolding Docusaurus locale ${locale}...`);runDocusaurusWriteTranslations(locale);}console.log(`\nTranslating site locale ${locale} -> ${targetLang}`);await translateJsonTree(localeRoot,targetLang,authKey,apiBase,{translateExisting:wasMissing,force:force&&!isHandMaintained});await translateDocs(locale,targetLang,authKey,apiBase,{force:force&&!isHandMaintained});}
 console.log('\nTranslation run complete. Review changes, then run npm run build before committing.');
-
-function readListArg(prefix) {
-  const arg = args.find((value) => value.startsWith(prefix));
-  return arg ? arg.slice(prefix.length).split(',').map((v)=>v.trim().toLowerCase()).filter(Boolean) : null;
-}
-
-function resolveApiBase(key) {
-  const configured = process.env.DEEPL_API_URL?.trim();
-  if (configured) return configured.replace(/\/$/, '');
-  return key.endsWith(':fx') ? 'https://api-free.deepl.com' : 'https://api.deepl.com';
-}
-
-async function fetchSupportedTargetLanguages(apiBase, authKey) {
-  const response = await fetch(`${apiBase}/v2/languages?type=target`, { headers: { Authorization: `DeepL-Auth-Key ${authKey}` } });
-  if (!response.ok) throw await deeplError('Unable to read DeepL target languages', response);
-  const payload = await response.json();
-  return new Set(payload.map((item) => String(item.language).toUpperCase()));
-}
-
-function resolveTargetLanguageCode(locale, supported) {
-  const candidates = locale === 'pt' ? ['PT-PT','PT-BR','PT'] : [locale.toUpperCase()];
-  return candidates.find((candidate) => supported.has(candidate)) ?? null;
-}
-
-function runDocusaurusWriteTranslations(locale) {
-  const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm';
-  const result = spawnSync(npm, ['run','write-translations','--','--locale',locale], { stdio: 'inherit' });
-  if (result.status !== 0) throw new Error(`Docusaurus write-translations failed for ${locale}.`);
-}
-
-async function translateJsonTree(localeRoot, targetLang, authKey, apiBase, options) {
-  if (!options.translateExisting && !options.force) return;
-  const files = await listFiles(localeRoot, (file) => file.endsWith('.json'));
-  for (const file of files) {
-    const raw = await readFile(file, 'utf8');
-    let value;
-    try { value = JSON.parse(raw); } catch { continue; }
-    const strings = [];
-    collectStrings(value, strings);
-    if (!strings.length) continue;
-    const translated = await translateBatch(strings, targetLang, authKey, apiBase);
-    let cursor = 0;
-    value = replaceStrings(value, () => translated[cursor++]);
-    await writeFile(file, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
-    console.log(`  JSON: ${path.relative(process.cwd(), file)} (${strings.length} strings)`);
-  }
-}
-
-async function translateDocs(locale, targetLang, authKey, apiBase, options) {
-  const targetRoot = path.join(I18N_ROOT, locale, DOCS_PLUGIN_PATH);
-  await mkdir(targetRoot, { recursive: true });
-
-  for (const sourceFile of sourceDocs) {
-    const relative = path.relative(DOCS_ROOT, sourceFile);
-    const targetFile = path.join(targetRoot, relative);
-    const targetExists = await exists(targetFile);
-    if (targetExists && !options.force) continue;
-
-    await mkdir(path.dirname(targetFile), { recursive: true });
-    const source = await readFile(sourceFile, 'utf8');
-    const translated = await translateMarkdown(source, targetLang, authKey, apiBase);
-    await writeFile(targetFile, translated, 'utf8');
-    console.log(`  DOC: ${relative}`);
-  }
-}
-
-async function translateMarkdown(source, targetLang, authKey, apiBase) {
-  const lines = source.split(/\r?\n/);
-  const candidates = [];
-  const indexes = [];
-  let fenced = false;
-  let frontmatter = false;
-
-  for (let i = 0; i < lines.length; i += 1) {
-    const line = lines[i];
-    if (i === 0 && line.trim() === '---') { frontmatter = true; continue; }
-    if (frontmatter && line.trim() === '---') { frontmatter = false; continue; }
-    if (/^\s*```/.test(line) || /^\s*~~~/.test(line)) { fenced = !fenced; continue; }
-    if (fenced || !line.trim()) continue;
-
-    if (frontmatter) {
-      const match = line.match(/^(\s*)(title|sidebar_label|description):\s*(.+)$/);
-      if (!match) continue;
-      indexes.push({ index: i, prefix: `${match[1]}${match[2]}: ` });
-      candidates.push(stripWrappingQuotes(match[3]));
-      continue;
-    }
-
-    if (/^\s*(import|export)\b/.test(line) || /^\s*<\/?[A-Z][^>]*>\s*$/.test(line)) continue;
-    if (/^\s*\{.*\}\s*$/.test(line)) continue;
-
-    const { prefix, body } = splitMarkdownPrefix(line);
-    if (!body || !/[A-Za-z]/.test(body)) continue;
-    indexes.push({ index: i, prefix });
-    candidates.push(body);
-  }
-
-  if (!candidates.length) return source;
-  const translated = await translateBatch(candidates, targetLang, authKey, apiBase);
-  indexes.forEach((entry, idx) => { lines[entry.index] = `${entry.prefix}${translated[idx]}`; });
-  return lines.join('\n');
-}
-
-function splitMarkdownPrefix(line) {
-  const match = line.match(/^(\s*(?:#{1,6}\s+|[-*+]\s+|\d+[.)]\s+|>\s*)?)(.*)$/);
-  return { prefix: match?.[1] ?? '', body: match?.[2] ?? line };
-}
-
-function stripWrappingQuotes(value) {
-  const trimmed = value.trim();
-  if ((trimmed.startsWith('"') && trimmed.endsWith('"')) || (trimmed.startsWith("'") && trimmed.endsWith("'"))) return trimmed.slice(1,-1);
-  return trimmed;
-}
-
-function collectStrings(value, out) {
-  if (typeof value === 'string') { out.push(value); return; }
-  if (Array.isArray(value)) { for (const item of value) collectStrings(item, out); return; }
-  if (value && typeof value === 'object') for (const item of Object.values(value)) collectStrings(item, out);
-}
-
-function replaceStrings(value, next) {
-  if (typeof value === 'string') return next();
-  if (Array.isArray(value)) return value.map((item) => replaceStrings(item, next));
-  if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([key,item]) => [key, replaceStrings(item,next)]));
-  return value;
-}
-
-async function translateBatch(texts, targetLang, authKey, apiBase) {
-  const output = [];
-  const batchSize = 35;
-  for (let offset=0; offset<texts.length; offset+=batchSize) {
-    const batch = texts.slice(offset, offset+batchSize).map(protectMarkup);
-    const body = new URLSearchParams();
-    for (const text of batch) body.append('text', text);
-    body.set('source_lang','EN');
-    body.set('target_lang',targetLang);
-    body.set('tag_handling','xml');
-    body.set('ignore_tags','keep');
-    body.set('preserve_formatting','1');
-    const response = await fetch(`${apiBase}/v2/translate`, {
-      method:'POST', headers:{ Authorization:`DeepL-Auth-Key ${authKey}`, 'Content-Type':'application/x-www-form-urlencoded' }, body,
-    });
-    if (!response.ok) throw await deeplError(`DeepL translation failed for ${targetLang}`, response);
-    const payload = await response.json();
-    output.push(...payload.translations.map((item)=>unprotectMarkup(String(item.text))));
-  }
-  return output;
-}
-
-function protectMarkup(text) {
-  const tokens = [];
-  let value = text;
-  const patterns = [
-    /`[^`]+`/g,
-    /https?:\/\/[^\s)]+/g,
-    /\{[^{}]+\}/g,
-    /\[[^\]]+\]\([^)]*\)/g,
-  ];
-  for (const pattern of patterns) {
-    value = value.replace(pattern, (match) => {
-      const id = tokens.push(match)-1;
-      return `<keep>OMITOKEN${id}</keep>`;
-    });
-  }
-  const termPattern = new RegExp(PROTECTED_TERMS.map(escapeRegExp).join('|'),'g');
-  value = value.replace(termPattern, (match) => `<keep>${escapeXml(match)}</keep>`);
-  value = value.replace(/<keep>OMITOKEN(\d+)<\/keep>/g, (_, index) => `<keep>${escapeXml(tokens[Number(index)])}</keep>`);
-  return value;
-}
-
-function unprotectMarkup(text) {
-  return text.replace(/<keep>([\s\S]*?)<\/keep>/g, (_, value) => decodeXml(value));
-}
-
-function escapeRegExp(value) { return value.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
-function escapeXml(value) { return value.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-function decodeXml(value) { return value.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&'); }
-
-async function deeplError(prefix, response) {
-  const detail = await response.text().catch(()=> '');
-  return new Error(`${prefix}: HTTP ${response.status}${detail ? ` — ${detail.slice(0,500)}` : ''}`);
-}
-
-async function listFiles(root, predicate) {
-  if (!(await exists(root))) return [];
-  const out = [];
-  async function walk(dir) {
-    for (const entry of await readdir(dir, { withFileTypes:true })) {
-      const full = path.join(dir, entry.name);
-      if (entry.isDirectory()) await walk(full);
-      else if (predicate(full)) out.push(full);
-    }
-  }
-  await walk(root);
-  return out.sort();
-}
-
-async function exists(file) {
-  try { await stat(file); return true; } catch { return false; }
-}
+function readListArg(prefix){const arg=args.find((value)=>value.startsWith(prefix));return arg?arg.slice(prefix.length).split(',').map((v)=>v.trim().toLowerCase()).filter(Boolean):null;}
+function resolveApiBase(key){const configured=process.env.DEEPL_API_URL?.trim();if(configured)return configured.replace(/\/$/,'');return key.endsWith(':fx')?'https://api-free.deepl.com':'https://api.deepl.com';}
+async function fetchSupportedTargetLanguages(apiBase,authKey){const response=await fetch(`${apiBase}/v2/languages?type=target`,{headers:{Authorization:`DeepL-Auth-Key ${authKey}`}});if(!response.ok)throw await deeplError('Unable to read DeepL target languages',response);const payload=await response.json();return new Set(payload.map((item)=>String(item.language).toUpperCase()));}
+function resolveTargetLanguageCode(locale,supported){const candidates=locale==='pt'?['PT-PT','PT-BR','PT']:[locale.toUpperCase()];return candidates.find((candidate)=>supported.has(candidate))??null;}
+function runDocusaurusWriteTranslations(locale){const npm=process.platform==='win32'?'npm.cmd':'npm';const result=spawnSync(npm,['run','write-translations','--','--locale',locale],{stdio:'inherit'});if(result.status!==0)throw new Error(`Docusaurus write-translations failed for ${locale}.`);}
+async function translateJsonTree(localeRoot,targetLang,authKey,apiBase,options){if(!options.translateExisting&&!options.force)return;const files=await listFiles(localeRoot,(file)=>file.endsWith('.json'));for(const file of files){const raw=await readFile(file,'utf8');let value;try{value=JSON.parse(raw);}catch{continue;}const strings=[];collectStrings(value,strings);if(!strings.length)continue;const translated=await translateBatch(strings,targetLang,authKey,apiBase);let cursor=0;value=replaceStrings(value,()=>translated[cursor++]);await writeFile(file,`${JSON.stringify(value,null,2)}\n`,'utf8');console.log(`  JSON: ${path.relative(process.cwd(),file)} (${strings.length} strings)`);}}
+async function translateDocs(locale,targetLang,authKey,apiBase,options){const targetRoot=path.join(I18N_ROOT,locale,DOCS_PLUGIN_PATH);await mkdir(targetRoot,{recursive:true});for(const sourceFile of sourceDocs){const relative=path.relative(DOCS_ROOT,sourceFile);const targetFile=path.join(targetRoot,relative);const targetExists=await exists(targetFile);if(targetExists&&!options.force)continue;await mkdir(path.dirname(targetFile),{recursive:true});const source=await readFile(sourceFile,'utf8');const translated=await translateMarkdown(source,targetLang,authKey,apiBase);await writeFile(targetFile,translated,'utf8');console.log(`  DOC: ${relative}`);}}
+async function translateMarkdown(source,targetLang,authKey,apiBase){const lines=source.split(/\r?\n/);const candidates=[];const indexes=[];let fenced=false;let frontmatter=false;for(let i=0;i<lines.length;i+=1){const line=lines[i];if(i===0&&line.trim()==='---'){frontmatter=true;continue;}if(frontmatter&&line.trim()==='---'){frontmatter=false;continue;}if(/^\s*```/.test(line)||/^\s*~~~/.test(line)){fenced=!fenced;continue;}if(fenced||!line.trim())continue;if(frontmatter){const match=line.match(/^(\s*)(title|sidebar_label|description):\s*(.+)$/);if(!match)continue;indexes.push({index:i,prefix:`${match[1]}${match[2]}: `});candidates.push(stripWrappingQuotes(match[3]));continue;}if(/^\s*(import|export)\b/.test(line)||/^\s*<\/?[A-Z][^>]*>\s*$/.test(line))continue;if(/^\s*\{.*\}\s*$/.test(line))continue;const {prefix,body}=splitMarkdownPrefix(line);if(!body||!/[A-Za-z]/.test(body))continue;indexes.push({index:i,prefix});candidates.push(body);}if(!candidates.length)return source;const translated=await translateBatch(candidates,targetLang,authKey,apiBase);indexes.forEach((entry,idx)=>{lines[entry.index]=`${entry.prefix}${translated[idx]}`;});return lines.join('\n');}
+function splitMarkdownPrefix(line){const match=line.match(/^(\s*(?:#{1,6}\s+|[-*+]\s+|\d+[.)]\s+|>\s*)?)(.*)$/);return{prefix:match?.[1]??'',body:match?.[2]??line};}
+function stripWrappingQuotes(value){const trimmed=value.trim();if((trimmed.startsWith('"')&&trimmed.endsWith('"'))||(trimmed.startsWith("'")&&trimmed.endsWith("'")))return trimmed.slice(1,-1);return trimmed;}
+function collectStrings(value,out){if(typeof value==='string'){out.push(value);return;}if(Array.isArray(value)){for(const item of value)collectStrings(item,out);return;}if(value&&typeof value==='object')for(const item of Object.values(value))collectStrings(item,out);}
+function replaceStrings(value,next){if(typeof value==='string')return next();if(Array.isArray(value))return value.map((item)=>replaceStrings(item,next));if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([key,item])=>[key,replaceStrings(item,next)]));return value;}
+async function translateBatch(texts,targetLang,authKey,apiBase){const output=[];const batchSize=35;for(let offset=0;offset<texts.length;offset+=batchSize){const batch=texts.slice(offset,offset+batchSize).map(protectMarkup);const body=new URLSearchParams();for(const text of batch)body.append('text',text);body.set('source_lang','EN');body.set('target_lang',targetLang);body.set('tag_handling','xml');body.set('ignore_tags','keep');body.set('preserve_formatting','1');const response=await fetch(`${apiBase}/v2/translate`,{method:'POST',headers:{Authorization:`DeepL-Auth-Key ${authKey}`,'Content-Type':'application/x-www-form-urlencoded'},body});if(!response.ok)throw await deeplError(`DeepL translation failed for ${targetLang}`,response);const payload=await response.json();output.push(...payload.translations.map((item)=>unprotectMarkup(String(item.text))));}return output;}
+function protectMarkup(text){const tokens=[];let value=text;const patterns=[/`[^`]+`/g,/https?:\/\/[^\s)]+/g,/\{[^{}]+\}/g,/\[[^\]]+\]\([^)]*\)/g];for(const pattern of patterns){value=value.replace(pattern,(match)=>{const id=tokens.push(match)-1;return `<keep>XQZTOKEN${id}</keep>`;});}const termPattern=new RegExp(PROTECTED_TERMS.map(escapeRegExp).join('|'),'g');value=value.replace(termPattern,(match)=>`<keep>${escapeXml(match)}</keep>`);value=value.replace(/<keep>XQZTOKEN(\d+)<\/keep>/g,(_,index)=>`<keep>${escapeXml(tokens[Number(index)])}</keep>`);return value;}
+function unprotectMarkup(text){return text.replace(/<keep>([\s\S]*?)<\/keep>/g,(_,value)=>decodeXml(value));}
+function escapeRegExp(value){return value.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+function escapeXml(value){return value.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function decodeXml(value){return value.replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');}
+async function deeplError(prefix,response){const detail=await response.text().catch(()=>'');return new Error(`${prefix}: HTTP ${response.status}${detail?` — ${detail.slice(0,500)}`:''}`);}
+async function listFiles(root,predicate){if(!(await exists(root)))return[];const out=[];async function walk(dir){for(const entry of await readdir(dir,{withFileTypes:true})){const full=path.join(dir,entry.name);if(entry.isDirectory())await walk(full);else if(predicate(full))out.push(full);}}await walk(root);return out.sort();}
+async function exists(file){try{await stat(file);return true;}catch{return false;}}
