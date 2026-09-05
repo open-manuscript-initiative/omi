@@ -88,6 +88,7 @@ const config = {
             {label: 'Support', to: '/support'},
             {label: 'GitHub Sponsors', href: 'https://github.com/sponsors/open-manuscript-initiative'},
             {label: 'GitHub', href: 'https://github.com/open-manuscript-initiative/omi'},
+            {label: 'Wiki', href: 'https://github.com/open-manuscript-initiative/open-manuscript-studio/wiki'},
             {label: 'Facebook', href: 'https://www.facebook.com/share/19AmDMBVoe/'},
           ]},
           {title: 'Project', items: [

@@ -31,6 +31,10 @@
     "message": "GitHub",
     "description": "The label of footer link with label=GitHub"
   },
+  "item.label.Wiki": {
+    "message": "Wiki",
+    "description": "The label of footer link with label=Wiki"
+  },
   "item.label.Facebook": {
     "message": "Facebook",
     "description": "The label of footer link with label=Facebook"
