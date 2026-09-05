@@ -6,7 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {getPublicPageCopy} from '../i18n/publicPages';
 import styles from './studio.module.css';
 
-const STUDIO_RELEASE_TAG = 'v0.1.0-beta.1';
+const STUDIO_RELEASE_TAG = 'v0.1.0-beta.3';
 const RELEASE_BASE = `https://github.com/open-manuscript-initiative/open-manuscript-studio/releases/download/${STUDIO_RELEASE_TAG}`;
 const downloads = {
   windowsExe: `${RELEASE_BASE}/Open-Manuscript-Studio-Windows-x64-Setup.exe`,
@@ -29,7 +29,7 @@ const CAPABILITY_DOC_TARGETS: Record<number, string> = {
 const CURRENT_UPDATE = {
   en: {
     title: 'Open Manuscript Studio public beta',
-    lead: 'Version 0.1.0-beta.1 marks the transition from alpha development to public beta testing across browser, desktop and Android workflows.',
+    lead: 'Version 0.1.0-beta.3 consolidates the public beta with verified OJS and OMP 3.5 review workflows and current browser, desktop and Android builds.',
     items: [
       ['Desktop manuscript workspace', 'Browser-style document tabs, full-window Studio/Account surfaces and a toggleable Word-like document outline support long-form desktop work without changing the mobile structure workflow.'],
       ['Large DOCX and rich-text usability', 'Large Word imports use deferred editor mounting and open directly as OMI manuscripts. Lazy previews now use final typography from the first render, avoiding visible line-spacing shifts while additional content loads.'],
@@ -43,7 +43,7 @@ const CURRENT_UPDATE = {
       ['iOS and iPadOS native target', 'The shared Tauri client now generates and compiles as an Apple Silicon iPhone/iPad simulator app. Files/UIDocumentPicker storage, mobile export delivery and native authentication handoff are implemented; TestFlight/App Store distribution still requires Apple Developer signing, provisioning and Universal Link association.'],
       ['Institutional and central administration', 'Personal and institutional profiles are separated. Institution MEMBER/ADMIN/OWNER roles, administrator sign-in, OMI central administration, scoped institution Admin API credentials and append-only admin audit events are implemented without granting manuscript access.'],
       ['Verified scholarly identity', 'ORCID linking is integrated with cryptographic author signing: immutable committed revisions can be bound to verified ORCID identity and portable WebAuthn/issuer verification evidence.'],
-      ['Publishing-system workflows', 'OJS author/editor/reviewer workflows are operational when configured, and the OMP connector architecture remains under end-to-end hardening.'],
+      ['Publishing-system workflows', 'OJS and OMP 3.5 author, editor and double-anonymous reviewer workflows are operational when configured. Native end-to-end tests verify assignment-scoped files, review forms, corrections, separated feedback and signed writeback.'],
     ],
     nativeAppsTitle: 'Native applications and platform builds',
     nativeAppsDescription: 'Studio uses one OMI application core across desktop and mobile. Download public beta native builds where available; validated targets that still require platform-store signing are clearly marked instead of exposing non-existent packages.',
@@ -51,12 +51,12 @@ const CURRENT_UPDATE = {
     iosDescription: 'Validated native iPhone/iPad simulator target using the same Studio core. Public TestFlight/App Store installation is not yet available because Apple signing/provisioning and the final Universal Link association are still required.',
     iosAction: 'iOS/iPadOS implementation details',
     betaTitle: 'Public beta release',
-    betaText: 'OMI Studio 0.1.0-beta.1 is intended for broader real-world testing. Core authoring, DOCX import/export, document lifecycle, search/replace, semantic indexes and configured OJS review workflows are available, while compatibility, performance, recovery and platform distribution continue to be hardened before 1.0.',
+    betaText: 'OMI Studio 0.1.0-beta.3 is intended for broader real-world testing. Core authoring, DOCX import/export, document lifecycle, search/replace, semantic indexes and configured OJS and OMP review workflows are available, while compatibility, performance, recovery and platform distribution continue to be hardened before 1.0.',
     maturity: 'The project is now in public beta. Beta development prioritizes regression testing, large-document performance, error recovery, interoperability, migration discipline and release trust on the path to the first release candidate.',
   },
   hu: {
     title: 'Az Open Manuscript Studio nyilvános bétája',
-    lead: 'A 0.1.0-beta.1 verzióval a Studio az alfa fejlesztési szakaszból nyilvános béta tesztelésbe lép a webes, asztali és Android munkafolyamatokon.',
+    lead: 'A 0.1.0-beta.3 verzió a nyilvános bétát teljes OJS- és OMP 3.5 lektori munkafolyamat-ellenőrzéssel, valamint friss webes, asztali és Android buildekkel erősíti meg.',
     items: [
       ['Asztali kézirat-munkatér', 'Böngészőszerű dokumentumfülek, teljes ablakos Studio/Fiók felületek és kapcsolható, Word-szerű dokumentumvázlat segíti a hosszabb asztali munkát; mobilon megmarad a külön dokumentumszerkezeti nézet.'],
       ['Nagy DOCX és rich-text használhatóság', 'A nagy Word-importok késleltetett szerkesztőbetöltést használnak és közvetlenül OMI-kéziratként nyílnak meg. A lazy előnézet már az első rendernél a végleges tipográfiát használja, ezért további részek betöltésekor nincs látható sorköz-átugrás.'],
@@ -70,7 +70,7 @@ const CURRENT_UPDATE = {
       ['iOS és iPadOS natív célverzió', 'A közös Tauri kliens már Apple Silicon iPhone/iPad szimulátoros alkalmazásként is generálható és sikeresen fordul. Elkészült a Files/UIDocumentPicker tárhelykezelés, a mobil export és a natív hitelesítési visszatérés; a TestFlight/App Store terjesztéshez még Apple Developer aláírás, provisioning és Universal Link társítás szükséges.'],
       ['Intézményi és központi adminisztráció', 'A személyes és intézményi profilok különváltak. Elkészült az intézményi MEMBER/ADMIN/OWNER modell, az adminisztrátori belépés, az OMI központi adminisztráció, a scope-olt intézményi Admin API és az adminisztrációs auditnapló — kéziratokhoz való automatikus hozzáférés nélkül.'],
       ['Hitelesített tudományos identitás', 'Az ORCID-kapcsolás bekerült a kriptográfiai szerzői aláírásba: változtathatatlan, szerveren rögzített revízió köthető ellenőrzött ORCID-identitáshoz és hordozható WebAuthn/issuer ellenőrzési bizonyítékhoz.'],
-      ['Publikációs rendszerkapcsolatok', 'A konfigurált OJS szerzői, szerkesztői és lektori munkafolyamatok működnek; az OMP-kapcsolat architektúrája elkészült és végponttól végpontig tartó stabilizálás alatt áll.'],
+      ['Publikációs rendszerkapcsolatok', 'A konfigurált OJS és OMP 3.5 szerzői, szerkesztői és kettős vak lektori munkafolyamatok működnek. Natív végponttól végpontig tartó tesztek ellenőrzik a hozzárendelt fájlokat, lektori űrlapokat, javításokat, elkülönített visszajelzéseket és az aláírt visszaírást.'],
     ],
     nativeAppsTitle: 'Natív alkalmazások és platformbuildek',
     nativeAppsDescription: 'A Studio ugyanazt az OMI alkalmazásmagot használja asztali és mobil rendszereken. A nyilvános béta natív buildek letölthetők; a még platformáruházi aláírásra váró validált célverziókat külön jelöljük, nem kínálunk hozzájuk nem létező telepítőt.',
@@ -78,12 +78,12 @@ const CURRENT_UPDATE = {
     iosDescription: 'Validált natív iPhone/iPad szimulátoros célverzió ugyanazzal a Studio-maggal. Nyilvános TestFlight/App Store telepítés még nincs, mert ehhez Apple aláírás/provisioning és a végleges Universal Link társítás szükséges.',
     iosAction: 'iOS/iPadOS megvalósítás részletei',
     betaTitle: 'Nyilvános béta kiadás',
-    betaText: 'Az OMI Studio 0.1.0-beta.1 szélesebb körű, valós használati tesztelésre készült. Az alapvető kéziratszerkesztés, DOCX import/export, dokumentuméletciklus, keresés és csere, szemantikus mutatók és a konfigurált OJS lektori munkafolyamatok használhatók; az 1.0 előtt tovább folytatódik a kompatibilitás, teljesítmény, hibából való helyreállás és platformterjesztés keményítése.',
+    betaText: 'Az OMI Studio 0.1.0-beta.3 szélesebb körű, valós használati tesztelésre készült. Az alapvető kéziratszerkesztés, DOCX import/export, dokumentuméletciklus, keresés és csere, szemantikus mutatók és a konfigurált OJS és OMP lektori munkafolyamatok használhatók; az 1.0 előtt tovább folytatódik a kompatibilitás, teljesítmény, hibából való helyreállás és platformterjesztés keményítése.',
     maturity: 'A projekt mostantól nyilvános béta. A béta szakasz fő feladata a regressziós tesztelés, a nagy dokumentumok teljesítménye, a hibából való helyreállás, az interoperabilitás, a migrációs fegyelem és a kiadások megbízhatósága az első release candidate felé.',
   },
   de: {
     title: 'Öffentliche Beta von Open Manuscript Studio',
-    lead: 'Mit Version 0.1.0-beta.1 wechselt Studio von der Alpha-Entwicklung in die öffentliche Beta-Erprobung für Browser-, Desktop- und Android-Workflows.',
+    lead: 'Version 0.1.0-beta.3 festigt die öffentliche Beta mit verifizierten OJS- und OMP-3.5-Begutachtungsabläufen sowie aktuellen Browser-, Desktop- und Android-Builds.',
     items: [
       ['Desktop-Manuskriptarbeitsbereich', 'Browserähnliche Dokument-Tabs, Vollfenster-Ansichten für Studio/Konto und eine einblendbare Word-ähnliche Dokumentgliederung unterstützen lange Desktop-Arbeiten; mobil bleibt der separate Struktur-Workflow erhalten.'],
       ['Große DOCX-Dateien und Rich-Text-Bedienung', 'Große Word-Importe verwenden verzögertes Editor-Mounting und öffnen direkt als OMI-Manuskript. Lazy-Vorschauen verwenden bereits beim ersten Rendern die endgültige Typografie, sodass beim Nachladen keine sichtbaren Zeilenabstands-Sprünge entstehen.'],
@@ -97,7 +97,7 @@ const CURRENT_UPDATE = {
       ['iOS- und iPadOS-Nativziel', 'Der gemeinsame Tauri-Client wird inzwischen als Apple-Silicon-iPhone/iPad-Simulator-App erzeugt und erfolgreich kompiliert. Files/UIDocumentPicker, mobile Exportausgabe und nativer Authentifizierungs-Handoff sind implementiert; für TestFlight/App Store fehlen noch Apple-Developer-Signierung, Provisioning und die endgültige Universal-Link-Zuordnung.'],
       ['Institutionelle und zentrale Administration', 'Persönliche und institutionelle Profile sind getrennt. MEMBER/ADMIN/OWNER-Rollen, Administrator-Anmeldung, zentrale OMI-Administration, bereichsgebundene Institution-Admin-API-Zugangsdaten und Admin-Auditereignisse sind implementiert, ohne Manuskriptzugriff zu verleihen.'],
       ['Verifizierte wissenschaftliche Identität', 'ORCID-Verknüpfung ist mit kryptografischer Autorensignatur verbunden: unveränderliche committed Revisionen können an eine verifizierte ORCID-Identität und portable WebAuthn/Issuer-Verifikation gebunden werden.'],
-      ['Publikationssystem-Workflows', 'Konfigurierte OJS-Workflows für Autoren, Redakteure und Gutachter sind funktionsfähig; die OMP-Connector-Architektur wird weiterhin end-to-end stabilisiert.'],
+      ['Publikationssystem-Workflows', 'Konfigurierte OJS- und OMP-3.5-Workflows für Autoren, Redakteure und doppelt anonyme Gutachter sind funktionsfähig. Native End-to-End-Tests prüfen zugewiesene Dateien, Begutachtungsformulare, Korrekturen, getrenntes Feedback und signierte Rückschreibung.'],
     ],
     nativeAppsTitle: 'Native Anwendungen und Plattform-Builds',
     nativeAppsDescription: 'Studio verwendet denselben OMI-Anwendungskern auf Desktop- und Mobilplattformen. Öffentliche Beta-Builds können heruntergeladen werden; validierte Ziele, die noch Store-Signierung benötigen, werden klar markiert, statt nicht vorhandene Pakete anzubieten.',
@@ -105,7 +105,7 @@ const CURRENT_UPDATE = {
     iosDescription: 'Validiertes natives iPhone/iPad-Simulatorziel mit demselben Studio-Kern. Eine öffentliche TestFlight/App-Store-Installation ist noch nicht verfügbar, da Apple-Signierung/Provisioning und die endgültige Universal-Link-Zuordnung erforderlich sind.',
     iosAction: 'Details zur iOS/iPadOS-Implementierung',
     betaTitle: 'Öffentliche Beta-Version',
-    betaText: 'OMI Studio 0.1.0-beta.1 ist für breitere Tests unter realen Bedingungen vorgesehen. Kernfunktionen für Autorenschaft, DOCX-Import/-Export, Dokumentlebenszyklus, Suchen/Ersetzen, semantische Register und konfigurierte OJS-Begutachtungsabläufe sind verfügbar; Kompatibilität, Leistung, Wiederherstellung und Plattformverteilung werden vor 1.0 weiter gehärtet.',
+    betaText: 'OMI Studio 0.1.0-beta.3 ist für breitere Tests unter realen Bedingungen vorgesehen. Kernfunktionen für Autorenschaft, DOCX-Import/-Export, Dokumentlebenszyklus, Suchen/Ersetzen, semantische Register und konfigurierte OJS- und OMP-Begutachtungsabläufe sind verfügbar; Kompatibilität, Leistung, Wiederherstellung und Plattformverteilung werden vor 1.0 weiter gehärtet.',
     maturity: 'Das Projekt befindet sich jetzt in der öffentlichen Beta. Im Mittelpunkt stehen Regressionstests, Leistung bei großen Dokumenten, Fehlerwiederherstellung, Interoperabilität, saubere Migrationen und verlässliche Releases auf dem Weg zum ersten Release Candidate.',
   },
 } as const;
@@ -126,7 +126,7 @@ export default function StudioDownloads() {
       <main className={styles.page}>
         <section className={styles.hero}>
           <img src="/img/favicon.svg" alt="Open Manuscript Initiative" className={styles.icon} />
-          <p className={styles.kicker}>Open Manuscript Initiative · 0.1.0-beta.1 · public beta</p>
+          <p className={styles.kicker}>Open Manuscript Initiative · 0.1.0-beta.3 · public beta</p>
           <h1>Open Manuscript Studio</h1>
           <p className={styles.lead}>{t.lead}</p>
           <div className={styles.actions}>
