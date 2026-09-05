@@ -20,11 +20,11 @@ keywords:
 |---|---|
 | Document type | Governance status report |
 | Status | Draft |
-| Version | 0.2.1 |
+| Version | 0.3.0 |
 | Normative language | English |
-| Last updated | 2026-08-06 |
+| Last updated | 2026-09-05 |
 | Coverage | Every identifier in the OMI Specification Registry |
-| Evidence baseline | `main` branches of the OMI and Open Manuscript Studio repositories reviewed on 2026-08-06 |
+| Evidence baseline | Full `main`-branch review from 2026-08-06, supplemented by OMI-SPEC-320 specification, schema, fixture, validator, and current Studio `.omi.json` export evidence reviewed on 2026-09-05 |
 | Authority | Informative; the Specification Registry and individual specifications remain authoritative |
 
 ## 1. Purpose
@@ -80,6 +80,8 @@ A specification may be a mature document without an implementation. An implement
 | **Reserved** | The identifier and subject are allocated, but no accepted Draft specification exists. |
 | **Current template** | The active specification was created or comprehensively rewritten using the current Specification Template. |
 | **Migration required** | The active document predates the canonical Specification Template or does not yet contain all required metadata, conformance, compatibility, evidence, and change-history sections. |
+| **Draft artefact published** | A versioned machine-readable artefact is present at an authoritative location but remains subject to incompatible change before Stable. |
+| **Initial fixtures published** | Versioned positive and negative examples exist, but they do not yet constitute a complete formal conformance suite. |
 | **Not published** | The relevant canonical schema, fixture set, report format, or other machine-readable artefact is not present at an authoritative repository location. |
 | **Not started** | No repository evidence of substantive work was verified for the stated dimension. |
 | **Not applicable** | The stated dimension is not required for the specification in its current role. |
@@ -118,14 +120,13 @@ Verified Studio evidence includes:
 
 The current versioning implementation was merged to Open Manuscript Studio in PR #2 with merge commit `65f3a2f4fa9eaf6adf370f4bae5eec1e98521db2`.
 
-The review did not find authoritative OMI repository artefacts for:
+The 2026-08-06 full review did not find authoritative OMI repository artefacts for:
 
-- a canonical versioned JSON Schema set;
 - a machine-readable validation-report format;
-- conformance fixtures;
-- a validator reference implementation;
 - a formal conformance test suite;
 - independently verified implementations.
+
+The 2026-09-05 OMI-SPEC-320 update adds the first canonical versioned manuscript JSON Schema, an initial eight-document positive and negative fixture set, and a reference fixture validator. These artefacts cover structural validation and selected semantic checks; they are not a complete OMI schema set or formal conformance suite.
 
 Open Manuscript Studio currently refers to the URI `https://openmanuscript.org/schemas/omi-manuscript-0.1.json` in its TypeScript manuscript type. The existence of that URI in source code is not evidence that a canonical schema is published or that the implementation validates against it.
 
@@ -136,11 +137,11 @@ Open Manuscript Studio currently refers to the URI `https://openmanuscript.org/s
 | Registered specification identifiers | 23 |
 | Active Draft specifications | 17 |
 | Reserved specifications | 6 |
-| Active specifications using the current template | 2 |
-| Active specifications requiring template migration | 15 |
-| Canonical machine-readable specification artefact sets published | 0 verified |
-| Published conformance fixture sets | 0 verified |
-| Validator implementations | 0 verified |
+| Active specifications using the current template | 3 |
+| Active specifications requiring template migration | 14 |
+| Canonical machine-readable specification artefact sets published | 1 Draft set verified |
+| Published conformance fixture sets | 1 initial set verified |
+| Validator implementations | 1 reference fixture validator verified |
 | Formal conformance test suites | 0 verified |
 | Independent implementations | 0 verified |
 | Studio status: Partial | 8 specifications |
@@ -185,7 +186,7 @@ These counts describe the evidence categories used in this document. They do not
 |---|---|---|---|---|---|---|
 | `OMI-SPEC-300` | [Plugin Architecture](../specifications/plugin-architecture.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-310` | [Platform API](../specifications/api.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-320` | [File Format](../specifications/file-format.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
+| `OMI-SPEC-320` | [File Format](../specifications/file-format.md) | Active Draft | 0.2.0 | Current template | [Draft schema](/schemas/omi-manuscript-0.2.schema.json) | [Initial fixtures](/examples/omi-spec-320/0.2.0/manifest.json) |
 | `OMI-SPEC-330` | [Container Architecture](../specifications/container-architecture.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-340` | Import and Export Model | Reserved | — | Not applicable | Not started | Not started |
 | `OMI-SPEC-350` | Capability and Conformance Model | Reserved | — | Not applicable | Not started | Not started |
@@ -194,7 +195,7 @@ These counts describe the evidence categories used in this document. They do not
 
 No row in this section currently qualifies as **Implemented**, **Tested**, or **Conformant** under the strict definitions above.
 
-No validator support, formal conformance tests, or independent implementation evidence was verified for any specification. Those dimensions are therefore recorded once for the complete baseline rather than repeated in every row.
+The OMI repository now contains a reference fixture validator for `OMI-SPEC-320@0.2.0`. No Studio implementation uses that validator yet, and no formal conformance tests or independent implementation evidence were verified for any specification. Those dimensions are therefore summarized for the complete baseline rather than repeated in every row.
 
 ### 7.1 Foundations and core semantic models
 
@@ -229,7 +230,7 @@ No validator support, formal conformance tests, or independent implementation ev
 |---|---|---|---|
 | `OMI-SPEC-300` | Not started | No plugin manifest, extension API, capability boundary, or isolation mechanism was verified. | Define and implement plugin identity, lifecycle, permissions, extension points, compatibility, and failure containment. |
 | `OMI-SPEC-310` | Not started | Current alpha state is primarily client-side; no implementation claiming the registered Platform API was verified. | Versioned API contract, authentication, authorization, resources, events, errors, pagination, and tests. |
-| `OMI-SPEC-320` | Partial | The Studio exports `.omi.json`, carries an OMI schema URI, omits the deprecated embedded `authors` field from canonical exports, and includes portable revision history. | Publish the canonical schema; define parsing, serialization, unknown-field handling, validation, history packaging, and version migration. |
+| `OMI-SPEC-320` | Partial | The Studio exports `.omi.json` as `application/vnd.openmanuscript+json`, carries the precursor `0.1` schema URI, omits the deprecated embedded `authors` field from canonical exports, and includes portable revision history. | Adopt the `0.2.0` envelope and schema; implement version negotiation, duplicate-member detection, layered validation, unknown-field preservation, migration and loss reporting; map behaviour to `REQ-FMT-*`. |
 | `OMI-SPEC-330` | Not started | No OMI container package, manifest, asset graph, integrity record, or packaging workflow was verified. | Implement package layout, manifest, media handling, checksums, signatures, extraction safety, and preservation rules. |
 | `OMI-SPEC-340` | Exploratory | Export of a manuscript JSON representation plus identity and version-history migration paths exist; no general import UI or round-trip evidence was verified. | Write the specification; add import, export, mapping, loss reports, unsupported-content handling, and round-trip fixtures. |
 | `OMI-SPEC-350` | Not started | No capability declaration, implementation claim format, or conformance runner was verified. | Define conformance classes, capability statements, test manifests, result reports, and claim-verification rules. |
@@ -238,11 +239,11 @@ No validator support, formal conformance tests, or independent implementation ev
 
 ### 8.1 Specification-template migration
 
-`OMI-SPEC-150` and `OMI-SPEC-160` were created directly from the canonical Specification Template. The other 15 active specifications predate the template and require controlled migration that preserves permanent identifiers, canonical routes, and change histories while adding the required metadata and evidence sections.
+`OMI-SPEC-150` and `OMI-SPEC-160` were created directly from the canonical Specification Template. `OMI-SPEC-320` was comprehensively rewritten against it in version `0.2.0`. The other 14 active specifications require controlled migration that preserves permanent identifiers, canonical routes, and change histories while adding the required metadata and evidence sections.
 
-### 8.2 Unpublished schema reference
+### 8.2 Draft schema and legacy placeholder reference
 
-The Studio manuscript type names a schema URI, but no authoritative schema artefact was verified in the OMI repository. Until a canonical schema is published and versioned, this URI must be treated as an implementation placeholder rather than validation evidence.
+The authoritative Draft schema for `OMI-SPEC-320@0.2.0` is published at `https://openmanuscript.org/schemas/omi-manuscript-0.2.schema.json`. The Studio manuscript type still names the earlier `https://openmanuscript.org/schemas/omi-manuscript-0.1.json` URI. No authoritative `0.1` schema is published, so that earlier URI remains an implementation placeholder and does not establish `0.2.0` conformance.
 
 ### 8.3 Implementation-specific models
 
@@ -266,7 +267,9 @@ The focused unit tests do not by themselves qualify the implementation as **Test
 
 ### 8.7 Validation and conformance
 
-No implementation status in this baseline can advance to **Tested** or **Conformant** until the project publishes:
+The OMI-SPEC-320 schema, initial fixtures, and reference validator establish the first executable evidence baseline. They do not yet cover every `REQ-FMT-*` requirement, duplicate-name byte parsing, resource limits, migration, or cross-implementation round trips, and therefore do not qualify any implementation as **Tested** or **Conformant**.
+
+Advancement for each specification still requires, as applicable:
 
 - exact normative requirements;
 - declared conformance classes;
@@ -346,18 +349,19 @@ The next evidence-producing work should proceed in this order:
 1. add working-state batching and explicit checkpoint commits to the Studio `OMI-SPEC-160` implementation so ordinary typing does not create excessively fine-grained committed revisions;
 2. map the implemented Core Revision History subset to the normative `REQ-VCH-*` requirements and record explicit deviations;
 3. add tombstone and integrity/state-digest behaviour required by the selected versioning profile;
-4. publish the first canonical manuscript, identity, and versioning schemas with minimal valid and invalid fixtures;
-5. migrate the remaining active core specifications to the canonical Specification Template;
-6. define the Validation Model and validation-report format;
-7. establish automated schema and conformance checks;
-8. draft `OMI-SPEC-170`, Translation Model, using the revision ledger as its version-aware foundation;
-9. record known deviations as linked issues;
-10. seek an independently developed parser, validator, or interoperability prototype.
+4. adopt `OMI-SPEC-320@0.2.0` in Studio and add requirement-mapped parser, serializer, migration, and round-trip evidence;
+5. publish canonical identity and versioning schemas with minimal valid and invalid fixtures;
+6. migrate the remaining active core specifications to the canonical Specification Template;
+7. define the Validation Model and validation-report format;
+8. establish automated cross-specification schema and conformance checks;
+9. draft `OMI-SPEC-170`, Translation Model, using the revision ledger as its version-aware foundation;
+10. record known deviations as linked issues and seek an independently developed parser, validator, or interoperability prototype.
 
 ## 12. Change history
 
 | Version | Date | Summary |
 |---|---|---|
+| 0.3.0 | 2026-09-05 | Recorded the template-complete `OMI-SPEC-320@0.2.0`, first canonical Draft manuscript schema, initial fixtures and reference validator; updated Studio's remaining adoption gap and aggregate evidence counts. |
 | 0.2.1 | 2026-08-06 | Promoted Studio support for `OMI-SPEC-160` from Exploratory to Partial after the immutable linear revision ledger merged; recorded revision, change-set, snapshot, revert, history-export, and focused-test evidence; advanced the next evidence priority to working-state batching, checkpoint commits, and requirement mapping. |
 | 0.2.0 | 2026-08-06 | Activated `OMI-SPEC-160`, recorded two current-template specifications, updated Studio evidence after the `OMI-SPEC-150` integration, and advanced the evidence programme to a linear revision ledger. |
 | 0.1.1 | 2026-08-06 | Activated `OMI-SPEC-150` in the readiness matrix, recorded it as the first specification using the current template, and updated the immediate evidence programme. |

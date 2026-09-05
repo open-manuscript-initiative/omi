@@ -15,8 +15,11 @@ keywords:
 
 # OMI Architecture Map
 
-**Status:** Draft  
-**Version:** 0.1  
+**Status:** Draft
+
+**Version:** 0.2
+
+**Last updated:** 2026-09-05
 **Stability:** Experimental  
 
 ---
@@ -454,27 +457,28 @@ The canonical manuscript remains unchanged.
 
 # 8. Interoperability layer
 
-## 8.1 Citation Model
+## 8.1 Plugin Architecture
 
-**OMI-SPEC-300 — Citation Model** defines citations as semantic relationships.
+**OMI-SPEC-300 — Plugin Architecture** defines extensibility mechanisms.
 
-```text
-Citing Object
-      │
-      ▼
-Citation Relationship
-      │
-      ▼
-Cited Resource
-```
+Plugins may provide:
 
-Citation rendering may vary by publisher or discipline, while the underlying relationship remains stable.
+- new scholarly object types;
+- discipline-specific metadata;
+- renderers;
+- exporters and importers;
+- validators;
+- editorial workflows;
+- repository integrations;
+- AI services.
+
+Plugins MUST NOT compromise the portability of the canonical manuscript.
 
 ---
 
-## 8.2 API
+## 8.2 Platform API
 
-**OMI-SPEC-310 — API** defines programmatic interaction with OMI manuscripts and scholarly objects.
+**OMI-SPEC-310 — Platform API** defines programmatic interaction with OMI manuscripts and scholarly objects.
 
 The API may expose:
 
@@ -492,22 +496,9 @@ The API may expose:
 
 ## 8.3 File Format
 
-**OMI-SPEC-320 — File Format** defines the portable representation of an OMI manuscript package.
+**[OMI-SPEC-320 — File Format](../specifications/file-format.md)** defines the portable logical JSON representation of an OMI manuscript.
 
-A package may contain:
-
-```text
-manuscript.omi
-│
-├── manuscript.json
-├── objects/
-├── assets/
-├── annotations/
-├── references/
-├── schemas/
-├── provenance/
-└── manifest.json
-```
+The same logical document may travel as a standalone `.omi.json` file or as a manuscript part reconstructed from an OMI container. The File Format defines identification, version negotiation, parsing, serialization, validation, references, extensions, optional history exchange, and migration without prescribing archive paths or compression.
 
 The format should prioritize:
 
@@ -519,23 +510,24 @@ The format should prioritize:
 
 ---
 
-## 8.4 Plugin Architecture
+## 8.4 Container Architecture
 
-**OMI-SPEC-330 — Plugin Architecture** defines extensibility mechanisms.
+**[OMI-SPEC-330 — Container Architecture](../specifications/container-architecture.md)** defines how related files are assembled into one inspectable `.omi` package.
 
-Plugins may provide:
+A container may contain:
 
-- new scholarly object types;
-- discipline-specific metadata;
-- renderers;
-- exporters;
-- importers;
-- validators;
-- editorial workflows;
-- repository integrations;
-- AI services.
+```text
+manuscript.omi
+│
+├── META-INF/
+├── manuscript/
+├── media/
+├── profiles/
+├── plugins/
+└── publication/
+```
 
-Plugins MUST NOT compromise the portability of the canonical manuscript.
+The container defines part discovery, path safety, media handling, integrity, signatures, and preservation packaging while leaving manuscript semantics to OMI-SPEC-320 and the core models.
 
 ---
 

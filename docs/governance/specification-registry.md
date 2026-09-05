@@ -13,11 +13,11 @@ description: Authoritative registry of Open Manuscript Initiative specification 
 |---|---|
 | Document type | Governance registry |
 | Status | Draft |
-| Version | 0.3.0 |
+| Version | 0.3.1 |
 | Normative language | English |
 | Registry namespace | `OMI-SPEC` |
 | Applies to | Normative OMI specifications and reserved specification identifiers |
-| Last updated | 2026-08-06 |
+| Last updated | 2026-09-05 |
 
 ## 1. Purpose
 
@@ -156,7 +156,7 @@ Development ended before the specification became Stable. The identifier remains
 |---|---|---|---|---|---|
 | `OMI-SPEC-300` | Plugin Architecture | Active | Draft | 0.1.0 | `docs/specifications/plugin-architecture.md` |
 | `OMI-SPEC-310` | Platform API | Active | Draft | 0.1.0 | `docs/specifications/api.md` |
-| `OMI-SPEC-320` | File Format | Active | Draft | 0.1.0 | `docs/specifications/file-format.md` |
+| `OMI-SPEC-320` | File Format | Active | Draft | 0.2.0 | `docs/specifications/file-format.md` |
 | `OMI-SPEC-330` | Container Architecture | Active | Draft | 0.1.0 | `docs/specifications/container-architecture.md` |
 | `OMI-SPEC-340` | Import and Export Model | Reserved | — | — | `docs/specifications/import-export-model.md` |
 | `OMI-SPEC-350` | Capability and Conformance Model | Reserved | — | — | `docs/specifications/capability-conformance-model.md` |
@@ -568,6 +568,7 @@ The adoption does not by itself change the lifecycle status of any specification
 
 | Version | Date | Summary |
 |---|---|---|
+| 0.3.1 | 2026-09-05 | Advanced `OMI-SPEC-320`, File Format, to Draft version 0.2.0 after its template-complete rewrite and publication of the first canonical manuscript schema and fixtures. |
 | 0.3.0 | 2026-08-06 | Activated `OMI-SPEC-160`, Versioning and Change Model, as Draft version 0.1.0. |
 | 0.2.0 | 2026-08-06 | Activated `OMI-SPEC-150`, Identity and Contributor Model, as Draft version 0.1.0; linked the implementation matrix and updated governance-document registration. |
 | 0.1.0 | 2026-08-06 | Established the canonical OMI specification identifier architecture and initial registry. |

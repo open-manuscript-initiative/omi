@@ -1,0 +1,55 @@
+{
+  "specification": "OMI-SPEC-320@0.2.0",
+  "schema": "https://openmanuscript.org/schemas/omi-manuscript-0.2.schema.json",
+  "description": "Initial structural and semantic fixtures for the OMI File Format Draft.",
+  "fixtures": [
+    {
+      "path": "valid-minimal.omi.json",
+      "valid": true,
+      "expectedDiagnostics": [],
+      "purpose": "Smallest useful Core Snapshot with one ordered section and block."
+    },
+    {
+      "path": "valid-history-extension.omi.json",
+      "valid": true,
+      "expectedDiagnostics": [],
+      "purpose": "History Exchange and Lossless Round Trip profiles with resolved scholarly references and a namespaced extension."
+    },
+    {
+      "path": "invalid-missing-version.omi.json",
+      "valid": false,
+      "expectedDiagnostics": ["FMT-SCHEMA"],
+      "purpose": "The OMI envelope omits its required format version."
+    },
+    {
+      "path": "invalid-duplicate-id.omi.json",
+      "valid": false,
+      "expectedDiagnostics": ["FMT-DUPLICATE-ID"],
+      "purpose": "A section and block reuse one addressable identifier."
+    },
+    {
+      "path": "invalid-unresolved-reference.omi.json",
+      "valid": false,
+      "expectedDiagnostics": ["FMT-UNRESOLVED-REFERENCE"],
+      "purpose": "An annotation targets a block that is not present."
+    },
+    {
+      "path": "invalid-timestamp-order.omi.json",
+      "valid": false,
+      "expectedDiagnostics": ["FMT-TIMESTAMP-ORDER"],
+      "purpose": "The represented update instant precedes manuscript creation."
+    },
+    {
+      "path": "invalid-history-head-mismatch.omi.json",
+      "valid": false,
+      "expectedDiagnostics": ["FMT-HISTORY-HEAD-MISMATCH"],
+      "purpose": "The root snapshot and revision history declare different head revisions."
+    },
+    {
+      "path": "invalid-forbidden-secret.omi.json",
+      "valid": false,
+      "expectedDiagnostics": ["FMT-FORBIDDEN-SECRET"],
+      "purpose": "A portable manuscript contains an access credential field."
+    }
+  ]
+}
