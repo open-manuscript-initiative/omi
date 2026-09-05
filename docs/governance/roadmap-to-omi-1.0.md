@@ -16,7 +16,7 @@ description: Current programme, completed foundations, reference-implementation 
 | Status | Draft |
 | Version | 0.4.0 |
 | Normative language | English |
-| Last updated | 2026-08-18 |
+| Last updated | 2026-09-05 |
 | Planning horizon | OMI 1.0 |
 | Authoritative identifier source | [OMI Specification Registry](./specification-registry.md) |
 | Product implementation baseline | [Studio Implementation Status](./studio-implementation-status.md) |
@@ -47,15 +47,15 @@ The programme has moved well beyond the initial documentation-audit stage. Gover
 | Website/product synchronization | **Active and maintained** | The public Studio page and dated Studio status report now track implemented product capabilities separately from normative conformance. |
 | Identifier migration | **Completed for active specifications** | Active specifications use the canonical `OMI-SPEC-*` allocation architecture. |
 | Core semantic models | **In progress** | Identity/contributor and versioning/change models have substantive reference implementation evidence; validation, translation and collaboration remain incomplete at specification level. |
-| Reference implementation | **Advanced alpha** | Structured editing, multilingual UI/help, server-backed accounts, peer review, OJS integration, imports/exports, publisher profiles, search, desktop builds and updater flow are present. |
+| Reference implementation | **Public beta (`0.1.0-beta.3`)** | Structured editing, multilingual UI/help, server-backed accounts, peer review, native OJS/OMP integration, imports/exports, publisher profiles, search, desktop/mobile builds and updater flow are present. |
 | Peer review | **Operational implementation** | Double-blind review foundations, reviewer workspaces, editor review dashboard and externally assigned review handling are implemented. Formal specification conformance remains future work. |
-| OJS integration | **Operational / configuration-dependent** | Signed launch, assignment context, metadata/file transfer, manuscript import and review hand-off are implemented. Full profile coverage and conformance remain incomplete. |
-| OMP integration | **Specification only** | OMP Integration Profile v1 is documented; a complete production connector remains to be implemented and tested. |
+| OJS integration | **Operational / configuration-dependent** | The v1.2.1 plugin and Studio workflow provide signed author/editor/reviewer launch, scoped file transfer, native review forms, corrections, separated feedback and signed writeback; native OJS 3.5 E2E verification is green. Full profile coverage and conformance remain incomplete. |
+| OMP integration | **Operational / configuration-dependent** | The v1.2.6 plugin and Studio workflow provide signed author/editor/reviewer launch, monograph/publication/study mapping, assigned-study-only review access, native forms, corrections, separated feedback and signed writeback; native OMP 3.5 E2E verification is green. |
 | Identity integrations | **Configuration-dependent** | ORCID OAuth deployment infrastructure and ROR/bibliographic identity foundations exist. Production configuration is deployment-specific. |
 | Integration platform | **Foundation implemented** | Integrations catalog, provider registry, provider authentication modes and DeepL configuration scaffolding are present. DeepL translation execution is not yet complete. |
 | Multilingual product support | **Operational implementation** | Studio exposes 24 supported interface languages with localized help and reviewed translation overlays. Normative specification bodies remain English. |
 | Import/export | **Substantive implementation** | DOCX import and broad publication/export targets are implemented, including JATS, HTML, EPUB, PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX-oriented outputs. |
-| Desktop distribution | **Operational alpha** | Windows, Linux and macOS packages are built automatically; desktop update notification/installer flow is implemented. Code-signing work remains in progress. |
+| Desktop distribution | **Operational beta** | Windows, Linux and macOS packages are built automatically; desktop update notification/installer flow is implemented. Code-signing work remains in progress. |
 | Canonical schemas and conformance | **Not completed** | Versioned normative schemas, approved fixtures, validator behaviour and formal conformance suites remain major pre-1.0 deliverables. |
 | Independent implementations | **Not yet verified** | Interoperability evidence beyond the primary reference implementation remains required for OMI 1.0 confidence. |
 
@@ -145,9 +145,7 @@ Double-blind peer review foundations are implemented with authenticated review A
 
 ### 6.5 Publishing-platform integration
 
-OJS integration is the most mature external workflow integration. It includes signed launch assertions, external assignment context, metadata/file access, manuscript import and review workflow hand-off. OJS remains authoritative for journal workflow, while Studio remains authoritative for Studio-native manuscript and review state.
-
-OMP has a documented v1 profile but does not yet have equivalent verified end-to-end implementation status.
+OJS and OMP are operational external workflow integrations. Both provide signed role-aware launch, scoped file access, native review forms, corrections, separated author/editor feedback and signed review writeback, with native end-to-end verification against PKP 3.5. OJS remains authoritative for journal workflow and OMP for monograph workflow, while Studio remains authoritative for Studio-native manuscript and review state. OMP additionally preserves monograph/publication/study mapping and restricts reviewers to the assigned study.
 
 ### 6.6 Publishing outputs
 
@@ -256,14 +254,14 @@ Exit criterion: unsupported constructs, omitted history and information loss are
 
 ### Phase 10 — Integration profiles and interoperability
 
-**Status:** OJS operational; OMP and other profiles incomplete
+**Status:** OJS and OMP operational; other profiles incomplete
 
-The platform-neutral integration architecture and OJS/OMP profiles exist. OJS has substantive real implementation evidence; OMP remains specification-first.
+The platform-neutral integration architecture and OJS/OMP profiles have substantive implementation evidence, including native PKP 3.5 end-to-end tests. Cross-version compatibility, deployment hardening and formal conformance remain active work.
 
 Priorities:
 
-- harden OJS round-trip and review integration;
-- implement and test OMP end to end;
+- harden OJS and OMP round-trip, review integration and cross-version compatibility;
+- document deployment, recovery and operator diagnostics for both PKP connectors;
 - define capability discovery/version negotiation;
 - formalize provider authentication modes;
 - mature cloud, identity, translation and repository adapters;
@@ -318,7 +316,7 @@ The highest-value next steps are:
 1. finish production hardening of server-side persistence and the remaining database integration work;
 2. map operational peer-review behaviour back to `OMI-SPEC-200` requirements;
 3. harden OJS synchronization and document verified compatibility boundaries;
-4. implement the OMP connector against the published profile;
+4. harden OMP cross-version compatibility, deployment and recovery against the published profile;
 5. complete Translation, Validation and Collaboration/Permission specification work;
 6. publish the first canonical versioned schema/fixture set;
 7. formalize Import/Export and Rendering/Profile semantics from the existing Studio implementation;
