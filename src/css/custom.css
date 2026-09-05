@@ -118,6 +118,25 @@
   text-decoration: none;
 }
 
+/*
+ * The mobile navbar uses one directly visible panel instead of Docusaurus'
+ * primary/secondary slide transition. Site links and the current
+ * documentation sidebar therefore open together on the first menu click.
+ */
+.omi-navbar-sidebar__content {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.omi-navbar-sidebar__documentation {
+  margin-top: 0.75rem;
+  border-top: 1px solid var(--ifm-toc-border-color);
+  padding-top: 0.75rem;
+}
+
 @media (max-width: 996px) {
   .footer__links {
     text-align: center;
