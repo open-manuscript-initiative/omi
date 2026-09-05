@@ -29,12 +29,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 24
           cache: npm
@@ -74,15 +74,18 @@ jobs:
             args+=(--force)
           fi
 
+          log_file="$RUNNER_TEMP/deepl-translation.log"
           set +e
-          node scripts/translate-site-incremental-with-deepl.mjs "${args[@]}"
-          rc=$?
+          node scripts/translate-site-incremental-with-deepl.mjs "${args[@]}" 2>&1 | tee "$log_file"
+          rc=${PIPESTATUS[0]}
           set -e
 
           if [[ "$rc" -eq 0 ]]; then
             status=complete
           elif [[ "$rc" -eq 75 ]]; then
             status=quota
+          elif grep -q 'HTTP 403' "$log_file" && grep -q 'not allowed to access the API' "$log_file"; then
+            status=api_access
           else
             status=error
           fi
@@ -128,87 +131,74 @@ jobs:
         continue-on-error: true
         run: npm run build
 
-      - name: Create or update translation pull request
+      - name: Create or update completed translation pull request
         id: pr
+        if: steps.translate.outputs.status == 'complete' && steps.build.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
-          TRANSLATE_STATUS: ${{ steps.translate.outputs.status }}
-          BUILD_OUTCOME: ${{ steps.build.outcome }}
         shell: bash
         run: |
           set -euo pipefail
 
           if git diff --quiet origin/main...HEAD; then
-            echo "No translation diff remains against main."
+            echo "Translations are already represented on main; no pull request is needed."
             exit 0
           fi
 
-          case "$TRANSLATE_STATUS" in
-            complete)
-              if [[ "$BUILD_OUTCOME" == "success" ]]; then
-                status_line='✅ Complete — incremental translation finished and the Docusaurus build passed.'
-                action_line='Review this PR and merge it when ready.'
-              else
-                status_line='❌ Translation finished, but the Docusaurus build failed.'
-                action_line='Do not merge until the build failure is fixed.'
-              fi
-              ;;
-            quota)
-              status_line='⏸️ Partial — DeepL API quota was exhausted.'
-              action_line='Do not merge yet. After quota is available again, rerun the workflow; it will continue on this same branch without retranslating completed segments.'
-              ;;
-            *)
-              status_line='❌ Partial — translation stopped because of a non-quota error.'
-              action_line='Do not merge yet. Partial translations and state were preserved for troubleshooting and continuation.'
-              ;;
-          esac
-
           body_file="$RUNNER_TEMP/deepl-pr-body.md"
-          printf '%s\n\n%s\n\n' "$status_line" "$action_line" > "$body_file"
-          cat >> "$body_file" <<'BODY'
-          This PR is maintained by the DeepL Docusaurus workflow on the persistent `i18n/deepl-progress` branch.
+          cat > "$body_file" <<'BODY'
+          ✅ Complete — incremental DeepL translation finished and the Docusaurus build passed.
+
+          Review this PR and merge it when ready.
 
           - Source locale: English
           - Unchanged Markdown/MDX segments are reused from `.deepl/i18n-state.json` without DeepL API calls.
-          - Changed source segments and new strings are translated only when their SHA-256 source hash changes.
-          - Docusaurus JSON messages are refreshed from the current source and unchanged translations are restored from state.
-          - Existing hand-maintained Hungarian and German documents are not overwritten.
+          - Only new or source-changed segments are sent to DeepL.
+          - Docusaurus JSON messages use the same incremental SHA-256 state tracking.
+          - Existing hand-maintained Hungarian and German content is preserved.
           - The DeepL API key is read only from the repository secret.
           BODY
 
           pr_number=$(gh pr list --state open --base main --head "$PROGRESS_BRANCH" --json number --jq '.[0].number // empty' || true)
           if [[ -n "$pr_number" ]]; then
-            if gh pr edit "$pr_number" --body-file "$body_file"; then
-              echo "number=$pr_number" >> "$GITHUB_OUTPUT"
-              echo "Updated translation PR #$pr_number."
-            else
-              echo "::warning::Translation progress was pushed, but the existing PR body could not be updated."
-            fi
+            gh pr edit "$pr_number" --body-file "$body_file"
+            echo "number=$pr_number" >> "$GITHUB_OUTPUT"
+            echo "Updated completed translation PR #$pr_number."
           else
-            error_file="$RUNNER_TEMP/deepl-pr-error.log"
-            set +e
             url=$(gh pr create \
               --base main \
               --head "$PROGRESS_BRANCH" \
               --title "i18n: update Docusaurus translations with DeepL" \
-              --body-file "$body_file" 2>"$error_file")
-            rc=$?
-            set -e
-
-            if [[ "$rc" -eq 0 ]]; then
-              echo "url=$url" >> "$GITHUB_OUTPUT"
-              echo "Created translation PR: $url"
-            else
-              echo "::warning::Translation progress was pushed, but GitHub Actions is not allowed to create a pull request in this repository."
-              cat "$error_file"
-              {
-                echo "### DeepL translation progress"
-                echo
-                echo "Progress was safely pushed to \`$PROGRESS_BRANCH\`."
-                echo "A pull request could not be created automatically by GitHub Actions."
-              } >> "$GITHUB_STEP_SUMMARY"
-            fi
+              --body-file "$body_file")
+            echo "url=$url" >> "$GITHUB_OUTPUT"
+            echo "Created completed translation PR: $url"
           fi
+
+      - name: Report paused translation state
+        if: steps.translate.outputs.status != 'complete'
+        env:
+          TRANSLATE_STATUS: ${{ steps.translate.outputs.status }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            echo "### DeepL translation paused"
+            echo
+            case "$TRANSLATE_STATUS" in
+              quota)
+                echo "DeepL quota is exhausted. Any completed progress was pushed to \`$PROGRESS_BRANCH\` and can be resumed later."
+                ;;
+              api_access)
+                echo "DeepL returned HTTP 403: this account is currently not allowed to access the API."
+                echo "Check the DeepL API subscription/account status and the repository secret \`DEEPL_API_KEY\`."
+                ;;
+              *)
+                echo "Translation stopped because of a non-quota error. Any completed progress was pushed to \`$PROGRESS_BRANCH\` for inspection."
+                ;;
+            esac
+            echo
+            echo "No translation PR is created or updated until translation completes and the Docusaurus build passes."
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Finalize workflow status
         env:
@@ -218,11 +208,15 @@ jobs:
         run: |
           set -euo pipefail
           if [[ "$TRANSLATE_STATUS" == "quota" ]]; then
-            echo "::warning::DeepL quota exceeded. Progress was pushed and can be resumed later."
+            echo "::warning::DeepL quota exceeded. Progress was preserved and can be resumed later."
+            exit 1
+          fi
+          if [[ "$TRANSLATE_STATUS" == "api_access" ]]; then
+            echo "::error::DeepL returned HTTP 403: this account is not allowed to access the API. Check the DeepL API plan/account status and DEEPL_API_KEY secret."
             exit 1
           fi
           if [[ "$TRANSLATE_STATUS" == "error" ]]; then
-            echo "::error::DeepL translation stopped with a non-quota error. Progress was pushed for inspection."
+            echo "::error::DeepL translation stopped with a non-quota error. Progress was preserved for inspection."
             exit 1
           fi
           if [[ "$BUILD_OUTCOME" != "success" ]]; then
