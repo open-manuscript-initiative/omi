@@ -231,6 +231,7 @@ async function translateBatch(texts, targetLang, authKey, apiBase) {
     body.set('source_lang','EN');
     body.set('target_lang',targetLang);
     body.set('tag_handling','xml');
+    body.set('tag_handling_version','v2');
     body.set('ignore_tags','keep');
     body.set('preserve_formatting','1');
     const response = await fetch(`${apiBase}/v2/translate`, {
@@ -245,27 +246,33 @@ async function translateBatch(texts, targetLang, authKey, apiBase) {
 
 function protectMarkup(text) {
   const tokens = [];
+  const store = (match) => {
+    const id = tokens.push(match)-1;
+    return `XQZPROTECTED${id}TOKEN`;
+  };
   let value = text;
   const patterns = [
     /`[^`]+`/g,
-    /https?:\/\/[^\s)]+/g,
-    /\{[^{}]+\}/g,
     /\[[^\]]+\]\([^)]*\)/g,
+    /<\/?[A-Za-z][^>]*>/g,
+    /\{[^{}]+\}/g,
+    /https?:\/\/[^\s)]+/g,
   ];
-  for (const pattern of patterns) {
-    value = value.replace(pattern, (match) => {
-      const id = tokens.push(match)-1;
-      return `<keep>XQZTOKEN${id}</keep>`;
-    });
-  }
+  for (const pattern of patterns) value = value.replace(pattern, store);
   const termPattern = new RegExp(PROTECTED_TERMS.map(escapeRegExp).join('|'),'g');
-  value = value.replace(termPattern, (match) => `<keep>${escapeXml(match)}</keep>`);
-  value = value.replace(/<keep>XQZTOKEN(\d+)<\/keep>/g, (_, index) => `<keep>${escapeXml(tokens[Number(index)])}</keep>`);
-  return value;
+  value = value.replace(termPattern, store);
+  value = escapeXml(value);
+  tokens.forEach((token, index) => {
+    value = value.replaceAll(`XQZPROTECTED${index}TOKEN`, `<keep>${escapeXml(token)}</keep>`);
+  });
+  return `<root>${value}</root>`;
 }
 
 function unprotectMarkup(text) {
-  return text.replace(/<keep>([\s\S]*?)<\/keep>/g, (_, value) => decodeXml(value));
+  let value = text;
+  if (value.startsWith('<root>') && value.endsWith('</root>')) value = value.slice(6, -7);
+  value = value.replace(/<keep>([\s\S]*?)<\/keep>/g, (_, protectedValue) => protectedValue);
+  return decodeXml(value);
 }
 
 function escapeRegExp(value) { return value.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
