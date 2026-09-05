@@ -164,12 +164,9 @@ jobs:
           esac
 
           body_file="$RUNNER_TEMP/deepl-pr-body.md"
-          cat > "$body_file" <<BODY
-          $status_line
-
-          $action_line
-
-          This PR is maintained by the DeepL Docusaurus workflow on the persistent `${PROGRESS_BRANCH}` branch.
+          printf '%s\n\n%s\n\n' "$status_line" "$action_line" > "$body_file"
+          cat >> "$body_file" <<'BODY'
+          This PR is maintained by the DeepL Docusaurus workflow on the persistent `i18n/deepl-progress` branch.
 
           - Source locale: English
           - Unchanged Markdown/MDX segments are reused from `.deepl/i18n-state.json` without DeepL API calls.
@@ -179,17 +176,38 @@ jobs:
           - The DeepL API key is read only from the repository secret.
           BODY
 
-          pr_number=$(gh pr list --state open --base main --head "$PROGRESS_BRANCH" --json number --jq '.[0].number // empty')
+          pr_number=$(gh pr list --state open --base main --head "$PROGRESS_BRANCH" --json number --jq '.[0].number // empty' || true)
           if [[ -n "$pr_number" ]]; then
-            gh pr edit "$pr_number" --body-file "$body_file"
-            echo "number=$pr_number" >> "$GITHUB_OUTPUT"
+            if gh pr edit "$pr_number" --body-file "$body_file"; then
+              echo "number=$pr_number" >> "$GITHUB_OUTPUT"
+              echo "Updated translation PR #$pr_number."
+            else
+              echo "::warning::Translation progress was pushed, but the existing PR body could not be updated."
+            fi
           else
+            error_file="$RUNNER_TEMP/deepl-pr-error.log"
+            set +e
             url=$(gh pr create \
               --base main \
               --head "$PROGRESS_BRANCH" \
               --title "i18n: update Docusaurus translations with DeepL" \
-              --body-file "$body_file")
-            echo "url=$url" >> "$GITHUB_OUTPUT"
+              --body-file "$body_file" 2>"$error_file")
+            rc=$?
+            set -e
+
+            if [[ "$rc" -eq 0 ]]; then
+              echo "url=$url" >> "$GITHUB_OUTPUT"
+              echo "Created translation PR: $url"
+            else
+              echo "::warning::Translation progress was pushed, but GitHub Actions is not allowed to create a pull request in this repository."
+              cat "$error_file"
+              {
+                echo "### DeepL translation progress"
+                echo
+                echo "Progress was safely pushed to \`$PROGRESS_BRANCH\`."
+                echo "A pull request could not be created automatically by GitHub Actions."
+              } >> "$GITHUB_STEP_SUMMARY"
+            fi
           fi
 
       - name: Finalize workflow status
@@ -200,7 +218,7 @@ jobs:
         run: |
           set -euo pipefail
           if [[ "$TRANSLATE_STATUS" == "quota" ]]; then
-            echo "::warning::DeepL quota exceeded. Progress was pushed and the PR can be resumed later."
+            echo "::warning::DeepL quota exceeded. Progress was pushed and can be resumed later."
             exit 1
           fi
           if [[ "$TRANSLATE_STATUS" == "error" ]]; then
