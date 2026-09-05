@@ -1,0 +1,286 @@
+{
+  "version.label": {
+    "message": "Επόμενο",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Introduction": {
+    "message": "Εισαγωγή",
+    "description": "The label for category 'Introduction' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.title": {
+    "message": "Εισαγωγή",
+    "description": "The generated-index page title for category 'Introduction' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.description": {
+    "message": "Ο σκοπός, το όραμα και η γενική αρχιτεκτονική του Δικτύου Προηγμένων Επιστημών (Open Manuscript Initiative).",
+    "description": "The generated-index page description for category 'Introduction' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Foundations": {
+    "message": "Βασικές αρχές",
+    "description": "The label for category 'Foundations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.title": {
+    "message": "Βασικές αρχές",
+    "description": "The generated-index page title for category 'Foundations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.description": {
+    "message": "Οι αρχές, το κοινό μοντέλο αντικειμένων, η αρχιτεκτονική δημιουργίας περιεχομένου και η ελεγχόμενη ορολογία που είναι κοινά σε όλη τη σειρά προδιαγραφών «OMI».",
+    "description": "The generated-index page description for category 'Foundations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications": {
+    "message": "Βασικές σημασιολογικές προδιαγραφές",
+    "description": "The label for category 'Core Semantic Specifications' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.title": {
+    "message": "Βασικές σημασιολογικές προδιαγραφές",
+    "description": "The generated-index page title for category 'Core Semantic Specifications' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.description": {
+    "message": "Κανονιστικά μοντέλα για τη δομή των χειρογράφων, τη σταθερή σύνδεση, τις σχολιαστικές σημειώσεις, τα επιστημονικά μεταδεδομένα, την ταυτότητα, τη συνεισφορά, τη διαχείριση εκδόσεων και τις αλλαγές.",
+    "description": "The generated-index page description for category 'Core Semantic Specifications' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing": {
+    "message": "Επιστημονική ροή εργασίας και δημοσίευση",
+    "description": "The label for category 'Scholarly Workflow and Publishing' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.title": {
+    "message": "Επιστημονική ροή εργασίας και δημοσίευση",
+    "description": "The generated-index page title for category 'Scholarly Workflow and Publishing' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.description": {
+    "message": "Προδιαγραφές για την αξιολόγηση, τις αναφορές, τις βιβλιογραφικές εγγραφές, τις βιβλιοθήκες αναφοράς και τις ροές εργασιών δημοσίευσης.",
+    "description": "The generated-index page description for category 'Scholarly Workflow and Publishing' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange": {
+    "message": "Πλατφόρμα και Χρηματιστήριο",
+    "description": "The label for category 'Platform and Exchange' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.title": {
+    "message": "Πλατφόρμα και Χρηματιστήριο",
+    "description": "The generated-index page title for category 'Platform and Exchange' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.description": {
+    "message": "Προδιαγραφές για την επεκτασιμότητα, τα API, την ανταλλαγή αρχείων, τη συσκευασία, την επικύρωση και τη διατήρηση.",
+    "description": "The generated-index page description for category 'Platform and Exchange' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Integrations": {
+    "message": "Ενσωματώσεις",
+    "description": "The label for category 'Integrations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Integrations.link.generated-index.title": {
+    "message": "Ενσωματώσεις",
+    "description": "The generated-index page title for category 'Integrations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Integrations.link.generated-index.description": {
+    "message": "Αρχιτεκτονική ενσωμάτωσης ανεξάρτητη από πλατφόρμα, τρέχουσα κατάσταση υλοποίησης και προφίλ για τη σύνδεση του OMI με συστήματα δημοσίευσης, αξιολόγησης, αποθετηρίων και επιστημονικής υποδομής.",
+    "description": "The generated-index page description for category 'Integrations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Governance": {
+    "message": "Διακυβέρνηση",
+    "description": "The label for category 'Governance' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Governance.link.generated-index.title": {
+    "message": "Διακυβέρνηση",
+    "description": "The generated-index page title for category 'Governance' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Governance.link.generated-index.description": {
+    "message": "Πολιτικές που διέπουν την αρμοδιότητα, τον οδικό χάρτη, την ωριμότητα, τη διαχείριση εκδόσεων, τη συγγραφή, την ταυτότητα, τη συντήρηση και την ασφάλεια των εκδόσεων των προδιαγραφών και των υλοποιήσεων αναφοράς του OMI.",
+    "description": "The generated-index page description for category 'Governance' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.doc.Vision": {
+    "message": "Όραμα",
+    "description": "The label for the doc item 'Vision' in sidebar 'tutorialSidebar', linking to the doc vision"
+  },
+  "sidebar.tutorialSidebar.doc.Architecture Overview": {
+    "message": "Επισκόπηση της αρχιτεκτονικής",
+    "description": "The label for the doc item 'Architecture Overview' in sidebar 'tutorialSidebar', linking to the doc foundations/architecture-map"
+  },
+  "sidebar.tutorialSidebar.doc.Core Principles": {
+    "message": "Βασικές αρχές",
+    "description": "The label for the doc item 'Core Principles' in sidebar 'tutorialSidebar', linking to the doc foundations/core-principles"
+  },
+  "sidebar.tutorialSidebar.doc.Cross-platform Studio": {
+    "message": "Πολυπλατφορμικό Studio",
+    "description": "The label for the doc item 'Cross-platform Studio' in sidebar 'tutorialSidebar', linking to the doc foundations/cross-platform-studio"
+  },
+  "sidebar.tutorialSidebar.doc.iOS and iPadOS Studio": {
+    "message": "iOS και iPadOS Studio",
+    "description": "The label for the doc item 'iOS and iPadOS Studio' in sidebar 'tutorialSidebar', linking to the doc foundations/ios-ipados-studio"
+  },
+  "sidebar.tutorialSidebar.doc.Long-form Authoring": {
+    "message": "Σύνταξη εκτενών κειμένων",
+    "description": "The label for the doc item 'Long-form Authoring' in sidebar 'tutorialSidebar', linking to the doc foundations/studio-long-form-authoring"
+  },
+  "sidebar.tutorialSidebar.doc.Word-like Manuscript Editing": {
+    "message": "Επεξεργασία χειρογράφων με τρόπο παρόμοιο με το Word",
+    "description": "The label for the doc item 'Word-like Manuscript Editing' in sidebar 'tutorialSidebar', linking to the doc foundations/word-like-manuscript-editing"
+  },
+  "sidebar.tutorialSidebar.doc.OMI Cloud and Federated Infrastructure": {
+    "message": "OMI Υποδομή cloud και ομοσπονδιακή υποδομή",
+    "description": "The label for the doc item 'OMI Cloud and Federated Infrastructure' in sidebar 'tutorialSidebar', linking to the doc foundations/omi-cloud-federated-infrastructure"
+  },
+  "sidebar.tutorialSidebar.doc.Publication Styles and Publisher Profiles": {
+    "message": "Στυλ δημοσίευσης και προφίλ εκδοτικών οίκων",
+    "description": "The label for the doc item 'Publication Styles and Publisher Profiles' in sidebar 'tutorialSidebar', linking to the doc foundations/publication-styles-and-publisher-profiles"
+  },
+  "sidebar.tutorialSidebar.doc.Scholarly Object Model": {
+    "message": "Μοντέλο επιστημονικού αντικειμένου",
+    "description": "The label for the doc item 'Scholarly Object Model' in sidebar 'tutorialSidebar', linking to the doc specifications/core/scholarly-object-model"
+  },
+  "sidebar.tutorialSidebar.doc.Terminology and Definitions": {
+    "message": "Ορολογία και ορισμοί",
+    "description": "The label for the doc item 'Terminology and Definitions' in sidebar 'tutorialSidebar', linking to the doc governance/terminology"
+  },
+  "sidebar.tutorialSidebar.doc.Document Model": {
+    "message": "Μοντέλο εγγράφου",
+    "description": "The label for the doc item 'Document Model' in sidebar 'tutorialSidebar', linking to the doc specifications/document-model"
+  },
+  "sidebar.tutorialSidebar.doc.Anchor Model": {
+    "message": "Μοντέλο άγκυρας",
+    "description": "The label for the doc item 'Anchor Model' in sidebar 'tutorialSidebar', linking to the doc specifications/anchor-model"
+  },
+  "sidebar.tutorialSidebar.doc.Annotation Model": {
+    "message": "Μοντέλο σχολιασμού",
+    "description": "The label for the doc item 'Annotation Model' in sidebar 'tutorialSidebar', linking to the doc specifications/annotation-model"
+  },
+  "sidebar.tutorialSidebar.doc.Metadata Model": {
+    "message": "Μοντέλο μεταδεδομένων",
+    "description": "The label for the doc item 'Metadata Model' in sidebar 'tutorialSidebar', linking to the doc specifications/metadata-model"
+  },
+  "sidebar.tutorialSidebar.doc.Identity and Contributor Model": {
+    "message": "Ταυτότητα και μοντέλο συνεισφέροντος",
+    "description": "The label for the doc item 'Identity and Contributor Model' in sidebar 'tutorialSidebar', linking to the doc specifications/identity-contributor-model"
+  },
+  "sidebar.tutorialSidebar.doc.Versioning and Change Model": {
+    "message": "Μοντέλο εκδόσεων και αλλαγών",
+    "description": "The label for the doc item 'Versioning and Change Model' in sidebar 'tutorialSidebar', linking to the doc specifications/versioning-change-model"
+  },
+  "sidebar.tutorialSidebar.doc.Review Model": {
+    "message": "Μοντέλο αξιολόγησης",
+    "description": "The label for the doc item 'Review Model' in sidebar 'tutorialSidebar', linking to the doc specifications/review-model"
+  },
+  "sidebar.tutorialSidebar.doc.Citation Model": {
+    "message": "Μοντέλο παραπομπής",
+    "description": "The label for the doc item 'Citation Model' in sidebar 'tutorialSidebar', linking to the doc specifications/citation-model"
+  },
+  "sidebar.tutorialSidebar.doc.Bibliographic Record Model": {
+    "message": "Μοντέλο βιβλιογραφικής εγγραφής",
+    "description": "The label for the doc item 'Bibliographic Record Model' in sidebar 'tutorialSidebar', linking to the doc specifications/bibliographic-record-model"
+  },
+  "sidebar.tutorialSidebar.doc.Reference Library and Registry Architecture": {
+    "message": "Αρχιτεκτονική βιβλιοθήκης αναφοράς και μητρώου",
+    "description": "The label for the doc item 'Reference Library and Registry Architecture' in sidebar 'tutorialSidebar', linking to the doc specifications/reference-library-registry"
+  },
+  "sidebar.tutorialSidebar.doc.Publishing Model": {
+    "message": "Μοντέλο έκδοσης",
+    "description": "The label for the doc item 'Publishing Model' in sidebar 'tutorialSidebar', linking to the doc specifications/publishing-model"
+  },
+  "sidebar.tutorialSidebar.doc.Plugin Architecture": {
+    "message": "Αρχιτεκτονική προσθηκών",
+    "description": "The label for the doc item 'Plugin Architecture' in sidebar 'tutorialSidebar', linking to the doc specifications/plugin-architecture"
+  },
+  "sidebar.tutorialSidebar.doc.Platform API": {
+    "message": "ΠλατφόρμαAPI",
+    "description": "The label for the doc item 'Platform API' in sidebar 'tutorialSidebar', linking to the doc specifications/platform-api"
+  },
+  "sidebar.tutorialSidebar.doc.File Format": {
+    "message": "Μορφή αρχείου",
+    "description": "The label for the doc item 'File Format' in sidebar 'tutorialSidebar', linking to the doc specifications/file-format"
+  },
+  "sidebar.tutorialSidebar.doc.Container Architecture": {
+    "message": "Αρχιτεκτονική κοντέινερ",
+    "description": "The label for the doc item 'Container Architecture' in sidebar 'tutorialSidebar', linking to the doc specifications/container-architecture"
+  },
+  "sidebar.tutorialSidebar.doc.Integration Status": {
+    "message": "Κατάσταση ενσωμάτωσης",
+    "description": "The label for the doc item 'Integration Status' in sidebar 'tutorialSidebar', linking to the doc integrations/implementation-status"
+  },
+  "sidebar.tutorialSidebar.doc.Integration Architecture": {
+    "message": "Αρχιτεκτονική ενσωμάτωσης",
+    "description": "The label for the doc item 'Integration Architecture' in sidebar 'tutorialSidebar', linking to the doc integrations/architecture"
+  },
+  "sidebar.tutorialSidebar.doc.Studio Deployment Modes": {
+    "message": "Τρόποι ανάπτυξης στο Studio",
+    "description": "The label for the doc item 'Studio Deployment Modes' in sidebar 'tutorialSidebar', linking to the doc integrations/studio-deployment-modes"
+  },
+  "sidebar.tutorialSidebar.doc.Institutional Administration": {
+    "message": "Διοίκηση ιδρυμάτων",
+    "description": "The label for the doc item 'Institutional Administration' in sidebar 'tutorialSidebar', linking to the doc integrations/institutional-administration"
+  },
+  "sidebar.tutorialSidebar.doc.OMI Agents AI Provider Setup": {
+    "message": "OMI Ρύθμιση παρόχου τεχνητής νοημοσύνης για πράκτορες",
+    "description": "The label for the doc item 'OMI Agents AI Provider Setup' in sidebar 'tutorialSidebar', linking to the doc integrations/omi-agents-ai-provider-setup"
+  },
+  "sidebar.tutorialSidebar.doc.Integration API v1": {
+    "message": "Ενσωμάτωση του «API» έκδοση 1",
+    "description": "The label for the doc item 'Integration API v1' in sidebar 'tutorialSidebar', linking to the doc integrations/integration-api-v1"
+  },
+  "sidebar.tutorialSidebar.doc.OJS Plugin — Docs & Download": {
+    "message": "OJS Πρόσθετο — Τεκμηρίωση & Λήψη",
+    "description": "The label for the doc item 'OJS Plugin — Docs & Download' in sidebar 'tutorialSidebar', linking to the doc integrations/ojs-plugin"
+  },
+  "sidebar.tutorialSidebar.doc.OJS Integration Profile v1": {
+    "message": "OJS Προφίλ ενσωμάτωσης v1",
+    "description": "The label for the doc item 'OJS Integration Profile v1' in sidebar 'tutorialSidebar', linking to the doc integrations/ojs-profile-v1"
+  },
+  "sidebar.tutorialSidebar.doc.OJS Manuscript File Import": {
+    "message": "OJS Εισαγωγή αρχείου χειρογράφου",
+    "description": "The label for the doc item 'OJS Manuscript File Import' in sidebar 'tutorialSidebar', linking to the doc integrations/ojs-file-import"
+  },
+  "sidebar.tutorialSidebar.doc.OMP Plugin — Docs & Download": {
+    "message": "OMP Πρόσθετο — Οδηγίες & Λήψη",
+    "description": "The label for the doc item 'OMP Plugin — Docs & Download' in sidebar 'tutorialSidebar', linking to the doc integrations/omp-plugin"
+  },
+  "sidebar.tutorialSidebar.doc.OMP Integration Profile v1": {
+    "message": "OMP Προφίλ ενσωμάτωσης v1",
+    "description": "The label for the doc item 'OMP Integration Profile v1' in sidebar 'tutorialSidebar', linking to the doc integrations/omp-profile-v1"
+  },
+  "sidebar.tutorialSidebar.doc.Charter": {
+    "message": "Χάρτης",
+    "description": "The label for the doc item 'Charter' in sidebar 'tutorialSidebar', linking to the doc governance/charter"
+  },
+  "sidebar.tutorialSidebar.doc.Roadmap to OMI 1.0": {
+    "message": "Οδικός χάρτης για το «OMI» 1.0",
+    "description": "The label for the doc item 'Roadmap to OMI 1.0' in sidebar 'tutorialSidebar', linking to the doc governance/roadmap-to-omi-1.0"
+  },
+  "sidebar.tutorialSidebar.doc.Studio Implementation Status": {
+    "message": "Κατάσταση υλοποίησης του στούντιο",
+    "description": "The label for the doc item 'Studio Implementation Status' in sidebar 'tutorialSidebar', linking to the doc governance/studio-implementation-status"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Implementation Matrix": {
+    "message": "Πίνακας εφαρμογής προδιαγραφών",
+    "description": "The label for the doc item 'Specification Implementation Matrix' in sidebar 'tutorialSidebar', linking to the doc governance/implementation-status-matrix"
+  },
+  "sidebar.tutorialSidebar.doc.Architecture Audit": {
+    "message": "Έλεγχος αρχιτεκτονικής",
+    "description": "The label for the doc item 'Architecture Audit' in sidebar 'tutorialSidebar', linking to the doc governance/architecture-audit"
+  },
+  "sidebar.tutorialSidebar.doc.Documentation Architecture": {
+    "message": "Αρχιτεκτονική τεκμηρίωσης",
+    "description": "The label for the doc item 'Documentation Architecture' in sidebar 'tutorialSidebar', linking to the doc governance/documentation-architecture"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Lifecycle": {
+    "message": "Κύκλος ζωής των προδιαγραφών",
+    "description": "The label for the doc item 'Specification Lifecycle' in sidebar 'tutorialSidebar', linking to the doc governance/specification-lifecycle"
+  },
+  "sidebar.tutorialSidebar.doc.Versioning Policy": {
+    "message": "Πολιτική διαχείρισης εκδόσεων",
+    "description": "The label for the doc item 'Versioning Policy' in sidebar 'tutorialSidebar', linking to the doc governance/versioning-policy"
+  },
+  "sidebar.tutorialSidebar.doc.Code Signing Policy": {
+    "message": "Πολιτική υπογραφής κώδικα",
+    "description": "The label for the doc item 'Code Signing Policy' in sidebar 'tutorialSidebar', linking to the doc governance/code-signing-policy"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Style Guide": {
+    "message": "Οδηγός μορφοποίησης προδιαγραφών",
+    "description": "The label for the doc item 'Specification Style Guide' in sidebar 'tutorialSidebar', linking to the doc governance/style-guide"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Template": {
+    "message": "Πρότυπο προδιαγραφών",
+    "description": "The label for the doc item 'Specification Template' in sidebar 'tutorialSidebar', linking to the doc governance/specification-template"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Registry": {
+    "message": "Μητρώο Προδιαγραφών",
+    "description": "The label for the doc item 'Specification Registry' in sidebar 'tutorialSidebar', linking to the doc governance/specification-registry"
+  }
+}

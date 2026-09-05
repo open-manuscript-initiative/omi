@@ -1,0 +1,286 @@
+{
+  "version.label": {
+    "message": "Další",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Introduction": {
+    "message": "Úvod",
+    "description": "The label for category 'Introduction' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.title": {
+    "message": "Úvod",
+    "description": "The generated-index page title for category 'Introduction' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.description": {
+    "message": "Účel, vize a obecná architektura projektu „Open Manuscript Initiative“.",
+    "description": "The generated-index page description for category 'Introduction' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Foundations": {
+    "message": "Základy",
+    "description": "The label for category 'Foundations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.title": {
+    "message": "Základy",
+    "description": "The generated-index page title for category 'Foundations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.description": {
+    "message": "Zásady, společný objektový model, architektura pro tvorbu obsahu a řízená terminologie, které jsou společné pro sadu specifikací „OMI“.",
+    "description": "The generated-index page description for category 'Foundations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications": {
+    "message": "Základní sémantické specifikace",
+    "description": "The label for category 'Core Semantic Specifications' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.title": {
+    "message": "Základní sémantické specifikace",
+    "description": "The generated-index page title for category 'Core Semantic Specifications' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.description": {
+    "message": "Normativní modely pro strukturu rukopisu, stabilní ukotvení, anotace, vědecká metadata, identitu, příspěvky, verzování a změny.",
+    "description": "The generated-index page description for category 'Core Semantic Specifications' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing": {
+    "message": "Vědecký pracovní postup a publikování",
+    "description": "The label for category 'Scholarly Workflow and Publishing' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.title": {
+    "message": "Vědecký pracovní postup a publikování",
+    "description": "The generated-index page title for category 'Scholarly Workflow and Publishing' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.description": {
+    "message": "Specifikace týkající se recenzí, citací, bibliografických záznamů, referenčních knihoven a pracovních postupů při publikování.",
+    "description": "The generated-index page description for category 'Scholarly Workflow and Publishing' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange": {
+    "message": "Platforma a burza",
+    "description": "The label for category 'Platform and Exchange' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.title": {
+    "message": "Platforma a burza",
+    "description": "The generated-index page title for category 'Platform and Exchange' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.description": {
+    "message": "Specifikace týkající se rozšiřitelnosti, API, výměny souborů, balení, ověřování a uchovávání.",
+    "description": "The generated-index page description for category 'Platform and Exchange' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Integrations": {
+    "message": "Integrace",
+    "description": "The label for category 'Integrations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Integrations.link.generated-index.title": {
+    "message": "Integrace",
+    "description": "The generated-index page title for category 'Integrations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Integrations.link.generated-index.description": {
+    "message": "Architektura integrace nezávislá na platformě, aktuální stav implementace a profily pro propojení služby „OMI“ s publikováním, recenzním procesem, repozitářem a vědeckou infrastrukturou.",
+    "description": "The generated-index page description for category 'Integrations' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Governance": {
+    "message": "Správa a řízení",
+    "description": "The label for category 'Governance' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Governance.link.generated-index.title": {
+    "message": "Správa a řízení",
+    "description": "The generated-index page title for category 'Governance' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.category.Governance.link.generated-index.description": {
+    "message": "Zásady upravující pravomoci, plán, stupeň vyspělosti, verzování, autorství, identitu, údržbu a bezpečnost vydávání specifikací a referenčních implementací na adrese OMI.",
+    "description": "The generated-index page description for category 'Governance' in sidebar 'tutorialSidebar'"
+  },
+  "sidebar.tutorialSidebar.doc.Vision": {
+    "message": "Vize",
+    "description": "The label for the doc item 'Vision' in sidebar 'tutorialSidebar', linking to the doc vision"
+  },
+  "sidebar.tutorialSidebar.doc.Architecture Overview": {
+    "message": "Přehled architektury",
+    "description": "The label for the doc item 'Architecture Overview' in sidebar 'tutorialSidebar', linking to the doc foundations/architecture-map"
+  },
+  "sidebar.tutorialSidebar.doc.Core Principles": {
+    "message": "Základní zásady",
+    "description": "The label for the doc item 'Core Principles' in sidebar 'tutorialSidebar', linking to the doc foundations/core-principles"
+  },
+  "sidebar.tutorialSidebar.doc.Cross-platform Studio": {
+    "message": "Multiplatformní Studio",
+    "description": "The label for the doc item 'Cross-platform Studio' in sidebar 'tutorialSidebar', linking to the doc foundations/cross-platform-studio"
+  },
+  "sidebar.tutorialSidebar.doc.iOS and iPadOS Studio": {
+    "message": "Studio pro iOS a iPadOS",
+    "description": "The label for the doc item 'iOS and iPadOS Studio' in sidebar 'tutorialSidebar', linking to the doc foundations/ios-ipados-studio"
+  },
+  "sidebar.tutorialSidebar.doc.Long-form Authoring": {
+    "message": "Tvorba dlouhých textů",
+    "description": "The label for the doc item 'Long-form Authoring' in sidebar 'tutorialSidebar', linking to the doc foundations/studio-long-form-authoring"
+  },
+  "sidebar.tutorialSidebar.doc.Word-like Manuscript Editing": {
+    "message": "Úprava rukopisů ve stylu aplikace Word",
+    "description": "The label for the doc item 'Word-like Manuscript Editing' in sidebar 'tutorialSidebar', linking to the doc foundations/word-like-manuscript-editing"
+  },
+  "sidebar.tutorialSidebar.doc.OMI Cloud and Federated Infrastructure": {
+    "message": "OMI Cloudová a federovaná infrastruktura",
+    "description": "The label for the doc item 'OMI Cloud and Federated Infrastructure' in sidebar 'tutorialSidebar', linking to the doc foundations/omi-cloud-federated-infrastructure"
+  },
+  "sidebar.tutorialSidebar.doc.Publication Styles and Publisher Profiles": {
+    "message": "Styly publikací a profily vydavatelů",
+    "description": "The label for the doc item 'Publication Styles and Publisher Profiles' in sidebar 'tutorialSidebar', linking to the doc foundations/publication-styles-and-publisher-profiles"
+  },
+  "sidebar.tutorialSidebar.doc.Scholarly Object Model": {
+    "message": "Model vědeckého objektu",
+    "description": "The label for the doc item 'Scholarly Object Model' in sidebar 'tutorialSidebar', linking to the doc specifications/core/scholarly-object-model"
+  },
+  "sidebar.tutorialSidebar.doc.Terminology and Definitions": {
+    "message": "Terminologie a definice",
+    "description": "The label for the doc item 'Terminology and Definitions' in sidebar 'tutorialSidebar', linking to the doc governance/terminology"
+  },
+  "sidebar.tutorialSidebar.doc.Document Model": {
+    "message": "Model dokumentu",
+    "description": "The label for the doc item 'Document Model' in sidebar 'tutorialSidebar', linking to the doc specifications/document-model"
+  },
+  "sidebar.tutorialSidebar.doc.Anchor Model": {
+    "message": "Model kotvy",
+    "description": "The label for the doc item 'Anchor Model' in sidebar 'tutorialSidebar', linking to the doc specifications/anchor-model"
+  },
+  "sidebar.tutorialSidebar.doc.Annotation Model": {
+    "message": "Model anotací",
+    "description": "The label for the doc item 'Annotation Model' in sidebar 'tutorialSidebar', linking to the doc specifications/annotation-model"
+  },
+  "sidebar.tutorialSidebar.doc.Metadata Model": {
+    "message": "Model metadat",
+    "description": "The label for the doc item 'Metadata Model' in sidebar 'tutorialSidebar', linking to the doc specifications/metadata-model"
+  },
+  "sidebar.tutorialSidebar.doc.Identity and Contributor Model": {
+    "message": "Identita a model přispěvatelů",
+    "description": "The label for the doc item 'Identity and Contributor Model' in sidebar 'tutorialSidebar', linking to the doc specifications/identity-contributor-model"
+  },
+  "sidebar.tutorialSidebar.doc.Versioning and Change Model": {
+    "message": "Verzování a model změn",
+    "description": "The label for the doc item 'Versioning and Change Model' in sidebar 'tutorialSidebar', linking to the doc specifications/versioning-change-model"
+  },
+  "sidebar.tutorialSidebar.doc.Review Model": {
+    "message": "Model pro kontrolu",
+    "description": "The label for the doc item 'Review Model' in sidebar 'tutorialSidebar', linking to the doc specifications/review-model"
+  },
+  "sidebar.tutorialSidebar.doc.Citation Model": {
+    "message": "Šablona citace",
+    "description": "The label for the doc item 'Citation Model' in sidebar 'tutorialSidebar', linking to the doc specifications/citation-model"
+  },
+  "sidebar.tutorialSidebar.doc.Bibliographic Record Model": {
+    "message": "Model bibliografického záznamu",
+    "description": "The label for the doc item 'Bibliographic Record Model' in sidebar 'tutorialSidebar', linking to the doc specifications/bibliographic-record-model"
+  },
+  "sidebar.tutorialSidebar.doc.Reference Library and Registry Architecture": {
+    "message": "Architektura referenční knihovny a registru",
+    "description": "The label for the doc item 'Reference Library and Registry Architecture' in sidebar 'tutorialSidebar', linking to the doc specifications/reference-library-registry"
+  },
+  "sidebar.tutorialSidebar.doc.Publishing Model": {
+    "message": "Vydavatelský model",
+    "description": "The label for the doc item 'Publishing Model' in sidebar 'tutorialSidebar', linking to the doc specifications/publishing-model"
+  },
+  "sidebar.tutorialSidebar.doc.Plugin Architecture": {
+    "message": "Architektura pluginů",
+    "description": "The label for the doc item 'Plugin Architecture' in sidebar 'tutorialSidebar', linking to the doc specifications/plugin-architecture"
+  },
+  "sidebar.tutorialSidebar.doc.Platform API": {
+    "message": "PlatformaAPI",
+    "description": "The label for the doc item 'Platform API' in sidebar 'tutorialSidebar', linking to the doc specifications/platform-api"
+  },
+  "sidebar.tutorialSidebar.doc.File Format": {
+    "message": "Formát souboru",
+    "description": "The label for the doc item 'File Format' in sidebar 'tutorialSidebar', linking to the doc specifications/file-format"
+  },
+  "sidebar.tutorialSidebar.doc.Container Architecture": {
+    "message": "Architektura kontejnerů",
+    "description": "The label for the doc item 'Container Architecture' in sidebar 'tutorialSidebar', linking to the doc specifications/container-architecture"
+  },
+  "sidebar.tutorialSidebar.doc.Integration Status": {
+    "message": "Stav integrace",
+    "description": "The label for the doc item 'Integration Status' in sidebar 'tutorialSidebar', linking to the doc integrations/implementation-status"
+  },
+  "sidebar.tutorialSidebar.doc.Integration Architecture": {
+    "message": "Integrační architektura",
+    "description": "The label for the doc item 'Integration Architecture' in sidebar 'tutorialSidebar', linking to the doc integrations/architecture"
+  },
+  "sidebar.tutorialSidebar.doc.Studio Deployment Modes": {
+    "message": "Režimy nasazení studia",
+    "description": "The label for the doc item 'Studio Deployment Modes' in sidebar 'tutorialSidebar', linking to the doc integrations/studio-deployment-modes"
+  },
+  "sidebar.tutorialSidebar.doc.Institutional Administration": {
+    "message": "Správa institucí",
+    "description": "The label for the doc item 'Institutional Administration' in sidebar 'tutorialSidebar', linking to the doc integrations/institutional-administration"
+  },
+  "sidebar.tutorialSidebar.doc.OMI Agents AI Provider Setup": {
+    "message": "OMI Nastavení poskytovatele AI pro agenty",
+    "description": "The label for the doc item 'OMI Agents AI Provider Setup' in sidebar 'tutorialSidebar', linking to the doc integrations/omi-agents-ai-provider-setup"
+  },
+  "sidebar.tutorialSidebar.doc.Integration API v1": {
+    "message": "Integrace API v1",
+    "description": "The label for the doc item 'Integration API v1' in sidebar 'tutorialSidebar', linking to the doc integrations/integration-api-v1"
+  },
+  "sidebar.tutorialSidebar.doc.OJS Plugin — Docs & Download": {
+    "message": "OJS Plugin — Dokumentace a stažení",
+    "description": "The label for the doc item 'OJS Plugin — Docs & Download' in sidebar 'tutorialSidebar', linking to the doc integrations/ojs-plugin"
+  },
+  "sidebar.tutorialSidebar.doc.OJS Integration Profile v1": {
+    "message": "OJS Integrační profil v1",
+    "description": "The label for the doc item 'OJS Integration Profile v1' in sidebar 'tutorialSidebar', linking to the doc integrations/ojs-profile-v1"
+  },
+  "sidebar.tutorialSidebar.doc.OJS Manuscript File Import": {
+    "message": "OJS Import souboru s rukopisem",
+    "description": "The label for the doc item 'OJS Manuscript File Import' in sidebar 'tutorialSidebar', linking to the doc integrations/ojs-file-import"
+  },
+  "sidebar.tutorialSidebar.doc.OMP Plugin — Docs & Download": {
+    "message": "OMP Plugin — Dokumentace a stažení",
+    "description": "The label for the doc item 'OMP Plugin — Docs & Download' in sidebar 'tutorialSidebar', linking to the doc integrations/omp-plugin"
+  },
+  "sidebar.tutorialSidebar.doc.OMP Integration Profile v1": {
+    "message": "OMP Integrační profil v1",
+    "description": "The label for the doc item 'OMP Integration Profile v1' in sidebar 'tutorialSidebar', linking to the doc integrations/omp-profile-v1"
+  },
+  "sidebar.tutorialSidebar.doc.Charter": {
+    "message": "Charta",
+    "description": "The label for the doc item 'Charter' in sidebar 'tutorialSidebar', linking to the doc governance/charter"
+  },
+  "sidebar.tutorialSidebar.doc.Roadmap to OMI 1.0": {
+    "message": "Plán vývoje pro verzi 1.0 „OMI“ 1.0",
+    "description": "The label for the doc item 'Roadmap to OMI 1.0' in sidebar 'tutorialSidebar', linking to the doc governance/roadmap-to-omi-1.0"
+  },
+  "sidebar.tutorialSidebar.doc.Studio Implementation Status": {
+    "message": "Stav implementace studia",
+    "description": "The label for the doc item 'Studio Implementation Status' in sidebar 'tutorialSidebar', linking to the doc governance/studio-implementation-status"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Implementation Matrix": {
+    "message": "Matice implementace specifikací",
+    "description": "The label for the doc item 'Specification Implementation Matrix' in sidebar 'tutorialSidebar', linking to the doc governance/implementation-status-matrix"
+  },
+  "sidebar.tutorialSidebar.doc.Architecture Audit": {
+    "message": "Audit architektury",
+    "description": "The label for the doc item 'Architecture Audit' in sidebar 'tutorialSidebar', linking to the doc governance/architecture-audit"
+  },
+  "sidebar.tutorialSidebar.doc.Documentation Architecture": {
+    "message": "Architektura dokumentace",
+    "description": "The label for the doc item 'Documentation Architecture' in sidebar 'tutorialSidebar', linking to the doc governance/documentation-architecture"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Lifecycle": {
+    "message": "Životní cyklus specifikace",
+    "description": "The label for the doc item 'Specification Lifecycle' in sidebar 'tutorialSidebar', linking to the doc governance/specification-lifecycle"
+  },
+  "sidebar.tutorialSidebar.doc.Versioning Policy": {
+    "message": "Zásady verzování",
+    "description": "The label for the doc item 'Versioning Policy' in sidebar 'tutorialSidebar', linking to the doc governance/versioning-policy"
+  },
+  "sidebar.tutorialSidebar.doc.Code Signing Policy": {
+    "message": "Zásady podepisování kódu",
+    "description": "The label for the doc item 'Code Signing Policy' in sidebar 'tutorialSidebar', linking to the doc governance/code-signing-policy"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Style Guide": {
+    "message": "Příručka pro styl specifikací",
+    "description": "The label for the doc item 'Specification Style Guide' in sidebar 'tutorialSidebar', linking to the doc governance/style-guide"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Template": {
+    "message": "Šablona specifikace",
+    "description": "The label for the doc item 'Specification Template' in sidebar 'tutorialSidebar', linking to the doc governance/specification-template"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Registry": {
+    "message": "Registr specifikací",
+    "description": "The label for the doc item 'Specification Registry' in sidebar 'tutorialSidebar', linking to the doc governance/specification-registry"
+  }
+}
