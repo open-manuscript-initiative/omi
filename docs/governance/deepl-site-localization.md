@@ -47,13 +47,17 @@ Existing documentation files are preserved. Hungarian and German are treated as 
 npm run i18n:deepl:site -- --locales=fr,es,it
 ```
 
-## Deliberately regenerate machine-translated locales
+## Repair a faulty machine translation
+
+Run **Actions → DeepL Docusaurus translations → Run workflow**, enter the affected locale codes (for example `fr,es`), and enable **Repair faulty machine translations**. The repair reuses the persistent translation branch, regenerates the selected machine-translated locales, validates the Docusaurus build, and creates or updates the translation pull request only after the build passes.
+
+The same repair can be run locally:
 
 ```bash
 npm run i18n:deepl:site -- --locales=fr --force
 ```
 
-Do this only after review because it replaces existing machine-translated JSON and documentation for the selected locale. Hand-maintained Hungarian and German content remains protected.
+Use repair mode only after review because it replaces existing machine-translated JSON and documentation for the selected locale. Hand-maintained Hungarian and German content remains protected.
 
 ## Protected content
 
