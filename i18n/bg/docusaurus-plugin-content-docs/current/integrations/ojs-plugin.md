@@ -16,10 +16,10 @@ slug: /integrations/ojs-plugin
 
 ### Изтегли
 
-- **[Download OJS plugin v1.2.1 — ZIP](XQZTOKEN0END)**
-- **[Download OJS plugin v1.2.1 — TAR.GZ](XQZTOKEN0END)**
-- [SHA-256 checksums](XQZTOKEN0END)
-- [Latest GitHub release](XQZTOKEN0END)
+- **[Download OJS plugin v1.2.1 — ZIP](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.1/studioIntegration-ojs-3.5-v1.2.1.zip)**
+- **[Download OJS plugin v1.2.1 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.1/studioIntegration-ojs-3.5-v1.2.1.tar.gz)**
+- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.1/SHA256SUMS.txt)
+- [Latest GitHub release](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/latest)
 
 Архивът с версията съдържа плъгина в кореновата директория на пакета „`studioIntegration/`“, както се изисква от процедурите за инсталиране на плъгини на PKP.
 
@@ -90,15 +90,15 @@ omi-integration/1/ojs
 
 Хранилището съдържа изрично разкриване на приноса на изкуствения интелект за рецензиране от страна на PKP:
 
-- [AI contribution declaration](XQZTOKEN0END)
+- [AI contribution declaration](https://github.com/open-manuscript-initiative/omi-ojs-plugin/blob/main/AI-DECLARATION.md)
 
 ## Източник и проектна документация
 
-- [Source repository](XQZTOKEN0END)
-- [README](XQZTOKEN0END)
-- [Changelog](XQZTOKEN0END)
-- [License](XQZTOKEN0END)
-- [All releases](XQZTOKEN0END)
+- [Source repository](https://github.com/open-manuscript-initiative/omi-ojs-plugin)
+- [README](https://github.com/open-manuscript-initiative/omi-ojs-plugin/blob/main/README.md)
+- [Changelog](https://github.com/open-manuscript-initiative/omi-ojs-plugin/blob/main/CHANGELOG.md)
+- [License](https://github.com/open-manuscript-initiative/omi-ojs-plugin/blob/main/LICENSE)
+- [All releases](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases)
 
 ## Статус на PKP
 

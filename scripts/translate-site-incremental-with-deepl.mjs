@@ -23,6 +23,30 @@ class DeepLQuotaError extends Error {}
 const args = process.argv.slice(2);
 const write = args.includes('--write');
 const force = args.includes('--force');
+
+if (args.includes('--test-markup-protection')) {
+  const samples = [
+    '[Download](https://example.com/release.zip)',
+    '[`omi-manuscript-0.2.schema.json`](/schemas/omi-manuscript-0.2.schema.json)',
+    '[`vargaijanos`](https://github.com/vargaijanos)',
+  ];
+  for (const sample of samples) {
+    const restored = unprotectMarkup(protectMarkup(sample));
+    if (restored !== sample) {
+      throw new Error(`Markup protection round trip failed: ${sample} -> ${restored}`);
+    }
+  }
+  const frontmatter = renderTranslatedSegment(
+    { prefix: 'description: ', frontmatter: true },
+    'Translated summary: with punctuation',
+  );
+  if (frontmatter !== 'description: "Translated summary: with punctuation"') {
+    throw new Error(`Front matter escaping failed: ${frontmatter}`);
+  }
+  console.log(`Markup protection round trip passed for ${samples.length} samples.`);
+  process.exit(0);
+}
+
 const requested = readListArg('--locales=') ?? ALL_LOCALES;
 const locales = requested.filter((locale) => locale !== SOURCE_LOCALE);
 
@@ -167,12 +191,18 @@ async function syncJsonLocale(locale, targetLang, authKey, apiBase, localeState,
     for (const entry of entries) {
       const key = `${relative}#${entry.path.join('/')}`;
       const sourceHash = hashText(entry.text);
-      const stateEntry = localeState.json[key];
+      let stateEntry = localeState.json[key];
       const priorTarget = getAtPath(existingValue, entry.path);
+      const priorTargetIsValid = typeof priorTarget === 'string' && !hasUnresolvedMarkupToken(priorTarget);
+
+      if (hasUnresolvedMarkupToken(stateEntry?.translation)) {
+        delete localeState.json[key];
+        stateEntry = undefined;
+      }
 
       if (!options.force && stateEntry?.sourceHash === sourceHash) {
         let translation = stateEntry.translation;
-        if (typeof priorTarget === 'string' && priorTarget !== entry.text && priorTarget !== stateEntry.translation) {
+        if (priorTargetIsValid && priorTarget !== entry.text && priorTarget !== stateEntry.translation) {
           translation = priorTarget;
           stateEntry.translation = priorTarget;
         }
@@ -180,7 +210,7 @@ async function syncJsonLocale(locale, targetLang, authKey, apiBase, localeState,
         continue;
       }
 
-      if (!options.force && !stateEntry && typeof priorTarget === 'string' && priorTarget !== entry.text) {
+      if (!options.force && !stateEntry && priorTargetIsValid && priorTarget !== entry.text) {
         localeState.json[key] = { sourceHash, translation: priorTarget };
         setAtPath(sourceValue, entry.path, priorTarget);
         continue;
@@ -242,7 +272,9 @@ async function syncDocsLocale(locale, targetLang, authKey, apiBase, localeState,
     const activeHashes = new Set(model.segments.map((segment) => segment.hash));
     if (!options.force) {
       docState.segments = Object.fromEntries(
-        Object.entries(docState.segments).filter(([hash]) => activeHashes.has(hash)),
+        Object.entries(docState.segments).filter(
+          ([hash, translation]) => activeHashes.has(hash) && !hasUnresolvedMarkupToken(translation),
+        ),
       );
     } else {
       docState.segments = {};
@@ -293,7 +325,7 @@ function parseMarkdown(source) {
       const raw = match[3].trim();
       const quote = ((raw.startsWith('"') && raw.endsWith('"')) || (raw.startsWith("'") && raw.endsWith("'"))) ? raw[0] : '';
       const text = quote ? raw.slice(1, -1) : raw;
-      segments.push({ index: i, prefix: `${match[1]}${match[2]}: `, quote, text, hash: hashText(text) });
+      segments.push({ index: i, prefix: `${match[1]}${match[2]}: `, quote, text, hash: hashText(text), frontmatter: true });
       continue;
     }
 
@@ -312,9 +344,15 @@ async function renderMarkdownToFile(model, docState, targetFile) {
   const lines = [...model.lines];
   for (const segment of model.segments) {
     const translated = docState.segments[segment.hash] ?? segment.text;
-    lines[segment.index] = `${segment.prefix}${segment.quote}${translated}${segment.quote}`;
+    lines[segment.index] = renderTranslatedSegment(segment, translated);
   }
   await writeFile(targetFile, lines.join('\n'), 'utf8');
+}
+
+function renderTranslatedSegment(segment, translated) {
+  return segment.frontmatter
+    ? `${segment.prefix}${JSON.stringify(translated)}`
+    : `${segment.prefix}${segment.quote}${translated}${segment.quote}`;
 }
 
 function splitMarkdownPrefix(line) {
@@ -407,11 +445,11 @@ function protectMarkup(text) {
   const tokens = [];
   let value = text;
   const patterns = [
-    /`[^`]+`/g,
-    /https?:\/\/[^\s)]+/g,
-    /\{[^{}]+\}/g,
     /\[[^\]]+\]\([^)]*\)/g,
+    /`[^`]+`/g,
     /<\/?[A-Za-z][^>]*>/g,
+    /\{[^{}]+\}/g,
+    /https?:\/\/[^\s)]+/g,
     new RegExp(PROTECTED_TERMS.map(escapeRegExp).join('|'), 'g'),
   ];
 
@@ -430,7 +468,15 @@ function protectMarkup(text) {
 function unprotectMarkup(text) {
   let value = text.replace(/^\s*<root>/, '').replace(/<\/root>\s*$/, '');
   value = value.replace(/<keep>([\s\S]*?)<\/keep>/g, (_, inner) => decodeXml(inner));
-  return decodeXml(value);
+  value = decodeXml(value);
+  if (hasUnresolvedMarkupToken(value)) {
+    throw new Error(`DeepL markup protection left an unresolved placeholder: ${value.slice(0, 200)}`);
+  }
+  return value;
+}
+
+function hasUnresolvedMarkupToken(value) {
+  return typeof value === 'string' && /XQZTOKEN\d+END/.test(value);
 }
 
 function hashText(value) {

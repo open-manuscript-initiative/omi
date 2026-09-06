@@ -42,9 +42,9 @@ U verzí podepsaných pomocí SignPath:
 
 V současné době jsou určeny následující role pro podepisování:
 
-- **Autoři / přispěvatelé:** Správci projektu Open Manuscript Initiative s právem k zápisu do oficiálních repozitářů. Aktuálně určený správce: [XQZTOKEN0END](XQZTOKEN1END).
-- **Recenzenti:** Správci projektu Open Manuscript Initiative, kteří posuzují žádosti o začlenění (pull requests) a změny týkající se vytváření verzí, balení, konfigurace související s bezpečností a pracovních postupů při podepisování kódu. Aktuálně určený recenzent: [XQZTOKEN0END](XQZTOKEN1END).
-- **Schvalovatelé:** správci, kterým je svěřeno oprávnění schvalovat žádosti o podepsání do produkčního prostředí a oficiální podepsané verze. Aktuálně určený schvalovatel podepisování: [XQZTOKEN0END](XQZTOKEN1END).
+- **Autoři / přispěvatelé:** Správci projektu Open Manuscript Initiative s právem k zápisu do oficiálních repozitářů. Aktuálně určený správce: [`vargaijanos`](https://github.com/vargaijanos).
+- **Recenzenti:** Správci projektu Open Manuscript Initiative, kteří posuzují žádosti o začlenění (pull requests) a změny týkající se vytváření verzí, balení, konfigurace související s bezpečností a pracovních postupů při podepisování kódu. Aktuálně určený recenzent: [`vargaijanos`](https://github.com/vargaijanos).
+- **Schvalovatelé:** správci, kterým je svěřeno oprávnění schvalovat žádosti o podepsání do produkčního prostředí a oficiální podepsané verze. Aktuálně určený schvalovatel podepisování: [`vargaijanos`](https://github.com/vargaijanos).
 
 V případě malého open-source projektu může jedna osoba zastávat více než jednu roli, je-li to nutné. Podepsání produkční verze však zůstává výslovným krokem při vydání a není implicitním důsledkem libovolných změn ve zdrojovém kódu.
 
