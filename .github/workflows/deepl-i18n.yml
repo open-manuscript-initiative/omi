@@ -7,8 +7,8 @@ on:
         description: 'Comma-separated target locales (default: all configured targets)'
         required: false
         type: string
-      force:
-        description: 'Regenerate existing machine translations (never forces hand-maintained hu/de)'
+      repair:
+        description: 'Repair faulty machine translations by regenerating the selected locales'
         required: false
         default: false
         type: boolean
@@ -62,7 +62,7 @@ jobs:
         env:
           DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
           INPUT_LOCALES: ${{ inputs.locales }}
-          INPUT_FORCE: ${{ inputs.force }}
+          INPUT_REPAIR: ${{ inputs.repair }}
         shell: bash
         run: |
           set -uo pipefail
@@ -70,7 +70,7 @@ jobs:
           if [[ -n "${INPUT_LOCALES:-}" ]]; then
             args+=("--locales=${INPUT_LOCALES}")
           fi
-          if [[ "${INPUT_FORCE:-false}" == "true" ]]; then
+          if [[ "${INPUT_REPAIR:-false}" == "true" ]]; then
             args+=(--force)
           fi
 
@@ -154,6 +154,7 @@ jobs:
           - Source locale: English
           - Unchanged Markdown/MDX segments are reused from `.deepl/i18n-state.json` without DeepL API calls.
           - Only new or source-changed segments are sent to DeepL.
+          - Repair runs can regenerate selected machine-translated locales after faulty output.
           - Docusaurus JSON messages use the same incremental SHA-256 state tracking.
           - Existing hand-maintained Hungarian and German content is preserved.
           - The DeepL API key is read only from the repository secret.
