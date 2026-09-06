@@ -1,19 +1,17 @@
 import React from 'react';
 import clsx from 'clsx';
 import {ThemeClassNames} from '@docusaurus/theme-common';
-import {useNavbarSecondaryMenu} from '@docusaurus/theme-common/internal';
+
+import DocumentationSidebarMenu from '@site/src/components/DocumentationSidebarMenu';
 
 /**
- * Keep the website navigation in one panel.
+ * Keep only the internal documentation navigation in the mobile panel.
  *
- * Docusaurus normally places the site links and the documentation sidebar in
- * two horizontally sliding panels. That makes the left menu button reveal an
- * intermediate menu before visitors can reach the documentation navigation.
- * Rendering both sources in one scrollable panel makes the first click useful.
+ * The documentation sidebar is rendered independently from the current route,
+ * so the first menu click opens it directly on the homepage as well as on docs
+ * and other public pages.
  */
-export default function NavbarMobileSidebarLayout({header, primaryMenu}) {
-  const secondaryMenu = useNavbarSecondaryMenu();
-
+export default function NavbarMobileSidebarLayout({header}) {
   return (
     <div
       className={clsx(
@@ -22,12 +20,7 @@ export default function NavbarMobileSidebarLayout({header, primaryMenu}) {
       )}>
       {header}
       <div className="omi-navbar-sidebar__content menu">
-        {primaryMenu}
-        {secondaryMenu.content ? (
-          <div className="omi-navbar-sidebar__documentation">
-            {secondaryMenu.content}
-          </div>
-        ) : null}
+        <DocumentationSidebarMenu />
       </div>
     </div>
   );
