@@ -69,6 +69,7 @@ const config = {
         items: [
           {type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Project'},
           {to: '/studio', label: 'Studio', position: 'left'},
+          {to: '/docs/contribute', label: 'Contribute', position: 'left'},
           {to: '/docs/governance/funding-and-partnerships', label: 'Funding & Partnerships', position: 'left'},
           {to: '/support', label: 'Support', position: 'left'},
           {href: 'https://github.com/open-manuscript-initiative/omi', label: 'GitHub', position: 'right'},
@@ -85,6 +86,7 @@ const config = {
             {label: 'Studio', to: '/studio'},
           ]},
           {title: 'Community', items: [
+            {label: 'Contribute', to: '/docs/contribute'},
             {label: 'Support', to: '/support'},
             {label: 'GitHub Sponsors', href: 'https://github.com/sponsors/open-manuscript-initiative'},
             {label: 'GitHub', href: 'https://github.com/open-manuscript-initiative/omi'},

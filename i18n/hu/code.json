@@ -335,17 +335,26 @@
   "homepage.cta.github": {
     "message": "Közreműködés a GitHubon"
   },
+  "homepage.cta.contribute": {
+    "message": "Kapcsolódjon be"
+  },
   "homepage.cta.documentation": {
     "message": "A dokumentáció megtekintése"
   },
   "theme.navbar.item.label.Project": {
     "message": "Projekt"
   },
+  "theme.navbar.item.label.Contribute": {
+    "message": "Kapcsolódjon be"
+  },
   "theme.footer.link.title.Community": {
     "message": "Közösség"
   },
   "theme.footer.link.title.Project": {
     "message": "Projekt"
+  },
+  "theme.footer.link.item.label.Contribute": {
+    "message": "Kapcsolódjon be"
   },
   "theme.footer.link.item.label.Vision": {
     "message": "Jövőkép"

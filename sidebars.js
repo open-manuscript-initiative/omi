@@ -13,6 +13,7 @@ const sidebars = {
       link: {type: 'generated-index', title: 'Introduction', description: 'The purpose, vision, and high-level architecture of the Open Manuscript Initiative.', slug: '/category/introduction'},
       items: [
         {type: 'doc', id: 'vision', label: 'Vision'},
+        {type: 'doc', id: 'contribute', label: 'Contribute'},
         {type: 'doc', id: 'foundations/architecture-map', label: 'Architecture Overview'},
       ],
     },

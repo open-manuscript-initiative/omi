@@ -18,6 +18,7 @@
   "sidebar.tutorialSidebar.category.Governance.link.generated-index.title": {"message": "Irányítás"},
   "sidebar.tutorialSidebar.category.Governance.link.generated-index.description": {"message": "Az OMI-specifikációk felhatalmazását, ütemtervét, érettségét, verziózását, szerzőségét, azonosságát és karbantartását szabályozó irányelvek."},
   "sidebar.tutorialSidebar.doc.Vision": {"message": "Jövőkép"},
+  "sidebar.tutorialSidebar.doc.Contribute": {"message": "Kapcsolódjon be"},
   "sidebar.tutorialSidebar.doc.Architecture Overview": {"message": "Architektúra áttekintése"},
   "sidebar.tutorialSidebar.doc.Core Principles": {"message": "Alapelvek"},
   "sidebar.tutorialSidebar.doc.Scholarly Object Model": {"message": "Tudományos objektummodell"},
