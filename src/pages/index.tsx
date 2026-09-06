@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
+import Translate from '@docusaurus/Translate';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
@@ -203,6 +204,9 @@ export default function Home() {
           <p>{current}</p>
           <div className={styles.buttons}>
             <Link className="button button--primary button--lg" to="/studio">{t.studio}</Link>
+            <Link className="button button--secondary button--lg" to="/docs/contribute">
+              <Translate id="homepage.cta.contribute">Contribute</Translate>
+            </Link>
             <Link className="button button--secondary button--lg" to="https://github.com/open-manuscript-initiative/omi">{t.github}</Link>
             <Link className="button button--secondary button--lg" to="/support">{supportLabel}</Link>
           </div>
