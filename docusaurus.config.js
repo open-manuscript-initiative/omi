@@ -47,6 +47,8 @@ const config = {
     },
   },
 
+  plugins: ['./plugins/documentation-menu/index.js'],
+
   presets: [[
     'classic',
     /** @type {import('@docusaurus/preset-classic').Options} */
