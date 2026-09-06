@@ -16,10 +16,10 @@ Das **OMI-OMP-Integrations-Plugin** verbindet Open Monograph Press (OMP) 3.5.x m
 
 ### Herunterladen
 
-- **[Download OMP plugin v1.2.6 — ZIP](XQZTOKEN0END)**
-- **[Download OMP plugin v1.2.6 — TAR.GZ](XQZTOKEN0END)**
-- [SHA-256 checksums](XQZTOKEN0END)
-- [Latest GitHub release](XQZTOKEN0END)
+- **[Download OMP plugin v1.2.6 — ZIP](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/studioIntegration-omp-3.5-v1.2.6.zip)**
+- **[Download OMP plugin v1.2.6 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/studioIntegration-omp-3.5-v1.2.6.tar.gz)**
+- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/SHA256SUMS.txt)
+- [Latest GitHub release](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/latest)
 
 Das Release-Archiv verwendet `studioIntegration/` als Paketstammverzeichnis für eine PKP-kompatible Installation.
 
@@ -113,9 +113,9 @@ Die Implementierung orientiert sich an den Repository- und Workflow-Grenzen von 
 
 Das Plugin-Repository dokumentiert die Herkunft von „API“ sowie die weiterhin bestehende Grenze zwischen technischer Kompatibilität und offizieller PKP-Anerkennung:
 
-- [PKP compatibility notes](XQZTOKEN0END)
-- [Security policy](XQZTOKEN0END)
-- [Installation guide](XQZTOKEN0END)
+- [PKP compatibility notes](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/PKP_COMPATIBILITY.md)
+- [Security policy](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/SECURITY.md)
+- [Installation guide](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/INSTALL.md)
 
 Die Aufnahme in die offizielle Plugin-Galerie erfordert weiterhin eine Überprüfung durch einen PKP-Betreuer sowie Tests auf Installationsebene auf einer unterstützten, unveränderten Version von OMP.
 
@@ -123,18 +123,18 @@ Die Aufnahme in die offizielle Plugin-Galerie erfordert weiterhin eine Überprü
 
 Bei der Entwicklung des Plugins kam in den Bereichen Architektur, Implementierung, PKP-API-Analyse, Sicherheitsüberprüfung, CI/CD, Tests und Dokumentation in erheblichem Umfang generative KI zum Einsatz. Die menschlichen Betreuer tragen weiterhin die Verantwortung für den eingereichten oder an die Nutzer veröffentlichten Code, und das PKP-abhängige Verhalten wird anhand des aktuellen Quellcodes unter OMP/PKP sowie der Testergebnisse überprüft.
 
-- [AI contribution declaration](XQZTOKEN0END)
+- [AI contribution declaration](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/AI-DECLARATION.md)
 
 ## Quell- und Projektdokumentation
 
-- [Source repository](XQZTOKEN0END)
-- [README](XQZTOKEN0END)
-- [Installation guide](XQZTOKEN0END)
-- [PKP compatibility](XQZTOKEN0END)
-- [Security](XQZTOKEN0END)
-- [Changelog](XQZTOKEN0END)
-- [License](XQZTOKEN0END)
-- [All releases](XQZTOKEN0END)
+- [Source repository](https://github.com/open-manuscript-initiative/omi-omp-plugin)
+- [README](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/README.md)
+- [Installation guide](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/INSTALL.md)
+- [PKP compatibility](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/PKP_COMPATIBILITY.md)
+- [Security](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/SECURITY.md)
+- [Changelog](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/CHANGELOG.md)
+- [License](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/LICENSE)
+- [All releases](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases)
 
 ## PKP-Status
 

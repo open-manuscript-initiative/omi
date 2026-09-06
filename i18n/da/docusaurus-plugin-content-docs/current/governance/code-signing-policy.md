@@ -42,9 +42,9 @@ For udgivelser, der er signeret med SignPath:
 
 De nuværende fastlagte roller i forbindelse med underskrivningen er:
 
-- **Forfattere / bidragydere:** Open Manuscript Initiative-vedligeholdere med skriveadgang til de officielle repositorier. Nuværende udpeget vedligeholder: [XQZTOKEN0END](XQZTOKEN1END).
-- **Gennemgangspersoner:** Vedligeholdere af Open Manuscript Initiative, der gennemgår pull-anmodninger og ændringer, der har indflydelse på udgivelsesgenerering, pakning, sikkerhedsfølsom konfiguration og arbejdsgange for kodesignering. Nuværende udpeget gennemgangsperson: [XQZTOKEN0END](XQZTOKEN1END).
-- **Godkendere:** vedligeholdere, der har fået tillid til at godkende anmodninger om signering til produktion og officielle signerede udgivelser. Nuværende udpeget signeringsgodkender: [XQZTOKEN0END](XQZTOKEN1END).
+- **Forfattere / bidragydere:** Open Manuscript Initiative-vedligeholdere med skriveadgang til de officielle repositorier. Nuværende udpeget vedligeholder: [`vargaijanos`](https://github.com/vargaijanos).
+- **Gennemgangspersoner:** Vedligeholdere af Open Manuscript Initiative, der gennemgår pull-anmodninger og ændringer, der har indflydelse på udgivelsesgenerering, pakning, sikkerhedsfølsom konfiguration og arbejdsgange for kodesignering. Nuværende udpeget gennemgangsperson: [`vargaijanos`](https://github.com/vargaijanos).
+- **Godkendere:** vedligeholdere, der har fået tillid til at godkende anmodninger om signering til produktion og officielle signerede udgivelser. Nuværende udpeget signeringsgodkender: [`vargaijanos`](https://github.com/vargaijanos).
 
 I et lille open source-projekt kan en person varetage mere end én rolle, hvis det er nødvendigt. Underskrivning af produktionsversionen er dog stadig en eksplicit frigivelseshandling og er ikke en implicit følge af vilkårlige ændringer i kildekoden.
 

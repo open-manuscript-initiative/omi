@@ -31,7 +31,7 @@ keywords:
 | Заменено с | Няма |
 | Зависи от | `OMI-SPEC-100`, `OMI-SPEC-120`, `OMI-SPEC-140`, `OMI-SPEC-160`, `OMI-SPEC-180` |
 | Използва се от | `OMI-SPEC-230`, `OMI-SPEC-330`, `OMI-SPEC-340`, `OMI-SPEC-350` |
-| Схема | [XQZTOKEN0END](/schemas/omi-manuscript-0.2.schema.json) |
+| Схема | [`omi-manuscript-0.2.schema.json`](/schemas/omi-manuscript-0.2.schema.json) |
 | Тип медия | `application/vnd.openmanuscript+json` (предварителен) |
 | Разширение на файла | `.omi.json` |
 | Профили | Моментална снимка на ядрото; Обмен на история; Кръгъл цикъл без загуба |
@@ -750,7 +750,7 @@ OMI ръкописите могат да съдържат всякаква си�
 
 ## 23. Примери и тестови набори за проверка на съответствието
 
-Публикуваните мачове за тази версия са достъпни на [XQZTOKEN0END](/examples/omi-spec-320/0.2.0/manifest.json).
+Публикуваните мачове за тази версия са достъпни на [`/examples/omi-spec-320/0.2.0/`](/examples/omi-spec-320/0.2.0/manifest.json).
 
 В списъка на съоръженията са посочени:
 
@@ -774,16 +774,16 @@ OMI ръкописите могат да съдържат всякаква си�
 
 ## 24. Нормативни препратки
 
-- [RFC 2119 — Key words for use in RFCs to Indicate Requirement Levels](XQZTOKEN0END)
-- [RFC 8174 — Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words](XQZTOKEN0END)
-- [RFC 8259 — The JavaScript Object Notation (JSON) Data Interchange Format](XQZTOKEN0END)
-- [RFC 3339 — Date and Time on the Internet: Timestamps](XQZTOKEN0END)
-- [RFC 5646 — Tags for Identifying Languages](XQZTOKEN0END)
-- [RFC 6901 — JavaScript Object Notation (JSON) Pointer](XQZTOKEN0END)
-- [RFC 7493 — The I-JSON Message Format](XQZTOKEN0END)
-- [RFC 3986 — Uniform Resource Identifier (URI): Generic Syntax](XQZTOKEN0END)
-- [JSON Schema Core, Draft 2020-12](XQZTOKEN0END)
-- [JSON Schema Validation, Draft 2020-12](XQZTOKEN0END)
+- [RFC 2119 — Key words for use in RFCs to Indicate Requirement Levels](https://www.rfc-editor.org/rfc/rfc2119)
+- [RFC 8174 — Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words](https://www.rfc-editor.org/rfc/rfc8174)
+- [RFC 8259 — The JavaScript Object Notation (JSON) Data Interchange Format](https://www.rfc-editor.org/rfc/rfc8259)
+- [RFC 3339 — Date and Time on the Internet: Timestamps](https://www.rfc-editor.org/rfc/rfc3339)
+- [RFC 5646 — Tags for Identifying Languages](https://www.rfc-editor.org/rfc/rfc5646)
+- [RFC 6901 — JavaScript Object Notation (JSON) Pointer](https://www.rfc-editor.org/rfc/rfc6901)
+- [RFC 7493 — The I-JSON Message Format](https://www.rfc-editor.org/rfc/rfc7493)
+- [RFC 3986 — Uniform Resource Identifier (URI): Generic Syntax](https://www.rfc-editor.org/rfc/rfc3986)
+- [JSON Schema Core, Draft 2020-12](https://json-schema.org/draft/2020-12/json-schema-core)
+- [JSON Schema Validation, Draft 2020-12](https://json-schema.org/draft/2020-12/json-schema-validation)
 - [OMI Specification Registry](../governance/specification-registry.md)
 - [OMI Versioning Policy](../governance/versioning-policy.md)
 - [OMI-SPEC-160 — Versioning and Change Model](./versioning-change-model.md)
@@ -792,10 +792,10 @@ OMI ръкописите могат да съдържат всякаква си�
 
 ## 25. Информативни източници
 
-- [RFC 8785 — JSON Canonicalization Scheme](XQZTOKEN0END)
-- [RFC 6838 — Media Type Specifications and Registration Procedures](XQZTOKEN0END)
-- [RFC 6839 — Additional Media Type Structured Syntax Suffixes](XQZTOKEN0END)
-- [FAIR Guiding Principles](XQZTOKEN0END)
+- [RFC 8785 — JSON Canonicalization Scheme](https://www.rfc-editor.org/rfc/rfc8785)
+- [RFC 6838 — Media Type Specifications and Registration Procedures](https://www.rfc-editor.org/rfc/rfc6838)
+- [RFC 6839 — Additional Media Type Structured Syntax Suffixes](https://www.rfc-editor.org/rfc/rfc6839)
+- [FAIR Guiding Principles](https://www.go-fair.org/fair-principles/)
 - [OMI Architecture Map](../foundations/architecture-map.md)
 - [OMI Specification Style Guide](../governance/style-guide.md)
 

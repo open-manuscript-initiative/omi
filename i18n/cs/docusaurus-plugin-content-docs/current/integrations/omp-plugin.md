@@ -16,10 +16,10 @@ slug: /integrations/omp-plugin
 
 ### Stáhnout
 
-- **[Download OMP plugin v1.2.6 — ZIP](XQZTOKEN0END)**
-- **[Download OMP plugin v1.2.6 — TAR.GZ](XQZTOKEN0END)**
-- [SHA-256 checksums](XQZTOKEN0END)
-- [Latest GitHub release](XQZTOKEN0END)
+- **[Download OMP plugin v1.2.6 — ZIP](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/studioIntegration-omp-3.5-v1.2.6.zip)**
+- **[Download OMP plugin v1.2.6 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/studioIntegration-omp-3.5-v1.2.6.tar.gz)**
+- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/SHA256SUMS.txt)
+- [Latest GitHub release](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/latest)
 
 Archiv vydání používá adresář `studioIntegration/` jako kořenový adresář balíčků pro instalaci kompatibilní s PKP.
 
@@ -113,9 +113,9 @@ Implementace respektuje hranice repozitáře a pracovních postupů PKP, místo 
 
 Repozitář pluginů dokumentuje původ API a přetrvávající hranici mezi technickou kompatibilitou a oficiálním přijetím ze strany PKP:
 
-- [PKP compatibility notes](XQZTOKEN0END)
-- [Security policy](XQZTOKEN0END)
-- [Installation guide](XQZTOKEN0END)
+- [PKP compatibility notes](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/PKP_COMPATIBILITY.md)
+- [Security policy](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/SECURITY.md)
+- [Installation guide](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/INSTALL.md)
 
 Zařazení do oficiální galerie pluginů stále vyžaduje posouzení správcem PKP a testování na úrovni instalace na podporované, neupravené verzi OMP.
 
@@ -123,18 +123,18 @@ Zařazení do oficiální galerie pluginů stále vyžaduje posouzení správcem
 
 Při vývoji tohoto pluginu byla ve značné míře využita generativní umělá inteligence v oblastech architektury, implementace, analýzy PKP API, bezpečnostního posouzení, CI/CD, testování a dokumentace. Za kód odeslaný nebo vydaný uživatelům nadále nesou odpovědnost lidští správci a chování závislé na PKP se ověřuje na základě aktuálního zdrojového kódu OMP/PKP a výsledků testů.
 
-- [AI contribution declaration](XQZTOKEN0END)
+- [AI contribution declaration](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/AI-DECLARATION.md)
 
 ## Zdrojová a projektová dokumentace
 
-- [Source repository](XQZTOKEN0END)
-- [README](XQZTOKEN0END)
-- [Installation guide](XQZTOKEN0END)
-- [PKP compatibility](XQZTOKEN0END)
-- [Security](XQZTOKEN0END)
-- [Changelog](XQZTOKEN0END)
-- [License](XQZTOKEN0END)
-- [All releases](XQZTOKEN0END)
+- [Source repository](https://github.com/open-manuscript-initiative/omi-omp-plugin)
+- [README](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/README.md)
+- [Installation guide](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/INSTALL.md)
+- [PKP compatibility](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/PKP_COMPATIBILITY.md)
+- [Security](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/SECURITY.md)
+- [Changelog](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/CHANGELOG.md)
+- [License](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/LICENSE)
+- [All releases](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases)
 
 ## Stav PKP
 

@@ -16,10 +16,10 @@ slug: /integrations/omp-plugin
 
 ### Download
 
-- **[Download OMP plugin v1.2.6 — ZIP](XQZTOKEN0END)**
-- **[Download OMP plugin v1.2.6 — TAR.GZ](XQZTOKEN0END)**
-- [SHA-256 checksums](XQZTOKEN0END)
-- [Latest GitHub release](XQZTOKEN0END)
+- **[Download OMP plugin v1.2.6 — ZIP](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/studioIntegration-omp-3.5-v1.2.6.zip)**
+- **[Download OMP plugin v1.2.6 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/studioIntegration-omp-3.5-v1.2.6.tar.gz)**
+- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/SHA256SUMS.txt)
+- [Latest GitHub release](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/latest)
 
 Udgivelsesarkivet bruger `studioIntegration/` som pakkeroot til PKP-kompatibel installation.
 
@@ -113,9 +113,9 @@ Implementeringen følger PKP-repositoriets og arbejdsgangens grænser i stedet f
 
 Plugin-arkivet beskriver oprindelsen af »API« og den tilbageværende grænse mellem teknisk kompatibilitet og officiel godkendelse fra PKP:
 
-- [PKP compatibility notes](XQZTOKEN0END)
-- [Security policy](XQZTOKEN0END)
-- [Installation guide](XQZTOKEN0END)
+- [PKP compatibility notes](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/PKP_COMPATIBILITY.md)
+- [Security policy](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/SECURITY.md)
+- [Installation guide](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/INSTALL.md)
 
 For at blive optaget i det officielle plugin-galleri kræves der stadig en gennemgang af en PKP-vedligeholder samt test på installationsniveau på en understøttet, uændret udgave af OMP.
 
@@ -123,18 +123,18 @@ For at blive optaget i det officielle plugin-galleri kræves der stadig en genne
 
 Udviklingen af pluginet har modtaget betydelig hjælp fra generativ AI inden for arkitektur, implementering, PKP-API-analyse, sikkerhedsvurdering, CI/CD, test og dokumentation. Menneskelige vedligeholdere bærer fortsat ansvaret for kode, der indsendes eller frigives til brugerne, og PKP-afhængig adfærd kontrolleres i forhold til den faktiske OMP/PKP-kildekode og testresultater.
 
-- [AI contribution declaration](XQZTOKEN0END)
+- [AI contribution declaration](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/AI-DECLARATION.md)
 
 ## Kilde- og projektdokumentation
 
-- [Source repository](XQZTOKEN0END)
-- [README](XQZTOKEN0END)
-- [Installation guide](XQZTOKEN0END)
-- [PKP compatibility](XQZTOKEN0END)
-- [Security](XQZTOKEN0END)
-- [Changelog](XQZTOKEN0END)
-- [License](XQZTOKEN0END)
-- [All releases](XQZTOKEN0END)
+- [Source repository](https://github.com/open-manuscript-initiative/omi-omp-plugin)
+- [README](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/README.md)
+- [Installation guide](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/INSTALL.md)
+- [PKP compatibility](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/PKP_COMPATIBILITY.md)
+- [Security](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/SECURITY.md)
+- [Changelog](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/CHANGELOG.md)
+- [License](https://github.com/open-manuscript-initiative/omi-omp-plugin/blob/main/LICENSE)
+- [All releases](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases)
 
 ## PKP-status
 

@@ -16,10 +16,10 @@ slug: /integrations/ojs-plugin
 
 ### Download
 
-- **[Download OJS plugin v1.2.1 — ZIP](XQZTOKEN0END)**
-- **[Download OJS plugin v1.2.1 — TAR.GZ](XQZTOKEN0END)**
-- [SHA-256 checksums](XQZTOKEN0END)
-- [Latest GitHub release](XQZTOKEN0END)
+- **[Download OJS plugin v1.2.1 — ZIP](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.1/studioIntegration-ojs-3.5-v1.2.1.zip)**
+- **[Download OJS plugin v1.2.1 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.1/studioIntegration-ojs-3.5-v1.2.1.tar.gz)**
+- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.1/SHA256SUMS.txt)
+- [Latest GitHub release](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/latest)
 
 Udgivelsesarkivet indeholder plugin’et i mappen »`studioIntegration/`«, som er den rodmappe, der forventes i PKP-plugin-installationsprocesserne.
 
@@ -90,15 +90,15 @@ Udviklingen af pluginet har modtaget betydelig hjælp fra generativ AI inden for
 
 Repositoriet indeholder en eksplicit angivelse af AI-bidrag til PKP-relateret peer review:
 
-- [AI contribution declaration](XQZTOKEN0END)
+- [AI contribution declaration](https://github.com/open-manuscript-initiative/omi-ojs-plugin/blob/main/AI-DECLARATION.md)
 
 ## Kilde- og projektdokumentation
 
-- [Source repository](XQZTOKEN0END)
-- [README](XQZTOKEN0END)
-- [Changelog](XQZTOKEN0END)
-- [License](XQZTOKEN0END)
-- [All releases](XQZTOKEN0END)
+- [Source repository](https://github.com/open-manuscript-initiative/omi-ojs-plugin)
+- [README](https://github.com/open-manuscript-initiative/omi-ojs-plugin/blob/main/README.md)
+- [Changelog](https://github.com/open-manuscript-initiative/omi-ojs-plugin/blob/main/CHANGELOG.md)
+- [License](https://github.com/open-manuscript-initiative/omi-ojs-plugin/blob/main/LICENSE)
+- [All releases](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases)
 
 ## PKP-status
 

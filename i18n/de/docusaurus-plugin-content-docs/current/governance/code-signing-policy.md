@@ -42,9 +42,9 @@ Für mit SignPath signierte Veröffentlichungen:
 
 Derzeit sind folgende Rollen für die Unterzeichnung vorgesehen:
 
-- **Autoren / Committer:** Betreuer von Open Manuscript Initiative mit Schreibzugriff auf die offiziellen Repositorys. Derzeitiger designierter Betreuer: [XQZTOKEN0END](XQZTOKEN1END).
-- **Prüfer:** Betreuer von „Open Manuscript Initiative“, die Pull-Anfragen und Änderungen prüfen, die sich auf die Erstellung von Releases, die Paketierung, sicherheitsrelevante Konfigurationen und Workflows zur Code-Signierung auswirken. Derzeit benannter Prüfer: [XQZTOKEN0END](XQZTOKEN1END).
-- **Genehmiger:** Betreuer, denen die Autorisierung von Signaturanfragen für die Produktionsumgebung und von offiziell signierten Veröffentlichungen anvertraut ist. Derzeit benannter Signaturgenehmiger: [XQZTOKEN0END](XQZTOKEN1END).
+- **Autoren / Committer:** Betreuer von Open Manuscript Initiative mit Schreibzugriff auf die offiziellen Repositorys. Derzeitiger designierter Betreuer: [`vargaijanos`](https://github.com/vargaijanos).
+- **Prüfer:** Betreuer von „Open Manuscript Initiative“, die Pull-Anfragen und Änderungen prüfen, die sich auf die Erstellung von Releases, die Paketierung, sicherheitsrelevante Konfigurationen und Workflows zur Code-Signierung auswirken. Derzeit benannter Prüfer: [`vargaijanos`](https://github.com/vargaijanos).
+- **Genehmiger:** Betreuer, denen die Autorisierung von Signaturanfragen für die Produktionsumgebung und von offiziell signierten Veröffentlichungen anvertraut ist. Derzeit benannter Signaturgenehmiger: [`vargaijanos`](https://github.com/vargaijanos).
 
 Bei einem kleinen Open-Source-Projekt kann eine Person bei Bedarf mehr als eine Rolle übernehmen. Die Signierung der Produktionsversion bleibt dennoch eine explizite Veröffentlichungsmaßnahme und ist keine implizite Folge beliebiger Änderungen am Quellcode.
 
