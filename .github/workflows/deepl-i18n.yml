@@ -1,6 +1,16 @@
 name: DeepL Docusaurus translations
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/**'
+      - 'src/**'
+      - 'docusaurus.config.*'
+      - 'sidebars.*'
+      - 'scripts/translate-site-incremental-with-deepl.mjs'
+      - '.github/workflows/deepl-i18n.yml'
   workflow_dispatch:
     inputs:
       locales:

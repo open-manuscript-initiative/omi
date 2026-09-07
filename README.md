@@ -12,14 +12,14 @@ OMI treats the scholarly manuscript — structure, metadata, contributors, citat
 
 **Open Manuscript Studio** is the OMI reference implementation.
 
-Current public release line: **`0.1.0-beta.3`**.  
+Current public release line: **`0.1.0-beta.4`**.  
 Project state: **public beta / active stabilization and interoperability development**.
 
-The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. The OJS 3.5 and OMP 3.5 integration lines now have native end-to-end coverage for signed author/editor/reviewer launches, anonymous review projections, assignment-scoped files, review forms, corrections, separated feedback and signed writeback. Android is an operational public-beta target; iOS/iPadOS simulator/native builds are validated while public Apple distribution remains dependent on signing, provisioning and device/TestFlight validation.
+The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. The OJS 3.5 and OMP 3.5 integration lines have native end-to-end coverage for signed author/editor/reviewer launches, anonymous review projections, assignment-scoped files, review forms, corrections, separated feedback and signed writeback. Android is an operational public-beta target; iOS/iPadOS simulator/native builds are validated while public Apple distribution remains dependent on signing, provisioning and device/TestFlight validation. Beta.4 also hardens release provenance: a published tag is tied to the exact build commit and its downloadable assets are never replaced by later `main` builds.
 
 ### Latest development line
 
-The September 2026 development line makes editing substantially more word-processor-like without flattening OMI structure:
+The September 2026 development line makes editing and publication substantially more direct without flattening OMI structure:
 
 - manuscript-wide editing order across section boundaries;
 - paragraph split with Enter and compatible paragraph merge with Backspace/Delete;
@@ -29,7 +29,11 @@ The September 2026 development line makes editing substantially more word-proces
 - Studio-native mobile selection actions while copy/cut still use the system clipboard;
 - structural PDF import with raw bbox visual-row reconstruction for difficult footnote layouts;
 - native Android PDF import routed to the Studio API;
-- safer Android startup when IndexedDB session restoration is blocked.
+- one-step responsive Studio navigation on desktop and mobile;
+- cross-platform update notifications with current-release fallback;
+- separate printed/archive and interactive PDF export modes;
+- safer Android startup when IndexedDB session restoration is blocked;
+- provenance-safe immutable release publishing.
 
 The user should experience one continuous manuscript while headings, figures, tables, notes, citations, cross-references, versions and other semantic OMI objects remain explicit.
 
@@ -37,7 +41,7 @@ The user should experience one continuous manuscript while headings, figures, ta
 
 Studio includes structured rich-text authoring, large DOCX import, semantic indexes and generated document structures, multi-document desktop editing, publication styles and publisher profiles, double-blind peer review, OJS/OMP integration, ORCID and federated sign-in, institutional profiles and administration, native file workflows, profile-scoped cloud integrations, proofreading/translation integrations and publication-oriented export.
 
-Portable output includes `.omi.zip`, OMI JSON, JATS XML, semantic HTML, DOCX, EPUB, LaTeX and multiple print/DTP-oriented formats.
+Portable output includes `.omi.zip`, OMI JSON, JATS XML, semantic HTML, DOCX, EPUB, LaTeX and multiple print/DTP-oriented formats. PDF output can be generated either for print/archive use without active links or as an interactive document preserving usable internal and external links.
 
 ## OMI Cloud and federated infrastructure roadmap
 
