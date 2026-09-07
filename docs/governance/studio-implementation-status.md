@@ -30,8 +30,8 @@ keywords:
 | Field | Value |
 |---|---|
 | Status | **Beta** |
-| Snapshot date | **2026-09-05** |
-| Current release line | `0.1.0-beta.3` |
+| Snapshot date | **2026-09-07** |
+| Current release line | `0.1.0-beta.4` |
 | Reference implementation | Open Manuscript Studio |
 | Source repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web target | Modern browsers |
@@ -39,7 +39,7 @@ keywords:
 | Mobile targets | Android public universal APK; iOS/iPadOS validated native simulator target, with TestFlight/App Store distribution pending Apple Developer signing |
 | Web deployment | `studio.openmanuscript.org` |
 
-The current Studio beta is **`0.1.0-beta.3`**. Beta means that the primary authoring, import/export, authentication, native-client and OJS/OMP review workflows are implemented and the project has moved from feature scaffolding to interoperability, regression, recovery and release-hardening work. It does **not** mean that every optional integration or distribution channel is production-complete.
+The current Studio beta is **`0.1.0-beta.4`**. Beta means that the primary authoring, import/export, authentication, native-client and OJS/OMP review workflows are implemented and the project has moved from feature scaffolding to interoperability, regression, recovery and release-hardening work. Beta.4 also makes release provenance explicit: published release tags are bound to the exact build commit and published assets are treated as immutable. It does **not** mean that every optional integration or distribution channel is production-complete.
 
 This page describes **implemented product capabilities**, not OMI specification conformance. Formal specification maturity and conformance evidence are tracked separately in the [OMI Implementation Status Matrix](./implementation-status-matrix.md).
 
@@ -56,6 +56,7 @@ This page describes **implemented product capabilities**, not OMI specification 
 |---|---|---|
 | Structured manuscript editing | **Operational** | Semantic sections, rich text, headings, inline formatting, lists, notes, references, tables and structured content handling. |
 | Desktop multi-document workspace | **Operational** | Browser-style document tabs keep multiple manuscripts open on desktop. Full-window Studio/Account surfaces and a toggleable Word-like document outline support long-form navigation while mobile retains its compact structure workflow. |
+| One-step responsive navigation | **Operational** | Studio navigation opens directly without an intermediate second-level menu. Desktop and mobile use the same responsive navigation model, including a same-position control for closing the navigation surface. |
 | Session/workspace restoration | **Operational** | Native and web workspace state can restore the previous working context, including open-document state, while explicit document-close controls allow the user to leave a manuscript without losing the surrounding application session. |
 | Rich-text formatting controls | **Operational** | Compact inline formatting remains available near the selection; the expanded desktop menu is docked and viewport-safe, while inline language is selected from configured manuscript languages rather than free text. Automatic floating formatting can be disabled in editor settings. Mobile selection controls avoid collision with native text-selection UI. |
 | Structured search and replace | **Operational** | Search/replace overlay, scopes and result navigation with responsive access shared by desktop and mobile layouts. |
@@ -92,6 +93,7 @@ This page describes **implemented product capabilities**, not OMI specification 
 | Integration audit and extension registry | **Operational foundation / configuration-dependent execution** | Integration execution records operation metadata/digests without storing manuscript text or secrets. Extension manifests support version compatibility, permissions, capabilities and HTTPS-only external endpoints. |
 | Portable OMI export | **Operational** | Portable `.omi.zip` and OMI JSON outputs are available as first-class interchange forms. |
 | Scholarly/publishing exports | **Operational** | JATS XML, semantic offline HTML package, DOCX, EPUB, PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX are represented in the current export layer. Semantic index fields can be exported back to DOCX. |
+| Printed and interactive PDF export | **Operational** | PDF export distinguishes print/archive output from interactive output. Print/archive mode removes active hyperlinks; interactive mode preserves usable internal and external links. Typeset publication content and neutral editorial/manuscript content remain separately selectable. |
 | Cross-platform export delivery | **Operational** | Hosted Studio uses browser downloads; installed Tauri clients use native save/document-provider dialogs and binary writes for supported export targets. Mobile clients expose a platform-appropriate subset rather than desktop-only publishing choices. |
 | Publisher profiles | **Operational** | Publisher profile, export stylesheet and print stylesheet handling are separated from manuscript semantics. |
 | Device-aware storage mode | **Operational on installed clients** | Studio keeps a per-user, per-device “own device” trust preference. Own devices can retain normal native working paths; newly seen/shared devices default to a restricted mode that does not retain local working paths. |
@@ -106,11 +108,12 @@ This page describes **implemented product capabilities**, not OMI specification 
 | Linux and macOS packaging | **Operational build targets** | Release automation defines Linux AppImage/DEB and macOS Intel/Apple Silicon DMG targets. Platform signing/notarization remains separate release-hardening work. |
 | Android application | **Operational beta** | A universal Android APK is produced by the shared Tauri 2 release workflow. Server-backed auth, OIDC/ORCID native return handling, responsive navigation, native Documents/SAF file handling, export delivery and OMI branding are part of the shared client line. |
 | iOS / iPadOS application | **Validated native target** | Tauri iOS project generation and the Apple Silicon iPhone/iPad simulator build succeed in CI, including native Files integration and shared mobile authentication/export code. Public TestFlight/App Store distribution still requires Apple Developer signing, provisioning, Universal Link association and physical-device validation. |
-| Desktop update flow | **Operational** | Update notification and installer flow is implemented in the desktop application and updater artifacts are produced by the release configuration. |
-| Cross-platform release automation | **Operational** | GitHub Actions produces Windows, Linux, macOS and Android artifacts from the shared source tree and runs an iOS/iPadOS simulator smoke build. A manual signed Apple release workflow is prepared for App Store Connect once Apple credentials are configured. |
+| Cross-platform update notifications | **Operational** | Login, workspace, review and native/mobile surfaces check for newer public releases on startup, periodically and when the app becomes visible. Signed Tauri updater metadata is preferred where available, with current-release fallback for platform installers and Android APK delivery. |
+| Desktop update flow | **Operational** | Update notification and installer flow is implemented in the desktop application. Signed updater metadata is preferred; the public-release fallback prevents supported clients from being stranded when signed updater metadata is unavailable. |
+| Cross-platform release automation | **Operational** | GitHub Actions produces Windows, Linux, macOS and Android artifacts from the shared source tree and runs an iOS/iPadOS simulator smoke build. Beta.4 binds each public release tag to the exact source commit, uploads assets only once, never retargets an existing release and never replaces existing release assets. A manual signed Apple release workflow is prepared for App Store Connect once Apple credentials are configured. |
 | Release dependency reproducibility | **Operational** | JavaScript and Rust dependency graphs are lockfile-controlled; CI uses reproducible install paths including `npm ci` for the server. |
 | Application branding | **Operational** | OMI Studio branding and generated native icon assets are used across the application shell and release packaging, including Android and the generated iOS/iPadOS target. |
-| Security hardening | **Operational baseline** | Server-side rate limiting, SSRF restrictions, OIDC state/nonce/PKCE and issuer validation, restricted secret persistence, hashed reset/Admin-API tokens, integration/admin auditing, safer import/export escaping and automated security scanning are incorporated into the current development line. OJS review-form rendering has additional markup/text isolation hardening. |
+| Security hardening | **Operational baseline** | Server-side rate limiting, SSRF restrictions, OIDC state/nonce/PKCE and issuer validation, restricted secret persistence, hashed reset/Admin-API tokens, integration/admin auditing, safer import/export escaping and automated security scanning are incorporated into the current development line. OJS review-form rendering has additional markup/text isolation hardening. The remaining transitive `glib 0.18.x` advisory is tracked in one canonical upstream-blocked issue until the supported Tauri/GTK stack can move to `glib >= 0.20`. |
 | Windows code signing | **Application submitted / pending** | Public code-signing and privacy policies are published and the SignPath Foundation open-source application has been prepared/submitted. Windows installers remain unsigned until acceptance and production signing integration. |
 
 ## Cross-platform architecture
@@ -151,7 +154,7 @@ The current OJS and OMP integrations are bidirectional for review work: Studio c
 
 ## Release and distribution
 
-`0.1.0-beta.3` is the current Studio beta release line. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. The public Studio download page exposes browser access and the available native packages, including the Android universal APK.
+`0.1.0-beta.4` is the current Studio beta release line. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Public download links follow GitHub's current release rather than embedding one historical tag in the website, while published release assets themselves remain immutable.
 
 iOS/iPadOS currently has a successful CI simulator build rather than a public IPA. The Apple distribution path is prepared but deliberately separated from simulator validation: public/device builds require the real Apple Development Team ID, distribution certificate, provisioning profile and final `apple-app-site-association` configuration before TestFlight/App Store publication can be claimed.
 
@@ -163,13 +166,14 @@ The beta line shifts the release gate from “is the primary workflow implemente
 
 1. manuscript creation, opening, editing, saving, explicit closing, session restoration and reopening without data loss;
 2. large and structurally complex DOCX imports, including notes, tables, lists, fields and dynamic indexes;
-3. representative structured export paths on web and native clients;
+3. representative structured export paths on web and native clients, including printed versus interactive PDF behavior;
 4. OJS and OMP manuscript round-trip and role-aware author/editor/reviewer workflows, including assigned-file scoping, multi-round review, native review forms and signed writeback;
 5. double-blind peer review without identity leakage and with least-privilege integration scopes;
 6. Android Documents/SAF lifecycle behavior and responsive mobile navigation;
 7. iOS/iPadOS Files/UIDocumentPicker behavior once signed physical-device testing is available;
 8. institution/central administration without privilege leakage into manuscript content;
-9. understandable user-facing recovery for network, authentication, migration, import/export and integration failures.
+9. understandable user-facing recovery for network, authentication, migration, import/export and integration failures;
+10. release provenance, updater fallback behavior and immutable downloadable assets across successive beta releases.
 
 Configuration-dependent integrations do not need to be universally available for the beta line, provided their maturity is clearly identified and they do not compromise the stable core workflows.
 
@@ -183,6 +187,7 @@ Configuration-dependent integrations do not need to be universally available for
 - continue OMP 3.5 cross-version interoperability, deployment and recovery hardening;
 - strengthen recovery behavior for interrupted network, cloud and synchronization operations;
 - replace remaining technical/raw error surfaces with actionable user-facing messages;
+- continue tracking the upstream Tauri/GTK migration until the transitive `glib 0.18.x` advisory can be removed by a supported dependency update;
 - integrate Windows production code signing if/when the SignPath Foundation application is accepted;
 - continue macOS signing/notarization work;
 - configure Apple Developer signing/provisioning, production Universal Link association and TestFlight/device validation before claiming public iOS/iPadOS distribution;
