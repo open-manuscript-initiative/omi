@@ -14,9 +14,9 @@ description: Current programme, completed foundations, reference-implementation 
 |---|---|
 | Document type | Governance and planning |
 | Status | Draft |
-| Version | 0.4.0 |
+| Version | 0.4.1 |
 | Normative language | English |
-| Last updated | 2026-09-05 |
+| Last updated | 2026-09-07 |
 | Planning horizon | OMI 1.0 |
 | Authoritative identifier source | [OMI Specification Registry](./specification-registry.md) |
 | Product implementation baseline | [Studio Implementation Status](./studio-implementation-status.md) |
@@ -44,18 +44,18 @@ The programme has moved well beyond the initial documentation-audit stage. Gover
 |---|---|---|
 | Documentation audit | **Completed** | Original English documentation was inventoried, classified and reorganised. |
 | Governance foundation | **Largely completed** | Charter, lifecycle, versioning, style, terminology, registry, documentation architecture, specification template and code-signing policy are published. |
-| Website/product synchronization | **Active and maintained** | The public Studio page and dated Studio status report now track implemented product capabilities separately from normative conformance. |
+| Website/product synchronization | **Active and maintained** | The public Studio page and dated Studio status report track implemented product capabilities separately from normative conformance, with release/version data synchronized to the current public beta line. |
 | Identifier migration | **Completed for active specifications** | Active specifications use the canonical `OMI-SPEC-*` allocation architecture. |
 | Core semantic models | **In progress** | Identity/contributor and versioning/change models have substantive reference implementation evidence; validation, translation and collaboration remain incomplete at specification level. |
-| Reference implementation | **Public beta (`0.1.0-beta.3`)** | Structured editing, multilingual UI/help, server-backed accounts, peer review, native OJS/OMP integration, imports/exports, publisher profiles, search, desktop/mobile builds and updater flow are present. |
+| Reference implementation | **Public beta (`0.1.0-beta.4`)** | Structured editing, multilingual UI/help, server-backed accounts, peer review, native OJS/OMP integration, imports/exports, publisher profiles, search, desktop/mobile builds, cross-platform update notifications and immutable release provenance are present. |
 | Peer review | **Operational implementation** | Double-blind review foundations, reviewer workspaces, editor review dashboard and externally assigned review handling are implemented. Formal specification conformance remains future work. |
 | OJS integration | **Operational / configuration-dependent** | The v1.2.1 plugin and Studio workflow provide signed author/editor/reviewer launch, scoped file transfer, native review forms, corrections, separated feedback and signed writeback; native OJS 3.5 E2E verification is green. Full profile coverage and conformance remain incomplete. |
 | OMP integration | **Operational / configuration-dependent** | The v1.2.6 plugin and Studio workflow provide signed author/editor/reviewer launch, monograph/publication/study mapping, assigned-study-only review access, native forms, corrections, separated feedback and signed writeback; native OMP 3.5 E2E verification is green. |
 | Identity integrations | **Configuration-dependent** | ORCID OAuth deployment infrastructure and ROR/bibliographic identity foundations exist. Production configuration is deployment-specific. |
-| Integration platform | **Foundation implemented** | Integrations catalog, provider registry, provider authentication modes and DeepL configuration scaffolding are present. DeepL translation execution is not yet complete. |
+| Integration platform | **Operational foundation / configuration-dependent execution** | Integrations catalog, provider registry and provider authentication modes are present. Structured DeepL translation and provider-neutral agent execution are available when the corresponding external services are configured. |
 | Multilingual product support | **Operational implementation** | Studio exposes 24 supported interface languages with localized help and reviewed translation overlays. Normative specification bodies remain English. |
-| Import/export | **Substantive implementation** | DOCX import and broad publication/export targets are implemented, including JATS, HTML, EPUB, PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX-oriented outputs. |
-| Desktop distribution | **Operational beta** | Windows, Linux and macOS packages are built automatically; desktop update notification/installer flow is implemented. Code-signing work remains in progress. |
+| Import/export | **Substantive implementation** | DOCX import and broad publication/export targets are implemented, including JATS, HTML, EPUB, printed and interactive PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX-oriented outputs. |
+| Desktop distribution | **Operational beta** | Windows, Linux and macOS packages are built automatically; desktop/cross-platform update notifications are implemented. Beta.4 release automation binds published tags to exact build commits and does not replace assets of existing releases. Code-signing work remains in progress. |
 | Canonical schemas and conformance | **Not completed** | Versioned normative schemas, approved fixtures, validator behaviour and formal conformance suites remain major pre-1.0 deliverables. |
 | Independent implementations | **Not yet verified** | Interoperability evidence beyond the primary reference implementation remains required for OMI 1.0 confidence. |
 
@@ -149,11 +149,11 @@ OJS and OMP are operational external workflow integrations. Both provide signed 
 
 ### 6.6 Publishing outputs
 
-The Studio supports multiple publication-oriented outputs and profiles, including JATS XML, HTML5, DOCX, EPUB, PDF and several DTP-oriented formats. This implementation must still be mapped to formal import/export and conformance requirements before OMI 1.0.
+The Studio supports multiple publication-oriented outputs and profiles, including JATS XML, HTML5, DOCX, EPUB, PDF and several DTP-oriented formats. PDF output distinguishes print/archive documents, where active links are removed, from interactive documents that preserve usable internal and external links. This implementation must still be mapped to formal import/export and conformance requirements before OMI 1.0.
 
 ### 6.7 Desktop distribution
 
-Tauri desktop builds are produced for Windows, Linux and macOS. The desktop updater flow is implemented. Windows code-signing preparation is underway; unsigned or not-yet-reputation-established builds may still trigger platform warnings.
+Tauri desktop builds are produced for Windows, Linux and macOS, with Android built from the same shared release line and an iOS/iPadOS simulator smoke target in CI. Cross-platform update notifications are implemented. Beta.4 release automation binds a release tag to the exact successful build commit and treats already published assets as immutable. Windows code-signing preparation is underway; unsigned or not-yet-reputation-established builds may still trigger platform warnings.
 
 ## 7. OMI 1.0 objectives
 
