@@ -13,11 +13,11 @@ description: Authoritative registry of Open Manuscript Initiative specification 
 |---|---|
 | Document type | Governance registry |
 | Status | Draft |
-| Version | 0.3.1 |
+| Version | 0.4.0 |
 | Normative language | English |
 | Registry namespace | `OMI-SPEC` |
 | Applies to | Normative OMI specifications and reserved specification identifiers |
-| Last updated | 2026-09-05 |
+| Last updated | 2026-09-09 |
 
 ## 1. Purpose
 
@@ -148,7 +148,7 @@ Development ended before the specification became Stable. The identifier remains
 | `OMI-SPEC-220` | Bibliographic Record Model | Active | Draft | 0.1.0 | `docs/specifications/bibliographic-record-model.md` |
 | `OMI-SPEC-221` | Reference Library and Registry Architecture | Active | Draft | 0.1.0 | `docs/specifications/reference-library-registry.md` |
 | `OMI-SPEC-230` | Publishing Model | Active | Draft | 0.1.0 | `docs/specifications/publishing-model.md` |
-| `OMI-SPEC-240` | Rendering and Publication Profile Model | Reserved | — | — | `docs/specifications/rendering-publication-profile-model.md` |
+| `OMI-SPEC-240` | Rendering and Publication Profile Model | Active | Draft | 0.1.0 | `docs/specifications/rendering-publication-profile-model.md` |
 
 ### 6.3 Platform, exchange, and conformance
 
@@ -568,6 +568,7 @@ The adoption does not by itself change the lifecycle status of any specification
 
 | Version | Date | Summary |
 |---|---|---|
+| 0.4.0 | 2026-09-09 | Activated `OMI-SPEC-240`, Rendering and Publication Profile Model, as Draft version 0.1.0. |
 | 0.3.1 | 2026-09-05 | Advanced `OMI-SPEC-320`, File Format, to Draft version 0.2.0 after its template-complete rewrite and publication of the first canonical manuscript schema and fixtures. |
 | 0.3.0 | 2026-08-06 | Activated `OMI-SPEC-160`, Versioning and Change Model, as Draft version 0.1.0. |
 | 0.2.0 | 2026-08-06 | Activated `OMI-SPEC-150`, Identity and Contributor Model, as Draft version 0.1.0; linked the implementation matrix and updated governance-document registration. |
