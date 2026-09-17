@@ -1,0 +1,229 @@
+name: Azure Translator Docusaurus translations
+
+on:
+  workflow_dispatch:
+    inputs:
+      locales:
+        description: 'Comma-separated target locales (default: all configured targets)'
+        required: false
+        type: string
+      repair:
+        description: 'Repair faulty machine translations by regenerating the selected locales'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: azure-i18n
+  cancel-in-progress: false
+
+env:
+  PROGRESS_BRANCH: i18n/azure-progress
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Resume translation progress
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          if git ls-remote --exit-code --heads origin "refs/heads/${PROGRESS_BRANCH}" >/dev/null 2>&1; then
+            git fetch origin "${PROGRESS_BRANCH}:${PROGRESS_BRANCH}"
+            git switch "${PROGRESS_BRANCH}"
+            git merge --no-edit origin/main
+          else
+            git switch -c "${PROGRESS_BRANCH}"
+          fi
+
+      - name: Translate incrementally with Azure Translator
+        id: translate
+        env:
+          AZURE_TRANSLATOR_KEY: ${{ secrets.AZURE_TRANSLATOR_KEY }}
+          AZURE_TRANSLATOR_REGION: ${{ vars.AZURE_TRANSLATOR_REGION }}
+          AZURE_TRANSLATOR_ENDPOINT: ${{ vars.AZURE_TRANSLATOR_ENDPOINT }}
+          INPUT_LOCALES: ${{ inputs.locales }}
+          INPUT_REPAIR: ${{ inputs.repair }}
+        shell: bash
+        run: |
+          set -uo pipefail
+          args=(--write)
+          if [[ -n "${INPUT_LOCALES:-}" ]]; then
+            args+=("--locales=${INPUT_LOCALES}")
+          fi
+          if [[ "${INPUT_REPAIR:-false}" == "true" ]]; then
+            args+=(--force)
+          fi
+
+          log_file="$RUNNER_TEMP/azure-translation.log"
+          set +e
+          node scripts/translate-site-incremental-with-azure.mjs "${args[@]}" 2>&1 | tee "$log_file"
+          rc=${PIPESTATUS[0]}
+          set -e
+
+          if [[ "$rc" -eq 0 ]]; then
+            status=complete
+          elif [[ "$rc" -eq 75 ]]; then
+            status=quota
+          elif grep -Eq 'HTTP (401|403)' "$log_file"; then
+            status=api_access
+          else
+            status=error
+          fi
+
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          echo "exit_code=$rc" >> "$GITHUB_OUTPUT"
+          echo "Azure Translator status: $status (exit $rc)"
+
+      - name: Detect translation changes
+        id: changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          changed=false
+          if [[ -n "$(git status --porcelain -- i18n)" ]]; then
+            changed=true
+          fi
+          if [[ -d .deepl && -n "$(git status --porcelain -- .deepl)" ]]; then
+            changed=true
+          fi
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
+
+      - name: Commit translation progress
+        if: steps.changes.outputs.changed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -A -- i18n
+          if [[ -d .deepl ]]; then
+            git add -A -- .deepl
+          fi
+          git commit -m "i18n: update incremental Azure translation progress"
+
+      - name: Push translation progress
+        shell: bash
+        run: |
+          set -euo pipefail
+          git push origin "HEAD:${PROGRESS_BRANCH}"
+
+      - name: Validate completed Docusaurus build
+        id: build
+        if: steps.translate.outputs.status == 'complete'
+        continue-on-error: true
+        run: npm run build
+
+      - name: Create or update completed translation pull request
+        id: pr
+        if: steps.translate.outputs.status == 'complete' && steps.build.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if git diff --quiet origin/main...HEAD; then
+            echo "Translations are already represented on main; no pull request is needed."
+            exit 0
+          fi
+
+          body_file="$RUNNER_TEMP/azure-pr-body.md"
+          cat > "$body_file" <<'BODY'
+          ✅ Complete — incremental Azure Translator localization finished and the Docusaurus build passed.
+
+          Review this PR and merge it when ready.
+
+          - Source locale: English
+          - Only new or source-changed segments are sent to Azure Translator.
+          - Existing translation hashes are reused from `.deepl/i18n-state.json` for backward compatibility with the earlier DeepL workflow.
+          - Repair runs can regenerate selected machine-translated locales.
+          - Docusaurus JSON messages use the same incremental SHA-256 state tracking.
+          - Existing hand-maintained Hungarian and German content is preserved.
+          - Markdown/MDX markup, URLs, code and protected OMI terminology are excluded from translation using Azure HTML `notranslate` markup.
+          - The Azure API key is read only from the repository secret.
+          BODY
+
+          pr_number=$(gh pr list --state open --base main --head "$PROGRESS_BRANCH" --json number --jq '.[0].number // empty' || true)
+          if [[ -n "$pr_number" ]]; then
+            gh pr edit "$pr_number" --body-file "$body_file"
+            echo "number=$pr_number" >> "$GITHUB_OUTPUT"
+            echo "Updated completed translation PR #$pr_number."
+          else
+            url=$(gh pr create \
+              --base main \
+              --head "$PROGRESS_BRANCH" \
+              --title "i18n: update Docusaurus translations with Azure Translator" \
+              --body-file "$body_file")
+            echo "url=$url" >> "$GITHUB_OUTPUT"
+            echo "Created completed translation PR: $url"
+          fi
+
+      - name: Report paused translation state
+        if: steps.translate.outputs.status != 'complete'
+        env:
+          TRANSLATE_STATUS: ${{ steps.translate.outputs.status }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          {
+            echo "### Azure Translator localization paused"
+            echo
+            case "$TRANSLATE_STATUS" in
+              quota)
+                echo "Azure Translator quota or rate limit was reached. Completed progress was pushed to \`$PROGRESS_BRANCH\` and can be resumed later."
+                ;;
+              api_access)
+                echo "Azure Translator returned an authentication/authorization error."
+                echo "Check the repository secret \`AZURE_TRANSLATOR_KEY\` and, when required, the \`AZURE_TRANSLATOR_REGION\` repository variable."
+                ;;
+              *)
+                echo "Translation stopped because of a non-quota error. Completed progress was pushed to \`$PROGRESS_BRANCH\` for inspection."
+                ;;
+            esac
+            echo
+            echo "No translation PR is created or updated until translation completes and the Docusaurus build passes."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Finalize workflow status
+        env:
+          TRANSLATE_STATUS: ${{ steps.translate.outputs.status }}
+          BUILD_OUTCOME: ${{ steps.build.outcome }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$TRANSLATE_STATUS" == "quota" ]]; then
+            echo "::warning::Azure Translator quota or rate limit reached. Progress was preserved and can be resumed later."
+            exit 1
+          fi
+          if [[ "$TRANSLATE_STATUS" == "api_access" ]]; then
+            echo "::error::Azure Translator authentication/authorization failed. Check AZURE_TRANSLATOR_KEY and AZURE_TRANSLATOR_REGION."
+            exit 1
+          fi
+          if [[ "$TRANSLATE_STATUS" == "error" ]]; then
+            echo "::error::Azure Translator localization stopped with a non-quota error. Progress was preserved for inspection."
+            exit 1
+          fi
+          if [[ "$BUILD_OUTCOME" != "success" ]]; then
+            echo "::error::Docusaurus build failed after translation."
+            exit 1
+          fi
