@@ -1,0 +1,69 @@
+name: Bootstrap Hungarian and German documentation
+
+on:
+  push:
+    branches:
+      - feature/azure-translator-i18n
+    paths:
+      - .github/workflows/azure-i18n-hu-de-bootstrap.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: azure-i18n-hu-de-bootstrap
+  cancel-in-progress: false
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout feature branch
+        uses: actions/checkout@v5
+        with:
+          ref: feature/azure-translator-i18n
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify Azure Translator credential
+        env:
+          AZURE_TRANSLATOR_KEY: ${{ secrets.AZURE_TRANSLATOR_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "${AZURE_TRANSLATOR_KEY:-}" ]]; then
+            echo "::error::AZURE_TRANSLATOR_KEY repository secret is not configured."
+            exit 1
+          fi
+
+      - name: Translate missing Hungarian and German documentation
+        env:
+          AZURE_TRANSLATOR_KEY: ${{ secrets.AZURE_TRANSLATOR_KEY }}
+          AZURE_TRANSLATOR_REGION: ${{ vars.AZURE_TRANSLATOR_REGION }}
+          AZURE_TRANSLATOR_ENDPOINT: ${{ vars.AZURE_TRANSLATOR_ENDPOINT }}
+        run: node scripts/translate-site-incremental-with-azure.mjs --write --locales=hu,de
+
+      - name: Validate all locales
+        run: npm run build
+
+      - name: Commit generated translations
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- i18n .deepl
+          if git diff --cached --quiet; then
+            echo "No translation changes were generated."
+            exit 0
+          fi
+          git commit -m "i18n: fill missing Hungarian and German documentation"
+          git push origin HEAD:feature/azure-translator-i18n
