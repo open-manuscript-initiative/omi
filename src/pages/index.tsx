@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
 import Translate from '@docusaurus/Translate';
@@ -7,6 +7,8 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import {getPublicPageCopy} from '../i18n/publicPages';
 import styles from './index.module.css';
+
+const GOOGLE_PLAY_TEST_URL = 'https://play.google.com/apps/testing/org.openmanuscript.studio';
 
 const FEATURE_DOC_TARGETS: Record<number, string> = {
   0: '/docs/specifications/document-model',
@@ -30,7 +32,9 @@ const STUDIO_UPDATE = {
     cloud: 'Planned federated OMI Cloud with portable institutional storage',
     institutional: 'Institutional profiles, central administration and Admin API',
     proofreading: 'Spelling, grammar, style, translation and provider-neutral agent integrations',
-    androidPlay: 'Google Play record and content rating prepared; signed AAB submission next',
+    androidPlay: 'Google Play closed testing available for eligible testers',
+    androidInstall: 'Install Android beta from Google Play',
+    downloads: 'Studio downloads',
     ios: 'Validated iPhone/iPad simulator build and Files integration',
   },
   hu: {
@@ -46,7 +50,9 @@ const STUDIO_UPDATE = {
     cloud: 'Tervezett föderált OMI Cloud hordozható intézményi tárhellyel',
     institutional: 'Intézményi profilok, központi adminisztráció és Admin API',
     proofreading: 'Helyesírás, nyelvhelyesség, stílus, fordítás és szolgáltatófüggetlen ügynökök',
-    androidPlay: 'Google Play alkalmazásrekord és tartalombesorolás kész; következik az aláírt AAB beküldése',
+    androidPlay: 'A Google Play zárt tesztelése elérhető a jogosult tesztelők számára',
+    androidInstall: 'Android béta telepítése a Google Playről',
+    downloads: 'Studio letöltések',
     ios: 'Validált iPhone/iPad szimulátoros build és Files-integráció',
   },
   de: {
@@ -62,7 +68,9 @@ const STUDIO_UPDATE = {
     cloud: 'Geplante föderierte OMI Cloud mit portabler institutioneller Speicherung',
     institutional: 'Institutionelle Profile, zentrale Administration und Admin API',
     proofreading: 'Rechtschreibung, Grammatik, Stil, Übersetzung und providerneutrale Agenten',
-    androidPlay: 'Google-Play-App-Eintrag und Inhaltsbewertung vorbereitet; signierte AAB-Einreichung folgt',
+    androidPlay: 'Der geschlossene Google-Play-Test ist für berechtigte Tester verfügbar',
+    androidInstall: 'Android-Beta über Google Play installieren',
+    downloads: 'Studio-Downloads',
     ios: 'Validierter iPhone/iPad-Simulator-Build und Files-Integration',
   },
 } as const;
@@ -93,6 +101,12 @@ export default function Home() {
   const studioUpdate = getStudioUpdate(i18n.currentLocale);
   const supportLabel = getSupportLabel(i18n.currentLocale);
   const current = currentBetaCopy(t.current);
+  const [isAndroid, setIsAndroid] = useState(false);
+  useEffect(() => {
+    setIsAndroid(/Android/i.test(navigator.userAgent));
+  }, []);
+  const installHref = isAndroid ? GOOGLE_PLAY_TEST_URL : '/studio';
+  const installLabel = isAndroid ? studioUpdate.androidInstall : studioUpdate.downloads;
   const localizedUrl = i18n.currentLocale === 'en'
     ? 'https://openmanuscript.org/'
     : `https://openmanuscript.org/${i18n.currentLocale}/`;
@@ -173,7 +187,7 @@ export default function Home() {
             <p>{studioUpdate.summary}</p>
             <p>{current}</p>
             <div className={styles.studioActions}>
-              <Link className="button button--primary button--lg" to="/studio">{t.studio}</Link>
+              <Link className="button button--primary button--lg" to={installHref}>{installLabel}</Link>
               <Link className="button button--secondary button--lg" to="/docs/foundations/word-like-manuscript-editing">Word-like editing</Link>
               <Link className="button button--secondary button--lg" to="/docs/foundations/omi-cloud-federated-infrastructure">OMI Cloud</Link>
               <Link className="button button--secondary button--lg" to="/docs/governance/studio-implementation-status">{t.status}</Link>
