@@ -422,8 +422,16 @@ A published output should always be traceable to:
 - manuscript version
 - publication profile
 - rendering engine version
+- exact generated artifact
+- validation/release conditions that governed delivery
 
 This ensures reproducibility and transparency.
+
+## Reference implementation note
+
+Open Manuscript Studio currently demonstrates this model with validated JATS, semantic HTML and paged PDF publication builds. JATS uses semantic-fidelity gates plus pinned offline JATS 1.4 Article Authoring DTD validation; PDF uses a pinned Vivliostyle renderer; and JATS/HTML/PDF artifacts can be paired with portable `.omi-build.json` provenance sidecars containing revision, profile, renderer and artifact digests.
+
+See [Publication Output Validation and Provenance](/docs/foundations/publication-output-validation-provenance) for the implementation-level pipeline. This evidence is informative and does not by itself change the normative status of this Draft specification.
 
 ---
 
