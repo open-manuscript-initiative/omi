@@ -177,6 +177,8 @@ It contains:
 2. **OMI-SPEC-110 — Anchor Model**
 3. **OMI-SPEC-130 — Annotation Model**
 4. **OMI-SPEC-140 — Metadata Model**
+5. **OMI-SPEC-150 — Identity and Contributor Model**
+6. **OMI-SPEC-160 — Versioning and Change Model**
 
 The order reflects the primary dependency direction:
 
@@ -192,7 +194,7 @@ Annotation Model
 Metadata Model applies across these layers.
 ```
 
-Reserved specifications such as Identity and Contributor Model, Versioning and Change Model, Translation Model, Validation Model, and Collaboration and Permission Model MUST NOT appear as active documents until their canonical files exist.
+Reserved specifications such as Translation Model, Validation Model, and Collaboration and Permission Model MUST NOT appear as active documents until their canonical files exist.
 
 ## 7. Scholarly Workflow and Publishing
 
@@ -205,6 +207,7 @@ It contains:
 3. **OMI-SPEC-220 — Bibliographic Record Model**
 4. **OMI-SPEC-221 — Reference Library and Registry Architecture**
 5. **OMI-SPEC-230 — Publishing Model**
+6. **OMI-SPEC-240 — Rendering and Publication Profile Model**
 
 The category combines workflow and publication concerns because these specifications operate on the semantic models rather than defining the foundational object structure itself.
 
@@ -212,7 +215,9 @@ Within the citation subsystem:
 
 - the Citation Model defines individual citation occurrences;
 - the Bibliographic Record Model defines cited resources;
-- the Reference Library and Registry Architecture defines discovery, storage, reconciliation, reuse, and exchange.
+- the Reference Library and Registry Architecture defines discovery, storage, reconciliation, reuse, and exchange;
+- the Publishing Model defines publication jobs, outputs and publication lifecycle;
+- the Rendering and Publication Profile Model defines reusable publication styles, target adaptation, rendering rules, diagnostics and reproducibility boundaries.
 
 ## 8. Platform and Exchange
 
