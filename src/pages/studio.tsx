@@ -9,6 +9,7 @@ import styles from './studio.module.css';
 const STUDIO_VERSION = '0.1.0-beta.4';
 const NEXT_STUDIO_VERSION = '0.1.0-beta.5';
 const RELEASE_BASE = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/releases/latest/download';
+const GOOGLE_PLAY_TEST_URL = 'https://play.google.com/apps/testing/org.openmanuscript.studio';
 const downloads = {
   windowsExe: `${RELEASE_BASE}/Open-Manuscript-Studio-Windows-x64-Setup.exe`,
   windowsMsi: `${RELEASE_BASE}/Open-Manuscript-Studio-Windows-x64.msi`,
@@ -53,7 +54,8 @@ const CURRENT_UPDATE = {
     ],
     nativeAppsTitle: 'Native applications and platform builds',
     nativeAppsDescription: 'Studio uses one OMI application core across desktop and mobile. Download links follow the current GitHub release without rewriting historical release assets. Android remains available as a public beta APK while the Play Console path is prepared for signed AAB delivery; validated targets that still require platform-store signing are clearly marked.',
-    androidPlayDescription: 'Google Play distribution is being prepared. The Play Console application record and content rating are ready; the signed AAB workflow is in place, with internal-track submission planned after beta.5 validation.',
+    androidPlayDescription: 'Google Play closed testing is available for eligible testers. Use the Play testing link for managed installation and updates; the universal APK remains available as a direct beta download.',
+    androidPlayAction: 'Install Android beta from Google Play',
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validated native iPhone/iPad simulator target using the same Studio core. Public TestFlight/App Store installation is not yet available because Apple signing/provisioning and the final Universal Link association are still required.',
     iosAction: 'iOS/iPadOS implementation details',
@@ -86,7 +88,8 @@ const CURRENT_UPDATE = {
     ],
     nativeAppsTitle: 'Natív alkalmazások és platformbuildek',
     nativeAppsDescription: 'A Studio ugyanazt az OMI alkalmazásmagot használja asztali és mobil rendszereken. A letöltési linkek mindig az aktuális GitHub-kiadást követik anélkül, hogy a korábbi kiadások assetjeit át kellene írni. Androidon továbbra is elérhető a nyilvános béta APK, miközben a Google Play útvonalat az aláírt AAB terjesztésére készítjük elő.',
-    androidPlayDescription: 'A Google Play terjesztés előkészítés alatt áll. A Play Console alkalmazásrekordja és a tartalombesorolás elkészült, az aláírt AAB workflow rendelkezésre áll; a belső tesztelési beküldés a beta.5 validálása után következik.',
+    androidPlayDescription: 'A Google Play zárt tesztelése elérhető a jogosult tesztelők számára. A Play tesztoldal kezeli a telepítést és a frissítéseket; a közvetlen béta letöltéshez az univerzális APK is megmarad.',
+    androidPlayAction: 'Android béta telepítése a Google Playről',
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validált natív iPhone/iPad szimulátoros célverzió ugyanazzal a Studio-maggal. Nyilvános TestFlight/App Store telepítés még nincs, mert ehhez Apple aláírás/provisioning és a végleges Universal Link társítás szükséges.',
     iosAction: 'iOS/iPadOS megvalósítás részletei',
@@ -119,7 +122,8 @@ const CURRENT_UPDATE = {
     ],
     nativeAppsTitle: 'Native Anwendungen und Plattform-Builds',
     nativeAppsDescription: 'Studio verwendet denselben OMI-Anwendungskern auf Desktop- und Mobilplattformen. Download-Links folgen dem aktuellen GitHub-Release, ohne historische Release-Assets umzuschreiben. Android bleibt als öffentliches Beta-APK verfügbar, während der Google-Play-Pfad für signierte AAB-Auslieferung vorbereitet wird.',
-    androidPlayDescription: 'Die Google-Play-Verteilung wird vorbereitet. App-Eintrag und Inhaltsbewertung in der Play Console sind vorhanden, der signierte AAB-Workflow ist eingerichtet; die Einreichung in den internen Test-Track folgt nach der beta.5-Validierung.',
+    androidPlayDescription: 'Der geschlossene Google-Play-Test ist für berechtigte Tester verfügbar. Die Play-Testseite übernimmt Installation und Updates; das universelle APK bleibt zusätzlich als direkter Beta-Download verfügbar.',
+    androidPlayAction: 'Android-Beta über Google Play installieren',
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validiertes natives iPhone/iPad-Simulatorziel mit demselben Studio-Kern. Eine öffentliche TestFlight/App-Store-Installation ist noch nicht verfügbar, da Apple-Signierung/Provisioning und die endgültige Universal-Link-Zuordnung erforderlich sind.',
     iosAction: 'Details zur iOS/iPadOS-Implementierung',
@@ -204,7 +208,8 @@ export default function StudioDownloads() {
                 <p><Link to="/docs/governance/code-signing-policy">Code signing policy</Link></p>
               </DownloadCard>
               <DownloadCard title={t.android ?? 'Android'} description={t.androidText ?? 'Installable universal APK for Android devices.'}>
-                <DownloadButton href={downloads.android}>{t.apk ?? 'Download Android APK'}</DownloadButton>
+                <DownloadButton href={GOOGLE_PLAY_TEST_URL}>{update.androidPlayAction}</DownloadButton>
+                <DownloadButton href={downloads.android} secondary>{t.apk ?? 'Download Android APK'}</DownloadButton>
                 <p>{update.androidPlayDescription}</p>
               </DownloadCard>
               <DownloadCard title={update.iosTitle} description={update.iosDescription}>
