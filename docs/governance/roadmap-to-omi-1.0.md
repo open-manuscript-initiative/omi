@@ -14,9 +14,9 @@ description: Current programme, completed foundations, reference-implementation 
 |---|---|
 | Document type | Governance and planning |
 | Status | Draft |
-| Version | 0.4.1 |
+| Version | 0.4.2 |
 | Normative language | English |
-| Last updated | 2026-09-07 |
+| Last updated | 2026-09-18 |
 | Planning horizon | OMI 1.0 |
 | Authoritative identifier source | [OMI Specification Registry](./specification-registry.md) |
 | Product implementation baseline | [Studio Implementation Status](./studio-implementation-status.md) |
@@ -108,7 +108,7 @@ The canonical specification family is organised by permanent identifier range.
 | `OMI-SPEC-220` | Bibliographic Record Model | Active | Draft |
 | `OMI-SPEC-221` | Reference Library and Registry Architecture | Active | Draft |
 | `OMI-SPEC-230` | Publishing Model | Active | Draft |
-| `OMI-SPEC-240` | Rendering and Publication Profile Model | Reserved | Planned |
+| `OMI-SPEC-240` | Rendering and Publication Profile Model | Active | Draft |
 
 ### 5.3 Platform, exchange and conformance
 
