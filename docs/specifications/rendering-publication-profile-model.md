@@ -29,7 +29,7 @@ keywords:
 | Document type | Normative with informative examples |
 | Normative language | English |
 | Editors | Open Manuscript Initiative maintainers |
-| Last updated | 2026-09-09 |
+| Last updated | 2026-09-18 |
 | Replaces | None |
 | Replaced by | None |
 | Depends on | `OMI-SPEC-100`, `OMI-SPEC-140`, `OMI-SPEC-210` |
@@ -944,7 +944,11 @@ At publication of this Draft, Open Manuscript Studio provides partial reference-
 - CSS generation/export;
 - Adobe InDesign IDML style-set import with role mapping and inheritance handling;
 - generated document navigation and indexes derived from semantic structure;
-- separate printed and interactive PDF publication targets.
+- separate printed and interactive PDF publication targets;
+- pinned Vivliostyle rendering for deterministic paged PDF artifacts;
+- deterministic semantic HTML publication packages;
+- publication-build provenance sidecars containing manuscript/profile/artifact digests and renderer identity;
+- JATS 1.4 semantic-fidelity and DTD release gates that prevent a technically valid but knowingly lossy export from being presented as publication-ready.
 
 This evidence does not constitute a conformance claim. The canonical schema, approved fixtures, profile vocabulary, renderer capability vocabulary and conformance suite remain incomplete.
 

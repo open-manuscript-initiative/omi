@@ -28,6 +28,7 @@ const sidebars = {
         {type: 'doc', id: 'foundations/word-like-manuscript-editing', label: 'Word-like Manuscript Editing'},
         {type: 'doc', id: 'foundations/omi-cloud-federated-infrastructure', label: 'OMI Cloud and Federated Infrastructure'},
         {type: 'doc', id: 'foundations/publication-styles-and-publisher-profiles', label: 'Publication Styles and Publisher Profiles'},
+        {type: 'doc', id: 'foundations/publication-output-validation-provenance', label: 'Publication Output Validation and Provenance'},
         {type: 'doc', id: 'specifications/core/scholarly-object-model', label: 'Scholarly Object Model'},
         {type: 'doc', id: 'governance/terminology', label: 'Terminology and Definitions'},
       ],

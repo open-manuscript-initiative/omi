@@ -28,7 +28,7 @@ This separation allows the same OMI manuscript to be rendered for different jour
 
 ## Current implementation status
 
-The feature set described on this page is implemented in the current Studio development line and is part of the project's beta-readiness work. The public binary release remains `0.1.0-alpha.4`; newer capabilities described here may first appear in the development line before the next packaged release.
+The feature set described on this page is implemented in the current Studio beta development line and is part of the project's release-hardening work. Packaged release versions may lag behind the development branch; see [Studio Implementation Status](/docs/governance/studio-implementation-status) for the current snapshot.
 
 ### Reusable named publication styles
 
@@ -120,7 +120,14 @@ The PDF path applies print-specific rules such as:
 - title, heading, caption and bibliography styling;
 - publisher identity and legal metadata where configured.
 
-The platform print/PDF dialog is used for final PDF creation.
+Final PDF creation uses a pinned server-side **Vivliostyle CLI** renderer rather than the browser's interactive print dialog. Studio first builds a self-contained paged HTML source, validates that it contains no unsafe external resource loading or active content, and then renders the final PDF artifact in a controlled environment.
+
+Two PDF targets are available:
+
+- **print/archive PDF**, which removes active hyperlinks and prioritizes fixed-layout publication output;
+- **interactive PDF**, which preserves usable scholarly and external links where appropriate.
+
+The exact renderer identity and version are recorded in publication-build provenance.
 
 ### HTML
 
@@ -132,6 +139,14 @@ The HTML package keeps semantic document structure and the selected typography, 
 - no forced page breaks.
 
 The result remains a portable semantic HTML package rather than a simulated paper layout in the browser.
+
+## Validated publication artifacts and provenance
+
+Publication export is now treated as a validated build process. JATS, semantic HTML and PDF outputs can be accompanied by a `.omi-build.json` sidecar that records the committed manuscript revision, publication-profile digest, artifact digest, Studio build identity and renderer information.
+
+For PDF, the sidecar also fingerprints the exact self-contained HTML input passed to Vivliostyle. HTML package timestamps are derived from the committed revision so identical committed source can produce stable package bytes.
+
+JATS export additionally passes semantic-fidelity and JATS 1.4 release gates before delivery. See [Publication Output Validation and Provenance](/docs/foundations/publication-output-validation-provenance) for the complete pipeline.
 
 ## CSS export
 
