@@ -33,7 +33,7 @@ keywords:
 ## 1. Purpose
 
 This document records how the current Open Manuscript Studio implementation maps to the requirements of
-[OMI-SPEC-240 — Rendering and Publication Profile Model](../specifications/rendering-publication-profile-model.md).
+[OMI-SPEC-240 — Rendering and Publication Profile Model](/docs/specifications/rendering-publication-profile-model).
 
 It has three purposes:
 
@@ -140,9 +140,9 @@ The evidence baseline includes, among other implementation surfaces:
 
 The related OMI implementation documentation is:
 
-- [Publication Styles and Publisher Profiles](../foundations/publication-styles-and-publisher-profiles.md);
-- [Publication Output Validation and Provenance](../foundations/publication-output-validation-provenance.md);
-- [Studio Implementation Status](./studio-implementation-status.md).
+- [Publication Styles and Publisher Profiles](/docs/foundations/publication-styles-and-publisher-profiles);
+- [Publication Output Validation and Provenance](/docs/foundations/publication-output-validation-provenance);
+- [Studio Implementation Status](/docs/governance/studio-implementation-status).
 
 ## 5. Requirement mapping
 
