@@ -30,8 +30,8 @@ keywords:
 | Field | Value |
 |---|---|
 | Status | **Beta** |
-| Snapshot date | **2026-09-07** |
-| Current release line | `0.1.0-beta.4` |
+| Snapshot date | **2026-09-18** |
+| Current development source version | `0.1.1-beta.1` |
 | Reference implementation | Open Manuscript Studio |
 | Source repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web target | Modern browsers |
@@ -39,7 +39,7 @@ keywords:
 | Mobile targets | Android public universal APK; iOS/iPadOS validated native simulator target, with TestFlight/App Store distribution pending Apple Developer signing |
 | Web deployment | `studio.openmanuscript.org` |
 
-The current Studio beta is **`0.1.0-beta.4`**. Beta means that the primary authoring, import/export, authentication, native-client and OJS/OMP review workflows are implemented and the project has moved from feature scaffolding to interoperability, regression, recovery and release-hardening work. Beta.4 also makes release provenance explicit: published release tags are bound to the exact build commit and published assets are treated as immutable. It does **not** mean that every optional integration or distribution channel is production-complete.
+The current Studio source tree reports **`0.1.1-beta.1`**. Beta means that the primary authoring, import/export, authentication, native-client and OJS/OMP review workflows are implemented and the project has moved from feature scaffolding to interoperability, regression, recovery and release-hardening work. Packaged public releases may lag behind the development source version. The current development line also adds validated publication-output infrastructure: full JATS 1.4 DTD validation, semantic release gates, deterministic PDF artifact generation and portable build-provenance sidecars. It does **not** mean that every optional integration or distribution channel is production-complete.
 
 This page describes **implemented product capabilities**, not OMI specification conformance. Formal specification maturity and conformance evidence are tracked separately in the [OMI Implementation Status Matrix](./implementation-status-matrix.md).
 
@@ -92,10 +92,13 @@ This page describes **implemented product capabilities**, not OMI specification 
 | AI integration agents | **Configuration-dependent** | Provider-neutral language editor, metadata assistant, summarizer and citation-checker agents return suggestions through scoped server-side execution. External transmission of review-confidential content requires explicit permission. |
 | Integration audit and extension registry | **Operational foundation / configuration-dependent execution** | Integration execution records operation metadata/digests without storing manuscript text or secrets. Extension manifests support version compatibility, permissions, capabilities and HTTPS-only external endpoints. |
 | Portable OMI export | **Operational** | Portable `.omi.zip` and OMI JSON outputs are available as first-class interchange forms. |
-| Scholarly/publishing exports | **Operational** | JATS XML, semantic offline HTML package, DOCX, EPUB, PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX are represented in the current export layer. Semantic index fields can be exported back to DOCX. |
-| Printed and interactive PDF export | **Operational** | PDF export distinguishes print/archive output from interactive output. Print/archive mode removes active hyperlinks; interactive mode preserves usable internal and external links. Typeset publication content and neutral editorial/manuscript content remain separately selectable. |
-| Cross-platform export delivery | **Operational** | Hosted Studio uses browser downloads; installed Tauri clients use native save/document-provider dialogs and binary writes for supported export targets. Mobile clients expose a platform-appropriate subset rather than desktop-only publishing choices. |
-| Publisher profiles | **Operational** | Publisher profile, export stylesheet and print stylesheet handling are separated from manuscript semantics. |
+| Scholarly/publishing exports | **Operational** | JATS XML, semantic offline HTML package, DOCX, EPUB, PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX are represented in the current export layer. JATS, HTML and PDF publication outputs participate in the validated publication-build pipeline, and semantic index fields can be exported back to DOCX. |
+| JATS 1.4 validated export | **Operational** | Studio targets NISO JATS 1.4 Article Authoring with the MathML 3 DTD. The server performs full offline validation with a pinned local schema package and rejects untrusted entity/DTD substitution. |
+| JATS semantic conformance and release gates | **Operational** | A machine-readable OMI→JATS capability matrix distinguishes stable, conditional and fallback mappings. Error-level renderer diagnostics and known fidelity fallbacks can block release even when XML is DTD-valid. |
+| Publication build provenance | **Operational** | JATS, semantic HTML and PDF publication artifacts receive portable `.omi-build.json` sidecars containing the committed revision, state/profile digests, artifact SHA-256, Studio build identity and renderer information. |
+| Printed and interactive PDF export | **Operational / server renderer required** | PDF export distinguishes print/archive output from interactive output. Final artifacts are rendered with pinned Vivliostyle CLI rather than the browser print dialog; print/archive mode removes active hyperlinks while interactive mode preserves usable scholarly and external links. |
+| Cross-platform export delivery | **Operational** | Hosted Studio uses browser downloads; installed Tauri clients use native save/document-provider dialogs and binary writes for supported export targets. Publication sidecars are delivered alongside the artifact where the platform exposes a sibling path, or through a second save action on mobile document providers. |
+| Publisher profiles | **Operational** | Publisher profile, export stylesheet and print stylesheet handling are separated from manuscript semantics and included in publication-build provenance. |
 | Device-aware storage mode | **Operational on installed clients** | Studio keeps a per-user, per-device “own device” trust preference. Own devices can retain normal native working paths; newly seen/shared devices default to a restricted mode that does not retain local working paths. |
 | Profile cloud connections | **Operational / provider-dependent** | Direct WebDAV/Nextcloud credentials are encrypted server-side and scoped to the signed-in user, so profile cloud connections can follow the account across devices. Future OAuth cloud connections use the same profile-scoped model. |
 | Portable storage on shared devices | **Operational on installed clients** | Shared-device mode still permits explicit one-off open/save to removable or portable locations without keeping the selected path as the current working file. |
