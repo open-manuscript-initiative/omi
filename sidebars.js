@@ -54,6 +54,7 @@ const sidebars = {
         {type: 'doc', id: 'specifications/bibliographic-record-model', label: 'Bibliographic Record Model'},
         {type: 'doc', id: 'specifications/reference-library-registry', label: 'Reference Library and Registry Architecture'},
         {type: 'doc', id: 'specifications/publishing-model', label: 'Publishing Model'},
+        {type: 'doc', id: 'specifications/rendering-publication-profile-model', label: 'Rendering and Publication Profiles'},
       ],
     },
     {
@@ -90,6 +91,7 @@ const sidebars = {
         {type: 'doc', id: 'governance/charter', label: 'Charter'},
         {type: 'doc', id: 'governance/roadmap-to-omi-1.0', label: 'Roadmap to OMI 1.0'},
         {type: 'doc', id: 'governance/studio-implementation-status', label: 'Studio Implementation Status'},
+        {type: 'doc', id: 'governance/studio-omi-spec-240-implementation-profile', label: 'Studio OMI-SPEC-240 Profile'},
         {type: 'doc', id: 'governance/implementation-status-matrix', label: 'Specification Implementation Matrix'},
         {type: 'doc', id: 'governance/architecture-audit', label: 'Architecture Audit'},
         {type: 'doc', id: 'governance/documentation-architecture', label: 'Documentation Architecture'},
