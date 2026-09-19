@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "npm run test:i18n && docusaurus build",
+    "build": "npm run test:i18n && npm run test:release-metadata && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -20,7 +20,8 @@
     "test:i18n:markup": "node scripts/translate-site-incremental-with-deepl.mjs --test-markup-protection",
     "test:i18n:azure-adapter": "node scripts/translate-site-incremental-with-azure.mjs --test-adapter",
     "test:i18n:placeholders": "node scripts/validate-i18n-placeholders.mjs",
-    "test:file-format": "node scripts/validate-file-format-fixtures.mjs"
+    "test:file-format": "node scripts/validate-file-format-fixtures.mjs",
+    "test:release-metadata": "node scripts/validate-current-release-metadata.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.2",
