@@ -36,6 +36,8 @@ const staleProductVersions = [
   '0.1.1-beta.1',
   'v1.2.1',
   'v1.2.6',
+  '1.2.1',
+  '1.2.6',
 ];
 
 const contents = new Map();
