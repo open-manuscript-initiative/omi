@@ -1,0 +1,62 @@
+name: Capture Studio visual tour screenshots
+
+on:
+  push:
+    branches:
+      - docs/studio-visual-tour
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout OMI website
+        uses: actions/checkout@v4
+
+      - name: Checkout current Studio renderer
+        uses: actions/checkout@v4
+        with:
+          repository: open-manuscript-initiative/open-manuscript-studio
+          ref: docs/studio-screenshot-capture
+          path: .studio
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: .studio/package-lock.json
+
+      - name: Install Studio dependencies
+        working-directory: .studio
+        run: npm ci
+
+      - name: Compile Studio runtime locales
+        working-directory: .studio
+        run: npm run i18n:po:compile
+
+      - name: Install Chromium
+        working-directory: .studio
+        run: npx playwright install --with-deps chromium
+
+      - name: Render real Studio screenshots
+        working-directory: .studio
+        run: npx playwright test e2e/docs-screenshots.spec.ts --project=desktop-chromium
+
+      - name: Copy screenshots into the website
+        run: |
+          mkdir -p static/img/studio-tour
+          cp .studio/artifacts/studio-docs-screenshots/*.png static/img/studio-tour/
+
+      - name: Commit screenshots
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add static/img/studio-tour
+          git commit -m "docs: add current Studio interface screenshots"
+          git push
