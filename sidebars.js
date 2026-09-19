@@ -23,6 +23,7 @@ const sidebars = {
       items: [
         {type: 'doc', id: 'foundations/core-principles', label: 'Core Principles'},
         {type: 'doc', id: 'foundations/cross-platform-studio', label: 'Cross-platform Studio'},
+        {type: 'doc', id: 'studio/visual-tour', label: 'Studio Visual Tour'},
         {type: 'doc', id: 'foundations/ios-ipados-studio', label: 'iOS and iPadOS Studio'},
         {type: 'doc', id: 'foundations/studio-long-form-authoring', label: 'Long-form Authoring'},
         {type: 'doc', id: 'foundations/word-like-manuscript-editing', label: 'Word-like Manuscript Editing'},
