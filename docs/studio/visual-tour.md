@@ -84,4 +84,4 @@ You can use the hosted web application at **[studio.openmanuscript.org](https://
 
 Desktop and mobile distribution information is available on the **[Studio downloads page](https://openmanuscript.org/studio/)**.
 
-For technical implementation status, see [Studio Implementation Status](../governance/studio-implementation-status.md).
+For technical implementation status, see [Studio Implementation Status](/docs/governance/studio-implementation-status).
