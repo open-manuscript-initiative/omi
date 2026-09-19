@@ -1,51 +1,173 @@
 {
-  "sidebar.tutorialSidebar.category.Introduction": {"message": "Bevezetés"},
-  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.title": {"message": "Bevezetés"},
-  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.description": {"message": "Az Open Manuscript Initiative célja, jövőképe és magas szintű architektúrája."},
-  "sidebar.tutorialSidebar.category.Foundations": {"message": "Alapok"},
-  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.title": {"message": "Alapok"},
-  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.description": {"message": "Az OMI specifikációcsalád közös alapelvei, objektummodellje és szabályozott terminológiája."},
-  "sidebar.tutorialSidebar.category.Core Semantic Specifications": {"message": "Alapvető szemantikai specifikációk"},
-  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.title": {"message": "Alapvető szemantikai specifikációk"},
-  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.description": {"message": "Normatív modellek a kéziratszerkezethez, a stabil horgonyzáshoz, az annotációkhoz, a tudományos metaadatokhoz, az identitáshoz, a közreműködéshez, a verziózáshoz és a változásokhoz."},
-  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing": {"message": "Tudományos munkafolyamat és publikálás"},
-  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.title": {"message": "Tudományos munkafolyamat és publikálás"},
-  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.description": {"message": "Specifikációk a lektoráláshoz, a hivatkozásokhoz, a bibliográfiai rekordokhoz, a hivatkozáskönyvtárakhoz és a publikálási munkafolyamatokhoz."},
-  "sidebar.tutorialSidebar.category.Platform and Exchange": {"message": "Platform és adatcsere"},
-  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.title": {"message": "Platform és adatcsere"},
-  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.description": {"message": "Specifikációk a bővíthetőséghez, az API-khoz, a fájlcseréhez, a csomagoláshoz, az ellenőrzéshez és a megőrzéshez."},
-  "sidebar.tutorialSidebar.category.Governance": {"message": "Irányítás"},
-  "sidebar.tutorialSidebar.category.Governance.link.generated-index.title": {"message": "Irányítás"},
-  "sidebar.tutorialSidebar.category.Governance.link.generated-index.description": {"message": "Az OMI-specifikációk felhatalmazását, ütemtervét, érettségét, verziózását, szerzőségét, azonosságát és karbantartását szabályozó irányelvek."},
-  "sidebar.tutorialSidebar.doc.Vision": {"message": "Jövőkép"},
-  "sidebar.tutorialSidebar.doc.Contribute": {"message": "Kapcsolódjon be"},
-  "sidebar.tutorialSidebar.doc.Architecture Overview": {"message": "Architektúra áttekintése"},
-  "sidebar.tutorialSidebar.doc.Core Principles": {"message": "Alapelvek"},
-  "sidebar.tutorialSidebar.doc.Scholarly Object Model": {"message": "Tudományos objektummodell"},
-  "sidebar.tutorialSidebar.doc.Terminology and Definitions": {"message": "Terminológia és definíciók"},
-  "sidebar.tutorialSidebar.doc.Document Model": {"message": "Dokumentummodell"},
-  "sidebar.tutorialSidebar.doc.Anchor Model": {"message": "Horgonymodell"},
-  "sidebar.tutorialSidebar.doc.Annotation Model": {"message": "Annotációs modell"},
-  "sidebar.tutorialSidebar.doc.Metadata Model": {"message": "Metaadatmodell"},
-  "sidebar.tutorialSidebar.doc.Identity and Contributor Model": {"message": "Identitás- és közreműködői modell"},
-  "sidebar.tutorialSidebar.doc.Versioning and Change Model": {"message": "Verziózási és változásmodell"},
-  "sidebar.tutorialSidebar.doc.Review Model": {"message": "Lektorálási modell"},
-  "sidebar.tutorialSidebar.doc.Citation Model": {"message": "Hivatkozási modell"},
-  "sidebar.tutorialSidebar.doc.Bibliographic Record Model": {"message": "Bibliográfiai rekordmodell"},
-  "sidebar.tutorialSidebar.doc.Reference Library and Registry Architecture": {"message": "Hivatkozáskönyvtár és nyilvántartási architektúra"},
-  "sidebar.tutorialSidebar.doc.Publishing Model": {"message": "Publikálási modell"},
-  "sidebar.tutorialSidebar.doc.Plugin Architecture": {"message": "Bővítményarchitektúra"},
-  "sidebar.tutorialSidebar.doc.Platform API": {"message": "Platform API"},
-  "sidebar.tutorialSidebar.doc.File Format": {"message": "Fájlformátum"},
-  "sidebar.tutorialSidebar.doc.Container Architecture": {"message": "Konténerarchitektúra"},
-  "sidebar.tutorialSidebar.doc.Charter": {"message": "Charta"},
-  "sidebar.tutorialSidebar.doc.Roadmap to OMI 1.0": {"message": "Útiterv az OMI 1.0-hoz"},
-  "sidebar.tutorialSidebar.doc.Implementation Status Matrix": {"message": "Megvalósítási állapotmátrix"},
-  "sidebar.tutorialSidebar.doc.Architecture Audit": {"message": "Architektúra-audit"},
-  "sidebar.tutorialSidebar.doc.Documentation Architecture": {"message": "Dokumentációs architektúra"},
-  "sidebar.tutorialSidebar.doc.Specification Lifecycle": {"message": "Specifikációs életciklus"},
-  "sidebar.tutorialSidebar.doc.Versioning Policy": {"message": "Verziókezelési irányelv"},
-  "sidebar.tutorialSidebar.doc.Specification Style Guide": {"message": "Specifikációs stílusútmutató"},
-  "sidebar.tutorialSidebar.doc.Specification Template": {"message": "Specifikációs sablon"},
-  "sidebar.tutorialSidebar.doc.Specification Registry": {"message": "Specifikációs nyilvántartás"}
+  "sidebar.tutorialSidebar.category.Introduction": {
+    "message": "Bevezetés"
+  },
+  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.title": {
+    "message": "Bevezetés"
+  },
+  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.description": {
+    "message": "Az Open Manuscript Initiative célja, jövőképe és magas szintű architektúrája."
+  },
+  "sidebar.tutorialSidebar.category.Foundations": {
+    "message": "Alapok"
+  },
+  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.title": {
+    "message": "Alapok"
+  },
+  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.description": {
+    "message": "Az OMI specifikációcsalád közös alapelvei, objektummodellje és szabályozott terminológiája."
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications": {
+    "message": "Alapvető szemantikai specifikációk"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.title": {
+    "message": "Alapvető szemantikai specifikációk"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.description": {
+    "message": "Normatív modellek a kéziratszerkezethez, a stabil horgonyzáshoz, az annotációkhoz, a tudományos metaadatokhoz, az identitáshoz, a közreműködéshez, a verziózáshoz és a változásokhoz."
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing": {
+    "message": "Tudományos munkafolyamat és publikálás"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.title": {
+    "message": "Tudományos munkafolyamat és publikálás"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.description": {
+    "message": "Specifikációk a lektoráláshoz, a hivatkozásokhoz, a bibliográfiai rekordokhoz, a hivatkozáskönyvtárakhoz és a publikálási munkafolyamatokhoz."
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange": {
+    "message": "Platform és adatcsere"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.title": {
+    "message": "Platform és adatcsere"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.description": {
+    "message": "Specifikációk a bővíthetőséghez, az API-khoz, a fájlcseréhez, a csomagoláshoz, az ellenőrzéshez és a megőrzéshez."
+  },
+  "sidebar.tutorialSidebar.category.Governance": {
+    "message": "Irányítás"
+  },
+  "sidebar.tutorialSidebar.category.Governance.link.generated-index.title": {
+    "message": "Irányítás"
+  },
+  "sidebar.tutorialSidebar.category.Governance.link.generated-index.description": {
+    "message": "Az OMI-specifikációk felhatalmazását, ütemtervét, érettségét, verziózását, szerzőségét, azonosságát és karbantartását szabályozó irányelvek."
+  },
+  "sidebar.tutorialSidebar.doc.Vision": {
+    "message": "Jövőkép"
+  },
+  "sidebar.tutorialSidebar.doc.Contribute": {
+    "message": "Kapcsolódjon be"
+  },
+  "sidebar.tutorialSidebar.doc.Architecture Overview": {
+    "message": "Architektúra áttekintése"
+  },
+  "sidebar.tutorialSidebar.doc.Core Principles": {
+    "message": "Alapelvek"
+  },
+  "sidebar.tutorialSidebar.doc.Scholarly Object Model": {
+    "message": "Tudományos objektummodell"
+  },
+  "sidebar.tutorialSidebar.doc.Terminology and Definitions": {
+    "message": "Terminológia és definíciók"
+  },
+  "sidebar.tutorialSidebar.doc.Document Model": {
+    "message": "Dokumentummodell"
+  },
+  "sidebar.tutorialSidebar.doc.Anchor Model": {
+    "message": "Horgonymodell"
+  },
+  "sidebar.tutorialSidebar.doc.Annotation Model": {
+    "message": "Annotációs modell"
+  },
+  "sidebar.tutorialSidebar.doc.Metadata Model": {
+    "message": "Metaadatmodell"
+  },
+  "sidebar.tutorialSidebar.doc.Identity and Contributor Model": {
+    "message": "Identitás- és közreműködői modell"
+  },
+  "sidebar.tutorialSidebar.doc.Versioning and Change Model": {
+    "message": "Verziózási és változásmodell"
+  },
+  "sidebar.tutorialSidebar.doc.Review Model": {
+    "message": "Lektorálási modell"
+  },
+  "sidebar.tutorialSidebar.doc.Citation Model": {
+    "message": "Hivatkozási modell"
+  },
+  "sidebar.tutorialSidebar.doc.Bibliographic Record Model": {
+    "message": "Bibliográfiai rekordmodell"
+  },
+  "sidebar.tutorialSidebar.doc.Reference Library and Registry Architecture": {
+    "message": "Hivatkozáskönyvtár és nyilvántartási architektúra"
+  },
+  "sidebar.tutorialSidebar.doc.Publishing Model": {
+    "message": "Publikálási modell"
+  },
+  "sidebar.tutorialSidebar.doc.Plugin Architecture": {
+    "message": "Bővítményarchitektúra"
+  },
+  "sidebar.tutorialSidebar.doc.Platform API": {
+    "message": "Platform API"
+  },
+  "sidebar.tutorialSidebar.doc.File Format": {
+    "message": "Fájlformátum"
+  },
+  "sidebar.tutorialSidebar.doc.Container Architecture": {
+    "message": "Konténerarchitektúra"
+  },
+  "sidebar.tutorialSidebar.doc.Charter": {
+    "message": "Charta"
+  },
+  "sidebar.tutorialSidebar.doc.Roadmap to OMI 1.0": {
+    "message": "Útiterv az OMI 1.0-hoz"
+  },
+  "sidebar.tutorialSidebar.doc.Implementation Status Matrix": {
+    "message": "Megvalósítási állapotmátrix"
+  },
+  "sidebar.tutorialSidebar.doc.Architecture Audit": {
+    "message": "Architektúra-audit"
+  },
+  "sidebar.tutorialSidebar.doc.Documentation Architecture": {
+    "message": "Dokumentációs architektúra"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Lifecycle": {
+    "message": "Specifikációs életciklus"
+  },
+  "sidebar.tutorialSidebar.doc.Versioning Policy": {
+    "message": "Verziókezelési irányelv"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Style Guide": {
+    "message": "Specifikációs stílusútmutató"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Template": {
+    "message": "Specifikációs sablon"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Registry": {
+    "message": "Specifikációs nyilvántartás"
+  },
+  "sidebar.tutorialSidebar.category.Studio 1.0 Architecture": {
+    "message": "Studio 1.0 architektúra"
+  },
+  "sidebar.tutorialSidebar.category.Studio 1.0 Architecture.link.generated-index.title": {
+    "message": "Studio 1.0 architektúra"
+  },
+  "sidebar.tutorialSidebar.category.Studio 1.0 Architecture.link.generated-index.description": {
+    "message": "Az Open Manuscript Studio 1.0 célarchitektúrája, eltéréselemzése, ADR-jei és kontrollált refaktorálási terve."
+  },
+  "sidebar.tutorialSidebar.doc.Executive Summary": {
+    "message": "Vezetői összefoglaló"
+  },
+  "sidebar.tutorialSidebar.doc.Target Architecture": {
+    "message": "Célarchitektúra"
+  },
+  "sidebar.tutorialSidebar.doc.Current to 1.0 Gap Analysis": {
+    "message": "Jelenlegi állapot → 1.0 eltéréselemzés"
+  },
+  "sidebar.tutorialSidebar.doc.Refactoring and PR Plan": {
+    "message": "Refaktorálási és PR-terv"
+  },
+  "sidebar.tutorialSidebar.doc.ADR Register": {
+    "message": "ADR-nyilvántartás"
+  }
 }
