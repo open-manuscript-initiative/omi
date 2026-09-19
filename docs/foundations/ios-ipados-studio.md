@@ -34,7 +34,7 @@ Current development status:
 - mobile-native authentication handoff is shared with Android;
 - public TestFlight/App Store distribution is **not yet claimed**, because Apple Developer signing credentials and the final Universal Link association still have to be configured.
 
-The current public Studio release line remains `0.1.0-alpha.4`. The iOS App Store bundle metadata uses an Apple-compatible short version/build pair while preserving the Studio release identity in the application UI and project documentation.
+The current public Studio release line remains `0.2.0-beta.2`. The iOS App Store bundle metadata uses an Apple-compatible short version/build pair while preserving the Studio release identity in the application UI and project documentation.
 
 ## Application identity
 
@@ -42,9 +42,9 @@ The current public Studio release line remains `0.1.0-alpha.4`. The iOS App Stor
 |---|---|
 | Bundle identifier | `org.openmanuscript.studio` |
 | Minimum platform | iOS/iPadOS 14.0 |
-| App Store short version | `0.1.0` |
-| App Store build number | `4` |
-| Studio development line | `0.1.0-alpha.4` |
+| App Store short version | `0.2.0` |
+| App Store build number | `10` |
+| Studio development line | `0.2.0-beta.2` |
 
 The Apple short version/build numbering is packaging metadata. It does not change the OMI schema version or create a separate iOS document compatibility line.
 
