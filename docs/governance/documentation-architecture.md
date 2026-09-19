@@ -309,7 +309,7 @@ These slugs SHOULD remain stable after publication.
 
 ## 12. Sidebar item rules
 
-### 11.1 Explicit registration
+### 12.1 Explicit registration
 
 The primary sidebar uses explicit document registration rather than unrestricted filesystem autogeneration.
 
@@ -320,7 +320,7 @@ Explicit registration is required because the repository contains:
 - governance documents with different filesystem and navigation orders;
 - specifications whose architectural ordering differs from alphabetical ordering.
 
-### 11.2 Labels
+### 12.2 Labels
 
 A sidebar label MAY be shorter than the page title.
 
@@ -333,7 +333,7 @@ Sidebar label: Architecture Overview
 
 A label MUST NOT alter the identity or normative scope of a document.
 
-### 11.3 Ordering
+### 12.3 Ordering
 
 Specification ordering SHOULD follow the canonical identifier and dependency architecture rather than filename order.
 
@@ -349,7 +349,7 @@ constitutional authority
 → registry
 ```
 
-### 11.4 Category state
+### 12.4 Category state
 
 Top-level categories SHOULD be collapsible and initially expanded while the documentation suite remains relatively small.
 
