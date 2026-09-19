@@ -12,6 +12,7 @@ const currentFacingFiles = [
   'README.md',
   'src/pages/index.tsx',
   'src/pages/studio.tsx',
+  'src/i18n/publicPages.ts',
   'docs/governance/roadmap-to-omi-1.0.md',
   'docs/governance/studio-implementation-status.md',
   'docs/integrations/ojs-plugin.md',
@@ -40,6 +41,18 @@ const staleProductVersions = [
   '1.2.6',
 ];
 
+const staleCurrentCopyMarkers = [
+  '0.1.0-beta.4 public beta',
+  '0.1.0-beta.5 candidate',
+  'beta.5 validation',
+  'beta.5-Validierung',
+  'beta.5 validálása',
+  'Current alpha capabilities',
+  'Az alpha jelenlegi képességei',
+  'Android Google Play preparation',
+  'Android és Google Play előkészítés',
+];
+
 const contents = new Map();
 for (const path of currentFacingFiles) {
   contents.set(path, await readFile(path, 'utf8'));
@@ -50,6 +63,11 @@ for (const [path, content] of contents) {
   for (const version of staleProductVersions) {
     if (content.includes(version)) {
       failures.push(`${path}: stale current-product version ${version}`);
+    }
+  }
+  for (const marker of staleCurrentCopyMarkers) {
+    if (content.includes(marker)) {
+      failures.push(`${path}: stale current-product wording "${marker}"`);
     }
   }
 }
