@@ -120,6 +120,8 @@ Workflow and publishing models
   ↓
 Platform and exchange specifications
   ↓
+Integration architecture and implementation profiles
+  ↓
 Governance and standards process
 ```
 
@@ -127,7 +129,7 @@ Readers are not required to follow this sequence, but the ordering SHOULD commun
 
 ## 3. Top-level navigation architecture
 
-The primary OMI documentation sidebar contains six top-level categories.
+The primary OMI documentation sidebar contains seven top-level categories.
 
 ```text
 Introduction
@@ -135,6 +137,7 @@ Foundations
 Core Semantic Specifications
 Scholarly Workflow and Publishing
 Platform and Exchange
+Integrations
 Governance
 ```
 
@@ -234,26 +237,47 @@ These documents MUST remain distinct from the semantic models.
 
 An implementation may use different internal technologies while conforming to the semantic and exchange requirements defined by the OMI specifications.
 
-## 9. Governance
+## 9. Integrations
 
-The Governance category contains documents that control the development, maintenance, maturity, identity, and publication of the OMI standard.
+The Integrations category contains platform-neutral integration architecture and implementation profiles that connect OMI and Open Manuscript Studio to publishing, review, storage, identity, reference-management, translation, and related scholarly infrastructure.
+
+It currently includes implementation status, integration architecture, Studio deployment modes, institutional administration, AI-provider setup, the Integration API, and OJS/OMP plugin and profile documentation.
+
+Integration pages are implementation-facing material. They MAY define versioned connector contracts and profiles, but they MUST NOT silently redefine normative OMI semantic specifications.
+
+## 10. Governance
+
+The Governance category contains documents that control the development, maintenance, maturity, identity, documentation, release security, and implementation-roadmap governance of the OMI standard and its reference implementation.
 
 It contains:
 
 1. **Charter**
 2. **Roadmap to OMI 1.0**
-3. **Architecture Audit**
-4. **Documentation Architecture**
-5. **Specification Lifecycle**
-6. **Versioning Policy**
-7. **Specification Style Guide**
-8. **Specification Registry**
+3. **Studio Implementation Status**
+4. **Studio OMI-SPEC-240 Implementation Profile**
+5. **Studio 1.0 Architecture**, a nested implementation-architecture group containing:
+   - Executive Summary;
+   - Target Architecture;
+   - Current to 1.0 Gap Analysis;
+   - Refactoring and PR Plan;
+   - ADR Register.
+6. **Specification Implementation Matrix**
+7. **Architecture Audit**
+8. **Documentation Architecture**
+9. **Specification Lifecycle**
+10. **Versioning Policy**
+11. **Code Signing Policy**
+12. **Specification Style Guide**
+13. **Specification Template**
+14. **Specification Registry**
 
 The Specification Registry is authoritative for specification identifiers and canonical paths.
 
 The Architecture Audit remains available as a record of the consolidation programme, even after its immediate recommendations have been implemented.
 
-## 10. Category landing pages
+The **Studio 1.0 Architecture** group is implementation-specific planning and architecture evidence. It MUST remain visually and conceptually distinct from normative OMI specifications. Its English pages are the canonical documentation sources; localized pages preserve the same audit baseline and MUST NOT acquire separate OMI specification identifiers.
+
+## 11. Category landing pages
 
 Each top-level category SHOULD expose a generated index page.
 
@@ -272,16 +296,18 @@ The current category slugs are:
 
 | Category | Slug |
 |---|---|
-| Introduction | `/introduction` |
+| Introduction | `/category/introduction` |
 | Foundations | `/foundations` |
 | Core Semantic Specifications | `/core-semantic-specifications` |
 | Scholarly Workflow and Publishing | `/scholarly-workflow-publishing` |
 | Platform and Exchange | `/platform-exchange` |
-| Governance | `/governance` |
+| Integrations | `/integrations` |
+| Governance | `/category/governance` |
+| Studio 1.0 Architecture | `/governance/studio-1.0-architecture` |
 
 These slugs SHOULD remain stable after publication.
 
-## 11. Sidebar item rules
+## 12. Sidebar item rules
 
 ### 11.1 Explicit registration
 
@@ -315,11 +341,11 @@ Governance ordering SHOULD follow the reader's standards-process workflow:
 
 ```text
 constitutional authority
-→ roadmap and audit
+→ roadmap and implementation status
+→ implementation architecture and audit
 → documentation architecture
-→ lifecycle
-→ versioning
-→ authoring rules
+→ lifecycle and versioning
+→ release/security and authoring rules
 → registry
 ```
 
@@ -329,7 +355,7 @@ Top-level categories SHOULD be collapsible and initially expanded while the docu
 
 The default collapsed state MAY be reconsidered when the number of documents grows significantly.
 
-## 12. Legacy and superseded pages
+## 13. Legacy and superseded pages
 
 A legacy page MUST NOT appear in the primary sidebar when a canonical successor exists.
 
@@ -354,7 +380,7 @@ Legacy pages SHOULD:
 - avoid presenting obsolete content as current normative text;
 - remain excluded from generated category indexes and the primary sidebar.
 
-## 13. File paths and conceptual categories
+## 14. File paths and conceptual categories
 
 The sidebar category does not have to match the source directory exactly.
 
@@ -368,7 +394,7 @@ This is intentional.
 
 Filesystem refactoring SHOULD occur only when it provides a clear maintenance benefit and can preserve public routes safely.
 
-## 14. Document identifiers
+## 15. Document identifiers
 
 Docusaurus document identifiers MUST remain unique.
 
@@ -378,7 +404,7 @@ When front matter declares an explicit `id`, the sidebar MUST use the resolved D
 
 The sidebar refactoring MUST NOT change OMI specification identifiers such as `OMI-SPEC-120`. Docusaurus document IDs and OMI specification IDs are separate namespaces.
 
-## 15. Internal links
+## 16. Internal links
 
 Documents SHOULD use relative Markdown links when linking to nearby repository documents.
 
@@ -394,7 +420,7 @@ Internal-link review SHOULD verify:
 - the link does not point to a migration-only page unless migration is the subject;
 - localized pages do not accidentally link to a different language without a clear reason.
 
-## 16. Localization
+## 17. Localization
 
 English remains the normative source language unless a document states otherwise.
 
@@ -415,7 +441,7 @@ A translated page MUST NOT receive a separate OMI specification identifier.
 
 When an English document changes, translation freshness SHOULD be tracked according to the Versioning Policy and Terminology and Definitions document.
 
-## 17. Adding a new document
+## 18. Adding a new document
 
 Before a new document is added to the sidebar, its author MUST determine:
 
@@ -432,7 +458,7 @@ Before a new document is added to the sidebar, its author MUST determine:
 
 A new normative specification MUST be entered in the Specification Registry before it is presented as having a permanent OMI-SPEC identifier.
 
-## 18. Removing or replacing a document
+## 19. Removing or replacing a document
 
 An active document MUST NOT simply disappear from the sidebar and repository without an archival decision.
 
@@ -446,7 +472,7 @@ Replacement requires:
 - updated translations;
 - release notes or change history.
 
-## 19. Validation checklist
+## 20. Validation checklist
 
 A documentation-architecture change is ready for review when:
 
@@ -463,51 +489,42 @@ A documentation-architecture change is ready for review when:
 - Docusaurus configuration syntax is valid;
 - the documentation build completes without broken-link or duplicate-ID errors.
 
-## 20. Current migration result
+## 21. Current navigation result
 
-The initial sidebar migration produces the following public hierarchy:
+The current public hierarchy follows this high-level structure:
 
 ```text
 Introduction
-├── Vision
-└── Architecture Overview
-
 Foundations
-├── OMI-SPEC-000 — Core Principles
-├── OMI-SPEC-120 — Scholarly Object Model
-└── Terminology and Definitions
-
 Core Semantic Specifications
-├── OMI-SPEC-100 — Document Model
-├── OMI-SPEC-110 — Anchor Model
-├── OMI-SPEC-130 — Annotation Model
-└── OMI-SPEC-140 — Metadata Model
-
 Scholarly Workflow and Publishing
-├── OMI-SPEC-200 — Review Model
-├── OMI-SPEC-210 — Citation Model
-├── OMI-SPEC-220 — Bibliographic Record Model
-├── OMI-SPEC-221 — Reference Library and Registry Architecture
-└── OMI-SPEC-230 — Publishing Model
-
 Platform and Exchange
-├── OMI-SPEC-300 — Plugin Architecture
-├── OMI-SPEC-310 — Platform API
-├── OMI-SPEC-320 — File Format
-└── OMI-SPEC-330 — Container Architecture
-
+Integrations
 Governance
 ├── Charter
 ├── Roadmap to OMI 1.0
+├── Studio Implementation Status
+├── Studio OMI-SPEC-240 Profile
+├── Studio 1.0 Architecture
+│   ├── Executive Summary
+│   ├── Target Architecture
+│   ├── Current to 1.0 Gap Analysis
+│   ├── Refactoring and PR Plan
+│   └── ADR Register
+├── Specification Implementation Matrix
 ├── Architecture Audit
 ├── Documentation Architecture
 ├── Specification Lifecycle
 ├── Versioning Policy
+├── Code Signing Policy
 ├── Specification Style Guide
+├── Specification Template
 └── Specification Registry
 ```
 
-## 21. Future expansion
+The sidebar source remains authoritative for the complete item-level navigation. This summary documents the conceptual structure and the deliberate separation of normative specifications from Studio-specific architecture planning.
+
+## 22. Future expansion
 
 The architecture is designed to accept additional categories when justified by a substantial body of material.
 
@@ -523,7 +540,7 @@ A new top-level category SHOULD NOT be created for a single document unless the 
 
 Implementation-specific documentation SHOULD remain clearly separated from normative OMI specifications.
 
-## 22. Maintenance
+## 23. Maintenance
 
 The documentation architecture SHOULD be reviewed when:
 
@@ -538,7 +555,7 @@ The documentation architecture SHOULD be reviewed when:
 
 Changes to this document and `sidebars.js` SHOULD normally be reviewed together when the conceptual hierarchy changes.
 
-## 23. Adoption
+## 24. Adoption
 
 This Draft becomes the working documentation architecture when accepted into the main repository.
 
@@ -546,7 +563,7 @@ Existing active documents are organized according to this structure without chan
 
 Adoption of this architecture does not promote any Draft specification to Review Candidate, Implementation Candidate, or Stable.
 
-## 24. Summary
+## 25. Summary
 
 The OMI documentation suite is organized as a governed standards system rather than a chronological collection of pages.
 
