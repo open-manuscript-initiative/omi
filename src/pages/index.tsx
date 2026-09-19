@@ -20,7 +20,7 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
 
 const STUDIO_UPDATE = {
   en: {
-    summary: 'Open Manuscript Studio 0.1.0-beta.4 is the current public beta, while 0.1.0-beta.5 is being prepared. The September 2026 development line adds direct author submission of standalone studies to configured OJS and OMP installations, manuscript-wide Word-like editing across OMI block and section boundaries, structural PDF import with geometry-aware footnote reconstruction, native Android PDF routing, one-step responsive navigation, cross-platform update notifications, and separate printed and interactive PDF export modes. These additions build on multi-document editing, large-DOCX import, semantic indexes, reusable publication styles, device-aware storage, federated sign-in, double-anonymous peer review and institutional administration. OJS and OMP 3.5 review round-trips are verified in native end-to-end environments, and the Android Play Console application record and content rating are prepared for the first signed AAB submission after beta.5 validation.',
+    summary: 'Open Manuscript Studio 0.2.0-beta.2 is the current public beta. The September 2026 line now combines provenance-verified OJS/OMP publication artifact transfer, PKP-compatible contributor metadata, reference-manager interchange and Mendeley integration, and a native OMP 3.5 client for author revisions and assignment-scoped reviewer writeback. These additions build on validated JATS 1.4/JATS4R export, Vivliostyle PDF generation, multi-document editing, large-DOCX import, semantic indexes, device-aware storage, federated sign-in, double-anonymous peer review and institutional administration. OJS and OMP 3.5 workflows are exercised in native end-to-end environments, and Android remains available through the public beta/testing distribution path.',
     multiDocument: 'Multi-document desktop editing and document outline',
     wordLike: 'Word-like manuscript-wide split, merge and selection',
     pdf: 'Structural PDF import with geometry-aware footnotes',
@@ -38,7 +38,7 @@ const STUDIO_UPDATE = {
     ios: 'Validated iPhone/iPad simulator build and Files integration',
   },
   hu: {
-    summary: 'Az Open Manuscript Studio jelenlegi nyilvános bétája a 0.1.0-beta.4, miközben készül a 0.1.0-beta.5. A 2026. szeptemberi fejlesztési ág lehetővé teszi önálló tanulmányok közvetlen szerzői beküldését konfigurált OJS- és OMP-rendszerekbe, továbbá kézirat-szintű, Word-szerű szerkesztést, geometria-alapú lábjegyzet-rekonstrukciót használó strukturált PDF-importot, natív Android PDF-kezelést, egylépcsős reszponzív navigációt, platformközi frissítési értesítéseket és külön nyomtatott/interaktív PDF-exportot ad. Mindez a többdokumentumos szerkesztésre, a nagy DOCX-ek importjára, a szemantikus mutatókra, a kiadványstílusokra, a helyi és felhős tárhelyre, a federált bejelentkezésre, a kettős vak lektorálásra és az intézményi adminisztrációra épül. Az OJS és OMP 3.5 lektori körfolyamatokat natív végponttól végpontig tartó környezet ellenőrzi; az Android Play Console alkalmazásrekordja és tartalombesorolása elkészült, a következő lépés a beta.5 validálása utáni aláírt AAB beküldése.',
+    summary: 'Az Open Manuscript Studio jelenlegi nyilvános bétája a 0.2.0-beta.2. A 2026. szeptemberi fejlesztési ág már tartalmazza a provenance-ellenőrzött OJS/OMP publikációs artefaktum-átadást, a PKP-kompatibilis szerzői és közreműködői metaadatokat, a referenciakezelő-integrációs réteget és a Mendeley-kapcsolatot, valamint a natív OMP 3.5 klienst szerzői javítás-visszaírással és hozzárendeléshez kötött lektori writebackkel. Mindez a validált JATS 1.4/JATS4R exportra, a Vivliostyle PDF-előállításra, a többdokumentumos szerkesztésre, a nagy DOCX-ek importjára, a szemantikus mutatókra, a helyi és felhős tárhelyre, a federált bejelentkezésre, a kettős vak lektorálásra és az intézményi adminisztrációra épül. Az OJS és OMP 3.5 munkafolyamatokat natív végponttól végpontig tartó tesztkörnyezet ellenőrzi, az Android pedig továbbra is a nyilvános béta/tesztelési terjesztési csatornán érhető el.',
     multiDocument: 'Többdokumentumos asztali szerkesztés és dokumentumvázlat',
     wordLike: 'Word-szerű, kézirat-szintű szétválasztás, egyesítés és kijelölés',
     pdf: 'Strukturált PDF-import geometria-alapú lábjegyzet-felismeréssel',
@@ -56,7 +56,7 @@ const STUDIO_UPDATE = {
     ios: 'Validált iPhone/iPad szimulátoros build és Files-integráció',
   },
   de: {
-    summary: 'Open Manuscript Studio 0.1.0-beta.4 ist die aktuelle öffentliche Beta; 0.1.0-beta.5 wird vorbereitet. Die Entwicklungsreihe vom September 2026 ergänzt die direkte Autoreneinreichung eigenständiger Studien an konfigurierte OJS- und OMP-Installationen, manuskriptweites Word-ähnliches Bearbeiten, strukturellen PDF-Import mit geometriebasierter Fußnotenrekonstruktion, natives Android-PDF-Routing, einstufige responsive Navigation, plattformübergreifende Update-Hinweise sowie getrennte Druck- und interaktive PDF-Exporte. Diese Arbeiten bauen auf Mehrdokument-Bearbeitung, großem DOCX-Import, semantischen Registern, Publikationsstilen, gerätebewusster Speicherung, föderierter Anmeldung, doppelt anonymer Begutachtung und institutioneller Administration auf. OJS- und OMP-3.5-Begutachtungsrunden werden in nativen End-to-End-Umgebungen geprüft; der Google-Play-Console-App-Eintrag und die Inhaltsbewertung sind für die erste signierte AAB-Einreichung nach der beta.5-Validierung vorbereitet.',
+    summary: 'Open Manuscript Studio 0.2.0-beta.2 ist die aktuelle öffentliche Beta. Die Entwicklungsreihe vom September 2026 umfasst nun provenance-geprüfte OJS/OMP-Publikationsartefaktübertragung, PKP-kompatible Beitragsmetadaten, eine Referenzmanager-Integrationsschicht mit Mendeley-Anbindung sowie einen nativen OMP-3.5-Client für Autorenrevisionen und zuweisungsgebundenes Reviewer-Writeback. Dies baut auf validiertem JATS-1.4/JATS4R-Export, Vivliostyle-PDF-Erzeugung, Mehrdokument-Bearbeitung, großem DOCX-Import, semantischen Registern, gerätebewusster Speicherung, föderierter Anmeldung, doppelt anonymer Begutachtung und institutioneller Administration auf. OJS- und OMP-3.5-Workflows werden in nativen End-to-End-Umgebungen geprüft; Android bleibt über den öffentlichen Beta-/Testverteilungspfad verfügbar.',
     multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
     wordLike: 'Word-ähnliches manuskriptweites Teilen, Zusammenführen und Auswählen',
     pdf: 'Strukturierter PDF-Import mit geometriebasierter Fußnotenerkennung',
@@ -181,7 +181,7 @@ export default function Home() {
 
         <section className={styles.studio} aria-labelledby="current-development-status">
           <div className={styles.studioContent}>
-            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.1.0-beta.4 public beta · 0.1.0-beta.5 candidate</p>
+            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.2.0-beta.2 public beta</p>
             <h2 id="current-development-status">{t.status}</h2>
             <h3>{t.currentTitle}</h3>
             <p>{studioUpdate.summary}</p>
@@ -195,7 +195,7 @@ export default function Home() {
           </div>
 
           <aside className={styles.studioFeatures} aria-label={t.status}>
-            <h3>0.1.0-beta.4 → 0.1.0-beta.5</h3>
+            <h3>0.2.0-beta.2</h3>
             <p>Web · Windows · Linux · macOS · Android · iOS/iPadOS</p>
             <p><strong>24</strong> UI languages</p>
             <nav className={styles.contextLinks} aria-label={t.status}>
