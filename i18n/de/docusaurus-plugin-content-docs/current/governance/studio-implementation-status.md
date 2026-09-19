@@ -31,7 +31,7 @@ keywords:
 |---|---|
 | Status | **Beta** |
 | Erfassungsdatum | **05.09.2026** |
-| Aktuelle Produktreihe | `0.1.0-beta.3` |
+| Aktuelle Produktreihe | `0.2.0-beta.2` |
 | Referenzimplementierung | Open Manuscript Studio |
 | Quell-Repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web-Ziel | Moderne Browser |
@@ -39,7 +39,7 @@ keywords:
 | Mobile Zielplattformen | Öffentliche universelle APK für Android; validiertes natives Simulator-Ziel für iOS/iPadOS, wobei die Verteilung über TestFlight/App Store noch der Signierung durch Apple Developer bedarf |
 | Webbereitstellung | `studio.openmanuscript.org` |
 
-Die aktuelle Studio-Beta-Version ist **`0.1.0-beta.3`**. „Beta“ bedeutet, dass die wichtigsten Workflows für die Erstellung, den Import/Export, die Authentifizierung, den nativen Client sowie die Überprüfung unter OJS/OMP implementiert sind und das Projekt nun von der Grundstruktur der Funktionen zu den Arbeiten an Interoperabilität, Regressionstests, Wiederherstellung und Release-Optimierung übergegangen ist. Dies bedeutet **nicht**, dass jede optionale Integration oder jeder Vertriebskanal produktionsreif ist.
+Die aktuelle Studio-Beta-Version ist **`0.2.0-beta.2`**. „Beta“ bedeutet, dass die wichtigsten Workflows für die Erstellung, den Import/Export, die Authentifizierung, den nativen Client sowie die Überprüfung unter OJS/OMP implementiert sind und das Projekt nun von der Grundstruktur der Funktionen zu den Arbeiten an Interoperabilität, Regressionstests, Wiederherstellung und Release-Optimierung übergegangen ist. Dies bedeutet **nicht**, dass jede optionale Integration oder jeder Vertriebskanal produktionsreif ist.
 
 Auf dieser Seite werden **implementierte Produktfunktionen** beschrieben, nicht die Konformität mit der „OMI“-Spezifikation. Der Reifegrad der formalen Spezifikation und Nachweise zur Konformität werden separat im „[OMI Implementation Status Matrix](./implementation-status-matrix.md)“ erfasst.
 
@@ -151,7 +151,7 @@ Die aktuellen Integrationen unter OJS und OMP sind für die Begutachtungsarbeit 
 
 ## Veröffentlichung und Vertrieb
 
-`0.1.0-beta.3` ist die aktuelle Beta-Release-Reihe von Studio. „GitHub Actions“ erstellt Release-Artefakte aus dem gemeinsamen Quellcode-Baum für Windows, Linux, macOS und Android. Auf der öffentlichen Studio-Download-Seite können die verfügbaren nativen Pakete, einschließlich der universellen Android-APK, über den Browser abgerufen werden.
+`0.2.0-beta.2` ist die aktuelle Beta-Release-Reihe von Studio. „GitHub Actions“ erstellt Release-Artefakte aus dem gemeinsamen Quellcode-Baum für Windows, Linux, macOS und Android. Auf der öffentlichen Studio-Download-Seite können die verfügbaren nativen Pakete, einschließlich der universellen Android-APK, über den Browser abgerufen werden.
 
 Für iOS/iPadOS gibt es derzeit einen funktionierenden CI-Simulator-Build, jedoch keine öffentliche IPA-Datei. Der Apple-Vertriebsweg ist zwar vorbereitet, wird jedoch bewusst von der Simulator-Validierung getrennt: Für öffentliche Builds und Geräte-Builds sind die echte Apple Development Team ID, das Vertriebszertifikat, das Provisioning-Profil sowie die endgültige Konfiguration der „`apple-app-site-association`“ erforderlich, bevor die Veröffentlichung über TestFlight bzw. im App Store beantragt werden kann.
 
