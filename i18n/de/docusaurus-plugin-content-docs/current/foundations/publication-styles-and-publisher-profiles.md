@@ -28,7 +28,7 @@ Diese Trennung ermöglicht es, dass dasselbe Manuskript unter OMI für verschied
 
 ## Aktueller Stand der Umsetzung
 
-Die auf dieser Seite beschriebenen Funktionen sind in der aktuellen Studio-Entwicklungszweig implementiert und Teil der Arbeiten zur Vorbereitung des Projekts auf die Beta-Phase. Die öffentliche Binärversion ist weiterhin unter `0.1.0-alpha.4` verfügbar; die hier beschriebenen neuen Funktionen werden möglicherweise zunächst im Entwicklungszweig verfügbar sein, bevor sie in die nächste gepackte Version aufgenommen werden.
+Die auf dieser Seite beschriebenen Funktionen sind in der aktuellen Studio-Entwicklungszweig implementiert und Teil der Arbeiten zur Vorbereitung des Projekts auf die Beta-Phase. Die öffentliche Binärversion ist weiterhin unter `0.2.0-beta.2` verfügbar; die hier beschriebenen neuen Funktionen werden möglicherweise zunächst im Entwicklungszweig verfügbar sein, bevor sie in die nächste gepackte Version aufgenommen werden.
 
 ### Wiederverwendbare benannte Publikationsstile
 

@@ -6,7 +6,7 @@ description: Current implementation status of Open Manuscript Studio integration
 
 # Integration Implementation Status
 
-**Status date:** 2026-09-05  
+**Status date:** 2026-09-19  
 **Scope:** Open Manuscript Studio reference implementation  
 **Authority:** Informative implementation report; the integration specifications remain normative where applicable.
 

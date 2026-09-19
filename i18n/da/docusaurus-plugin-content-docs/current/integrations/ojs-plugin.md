@@ -10,15 +10,15 @@ slug: /integrations/ojs-plugin
 
 ## Aktuel udgave
 
-**Stabil udgave:** `v1.2.1`  
+**Stabil udgave:** `v1.6.0`  
 **Målplatform:** OJS 3.5.x  
 **Licens:** GNU GPL v3.0
 
 ### Download
 
-- **[Download OJS plugin v1.2.1 — ZIP](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.1/studioIntegration-ojs-3.5-v1.2.1.zip)**
-- **[Download OJS plugin v1.2.1 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.1/studioIntegration-ojs-3.5-v1.2.1.tar.gz)**
-- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.1/SHA256SUMS.txt)
+- **[Download OJS plugin v1.6.0 — ZIP](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.6.0/studioIntegration-ojs-3.5-v1.6.0.zip)**
+- **[Download OJS plugin v1.6.0 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.6.0/studioIntegration-ojs-3.5-v1.6.0.tar.gz)**
+- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.6.0/SHA256SUMS.txt)
 - [Latest GitHub release](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/latest)
 
 Udgivelsesarkivet indeholder plugin’et i mappen »`studioIntegration/`«, som er den rodmappe, der forventes i PKP-plugin-installationsprocesserne.

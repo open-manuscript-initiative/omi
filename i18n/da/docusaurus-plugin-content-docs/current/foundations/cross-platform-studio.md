@@ -17,7 +17,7 @@ Projektet vedligeholder ikke separate applikationer til hvert operativsystem. St
 | Windows | **I drift** | Tauri 2 EXE/MSI |
 | macOS | **Automatiseret build-mål** | DMG til Intel og Apple Silicon; sikkerhedsforanstaltningerne vedrørende signering/notarisering forbliver uændrede |
 | Linux | **Automatiseret build-mål** | AppImage og DEB |
-| Android | **Offentlig alfa-version i drift** | Universel APK fra den fælles udgivelsesproces; pakning til app-butikkerne følger senere |
+| Android | **Offentlig beta-version i drift** | Universel APK fra den fælles udgivelsesproces; pakning til app-butikkerne følger senere |
 | iOS / iPadOS | **Valideret native build-mål** | Kompilering til iPhone/iPad-simulatoren lykkes; distribution via TestFlight/App Store kræver signering via Apple Developer og endelig tilknytning til Universal Link |
 
 Android er ikke længere blot et arkitektonisk eller udviklingsmæssigt mål. Der genereres en offentlig, universel APK ud fra den fælles Tauri 2-kodelinje, og den anvender samme logik for konti, dokumenter, gennemgang, integration og eksport som de øvrige klienter, med en mobiloptimeret, responsiv præsentation og Android-indbygget filhåndtering via Documents/Storage Access Framework.

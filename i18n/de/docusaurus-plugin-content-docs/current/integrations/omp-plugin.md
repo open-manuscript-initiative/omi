@@ -10,15 +10,15 @@ Das **OMI-OMP-Integrations-Plugin** verbindet Open Monograph Press (OMP) 3.5.x m
 
 ## Aktuelle Version
 
-**Stabile Version:** `v1.2.6`  
+**Stabile Version:** `v1.5.1`  
 **Zielplattform:** OMP 3.5.x  
 **Lizenz:** GNU GPL v3.0
 
 ### Herunterladen
 
-- **[Download OMP plugin v1.2.6 — ZIP](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/studioIntegration-omp-3.5-v1.2.6.zip)**
-- **[Download OMP plugin v1.2.6 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/studioIntegration-omp-3.5-v1.2.6.tar.gz)**
-- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/SHA256SUMS.txt)
+- **[Download OMP plugin v1.5.1 — ZIP](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.5.1/studioIntegration-omp-3.5-v1.5.1.zip)**
+- **[Download OMP plugin v1.5.1 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.5.1/studioIntegration-omp-3.5-v1.5.1.tar.gz)**
+- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.5.1/SHA256SUMS.txt)
 - [Latest GitHub release](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/latest)
 
 Das Release-Archiv verwendet `studioIntegration/` als Paketstammverzeichnis für eine PKP-kompatible Installation.

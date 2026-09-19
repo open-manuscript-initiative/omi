@@ -6,8 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {getPublicPageCopy} from '../i18n/publicPages';
 import styles from './studio.module.css';
 
-const STUDIO_VERSION = '0.1.0-beta.4';
-const NEXT_STUDIO_VERSION = '0.1.0-beta.5';
+const STUDIO_VERSION = '0.2.0-beta.2';
 const RELEASE_BASE = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/releases/latest/download';
 const GOOGLE_PLAY_TEST_URL = 'https://play.google.com/apps/testing/org.openmanuscript.studio';
 const downloads = {
@@ -31,7 +30,7 @@ const CAPABILITY_DOC_TARGETS: Record<number, string> = {
 const CURRENT_UPDATE = {
   en: {
     title: 'Open Manuscript Studio public beta',
-    lead: 'Version 0.1.0-beta.4 remains the current public beta while 0.1.0-beta.5 is being prepared with direct OJS/OMP author submission, Android Google Play submission readiness, one-step responsive navigation, cross-platform update notifications, separate printed and interactive PDF export, verified OJS and OMP 3.5 workflows, and provenance-safe immutable releases.',
+    lead: 'Version 0.2.0-beta.2 is the current public beta, with provenance-verified OJS/OMP publication artifact transfer, PKP-compatible contributor metadata, reference-manager integrations, validated JATS/PDF publication output, and native OMP 3.5 author/reviewer writeback added to the existing cross-platform authoring and review workflows.',
     items: [
       ['Direct OJS/OMP author submission', 'From Publication, an eligible standalone study can be prepared and submitted directly to a configured OJS or OMP installation. Studio transfers manuscript metadata and files, preserves draft/retry state, validates the target workflow, and uses the author’s publishing-system API credentials.'],
       ['Release integrity and update flow', 'Desktop, mobile and review surfaces can notify users about newer Studio releases. The release pipeline binds a release tag to the exact build commit and never replaces assets of an already published release.'],
@@ -59,13 +58,13 @@ const CURRENT_UPDATE = {
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validated native iPhone/iPad simulator target using the same Studio core. Public TestFlight/App Store installation is not yet available because Apple signing/provisioning and the final Universal Link association are still required.',
     iosAction: 'iOS/iPadOS implementation details',
-    betaTitle: 'Public beta and beta.5 candidate',
-    betaText: 'OMI Studio 0.1.0-beta.4 is the current public release for broader real-world testing. The 0.1.0-beta.5 candidate adds direct OJS/OMP author submission, improved standalone-study recognition and Android Play submission readiness while preserving the existing authoring, DOCX import/export, document lifecycle, search/replace, semantic indexes, printed and interactive PDF export, update notifications and configured review workflows.',
+    betaTitle: 'Current public beta',
+    betaText: 'OMI Studio 0.2.0-beta.2 is the current public beta for broader real-world testing. It adds the native OMP client, PKP-compatible metadata, reference-manager interchange and provenance-verified publication artifact transfer while preserving structured authoring, DOCX import/export, document lifecycle, search/replace, semantic indexes, validated JATS/PDF output, update notifications and configured review workflows.',
     maturity: 'The project is in public beta. Beta development prioritizes regression testing, large-document performance, error recovery, interoperability, migration discipline and trustworthy immutable releases on the path to the first release candidate.',
   },
   hu: {
     title: 'Az Open Manuscript Studio nyilvános bétája',
-    lead: 'A 0.1.0-beta.4 marad a jelenlegi nyilvános kiadás, miközben készül a 0.1.0-beta.5 közvetlen OJS/OMP szerzői beküldéssel, Google Play-beküldésre előkészített Android-kiadással, egylépcsős reszponzív navigációval, platformközi frissítési értesítésekkel, külön nyomtatott és interaktív PDF-exporttal, ellenőrzött OJS/OMP 3.5 munkafolyamatokkal és provenance-biztos, változtathatatlan kiadásokkal.',
+    lead: 'A 0.2.0-beta.2 a jelenlegi nyilvános béta. A kiadás a provenance-ellenőrzött OJS/OMP publikációs artefaktum-átadást, a PKP-kompatibilis közreműködői metaadatokat, a referenciakezelő-integrációkat, a validált JATS/PDF publikációs kimenetet és a natív OMP 3.5 szerzői/lektor writebacket is hozzáadja a meglévő platformközi kéziratszerkesztési és lektorálási munkafolyamatokhoz.',
     items: [
       ['Közvetlen szerzői beküldés OJS/OMP-be', 'A Publikáció menüből egy beküldhető önálló tanulmány közvetlenül előkészíthető és beküldhető egy konfigurált OJS- vagy OMP-rendszerbe. A Studio átadja a kézirat metaadatait és fájljait, megőrzi a piszkozat/újrapróbálkozás állapotát, ellenőrzi a célrendszer munkafolyamatát, és a szerző publikációs rendszerhez tartozó API-hitelesítését használja.'],
       ['Kiadási integritás és frissítés', 'Az asztali, mobil és lektori felületek értesíthetnek az új Studio-kiadásokról. A release-folyamat a taget pontosan a build commitjához köti, és egy már publikált kiadás assetjeit később nem cseréli le.'],
@@ -93,13 +92,13 @@ const CURRENT_UPDATE = {
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validált natív iPhone/iPad szimulátoros célverzió ugyanazzal a Studio-maggal. Nyilvános TestFlight/App Store telepítés még nincs, mert ehhez Apple aláírás/provisioning és a végleges Universal Link társítás szükséges.',
     iosAction: 'iOS/iPadOS megvalósítás részletei',
-    betaTitle: 'Nyilvános béta és beta.5 kiadásjelölt',
-    betaText: 'Az OMI Studio 0.1.0-beta.4 a jelenlegi nyilvános kiadás szélesebb körű, valós használati teszteléshez. A 0.1.0-beta.5 jelölt közvetlen OJS/OMP szerzői beküldést, pontosabb önálló-tanulmány felismerést és Google Play-beküldési előkészítést ad az eddigi kéziratszerkesztés, DOCX import/export, dokumentuméletciklus, keresés és csere, szemantikus mutatók, nyomtatott és interaktív PDF-export, frissítési értesítések és konfigurált lektori munkafolyamatok mellé.',
+    betaTitle: 'Jelenlegi nyilvános béta',
+    betaText: 'Az OMI Studio 0.2.0-beta.2 a jelenlegi nyilvános béta szélesebb körű, valós használati teszteléshez. A natív OMP kliens, a PKP-kompatibilis metaadatok, a referenciakezelő-adatcsere és a provenance-ellenőrzött publikációs artefaktum-átadás az eddigi strukturált kéziratszerkesztés, DOCX import/export, dokumentuméletciklus, keresés és csere, szemantikus mutatók, validált JATS/PDF kimenetek, frissítési értesítések és konfigurált lektori munkafolyamatok mellé került.',
     maturity: 'A projekt nyilvános béta. A béta szakasz fő feladata a regressziós tesztelés, a nagy dokumentumok teljesítménye, a hibából való helyreállás, az interoperabilitás, a migrációs fegyelem és a megbízható, változtathatatlan kiadások biztosítása az első release candidate felé.',
   },
   de: {
     title: 'Öffentliche Beta von Open Manuscript Studio',
-    lead: '0.1.0-beta.4 bleibt die aktuelle öffentliche Version, während 0.1.0-beta.5 mit direkter OJS/OMP-Autoreneinreichung, Android-Vorbereitung für Google Play, einstufiger responsiver Navigation, plattformübergreifenden Update-Hinweisen, getrennten Druck- und interaktiven PDF-Exporten, verifizierten OJS-/OMP-3.5-Workflows und provenance-sicheren unveränderlichen Releases vorbereitet wird.',
+    lead: '0.2.0-beta.2 ist die aktuelle öffentliche Beta. Die Version ergänzt provenance-geprüfte OJS/OMP-Publikationsartefaktübertragung, PKP-kompatible Beitragsmetadaten, Referenzmanager-Integrationen, validierte JATS/PDF-Publikationsausgabe und natives OMP-3.5-Writeback für Autoren und Reviewer zu den bestehenden plattformübergreifenden Autoren- und Review-Workflows.',
     items: [
       ['Direkte OJS/OMP-Autoreneinreichung', 'Über Publikation kann eine geeignete eigenständige Studie direkt für eine konfigurierte OJS- oder OMP-Installation vorbereitet und eingereicht werden. Studio überträgt Metadaten und Dateien, bewahrt Entwurfs-/Wiederholungsstatus, validiert den Zielworkflow und verwendet die API-Anmeldedaten des Autors für das Publikationssystem.'],
       ['Release-Integrität und Updates', 'Desktop-, Mobil- und Review-Oberflächen können über neuere Studio-Releases informieren. Die Release-Pipeline bindet einen Tag an den exakten Build-Commit und ersetzt niemals Assets eines bereits veröffentlichten Releases.'],
@@ -127,8 +126,8 @@ const CURRENT_UPDATE = {
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validiertes natives iPhone/iPad-Simulatorziel mit demselben Studio-Kern. Eine öffentliche TestFlight/App-Store-Installation ist noch nicht verfügbar, da Apple-Signierung/Provisioning und die endgültige Universal-Link-Zuordnung erforderlich sind.',
     iosAction: 'Details zur iOS/iPadOS-Implementierung',
-    betaTitle: 'Öffentliche Beta und beta.5-Kandidat',
-    betaText: 'OMI Studio 0.1.0-beta.4 ist die aktuelle öffentliche Version für breitere Tests unter realen Bedingungen. Der 0.1.0-beta.5-Kandidat ergänzt direkte OJS/OMP-Autoreneinreichung, verbesserte Erkennung eigenständiger Studien und Google-Play-Einreichungsvorbereitung zusätzlich zu Autorenschaft, DOCX-Import/-Export, Dokumentlebenszyklus, Suchen/Ersetzen, semantischen Registern, Druck- und interaktiven PDF-Exporten, Update-Hinweisen und konfigurierten Review-Workflows.',
+    betaTitle: 'Aktuelle öffentliche Beta',
+    betaText: 'OMI Studio 0.2.0-beta.2 ist die aktuelle öffentliche Beta für breitere Praxistests. Der native OMP-Client, PKP-kompatible Metadaten, Referenzmanager-Austausch und provenance-geprüfte Publikationsartefaktübertragung ergänzen strukturierte Manuskriptbearbeitung, DOCX-Import/-Export, Dokumentlebenszyklus, Suchen/Ersetzen, semantische Register, validierte JATS/PDF-Ausgabe, Update-Hinweise und konfigurierte Review-Workflows.',
     maturity: 'Das Projekt befindet sich in der öffentlichen Beta. Im Mittelpunkt stehen Regressionstests, Leistung bei großen Dokumenten, Fehlerwiederherstellung, Interoperabilität, saubere Migrationen und vertrauenswürdige unveränderliche Releases auf dem Weg zum ersten Release Candidate.',
   },
 } as const;
@@ -149,7 +148,7 @@ export default function StudioDownloads() {
       <main className={styles.page}>
         <section className={styles.hero}>
           <img src="/img/favicon.svg" alt="Open Manuscript Initiative" className={styles.icon} />
-          <p className={styles.kicker}>Open Manuscript Initiative · {STUDIO_VERSION} public beta · {NEXT_STUDIO_VERSION} candidate</p>
+          <p className={styles.kicker}>Open Manuscript Initiative · {STUDIO_VERSION} public beta</p>
           <h1>Open Manuscript Studio</h1>
           <p className={styles.lead}>{t.lead}</p>
           <div className={styles.actions}>

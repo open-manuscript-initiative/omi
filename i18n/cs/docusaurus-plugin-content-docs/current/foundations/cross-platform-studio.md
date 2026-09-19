@@ -17,7 +17,7 @@ Projekt neudržuje pro každý operační systém samostatné aplikace. Studio v
 | Windows | **Funkční** | Tauri 2 EXE/MSI |
 | macOS | **Cíl automatizované kompilace** | DMG pro Intel a Apple Silicon; zabezpečení podepisování a notářského ověřování zůstává zachováno |
 | Linux | **Cíl automatizované kompilace** | AppImage a DEB |
-| Android | **Funkční veřejná alfa verze** | Univerzální soubor APK vytvořený v rámci sdíleného procesu vydávání; balení určené pro obchody bude následovat |
+| Android | **Funkční veřejná beta verze** | Univerzální soubor APK vytvořený v rámci sdíleného procesu vydávání; balení určené pro obchody bude následovat |
 | iOS / iPadOS | **Ověřený cíl sestavení nativní aplikace** | Sestavení pro simulátor iPhone/iPad proběhlo úspěšně; distribuce prostřednictvím TestFlightu a App Store vyžaduje podepsání vývojářským certifikátem Apple a finální přiřazení univerzálního odkazu |
 
 Android již není pouze architektonickým cílem nebo cílem pro vývoj. Veřejný univerzální soubor APK se generuje ze sdílené kódové větve Tauri 2 a využívá stejnou logiku pro správu účtů, dokumentů, revizí, integrace a exportu jako ostatní klienti, a to s responzivním zobrazením přizpůsobeným pro mobilní zařízení a nativní správou souborů v rámci frameworku Documents/Storage Access Framework pro Android.

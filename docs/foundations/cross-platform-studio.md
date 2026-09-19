@@ -17,7 +17,7 @@ The project does not maintain unrelated applications for each operating system. 
 | Windows | **Operational** | Tauri 2 EXE/MSI |
 | macOS | **Automated build target** | Intel and Apple Silicon DMG; signing/notarization hardening remains |
 | Linux | **Automated build target** | AppImage and DEB |
-| Android | **Operational public alpha** | Universal APK from the shared release workflow; store-oriented packaging later |
+| Android | **Operational public beta** | Universal APK from the shared release workflow; Google Play testing plus signed universal APK |
 | iOS / iPadOS | **Validated native build target** | iPhone/iPad simulator build succeeds; TestFlight/App Store distribution requires Apple Developer signing and final Universal Link association |
 
 Android is no longer only an architectural or development target. A public universal APK is generated from the shared Tauri 2 code line and uses the same account, document, review, integration and export logic as the other clients, with mobile-specific responsive presentation and Android-native Documents/Storage Access Framework file handling.
@@ -193,6 +193,6 @@ In this architecture, **the scholarly manuscript is portable by design, and the 
 
 ## Implementation status
 
-Web and Windows delivery are operational parts of Studio, Android is a public alpha target, Linux/macOS are automated native build targets, and iOS/iPadOS is now a validated native simulator build target on the same Tauri 2 architecture. The shared client includes multi-document desktop work, device-aware native storage, Android Documents/SAF handling, Apple Files/UIDocumentPicker handling, cross-device account identity and federated authentication in addition to the browser workflow. Public iOS/iPadOS distribution remains gated by Apple Developer signing, provisioning, Universal Link association and TestFlight/App Store validation.
+Web and Windows delivery are operational parts of Studio, Android is a public beta target, Linux/macOS are automated native build targets, and iOS/iPadOS is now a validated native simulator build target on the same Tauri 2 architecture. The shared client includes multi-document desktop work, device-aware native storage, Android Documents/SAF handling, Apple Files/UIDocumentPicker handling, cross-device account identity and federated authentication in addition to the browser workflow. Public iOS/iPadOS distribution remains gated by Apple Developer signing, provisioning, Universal Link association and TestFlight/App Store validation.
 
 For current implementation details, see [Studio Implementation Status](../governance/studio-implementation-status.md), [Open Manuscript Studio on iOS and iPadOS](./ios-ipados-studio.md), [Integration Implementation Status](../integrations/implementation-status.md) and [Institutional and Central Administration](../integrations/institutional-administration.md).

@@ -10,15 +10,15 @@ slug: /integrations/omp-plugin
 
 ## Aktuel udgave
 
-**Stabil udgave:** `v1.2.6`  
+**Stabil udgave:** `v1.5.1`  
 **Målplatform:** OMP 3.5.x  
 **Licens:** GNU GPL v3.0
 
 ### Download
 
-- **[Download OMP plugin v1.2.6 — ZIP](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/studioIntegration-omp-3.5-v1.2.6.zip)**
-- **[Download OMP plugin v1.2.6 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/studioIntegration-omp-3.5-v1.2.6.tar.gz)**
-- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.2.6/SHA256SUMS.txt)
+- **[Download OMP plugin v1.5.1 — ZIP](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.5.1/studioIntegration-omp-3.5-v1.5.1.zip)**
+- **[Download OMP plugin v1.5.1 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.5.1/studioIntegration-omp-3.5-v1.5.1.tar.gz)**
+- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/download/v1.5.1/SHA256SUMS.txt)
 - [Latest GitHub release](https://github.com/open-manuscript-initiative/omi-omp-plugin/releases/latest)
 
 Udgivelsesarkivet bruger `studioIntegration/` som pakkeroot til PKP-kompatibel installation.

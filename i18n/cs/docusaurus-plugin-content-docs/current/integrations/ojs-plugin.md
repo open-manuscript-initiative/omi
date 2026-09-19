@@ -10,15 +10,15 @@ slug: /integrations/ojs-plugin
 
 ## Aktuální verze
 
-**Stabilní verze:** `v1.2.1`  
+**Stabilní verze:** `v1.6.0`  
 **Cílová platforma:** OJS 3.5.x  
 **Licence:** GNU GPL v3.0
 
 ### Stáhnout
 
-- **[Download OJS plugin v1.2.1 — ZIP](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.1/studioIntegration-ojs-3.5-v1.2.1.zip)**
-- **[Download OJS plugin v1.2.1 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.1/studioIntegration-ojs-3.5-v1.2.1.tar.gz)**
-- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.2.1/SHA256SUMS.txt)
+- **[Download OJS plugin v1.6.0 — ZIP](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.6.0/studioIntegration-ojs-3.5-v1.6.0.zip)**
+- **[Download OJS plugin v1.6.0 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.6.0/studioIntegration-ojs-3.5-v1.6.0.tar.gz)**
+- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.6.0/SHA256SUMS.txt)
 - [Latest GitHub release](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/latest)
 
 Archiv vydání obsahuje plugin v kořenovém adresáři balíčku `studioIntegration/`, jak to vyžadují postupy instalace pluginů PKP.

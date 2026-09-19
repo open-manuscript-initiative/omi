@@ -28,7 +28,7 @@ Díky tomuto oddělení lze stejný rukopis OMI přizpůsobit pro různé časop
 
 ## Aktuální stav implementace
 
-Sada funkcí popsaná na této stránce je implementována v aktuální vývojové větvi Studio a je součástí příprav projektu na vydání beta verze. Veřejně dostupná binární verze zůstává na adrese `0.1.0-alpha.4`; novější funkce popsané zde se mohou nejprve objevit ve vývojové větvi ještě před vydáním další balíčkové verze.
+Sada funkcí popsaná na této stránce je implementována v aktuální vývojové větvi Studio a je součástí příprav projektu na vydání beta verze. Veřejně dostupná binární verze zůstává na adrese `0.2.0-beta.2`; novější funkce popsané zde se mohou nejprve objevit ve vývojové větvi ještě před vydáním další balíčkové verze.
 
 ### Opakovaně použitelné pojmenované styly publikací
 

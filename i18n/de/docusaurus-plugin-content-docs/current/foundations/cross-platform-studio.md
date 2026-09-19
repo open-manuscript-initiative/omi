@@ -17,7 +17,7 @@ Das Projekt unterhält keine separaten Anwendungen für jedes Betriebssystem. St
 | Windows | **Betriebsbereit** | Tauri 2 EXE/MSI |
 | macOS | **Automatisiertes Build-Ziel** | DMG für Intel und Apple Silicon; die Absicherung der Signierung/Notarisierung bleibt bestehen |
 | Linux | **Automatisiertes Build-Ziel** | AppImage und DEB |
-| Android | **Öffentliche Alpha-Version im Einsatz** | Universelle APK aus dem gemeinsamen Release-Workflow; store-orientierte Paketierung folgt später |
+| Android | **Öffentliche Beta-Version im Einsatz** | Universelle APK aus dem gemeinsamen Release-Workflow; store-orientierte Paketierung folgt später |
 | iOS / iPadOS | **Validiertes natives Build-Ziel** | Der Build für den iPhone-/iPad-Simulator ist erfolgreich; für die Verteilung über TestFlight und den App Store sind eine Apple-Entwickler-Signatur sowie die endgültige Zuordnung des Universal Links erforderlich |
 
 Android ist nicht mehr nur eine Architektur- oder Entwicklungsplattform. Aus der gemeinsamen Tauri 2-Codebasis wird eine öffentliche, universelle APK generiert, die dieselbe Logik für Konten, Dokumente, Überprüfungen, Integrationen und Exporte nutzt wie die anderen Clients – ergänzt durch eine mobiloptimierte, responsive Darstellung und die für Android native Dateiverwaltung über das „Documents/Storage Access Framework“.
