@@ -81,7 +81,7 @@ Die exakte eingereichte Revision kann auch auf einem anderen Gerät geöffnet we
 
 ## Gutachterzuweisung und Datenschutz
 
-Die Redaktion kann vorhandene Studio-Konten als wissenschaftliche Gutachter zuweisen. Studio-native wissenschaftliche Begutachtung ist standardmäßig double blind.
+Die Redaktion kann vorhandene Studio-Konten als wissenschaftliche Gutachter zuweisen. Studio-native wissenschaftliche Begutachtung ist standardmäßig double blind. Die einreichende Person kann nicht als wissenschaftliche Gutachterin bzw. wissenschaftlicher Gutachter derselben Einreichung zugewiesen werden.
 
 Gutachter können den Auftrag annehmen oder ablehnen, die anonyme Manuskriptprojektion lesen, Feedback erfassen und eine Empfehlung einreichen.
 
