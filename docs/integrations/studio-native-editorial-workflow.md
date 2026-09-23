@@ -131,7 +131,9 @@ Changing the manuscript after acceptance changes its digest. The old acceptance 
 
 After acceptance, the exact revision is **publishable**.
 
-The publication screen does not create the Studio-native editorial acceptance. It only consumes an already recorded decision. A successful publication can then move the workflow to `PUBLISHED`.
+The publication screen does not create the Studio-native editorial acceptance. It only consumes an already recorded decision.
+
+A successful publication moves the workflow to `PUBLISHED` only when the external URL is under the verified publication-venue domain or one of its subdomains. Publishing the same accepted article to an unrelated website may still succeed as an external delivery, but the verified venue submission remains `ACCEPTED`.
 
 Publisher-verified output may carry:
 
