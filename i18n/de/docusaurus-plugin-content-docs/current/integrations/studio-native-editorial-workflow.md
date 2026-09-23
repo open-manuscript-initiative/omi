@@ -85,6 +85,8 @@ Die Redaktion kann vorhandene Studio-Konten als wissenschaftliche Gutachter zuwe
 
 Gutachter können den Auftrag annehmen oder ablehnen, die anonyme Manuskriptprojektion lesen, Feedback erfassen und eine Empfehlung einreichen.
 
+Eine abgelehnte Einladung bleibt im Audit-Verlauf erhalten, wird jedoch nicht zur entscheidungstragenden Review-Evidenz. Die Redaktion kann in derselben Runde eine Ersatzbegutachtung zuweisen; die Runde wird entscheidungsfähig, sobald alle nicht abgelehnten wissenschaftlichen Review-Aufträge abgeschlossen sind.
+
 Die Autorenansicht gibt die Studio-Identität der Gutachter nicht frei. `EDITOR_ONLY`-Kommentare bleiben ebenfalls verborgen.
 
 ## Überarbeitung durch Autorinnen und Autoren
