@@ -212,8 +212,8 @@ A megvalósítás célja, hogy:
 
 ## Kapcsolódó dokumentáció
 
-- [Studio telepítési módok](./studio-deployment-modes)
-- [Integrációs architektúra](./architecture)
-- [OJS plugin](./ojs-plugin)
-- [OMP plugin](./omp-plugin)
-- [Cross-platform Studio architektúra](../foundations/cross-platform-studio)
+- [Studio telepítési módok](../studio-deployment-modes)
+- [Integrációs architektúra](../architecture)
+- [OJS plugin](../ojs-plugin)
+- [OMP plugin](../omp-plugin)
+- [Cross-platform Studio architektúra](../../foundations/cross-platform-studio)
