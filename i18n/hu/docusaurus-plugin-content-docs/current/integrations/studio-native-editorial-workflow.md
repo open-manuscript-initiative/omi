@@ -131,7 +131,9 @@ Ha az elfogadás után változik a kézirat, megváltozik a digestje is, ezért 
 
 Elfogadás után a pontos revízió **publikálható** állapotú.
 
-A publikációs képernyő Studio-native venue esetén nem hozza létre a szerkesztői elfogadást. Csak a már létező döntést használja fel. Sikeres publikálás után a workflow `PUBLISHED` állapotba kerülhet.
+A publikációs képernyő Studio-native venue esetén nem hozza létre a szerkesztői elfogadást. Csak a már létező döntést használja fel.
+
+A workflow csak akkor kerül `PUBLISHED` állapotba, ha a külső publikáció URL-je a hitelesített publikációs hely domainje alatt vagy annak valamelyik aldomainjén található. Más webhelyre történő külső publikálás sikerülhet, de a hitelesített folyóirati/kiadói submission ilyenkor `ACCEPTED` állapotban marad.
 
 A publisher-verified kimenet megkaphatja:
 
