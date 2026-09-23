@@ -92,6 +92,8 @@ The reviewer receives the existing Studio review workspace and can:
 - add author-visible or editor-only feedback;
 - submit a recommendation.
 
+A declined invitation remains in the audit history but does not become decision-bearing review evidence. The editor may assign a replacement reviewer in the same round; the round becomes decision-capable when every non-declined scientific assignment in that round has been completed.
+
 The author-facing workflow never exposes the reviewer's Studio identity. Editor-only feedback is also excluded from the author view.
 
 ## Author revision
