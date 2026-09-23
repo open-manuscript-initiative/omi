@@ -92,6 +92,8 @@ A lektor a meglévő Studio review-workspace-ben:
 - a szerző számára látható vagy csak szerkesztői megjegyzést írhat;
 - ajánlást adhat és beküldheti a véleményt.
 
+A visszautasított lektori felkérés megmarad az audit-előzményekben, de nem válik a szerkesztői döntés kötelező bizonyítékává. A szerkesztő ugyanabban a fordulóban helyettesítő lektort jelölhet ki; a forduló akkor válik döntésre alkalmassá, amikor minden nem visszautasított tudományos lektori feladat lezárult.
+
 A szerzői nézet nem adja ki a lektor Studio-személyazonosságát, és az `EDITOR_ONLY` megjegyzéseket sem.
 
 ## Szerzői javítás
