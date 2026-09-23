@@ -208,6 +208,12 @@ The implementation is designed so that:
 - venue administration and manuscript editorial permission remain separate authorization planes;
 - reviewer identities and confidential reports are not placed in public publication-assurance metadata.
 
+## Studio-native editorial workflow
+
+For a DNS-verified venue without OJS/OMP, Studio can manage author submission, editorial inbox, scientific review, author revision and an editorial acceptance that remains separate from publication.
+
+See [Studio-native Editorial Workflow](../studio-native-editorial-workflow).
+
 ## Related documentation
 
 - [Studio Deployment Modes](../studio-deployment-modes)
