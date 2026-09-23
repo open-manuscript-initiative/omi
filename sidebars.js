@@ -75,6 +75,7 @@ const sidebars = {
         {type: 'doc', id: 'integrations/implementation-status', label: 'Integration Status'},
         {type: 'doc', id: 'integrations/architecture', label: 'Integration Architecture'},
         {type: 'doc', id: 'integrations/studio-deployment-modes', label: 'Studio Deployment Modes'},
+        {type: 'doc', id: 'integrations/publication-venue-authority', label: 'Verified Publication Venue Authority'},
         {type: 'doc', id: 'integrations/institutional-administration', label: 'Institutional Administration'},
         {type: 'doc', id: 'integrations/omi-agents-ai-provider-setup', label: 'OMI Agents AI Provider Setup'},
         {type: 'doc', id: 'integrations/integration-api-v1', label: 'Integration API v1'},
