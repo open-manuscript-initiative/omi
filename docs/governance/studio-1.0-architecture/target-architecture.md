@@ -742,6 +742,23 @@ The existing HTML renderer produces an immutable committed artifact. `Publicatio
 
 Website/WordPress connectors implement only `ArtifactDeliveryPort`; they never own review authority or portable manuscript semantics. A server-issued execution grant binds artifact/build/assurance and the target configuration version. The durable outbox owns delivery state, idempotency and external receipts. Generic endpoints receive exact standalone HTML; WordPress receives a declared article/media projection whose exact outgoing digest is receipted separately from the approved standalone digest.
 
+### Verified publication-venue authority
+
+For non-PKP journals and presses, publication-venue authority is a separate
+identity boundary. A one-time DNS TXT challenge proves control of the venue
+domain and grants only `DOMAIN_ADMIN`. The domain administrator may authorize
+existing Studio accounts as `EDITOR` or `EDITOR_IN_CHIEF`; domain control
+alone cannot create review assurance.
+
+A publisher-verified editorial acceptance requires both the venue editor role
+and manuscript-workspace `EDITOR` access, plus the completed Studio-native
+scientific review round. It is bound to revision ID, manuscript-state digest
+and the assurance-neutral publication-content digest. The stored decision
+includes an immutable authority snapshot (venue, domain, DNS verification
+identity/time and editor role). DNS is revalidated before new decisions when
+the prior check is stale; revocation affects future authority, not historical
+decision provenance.
+
 ### Application/API ownership
 
 - `PrepareWebPublication`: checkpoint, supported-asset checks, evidence retrieval and immutable artifact preparation. Move orchestration from React/Zustand behind an application facade; retain the renderer.
