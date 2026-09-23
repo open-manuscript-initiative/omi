@@ -83,7 +83,7 @@ A `DOMAIN_ADMIN` role alone is not enough to make editorial decisions.
 
 ## Reviewer assignment and privacy
 
-The editor assigns one or more existing Studio accounts as scientific reviewers. Studio-native scientific review defaults to double blind.
+The editor assigns one or more existing Studio accounts as scientific reviewers. Studio-native scientific review defaults to double blind. The submitting author cannot be assigned as a scientific reviewer of the same submission.
 
 The reviewer receives the existing Studio review workspace and can:
 
