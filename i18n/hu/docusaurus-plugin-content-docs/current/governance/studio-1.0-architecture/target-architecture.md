@@ -884,3 +884,27 @@ Kiemelt, állításokat közvetlenül alátámasztó források:
 A célarchitektúra a működő implementációt veszi körül stabil határokkal. Nem javasolt a Tiptap, a versioning szemantika, a ZIP biztonsági parser, a publication build, a cloud provider réteg, a Tauri shell vagy a PKP pluginok újraírása. A szükséges mélyebb refaktorok oka konkrét: a portable formátum és a Tiptap összemosása adatvesztési/kompatibilitási kockázat; a store-use-case összekapcsolás tesztelési és platformfüggési probléma; a duplikált identity authority és a kliensvezérelt confidential scope security kockázat; a teljes snapshot history pedig skálázási kockázat.
 
 A helyes út: contractot bevezetni a régi kód elé, ugyanazt a viselkedést conformance fixture-rel lezárni, callsite-onként átállni, majd csak bizonyítottan használaton kívüli vagy hibás utat eltávolítani.
+
+## 24. DNS-hitelesített publikációs hely autoritás — 2026-09-23
+
+Ez az ADR-021 szerinti webes review-assurance határ kiegészítése.
+
+OJS/OMP nélküli folyóirat vagy kiadó egyszer használatos DNS TXT kihívással
+igazolhatja a saját domainje feletti rendelkezést. A sikeres ellenőrzés csak
+`DOMAIN_ADMIN` szerepet ad; ez szervezeti autoritás, nem peer-review
+bizonyíték és nem automatikus szerkesztői jogosultság.
+
+A domain-admin már létező Studio-fiókoknak `EDITOR` vagy
+`EDITOR_IN_CHIEF` szerepet adhat. Publisher-verified szerkesztői döntéshez
+egyszerre szükséges:
+
+- aktív venue `EDITOR` vagy `EDITOR_IN_CHIEF` szerep;
+- a kézirat review-workspace `EDITOR` jogosultsága;
+- teljes Studio-natív tudományos lektori forduló;
+- a pontos revision ID és manuscript-state digest;
+- az assurance-rétegtől független publication-content digest.
+
+A döntés változtathatatlan snapshotként megőrzi a venue, domain, DNS
+verification ID/időpont és szerkesztői szerepkör adatait. Új döntés előtt az
+elavult DNS-ellenőrzést újra kell validálni; későbbi DNS- vagy
+szerepkör-visszavonás nem írja át a történeti provenance-t.
