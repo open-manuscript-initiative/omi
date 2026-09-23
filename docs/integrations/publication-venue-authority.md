@@ -210,8 +210,8 @@ The implementation is designed so that:
 
 ## Related documentation
 
-- [Studio Deployment Modes](./studio-deployment-modes)
-- [Integration Architecture](./architecture)
-- [OJS Plugin](./ojs-plugin)
-- [OMP Plugin](./omp-plugin)
-- [Cross-platform Studio Architecture](../foundations/cross-platform-studio)
+- [Studio Deployment Modes](../studio-deployment-modes)
+- [Integration Architecture](../architecture)
+- [OJS Plugin](../ojs-plugin)
+- [OMP Plugin](../omp-plugin)
+- [Cross-platform Studio Architecture](../../foundations/cross-platform-studio)
