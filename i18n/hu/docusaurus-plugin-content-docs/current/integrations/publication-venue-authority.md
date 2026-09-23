@@ -210,6 +210,12 @@ A megvalósítás célja, hogy:
 - a venue-adminisztráció és a kézirat szerkesztői jogosultsága külön authorization plane maradjon;
 - a nyilvános assurance-metaadat ne tartalmazzon lektori személyazonosságot vagy bizalmas lektori jelentést.
 
+## Studio-native szerkesztőségi workflow
+
+DNS-hitelesített, OJS/OMP nélküli publikációs helynél a Studio külön szerzői beküldési, szerkesztői inbox-, lektori, javítási és szerkesztői döntési workflow-t biztosíthat. A szerkesztői elfogadás külön művelet a publikálástól.
+
+Részletesen: [Studio-native szerkesztőségi munkafolyamat](../studio-native-editorial-workflow).
+
 ## Kapcsolódó dokumentáció
 
 - [Studio telepítési módok](../studio-deployment-modes)
