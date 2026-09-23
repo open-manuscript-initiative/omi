@@ -137,6 +137,8 @@ An editor can record a publisher-verified editorial acceptance when the same Stu
 
 An editor-in-chief has the same publisher-verified decision authority, while preserving the distinct venue role in the audit evidence.
 
+A single Studio account may hold multiple roles for the same venue, and the same account may also hold roles at multiple independent publication venues. Authority is always scoped to one venue; being a domain administrator for one journal grants no authority over another.
+
 A single Studio account may hold multiple roles for the same venue, for example:
 
 ```text
@@ -208,8 +210,8 @@ The implementation is designed so that:
 
 ## Related documentation
 
-- [Studio Deployment Modes](./studio-deployment-modes.md)
-- [Integration Architecture](./architecture.md)
-- [OJS Plugin](./ojs-plugin.md)
-- [OMP Plugin](./omp-plugin.md)
-- [Cross-platform Studio Architecture](../foundations/cross-platform-studio.md)
+- [Studio Deployment Modes](./studio-deployment-modes)
+- [Integration Architecture](./architecture)
+- [OJS Plugin](./ojs-plugin)
+- [OMP Plugin](./omp-plugin)
+- [Cross-platform Studio Architecture](../foundations/cross-platform-studio)
