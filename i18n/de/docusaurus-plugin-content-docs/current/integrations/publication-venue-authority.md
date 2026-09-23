@@ -210,6 +210,12 @@ Die Implementierung ist so ausgelegt, dass:
 - Publikationsstellen-Verwaltung und Manuskript-Redaktionsrechte getrennte Autorisierungsebenen bleiben;
 - öffentliche Assurance-Metadaten keine Reviewer-Identitäten oder vertraulichen Gutachten enthalten.
 
+## Studio-nativer redaktioneller Workflow
+
+Für DNS-verifizierte Publikationsstellen ohne OJS/OMP kann Studio Einreichung, redaktionellen Eingang, Begutachtung, Überarbeitung und eine von der Publikation getrennte Annahmeentscheidung verwalten.
+
+Siehe [Studio-nativer redaktioneller Workflow](../studio-native-editorial-workflow).
+
 ## Verwandte Dokumentation
 
 - [Studio Deployment Modes](../studio-deployment-modes)
