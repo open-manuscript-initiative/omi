@@ -139,6 +139,8 @@ A szerkesztő publisher-verified elfogadó döntést rögzíthet, ha ugyanaz a S
 
 A főszerkesztő ugyanilyen publisher-verified döntési jogosultsággal rendelkezik, miközben az auditbizonyíték külön megőrzi a főszerkesztői szerepkört.
 
+Ugyanaz a Studio-fiók több külön folyóiratnál vagy kiadónál is rendelkezhet szerepkörrel. A jogosultság mindig az adott publikációs helyhez kötött: attól, hogy valaki az egyik folyóirat `DOMAIN_ADMIN` szereplője, egy másik folyóiratnál még semmilyen jogosultságot nem kap.
+
 Ugyanaz a Studio-fiók egy publikációs helyen több szerepet is kaphat, például:
 
 ```text
@@ -210,8 +212,8 @@ A megvalósítás célja, hogy:
 
 ## Kapcsolódó dokumentáció
 
-- [Studio telepítési módok](./studio-deployment-modes.md)
-- [Integrációs architektúra](./architecture.md)
-- [OJS plugin](./ojs-plugin.md)
-- [OMP plugin](./omp-plugin.md)
-- [Cross-platform Studio architektúra](../foundations/cross-platform-studio.md)
+- [Studio telepítési módok](./studio-deployment-modes)
+- [Integrációs architektúra](./architecture)
+- [OJS plugin](./ojs-plugin)
+- [OMP plugin](./omp-plugin)
+- [Cross-platform Studio architektúra](../foundations/cross-platform-studio)
