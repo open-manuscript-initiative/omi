@@ -139,6 +139,8 @@ Ein/e Redakteur/in kann eine publisher-verified Annahmeentscheidung erfassen, we
 
 Ein/e Chefredakteur/in besitzt dieselbe publisher-verified Entscheidungsautorität, wobei die besondere Rolle im Auditnachweis erhalten bleibt.
 
+Dasselbe Studio-Konto kann Rollen bei mehreren unabhängigen Zeitschriften oder Verlagen besitzen. Die Berechtigung ist immer auf eine konkrete Publikationsstelle begrenzt; eine `DOMAIN_ADMIN`-Rolle bei einer Zeitschrift verleiht keine Autorität über eine andere.
+
 Ein Studio-Konto kann für dieselbe Publikationsstelle mehrere Rollen besitzen, zum Beispiel:
 
 ```text
@@ -210,8 +212,8 @@ Die Implementierung ist so ausgelegt, dass:
 
 ## Verwandte Dokumentation
 
-- [Studio Deployment Modes](./studio-deployment-modes.md)
-- [Integration Architecture](./architecture.md)
-- [OJS Plugin](./ojs-plugin.md)
-- [OMP Plugin](./omp-plugin.md)
-- [Cross-platform Studio Architecture](../foundations/cross-platform-studio.md)
+- [Studio Deployment Modes](./studio-deployment-modes)
+- [Integration Architecture](./architecture)
+- [OJS Plugin](./ojs-plugin)
+- [OMP Plugin](./omp-plugin)
+- [Cross-platform Studio Architecture](../foundations/cross-platform-studio)
