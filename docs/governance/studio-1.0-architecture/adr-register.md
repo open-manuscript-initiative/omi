@@ -34,6 +34,7 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 | ADR-018 | OMI container, provenance, and signatures | Accepted, conditional on OMI-SPEC-330 fixtures |
 | ADR-019 | Stable/preview capability policy | Accepted |
 | ADR-020 | General executable plugin runtime | Deferred |
+| ADR-021 | Website publication assurance and editorial authority | Proposed; delivery remains Preview |
 
 ---
 
@@ -355,6 +356,20 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 **Revisit when.** There are at least three concrete third-party plugin use cases, a threat model, a viable sandbox, signing/distribution policy, and a dedicated maintenance owner.
 
+## ADR-021 — Website publication assurance and editorial authority
+
+**Question.** How may a website artifact say that it is peer reviewed when a journal or press does not use OJS or OMP, without making a website connector or a client-side switch the authority?
+
+**Decision.** Publication intent and review assurance are separate. Every Studio website artifact carries a visible, accessible and machine-readable assurance of either `not-peer-reviewed` or `peer-reviewed`. The circular mark is language-independent and uses the fixed wording `OMI · PEER REVIEW · VERIFIED` or `OMI · PEER REVIEW · NOT VERIFIED`; the adjacent explanation remains localized. `VERIFIED` refers to Studio-recorded workflow evidence, not an OMI endorsement of content or scholarly quality. The reviewed value requires a completed Studio-native scientific review round and a separate server-side editor acceptance decision bound to the exact committed revision and manuscript-state digest. Review completion alone is not acceptance. When OJS/OMP owns the workflow it remains authoritative; externally bound assignments cannot create a Studio-native decision. The website/WordPress adapter is only an `ArtifactDeliveryPort`. The assurance notice is part of the rendered bytes before the publication-build hash is calculated, and a server-issued execution grant binds the selected target-configuration version and revalidates the evidence before delivery. A declared WordPress transport projection may extract the article and relocate embedded media, but its exact outgoing digest is receipted separately from the approved standalone-artifact digest. Public evidence contains decision ID, evidence digest, round and time, never reviewer identity, confidential feedback or recommendations. The seal attests workflow evidence, not the truth of the article.
+
+**Alternatives.** A user-selected “reviewed” boolean; infer review from a completed assignment; require OJS/OMP for every reviewed publication; let WordPress or the receiving website set the status; embed reviewer names or reports in the artifact.
+
+**Reason.** Independent journals and presses need the Studio review workflow and web delivery without adopting PKP software. A default-deny assurance boundary preserves that capability without weakening anonymity, external workflow authority, provenance or the distinction between editorial acceptance and reviewer recommendation.
+
+**Consequences.** Editing creates a new revision and invalidates use of the prior decision for a new reviewed artifact. Unreviewed scholarly and public-interest publishing remains valid but is never ambiguous. The idempotency identity includes assurance evidence and target configuration version. Website delivery stays Preview until outbox recovery, tamper, accessibility, receiver-contract and privacy tests pass. A false reviewed seal, missing unreviewed notice, undeclared or unreceipted transport transformation, or reviewer leak is release-blocking even while the feature is Preview.
+
+**Review when.** A standard review-taxonomy or external evidence format is selected, a non-PKP publishing-system adapter supplies authoritative editorial decisions, or post-publication/open review requires additional public assurance states.
+
 ## Parameters to quantify before freeze
 
 These are not new ADRs; they are concrete values required by the decisions above.
@@ -366,6 +381,7 @@ These are not new ADRs; they are concrete values required by the decisions above
 | container size/entry/depth limits | current parser plus platform-memory benchmarks | A07/E01 |
 | history snapshot/delta threshold | 120k/500k-word benchmarks | B07/D06 |
 | stable exporter list | fixture/fidelity/validator evidence | C14 |
+| website assurance and receiver contract | tamper, transport-digest, recovery, privacy and accessibility evidence | C15 |
 | exact supported OJS/OMP versions | Docker E2E matrix | C07/C08 |
 | token/session TTL and credential rotation | security review | B10/C12 |
 | performance and bundle budgets | current baseline plus representative devices | D06 |

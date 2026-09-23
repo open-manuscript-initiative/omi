@@ -151,3 +151,11 @@ Promote the proven RC commit to `1.0.0` without functional change. Any code chan
 The highest-value work before 1.0 is not another wave of features. It is closing the format/content boundary, application-state ownership, security authority, and exact-RC evidence model.
 
 The valuable implementation already exists. By adding explicit contracts around it, proving current behaviour, migrating incrementally, and deleting only obsolete paths after evidence exists, Studio can move from beta to a maintainable 1.0 without a disruptive rewrite.
+
+## Website publication supplement — 2026-09-23
+
+Supporting journals and presses without OJS/OMP is part of the 1.0 direction, not a weakening of scholarly editing. Studio-native review can supply a completed scientific round plus a separate editor acceptance bound to the exact revision/state digest. Website connectors only deliver artifacts; external publishing systems retain their own workflow authority.
+
+Public-interest and popular-science publishing may proceed without review, with explicit disclosure. The language-independent seal is `OMI · PEER REVIEW · VERIFIED` or `NOT VERIFIED`, accompanied by localized explanation. It reports recorded workflow evidence, not scientific quality or truth; confidential reviewer data stays private.
+
+Keep the current HTML renderer, publication build and connector foundations. Before freeze, settle the assurance contract and native-vs-external authority (ADR-021). Harden implementation under C15, with website delivery **Preview** until real database/receiver, recovery, privacy and accessibility tests pass. False assurance, reviewer leakage and missing required disclosure remain mandatory release blockers. Public verification portals, expanded review taxonomies and new workflow dashboards are not prerequisites for base 1.0.

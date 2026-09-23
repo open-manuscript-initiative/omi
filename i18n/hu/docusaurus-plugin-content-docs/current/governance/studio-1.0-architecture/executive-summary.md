@@ -34,6 +34,8 @@ Kifejezetten megtartandó:
 - az OMI container import erős ZIP-biztonsági ellenőrzései;
 - a DOCX import, valamint a JATS/HTML/DOCX/PDF és DTP exporter implementációk mint renderer-adapterek;
 - a publication build manifest, hashing és provenance alapja;
+- a committed-build webes renderer, az explicit lektorált/nem lektorált pecsét,
+  a szerver-issued delivery grant és durable delivery receipt/outbox alapja;
 - a cloud-storage provider réteg és SSRF-védelmek;
 - a Tauri shell, Android updater/distribution és a platform build workflow-k;
 - az OJS/OMP pluginok signed launch, scope és PKP-object authorization logikája;
@@ -71,6 +73,14 @@ Két Prisma schema részben duplikál User/Session/Identity fogalmakat. A tényl
 
 OJS/OMP authoritative a saját workflow-jában; a lokális DB és a külső rendszer nem frissíthető egyetlen ACID tranzakcióban. Durable outbox, idempotency key és writeback receipt kell. Ezzel párhuzamosan a jelenlegi zöld CI nem teljes 1.0 bizonyíték: több workflow path-filteres, és az OMI website build nem futtatja automatikusan a file-format conformance teszteket.
 
+Független folyóirat és kiadó OJS/OMP nélkül is használhassa a Studio review
+workflow-ját. Ez akkor nem visszalépés, ha az authority explicit: a lezárt
+Studio-natív lektori forduló evidence, külön editor decision fogad el egy exact
+revíziót, és csak ezután jelenhet meg a látható és géppel olvasható lektorált
+pecsét. Enélkül kötelező a `not-peer-reviewed` jelölés. A fogadó webhely csak
+delivery target. Ez a capability addig Preview, amíg az anonimitási, tamper,
+outbox recovery, accessibility és receiver-contract gate-ek nem teljesülnek.
+
 ## 3. Mit kell mindenképpen elvégezni schema/API freeze előtt?
 
 1. **Fagyasztani a portable content contractot.** A SPEC-100-nak pontosan meg kell mondania a block/inline AST-t, stable ID/anchor szemantikát és extension pointokat. A Tiptap mappinget golden round-trip fixture-rel kell igazolni.
@@ -80,7 +90,8 @@ OJS/OMP authoritative a saját workflow-jában; a lokális DB és a külső rend
 5. **Létrehozni az additív `/api/v1` alapot.** Közös Zod/OpenAPI DTO, error envelope, idempotency és optimistic concurrency; a régi route-ok compatibility facade-ként maradnak. Nem szabad egyszerre átnevezni mindent.
 6. **Rögzíteni a közös Publishing System Connector contractot.** OJS/OMP közös capability, launch, submission, file, review, writeback és receipt schema; a journal/monograph különbségek profile extensionök.
 7. **Elfogadni a review és integration security döntéseket.** Server-side anonymous projection, assignment-scoped ID-k és szerver-issued ExecutionGrant nélkül nincs biztonságos freeze.
-8. **Enforce-olni a dependency directiont.** A core nem importálhat Reactet, Tiptapot, Zustandot, Tauri API-t, Prisma klienst vagy provider DTO-t.
+8. **Fagyasztani a webes assurance szemantikát.** A publication intent független a lektorálási státusztól; a Studio-natív editor acceptance revision/digesthez kötött, a külső workflow megtartja authority-jét, a webadapter csak exact approved artifactot kézbesít.
+9. **Enforce-olni a dependency directiont.** A core nem importálhat Reactet, Tiptapot, Zustandot, Tauri API-t, Prisma klienst vagy provider DTO-t.
 
 ## 4. Mit nem szabad most fölöslegesen átírni?
 
@@ -100,7 +111,7 @@ Vezessük be az application facade-ot, és migráljuk rá először a create/ope
 
 ### Phase C — Interoperability hardening
 
-Egységes importer/renderer contractba csomagoljuk a meglévő modulokat, bevezetjük a diagnostics/fidelity/provenance reportot, és leválasztjuk a deliveryt. A publication profile külön build input lesz, a renderer/font/validator verzió rögzül. OJS és OMP közös connector suite-ot teljesít, a writeback outboxon fut. A review projection és integration grant security corpus release gate lesz.
+Egységes importer/renderer contractba csomagoljuk a meglévő modulokat, bevezetjük a diagnostics/fidelity/provenance reportot, és leválasztjuk a deliveryt. A publication profile külön build input lesz, a renderer/font/validator verzió rögzül. OJS és OMP közös connector suite-ot teljesít, a writeback outboxon fut. Ugyanezen committed-artifact pipeline-on hardeneljük a Studio-natív editor decisiont és a reviewed/unreviewed webes pecsétet; a WordPress/generic webhely nem kap workflow-authority-t. A review projection és integration grant security corpus release gate lesz.
 
 ### Phase D — Platform hardening
 

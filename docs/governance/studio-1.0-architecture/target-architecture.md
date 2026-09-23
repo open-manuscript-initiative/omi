@@ -725,3 +725,31 @@ The correct strategy is:
 **contract first → prove current behaviour → migrate consumers → remove obsolete paths last.**
 
 The architecture does not justify replacing Tiptap, revision semantics, the secure ZIP parser, publication build, cloud provider layer, Tauri shell, or PKP integrations. Deeper refactoring is justified only where current coupling creates concrete format, data-loss, security, portability, or release-evidence risk.
+
+## 21. Website publication assurance supplement — 2026-09-23
+
+This supplements the dated audit baseline; it does not promote the current implementation to stable or redefine portable OMI semantics.
+
+### Independent review authority
+
+Journals and presses without OJS/OMP may use Studio-native review assignments and rounds. A completed scientific round is not an acceptance decision: a separate server-authorized editor must accept the exact committed manuscript revision and state digest. Externally bound assignments are excluded from native decisions; OJS/OMP remain authoritative for their workflows.
+
+Publication intent (`public-interest`, `popular-science`, `newsletter`, `scholarly-article`, `book-chapter`) is independent of review assurance. Unreviewed publishing is valid, including scholarly work, but must carry explicit visible and machine-readable disclosure.
+
+### Rendering and delivery boundary
+
+The existing HTML renderer produces an immutable committed artifact. `PublicationAssurance` is inserted before the final build hash, with either `peer-reviewed` and editorial evidence or `not-peer-reviewed`. The circular mark is language-independent: `OMI · PEER REVIEW · VERIFIED` or `OMI · PEER REVIEW · NOT VERIFIED`; the adjacent explanation is localized. The mark attests recorded workflow evidence, not scientific truth or an OMI endorsement. Public metadata contains decision ID, evidence digest, review round and decision time, never reviewer identity, confidential comments or recommendations.
+
+Website/WordPress connectors implement only `ArtifactDeliveryPort`; they never own review authority or portable manuscript semantics. A server-issued execution grant binds artifact/build/assurance and the target configuration version. The durable outbox owns delivery state, idempotency and external receipts. Generic endpoints receive exact standalone HTML; WordPress receives a declared article/media projection whose exact outgoing digest is receipted separately from the approved standalone digest.
+
+### Application/API ownership
+
+- `PrepareWebPublication`: checkpoint, supported-asset checks, evidence retrieval and immutable artifact preparation. Move orchestration from React/Zustand behind an application facade; retain the renderer.
+- `RecordEditorialDecision`: permission and native-round validation plus immutable acceptance for an exact revision/digest.
+- `ApproveWebPublication` / `ExecuteWebPublication`: scoped grant, configuration/evidence revalidation, outbox and receipt.
+- Additive routes: `/api/v1/reviews/workspaces/:workspaceId/editorial-decisions` and `/api/v1/publications/web/...`. The unsafe pre-v1 client-boolean publication route returns 410.
+- Server workflow repositories own assignments/decisions; delivery repositories own grants/outbox/receipts; neither belongs in the portable manuscript.
+
+### Freeze and release conditions
+
+Freeze the assurance/authority distinction before schema/API freeze (ADR-021). Delivery remains **Preview** pending PostgreSQL migration tests, real receiver E2E, crash/timeout/retry recovery, privacy, tamper and accessibility evidence. False reviewed seals, missing unreviewed disclosure, reviewer leaks, undeclared/unreceipted transformation and data loss block release even for Preview. Do not advertise a public independent verification service or a cryptographically unforgeable visual badge.
