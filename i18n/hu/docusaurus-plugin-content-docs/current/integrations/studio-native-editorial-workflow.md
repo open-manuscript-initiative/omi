@@ -83,7 +83,7 @@ A `DOMAIN_ADMIN` szerepkör önmagában továbbra sem jogosít szerkesztői dön
 
 ## Lektor kijelölése és anonimitás
 
-A szerkesztő egy vagy több már létező Studio-fiókot jelölhet ki tudományos lektornak. A Studio-native tudományos lektorálás alapértelmezése double blind.
+A szerkesztő egy vagy több már létező Studio-fiókot jelölhet ki tudományos lektornak. A Studio-native tudományos lektorálás alapértelmezése double blind. A beküldő szerző ugyanennek a submissionnek nem jelölhető ki tudományos lektorául.
 
 A lektor a meglévő Studio review-workspace-ben:
 
