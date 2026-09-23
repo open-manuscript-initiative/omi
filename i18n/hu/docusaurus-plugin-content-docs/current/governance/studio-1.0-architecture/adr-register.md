@@ -33,6 +33,7 @@ description: A Studio 1.0 architektúra döntési nyilvántartása és a Phase A
 | ADR-018 | OMI container, provenance és signature | Accepted, SPEC-330 fixture feltétellel |
 | ADR-019 | Stable/preview capability policy | Accepted |
 | ADR-020 | Általános executable plugin runtime | Deferred |
+| ADR-021 | Webes publikációs minősítés és szerkesztői authority | Accepted; delivery contract Preview |
 
 ---
 
@@ -354,6 +355,22 @@ description: A Studio 1.0 architektúra döntési nyilvántartása és a Phase A
 
 **Felülvizsgálati feltétel.** Ha van legalább három külső plugin use-case, threat model, sandbox technológia, signing/distribution policy és dedikált maintenance owner.
 
+---
+
+## ADR-021 — Webes publikációs minősítés és szerkesztői authority
+
+**Kérdés.** Hogyan jelölheti egy webes artefaktum, hogy szaklektorált, ha a folyóirat vagy kiadó nem használ OJS-t vagy OMP-t, anélkül hogy a webconnector vagy egy kliensoldali kapcsoló válna authority-vé?
+
+**Döntés.** A publikációs cél és a lektorálási minősítés külön fogalom. Minden Studio webes artefaktum látható, akadálymentes és géppel olvasható `not-peer-reviewed` vagy `peer-reviewed` jelölést kap. A körpecsét nyelvfüggetlen, rögzített felirata `OMI · PEER REVIEW · VERIFIED` vagy `OMI · PEER REVIEW · NOT VERIFIED`; a mellette álló magyarázat lokalizált marad. A `VERIFIED` a Studio által rögzített workflow-bizonyítékra vonatkozik, nem az OMI tartalmi vagy tudományos minőségi jóváhagyására. A lektorált értékhez teljes Studio-natív tudományos lektori forduló, valamint külön, szerveroldali szerkesztői elfogadó döntés szükséges, amely a pontos commitolt revízióhoz és manuscript-state digesthez kötődik. A lektori feladat lezárása önmagában nem elfogadás. Ha OJS/OMP birtokolja a workflow-t, az marad authoritative; külső assignment nem hozhat létre Studio-natív döntést. A WordPress/webhely adapter kizárólag `ArtifactDeliveryPort`. A jelölés a hash kiszámítása előtt az artefaktum bájtjainak része, a szerver által kiadott execution grant pedig a kiválasztott célkonfiguráció pontos verziójához kötődik, és kézbesítés előtt újra ellenőrzi a bizonyítékot. A deklarált WordPress transport projection kivonhatja az article elemet és áthelyezheti a beágyazott médiát, de a ténylegesen elküldött tartalom digestje külön receiptbe kerül a jóváhagyott önálló artefaktum digestje mellett. A nyilvános bizonyíték csak decision ID-t, digestet, fordulót és időpontot tartalmaz; lektori identitást, bizalmas megjegyzést vagy javaslatot nem. A pecsét workflow-bizonyítékot jelez, nem a közlés igazságát.
+
+**Alternatívák.** (1) felhasználó által kapcsolható „lektorált” boolean; (2) automatikus következtetés lezárt assignmentből; (3) minden lektorált közléshez kötelező OJS/OMP; (4) a WordPress vagy fogadó webhely állítsa be a státuszt; (5) lektornevek vagy vélemények beágyazása.
+
+**Döntés oka.** Független folyóiratoknak és kiadóknak PKP-rendszer nélkül is szükségük lehet Studio-lektorálásra és webes kézbesítésre. A default-deny minősítési boundary ezt úgy teszi lehetővé, hogy nem gyengíti az anonimitást, a külső workflow authority-t, a provenance-t, illetve a lektori javaslat és a szerkesztői elfogadás különbségét.
+
+**Következmények.** Egy új szerkesztés új revíziót hoz létre, ezért a korábbi döntés nem használható az új artefaktum lektorált jelöléséhez. Nem lektorált tudományos vagy közérdekű közlés továbbra is megengedett, de nem lehet kétértelmű. Az idempotency identity tartalmazza a minősítési bizonyítékot és a célkonfiguráció verzióját. A webes kézbesítés Preview marad az outbox recovery, tamper, accessibility, receiver-contract és privacy tesztekig. Hamis lektorált pecsét, hiányzó nem lektorált jelölés, nem deklarált vagy receipt nélküli transport transformation, illetve lektori identitásszivárgás Preview státusz mellett is release blocker.
+
+**Felülvizsgálati feltétel.** Ha review-taxonomy vagy külső evidence szabványt választunk, nem PKP connector ad authoritative szerkesztői döntést, vagy post-publication/open review új nyilvános minősítési állapotot igényel.
+
 ## Nyitott, freeze előtt számszerűsítendő paraméterek
 
 Ezek nem új ADR-k, hanem az elfogadott döntések konkrét értékei:
@@ -365,6 +382,7 @@ Ezek nem új ADR-k, hanem az elfogadott döntések konkrét értékei:
 | Container size/entry/depth limitek | jelenlegi parser + platform memory benchmark | A07/E01 |
 | History snapshot/delta küszöb | 120k/500k word benchmark | B07/D06 |
 | Stable exporter lista | fixture/fidelity/validator evidence | C14 |
+| Webes assurance és receiver contract | tamper, transport-digest, recovery, privacy és accessibility evidence | C15 |
 | Supported OJS/OMP exact verziók | Docker E2E matrix | C07/C08 |
 | Token/session TTL és credential rotation | security review | B10/C12 |
 | Performance és bundle budget | current baseline + representative devices | D06 |

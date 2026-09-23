@@ -87,8 +87,8 @@ src/
     history/           checkpoint, revision, revert, projection
     import/            importer registry and orchestration
     export/            renderer/export registry and delivery
-    publishing/        builds, validation, provenance, submission
-    review/            assignment workspace and writeback orchestration
+    publishing/        builds, assurance, validation, provenance, submission
+    review/            workspace, szerkesztői döntés és writeback orchestration
     references/        lookup and synchronization
     identity/          account-agent linking use cases
     ports/             persistence, clock, crypto, storage, connector ports
@@ -102,7 +102,7 @@ src/
     platform/           web, Tauri, Android, Apple
     renderers/          JATS, HTML, DOCX, EPUB, LaTeX, PDF, DTP
     importers/          OMI, DOCX, PDF, HTML, table, media, references
-    connectors/         OJS, OMP, Zotero, Mendeley, DeepL, AI
+    connectors/         OJS, OMP, webes delivery, Zotero, Mendeley, DeepL, AI
     api/                HTTP clients and transport DTO mapping
   ui/
     state/              Zustand projections/session state
@@ -369,6 +369,8 @@ A `src/store/workspaceStore.ts` és `src/model/workspace.ts` alpha együttműkö
 | Integration credentials | encrypted credential repository | rövid életű access token cache | Nem manuscript és nem localStorage |
 | Review assignment/workflow | Studio review DB vagy külső PKP, a forrás szerint | assignment-scoped workspace snapshot | OJS/OMP workflow mindig PKP authoritative |
 | Publication system state | OJS/OMP | connector receipt/status | Studio csak idempotens writebackot kér |
+| Lektorálási minősítés | Studio-natív workflownál Studio editor decision; kapcsolt külső rendszernél az external publishing system | revision/state digesthez kötött nyilvános evidence reference | A webhely soha nem review authority |
+| Webes kézbesítés | a fogadó webhely csak a külső post állapotára authoritative | Studio outbox és delivery receipt | Nem módosít manuscript semantics-et |
 | Publication profile | versioned profile repository/document build input | UI draft | Nem implicit manuscript domain extension |
 
 ### 8.2 Portok
@@ -462,6 +464,7 @@ A renderer byte artifactot gyárt; nem nyit file pickert és nem hív `saveAs`. 
 | MIDI | jelenleg hibás route | a parser létezik, de `.mid/.midi` nem jut el hozzá az outer extension check miatt |
 | RIS/BibTeX/CSL-JSON | stabilizálható | reference normalization és provenance |
 | JATS, HTML export | legjobb stabil jelöltek | erős tesztek; exact schema/profile gate |
+| Website/WordPress HTML delivery | Preview | ugyanaz a renderer/build contract, explicit lektorálási minősítéssel |
 | print PDF | stabil jelölt | pinned Vivliostyle/font környezet és vizuális regression kell |
 | interactive PDF | külön capability/profile | ne legyen implicit print PDF ígéret |
 | EPUB/LaTeX | preview, amíg fidelity corpus nem teljes | contract már wrapperrel stabilizálható |
@@ -512,6 +515,19 @@ Author-name typography szemantikai bemenete a structured contributor name; a ren
 
 A manifest jelzi, melyik szint teljesült. Font substitution, network resource, aktuális dátum vagy platform printer eltérés build warning vagy blocker a profile szerint.
 
+A webes kimenet a végső artefaktumhash kiszámítása előtt
+`PublicationAssurance` jelölést kap. A publikációs cél (`public-interest`,
+`popular-science`, `newsletter`, `scholarly-article`, `book-chapter`) nem
+határozza meg a lektorálási státuszt. A nyilvános jelölés vagy láthatóan és
+géppel olvashatóan `not-peer-reviewed`, vagy `peer-reviewed`, szerkesztői
+döntési evidence referenciával. A lektorált pecsét nem klienspreferencia: az
+authority service-nek ugyanazt a manuscript ID-t, commitolt revíziót és state
+digestet kell igazolnia, amelyet a build hordoz. A pecsét workflow-bizonyítékot
+jelez, nem tudományos igazságot, és nem tartalmaz lektori identitást vagy
+bizalmas review-tartalmat. A körpecsét felirata nyelvfüggetlen:
+`OMI · PEER REVIEW · VERIFIED` vagy `OMI · PEER REVIEW · NOT VERIFIED`; a
+mellette álló szemantikai magyarázat a kézirat nyelvén jelenik meg.
+
 ## 11. Publishing System Connector API
 
 ### 11.1 Közös capability contract
@@ -561,6 +577,16 @@ Külső writeback nem lehet ugyanabban az ACID tranzakcióban a lokális DB-vel.
 4. receipt és external version mentődik;
 5. retry/pending/failed állapot látható; a scholarly submissiont nem „rollbackeljük” memóriában.
 
+A WordPress és az `omi-web-publication/1` végpontok artifact-delivery
+adapterek, nem publishing-workflow connectorok. Csak a pontosan jóváhagyott,
+a célkonfiguráció verziójához kötött buildet kapják rövid életű execution grant
+alapján, és receiptet adnak vissza. A WordPress adapter deklarált article/media
+transport projectiont végezhet; a receipt a jóváhagyott önálló artefaktum és a
+ténylegesen elküldött projection digestjét is rögzíti.
+Nem hozhatnak létre review státuszt, szerkesztői döntést, assignmentet vagy
+recommendationt. Így a PKP nélküli szervezetek is használhatják a Studio
+lektorálását anélkül, hogy a webhely kapná meg a szerkesztői authority-t.
+
 ## 12. Peer-review architecture
 
 ```mermaid
@@ -580,8 +606,18 @@ flowchart TB
 - `ReviewerWorkspace`: assignment-scoped notes, draft form, attachments, saved revision.
 - `ReviewFormDefinition/Response`: kérdés, típus, visibility és required policy.
 - `Recommendation`: controlled vocabulary + external mapping.
+- `EditorialDecision`: egy exact committed revision/state digest szerkesztői elfogadása, a lezárt review round evidence-ére hivatkozva.
+- `PublicationAssuranceEvidence`: nyilvános, reviewer-azonosítótól és bizalmas tartalomtól mentes decision reference.
 - `VisibilityPolicy`: reviewer/editor/author visibility; field-szintű és transition-függő.
 - `WritebackReceipt`: external IDs, version, digest, accepted time, idempotency key.
+
+Studio-natív workspace-ben a kijelölt forduló minden tudományos assignmentjének
+lezártnak, recommendationnel és reviewer-safe source snapshottal rendelkezőnek
+kell lennie, mielőtt egy editor elfogadó döntést rögzíthet. A lezárt feladat és
+a lektori javaslat evidence; a publikációs authority az editor decision. A
+döntés immutable és egyetlen revízió/state digest párhoz kötött, ezért későbbi
+módosítás új döntést igényel. OJS/OMP-hez kötött assignment nem használható
+Studio-natív döntéshez, mert ott a külső rendszer authoritative.
 
 ### 12.2 Double-blind security boundary
 
@@ -720,7 +756,7 @@ flowchart TB
 | DOCX/XLSX/XML/HTML | `officeImport.ts`, DOCX és PDF service-ek saját limitekkel/sanitizerrel | közös safe ZIP/XML policy, XXE/entity tiltás, no remote fetch, relationship/path quota |
 | Binary assets | `assetRepository.ts`, image importer, container assets | MIME magic + decode, checksum, decompression bomb limit, SVG sanitize/rasterize, metadata strip |
 | JATS/XML | Studio validator és PKP pluginok entity/DTD/LIBXML_NONET védelme | parser corpus/fuzz, exact schema/profile pinning |
-| HTML artifact | HTML exporter és plugin artifact validator/CSP | scripts/iframe/form/event handler/remote URL tiltás, CSP integration test |
+| HTML artifact | HTML exporter és plugin artifact validator/CSP | scripts/iframe/form/event handler/remote URL tiltás, hamis/hiányzó review assurance és build/evidence mismatch blokkolása, CSP integration test |
 | OAuth/OIDC | auth, ORCID, federated és cloud routes | PKCE/state/nonce, exact redirect allowlist, short state TTL, token redaction/rotation |
 | Connector endpoint | launch verifier, trusted URL/SSRF helpers | signed scoped grant, nonce/replay, redirect-by-redirect SSRF, idempotency, timeout |
 | Review data | `reviewManuscriptService.ts`, peer review serializers | szerver projection, assignment ID-space, separate auth/cache/log policy, leak tests |
@@ -756,7 +792,7 @@ flowchart TB
 2. **Data integrity gate:** open/save/container/asset/history round-trip; atomic save and recovery fault injection; nincs csendes overwrite.
 3. **Import gate:** DOCX és minden stable importer corpus, diagnosztika/loss golden, size/abort/hostile input teszt.
 4. **Publication gate:** JATS schema + kijelölt JATS4R profile; HTML security+a11y; PDF pinned renderer/font és vizuális golden; artifact manifest/hash/signature.
-5. **Review gate:** role/visibility transition matrix, anonymous projection leak corpus, attachment metadata, author/reviewer negative access.
+5. **Review gate:** role/visibility transition matrix, anonymous projection leak corpus, attachment metadata, author/reviewer negative access, Studio-natív editorial-decision invariánsok és reviewed/unreviewed webpecsét tamper tesztek.
 6. **Connector gate:** OJS és OMP közös contract + támogatott valós verziók E2E, launch replay, scope, retry/idempotency, writeback receipt.
 7. **Identity/API gate:** `/api/v1` OpenAPI/schema compatibility, migrations, identity authority/reconciliation, authn/authz tests, native secure token storage.
 8. **Platform gate:** a deklarált stable platformok install/open/edit/save/reopen/update smoke-ja. Preview platform hibája nem blokkol, kivéve privacy/data-loss/security regresszió.
@@ -777,7 +813,7 @@ flowchart TB
 - importer/renderer diagnostics/fidelity/provenance contract;
 - publication profile/build manifest/renderer descriptor;
 - Publishing System Connector common DTO/profile;
-- review projection/visibility/writeback contract;
+- review projection/visibility/writeback, editorial decision és web-publication assurance contract;
 - `/api/v1` public transport és error/idempotency policy;
 - platform és persistence portok a core felé.
 

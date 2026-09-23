@@ -243,3 +243,15 @@ Place these behind stable boundaries and strengthen their evidence.
 | P1 | path-filtered release evidence | exact-RC aggregate workflow available |
 
 These gaps define the minimum architecture work that should precede a stable schema/API freeze.
+
+## 14. Website assurance supplement — 2026-09-23
+
+The following rows describe the proposed implementation supplement, not the original 2026-09-19 audit snapshot.
+
+| Current component | Status | Problem | 1.0 target | Transition | Risk |
+|---|---|---|---|---|---|
+| `webPublicationArtifact.ts`, `NewsletterPublishingPanel.tsx` | REFACTOR | Committed artifact/hash and visible assurance exist; checkpoint/evidence/build orchestration still starts in React/Zustand. | `PrepareWebPublication` application use case. | Preserve renderer/UI, add facade and characterization tests before moving callers. | medium |
+| `editorialDecisionService.ts`, `peerReviewRoutes.ts`, Prisma editorial decisions | HARDEN | Native review acceptance adds an independent security authority requiring lifecycle/transaction proof. | Immutable editor acceptance bound to exact revision/state digest; exclude OJS/OMP assignments. | Role matrix, changed-revision, race/revocation and confidential-data tests. | high |
+| `publishing/webPublication.ts`, web routes, outbox migration | HARDEN | Grant, idempotency and transport receipts need real database/receiver recovery evidence. | `ArtifactDeliveryPort` with target-version binding and exact payload receipts. | PostgreSQL migration, WordPress/generic receiver, timeout/crash/reconcile and tamper corpus; retain Preview. | high |
+
+The required visual seal is fixed across languages (`OMI · PEER REVIEW · VERIFIED / NOT VERIFIED`); explanation remains localized. Existing renderer logic is retained. No new general publishing platform or rewrite is required.

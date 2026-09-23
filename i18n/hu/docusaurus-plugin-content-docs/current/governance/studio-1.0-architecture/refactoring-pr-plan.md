@@ -95,6 +95,7 @@ A fázison belül az alábbi PR-számok topologikus sorrendet jelentenek. Párhu
 | C12 | Konszolidálja a credential storage-ot és csomagolja közös connectorba Zotero/Mendeley/ORCID/OIDC/provider secret útvonalakat. | identity/main Prisma, reference manager service, secretCrypto, user integrations | B09, C11 | dual-read migration; encrypt/decrypt/key rotation; revoke; no log | DB migration | high |
 | C13 | Illessze a cloud storage providereket egységes remote object store contracthoz ETag/conflict receipt-tel. | `CloudStorageProvider`, OAuth/WebDAV providers, cloud routes/client, local cloud folder | B08, C11 | SSRF redirects, ETag conflict, checksum, token refresh, large/resume behavior | additív adapter; provider UX változhat | medium |
 | C14 | Promotálja csak a bizonyított export formátumokat stable-re; a többit jelölje previewként runtime capabilityből. | exporter descriptors, UI, docs, release metadata | C03–C05 | JATS/HTML/DOCX/PDF gates; DTP/EPUB/LaTeX smoke; capability UI | feature label változás | low |
+| C15 | Hardenelje a webes kézbesítést és a lektorált/nem lektorált minősítést úgy, hogy a webhely ne váljon workflow-authority-vé. | web artifact service/UI, editorial decision, Prisma migration, `/api/v1/publications/web`, WordPress/generic adapter, docs | C03–C05, C09–C11 | exact-revision evidence, hamis/hiányzó pecsét, anonimitás, approval grant, idempotency, timeout/retry/reconcile, accessibility, receiver contract | Preview protocol és DB bővítés | high |
 
 **C fázis blocker-ek:** támogatott OJS/OMP verziókhoz nincs elérhető test image; fontlicenc nem engedi a reprodukálható bundle-t; JATS/profile követelmény nincs kijelölve; connector DTO owner nincs kijelölve.
 
@@ -121,7 +122,7 @@ A fázison belül az alábbi PR-számok topologikus sorrendet jelentenek. Párhu
 |---|---|---|---|---|---|---|
 | E01 | Építsen közös hostile-input/security corpust és fuzz harness-t. | JSON/ZIP/XML/HTML/DOCX/assets/JATS parser tests; CI security jobs | A04, A07, C02, C10 | ZIP bomb/traversal/duplicate; XXE/entity; SVG/script; SSRF; malformed JSON; log redaction | nincs | high |
 | E02 | Készítsen exact-commit RC aggregator workflow-t path filter nélkül. | `.github/workflows/1.0-rc.yml`, reusable workflows, evidence manifest | minden A–D gate | teljes matrix; artifact/SBOM/provenance hash; rerun policy | nincs | medium |
-| E03 | Futtasson synthetic/public real-world acceptance corpust és zárt privát acceptance protokollt tartalomfeltöltés nélkül. | test corpus manifest, local-only acceptance script/report template | C14, D08, E01 | format/platform journeys; private run csak content-free pass/fail/metrics reportot ad | nincs | medium |
+| E03 | Futtasson synthetic/public real-world acceptance corpust és zárt privát acceptance protokollt tartalomfeltöltés nélkül. | test corpus manifest, local-only acceptance script/report template | C14–C15, D08, E01 | format/platform journeys; private run csak content-free pass/fail/metrics reportot ad | nincs | medium |
 | E04 | Zárja le az API/schema/container/connector compatibility baseline-t és generálja a release dokumentációt. | specs, OpenAPI/schema snapshots, changelog, support matrix, deprecation policy | E02, E03 | breaking-diff detector; docs links; fixture checksum | freeze után minden eltérés breaking | high |
 | E05 | Készítse el és tesztelje `1.0.0-rc.1` artifactokat. | version files, release workflows, installers, plugin packages, website/schema artifacts | E02–E04 | mandatory gate-ek exact tag commiton; install/update/rollback; signatures | release candidate | high |
 
@@ -177,12 +178,13 @@ Az `1.0.0` nem kaphat funkcionális javítást az utolsó RC-hez képest. Ha kó
 | C06 | A08, A09 | C01–C05 |
 | C07 | C06 | C08, C10 |
 | C08 | C06 | C07, C10 |
-| C09 | C07, C08, B09 | C10–C14 |
+| C09 | C07, C08, B09 | C10–C15 |
 | C10 | B11, C06 | C07–C09 |
 | C11 | B09, B11, A09 | C07–C10 |
-| C12 | B09, C11 | C09–C10, C13–C14 |
-| C13 | B08, C11 | C09–C12, C14 |
-| C14 | C03–C05 | C09–C13 |
+| C12 | B09, C11 | C09–C10, C13–C15 |
+| C13 | B08, C11 | C09–C12, C14–C15 |
+| C14 | C03–C05 | C09–C13, C15 |
+| C15 | C03–C05, C09–C11 | C12–C14 |
 | D01 | B08, B10, C03 | — |
 | D02–D05 | D01 | egymással |
 | D06 | B03, B05, C03 | D02–D05, D07 |
@@ -190,7 +192,7 @@ Az `1.0.0` nem kaphat funkcionális javítást az utolsó RC-hez képest. Ha kó
 | D08 | D02–D07 | — |
 | E01 | A04, A07, C02, C10 | D fázis |
 | E02 | A–D fázis gate-jei | E01, E03 előkészítése |
-| E03 | C14, D08, E01 | E02 |
+| E03 | C14–C15, D08, E01 | E02 |
 | E04 | E02, E03 | — |
 | E05 | E02–E04 | — |
 | F01 | RC exit | — |
@@ -221,7 +223,7 @@ Az `1.0.0` nem kaphat funkcionális javítást az utolsó RC-hez képest. Ha kó
 |---|---|---|
 | `1.0-architecture-freeze` | A01–A10 | accepted ADR-k, pinned schema/container/content/API candidates |
 | `1.0-core-boundaries` | B01–B13 | app facade, portable content, persistence/history/identity boundaries |
-| `1.0-interoperability` | C01–C14 | common import/render/connector/review contracts és evidence |
+| `1.0-interoperability` | C01–C15 | common import/render/connector/review/web-assurance contracts és evidence |
 | `1.0-platform-hardening` | D01–D08 | stable platform matrix és budgets |
 | `1.0-rc.1` | E01–E05 | signed exact-commit RC artifact + evidence manifest |
 | `1.0.0` | F01–F03 | változatlanul promotált RC, public compatibility/support policy |

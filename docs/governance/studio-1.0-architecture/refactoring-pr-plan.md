@@ -97,6 +97,9 @@ B03, B05, B06, B08, and B09 deliberately remain separate rollback domains. Store
 | C12 | Consolidate credential storage and wrap Zotero/Mendeley/ORCID/OIDC/provider secrets consistently. | B09, C11 | dual-read migration, encryption/key rotation, revoke, no secret logs | high |
 | C13 | Adapt cloud storage to one remote object-store contract with ETag/conflict receipts. | B08, C11 | SSRF redirects, ETag conflict, checksums, refresh, large/resumable behaviour | medium |
 | C14 | Promote only proven export formats to stable; expose other formats as preview capabilities. | C03–C05 | JATS/HTML/DOCX/PDF gates; preview-format smoke; runtime capability UI | low |
+| C15 | Harden native editorial acceptance and reviewed/unreviewed web artifacts without giving websites workflow authority. Files: web artifact service/UI, editorial decision service, Prisma migration, `/api/v1/publications/web`, WordPress/generic adapter, docs. | C03–C05, C09–C11 | exact-revision evidence, hidden/false/missing seal, privacy, scoped grants, idempotency, target-version changes, dual transport digests, PostgreSQL migration, receiver E2E, timeout/crash/retry/reconcile, accessibility | high |
+
+C15 is a Preview API/DB extension (ADR-021), not a stable-delivery promotion. Scope delivery to existing renderers/adapters. Keep source-state updates synchronous and bind evidence before computing the approved artifact hash. Split contract/characterization, native acceptance, outbox/delivery and receiver/recovery gates into separately reviewable commits or follow-up PRs. A feature flag may disable new delivery while preserving workflow records; do not drop decision/outbox tables during rollback. False assurance, reviewer leaks and data loss remain blockers even for Preview.
 
 **Phase blockers:** unavailable test images for supported PKP versions; font licensing that prevents reproducible resource bundling; no selected JATS/profile requirement; no clear owner of the common connector DTO.
 
@@ -186,6 +189,7 @@ B03, B05, B06, B08, and B09 deliberately remain separate rollback domains. Store
 | C12 | B09, C11 | C09–C10, C13–C14 |
 | C13 | B08, C11 | C09–C12, C14 |
 | C14 | C03–C05 | C09–C13 |
+| C15 | C03–C05, C09–C11 | C12–C14 |
 | D01 | B08, B10, C03 | — |
 | D02–D05 | D01 | one another |
 | D06 | B03, B05, C03 | D02–D05, D07 |
@@ -226,7 +230,7 @@ B03, B05, B06, B08, and B09 deliberately remain separate rollback domains. Store
 |---|---|---|
 | `1.0-architecture-freeze` | A01–A10 | accepted/deferred ADRs and pinned schema/container/content/API candidates |
 | `1.0-core-boundaries` | B01–B13 | application facade, portable content, persistence/history/identity boundaries |
-| `1.0-interoperability` | C01–C14 | common import/render/connector/review contracts and evidence |
+| `1.0-interoperability` | C01–C15 | common import/render/connector/review/web-assurance contracts and evidence |
 | `1.0-platform-hardening` | D01–D08 | stable platform matrix and budgets |
 | `1.0-rc.1` | E01–E05 | signed exact-commit RC plus evidence manifest |
 | `1.0.0` | F01–F03 | unchanged promoted RC plus public compatibility/support policy |
