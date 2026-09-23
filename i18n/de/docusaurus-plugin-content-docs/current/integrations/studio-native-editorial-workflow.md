@@ -109,6 +109,8 @@ Die Annahme verwendet den unveränderlichen `EditorialDecision`-Nachweis und bin
 
 Eine angenommene exakte Revision ist **publizierbar**. Die Publikationsoberfläche erzeugt die Studio-native Annahme nicht, sondern verwendet die bereits vorhandene Entscheidung.
 
+Der Workflow wird nur dann auf `PUBLISHED` gesetzt, wenn die externe Publikations-URL unter der verifizierten Domain der Publikationsstelle oder einer ihrer Subdomains liegt. Eine Veröffentlichung auf einer anderen Website kann als externe Auslieferung weiterhin erfolgreich sein, lässt den verifizierten Submission-Zustand jedoch auf `ACCEPTED`.
+
 Publisher-verifizierte Ausgabe kann das Siegel
 
 ```text
