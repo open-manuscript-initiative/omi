@@ -1,11 +1,11 @@
 import { readFile } from 'node:fs/promises';
 
 const expected = {
-  studio: '0.2.0-beta.2',
+  studio: '0.3.0-beta.1',
   ojs: 'v1.6.0',
   omp: 'v1.5.1',
-  iosMarketing: '0.2.0',
-  iosBuild: '10',
+  iosMarketing: '0.3.0',
+  iosBuild: '13',
 };
 
 const currentFacingFiles = [
