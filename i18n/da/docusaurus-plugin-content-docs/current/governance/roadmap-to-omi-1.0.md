@@ -53,7 +53,7 @@ Programmet er kommet langt videre end den indledende fase med dokumentationsgenn
 | Integration med OMP | **Driftsmæssigt / konfigurationsafhængigt** | Plugin v1.5.1 og Studio-arbejdsgangen muliggør signeret opstart for forfatter/redaktør/korrekturlæser, tilknytning af monografier/publikationer/undersøgelser, adgang til korrekturlæsning udelukkende for tildelte undersøgelser, indbyggede formularer, rettelser, adskilt feedback og signeret tilbagemelding; indbygget OMP 3.5 E2E-verifikation er grøn. |
 | Identitetsintegrationer | **Konfigurationsafhængige** | ORCID OAuth der findes infrastruktur til implementering samt ROR/bibliografiske identitetsgrundlag. Produktionskonfigurationen er implementeringsspecifik. |
 | Integrationsplatform | **Grundlaget er implementeret** | Integrationskatalog, udbyderregister, autentificeringsmetoder for udbydere og rammeværk til DeepL-konfiguration er på plads. Selve udførelsen af DeepL-oversættelser er endnu ikke færdig. |
-| Flersproget produktsupport | **Operativ implementering** | Studio tilbyder 24 understøttede grænsefladesprog med lokaliseret hjælp og gennemgåede oversættelsesoverlejringer. De normative specifikationer forbliver på engelsk. |
+| Flersproget produktsupport | **Operativ implementering** | Studio tilbyder 47 understøttede grænsefladesprog med lokaliseret hjælp og gennemgåede oversættelsesoverlejringer. De normative specifikationer forbliver på engelsk. |
 | Import/eksport | **Væsentlig implementering** | Der er implementeret import og omfattende publikations-/eksportmuligheder for DOCX, herunder JATS, HTML, EPUB, PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA og LaTeX-orienterede outputformater. |
 | Desktop-distribution | **Operationel betaversion** | Pakker til Windows, Linux og macOS genereres automatisk; funktionaliteten til opdateringsmeddelelser og installationsforløbet på desktop er implementeret. Arbejdet med kodesignering er stadig i gang. |
 | Kanoniske skemaer og overensstemmelse | **Ikke færdiggjort** | Versionerede normative skemaer, godkendte testdatasæt, validatorens adfærd og formelle overensstemmelsestestsæt er fortsat vigtige leverancer inden version 1.0. |
@@ -137,7 +137,7 @@ Der findes en serverbaseret konto- og profilinfrastruktur sideløbende med en op
 
 ### 6.3 Flersproget betjening
 
-Studio understøtter 24 grænsefladesprog, lokaliseret hjælp og flersprogede manuskript-arbejdsgange. Dette er et eksempel på produktimplementering; det betyder ikke, at hele den normative OMI-specifikationsserie har officielle oversættelser.
+Studio understøtter 47 grænsefladesprog, lokaliseret hjælp og flersprogede manuskript-arbejdsgange. Dette er et eksempel på produktimplementering; det betyder ikke, at hele den normative OMI-specifikationsserie har officielle oversættelser.
 
 ### 6.4 Gennemgang og redaktionelt arbejdsforløb
 
