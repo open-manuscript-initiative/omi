@@ -42,8 +42,8 @@ Die aktuelle öffentliche Studio-Release-Reihe lautet weiterhin „`0.3.0-beta.1
 |---|---|
 | Bundle-ID | `org.openmanuscript.studio` |
 | Mindestanforderungen an die Plattform | iOS/iPadOS 14.0 |
-| Kurzbeschreibung im App Store | `0.2.0` |
-| App Store-Build-Nummer | `10` |
+| Kurzbeschreibung im App Store | `0.3.0` |
+| App Store-Build-Nummer | `13` |
 | Studio-Entwicklungsreihe | `0.3.0-beta.1` |
 
 Die Apple-Kurzbezeichnung bzw. die Build-Nummerierung ist eine Metadatenangabe zur Paketierung. Sie ändert weder die Schemaversion von „OMI“ noch führt sie zu einer separaten Kompatibilitätsreihe für iOS-Dokumente.
