@@ -42,8 +42,8 @@ The current public Studio release line remains `0.3.0-beta.1`. The iOS App Store
 |---|---|
 | Bundle identifier | `org.openmanuscript.studio` |
 | Minimum platform | iOS/iPadOS 14.0 |
-| App Store short version | `0.2.0` |
-| App Store build number | `10` |
+| App Store short version | `0.3.0` |
+| App Store build number | `13` |
 | Studio development line | `0.3.0-beta.1` |
 
 The Apple short version/build numbering is packaging metadata. It does not change the OMI schema version or create a separate iOS document compatibility line.
