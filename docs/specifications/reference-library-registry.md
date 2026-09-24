@@ -213,6 +213,14 @@ Possible outcomes include:
 
 ---
 
+## Reference implementation note — Studio 0.3.0-beta.1
+
+Open Manuscript Studio now implements a concrete personal-library layer above the manuscript-local record set. Authenticated authors can save structured bibliographic records to an account-level library and reuse them in multiple manuscripts. When a record is added to a manuscript, Studio copies a portable bibliographic snapshot into that manuscript so opening or publishing the document does not depend on the author's account library remaining online.
+
+Each manuscript can additionally select uncited records for inclusion in its rendered bibliography. Records that are actually cited are included automatically and cannot be accidentally removed from the bibliography. The same selection is propagated through HTML, JATS, custom publication export and Studio-native review snapshots.
+
+This implementation is evidence for the architecture described below; it does not make the Studio persistence schema normative.
+
 ## Local and Shared Libraries
 
 Implementations may support several scopes:
