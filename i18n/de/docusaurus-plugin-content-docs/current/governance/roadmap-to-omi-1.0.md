@@ -53,7 +53,7 @@ Das Programm hat die anfängliche Phase der Dokumentationsprüfung bereits weit 
 | OMP-Integration | **Betriebs- bzw. konfigurationsabhängig** | Das Plugin v1.5.1 und der Studio-Workflow bieten einen signierten Start für Autoren, Redakteure und Gutachter, die Zuordnung von Monografien, Publikationen und Studien, den Zugriff auf Gutachten ausschließlich für zugewiesene Studien, native Formulare, Korrekturen, getrenntes Feedback und signierte Rückmeldungen; die native E2E-Verifizierung von „OMP“ 3.5 ist erfolgreich. |
 | Identitätsintegrationen | **Konfigurationsabhängig** | ORCID OAuth Es gibt Bereitstellungsinfrastrukturen und ROR/bibliografische Identitätsgrundlagen. Die Produktionskonfiguration ist bereitstellungsspezifisch. |
 | Integrationsplattform | **Grundlage umgesetzt** | Der Integrationskatalog, das Anbieterregister, die Authentifizierungsmodi für Anbieter und das Konfigurationsgerüst für DeepL sind vorhanden. Die Ausführung von DeepL-Übersetzungen ist noch nicht vollständig umgesetzt. |
-| Mehrsprachiger Produktsupport | **Operative Umsetzung** | Studio bietet 24 unterstützte Sprachen für die Benutzeroberfläche mit lokalisierten Hilfetexten und geprüften Übersetzungs-Overlays. Normative Spezifikationen bleiben weiterhin auf Englisch. |
+| Mehrsprachiger Produktsupport | **Operative Umsetzung** | Studio bietet 47 unterstützte Sprachen für die Benutzeroberfläche mit lokalisierten Hilfetexten und geprüften Übersetzungs-Overlays. Normative Spezifikationen bleiben weiterhin auf Englisch. |
 | Import/Export | **Wesentliche Funktionen** | DOCX Import- und umfangreiche Exportfunktionen werden unterstützt, darunter JATS, HTML, EPUB, PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA sowie LaTeX-orientierte Ausgabemöglichkeiten. |
 | Desktop-Distribution | **Betriebsbereite Beta-Version** | Windows-, Linux- und macOS-Pakete werden automatisch erstellt; der Ablauf für Benachrichtigungen über Updates und die Installation auf dem Desktop ist implementiert. Die Arbeiten zur Codesignierung dauern noch an. |
 | Kanonische Schemata und Konformität | **Noch nicht abgeschlossen** | Versionierte normative Schemata, genehmigte Testfälle, das Verhalten von Validatoren und formale Konformitätssuiten gehören weiterhin zu den wichtigsten Meilensteinen vor der Version 1.0. |
@@ -137,7 +137,7 @@ Neben der Trennung zwischen Agenten und Mitwirkenden (OMI) gibt es eine serverse
 
 ### 6.3 Mehrsprachiger Betrieb
 
-Das Studio unterstützt 24 Sprachen für die Benutzeroberfläche, lokalisierte Hilfe und mehrsprachige Manuskript-Workflows. Dies ist ein Beleg für die Produktumsetzung; es bedeutet jedoch nicht, dass die gesamte Suite der normativen „OMI“-Spezifikationen über offizielle Übersetzungen verfügt.
+Das Studio unterstützt 47 Sprachen für die Benutzeroberfläche, lokalisierte Hilfe und mehrsprachige Manuskript-Workflows. Dies ist ein Beleg für die Produktumsetzung; es bedeutet jedoch nicht, dass die gesamte Suite der normativen „OMI“-Spezifikationen über offizielle Übersetzungen verfügt.
 
 ### 6.4 Begutachtungs- und Redaktionsablauf
 
