@@ -64,6 +64,14 @@ The graphical editor exposes publishing-oriented controls rather than manuscript
 
 The live preview is manuscript-aware: title, subtitle, authors, affiliations, headings, body text and footnotes are derived from the currently open manuscript where available. Sample publication data is not substituted for missing manuscript metadata.
 
+## InDesign-compatible paragraph styling and section layout
+
+Studio 0.3.0-beta.1 expands the publication editor beyond IDML style-set import. The live editor now exposes an InDesign-oriented paragraph-style model with reusable controls for typography, indentation, paragraph spacing, rules, keep behavior and related layout properties. The goal is compatibility of concepts and authoring workflow, not binary compatibility with native `.indd` documents.
+
+The publication editor also provides a section-level ruler. Tab stops and multi-column layout can be applied to the active section without changing the manuscript's semantic section identity. Selected text can be converted into structured tables where appropriate. These controls remain presentation/layout state layered over the semantic manuscript rather than replacing OMI structure with page-layout markup.
+
+Short numeric and fixed-length controls use content-oriented field widths so dense publication settings do not waste horizontal space, while responsive constraints prevent overflow on mobile screens.
+
 ## Adobe InDesign IDML style-set import
 
 Studio can import reusable publication styling from an **Adobe InDesign IDML** package. The purpose is style interoperability, not full InDesign document conversion: native `.indd` files and complete IDML document import remain outside the scope of this importer.
