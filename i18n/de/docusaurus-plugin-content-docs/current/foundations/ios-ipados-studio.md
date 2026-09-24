@@ -34,7 +34,7 @@ Aktueller Entwicklungsstand:
 - Die Übergabe bei der mobil-nativen Authentifizierung erfolgt gemeinsam mit Android;
 - Die Veröffentlichung über TestFlight und den App Store ist **noch nicht beansprucht**, da die Signaturdaten für Apple Developer und die endgültige Zuordnung des Universal Links noch konfiguriert werden müssen.
 
-Die aktuelle öffentliche Studio-Release-Reihe lautet weiterhin „`0.2.0-beta.2`“. Die Metadaten des Bundles im iOS App Store verwenden ein Apple-kompatibles Paar aus Kurzversion und Build, wobei die Studio-Release-Identität in der Benutzeroberfläche der Anwendung und in der Projektdokumentation beibehalten wird.
+Die aktuelle öffentliche Studio-Release-Reihe lautet weiterhin „`0.3.0-beta.1`“. Die Metadaten des Bundles im iOS App Store verwenden ein Apple-kompatibles Paar aus Kurzversion und Build, wobei die Studio-Release-Identität in der Benutzeroberfläche der Anwendung und in der Projektdokumentation beibehalten wird.
 
 ## Anwendungsidentität
 
@@ -42,9 +42,9 @@ Die aktuelle öffentliche Studio-Release-Reihe lautet weiterhin „`0.2.0-beta.2
 |---|---|
 | Bundle-ID | `org.openmanuscript.studio` |
 | Mindestanforderungen an die Plattform | iOS/iPadOS 14.0 |
-| Kurzbeschreibung im App Store | `0.2.0` |
-| App Store-Build-Nummer | `10` |
-| Studio-Entwicklungsreihe | `0.2.0-beta.2` |
+| Kurzbeschreibung im App Store | `0.3.0` |
+| App Store-Build-Nummer | `13` |
+| Studio-Entwicklungsreihe | `0.3.0-beta.1` |
 
 Die Apple-Kurzbezeichnung bzw. die Build-Nummerierung ist eine Metadatenangabe zur Paketierung. Sie ändert weder die Schemaversion von „OMI“ noch führt sie zu einer separaten Kompatibilitätsreihe für iOS-Dokumente.
 
