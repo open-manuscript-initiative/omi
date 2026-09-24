@@ -31,7 +31,7 @@ keywords:
 |---|---|
 | Stav | **Beta** |
 | Datum snímku | **5. září 2026** |
-| Aktuální řada produktů | `0.2.0-beta.2` |
+| Aktuální řada produktů | `0.3.0-beta.1` |
 | Referenční implementace | Open Manuscript Studio |
 | Repozitář zdrojového kódu | `open-manuscript-initiative/open-manuscript-studio` |
 | Cílová webová stránka | Moderní prohlížeče |
@@ -39,7 +39,7 @@ keywords:
 | Mobilní cíle | Veřejný univerzální APK pro Android; ověřený nativní simulátor pro iOS/iPadOS, distribuce přes TestFlight/App Store čeká na podpis od Apple Developer |
 | Nasazení na webu | `studio.openmanuscript.org` |
 
-Aktuální beta verze Studia je **`0.2.0-beta.2`**. Označení „beta“ znamená, že jsou implementovány hlavní pracovní postupy pro tvorbu obsahu, import/export, ověřování, nativní klient a revize na OJS/OMP a že projekt přešel z fáze vytváření základů funkcí k práci na interoperabilitě, regresních testech, obnově a přípravě na vydání. To **neznamená**, že každá volitelná integrace nebo distribuční kanál jsou zcela připraveny pro produkční nasazení.
+Aktuální beta verze Studia je **`0.3.0-beta.1`**. Označení „beta“ znamená, že jsou implementovány hlavní pracovní postupy pro tvorbu obsahu, import/export, ověřování, nativní klient a revize na OJS/OMP a že projekt přešel z fáze vytváření základů funkcí k práci na interoperabilitě, regresních testech, obnově a přípravě na vydání. To **neznamená**, že každá volitelná integrace nebo distribuční kanál jsou zcela připraveny pro produkční nasazení.
 
 Tato stránka popisuje **implementované funkce produktu**, nikoli soulad sOMIkou specifikací. Úroveň vyspělosti formální specifikace a důkazy o souladu se sledují samostatně v rámci projektu „[OMI Implementation Status Matrix](./implementation-status-matrix.md)“.
 
@@ -151,7 +151,7 @@ Současné integrace OJS a OMP jsou pro revizní práci obousměrné: Studio dok
 
 ## Vydání a distribuce
 
-`0.2.0-beta.2` jedná se o aktuální řadu beta verzí Studio. GitHub Actions generuje výstupy pro vydání ze sdíleného zdrojového stromu pro Windows, Linux, macOS a Android. Veřejná stránka pro stahování Studio umožňuje přístup přes prohlížeč a zobrazuje dostupné nativní balíčky, včetně univerzálního APK pro Android.
+`0.3.0-beta.1` jedná se o aktuální řadu beta verzí Studio. GitHub Actions generuje výstupy pro vydání ze sdíleného zdrojového stromu pro Windows, Linux, macOS a Android. Veřejná stránka pro stahování Studio umožňuje přístup přes prohlížeč a zobrazuje dostupné nativní balíčky, včetně univerzálního APK pro Android.
 
 Systém iOS/iPadOS v současné době disponuje funkční verzí pro simulátor v rámci kontinuální integrace (CI), nikoli však veřejně dostupným souborem IPA. Distribuční cesta společnosti Apple je připravena, ale záměrně oddělena od ověřování v simulátoru: verze určené pro veřejnost či pro zařízení vyžadují skutečné ID vývojářského týmu Apple, distribuční certifikát, profil pro provisioning a finální konfiguraci služby „`apple-app-site-association`“, než bude možné požádat o zveřejnění v TestFlightu či App Store.
 
