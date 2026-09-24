@@ -6,7 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {getPublicPageCopy} from '../i18n/publicPages';
 import styles from './studio.module.css';
 
-const STUDIO_VERSION = '0.2.0-beta.2';
+const STUDIO_VERSION = '0.3.0-beta.1';
 const RELEASE_BASE = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/releases/latest/download';
 const GOOGLE_PLAY_TEST_URL = 'https://play.google.com/apps/testing/org.openmanuscript.studio';
 const downloads = {
@@ -30,11 +30,15 @@ const CAPABILITY_DOC_TARGETS: Record<number, string> = {
 const CURRENT_UPDATE = {
   en: {
     title: 'Open Manuscript Studio public beta',
-    lead: 'Version 0.2.0-beta.2 is the current public beta, with provenance-verified OJS/OMP publication artifact transfer, PKP-compatible contributor metadata, reference-manager integrations, validated JATS/PDF publication output, and native OMP 3.5 author/reviewer writeback added to the existing cross-platform authoring and review workflows.',
+    lead: 'Version 0.3.0-beta.1 is the current public beta. It adds Studio-native editorial workflows for verified publications without OJS/OMP, InDesign-compatible paragraph styling and publication layout, section rulers with tabs and columns, and reusable personal reference libraries with per-document bibliography selection.',
     items: [
       ['Direct OJS/OMP author submission', 'From Publication, an eligible standalone study can be prepared and submitted directly to a configured OJS or OMP installation. Studio transfers manuscript metadata and files, preserves draft/retry state, validates the target workflow, and uses the author’s publishing-system API credentials.'],
       ['PKP-compatible scholarly metadata', 'Submission metadata now covers structured contributor identity, separate given/family names, affiliations, ORCID-compatible fields and conflict-of-interest declarations for OJS/OMP exchange without collapsing publication-specific name formatting.'],
       ['Reference-manager interoperability', 'RIS, BibTeX and CSL JSON interchange, bulk import, deduplication and linked-record refresh are available through the reference-management layer, with Mendeley OAuth integration for connected libraries.'],
+      ['Reusable personal reference library', 'Authors can save curated bibliographic records to an account-level library, reuse them across manuscripts, and choose which uncited works appear in each document bibliography. Cited works remain included automatically, and copied records remain portable inside the manuscript.'],
+      ['Studio-native editorial workflow', 'DNS-verified journals and presses without OJS/OMP can run submission, reviewer assignment, peer review, author revision, editorial acceptance and verified publication directly in Studio. OJS/OMP remain authoritative when configured.'],
+      ['InDesign-compatible layout controls', 'The live publication editor now includes InDesign-compatible paragraph styles, section-level rulers, tab stops, columns, text-to-table conversion and live rendering, while manuscript semantics remain separate from presentation.'],
+      ['Adaptive form layout', 'Short numeric and fixed-length fields size to their expected content instead of stretching across the full form, improving responsive density on desktop and mobile.'],
       ['Native OMP 3.5 client', 'Studio discovers OMP capabilities, imports authorized source content and can return author revisions, assignment-scoped reviewer attachments, review-form responses and supported native review results while OMP remains authoritative for review completion and editorial decisions.'],
       ['Release integrity and update flow', 'Desktop, mobile and review surfaces can notify users about newer Studio releases. The release pipeline binds a release tag to the exact build commit and never replaces assets of an already published release.'],
       ['One-step responsive navigation', 'Studio navigation opens directly without an intermediate second-level menu. Desktop and mobile use the same responsive navigation model with a same-position close control.'],
@@ -62,16 +66,20 @@ const CURRENT_UPDATE = {
     iosDescription: 'Validated native iPhone/iPad simulator target using the same Studio core. Public TestFlight/App Store installation is not yet available because Apple signing/provisioning and the final Universal Link association are still required.',
     iosAction: 'iOS/iPadOS implementation details',
     betaTitle: 'Current public beta',
-    betaText: 'OMI Studio 0.2.0-beta.2 is the current public beta for broader real-world testing. It adds the native OMP client, PKP-compatible metadata, reference-manager interchange and provenance-verified publication artifact transfer while preserving structured authoring, DOCX import/export, document lifecycle, search/replace, semantic indexes, validated JATS/PDF output, update notifications and configured review workflows.',
+    betaText: 'OMI Studio 0.3.0-beta.1 is the current public beta for broader real-world testing. It adds Studio-native editorial workflows, InDesign-compatible paragraph/layout controls, reusable cross-document reference libraries and per-document bibliography selection while preserving the validated publishing, OJS/OMP integration, structured authoring, import/export and cross-platform release foundations of the 0.2 line.',
     maturity: 'The project is in public beta. Beta development prioritizes regression testing, large-document performance, error recovery, interoperability, migration discipline and trustworthy immutable releases on the path to the first release candidate.',
   },
   hu: {
     title: 'Az Open Manuscript Studio nyilvános bétája',
-    lead: 'A 0.2.0-beta.2 a jelenlegi nyilvános béta. A kiadás a provenance-ellenőrzött OJS/OMP publikációs artefaktum-átadást, a PKP-kompatibilis közreműködői metaadatokat, a referenciakezelő-integrációkat, a validált JATS/PDF publikációs kimenetet és a natív OMP 3.5 szerzői/lektor writebacket is hozzáadja a meglévő platformközi kéziratszerkesztési és lektorálási munkafolyamatokhoz.',
+    lead: 'A 0.3.0-beta.1 a jelenlegi nyilvános béta. Újdonság a Studio-natív szerkesztőségi munkafolyamat az OJS/OMP nélküli hitelesített kiadványokhoz, az InDesign-kompatibilis bekezdésstílus- és kiadványtördelési rendszer, a szakaszszintű vonalzó tabulátorokkal és hasábokkal, valamint a több dokumentumban használható személyes hivatkozástár dokumentumonkénti bibliográfiaválasztással.',
     items: [
       ['Közvetlen szerzői beküldés OJS/OMP-be', 'A Publikáció menüből egy beküldhető önálló tanulmány közvetlenül előkészíthető és beküldhető egy konfigurált OJS- vagy OMP-rendszerbe. A Studio átadja a kézirat metaadatait és fájljait, megőrzi a piszkozat/újrapróbálkozás állapotát, ellenőrzi a célrendszer munkafolyamatát, és a szerző publikációs rendszerhez tartozó API-hitelesítését használja.'],
       ['PKP-kompatibilis tudományos metaadatok', 'A beküldési metaadatok strukturált közreműködői identitást, külön család- és keresztnevet, affiliációkat, ORCID-kompatibilis mezőket és összeférhetetlenségi nyilatkozatot kezelnek az OJS/OMP adatcseréhez, a publikációs névformázás feláldozása nélkül.'],
       ['Referenciakezelő-interoperabilitás', 'A referenciakezelő réteg RIS, BibTeX és CSL JSON adatcserét, tömeges importot, deduplikációt és kapcsolt rekordfrissítést támogat; a Mendeley-könyvtárakhoz OAuth-integráció is elérhető.'],
+      ['Személyes hivatkozástár', 'A szerző a gondozott bibliográfiai tételeket a fiókjához mentheti, több kéziratban újra felhasználhatja, és dokumentumonként kiválaszthatja az idézetlen, de a bibliográfiában megjelenő műveket. Az idézett tételek automatikusan bent maradnak, az átvett rekordok pedig a kézirat részeként hordozhatók.'],
+      ['Studio-natív szerkesztőségi munkafolyamat', 'A DNS-hitelesített, OJS/OMP nélküli folyóiratok és kiadók a beküldést, lektorkijelölést, lektorálást, szerzői javítást, szerkesztői elfogadást és hitelesített publikálást közvetlenül a Studióban kezelhetik. OJS/OMP használatakor továbbra is azok a mérvadók.'],
+      ['InDesign-kompatibilis tördelési vezérlők', 'Az élő kiadványszerkesztő InDesign-kompatibilis bekezdésstílusokat, szakaszszintű vonalzót, tabulátorokat, hasábokat, szöveg–táblázat átalakítást és élő megjelenítést kapott, a kézirat szemantikájától elkülönítve.'],
+      ['Rugalmas űrlapelrendezés', 'A rövid számos és fix hosszúságú mezők a várható tartalomhoz igazodnak, nem foglalnak automatikusan teljes sorszélességet, így asztali és mobil nézetben is sűrűbb, rugalmasabb az elrendezés.'],
       ['Natív OMP 3.5 kliens', 'A Studio felderíti az OMP képességeit, importálja az engedélyezett forrástartalmat, és vissza tudja küldeni a szerzői javításokat, hozzárendeléshez kötött lektori mellékleteket, lektori űrlapválaszokat és a támogatott natív lektori eredményeket, miközben a lektorálás lezárása és a szerkesztői döntés továbbra is az OMP hatásköre.'],
       ['Kiadási integritás és frissítés', 'Az asztali, mobil és lektori felületek értesíthetnek az új Studio-kiadásokról. A release-folyamat a taget pontosan a build commitjához köti, és egy már publikált kiadás assetjeit később nem cseréli le.'],
       ['Egylépcsős reszponzív navigáció', 'A Studio navigációja köztes második menü nélkül, azonnal megnyílik. Az asztali és mobil felület közös reszponzív modellt használ, azonos helyen elérhető bezáró vezérlővel.'],
@@ -99,12 +107,12 @@ const CURRENT_UPDATE = {
     iosDescription: 'Validált natív iPhone/iPad szimulátoros célverzió ugyanazzal a Studio-maggal. Nyilvános TestFlight/App Store telepítés még nincs, mert ehhez Apple aláírás/provisioning és a végleges Universal Link társítás szükséges.',
     iosAction: 'iOS/iPadOS megvalósítás részletei',
     betaTitle: 'Jelenlegi nyilvános béta',
-    betaText: 'Az OMI Studio 0.2.0-beta.2 a jelenlegi nyilvános béta szélesebb körű, valós használati teszteléshez. A natív OMP kliens, a PKP-kompatibilis metaadatok, a referenciakezelő-adatcsere és a provenance-ellenőrzött publikációs artefaktum-átadás az eddigi strukturált kéziratszerkesztés, DOCX import/export, dokumentuméletciklus, keresés és csere, szemantikus mutatók, validált JATS/PDF kimenetek, frissítési értesítések és konfigurált lektori munkafolyamatok mellé került.',
+    betaText: 'Az OMI Studio 0.3.0-beta.1 a jelenlegi nyilvános béta. A 0.2-es ág alapjaira Studio-natív szerkesztőségi munkafolyamat, InDesign-kompatibilis stílus- és tördelési vezérlés, több dokumentumban használható személyes hivatkozástár és dokumentumonkénti bibliográfiaválasztás épült, miközben megmaradt a validált publikációs pipeline, az OJS/OMP-integráció és a platformközi kiadási rendszer.',
     maturity: 'A projekt nyilvános béta. A béta szakasz fő feladata a regressziós tesztelés, a nagy dokumentumok teljesítménye, a hibából való helyreállás, az interoperabilitás, a migrációs fegyelem és a megbízható, változtathatatlan kiadások biztosítása az első release candidate felé.',
   },
   de: {
     title: 'Öffentliche Beta von Open Manuscript Studio',
-    lead: '0.2.0-beta.2 ist die aktuelle öffentliche Beta. Die Version ergänzt provenance-geprüfte OJS/OMP-Publikationsartefaktübertragung, PKP-kompatible Beitragsmetadaten, Referenzmanager-Integrationen, validierte JATS/PDF-Publikationsausgabe und natives OMP-3.5-Writeback für Autoren und Reviewer zu den bestehenden plattformübergreifenden Autoren- und Review-Workflows.',
+    lead: '0.3.0-beta.1 ist die aktuelle öffentliche Beta. Neu sind ein Studio-nativer Redaktionsworkflow für verifizierte Publikationen ohne OJS/OMP, InDesign-kompatible Absatz- und Layoutsteuerung, abschnittsbezogene Lineale mit Tabulatoren und Spalten sowie eine persönliche, dokumentübergreifend nutzbare Literaturbibliothek mit Bibliografieauswahl pro Dokument.',
     items: [
       ['Direkte OJS/OMP-Autoreneinreichung', 'Über Publikation kann eine geeignete eigenständige Studie direkt für eine konfigurierte OJS- oder OMP-Installation vorbereitet und eingereicht werden. Studio überträgt Metadaten und Dateien, bewahrt Entwurfs-/Wiederholungsstatus, validiert den Zielworkflow und verwendet die API-Anmeldedaten des Autors für das Publikationssystem.'],
       ['PKP-kompatible wissenschaftliche Metadaten', 'Einreichungsmetadaten umfassen strukturierte Mitwirkendenidentität, getrennte Vor- und Familiennamen, Affiliationen, ORCID-kompatible Felder und Interessenkonflikterklärungen für den OJS/OMP-Austausch, ohne publikationstypische Namensformatierung zu verlieren.'],
@@ -136,7 +144,7 @@ const CURRENT_UPDATE = {
     iosDescription: 'Validiertes natives iPhone/iPad-Simulatorziel mit demselben Studio-Kern. Eine öffentliche TestFlight/App-Store-Installation ist noch nicht verfügbar, da Apple-Signierung/Provisioning und die endgültige Universal-Link-Zuordnung erforderlich sind.',
     iosAction: 'Details zur iOS/iPadOS-Implementierung',
     betaTitle: 'Aktuelle öffentliche Beta',
-    betaText: 'OMI Studio 0.2.0-beta.2 ist die aktuelle öffentliche Beta für breitere Praxistests. Der native OMP-Client, PKP-kompatible Metadaten, Referenzmanager-Austausch und provenance-geprüfte Publikationsartefaktübertragung ergänzen strukturierte Manuskriptbearbeitung, DOCX-Import/-Export, Dokumentlebenszyklus, Suchen/Ersetzen, semantische Register, validierte JATS/PDF-Ausgabe, Update-Hinweise und konfigurierte Review-Workflows.',
+    betaText: 'OMI Studio 0.3.0-beta.1 ist die aktuelle öffentliche Beta für breitere Praxistests. Der native OMP-Client, PKP-kompatible Metadaten, Referenzmanager-Austausch und provenance-geprüfte Publikationsartefaktübertragung ergänzen strukturierte Manuskriptbearbeitung, DOCX-Import/-Export, Dokumentlebenszyklus, Suchen/Ersetzen, semantische Register, validierte JATS/PDF-Ausgabe, Update-Hinweise und konfigurierte Review-Workflows.',
     maturity: 'Das Projekt befindet sich in der öffentlichen Beta. Im Mittelpunkt stehen Regressionstests, Leistung bei großen Dokumenten, Fehlerwiederherstellung, Interoperabilität, saubere Migrationen und vertrauenswürdige unveränderliche Releases auf dem Weg zum ersten Release Candidate.',
   },
 } as const;
