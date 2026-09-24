@@ -28,7 +28,7 @@ Denne opdeling gør det muligt at tilpasse det samme OMI-manuskript til forskell
 
 ## Aktuel status for implementeringen
 
-De funktioner, der beskrives på denne side, er implementeret i den aktuelle Studio-udviklingsgren og indgår i projektets forberedelse til beta-udgivelse. Den offentlige binære udgivelse er fortsat `0.2.0-beta.2`; de nyere funktioner, der beskrives her, vil muligvis først blive tilgængelige i udviklingsgrenen inden den næste pakkede udgivelse.
+De funktioner, der beskrives på denne side, er implementeret i den aktuelle Studio-udviklingsgren og indgår i projektets forberedelse til beta-udgivelse. Den offentlige binære udgivelse er fortsat `0.3.0-beta.1`; de nyere funktioner, der beskrives her, vil muligvis først blive tilgængelige i udviklingsgrenen inden den næste pakkede udgivelse.
 
 ### Genanvendelige publikationsformater med navn
 
