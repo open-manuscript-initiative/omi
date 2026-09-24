@@ -39,6 +39,7 @@ const STUDIO_UPDATE = {
     androidInstall: 'Install Android beta from Google Play',
     downloads: 'Studio downloads',
     ios: 'Validated iPhone/iPad simulator build and Files integration',
+    uiLocales: 'selectable UI locales',
   },
   hu: {
     summary: 'Az Open Manuscript Studio jelenlegi nyilvános bétája a 0.3.0-beta.1. Az új kiadás InDesign-kompatibilis bekezdésstílusokat, szakaszszintű vonalzót tabulátorokkal és hasábokkal, egységes HTML5- és nyomtatásielrendezés-nagyítást, OJS/OMP nélküli hitelesített folyóiratokhoz és kiadókhoz Studio-native szerkesztőségi és lektorálási munkafolyamatot, valamint fiókszintű saját hivatkozástárat és dokumentumonként választható bibliográfiát ad. Mindez a validált JATS 1.4/JATS4R exportra, a Vivliostyle PDF-előállításra, az OJS/OMP 3.5 integrációra, a nagy DOCX-ek importjára, a többdokumentumos szerkesztésre, a federált identitásra és a platformközi natív buildekre épül.',
@@ -60,6 +61,7 @@ const STUDIO_UPDATE = {
     androidInstall: 'Android béta telepítése a Google Playről',
     downloads: 'Studio letöltések',
     ios: 'Validált iPhone/iPad szimulátoros build és Files-integráció',
+    uiLocales: 'választható felületi lokalizáció',
   },
   de: {
     summary: 'Open Manuscript Studio 0.3.0-beta.1 ist die aktuelle öffentliche Beta. Die neue Version ergänzt InDesign-kompatible Absatzstile, abschnittsbezogene Lineale mit Tabstopps und Spalten, konsistenten Zoom in HTML5- und Drucklayout, einen Studio-nativen Redaktions- und Peer-Review-Workflow für verifizierte Zeitschriften und Verlage ohne OJS/OMP sowie eine kontobezogene persönliche Literaturbibliothek mit dokumentweiser Bibliografieauswahl. Dies baut auf validiertem JATS-1.4/JATS4R-Export, Vivliostyle-PDF-Erzeugung, OJS/OMP-3.5-Integration, großem DOCX-Import, Mehrdokument-Bearbeitung, föderierter Identität und plattformübergreifenden nativen Builds auf.',
@@ -81,6 +83,7 @@ const STUDIO_UPDATE = {
     androidInstall: 'Android-Beta über Google Play installieren',
     downloads: 'Studio-Downloads',
     ios: 'Validierter iPhone/iPad-Simulator-Build und Files-Integration',
+    uiLocales: 'auswählbare UI-Lokalisierungen',
   },
 } as const;
 
@@ -206,7 +209,7 @@ export default function Home() {
           <aside className={styles.studioFeatures} aria-label={t.status}>
             <h3>0.3.0-beta.1</h3>
             <p>Web · Windows · Linux · macOS · Android · iOS/iPadOS</p>
-            <p><strong>47</strong> selectable UI locales</p>
+            <p><strong>47</strong> {studioUpdate.uiLocales}</p>
             <nav className={styles.contextLinks} aria-label={t.status}>
               <Link to="/docs/foundations/word-like-manuscript-editing">✓ {studioUpdate.wordLike}</Link>
               <Link to="/docs/foundations/studio-long-form-authoring">✓ {studioUpdate.pdf}</Link>
