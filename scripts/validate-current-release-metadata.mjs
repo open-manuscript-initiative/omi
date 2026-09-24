@@ -1,11 +1,11 @@
 import { readFile } from 'node:fs/promises';
 
 const expected = {
-  studio: '0.2.0-beta.2',
+  studio: '0.3.0-beta.1',
   ojs: 'v1.6.0',
   omp: 'v1.5.1',
-  iosMarketing: '0.2.0',
-  iosBuild: '10',
+  iosMarketing: '0.3.0',
+  iosBuild: '13',
 };
 
 const currentFacingFiles = [
@@ -19,6 +19,11 @@ const currentFacingFiles = [
   'docs/integrations/omp-plugin.md',
   'docs/foundations/ios-ipados-studio.md',
   'docs/foundations/cross-platform-studio.md',
+  'docs/foundations/publication-styles-and-publisher-profiles.md',
+  'docs/foundations/word-like-manuscript-editing.md',
+  'docs/integrations/studio-native-editorial-workflow.md',
+  'docs/specifications/reference-library-registry.md',
+  'docs/studio/visual-tour.md',
   ...['bg', 'cs', 'da', 'de'].flatMap((locale) => [
     `i18n/${locale}/docusaurus-plugin-content-docs/current/governance/roadmap-to-omi-1.0.md`,
     `i18n/${locale}/docusaurus-plugin-content-docs/current/governance/studio-implementation-status.md`,
@@ -26,6 +31,7 @@ const currentFacingFiles = [
     `i18n/${locale}/docusaurus-plugin-content-docs/current/integrations/omp-plugin.md`,
     `i18n/${locale}/docusaurus-plugin-content-docs/current/foundations/ios-ipados-studio.md`,
     `i18n/${locale}/docusaurus-plugin-content-docs/current/foundations/cross-platform-studio.md`,
+    `i18n/${locale}/docusaurus-plugin-content-docs/current/foundations/publication-styles-and-publisher-profiles.md`,
   ]),
 ];
 
@@ -35,6 +41,10 @@ const staleProductVersions = [
   '0.1.0-beta.4',
   '0.1.0-beta.5',
   '0.1.1-beta.1',
+  '0.2.0-beta.1',
+  '0.2.0-beta.2',
+  '0.2.0-beta.3',
+  '0.2.0-beta.4',
   'v1.2.1',
   'v1.2.6',
   '1.2.1',
@@ -77,6 +87,9 @@ const required = [
   ['src/pages/index.tsx', expected.studio],
   ['src/pages/studio.tsx', expected.studio],
   ['docs/governance/studio-implementation-status.md', expected.studio],
+  ['docs/governance/roadmap-to-omi-1.0.md', expected.studio],
+  ['docs/studio/visual-tour.md', expected.studio],
+  ['docs/integrations/studio-native-editorial-workflow.md', expected.studio],
   ['docs/integrations/ojs-plugin.md', expected.ojs],
   ['docs/integrations/omp-plugin.md', expected.omp],
   ['docs/foundations/ios-ipados-studio.md', expected.studio],

@@ -64,6 +64,40 @@ The graphical editor exposes publishing-oriented controls rather than manuscript
 
 The live preview is manuscript-aware: title, subtitle, authors, affiliations, headings, body text and footnotes are derived from the currently open manuscript where available. Sample publication data is not substituted for missing manuscript metadata.
 
+### InDesign-compatible paragraph-style system
+
+The 0.3.0 beta line expands paragraph styling from a small role-based subset into an **InDesign-compatible style system**. The goal is behavioural and interchange compatibility rather than pixel-for-pixel reproduction of Adobe's dialog.
+
+The Studio paragraph-style model supports named styles, `BasedOn` inheritance, `NextStyle`, direct paragraph overrides and category-based controls. The current compatibility surface includes, among other groups:
+
+- basic and advanced character formatting;
+- indentation and paragraph spacing;
+- left, centre, right and decimal tab stops with leaders;
+- rules above/below, borders and shading;
+- keep/start-paragraph controls;
+- hyphenation and justification;
+- span/split-column behaviour;
+- drop caps, nested styles and GREP-style preservation;
+- bullets and multilevel numbering;
+- OpenType, underline and strikethrough settings;
+- HTML/EPUB/PDF export tagging.
+
+Studio distinguishes settings that it can render natively, settings that are approximated by browser/paged-media layout, and settings that are preserved for IDML round-trip even when the live preview cannot reproduce Adobe rendering exactly. Unsupported safe IDML properties are not supposed to disappear silently.
+
+### Section ruler, tab stops and columns
+
+The live publication editor also exposes a **section-level ruler**. A selected manuscript section can carry layout instructions such as tab stops and multi-column geometry without converting the scholarly text into presentation-only content.
+
+The ruler and related section tools support:
+
+- interactive tab-stop placement and editing;
+- section-level column count and gutter settings;
+- text-to-table conversion for structured tabular material;
+- compact numeric controls whose width follows the expected value size;
+- the same manuscript source in both HTML5 visual and paged print-layout views.
+
+Document zoom is shared across publication views: the Word-style zoom control works in the HTML5 visual editor and in print layout, so layout inspection no longer depends on browser page zoom.
+
 ## Adobe InDesign IDML style-set import
 
 Studio can import reusable publication styling from an **Adobe InDesign IDML** package. The purpose is style interoperability, not full InDesign document conversion: native `.indd` files and complete IDML document import remain outside the scope of this importer.

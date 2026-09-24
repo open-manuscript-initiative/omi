@@ -169,7 +169,7 @@ This separation is important for portability: changing from browser to Windows, 
 
 ## Multilingual and regional settings
 
-The shared client currently exposes 24 European UI languages. Interface-language, manuscript-language and metadata-language preferences are managed together in a compact responsive settings surface. Time zones use standard IANA identifiers with UTC offsets and system-zone detection rather than free-text values, so account preferences remain portable across operating systems.
+The shared client currently exposes 47 selectable UI locales. Reviewed/localized coverage varies by locale; interface-language, manuscript-language and metadata-language preferences are managed together in a compact responsive settings surface. Time zones use standard IANA identifiers with UTC offsets and system-zone detection rather than free-text values, so account preferences remain portable across operating systems.
 
 ## Mobile workflow direction
 
