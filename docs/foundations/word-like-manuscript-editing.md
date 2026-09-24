@@ -61,6 +61,14 @@ Large manuscripts can use lazy/offscreen editor mounting without shortening the 
 
 On touch devices Studio suppresses the native WebView selection action menu when a Studio text selection is active, so users see the Studio selection toolbar rather than two competing action menus. Copy and cut still write through the operating-system clipboard path, allowing content to be pasted into other applications.
 
+## Section ruler and publishing layout
+
+The 0.3.0 beta line adds a section-aware ruler without turning manuscript structure into page-layout markup. When a section is selected, Studio can expose publishing-oriented controls for tab stops and multi-column layout while keeping the underlying OMI section as the semantic boundary.
+
+Tab characters are represented as editor semantics rather than simulated spaces. Column count and gutter settings belong to section layout, and text-to-table conversion is an explicit structural operation. These controls are also reflected in the live publication editor, where the same manuscript can be inspected in HTML5 visual mode or paged print layout.
+
+The Word-style zoom control is now consistent across normal editing, HTML5 publication editing and print-layout inspection.
+
 ## Structural safety
 
 Word-like interaction does not permit semantic objects to disappear silently. A Backspace or Delete operation may merge compatible paragraphs, but it must not skip over or implicitly destroy a figure, table, heading, quotation, or other meaningful OMI object. Operations that change semantic block type require an explicit structural transformation.

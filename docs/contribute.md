@@ -20,7 +20,7 @@ The immediate goal is to turn the validated simulator build into a reproducible,
 
 ## Native-language translation and review
 
-The website and Open Manuscript Studio currently support 24 interface languages. Machine-assisted translations are only a first draft until a competent native-language reviewer has checked terminology, meaning and natural usage.
+The website and Open Manuscript Studio currently expose 47 selectable interface locales. Translation completeness varies by locale; machine-assisted translations are only a first draft until a competent native-language reviewer has checked terminology, meaning and natural usage.
 
 We especially welcome people who can:
 

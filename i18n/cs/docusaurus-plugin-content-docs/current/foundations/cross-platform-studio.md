@@ -169,7 +169,7 @@ Toto oddělení je důležité z hlediska přenositelnosti: přechod z prohlíž
 
 ## Vícejazyčná a regionální nastavení
 
-Sdílený klient v současné době nabízí 24 evropských jazyků uživatelského rozhraní. Předvolby jazyka rozhraní, jazyka rukopisu a jazyka metadat se spravují společně v kompaktním responzivním nastavení. Časová pásma využívají standardní identifikátory IANA s časovými posuny vůči UTC a detekci systémového časového pásma namísto volně zadaných hodnot, takže předvolby účtu zůstávají přenositelné napříč operačními systémy.
+Sdílený klient v současné době nabízí 47 evropských jazyků uživatelského rozhraní. Předvolby jazyka rozhraní, jazyka rukopisu a jazyka metadat se spravují společně v kompaktním responzivním nastavení. Časová pásma využívají standardní identifikátory IANA s časovými posuny vůči UTC a detekci systémového časového pásma namísto volně zadaných hodnot, takže předvolby účtu zůstávají přenositelné napříč operačními systémy.
 
 ## Směr mobilního pracovního postupu
 

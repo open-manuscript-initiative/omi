@@ -39,6 +39,7 @@ const STUDIO_UPDATE = {
     androidInstall: 'Install Android beta from Google Play',
     downloads: 'Studio downloads',
     ios: 'Validated iPhone/iPad simulator build and Files integration',
+    uiLocales: 'selectable UI locales',
   },
   hu: {
     summary: 'Az Open Manuscript Studio jelenlegi nyilvános bétája a 0.3.0-beta.1. Az új ág Studio-natív beküldést, lektorálást és szerkesztői elfogadást ad az OJS/OMP nélküli, hitelesített folyóiratoknak és kiadóknak; InDesign-kompatibilis bekezdésstílus- és kiadványtördelési rendszert; szakaszonkénti vonalzót, tabulátorokat és hasábokat; valamint több dokumentumban újrahasználható személyes hivatkozástárat dokumentumonként választható bibliográfiával. Mindez a validált JATS/PDF kimenetre, az OJS/OMP 3.5 integrációra, a nagy DOCX-ek importjára, a szemantikus mutatókra, a többnyelvű munkára és a platformközi natív kliensekre épül.',
@@ -60,6 +61,7 @@ const STUDIO_UPDATE = {
     androidInstall: 'Android béta telepítése a Google Playről',
     downloads: 'Studio letöltések',
     ios: 'Validált iPhone/iPad szimulátoros build és Files-integráció',
+    uiLocales: 'választható felületi lokalizáció',
   },
   de: {
     summary: 'Open Manuscript Studio 0.3.0-beta.1 ist die aktuelle öffentliche Beta. Die neue Linie ergänzt einen Studio-nativen Einreichungs-, Begutachtungs- und Annahme-Workflow für verifizierte Zeitschriften und Verlage ohne OJS/OMP, ein InDesign-kompatibles Absatzstil- und Publikationslayoutsystem, abschnittsbezogene Lineale mit Tabulatoren und Spalten sowie eine persönliche, dokumentübergreifend wiederverwendbare Literaturbibliothek mit dokumentbezogener Bibliografieauswahl. Dies baut auf validierter JATS/PDF-Ausgabe, OJS/OMP-3.5-Integration, großem DOCX-Import, semantischen Registern und den plattformübergreifenden nativen Clients auf.',
@@ -81,6 +83,7 @@ const STUDIO_UPDATE = {
     androidInstall: 'Android-Beta über Google Play installieren',
     downloads: 'Studio-Downloads',
     ios: 'Validierter iPhone/iPad-Simulator-Build und Files-Integration',
+    uiLocales: 'auswählbare UI-Lokalisierungen',
   },
 } as const;
 

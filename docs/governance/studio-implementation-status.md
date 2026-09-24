@@ -96,6 +96,8 @@ This page describes **implemented product capabilities**, not OMI specification 
 | Translation execution | **Configuration-dependent** | Structured DeepL translation operates on selection/block/section/manuscript scopes while preserving inline semantics and excluding citations, code, equations and bibliography records from unsafe flattening. Language variants can be stored separately. |
 | AI integration agents | **Configuration-dependent** | Provider-neutral language editor, metadata assistant, summarizer and citation-checker agents return suggestions through scoped server-side execution. External transmission of review-confidential content requires explicit permission. |
 | Integration audit and extension registry | **Operational foundation / configuration-dependent execution** | Integration execution records operation metadata/digests without storing manuscript text or secrets. Extension manifests support version compatibility, permissions, capabilities and HTTPS-only external endpoints. |
+| Personal reference library | **Operational / authenticated account** | Bibliographic records can be saved once to an account-level personal library and reused across manuscripts. When a record is added to a manuscript, a portable bibliographic snapshot remains inside the document so the file does not depend on the account service to reopen or publish. |
+| Per-document bibliography selection | **Operational** | Each manuscript can explicitly include selected uncited works in its bibliography, while actually cited records remain automatically included. The same selection is respected by HTML, JATS, custom export and Studio-native review snapshots. |
 | Portable OMI export | **Operational** | Portable `.omi.zip` and OMI JSON outputs are available as first-class interchange forms. |
 | Scholarly/publishing exports | **Operational** | JATS XML, semantic offline HTML package, DOCX, EPUB, PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX are represented in the current export layer. JATS, HTML and PDF publication outputs participate in the validated publication-build pipeline, and semantic index fields can be exported back to DOCX. |
 | JATS 1.4 validated export | **Operational** | Studio targets NISO JATS 1.4 Article Authoring with the MathML 3 DTD. The server performs full offline validation with a pinned local schema package and rejects untrusted entity/DTD substitution. |
@@ -118,11 +120,11 @@ This page describes **implemented product capabilities**, not OMI specification 
 | iOS / iPadOS application | **Validated native target** | Tauri iOS project generation and the Apple Silicon iPhone/iPad simulator build succeed in CI, including native Files integration and shared mobile authentication/export code. Public TestFlight/App Store distribution still requires Apple Developer signing, provisioning, Universal Link association and physical-device validation. |
 | Cross-platform update notifications | **Operational** | Login, workspace, review and native/mobile surfaces check for newer public releases on startup, periodically and when the app becomes visible. Signed Tauri updater metadata is preferred where available, with current-release fallback for platform installers and Android APK delivery. |
 | Desktop update flow | **Operational** | Update notification and installer flow is implemented in the desktop application. Signed updater metadata is preferred; the public-release fallback prevents supported clients from being stranded when signed updater metadata is unavailable. |
-| Cross-platform release automation | **Operational** | GitHub Actions produces Windows, Linux, macOS and Android artifacts from the shared source tree and runs an iOS/iPadOS simulator smoke build. Beta.4 binds each public release tag to the exact source commit, uploads assets only once, never retargets an existing release and never replaces existing release assets. A manual signed Apple release workflow is prepared for App Store Connect once Apple credentials are configured. |
+| Cross-platform release automation | **Operational** | GitHub Actions produces Windows, Linux, macOS and Android artifacts from the shared source tree and runs an iOS/iPadOS simulator smoke build. The current release pipeline binds each public release tag to the exact source commit, uploads assets only once, never retargets an existing release and never replaces existing release assets. A manual signed Apple release workflow is prepared for App Store Connect once Apple credentials are configured. |
 | Release dependency reproducibility | **Operational** | JavaScript and Rust dependency graphs are lockfile-controlled; CI uses reproducible install paths including `npm ci` for the server. |
 | Application branding | **Operational** | OMI Studio branding and generated native icon assets are used across the application shell and release packaging, including Android and the generated iOS/iPadOS target. |
 | Security hardening | **Operational baseline** | Server-side rate limiting, SSRF restrictions, OIDC state/nonce/PKCE and issuer validation, restricted secret persistence, hashed reset/Admin-API tokens, integration/admin auditing, safer import/export escaping and automated security scanning are incorporated into the current development line. OJS review-form rendering has additional markup/text isolation hardening. The remaining transitive `glib 0.18.x` advisory is tracked in one canonical upstream-blocked issue until the supported Tauri/GTK stack can move to `glib >= 0.20`. |
-| Windows code signing | **Application submitted / pending** | Public code-signing and privacy policies are published and the SignPath Foundation open-source application has been prepared/submitted. Windows installers remain unsigned until acceptance and production signing integration. |
+| Windows code signing | **Not yet enabled** | The SignPath Foundation application was not accepted at the current public-adoption level. Windows installers remain unsigned; a paid signing route or a later Foundation reapplication remains possible as project visibility grows. |
 
 ## Cross-platform architecture
 
@@ -176,12 +178,14 @@ The beta line shifts the release gate from “is the primary workflow implemente
 2. large and structurally complex DOCX imports, including notes, tables, lists, fields and dynamic indexes;
 3. representative structured export paths on web and native clients, including printed versus interactive PDF behavior;
 4. OJS and OMP manuscript round-trip and role-aware author/editor/reviewer workflows, including assigned-file scoping, multi-round review, native review forms and signed writeback;
-5. double-blind peer review without identity leakage and with least-privilege integration scopes;
-6. Android Documents/SAF lifecycle behavior and responsive mobile navigation;
-7. iOS/iPadOS Files/UIDocumentPicker behavior once signed physical-device testing is available;
-8. institution/central administration without privilege leakage into manuscript content;
-9. understandable user-facing recovery for network, authentication, migration, import/export and integration failures;
-10. release provenance, updater fallback behavior and immutable downloadable assets across successive beta releases.
+5. Studio-native submission → review → revision → editorial acceptance → publication, including migration, authorization and revision-binding regression tests;
+6. reusable personal-reference-library behavior across multiple manuscripts and bibliography-selection fidelity across export formats;
+7. double-blind peer review without identity leakage and with least-privilege integration scopes;
+8. Android Documents/SAF lifecycle behavior and responsive mobile navigation;
+9. iOS/iPadOS Files/UIDocumentPicker behavior once signed physical-device testing is available;
+10. institution/central administration without privilege leakage into manuscript content;
+11. understandable user-facing recovery for network, authentication, migration, import/export and integration failures;
+12. release provenance, updater fallback behavior and immutable downloadable assets across successive beta releases.
 
 Configuration-dependent integrations do not need to be universally available for the beta line, provided their maturity is clearly identified and they do not compromise the stable core workflows.
 
@@ -193,6 +197,8 @@ Configuration-dependent integrations do not need to be universally available for
 - run migration and authorization regression tests for institution membership, central administration and institution Admin API credentials;
 - continue OJS 3.5 round-trip, multi-round review and cross-version interoperability testing;
 - continue OMP 3.5 cross-version interoperability, deployment and recovery hardening;
+- harden Studio-native editorial workflow migrations, editor/reviewer authorization and multi-round recovery;
+- stress-test large personal reference libraries, cross-document reuse and bibliography-selection export fidelity;
 - strengthen recovery behavior for interrupted network, cloud and synchronization operations;
 - replace remaining technical/raw error surfaces with actionable user-facing messages;
 - continue tracking the upstream Tauri/GTK migration until the transitive `glib 0.18.x` advisory can be removed by a supported dependency update;

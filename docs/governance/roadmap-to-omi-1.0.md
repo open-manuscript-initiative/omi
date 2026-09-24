@@ -141,7 +141,7 @@ The Studio supports 47 selectable interface languages, localized help and multil
 
 ### 6.4 Review and editorial workflow
 
-Double-blind peer review foundations are implemented with authenticated review APIs, anonymity projections, reviewer workspaces, editor-facing review dashboards and support for externally assigned review contexts. These capabilities materially advance the reference implementation beyond the earlier exploratory review baseline.
+Double-blind peer review foundations are implemented with authenticated review APIs, anonymity projections, reviewer workspaces, editor-facing review dashboards and support for externally assigned review contexts. In addition, DNS-verified journals and presses without OJS/OMP can use the Studio-native workflow for submission, reviewer assignment, author revision, immutable revision-bound editorial acceptance and verified-domain publication. These capabilities materially advance the reference implementation beyond the earlier exploratory review baseline.
 
 ### 6.5 Publishing-platform integration
 
@@ -216,11 +216,11 @@ Exit criterion: collaboration, review, annotation, permission and multilingual r
 
 ### Phase 6 — Bibliography and citation completion
 
-**Status:** Partially completed
+**Status:** Product implementation ahead of specification in reference-library reuse
 
 Citation and bibliographic models exist, and Studio now implements an account-level personal reference library whose records can be reused across manuscripts with per-document bibliography selection.
 
-Priority: separate citation occurrences from bibliographic records, define source provenance, identifier reconciliation, deduplication, caching and reference-library reuse.
+Priority: standardize the implemented separation between citation occurrences, portable document records and reusable account-level libraries; define source provenance, identifier reconciliation, deduplication, synchronization/conflict semantics and caching without making one hosted account service normative.
 
 The reference implementation now demonstrates this direction across documents as well: a work can be curated once in the author's personal library, copied as a portable record snapshot into multiple manuscripts, cited repeatedly, and independently included or excluded from each document bibliography when it is not cited.
 

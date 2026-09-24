@@ -8,7 +8,7 @@ description: Submission, peer review, author revision, editorial decision and pu
 
 Open Manuscript Studio can manage the complete editorial workflow for a **DNS-verified journal or press that does not use OJS or OMP**.
 
-> **Preview status.** This workflow is being hardened for the Studio 1.0 line. OJS/OMP integrations keep their existing authority boundary.
+> **Operational beta in Studio 0.3.0-beta.1.** The complete submission → review → author revision → editorial decision → publication path is implemented and is being hardened for the Studio 1.0 line. OJS/OMP integrations keep their existing authority boundary.
 
 ## Authority boundary
 
@@ -75,7 +75,7 @@ The scholarly manuscript remains the canonical document. Editorial workflow stat
 
 ## Editorial inbox
 
-Accounts holding an active `EDITOR` or `EDITOR_IN_CHIEF` role at the verified venue see that venue's Studio-native submissions in the editorial inbox.
+Accounts holding an active `EDITOR` or `EDITOR_IN_CHIEF` role at the verified venue see that venue's Studio-native submissions in the editorial inbox. Editor assignment is persisted explicitly in the Studio database so inbox filtering and later decision evidence do not depend on transient client state.
 
 An editor can open the exact submitted revision on another device because the submission preserves the revision snapshot and its verified assets.
 

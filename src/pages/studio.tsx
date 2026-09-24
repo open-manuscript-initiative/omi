@@ -32,6 +32,11 @@ const CURRENT_UPDATE = {
     title: 'Open Manuscript Studio public beta',
     lead: 'Version 0.3.0-beta.1 is the current public beta. It adds Studio-native editorial workflows for verified publications without OJS/OMP, InDesign-compatible paragraph styling and publication layout, section rulers with tabs and columns, and reusable personal reference libraries with per-document bibliography selection.',
     items: [
+      ['InDesign-compatible paragraph and publication styling', 'The live publication editor now exposes an InDesign-inspired paragraph-style system with inheritance-aware controls and live rendering, while keeping manuscript semantics separate from reusable publication presentation.'],
+      ['Section ruler, tab stops and columns', 'Authors can apply ruler-driven tabs and multi-column layout to a selected manuscript section, together with text-to-table conversion and compact value controls suited to publishing work.'],
+      ['Studio-native editorial workflow', 'DNS-verified journals and presses that do not use OJS or OMP can run submission, double-anonymous review, author revision, editorial acceptance and publication in Studio. Acceptance is bound to the exact committed revision and remains separate from publication.'],
+      ['Personal reference library and document bibliography', 'Authors can save curated bibliographic records to an account-level personal library, reuse them across manuscripts and choose which uncited works appear in each document bibliography. Cited works remain included automatically.'],
+      ['HTML5 and print-layout zoom', 'The Word-style document zoom now works consistently in the HTML5 visual publication editor and the paged print-layout view.'],
       ['Direct OJS/OMP author submission', 'From Publication, an eligible standalone study can be prepared and submitted directly to a configured OJS or OMP installation. Studio transfers manuscript metadata and files, preserves draft/retry state, validates the target workflow, and uses the author’s publishing-system API credentials.'],
       ['PKP-compatible scholarly metadata', 'Submission metadata now covers structured contributor identity, separate given/family names, affiliations, ORCID-compatible fields and conflict-of-interest declarations for OJS/OMP exchange without collapsing publication-specific name formatting.'],
       ['Reference-manager interoperability', 'RIS, BibTeX and CSL JSON interchange, bulk import, deduplication and linked-record refresh are available through the reference-management layer, with Mendeley OAuth integration for connected libraries.'],
@@ -73,6 +78,11 @@ const CURRENT_UPDATE = {
     title: 'Az Open Manuscript Studio nyilvános bétája',
     lead: 'A 0.3.0-beta.1 a jelenlegi nyilvános béta. Újdonság a Studio-natív szerkesztőségi munkafolyamat az OJS/OMP nélküli hitelesített kiadványokhoz, az InDesign-kompatibilis bekezdésstílus- és kiadványtördelési rendszer, a szakaszszintű vonalzó tabulátorokkal és hasábokkal, valamint a több dokumentumban használható személyes hivatkozástár dokumentumonkénti bibliográfiaválasztással.',
     items: [
+      ['InDesign-kompatibilis bekezdés- és kiadványstílusok', 'Az élő kiadványszerkesztő InDesign-mintájú bekezdésstílus-rendszert kapott örökléssel, részletes vezérlőkkel és élő megjelenítéssel, miközben a kézirat szemantikája külön marad a kiadványmegjelenítéstől.'],
+      ['Szakaszvonalzó, tabulátorok és hasábok', 'A szerző egy kijelölt kéziratszakaszra vonalzóval kezelhető tabulátorokat és többhasábos elrendezést alkalmazhat; a rendszer szöveg–táblázat átalakítást és kompakt értékmezőket is biztosít.'],
+      ['Studio-native szerkesztőségi munkafolyamat', 'Az OJS-t vagy OMP-t nem használó, DNS-sel hitelesített folyóiratok és kiadók a Studio rendszerében kezelhetik a beküldést, kettős vak lektorálást, szerzői javítást, szerkesztői elfogadást és publikálást. Az elfogadás az adott rögzített revízióhoz kötődik és külön lépés a publikálástól.'],
+      ['Személyes hivatkozástár és dokumentumbibliográfia', 'A szerző fiókszintű saját hivatkozástárba mentheti a bibliográfiai rekordokat, több kéziratban újra felhasználhatja őket, és dokumentumonként kiválaszthatja az idézetlenül is megjelenítendő műveket. A ténylegesen idézett művek automatikusan bekerülnek.'],
+      ['HTML5- és nyomtatási nagyítás', 'A Word-szerű dokumentumnagyítás most az élő kiadványszerkesztő HTML5 vizuális módjában és a lapozott nyomtatási elrendezésben is egységesen működik.'],
       ['Közvetlen szerzői beküldés OJS/OMP-be', 'A Publikáció menüből egy beküldhető önálló tanulmány közvetlenül előkészíthető és beküldhető egy konfigurált OJS- vagy OMP-rendszerbe. A Studio átadja a kézirat metaadatait és fájljait, megőrzi a piszkozat/újrapróbálkozás állapotát, ellenőrzi a célrendszer munkafolyamatát, és a szerző publikációs rendszerhez tartozó API-hitelesítését használja.'],
       ['PKP-kompatibilis tudományos metaadatok', 'A beküldési metaadatok strukturált közreműködői identitást, külön család- és keresztnevet, affiliációkat, ORCID-kompatibilis mezőket és összeférhetetlenségi nyilatkozatot kezelnek az OJS/OMP adatcseréhez, a publikációs névformázás feláldozása nélkül.'],
       ['Referenciakezelő-interoperabilitás', 'A referenciakezelő réteg RIS, BibTeX és CSL JSON adatcserét, tömeges importot, deduplikációt és kapcsolt rekordfrissítést támogat; a Mendeley-könyvtárakhoz OAuth-integráció is elérhető.'],
@@ -114,6 +124,11 @@ const CURRENT_UPDATE = {
     title: 'Öffentliche Beta von Open Manuscript Studio',
     lead: '0.3.0-beta.1 ist die aktuelle öffentliche Beta. Neu sind ein Studio-nativer Redaktionsworkflow für verifizierte Publikationen ohne OJS/OMP, InDesign-kompatible Absatz- und Layoutsteuerung, abschnittsbezogene Lineale mit Tabulatoren und Spalten sowie eine persönliche, dokumentübergreifend nutzbare Literaturbibliothek mit Bibliografieauswahl pro Dokument.',
     items: [
+      ['InDesign-kompatible Absatz- und Publikationsstile', 'Der Live-Publikationseditor bietet ein InDesign-orientiertes Absatzstilsystem mit Vererbung, detaillierten Steuerelementen und Live-Darstellung, während Manuskriptsemantik und Publikationsdarstellung getrennt bleiben.'],
+      ['Abschnittslineal, Tabstopps und Spalten', 'Auf ausgewählte Manuskriptabschnitte lassen sich linealgesteuerte Tabstopps und mehrspaltige Layouts anwenden; zusätzlich stehen Text-zu-Tabelle-Konvertierung und kompakte Werteingaben zur Verfügung.'],
+      ['Studio-nativer Redaktionsworkflow', 'DNS-verifizierte Zeitschriften und Verlage ohne OJS oder OMP können Einreichung, doppelt anonyme Begutachtung, Autorenrevision, redaktionelle Annahme und Publikation in Studio durchführen. Die Annahme ist an die exakt gespeicherte Revision gebunden und bleibt von der Publikation getrennt.'],
+      ['Persönliche Literaturbibliothek und Dokumentbibliografie', 'Autoren können bibliografische Datensätze kontobezogen speichern, in mehreren Manuskripten wiederverwenden und je Dokument auswählen, welche nicht zitierten Werke im Literaturverzeichnis erscheinen. Zitierte Werke bleiben automatisch enthalten.'],
+      ['HTML5- und Drucklayout-Zoom', 'Der Word-ähnliche Dokumentzoom funktioniert nun sowohl im visuellen HTML5-Publikationseditor als auch in der paginierten Drucklayoutansicht konsistent.'],
       ['Direkte OJS/OMP-Autoreneinreichung', 'Über Publikation kann eine geeignete eigenständige Studie direkt für eine konfigurierte OJS- oder OMP-Installation vorbereitet und eingereicht werden. Studio überträgt Metadaten und Dateien, bewahrt Entwurfs-/Wiederholungsstatus, validiert den Zielworkflow und verwendet die API-Anmeldedaten des Autors für das Publikationssystem.'],
       ['PKP-kompatible wissenschaftliche Metadaten', 'Einreichungsmetadaten umfassen strukturierte Mitwirkendenidentität, getrennte Vor- und Familiennamen, Affiliationen, ORCID-kompatible Felder und Interessenkonflikterklärungen für den OJS/OMP-Austausch, ohne publikationstypische Namensformatierung zu verlieren.'],
       ['Referenzmanager-Interoperabilität', 'Die Referenzschicht unterstützt RIS-, BibTeX- und CSL-JSON-Austausch, Massenimport, Deduplizierung und Aktualisierung verknüpfter Datensätze; für Mendeley-Bibliotheken steht eine OAuth-Integration zur Verfügung.'],
@@ -261,6 +276,12 @@ export default function StudioDownloads() {
             <p>{update.maturity}</p>
             <p>
               <Link to="/docs/governance/studio-implementation-status">{copy.home.status}</Link>
+              {' · '}
+              <Link to="/docs/integrations/studio-native-editorial-workflow">Studio-native editorial workflow</Link>
+              {' · '}
+              <Link to="/docs/specifications/reference-library-registry">Personal reference library</Link>
+              {' · '}
+              <Link to="/docs/foundations/publication-styles-and-publisher-profiles">InDesign-compatible publication styles</Link>
               {' · '}
               <Link to="/docs/integrations/ojs-profile-v1">OJS/OMP direct submission</Link>
               {' · '}

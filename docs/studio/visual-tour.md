@@ -10,7 +10,7 @@ slug: /studio/visual-tour
 This page introduces **Open Manuscript Studio** through screenshots captured from the real Studio interface. The screenshots are rendered from the current application code with non-personal test data, so they show the actual React components, navigation, editor and responsive layout rather than illustrative mockups.
 
 :::note
-The interface is under active development. Labels and controls may move as the Studio approaches its 1.0 architecture, but the screenshots below reflect the current product UI.
+The interface is under active development. The current public release line is **0.3.0-beta.1**. Labels and controls may move as the Studio approaches its 1.0 architecture; the screenshots show the real application UI, while newer controls added after a screenshot was captured are described in the accompanying text.
 :::
 
 ## 1. Sign in
@@ -60,11 +60,17 @@ The **Live publication editor** is a publication-oriented view of the same manus
 
 ![Open Manuscript Studio live publication editor](/img/studio-tour/05-live-publication-editor.png)
 
-The publication layer can work with paragraph styles, publication styles, publisher profiles and proofing controls while keeping manuscript semantics separate from presentation decisions.
+The publication layer can work with paragraph styles, publication styles, publisher profiles and proofing controls while keeping manuscript semantics separate from presentation decisions. In the 0.3.0 beta line this includes the InDesign-compatible paragraph-style system, a section ruler with tab stops and columns, text-to-table conversion, and the same Word-style zoom in both HTML5 visual and paged print-layout modes.
 
 This separation is important for OMI: the scholarly object remains portable, while different journals, publishers or output formats can apply their own publication rules.
 
-## 6. Mobile Studio
+## 6. References and editorial workflow
+
+The References workspace now separates a reusable **personal reference library** from the bibliography of the current manuscript. Authors can save curated bibliographic records once, reuse them in other documents, and decide which uncited works should appear in the current document's final bibliography. Cited works remain included automatically.
+
+For DNS-verified journals and presses that do not use OJS or OMP, the **Editorial workflow** workspace provides a Studio-native route from submission through double-anonymous review, author revision and explicit editorial acceptance to publication. When OJS or OMP is connected, those systems remain authoritative for their own workflow state.
+
+## 7. Mobile Studio
 
 Studio uses the same application core on compact screens. The responsive interface reorganizes navigation and editing controls instead of exposing a separate reduced document model.
 
