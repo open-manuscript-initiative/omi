@@ -47,7 +47,7 @@ The programme has moved well beyond the initial documentation-audit stage. Gover
 | Website/product synchronization | **Active and maintained** | The public Studio page and dated Studio status report track implemented product capabilities separately from normative conformance, with release/version data synchronized to the current public beta line. |
 | Identifier migration | **Completed for active specifications** | Active specifications use the canonical `OMI-SPEC-*` allocation architecture. |
 | Core semantic models | **In progress** | Identity/contributor and versioning/change models have substantive reference implementation evidence; validation, translation and collaboration remain incomplete at specification level. |
-| Reference implementation | **Public beta (`0.3.0-beta.1`)** | Structured editing, multilingual UI/help, server-backed accounts, peer review, native OJS/OMP integration, imports/exports, publisher profiles, search, desktop/mobile builds, cross-platform update notifications and immutable release provenance are present. |
+| Reference implementation | **Public beta (`0.3.0-beta.1`)** | Structured editing, 47-locale UI selection, publication-grade paragraph/layout controls, server-backed accounts, OJS/OMP integration, Studio-native editorial review, reusable personal references, broad imports/exports, desktop/mobile builds, cross-platform update notifications and immutable release provenance are present. |
 | Peer review | **Operational implementation** | Double-blind review foundations, reviewer workspaces, editor review dashboard and externally assigned review handling are implemented. Formal specification conformance remains future work. |
 | OJS integration | **Operational / configuration-dependent** | The v1.6.0 plugin and Studio workflow provide signed author/editor/reviewer launch, scoped file transfer, native review forms, corrections, separated feedback and signed writeback; native OJS 3.5 E2E verification is green. Full profile coverage and conformance remain incomplete. |
 | OMP integration | **Operational / configuration-dependent** | The v1.5.1 plugin and Studio workflow provide signed author/editor/reviewer launch, monograph/publication/study mapping, assigned-study-only review access, native forms, corrections, separated feedback and signed writeback; native OMP 3.5 E2E verification is green. |
@@ -137,11 +137,11 @@ Server-backed account and profile infrastructure exists alongside OMI agent/cont
 
 ### 6.3 Multilingual operation
 
-The Studio supports 24 interface languages, localized help and multilingual manuscript workflows. This is product implementation evidence; it does not mean the full normative OMI specification suite has official translations.
+The Studio exposes 47 selectable UI locales, with reviewed/localized coverage varying by locale, alongside localized help and multilingual manuscript workflows. This is product implementation evidence; it does not mean the full normative OMI specification suite has official translations.
 
 ### 6.4 Review and editorial workflow
 
-Double-blind peer review foundations are implemented with authenticated review APIs, anonymity projections, reviewer workspaces, editor-facing review dashboards and support for externally assigned review contexts. These capabilities materially advance the reference implementation beyond the earlier exploratory review baseline.
+Double-blind peer review foundations are implemented with authenticated review APIs, anonymity projections, reviewer workspaces, editor-facing review dashboards and support for externally assigned review contexts. In addition, DNS-verified journals and presses without OJS/OMP can use the Studio-native workflow for submission, reviewer assignment, author revision, immutable revision-bound editorial acceptance and verified-domain publication. These capabilities materially advance the reference implementation beyond the earlier exploratory review baseline.
 
 ### 6.5 Publishing-platform integration
 
@@ -216,13 +216,13 @@ Exit criterion: collaboration, review, annotation, permission and multilingual r
 
 ### Phase 6 — Bibliography and citation completion
 
-**Status:** Partially completed
+**Status:** Product implementation ahead of specification in reference-library reuse
 
-Citation and bibliographic models exist and Studio contains citation/bibliographic lookup foundations.
+Citation and bibliographic models exist, and Studio now implements account-level personal reference libraries, reuse of the same curated bibliographic record across multiple manuscripts, and per-document selection of uncited works for the rendered bibliography. Each manuscript retains its own portable bibliographic snapshot, while cited works remain automatically included.
 
-Priority: separate citation occurrences from bibliographic records, define source provenance, identifier reconciliation, deduplication, caching and reference-library reuse.
+Priority: standardize the implemented separation between citation occurrences, portable document records and reusable account-level libraries; define source provenance, identifier reconciliation, deduplication, synchronization/conflict semantics and caching without making one hosted account service normative.
 
-Exit criterion: a work can be added once to a manuscript-level library and cited repeatedly without duplicating the bibliographic record.
+Exit criterion: a work can be curated once, reused across documents and cited repeatedly without duplicating bibliographic identity, while each portable manuscript remains independently renderable and exchangeable.
 
 ### Phase 7 — Validation, rendering and publication profiles
 
