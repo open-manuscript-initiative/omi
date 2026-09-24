@@ -42,8 +42,8 @@ Den nuværende offentlige Studio-udgivelsesserie er fortsat `0.3.0-beta.1`. Meta
 |---|---|
 | Bundle-identifikator | `org.openmanuscript.studio` |
 | Minimumskrav til platform | iOS/iPadOS 14.0 |
-| Kort version i App Store | `0.2.0` |
-| App Store-buildnummer | `10` |
+| Kort version i App Store | `0.3.0` |
+| App Store-buildnummer | `13` |
 | Studio-udviklingsserie | `0.3.0-beta.1` |
 
 Apples korte version/build-nummerering er metadata om pakken. Det ændrer ikke versionen af skemaet »OMI« og opretter heller ikke en separat linje for iOS-dokumentkompatibilitet.
