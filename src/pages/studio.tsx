@@ -269,6 +269,12 @@ export default function StudioDownloads() {
             <p>
               <Link to="/docs/governance/studio-implementation-status">{copy.home.status}</Link>
               {' · '}
+              <Link to="/docs/integrations/studio-native-editorial-workflow">Studio-native editorial workflow</Link>
+              {' · '}
+              <Link to="/docs/specifications/reference-library-registry">Personal reference library</Link>
+              {' · '}
+              <Link to="/docs/foundations/publication-styles-and-publisher-profiles">InDesign-compatible publication styles</Link>
+              {' · '}
               <Link to="/docs/integrations/ojs-profile-v1">OJS/OMP direct submission</Link>
               {' · '}
               <Link to="/docs/foundations/ios-ipados-studio">iOS/iPadOS</Link>
