@@ -169,7 +169,7 @@ Diese Trennung ist wichtig für die Portabilität: Ein Wechsel vom Browser zu Wi
 
 ## Mehrsprachige und regionale Einstellungen
 
-Der gemeinsame Client bietet derzeit 24 europäische Sprachen für die Benutzeroberfläche an. Die Einstellungen für die Sprache der Benutzeroberfläche, die Sprache der Manuskripte und die Sprache der Metadaten werden gemeinsam in einem kompakten, responsiven Einstellungsbereich verwaltet. Für Zeitzonen werden Standard-IANA-Kennungen mit UTC-Offsets und einer Erkennung der Systemzeitzone anstelle von Freitextwerten verwendet, sodass die Kontoeinstellungen systemübergreifend portierbar bleiben.
+Der gemeinsame Client bietet derzeit 47 europäische Sprachen für die Benutzeroberfläche an. Die Einstellungen für die Sprache der Benutzeroberfläche, die Sprache der Manuskripte und die Sprache der Metadaten werden gemeinsam in einem kompakten, responsiven Einstellungsbereich verwaltet. Für Zeitzonen werden Standard-IANA-Kennungen mit UTC-Offsets und einer Erkennung der Systemzeitzone anstelle von Freitextwerten verwendet, sodass die Kontoeinstellungen systemübergreifend portierbar bleiben.
 
 ## Richtlinien für mobile Arbeitsabläufe
 
