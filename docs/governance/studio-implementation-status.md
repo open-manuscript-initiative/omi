@@ -30,7 +30,7 @@ keywords:
 | Field | Value |
 |---|---|
 | Status | **Beta** |
-| Snapshot date | **2026-09-19** |
+| Snapshot date | **2026-09-24** |
 | Current development source version | `0.3.0-beta.1` |
 | Reference implementation | Open Manuscript Studio |
 | Source repository | `open-manuscript-initiative/open-manuscript-studio` |
@@ -39,7 +39,7 @@ keywords:
 | Mobile targets | Android public universal APK; iOS/iPadOS validated native simulator target, with TestFlight/App Store distribution pending Apple Developer signing |
 | Web deployment | `studio.openmanuscript.org` |
 
-The current Studio source tree reports **`0.3.0-beta.1`**. Beta means that the primary authoring, import/export, authentication, native-client and OJS/OMP review workflows are implemented and the project has moved from feature scaffolding to interoperability, regression, recovery and release-hardening work. Packaged public releases may lag behind the development source version. The current development line also adds validated publication-output infrastructure: full JATS 1.4 DTD validation, semantic release gates, deterministic PDF artifact generation and portable build-provenance sidecars. It does **not** mean that every optional integration or distribution channel is production-complete.
+The current Studio source tree reports **`0.3.0-beta.1`**. Beta means that the primary authoring, import/export, authentication, native-client and OJS/OMP review workflows are implemented and the project has moved from feature scaffolding to interoperability, regression, recovery and release-hardening work. The 0.3 line additionally brings publication-grade paragraph/layout controls, a Studio-native editorial workflow for verified venues that do not use OJS/OMP, and reusable account-level reference libraries with per-document bibliography selection. The development line also includes full JATS 1.4 DTD validation, semantic release gates, deterministic PDF artifact generation and portable build-provenance sidecars. It does **not** mean that every optional integration or distribution channel is production-complete.
 
 This page describes **implemented product capabilities**, not OMI specification conformance. Formal specification maturity and conformance evidence are tracked separately in the [OMI Implementation Status Matrix](./implementation-status-matrix.md). Publication-profile behaviour is mapped requirement by requirement in the [Studio OMI-SPEC-240 Implementation Profile](./studio-omi-spec-240-implementation-profile.md); that profile records implementation evidence and does not make a formal conformance claim.
 
@@ -60,7 +60,10 @@ This page describes **implemented product capabilities**, not OMI specification 
 | Session/workspace restoration | **Operational** | Native and web workspace state can restore the previous working context, including open-document state, while explicit document-close controls allow the user to leave a manuscript without losing the surrounding application session. |
 | Rich-text formatting controls | **Operational** | Compact inline formatting remains available near the selection; the expanded desktop menu is docked and viewport-safe, while inline language is selected from configured manuscript languages rather than free text. Automatic floating formatting can be disabled in editor settings. Mobile selection controls avoid collision with native text-selection UI. |
 | Structured search and replace | **Operational** | Search/replace overlay, scopes and result navigation with responsive access shared by desktop and mobile layouts. |
-| Multilingual user interface | **Operational** | 24 supported European UI languages with shared language selection. Interface, manuscript and metadata language preferences are managed in one compact responsive settings surface. |
+| Section ruler, tabs and columns | **Operational** | Selected manuscript sections can use ruler-driven tab stops and multi-column layout; text-to-table conversion and responsive compact numeric controls support publication-oriented editing without flattening manuscript structure. |
+| InDesign-compatible paragraph styles | **Operational** | The live publication editor exposes an InDesign-inspired paragraph-style system with inheritance-aware controls, live rendering and a clear boundary between manuscript semantics and reusable publication presentation. |
+| HTML5 and print-layout zoom | **Operational** | Word-style zoom is available in the normal manuscript editor and works consistently in both the HTML5 visual publication editor and paged print-layout mode. |
+| Multilingual user interface | **Operational** | 47 selectable UI locales with shared language selection. Interface, manuscript and metadata language preferences are managed in one compact responsive settings surface. |
 | Time-zone preferences | **Operational** | Standard IANA time-zone selection with current UTC offsets and automatic system-zone defaulting. |
 | Multilingual help | **Operational** | Integrated localized help coverage across the supported Studio UI locales; Help surfaces report the current build version. |
 | Accounts and authentication | **Operational** | Server-backed registration/login, logout and authenticated API access work in web and native clients. The same central account can be used across Windows, Android, iOS/iPadOS and browser clients. Native clients use bearer-session transport compatible with Tauri application origins. |
@@ -77,6 +80,8 @@ This page describes **implemented product capabilities**, not OMI specification 
 | Portable ORCID-bound author signatures | **Configuration-dependent** | Server-committed immutable revision snapshots, ORCID author binding, WebAuthn signing, encrypted installation issuer keys and portable offline verification evidence are implemented. |
 | Double-blind peer review | **Operational** | Anonymous reviewer projection, review assignments, reviewer workspace, comments and review persistence. Reviewer launch permissions are role-scoped to preserve least privilege. |
 | Editorial review dashboard | **Operational** | Editor-facing overview and role-aware review portal for assigned peer-review work. |
+| Studio-native editorial workflow | **Operational beta / verified venue required** | DNS-verified journals and presses that do not use OJS or OMP can run submission, double-anonymous reviewer assignment, author revision, immutable revision-bound editorial acceptance and verified-domain publication in Studio. OJS/OMP remain authoritative when those systems are configured. |
+| Peer-review publication assurance | **Operational beta** | Accepted Studio-native revisions carry decision/review evidence bound to the exact manuscript revision and content digests. Publisher-verified output can expose the language-neutral OMI peer-review verification indication without treating DNS ownership alone as review evidence. |
 | Bidirectional OJS review writeback | **Configuration-dependent / validated** | Signed review writeback returns submitted review data to OJS. Reviewer launch scopes are least-privilege, and the two-round OJS review protocol is documented and exercised against the OJS 3.5 integration line. |
 | Native OJS review forms | **Configuration-dependent / validated** | OJS review-form definitions can be imported into the reviewer workspace, rendered as Studio controls, localized safely and written back to OJS with the submitted review. Server handling keeps provider markup opaque and client rendering extracts text safely. |
 | External/OJS review assignments | **Configuration-dependent** | OJS-connected author, editor and reviewer workflows and external assignment context are implemented when the OJS integration is configured. |
@@ -91,6 +96,8 @@ This page describes **implemented product capabilities**, not OMI specification 
 | Translation execution | **Configuration-dependent** | Structured DeepL translation operates on selection/block/section/manuscript scopes while preserving inline semantics and excluding citations, code, equations and bibliography records from unsafe flattening. Language variants can be stored separately. |
 | AI integration agents | **Configuration-dependent** | Provider-neutral language editor, metadata assistant, summarizer and citation-checker agents return suggestions through scoped server-side execution. External transmission of review-confidential content requires explicit permission. |
 | Integration audit and extension registry | **Operational foundation / configuration-dependent execution** | Integration execution records operation metadata/digests without storing manuscript text or secrets. Extension manifests support version compatibility, permissions, capabilities and HTTPS-only external endpoints. |
+| Personal reference library | **Operational / authenticated account** | Bibliographic records can be saved once to an account-level personal library and reused across manuscripts. When a record is added to a manuscript, a portable bibliographic snapshot remains inside the document so the file does not depend on the account service to reopen or publish. |
+| Per-document bibliography selection | **Operational** | Each manuscript can explicitly include selected uncited works in its bibliography, while actually cited records remain automatically included. The same selection is respected by HTML, JATS, custom export and Studio-native review snapshots. |
 | Portable OMI export | **Operational** | Portable `.omi.zip` and OMI JSON outputs are available as first-class interchange forms. |
 | Scholarly/publishing exports | **Operational** | JATS XML, semantic offline HTML package, DOCX, EPUB, PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX are represented in the current export layer. JATS, HTML and PDF publication outputs participate in the validated publication-build pipeline, and semantic index fields can be exported back to DOCX. |
 | JATS 1.4 validated export | **Operational** | Studio targets NISO JATS 1.4 Article Authoring with the MathML 3 DTD. The server performs full offline validation with a pinned local schema package and rejects untrusted entity/DTD substitution. |
@@ -113,11 +120,11 @@ This page describes **implemented product capabilities**, not OMI specification 
 | iOS / iPadOS application | **Validated native target** | Tauri iOS project generation and the Apple Silicon iPhone/iPad simulator build succeed in CI, including native Files integration and shared mobile authentication/export code. Public TestFlight/App Store distribution still requires Apple Developer signing, provisioning, Universal Link association and physical-device validation. |
 | Cross-platform update notifications | **Operational** | Login, workspace, review and native/mobile surfaces check for newer public releases on startup, periodically and when the app becomes visible. Signed Tauri updater metadata is preferred where available, with current-release fallback for platform installers and Android APK delivery. |
 | Desktop update flow | **Operational** | Update notification and installer flow is implemented in the desktop application. Signed updater metadata is preferred; the public-release fallback prevents supported clients from being stranded when signed updater metadata is unavailable. |
-| Cross-platform release automation | **Operational** | GitHub Actions produces Windows, Linux, macOS and Android artifacts from the shared source tree and runs an iOS/iPadOS simulator smoke build. Beta.4 binds each public release tag to the exact source commit, uploads assets only once, never retargets an existing release and never replaces existing release assets. A manual signed Apple release workflow is prepared for App Store Connect once Apple credentials are configured. |
+| Cross-platform release automation | **Operational** | GitHub Actions produces Windows, Linux, macOS and Android artifacts from the shared source tree and runs an iOS/iPadOS simulator smoke build. The current release pipeline binds each public release tag to the exact source commit, uploads assets only once, never retargets an existing release and never replaces existing release assets. A manual signed Apple release workflow is prepared for App Store Connect once Apple credentials are configured. |
 | Release dependency reproducibility | **Operational** | JavaScript and Rust dependency graphs are lockfile-controlled; CI uses reproducible install paths including `npm ci` for the server. |
 | Application branding | **Operational** | OMI Studio branding and generated native icon assets are used across the application shell and release packaging, including Android and the generated iOS/iPadOS target. |
 | Security hardening | **Operational baseline** | Server-side rate limiting, SSRF restrictions, OIDC state/nonce/PKCE and issuer validation, restricted secret persistence, hashed reset/Admin-API tokens, integration/admin auditing, safer import/export escaping and automated security scanning are incorporated into the current development line. OJS review-form rendering has additional markup/text isolation hardening. The remaining transitive `glib 0.18.x` advisory is tracked in one canonical upstream-blocked issue until the supported Tauri/GTK stack can move to `glib >= 0.20`. |
-| Windows code signing | **Application submitted / pending** | Public code-signing and privacy policies are published and the SignPath Foundation open-source application has been prepared/submitted. Windows installers remain unsigned until acceptance and production signing integration. |
+| Windows code signing | **Not yet enabled** | The SignPath Foundation application was not accepted at the current public-adoption level. Windows installers remain unsigned; a paid signing route or a later Foundation reapplication remains possible as project visibility grows. |
 
 ## Cross-platform architecture
 
@@ -171,12 +178,14 @@ The beta line shifts the release gate from “is the primary workflow implemente
 2. large and structurally complex DOCX imports, including notes, tables, lists, fields and dynamic indexes;
 3. representative structured export paths on web and native clients, including printed versus interactive PDF behavior;
 4. OJS and OMP manuscript round-trip and role-aware author/editor/reviewer workflows, including assigned-file scoping, multi-round review, native review forms and signed writeback;
-5. double-blind peer review without identity leakage and with least-privilege integration scopes;
-6. Android Documents/SAF lifecycle behavior and responsive mobile navigation;
-7. iOS/iPadOS Files/UIDocumentPicker behavior once signed physical-device testing is available;
-8. institution/central administration without privilege leakage into manuscript content;
-9. understandable user-facing recovery for network, authentication, migration, import/export and integration failures;
-10. release provenance, updater fallback behavior and immutable downloadable assets across successive beta releases.
+5. Studio-native submission → review → revision → editorial acceptance → publication, including migration, authorization and revision-binding regression tests;
+6. reusable personal-reference-library behavior across multiple manuscripts and bibliography-selection fidelity across export formats;
+7. double-blind peer review without identity leakage and with least-privilege integration scopes;
+8. Android Documents/SAF lifecycle behavior and responsive mobile navigation;
+9. iOS/iPadOS Files/UIDocumentPicker behavior once signed physical-device testing is available;
+10. institution/central administration without privilege leakage into manuscript content;
+11. understandable user-facing recovery for network, authentication, migration, import/export and integration failures;
+12. release provenance, updater fallback behavior and immutable downloadable assets across successive beta releases.
 
 Configuration-dependent integrations do not need to be universally available for the beta line, provided their maturity is clearly identified and they do not compromise the stable core workflows.
 
@@ -188,6 +197,8 @@ Configuration-dependent integrations do not need to be universally available for
 - run migration and authorization regression tests for institution membership, central administration and institution Admin API credentials;
 - continue OJS 3.5 round-trip, multi-round review and cross-version interoperability testing;
 - continue OMP 3.5 cross-version interoperability, deployment and recovery hardening;
+- harden Studio-native editorial workflow migrations, editor/reviewer authorization and multi-round recovery;
+- stress-test large personal reference libraries, cross-document reuse and bibliography-selection export fidelity;
 - strengthen recovery behavior for interrupted network, cloud and synchronization operations;
 - replace remaining technical/raw error surfaces with actionable user-facing messages;
 - continue tracking the upstream Tauri/GTK migration until the transitive `glib 0.18.x` advisory can be removed by a supported dependency update;
