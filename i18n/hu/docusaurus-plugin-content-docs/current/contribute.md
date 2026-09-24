@@ -20,7 +20,7 @@ A közvetlen cél a már validált szimulátoros build reprodukálható, aláír
 
 ## Anyanyelvi fordítás és lektorálás
 
-A honlap és az Open Manuscript Studio jelenleg 24 felületi nyelvet támogat. A géppel segített fordítások mindaddig csak első változatnak tekintendők, amíg hozzáértő anyanyelvi lektor nem ellenőrizte a terminológiát, a jelentést és a természetes nyelvhasználatot.
+A honlap és az Open Manuscript Studio jelenleg 47 választható felületi lokalizációt kínál. A fordítások teljessége nyelvenként eltérő; a géppel segített fordítások mindaddig csak első változatnak tekintendők, amíg hozzáértő anyanyelvi lektor nem ellenőrizte a terminológiát, a jelentést és a természetes nyelvhasználatot.
 
 Különösen azok segítségét várjuk, akik:
 
