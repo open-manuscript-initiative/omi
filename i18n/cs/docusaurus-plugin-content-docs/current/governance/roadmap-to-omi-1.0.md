@@ -53,7 +53,7 @@ Program se již výrazně posunul za počáteční fázi auditu dokumentace. Byl
 | Integrace s OMP | **Závisí na provozu / konfiguraci** | Plugin verze 1.5.1 a pracovní postup ve Studiu umožňují spouštění s podpisem autora/redaktora/recenzenta, přiřazování monografií/publikací/studií, přístup k recenzím pouze pro přiřazené studie, nativní formuláře, opravy, oddělenou zpětnou vazbu a zpětné zapsání s podpisem; nativní OMP 3.5 E2E ověření je v pořádku. |
 | Integrace identit | **Závisí na konfiguraci** | ORCID OAuth existuje infrastruktura pro nasazení a ROR/bibliographic existují základy pro identitu. Konfigurace v produkčním prostředí je specifická pro dané nasazení. |
 | Integrační platforma | **Základní implementace hotová** | K dispozici je katalog integrací, registr poskytovatelů, režimy ověřování poskytovatelů a šablony pro konfiguraci DeepL. Realizace překladů pomocí DeepL zatím není dokončena. |
-| Vícejazyčná podpora produktů | **Provozní implementace** | Studio nabízí 24 podporovaných jazyků rozhraní s lokalizovanou nápovědou a zkontrolovanými překladovými překryvy. Normativní specifikace zůstávají v angličtině. |
+| Vícejazyčná podpora produktů | **Provozní implementace** | Studio nabízí 47 podporovaných jazyků rozhraní s lokalizovanou nápovědou a zkontrolovanými překladovými překryvy. Normativní specifikace zůstávají v angličtině. |
 | Import/export | **Podstatná implementace** | Jsou implementovány funkce importu a exportu do formátů DOCX, včetně výstupů pro JATS, HTML, EPUB, PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA a LaTeX. |
 | Distribuce pro stolní počítače | **Provozní beta** | Balíčky pro Windows, Linux a macOS se sestavují automaticky; je implementován proces oznamování aktualizací a instalace pro stolní počítače. Práce na podepisování kódu stále probíhají. |
 | Kanonická schémata a shoda | **Nedokončeno** | Normativní schémata s verzemi, schválené testovací sady, chování validátoru a formální sady testů shody zůstávají hlavními výstupy, které je třeba dokončit před vydáním verze 1.0. |
@@ -137,7 +137,7 @@ Infrastruktura účtů a profilů spravovaná serverem existuje souběžně s od
 
 ### 6.3 Vícejazyčné ovládání
 
-Studio podporuje 24 jazyků uživatelského rozhraní, lokalizovanou nápovědu a vícejazyčné pracovní postupy při zpracování rukopisů. Jedná se o důkaz implementace produktu; neznamená to, že celá sada normativních specifikací OMI má oficiální překlady.
+Studio podporuje 47 jazyků uživatelského rozhraní, lokalizovanou nápovědu a vícejazyčné pracovní postupy při zpracování rukopisů. Jedná se o důkaz implementace produktu; neznamená to, že celá sada normativních specifikací OMI má oficiální překlady.
 
 ### 6.4 Recenzní a redakční proces
 
