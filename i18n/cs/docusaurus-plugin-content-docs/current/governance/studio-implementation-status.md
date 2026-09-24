@@ -31,7 +31,7 @@ keywords:
 |---|---|
 | Stav | **Beta** |
 | Datum snímku | **5. září 2026** |
-| Aktuální řada produktů | `0.2.0-beta.2` |
+| Aktuální řada produktů | `0.3.0-beta.1` |
 | Referenční implementace | Open Manuscript Studio |
 | Repozitář zdrojového kódu | `open-manuscript-initiative/open-manuscript-studio` |
 | Cílová webová stránka | Moderní prohlížeče |
@@ -39,7 +39,7 @@ keywords:
 | Mobilní cíle | Veřejný univerzální APK pro Android; ověřený nativní simulátor pro iOS/iPadOS, distribuce přes TestFlight/App Store čeká na podpis od Apple Developer |
 | Nasazení na webu | `studio.openmanuscript.org` |
 
-Aktuální beta verze Studia je **`0.2.0-beta.2`**. Označení „beta“ znamená, že jsou implementovány hlavní pracovní postupy pro tvorbu obsahu, import/export, ověřování, nativní klient a revize na OJS/OMP a že projekt přešel z fáze vytváření základů funkcí k práci na interoperabilitě, regresních testech, obnově a přípravě na vydání. To **neznamená**, že každá volitelná integrace nebo distribuční kanál jsou zcela připraveny pro produkční nasazení.
+Aktuální beta verze Studia je **`0.3.0-beta.1`**. Označení „beta“ znamená, že jsou implementovány hlavní pracovní postupy pro tvorbu obsahu, import/export, ověřování, nativní klient a revize na OJS/OMP a že projekt přešel z fáze vytváření základů funkcí k práci na interoperabilitě, regresních testech, obnově a přípravě na vydání. To **neznamená**, že každá volitelná integrace nebo distribuční kanál jsou zcela připraveny pro produkční nasazení.
 
 Tato stránka popisuje **implementované funkce produktu**, nikoli soulad sOMIkou specifikací. Úroveň vyspělosti formální specifikace a důkazy o souladu se sledují samostatně v rámci projektu „[OMI Implementation Status Matrix](./implementation-status-matrix.md)“.
 
@@ -59,7 +59,7 @@ Tato stránka popisuje **implementované funkce produktu**, nikoli soulad sOMIko
 | Obnovení relace/pracovního prostoru | **Funkční** | Nativní i webový pracovní prostor dokážou obnovit předchozí pracovní kontext, včetně stavu otevřených dokumentů, zatímco explicitní ovládací prvky pro zavírání dokumentů umožňují uživateli opustit dokument, aniž by došlo ke ztrátě okolní relace aplikace. |
 | Ovládací prvky pro formátování bohatého textu | **Funkční** | Kompaktní formátování přímo v textu zůstává k dispozici v blízkosti výběru; rozbalená nabídka pro stolní počítače je ukotvená a přizpůsobená velikosti zobrazení, zatímco jazyk pro formátování přímo v textu se vybírá z nakonfigurovaných jazyků rukopisu, nikoli z libovolného textu. Automatické plovoucí formátování lze deaktivovat v nastaveních editoru. Ovládací prvky pro výběr na mobilních zařízeních zabraňují kolizi s nativním uživatelským rozhraním pro výběr textu. |
 | Strukturované vyhledávání a nahrazování | **Funkční** | Překryvné okno pro vyhledávání a nahrazování, rozsahy a navigace ve výsledcích s responzivním přístupem sdíleným mezi rozvržením pro stolní počítače a mobilní zařízení. |
-| Vícejazyčné uživatelské rozhraní | **Funkční** | Podpora 24 evropských jazyků uživatelského rozhraní se společným výběrem jazyka. Nastavení jazyka rozhraní, rukopisu a metadat se spravují v jednom přehledném a responzivním panelu nastavení. |
+| Vícejazyčné uživatelské rozhraní | **Funkční** | Podpora 47 evropských jazyků uživatelského rozhraní se společným výběrem jazyka. Nastavení jazyka rozhraní, rukopisu a metadat se spravují v jednom přehledném a responzivním panelu nastavení. |
 | Nastavení časových pásem | **Funkční** | Standardní výběr časových pásem podle IANA s aktuálními odchylkami od UTC a automatickým nastavením výchozího systémového časového pásma. |
 | Vícejazyčná nápověda | **Funkční** | Integrovaná lokalizovaná nápověda pro všechny podporované jazykové varianty uživatelského rozhraní aplikace Studio; V nápovědě se zobrazuje aktuální verze sestavení. |
 | Účty a ověřování | **Provozní** | Registrace/přihlášení, odhlášení a ověřený přístup k API podporované serverem fungují ve webových i nativních klientech. Stejný centrální účet lze používat v systémech Windows, Android, iOS/iPadOS i v prohlížečových klientech. Nativní klienti využívají transport typu „bearer-session“, který je kompatibilní s aplikacemi pocházejícími z Tauri. |
@@ -151,7 +151,7 @@ Současné integrace OJS a OMP jsou pro revizní práci obousměrné: Studio dok
 
 ## Vydání a distribuce
 
-`0.2.0-beta.2` jedná se o aktuální řadu beta verzí Studio. GitHub Actions generuje výstupy pro vydání ze sdíleného zdrojového stromu pro Windows, Linux, macOS a Android. Veřejná stránka pro stahování Studio umožňuje přístup přes prohlížeč a zobrazuje dostupné nativní balíčky, včetně univerzálního APK pro Android.
+`0.3.0-beta.1` jedná se o aktuální řadu beta verzí Studio. GitHub Actions generuje výstupy pro vydání ze sdíleného zdrojového stromu pro Windows, Linux, macOS a Android. Veřejná stránka pro stahování Studio umožňuje přístup přes prohlížeč a zobrazuje dostupné nativní balíčky, včetně univerzálního APK pro Android.
 
 Systém iOS/iPadOS v současné době disponuje funkční verzí pro simulátor v rámci kontinuální integrace (CI), nikoli však veřejně dostupným souborem IPA. Distribuční cesta společnosti Apple je připravena, ale záměrně oddělena od ověřování v simulátoru: verze určené pro veřejnost či pro zařízení vyžadují skutečné ID vývojářského týmu Apple, distribuční certifikát, profil pro provisioning a finální konfiguraci služby „`apple-app-site-association`“, než bude možné požádat o zveřejnění v TestFlightu či App Store.
 
