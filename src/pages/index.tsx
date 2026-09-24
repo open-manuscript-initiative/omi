@@ -20,15 +20,15 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
 
 const STUDIO_UPDATE = {
   en: {
-    summary: 'Open Manuscript Studio 0.3.0-beta.1 is the current public beta. The new release adds InDesign-compatible paragraph styles, section rulers with tab stops and columns, consistent HTML5/print-layout zoom, a Studio-native editorial and peer-review workflow for verified journals and presses without OJS/OMP, and an account-level personal reference library with per-document bibliography selection. These additions build on validated JATS 1.4/JATS4R export, Vivliostyle PDF generation, OJS/OMP 3.5 integration, large-DOCX import, multi-document editing, federated identity and cross-platform native builds.',
+    summary: 'Open Manuscript Studio 0.3.0-beta.1 is the current public beta. The new line adds Studio-native submission, peer review and editorial acceptance for verified journals and presses without OJS/OMP; an InDesign-compatible paragraph-style and publication-layout system; section rulers with tabs and columns; and a reusable personal reference library with per-document bibliography selection. These additions build on validated JATS/PDF publication output, OJS/OMP 3.5 integration, large-DOCX import, semantic indexes, multilingual authoring, cross-platform native clients and immutable release provenance.',
     multiDocument: 'Multi-document desktop editing and document outline',
     wordLike: 'Word-like manuscript-wide split, merge and selection',
     pdf: 'Structural PDF import with geometry-aware footnotes',
     largeDocx: 'Large DOCX import optimization and stable lazy rendering',
-    publishing: 'InDesign-compatible paragraph/publication styles, printed/interactive PDF, IDML and web exports',
-    layout: 'Section ruler, tab stops, columns and HTML5/print-layout zoom',
-    nativeEditorial: 'Studio-native submission, double-anonymous review and revision-bound editorial acceptance',
-    referenceLibrary: 'Reusable personal reference library and per-document bibliography selection',
+    publishing: 'Reusable publication styles, InDesign-compatible paragraph styles, printed/interactive PDF, IDML and web exports',
+    layout: 'Section rulers, tabs, columns and text-to-table conversion',
+    editorial: 'Studio-native submission, peer review and editorial acceptance for verified non-OJS/OMP venues',
+    references: 'Reusable personal reference library with per-document bibliography selection',
     directPublishing: 'Direct author submission to configured OJS and OMP installations',
     accounts: 'Cross-device accounts, recovery and connected identities',
     storage: 'Own-device, cloud and mobile-native storage workflows',
@@ -42,15 +42,15 @@ const STUDIO_UPDATE = {
     uiLocales: 'selectable UI locales',
   },
   hu: {
-    summary: 'Az Open Manuscript Studio jelenlegi nyilvános bétája a 0.3.0-beta.1. Az új kiadás InDesign-kompatibilis bekezdésstílusokat, szakaszszintű vonalzót tabulátorokkal és hasábokkal, egységes HTML5- és nyomtatásielrendezés-nagyítást, OJS/OMP nélküli hitelesített folyóiratokhoz és kiadókhoz Studio-native szerkesztőségi és lektorálási munkafolyamatot, valamint fiókszintű saját hivatkozástárat és dokumentumonként választható bibliográfiát ad. Mindez a validált JATS 1.4/JATS4R exportra, a Vivliostyle PDF-előállításra, az OJS/OMP 3.5 integrációra, a nagy DOCX-ek importjára, a többdokumentumos szerkesztésre, a federált identitásra és a platformközi natív buildekre épül.',
+    summary: 'Az Open Manuscript Studio jelenlegi nyilvános bétája a 0.3.0-beta.1. Az új ág Studio-natív beküldést, lektorálást és szerkesztői elfogadást ad az OJS/OMP nélküli, hitelesített folyóiratoknak és kiadóknak; InDesign-kompatibilis bekezdésstílus- és kiadványtördelési rendszert; szakaszonkénti vonalzót, tabulátorokat és hasábokat; valamint több dokumentumban újrahasználható személyes hivatkozástárat dokumentumonként választható bibliográfiával. Mindez a validált JATS/PDF kimenetre, az OJS/OMP 3.5 integrációra, a nagy DOCX-ek importjára, a szemantikus mutatókra, a többnyelvű munkára és a platformközi natív kliensekre épül.',
     multiDocument: 'Többdokumentumos asztali szerkesztés és dokumentumvázlat',
     wordLike: 'Word-szerű, kézirat-szintű szétválasztás, egyesítés és kijelölés',
     pdf: 'Strukturált PDF-import geometria-alapú lábjegyzet-felismeréssel',
     largeDocx: 'Nagy DOCX-ek optimalizált importja és stabil lazy betöltése',
-    publishing: 'InDesign-kompatibilis bekezdés- és kiadványstílusok, nyomtatott/interaktív PDF, IDML és webes export',
-    layout: 'Szakaszvonalzó, tabulátorok, hasábok és HTML5/nyomtatási nagyítás',
-    nativeEditorial: 'Studio-native beküldés, kettős vak lektorálás és revízióhoz kötött szerkesztői elfogadás',
-    referenceLibrary: 'Újrafelhasználható saját hivatkozástár és dokumentumonkénti bibliográfia-kiválasztás',
+    publishing: 'Újrafelhasználható kiadványstílusok, InDesign-kompatibilis bekezdésstílusok, nyomtatott/interaktív PDF, IDML és webes export',
+    layout: 'Szakaszszintű vonalzó, tabulátorok, hasábok és szöveg–táblázat átalakítás',
+    editorial: 'Studio-natív beküldés, lektorálás és szerkesztői elfogadás hitelesített, OJS/OMP nélküli kiadványokhoz',
+    references: 'Több dokumentumban használható személyes hivatkozástár és dokumentumonkénti bibliográfiaválasztás',
     directPublishing: 'Közvetlen szerzői beküldés konfigurált OJS- és OMP-rendszerekbe',
     accounts: 'Eszközök között közös fiók, jelszó-visszaállítás és kapcsolt identitások',
     storage: 'Saját eszköz, felhő és mobil natív tárhelymunkafolyamatok',
@@ -64,15 +64,15 @@ const STUDIO_UPDATE = {
     uiLocales: 'választható felületi lokalizáció',
   },
   de: {
-    summary: 'Open Manuscript Studio 0.3.0-beta.1 ist die aktuelle öffentliche Beta. Die neue Version ergänzt InDesign-kompatible Absatzstile, abschnittsbezogene Lineale mit Tabstopps und Spalten, konsistenten Zoom in HTML5- und Drucklayout, einen Studio-nativen Redaktions- und Peer-Review-Workflow für verifizierte Zeitschriften und Verlage ohne OJS/OMP sowie eine kontobezogene persönliche Literaturbibliothek mit dokumentweiser Bibliografieauswahl. Dies baut auf validiertem JATS-1.4/JATS4R-Export, Vivliostyle-PDF-Erzeugung, OJS/OMP-3.5-Integration, großem DOCX-Import, Mehrdokument-Bearbeitung, föderierter Identität und plattformübergreifenden nativen Builds auf.',
+    summary: 'Open Manuscript Studio 0.3.0-beta.1 ist die aktuelle öffentliche Beta. Die neue Linie ergänzt einen Studio-nativen Einreichungs-, Begutachtungs- und Annahme-Workflow für verifizierte Zeitschriften und Verlage ohne OJS/OMP, ein InDesign-kompatibles Absatzstil- und Publikationslayoutsystem, abschnittsbezogene Lineale mit Tabulatoren und Spalten sowie eine persönliche, dokumentübergreifend wiederverwendbare Literaturbibliothek mit dokumentbezogener Bibliografieauswahl. Dies baut auf validierter JATS/PDF-Ausgabe, OJS/OMP-3.5-Integration, großem DOCX-Import, semantischen Registern und den plattformübergreifenden nativen Clients auf.',
     multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
     wordLike: 'Word-ähnliches manuskriptweites Teilen, Zusammenführen und Auswählen',
     pdf: 'Strukturierter PDF-Import mit geometriebasierter Fußnotenerkennung',
     largeDocx: 'Optimierter Import großer DOCX-Dateien und stabiles Lazy Rendering',
-    publishing: 'InDesign-kompatible Absatz-/Publikationsstile, Druck-/interaktives PDF, IDML und Web-Export',
-    layout: 'Abschnittslineal, Tabstopps, Spalten und HTML5-/Drucklayout-Zoom',
-    nativeEditorial: 'Studio-native Einreichung, doppelt anonyme Begutachtung und revisionsgebundene redaktionelle Annahme',
-    referenceLibrary: 'Wiederverwendbare persönliche Literaturbibliothek und dokumentweise Bibliografieauswahl',
+    publishing: 'Wiederverwendbare Publikationsstile, InDesign-kompatible Absatzstile, Druck-/interaktives PDF, IDML und Web-Export',
+    layout: 'Abschnittslineal, Tabulatoren, Spalten und Text-zu-Tabelle-Konvertierung',
+    editorial: 'Studio-native Einreichung, Begutachtung und redaktionelle Annahme für verifizierte Publikationen ohne OJS/OMP',
+    references: 'Persönliche, dokumentübergreifende Literaturbibliothek mit Bibliografieauswahl pro Dokument',
     directPublishing: 'Direkte Autoreneinreichung an konfigurierte OJS- und OMP-Installationen',
     accounts: 'Geräteübergreifende Konten, Wiederherstellung und verbundene Identitäten',
     storage: 'Eigene Geräte, Cloud und mobile native Speicher-Workflows',
@@ -209,7 +209,7 @@ export default function Home() {
           <aside className={styles.studioFeatures} aria-label={t.status}>
             <h3>0.3.0-beta.1</h3>
             <p>Web · Windows · Linux · macOS · Android · iOS/iPadOS</p>
-            <p><strong>47</strong> {studioUpdate.uiLocales}</p>
+            <p><strong>47</strong> selectable UI languages</p>
             <nav className={styles.contextLinks} aria-label={t.status}>
               <Link to="/docs/foundations/word-like-manuscript-editing">✓ {studioUpdate.wordLike}</Link>
               <Link to="/docs/foundations/studio-long-form-authoring">✓ {studioUpdate.pdf}</Link>
@@ -217,8 +217,8 @@ export default function Home() {
               <Link to="/docs/foundations/studio-long-form-authoring">✓ {studioUpdate.largeDocx}</Link>
               <Link to="/docs/foundations/publication-styles-and-publisher-profiles">✓ {studioUpdate.publishing}</Link>
               <Link to="/docs/foundations/word-like-manuscript-editing">✓ {studioUpdate.layout}</Link>
-              <Link to="/docs/integrations/studio-native-editorial-workflow">✓ {studioUpdate.nativeEditorial}</Link>
-              <Link to="/docs/governance/roadmap-to-omi-1.0">✓ {studioUpdate.referenceLibrary}</Link>
+              <Link to="/docs/integrations/studio-native-editorial-workflow">✓ {studioUpdate.editorial}</Link>
+              <Link to="/docs/specifications/reference-library-registry">✓ {studioUpdate.references}</Link>
               <Link to="/docs/integrations/ojs-profile-v1">✓ {studioUpdate.directPublishing}</Link>
               <Link to="/docs/governance/studio-implementation-status">✓ {studioUpdate.accounts}</Link>
               <Link to="/docs/governance/studio-implementation-status">✓ {studioUpdate.storage}</Link>

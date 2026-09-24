@@ -64,39 +64,13 @@ The graphical editor exposes publishing-oriented controls rather than manuscript
 
 The live preview is manuscript-aware: title, subtitle, authors, affiliations, headings, body text and footnotes are derived from the currently open manuscript where available. Sample publication data is not substituted for missing manuscript metadata.
 
-### InDesign-compatible paragraph-style system
+## InDesign-compatible paragraph styling and section layout
 
-The 0.3.0 beta line expands paragraph styling from a small role-based subset into an **InDesign-compatible style system**. The goal is behavioural and interchange compatibility rather than pixel-for-pixel reproduction of Adobe's dialog.
+Studio 0.3.0-beta.1 expands the publication editor beyond IDML style-set import. The live editor now exposes an InDesign-oriented paragraph-style model with reusable controls for typography, indentation, paragraph spacing, rules, keep behavior and related layout properties. The goal is compatibility of concepts and authoring workflow, not binary compatibility with native `.indd` documents.
 
-The Studio paragraph-style model supports named styles, `BasedOn` inheritance, `NextStyle`, direct paragraph overrides and category-based controls. The current compatibility surface includes, among other groups:
+The publication editor also provides a section-level ruler. Tab stops and multi-column layout can be applied to the active section without changing the manuscript's semantic section identity. Selected text can be converted into structured tables where appropriate. These controls remain presentation/layout state layered over the semantic manuscript rather than replacing OMI structure with page-layout markup.
 
-- basic and advanced character formatting;
-- indentation and paragraph spacing;
-- left, centre, right and decimal tab stops with leaders;
-- rules above/below, borders and shading;
-- keep/start-paragraph controls;
-- hyphenation and justification;
-- span/split-column behaviour;
-- drop caps, nested styles and GREP-style preservation;
-- bullets and multilevel numbering;
-- OpenType, underline and strikethrough settings;
-- HTML/EPUB/PDF export tagging.
-
-Studio distinguishes settings that it can render natively, settings that are approximated by browser/paged-media layout, and settings that are preserved for IDML round-trip even when the live preview cannot reproduce Adobe rendering exactly. Unsupported safe IDML properties are not supposed to disappear silently.
-
-### Section ruler, tab stops and columns
-
-The live publication editor also exposes a **section-level ruler**. A selected manuscript section can carry layout instructions such as tab stops and multi-column geometry without converting the scholarly text into presentation-only content.
-
-The ruler and related section tools support:
-
-- interactive tab-stop placement and editing;
-- section-level column count and gutter settings;
-- text-to-table conversion for structured tabular material;
-- compact numeric controls whose width follows the expected value size;
-- the same manuscript source in both HTML5 visual and paged print-layout views.
-
-Document zoom is shared across publication views: the Word-style zoom control works in the HTML5 visual editor and in print layout, so layout inspection no longer depends on browser page zoom.
+Short numeric and fixed-length controls use content-oriented field widths so dense publication settings do not waste horizontal space, while responsive constraints prevent overflow on mobile screens.
 
 ## Adobe InDesign IDML style-set import
 

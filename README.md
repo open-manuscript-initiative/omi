@@ -15,7 +15,7 @@ OMI treats the scholarly manuscript — structure, metadata, contributors, citat
 Current public release line: **`0.3.0-beta.1`**.  
 Project state: **public beta / active stabilization and interoperability development**.
 
-The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. The OJS 3.5 and OMP 3.5 integration lines have native end-to-end coverage for signed author/editor/reviewer launches, anonymous review projections, assignment-scoped files, review forms, corrections, separated feedback and signed writeback. Android is an operational public-beta target; iOS/iPadOS simulator/native builds are validated while public Apple distribution remains dependent on signing, provisioning and device/TestFlight validation. The 0.3.0-beta.1 line adds validated publication artifacts, reference-manager integration and native OJS/OMP workflow writeback while retaining immutable release provenance: a published tag is tied to the exact build commit and its downloadable assets are never replaced by later `main` builds.
+The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. The current 0.3.0-beta.1 line adds Studio-native editorial workflow for DNS-verified journals and presses without OJS/OMP, an InDesign-compatible paragraph-style and publication-layout layer, section rulers with tabs and columns, reusable account-level reference libraries with per-document bibliography selection, and continued OJS/OMP integration. OJS 3.5 and OMP 3.5 remain authoritative when configured and are covered by native end-to-end tests. Android is an operational public-beta target; iOS/iPadOS simulator/native builds are validated while public Apple distribution remains dependent on signing, provisioning and device/TestFlight validation. Published releases remain immutable and provenance-bound to their exact build commit.
 
 ### Latest development line
 
@@ -33,7 +33,11 @@ The September 2026 development line makes editing and publication substantially 
 - cross-platform update notifications with current-release fallback;
 - separate printed/archive and interactive PDF export modes;
 - safer Android startup when IndexedDB session restoration is blocked;
-- provenance-safe immutable release publishing.
+- provenance-safe immutable release publishing;
+- section-level rulers, tabs, columns and text-to-table conversion;
+- InDesign-compatible paragraph styles with live publication rendering;
+- Studio-native submission, peer review, editorial acceptance and verified publication for non-OJS/OMP venues;
+- reusable personal reference libraries and per-document bibliography selection.
 
 The user should experience one continuous manuscript while headings, figures, tables, notes, citations, cross-references, versions and other semantic OMI objects remain explicit.
 

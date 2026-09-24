@@ -75,6 +75,12 @@ Word-like interaction does not permit semantic objects to disappear silently. A 
 
 This separation is important for scholarly workflows: editing remains familiar, while the canonical document remains suitable for validation, publishing-system exchange, preservation, and deterministic export.
 
+## Ruler, tabs, columns and section-local layout
+
+The current Studio line adds a familiar document ruler to the visual editing workflow. Authors can define tab stops and multi-column layout for the active section while the underlying OMI section remains explicit. This keeps conventional word-processing interaction available without flattening section boundaries into anonymous formatted text.
+
+Selected text can also be converted into a structured table. Layout commands therefore operate as explicit structural or presentation changes rather than as hidden whitespace tricks.
+
 ## Related long-form work
 
 The same development line includes large-DOCX handling, semantic indexes, generated tables of contents, scalable note editing, and increasingly structural PDF import. PDF reconstruction now uses visual bbox geometry rather than trusting Poppler logical line grouping alone when detecting difficult footnote layouts. Native Android PDF import is routed to the Studio API rather than the packaged WebView origin.
