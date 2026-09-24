@@ -169,7 +169,7 @@ Denne adskillelse er vigtig for overførbarheden: Skifter man fra en browser til
 
 ## Flersprogede og regionale indstillinger
 
-Den fælles klient understøtter i øjeblikket 24 europæiske sprog til brugergrænsefladen. Indstillingerne for sprog til brugergrænsefladen, manuskriptet og metadata administreres samlet i et kompakt og responsivt indstillingsvindue. Tidszoner bruger standard-IANA-identifikatorer med UTC-forskydninger og automatisk registrering af systemtidszone i stedet for fritekstværdier, så kontoindstillingerne forbliver overførbare på tværs af operativsystemer.
+Den fælles klient understøtter i øjeblikket 47 europæiske sprog til brugergrænsefladen. Indstillingerne for sprog til brugergrænsefladen, manuskriptet og metadata administreres samlet i et kompakt og responsivt indstillingsvindue. Tidszoner bruger standard-IANA-identifikatorer med UTC-forskydninger og automatisk registrering af systemtidszone i stedet for fritekstværdier, så kontoindstillingerne forbliver overførbare på tværs af operativsystemer.
 
 ## Retning for mobil arbejdsgang
 
