@@ -213,6 +213,19 @@ Possible outcomes include:
 
 ---
 
+## Reference implementation evidence
+
+Open Manuscript Studio 0.3.0-beta.1 now exercises the personal-library and portable-manuscript boundary described by this draft:
+
+- authenticated users can maintain an account-level personal reference library;
+- the same curated bibliographic record can be reused across multiple manuscripts;
+- adding a personal-library record to a manuscript copies a portable bibliographic snapshot into that manuscript rather than creating a permanent online dependency;
+- each manuscript can explicitly select uncited records that should appear in its bibliography;
+- records that are actually cited remain automatically included so citation targets cannot disappear from rendered output;
+- HTML, JATS, custom export and Studio-native review snapshots use the same document-level bibliography selection.
+
+This is **implementation evidence, not normative conformance**. The specification still needs explicit synchronization, conflict, provenance and identity rules for reusable personal/institutional libraries before the behaviour can be standardized across independent implementations.
+
 ## Local and Shared Libraries
 
 Implementations may support several scopes:
