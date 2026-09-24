@@ -42,8 +42,8 @@ Současná veřejná řada verzí ve Studiu zůstává `0.3.0-beta.1`. Metadata 
 |---|---|
 | Identifikátor balíčku | `org.openmanuscript.studio` |
 | Minimální požadavky na platformu | iOS/iPadOS 14.0 |
-| Zkrácená verze v App Store | `0.2.0` |
-| Číslo sestavení v App Store | `10` |
+| Zkrácená verze v App Store | `0.3.0` |
+| Číslo sestavení v App Store | `13` |
 | Řada produktů Studio | `0.3.0-beta.1` |
 
 Zkrácené označení verzí/číslování sestavení společnosti Apple představuje metadata balíčku. Nemění verzi schématu OMI ani nevytváří samostatnou řadu dokumentů o kompatibilitě s iOS.
