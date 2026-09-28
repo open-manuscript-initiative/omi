@@ -66,7 +66,7 @@ The live preview is manuscript-aware: title, subtitle, authors, affiliations, he
 
 ## InDesign-compatible paragraph styling and section layout
 
-Studio 0.3.0-beta.1 expands the publication editor beyond IDML style-set import. The live editor now exposes an InDesign-oriented paragraph-style model with reusable controls for typography, indentation, paragraph spacing, rules, keep behavior and related layout properties. The goal is compatibility of concepts and authoring workflow, not binary compatibility with native `.indd` documents.
+Studio 0.3.0-beta.2 expands the publication editor beyond IDML style-set import. The live editor now exposes an InDesign-oriented paragraph-style model with reusable controls for typography, indentation, paragraph spacing, rules, keep behavior and related layout properties. The goal is compatibility of concepts and authoring workflow, not binary compatibility with native `.indd` documents.
 
 The publication editor also provides a section-level ruler. Tab stops and multi-column layout can be applied to the active section without changing the manuscript's semantic section identity. Selected text can be converted into structured tables where appropriate. These controls remain presentation/layout state layered over the semantic manuscript rather than replacing OMI structure with page-layout markup.
 

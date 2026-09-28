@@ -12,10 +12,10 @@ OMI treats the scholarly manuscript — structure, metadata, contributors, citat
 
 **Open Manuscript Studio** is the OMI reference implementation.
 
-Current public release line: **`0.3.0-beta.1`**.  
+Current public release line: **`0.3.0-beta.2`**.
 Project state: **public beta / active stabilization and interoperability development**.
 
-The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. The current 0.3.0-beta.1 line adds Studio-native editorial workflow for DNS-verified journals and presses without OJS/OMP, an InDesign-compatible paragraph-style and publication-layout layer, section rulers with tabs and columns, reusable account-level reference libraries with per-document bibliography selection, and continued OJS/OMP integration. OJS 3.5 and OMP 3.5 remain authoritative when configured and are covered by native end-to-end tests. Android is an operational public-beta target; iOS/iPadOS simulator/native builds are validated while public Apple distribution remains dependent on signing, provisioning and device/TestFlight validation. Published releases remain immutable and provenance-bound to their exact build commit.
+The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. Studio 0.3.0-beta.2 adds invitation-authorized live co-editing: invited authors accept in Studio before access is granted, and collaborator names and colors appear at live cursors. It builds on Studio-native editorial workflows for DNS-verified journals without OJS/OMP, InDesign-compatible publication layout, reusable reference libraries and continued OJS/OMP integration. The portable OMI manuscript format remains `OMI-SPEC-320@0.2.0`. OJS 3.5 and OMP 3.5 remain authoritative when configured and are covered by native end-to-end tests. Android is an operational public-beta target; iOS/iPadOS simulator/native builds are validated while public Apple distribution remains dependent on signing, provisioning and device/TestFlight validation. Published releases remain immutable and provenance-bound to their exact build commit.
 
 ### Latest development line
 
