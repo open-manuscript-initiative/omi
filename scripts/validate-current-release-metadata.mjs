@@ -1,11 +1,11 @@
 import { readFile } from 'node:fs/promises';
 
 const expected = {
-  studio: '0.3.0-beta.1',
+  studio: '0.3.0-beta.2',
   ojs: 'v1.6.0',
   omp: 'v1.5.1',
   iosMarketing: '0.3.0',
-  iosBuild: '13',
+  iosBuild: '14',
 };
 
 const currentFacingFiles = [
@@ -24,6 +24,7 @@ const currentFacingFiles = [
   'docs/integrations/studio-native-editorial-workflow.md',
   'docs/specifications/reference-library-registry.md',
   'docs/studio/visual-tour.md',
+  'docs/foundations/studio-live-collaboration.md',
   ...['bg', 'cs', 'da', 'de'].flatMap((locale) => [
     `i18n/${locale}/docusaurus-plugin-content-docs/current/governance/roadmap-to-omi-1.0.md`,
     `i18n/${locale}/docusaurus-plugin-content-docs/current/governance/studio-implementation-status.md`,
@@ -89,6 +90,9 @@ const required = [
   ['docs/governance/studio-implementation-status.md', expected.studio],
   ['docs/governance/roadmap-to-omi-1.0.md', expected.studio],
   ['docs/studio/visual-tour.md', expected.studio],
+  ['docs/foundations/studio-live-collaboration.md', expected.studio],
+  ['docs/foundations/studio-live-collaboration.md', 'explicitly accepts'],
+  ['docs/foundations/studio-live-collaboration.md', 'OMI-SPEC-320@0.2.0'],
   ['docs/integrations/studio-native-editorial-workflow.md', expected.studio],
   ['docs/integrations/ojs-plugin.md', expected.ojs],
   ['docs/integrations/omp-plugin.md', expected.omp],
@@ -100,6 +104,20 @@ const required = [
 for (const [path, value] of required) {
   if (!contents.get(path)?.includes(value)) {
     failures.push(`${path}: expected current release marker ${value}`);
+  }
+}
+
+for (const locale of ['bg', 'cs', 'da', 'de']) {
+  const iosPath = `i18n/${locale}/docusaurus-plugin-content-docs/current/foundations/ios-ipados-studio.md`;
+  const statusPath = `i18n/${locale}/docusaurus-plugin-content-docs/current/governance/studio-implementation-status.md`;
+  if (!contents.get(iosPath)?.includes(expected.studio)) {
+    failures.push(`${iosPath}: expected current Studio version ${expected.studio}`);
+  }
+  if (!contents.get(iosPath)?.includes(`| \`${expected.iosBuild}\` |`)) {
+    failures.push(`${iosPath}: expected current iOS build number ${expected.iosBuild}`);
+  }
+  if (!contents.get(statusPath)?.includes('Yjs')) {
+    failures.push(`${statusPath}: expected live-collaboration feature status`);
   }
 }
 

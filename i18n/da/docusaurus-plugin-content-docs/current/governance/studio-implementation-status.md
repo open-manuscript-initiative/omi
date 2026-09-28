@@ -31,7 +31,7 @@ keywords:
 |---|---|
 | Status | **Beta** |
 | Dato for øjebliksbillede | **5. september 2026** |
-| Aktuel udgivelsesserie | `0.3.0-beta.1` |
+| Aktuel udgivelsesserie | `0.3.0-beta.2` |
 | Referenceimplementering | Open Manuscript Studio |
 | Kildekoderepositorium | `open-manuscript-initiative/open-manuscript-studio` |
 | Webmål | Moderne browsere |
@@ -39,7 +39,7 @@ keywords:
 | Mobilmål | Offentlig universel APK til Android; valideret native simulator-mål til iOS/iPadOS, hvor distribution via TestFlight/App Store afventer signering fra Apple Developer |
 | Webimplementering | `studio.openmanuscript.org` |
 
-Den aktuelle Studio-betaversion er **`0.3.0-beta.1`**. »Beta« betyder, at de primære arbejdsgange inden for redigering, import/eksport, autentificering, native-client samt OJS/OMP er implementeret, og at projektet er gået fra at opbygge grundstrukturen for funktionerne til nu at fokusere på interoperabilitet, regressionsafprøvning, gendannelse og forberedelse til udgivelse. Det betyder **ikke**, at alle valgfri integrations- eller distributionskanaler er klar til produktion.
+Den aktuelle Studio-betaversion er **`0.3.0-beta.2`**. »Beta« betyder, at de primære arbejdsgange inden for redigering, import/eksport, autentificering, native-client samt OJS/OMP er implementeret, og at projektet er gået fra at opbygge grundstrukturen for funktionerne til nu at fokusere på interoperabilitet, regressionsafprøvning, gendannelse og forberedelse til udgivelse. Det betyder **ikke**, at alle valgfri integrations- eller distributionskanaler er klar til produktion.
 
 Denne side beskriver **implementerede produktfunktioner**, ikke overensstemmelse med en specifikOMI. Den formelle modenhed af specifikationerne og dokumentation for overensstemmelse registreres separat i [OMI Implementation Status Matrix](./implementation-status-matrix.md).
 
@@ -54,6 +54,7 @@ Denne side beskriver **implementerede produktfunktioner**, ikke overensstemmelse
 
 | Område | Status | Nuværende implementering |
 |---|---|---|
+| Live-samarbejde om manuskripter | **I drift** | Yjs-synkronisering muliggør fælles redigering, når den inviterede forfatter har accepteret invitationen i Studio. Invitationer kan accepteres i Studios indbakke uden e-mailbesked; live-markører viser navne og forskellige farver. Ændringssporing ved fagfællebedømmelse forbliver adskilt. |
 | Struktureret redigering af manuskripter | **Operationelt** | Semantiske afsnit, rich text, overskrifter, formatering i teksten, lister, noter, referencer, tabeller og håndtering af struktureret indhold. |
 | Arbejdsområde til flere dokumenter på skrivebordet | **I drift** | Dokumentfaner i browser-stil gør det muligt at have flere manuskripter åbne på skrivebordet. Studio/Account-grænseflader i fuldskærm og en dokumentoversigt i Word-lignende stil, der kan slås til og fra, understøtter navigation i længere tekster, mens mobilversionen bevarer sin kompakte arbejdsstruktur. |
 | Gendannelse af session/arbejdsområde | **I drift** | Både det indbyggede og web-baserede arbejdsområde kan gendanne den tidligere arbejdskontekst, herunder status for åbne dokumenter, mens eksplicitte funktioner til lukning af dokumenter giver brugeren mulighed for at forlade et manuskript uden at miste den omgivende applikationssession. |
@@ -151,7 +152,7 @@ De nuværende integrationer med OJS og OMP fungerer i begge retninger i forbinde
 
 ## Udgivelse og distribution
 
-`0.3.0-beta.1` er den aktuelle serie af Studio-betaversioner. GitHub Actions genererer udgivelsesfiler fra det delte kildetræ til Windows, Linux, macOS og Android. Den offentlige Studio-downloadside giver adgang via browseren og viser de tilgængelige native pakker, herunder den universelle APK til Android.
+`0.3.0-beta.2` er den aktuelle serie af Studio-betaversioner. GitHub Actions genererer udgivelsesfiler fra det delte kildetræ til Windows, Linux, macOS og Android. Den offentlige Studio-downloadside giver adgang via browseren og viser de tilgængelige native pakker, herunder den universelle APK til Android.
 
 iOS/iPadOS har i øjeblikket en vellykket CI-simulatorversion i stedet for en offentlig IPA-fil. Apples distributionsvej er klar, men er bevidst adskilt fra simulatorvalideringen: Offentlige versioner og enhedsversioner kræver det rigtige Apple Development Team ID, distributionscertifikat, provisioning-profil og den endelige konfiguration af »`apple-app-site-association`«, før der kan ansøges om offentliggørelse via TestFlight/App Store.
 

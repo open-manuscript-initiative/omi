@@ -30,8 +30,8 @@ keywords:
 | Field | Value |
 |---|---|
 | Status | **Beta** |
-| Snapshot date | **2026-09-24** |
-| Current development source version | `0.3.0-beta.1` |
+| Snapshot date | **2026-09-28** |
+| Current development source version | `0.3.0-beta.2` |
 | Reference implementation | Open Manuscript Studio |
 | Source repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web target | Modern browsers |
@@ -39,7 +39,7 @@ keywords:
 | Mobile targets | Android public universal APK; iOS/iPadOS validated native simulator target, with TestFlight/App Store distribution pending Apple Developer signing |
 | Web deployment | `studio.openmanuscript.org` |
 
-The current Studio source tree reports **`0.3.0-beta.1`**. Beta means that the primary authoring, import/export, authentication, native-client and OJS/OMP review workflows are implemented and the project has moved from feature scaffolding to interoperability, regression, recovery and release-hardening work. Packaged public releases may lag behind the development source version. The current development line also adds validated publication-output infrastructure: full JATS 1.4 DTD validation, semantic release gates, deterministic PDF artifact generation and portable build-provenance sidecars. It does **not** mean that every optional integration or distribution channel is production-complete.
+The current Studio source tree reports **`0.3.0-beta.2`**. This beta adds accepted-invitation live collaboration: authors can review invitations in Studio, accept them before manuscript access is granted, and co-edit with named, color-coded live cursors. It builds on the primary authoring, import/export, authentication, native-client and OJS/OMP review workflows, plus validated publication-output infrastructure. Packaged downloads track the current immutable GitHub release. Beta does **not** mean that every optional integration or distribution channel is production-complete.
 
 This page describes **implemented product capabilities**, not OMI specification conformance. Formal specification maturity and conformance evidence are tracked separately in the [OMI Implementation Status Matrix](./implementation-status-matrix.md). Publication-profile behaviour is mapped requirement by requirement in the [Studio OMI-SPEC-240 Implementation Profile](./studio-omi-spec-240-implementation-profile.md); that profile records implementation evidence and does not make a formal conformance claim.
 
@@ -81,6 +81,7 @@ This page describes **implemented product capabilities**, not OMI specification 
 | Double-blind peer review | **Operational** | Anonymous reviewer projection, review assignments, reviewer workspace, comments and review persistence. Reviewer launch permissions are role-scoped to preserve least privilege. |
 | Editorial review dashboard | **Operational** | Editor-facing overview and role-aware review portal for assigned peer-review work. |
 | Studio-native editorial workflow | **Operational / configuration-dependent** | DNS-verified journals and presses without an authoritative OJS/OMP binding can run submission, reviewer assignment, double-anonymous peer review, author revision, editorial acceptance and revision-bound publication in Studio. OJS/OMP remain authoritative when configured. |
+| Live manuscript collaboration | **Operational** | Yjs synchronization supports live co-editing after an invited author accepts in Studio. The invitation inbox supports acceptance without an e-mail message, and live cursors show collaborator names and distinct colors. Peer-review change tracking remains separate. |
 | Personal reference library | **Operational** | Account-level bibliographic records can be reused across manuscripts. Each document keeps portable record snapshots and independently selects uncited works for its bibliography; cited works are included automatically. |
 | Bidirectional OJS review writeback | **Configuration-dependent / validated** | Signed review writeback returns submitted review data to OJS. Reviewer launch scopes are least-privilege, and the two-round OJS review protocol is documented and exercised against the OJS 3.5 integration line. |
 | Native OJS review forms | **Configuration-dependent / validated** | OJS review-form definitions can be imported into the reviewer workspace, rendered as Studio controls, localized safely and written back to OJS with the submitted review. Server handling keeps provider markup opaque and client rendering extracts text safely. |
@@ -164,7 +165,7 @@ The current OJS and OMP integrations are bidirectional for review work: Studio c
 
 ## Release and distribution
 
-`0.3.0-beta.1` is the current Studio beta release line. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Public download links follow GitHub's current release rather than embedding one historical tag in the website, while published release assets themselves remain immutable.
+`0.3.0-beta.2` is the current Studio beta release line. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Public download links follow GitHub's current release rather than embedding one historical tag in the website, while published release assets themselves remain immutable. The application version is independent of the portable OMI manuscript format, which remains `OMI-SPEC-320@0.2.0`.
 
 iOS/iPadOS currently has a successful CI simulator build rather than a public IPA. The Apple distribution path is prepared but deliberately separated from simulator validation: public/device builds require the real Apple Development Team ID, distribution certificate, provisioning profile and final `apple-app-site-association` configuration before TestFlight/App Store publication can be claimed.
 
@@ -186,6 +187,7 @@ The beta line shifts the release gate from “is the primary workflow implemente
 10. institution/central administration without privilege leakage into manuscript content;
 11. understandable user-facing recovery for network, authentication, migration, import/export and integration failures;
 12. release provenance, updater fallback behavior and immutable downloadable assets across successive beta releases.
+13. invitation expiry, explicit acceptance, authorization, reconnect and shared-document recovery in multi-author collaboration.
 
 Configuration-dependent integrations do not need to be universally available for the beta line, provided their maturity is clearly identified and they do not compromise the stable core workflows.
 

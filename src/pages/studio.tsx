@@ -6,7 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {getPublicPageCopy} from '../i18n/publicPages';
 import styles from './studio.module.css';
 
-const STUDIO_VERSION = '0.3.0-beta.1';
+const STUDIO_VERSION = '0.3.0-beta.2';
 const RELEASE_BASE = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/releases/latest/download';
 const GOOGLE_PLAY_TEST_URL = 'https://play.google.com/apps/testing/org.openmanuscript.studio';
 const downloads = {
@@ -23,15 +23,17 @@ const CAPABILITY_DOC_TARGETS: Record<number, string> = {
   0: '/docs/specifications/document-model',
   3: '/docs/specifications/review-model',
   4: '/docs/integrations/ojs-profile-v1',
-  5: '/docs/specifications/publishing-model',
-  6: '/docs/integrations/implementation-status',
+  5: '/docs/specifications/reference-library-registry',
+  6: '/docs/foundations/publication-styles-and-publisher-profiles',
+  11: '/docs/foundations/studio-live-collaboration',
 };
 
 const CURRENT_UPDATE = {
   en: {
     title: 'Open Manuscript Studio public beta',
-    lead: 'Version 0.3.0-beta.1 is the current public beta. It adds Studio-native editorial workflows for verified publications without OJS/OMP, InDesign-compatible paragraph styling and publication layout, section rulers with tabs and columns, and reusable personal reference libraries with per-document bibliography selection.',
+    lead: 'Version 0.3.0-beta.2 adds live manuscript collaboration. Authors invite collaborators, who gain access only after accepting in Studio; live cursors show each collaborator’s name and color. The beta also includes Studio-native editorial workflows, publication layout and reusable reference libraries.',
     items: [
+      ['Live collaboration and accepted invitations', 'Invite a Studio author to a manuscript. The invitation appears in their Studio inbox, and access starts only after they accept. Collaborators edit together in real time and see names and distinct colors beside live cursors and selections.'],
       ['InDesign-compatible paragraph and publication styling', 'The live publication editor now exposes an InDesign-inspired paragraph-style system with inheritance-aware controls and live rendering, while keeping manuscript semantics separate from reusable publication presentation.'],
       ['Section ruler, tab stops and columns', 'Authors can apply ruler-driven tabs and multi-column layout to a selected manuscript section, together with text-to-table conversion and compact value controls suited to publishing work.'],
       ['Studio-native editorial workflow', 'DNS-verified journals and presses that do not use OJS or OMP can run submission, double-anonymous review, author revision, editorial acceptance and publication in Studio. Acceptance is bound to the exact committed revision and remains separate from publication.'],
@@ -71,13 +73,14 @@ const CURRENT_UPDATE = {
     iosDescription: 'Validated native iPhone/iPad simulator target using the same Studio core. Public TestFlight/App Store installation is not yet available because Apple signing/provisioning and the final Universal Link association are still required.',
     iosAction: 'iOS/iPadOS implementation details',
     betaTitle: 'Current public beta',
-    betaText: 'OMI Studio 0.3.0-beta.1 is the current public beta for broader real-world testing. It adds Studio-native editorial workflows, InDesign-compatible paragraph/layout controls, reusable cross-document reference libraries and per-document bibliography selection while preserving the validated publishing, OJS/OMP integration, structured authoring, import/export and cross-platform release foundations of the 0.2 line.',
+    betaText: 'OMI Studio 0.3.0-beta.2 adds invitation-authorized live co-editing, an in-Studio invitation inbox, and named, colored collaborator cursors. It also includes Studio-native editorial workflows, InDesign-compatible layout controls, reusable reference libraries, and the validated publishing, OJS/OMP integration, structured authoring, import/export and cross-platform release foundations.',
     maturity: 'The project is in public beta. Beta development prioritizes regression testing, large-document performance, error recovery, interoperability, migration discipline and trustworthy immutable releases on the path to the first release candidate.',
   },
   hu: {
     title: 'Az Open Manuscript Studio nyilvános bétája',
-    lead: 'A 0.3.0-beta.1 a jelenlegi nyilvános béta. Újdonság a Studio-natív szerkesztőségi munkafolyamat az OJS/OMP nélküli hitelesített kiadványokhoz, az InDesign-kompatibilis bekezdésstílus- és kiadványtördelési rendszer, a szakaszszintű vonalzó tabulátorokkal és hasábokkal, valamint a több dokumentumban használható személyes hivatkozástár dokumentumonkénti bibliográfiaválasztással.',
+    lead: 'A 0.3.0-beta.2 élő kézirat-együttműködést ad. A szerző meghívja a közreműködőt, aki csak a Studio-ban elfogadott meghívás után kap hozzáférést; a résztvevők neve és színe megjelenik az élő kurzoroknál. A béta Studio-natív szerkesztőségi munkafolyamatokat, tördelési vezérlést és újrahasználható hivatkozástárat is tartalmaz.',
     items: [
+      ['Élő együttműködés és elfogadott meghívások', 'Hívjon meg egy Studio-szerzőt a kézirathoz. A meghívás a Studio bejövő meghívásai között jelenik meg; hozzáférés csak elfogadás után jár. A szerzők valós időben együtt szerkeszthetnek, és névvel, külön színnel látják egymás élő kurzorát és kijelölését.'],
       ['InDesign-kompatibilis bekezdés- és kiadványstílusok', 'Az élő kiadványszerkesztő InDesign-mintájú bekezdésstílus-rendszert kapott örökléssel, részletes vezérlőkkel és élő megjelenítéssel, miközben a kézirat szemantikája külön marad a kiadványmegjelenítéstől.'],
       ['Szakaszvonalzó, tabulátorok és hasábok', 'A szerző egy kijelölt kéziratszakaszra vonalzóval kezelhető tabulátorokat és többhasábos elrendezést alkalmazhat; a rendszer szöveg–táblázat átalakítást és kompakt értékmezőket is biztosít.'],
       ['Studio-native szerkesztőségi munkafolyamat', 'Az OJS-t vagy OMP-t nem használó, DNS-sel hitelesített folyóiratok és kiadók a Studio rendszerében kezelhetik a beküldést, kettős vak lektorálást, szerzői javítást, szerkesztői elfogadást és publikálást. Az elfogadás az adott rögzített revízióhoz kötődik és külön lépés a publikálástól.'],
@@ -117,13 +120,14 @@ const CURRENT_UPDATE = {
     iosDescription: 'Validált natív iPhone/iPad szimulátoros célverzió ugyanazzal a Studio-maggal. Nyilvános TestFlight/App Store telepítés még nincs, mert ehhez Apple aláírás/provisioning és a végleges Universal Link társítás szükséges.',
     iosAction: 'iOS/iPadOS megvalósítás részletei',
     betaTitle: 'Jelenlegi nyilvános béta',
-    betaText: 'Az OMI Studio 0.3.0-beta.1 a jelenlegi nyilvános béta. A 0.2-es ág alapjaira Studio-natív szerkesztőségi munkafolyamat, InDesign-kompatibilis stílus- és tördelési vezérlés, több dokumentumban használható személyes hivatkozástár és dokumentumonkénti bibliográfiaválasztás épült, miközben megmaradt a validált publikációs pipeline, az OJS/OMP-integráció és a platformközi kiadási rendszer.',
+    betaText: 'Az OMI Studio 0.3.0-beta.2 meghíváshoz kötött élő közös szerkesztést, Studio-n belüli meghíváslistát, valamint névvel és színnel jelölt szerzői kurzorokat ad. A béta emellett Studio-natív szerkesztőségi munkafolyamatot, InDesign-kompatibilis tördelést és újrahasználható hivatkozástárat kínál a validált publikációs, OJS/OMP- és platformközi alapokra építve.',
     maturity: 'A projekt nyilvános béta. A béta szakasz fő feladata a regressziós tesztelés, a nagy dokumentumok teljesítménye, a hibából való helyreállás, az interoperabilitás, a migrációs fegyelem és a megbízható, változtathatatlan kiadások biztosítása az első release candidate felé.',
   },
   de: {
     title: 'Öffentliche Beta von Open Manuscript Studio',
-    lead: '0.3.0-beta.1 ist die aktuelle öffentliche Beta. Neu sind ein Studio-nativer Redaktionsworkflow für verifizierte Publikationen ohne OJS/OMP, InDesign-kompatible Absatz- und Layoutsteuerung, abschnittsbezogene Lineale mit Tabulatoren und Spalten sowie eine persönliche, dokumentübergreifend nutzbare Literaturbibliothek mit Bibliografieauswahl pro Dokument.',
+    lead: '0.3.0-beta.2 ergänzt die Live-Zusammenarbeit am Manuskript. Eingeladene Autoren erhalten erst nach Annahme der Einladung in Studio Zugriff; Live-Cursor zeigen Namen und Farben. Die Beta umfasst außerdem Studio-native Redaktionsworkflows, Publikationslayout und wiederverwendbare Literaturbibliotheken.',
     items: [
+      ['Live-Zusammenarbeit und angenommene Einladungen', 'Laden Sie einen Studio-Autor zu einem Manuskript ein. Die Einladung erscheint im Studio-Posteingang; Zugriff entsteht erst nach der Annahme. Die Beteiligten bearbeiten den Text gleichzeitig und sehen Namen sowie eigene Farben an Live-Cursorn und Auswahlen.'],
       ['InDesign-kompatible Absatz- und Publikationsstile', 'Der Live-Publikationseditor bietet ein InDesign-orientiertes Absatzstilsystem mit Vererbung, detaillierten Steuerelementen und Live-Darstellung, während Manuskriptsemantik und Publikationsdarstellung getrennt bleiben.'],
       ['Abschnittslineal, Tabstopps und Spalten', 'Auf ausgewählte Manuskriptabschnitte lassen sich linealgesteuerte Tabstopps und mehrspaltige Layouts anwenden; zusätzlich stehen Text-zu-Tabelle-Konvertierung und kompakte Werteingaben zur Verfügung.'],
       ['Studio-nativer Redaktionsworkflow', 'DNS-verifizierte Zeitschriften und Verlage ohne OJS oder OMP können Einreichung, doppelt anonyme Begutachtung, Autorenrevision, redaktionelle Annahme und Publikation in Studio durchführen. Die Annahme ist an die exakt gespeicherte Revision gebunden und bleibt von der Publikation getrennt.'],
@@ -159,7 +163,7 @@ const CURRENT_UPDATE = {
     iosDescription: 'Validiertes natives iPhone/iPad-Simulatorziel mit demselben Studio-Kern. Eine öffentliche TestFlight/App-Store-Installation ist noch nicht verfügbar, da Apple-Signierung/Provisioning und die endgültige Universal-Link-Zuordnung erforderlich sind.',
     iosAction: 'Details zur iOS/iPadOS-Implementierung',
     betaTitle: 'Aktuelle öffentliche Beta',
-    betaText: 'OMI Studio 0.3.0-beta.1 ist die aktuelle öffentliche Beta für breitere Praxistests. Der native OMP-Client, PKP-kompatible Metadaten, Referenzmanager-Austausch und provenance-geprüfte Publikationsartefaktübertragung ergänzen strukturierte Manuskriptbearbeitung, DOCX-Import/-Export, Dokumentlebenszyklus, Suchen/Ersetzen, semantische Register, validierte JATS/PDF-Ausgabe, Update-Hinweise und konfigurierte Review-Workflows.',
+    betaText: 'OMI Studio 0.3.0-beta.2 ergänzt einladungsbasierte Live-Bearbeitung, einen Studio-Posteingang für Einladungen und benannte, farblich markierte Live-Cursor. Hinzu kommen der native OMP-Client, PKP-kompatible Metadaten, Referenzmanager-Austausch und die bestehenden Funktionen für strukturierte Manuskripte, Import/Export, Veröffentlichung und Review.',
     maturity: 'Das Projekt befindet sich in der öffentlichen Beta. Im Mittelpunkt stehen Regressionstests, Leistung bei großen Dokumenten, Fehlerwiederherstellung, Interoperabilität, saubere Migrationen und vertrauenswürdige unveränderliche Releases auf dem Weg zum ersten Release Candidate.',
   },
 } as const;
