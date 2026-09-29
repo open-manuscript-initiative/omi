@@ -13,7 +13,7 @@ keywords:
 
 # Live Manuscript Collaboration in Studio
 
-Open Manuscript Studio `0.3.0-beta.2` supports live editing of a manuscript by
+Open Manuscript Studio `0.3.0-beta.3` supports live editing of a manuscript by
 multiple invited authors. The current deployment uses the existing single-node
 Studio service and PostgreSQL-backed collaboration state. This feature does
 not change the portable OMI manuscript format (`OMI-SPEC-320@0.2.0`).
