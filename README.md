@@ -12,10 +12,10 @@ OMI treats the scholarly manuscript — structure, metadata, contributors, citat
 
 **Open Manuscript Studio** is the OMI reference implementation.
 
-Current public release line: **`0.3.0-beta.2`**.
+Current public release line: **`0.3.0-beta.3`**.
 Project state: **public beta / active stabilization and interoperability development**.
 
-The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. Studio 0.3.0-beta.2 adds invitation-authorized live co-editing: invited authors accept in Studio before access is granted, and collaborator names and colors appear at live cursors. It builds on Studio-native editorial workflows for DNS-verified journals without OJS/OMP, InDesign-compatible publication layout, reusable reference libraries and continued OJS/OMP integration. The portable OMI manuscript format remains `OMI-SPEC-320@0.2.0`. OJS 3.5 and OMP 3.5 remain authoritative when configured and are covered by native end-to-end tests. Android is an operational public-beta target; iOS/iPadOS simulator/native builds are validated while public Apple distribution remains dependent on signing, provisioning and device/TestFlight validation. Published releases remain immutable and provenance-bound to their exact build commit.
+The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. Studio 0.3.0-beta.3 adds linked Word footnotes and endnotes, complete non-printing marks, persistent collaborator chat, clearer DOCX, semantic HTML5 and PDF exports, and improved JATS, IDML and OMI package workflows. It builds on invitation-authorized live co-editing, Studio-native editorial workflows, InDesign-compatible publication layout, reusable reference libraries and continued OJS/OMP integration. The portable OMI manuscript format remains `OMI-SPEC-320@0.2.0`. OJS 3.5 and OMP 3.5 remain authoritative when configured and are covered by native end-to-end tests. Android is an operational public-beta target; iOS/iPadOS simulator/native builds are validated while public Apple distribution remains dependent on signing, provisioning and device/TestFlight validation. Published releases remain immutable and provenance-bound to their exact build commit.
 
 ### Latest development line
 

@@ -20,7 +20,7 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
 
 const STUDIO_UPDATE = {
   en: {
-    summary: 'Open Manuscript Studio 0.3.0-beta.2 is the current beta. It adds invitation-based live manuscript collaboration: access begins only after an invitee accepts in Studio, and collaborators see one another’s names and colors at live cursors. The release also includes Studio-native submission, peer review and editorial acceptance for verified journals and presses without OJS/OMP; InDesign-compatible publication layout; section rulers with tabs and columns; and reusable personal reference libraries.',
+    summary: 'Open Manuscript Studio 0.3.0-beta.3 is the current beta. It adds linked Word footnotes and endnotes, complete non-printing marks, persistent collaborator chat, clearer DOCX, semantic HTML5 and PDF exports, and improved JATS, IDML and OMI package workflows. It builds on invitation-based live collaboration, Studio-native editorial workflows, InDesign-compatible publication layout and reusable personal reference libraries.',
     multiDocument: 'Multi-document desktop editing and document outline',
     wordLike: 'Word-like manuscript-wide split, merge and selection',
     pdf: 'Structural PDF import with geometry-aware footnotes',
@@ -43,7 +43,7 @@ const STUDIO_UPDATE = {
     uiLocales: 'selectable UI locales',
   },
   hu: {
-    summary: 'Az Open Manuscript Studio 0.3.0-beta.2 új funkciója a meghíváson alapuló élő kéziratszerkesztés: a meghívott szerző csak a Studio-ban elfogadott meghívás után kap hozzáférést, a résztvevők pedig névvel és színnel jelölve látják egymás kurzorát. A kiadás emellett Studio-natív beküldést, lektorálást és szerkesztői elfogadást ad az OJS/OMP nélküli, hitelesített kiadványoknak, valamint InDesign-kompatibilis tördelést és újrahasználható hivatkozástárat.',
+    summary: 'Az Open Manuscript Studio 0.3.0-beta.3 összekapcsolt Word-lábjegyzeteket és végjegyzeteket, teljes nem nyomtatható jeleket, tartós közreműködői csevegést, egyértelmű DOCX-, szemantikus HTML5- és PDF-exportot, valamint továbbfejlesztett JATS-, IDML- és OMI-csomagkezelést hoz. Az élő együttműködésre, a Studio-natív szerkesztőségi munkafolyamatokra, az InDesign-kompatibilis tördelésre és az újrahasználható hivatkozástárra épül.',
     multiDocument: 'Többdokumentumos asztali szerkesztés és dokumentumvázlat',
     wordLike: 'Word-szerű, kézirat-szintű szétválasztás, egyesítés és kijelölés',
     pdf: 'Strukturált PDF-import geometria-alapú lábjegyzet-felismeréssel',
@@ -66,7 +66,7 @@ const STUDIO_UPDATE = {
     uiLocales: 'választható felületi lokalizáció',
   },
   de: {
-    summary: 'Open Manuscript Studio 0.3.0-beta.2 ergänzt Live-Zusammenarbeit am Manuskript: Eingeladene Autoren erhalten erst nach Annahme in Studio Zugriff; Namen und Farben kennzeichnen ihre Live-Cursor. Die Beta umfasst außerdem Studio-native Einreichungs-, Begutachtungs- und Annahme-Workflows für verifizierte Publikationen ohne OJS/OMP, InDesign-kompatibles Publikationslayout und eine persönliche, dokumentübergreifende Literaturbibliothek.',
+    summary: 'Open Manuscript Studio 0.3.0-beta.3 ergänzt verknüpfte Word-Fuß- und Endnoten, die vollständige Anzeige nicht druckbarer Zeichen, einen dauerhaften Chat für Mitwirkende, klarere DOCX-, semantische HTML5- und PDF-Exporte sowie verbesserte JATS-, IDML- und OMI-Paketabläufe. Die Version baut auf Live-Zusammenarbeit, Studio-nativen Redaktionsworkflows, InDesign-kompatiblem Layout und wiederverwendbaren Literaturbibliotheken auf.',
     multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
     wordLike: 'Word-ähnliches manuskriptweites Teilen, Zusammenführen und Auswählen',
     pdf: 'Strukturierter PDF-Import mit geometriebasierter Fußnotenerkennung',
@@ -196,7 +196,7 @@ export default function Home() {
 
         <section className={styles.studio} aria-labelledby="current-development-status">
           <div className={styles.studioContent}>
-            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.3.0-beta.2 public beta</p>
+            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.3.0-beta.3 public beta</p>
             <h2 id="current-development-status">{t.status}</h2>
             <h3>{t.currentTitle}</h3>
             <p>{studioUpdate.summary}</p>
@@ -210,7 +210,7 @@ export default function Home() {
           </div>
 
           <aside className={styles.studioFeatures} aria-label={t.status}>
-            <h3>0.3.0-beta.2</h3>
+            <h3>0.3.0-beta.3</h3>
             <p>Web · Windows · Linux · macOS · Android · iOS/iPadOS</p>
             <p><strong>47</strong> selectable UI languages</p>
             <nav className={styles.contextLinks} aria-label={t.status}>
