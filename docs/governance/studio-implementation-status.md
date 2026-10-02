@@ -31,7 +31,7 @@ keywords:
 |---|---|
 | Status | **Beta** |
 | Snapshot date | **2026-09-28** |
-| Current development source version | `0.3.0-beta.2` |
+| Current development source version | `0.3.0-beta.3` |
 | Reference implementation | Open Manuscript Studio |
 | Source repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web target | Modern browsers |
@@ -39,7 +39,7 @@ keywords:
 | Mobile targets | Android public universal APK; iOS/iPadOS validated native simulator target, with TestFlight/App Store distribution pending Apple Developer signing |
 | Web deployment | `studio.openmanuscript.org` |
 
-The current Studio source tree reports **`0.3.0-beta.2`**. This beta adds accepted-invitation live collaboration: authors can review invitations in Studio, accept them before manuscript access is granted, and co-edit with named, color-coded live cursors. It builds on the primary authoring, import/export, authentication, native-client and OJS/OMP review workflows, plus validated publication-output infrastructure. Packaged downloads track the current immutable GitHub release. Beta does **not** mean that every optional integration or distribution channel is production-complete.
+The current Studio source tree reports **`0.3.0-beta.3`**. This beta adds linked Word footnotes and endnotes, complete non-printing marks, persistent collaborator chat, clearer export formats, and improved JATS and IDML workflows. It builds on accepted-invitation live collaboration, the primary authoring, import/export, authentication, native-client and OJS/OMP review workflows, plus validated publication-output infrastructure. Packaged downloads track the current immutable GitHub release. Beta does **not** mean that every optional integration or distribution channel is production-complete.
 
 This page describes **implemented product capabilities**, not OMI specification conformance. Formal specification maturity and conformance evidence are tracked separately in the [OMI Implementation Status Matrix](./implementation-status-matrix.md). Publication-profile behaviour is mapped requirement by requirement in the [Studio OMI-SPEC-240 Implementation Profile](./studio-omi-spec-240-implementation-profile.md); that profile records implementation evidence and does not make a formal conformance claim.
 
@@ -165,7 +165,7 @@ The current OJS and OMP integrations are bidirectional for review work: Studio c
 
 ## Release and distribution
 
-`0.3.0-beta.2` is the current Studio beta release line. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Public download links follow GitHub's current release rather than embedding one historical tag in the website, while published release assets themselves remain immutable. The application version is independent of the portable OMI manuscript format, which remains `OMI-SPEC-320@0.2.0`.
+`0.3.0-beta.3` is the current Studio beta release line. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Public download links follow GitHub's current release rather than embedding one historical tag in the website, while published release assets themselves remain immutable. The application version is independent of the portable OMI manuscript format, which remains `OMI-SPEC-320@0.2.0`.
 
 iOS/iPadOS currently has a successful CI simulator build rather than a public IPA. The Apple distribution path is prepared but deliberately separated from simulator validation: public/device builds require the real Apple Development Team ID, distribution certificate, provisioning profile and final `apple-app-site-association` configuration before TestFlight/App Store publication can be claimed.
 

@@ -10,7 +10,7 @@ slug: /studio/visual-tour
 This page introduces **Open Manuscript Studio** through screenshots captured from the real Studio interface. The screenshots are rendered from the current application code with non-personal test data, so they show the actual React components, navigation, editor and responsive layout rather than illustrative mockups.
 
 :::note
-The interface is under active development. The current public release line is **0.3.0-beta.2**. Labels and controls may move as the Studio approaches its 1.0 architecture; the screenshots show the real application UI, while newer controls added after a screenshot was captured are described in the accompanying text.
+The interface is under active development. The current public release line is **0.3.0-beta.3**. Labels and controls may move as the Studio approaches its 1.0 architecture; the screenshots show the real application UI, while newer controls added after a screenshot was captured are described in the accompanying text.
 
 Studio also supports live manuscript collaboration. Invited authors must accept an invitation in Studio before they can edit; collaborator names and colors appear beside their live cursors. See [Live manuscript collaboration](../foundations/studio-live-collaboration.md) for the invitation flow.
 :::
