@@ -169,5 +169,8 @@
   },
   "sidebar.tutorialSidebar.doc.ADR Register": {
     "message": "ADR-nyilvántartás"
+  },
+  "sidebar.tutorialSidebar.doc.Research Modules": {
+    "message": "Kutatási modulok"
   }
 }

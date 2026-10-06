@@ -80,6 +80,10 @@ Studio uses the same application core on compact screens. The responsive interfa
 
 The Android application and the browser interface share the same core manuscript model. Mobile-specific platform adapters handle tasks such as file selection, native storage destinations and authentication handoff where necessary.
 
+## Research modules
+
+Studio also provides optional research workspaces for history and archives, religious texts, critical editions, corpus linguistics, musicology, cultural heritage, social research, legal sources, and research reproducibility. See the [Research Modules guide](../research-modules) for current capabilities, storage behavior, and provider limits.
+
 ## What the screenshots demonstrate
 
 Taken together, these views show the central idea behind Studio: **one structured manuscript can move through writing, editing, review, publication preparation and external publishing integrations without repeatedly rebuilding the document in unrelated tools.**

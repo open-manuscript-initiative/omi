@@ -1,50 +1,149 @@
 {
-  "sidebar.tutorialSidebar.category.Introduction": {"message": "Einführung"},
-  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.title": {"message": "Einführung"},
-  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.description": {"message": "Zweck, Vision und übergeordnete Architektur der Open Manuscript Initiative."},
-  "sidebar.tutorialSidebar.category.Foundations": {"message": "Grundlagen"},
-  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.title": {"message": "Grundlagen"},
-  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.description": {"message": "Die gemeinsamen Prinzipien, das Objektmodell und die kontrollierte Terminologie der OMI-Spezifikationsfamilie."},
-  "sidebar.tutorialSidebar.category.Core Semantic Specifications": {"message": "Zentrale semantische Spezifikationen"},
-  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.title": {"message": "Zentrale semantische Spezifikationen"},
-  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.description": {"message": "Normative Modelle für Manuskriptstruktur, stabile Verankerung, Annotationen, wissenschaftliche Metadaten, Identität, Mitwirkung, Versionierung und Änderungen."},
-  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing": {"message": "Wissenschaftlicher Workflow und Publikation"},
-  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.title": {"message": "Wissenschaftlicher Workflow und Publikation"},
-  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.description": {"message": "Spezifikationen für Begutachtung, Zitationen, bibliografische Datensätze, Referenzbibliotheken und Publikationsworkflows."},
-  "sidebar.tutorialSidebar.category.Platform and Exchange": {"message": "Plattform und Datenaustausch"},
-  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.title": {"message": "Plattform und Datenaustausch"},
-  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.description": {"message": "Spezifikationen für Erweiterbarkeit, APIs, Dateiaustausch, Paketierung, Validierung und Langzeitarchivierung."},
-  "sidebar.tutorialSidebar.category.Governance": {"message": "Governance"},
-  "sidebar.tutorialSidebar.category.Governance.link.generated-index.title": {"message": "Governance"},
-  "sidebar.tutorialSidebar.category.Governance.link.generated-index.description": {"message": "Richtlinien zu Autorität, Fahrplan, Reifegrad, Versionierung, Autorschaft, Identität und Pflege der OMI-Spezifikationen."},
-  "sidebar.tutorialSidebar.doc.Vision": {"message": "Vision"},
-  "sidebar.tutorialSidebar.doc.Architecture Overview": {"message": "Architekturübersicht"},
-  "sidebar.tutorialSidebar.doc.Core Principles": {"message": "Grundprinzipien"},
-  "sidebar.tutorialSidebar.doc.Scholarly Object Model": {"message": "Modell wissenschaftlicher Objekte"},
-  "sidebar.tutorialSidebar.doc.Terminology and Definitions": {"message": "Terminologie und Definitionen"},
-  "sidebar.tutorialSidebar.doc.Document Model": {"message": "Dokumentmodell"},
-  "sidebar.tutorialSidebar.doc.Anchor Model": {"message": "Ankermodell"},
-  "sidebar.tutorialSidebar.doc.Annotation Model": {"message": "Annotationsmodell"},
-  "sidebar.tutorialSidebar.doc.Metadata Model": {"message": "Metadatenmodell"},
-  "sidebar.tutorialSidebar.doc.Identity and Contributor Model": {"message": "Identitäts- und Mitwirkendenmodell"},
-  "sidebar.tutorialSidebar.doc.Versioning and Change Model": {"message": "Versionierungs- und Änderungsmodell"},
-  "sidebar.tutorialSidebar.doc.Review Model": {"message": "Begutachtungsmodell"},
-  "sidebar.tutorialSidebar.doc.Citation Model": {"message": "Zitationsmodell"},
-  "sidebar.tutorialSidebar.doc.Bibliographic Record Model": {"message": "Modell bibliografischer Datensätze"},
-  "sidebar.tutorialSidebar.doc.Reference Library and Registry Architecture": {"message": "Architektur der Referenzbibliothek und des Registers"},
-  "sidebar.tutorialSidebar.doc.Publishing Model": {"message": "Publikationsmodell"},
-  "sidebar.tutorialSidebar.doc.Plugin Architecture": {"message": "Plugin-Architektur"},
-  "sidebar.tutorialSidebar.doc.Platform API": {"message": "Plattform-API"},
-  "sidebar.tutorialSidebar.doc.File Format": {"message": "Dateiformat"},
-  "sidebar.tutorialSidebar.doc.Container Architecture": {"message": "Container-Architektur"},
-  "sidebar.tutorialSidebar.doc.Charter": {"message": "Charta"},
-  "sidebar.tutorialSidebar.doc.Roadmap to OMI 1.0": {"message": "Fahrplan zu OMI 1.0"},
-  "sidebar.tutorialSidebar.doc.Implementation Status Matrix": {"message": "Implementierungsstatus-Matrix"},
-  "sidebar.tutorialSidebar.doc.Architecture Audit": {"message": "Architekturprüfung"},
-  "sidebar.tutorialSidebar.doc.Documentation Architecture": {"message": "Dokumentationsarchitektur"},
-  "sidebar.tutorialSidebar.doc.Specification Lifecycle": {"message": "Lebenszyklus der Spezifikationen"},
-  "sidebar.tutorialSidebar.doc.Versioning Policy": {"message": "Versionierungsrichtlinie"},
-  "sidebar.tutorialSidebar.doc.Specification Style Guide": {"message": "Stilrichtlinie für Spezifikationen"},
-  "sidebar.tutorialSidebar.doc.Specification Template": {"message": "Spezifikationsvorlage"},
-  "sidebar.tutorialSidebar.doc.Specification Registry": {"message": "Spezifikationsregister"}
+  "sidebar.tutorialSidebar.category.Introduction": {
+    "message": "Einführung"
+  },
+  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.title": {
+    "message": "Einführung"
+  },
+  "sidebar.tutorialSidebar.category.Introduction.link.generated-index.description": {
+    "message": "Zweck, Vision und übergeordnete Architektur der Open Manuscript Initiative."
+  },
+  "sidebar.tutorialSidebar.category.Foundations": {
+    "message": "Grundlagen"
+  },
+  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.title": {
+    "message": "Grundlagen"
+  },
+  "sidebar.tutorialSidebar.category.Foundations.link.generated-index.description": {
+    "message": "Die gemeinsamen Prinzipien, das Objektmodell und die kontrollierte Terminologie der OMI-Spezifikationsfamilie."
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications": {
+    "message": "Zentrale semantische Spezifikationen"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.title": {
+    "message": "Zentrale semantische Spezifikationen"
+  },
+  "sidebar.tutorialSidebar.category.Core Semantic Specifications.link.generated-index.description": {
+    "message": "Normative Modelle für Manuskriptstruktur, stabile Verankerung, Annotationen, wissenschaftliche Metadaten, Identität, Mitwirkung, Versionierung und Änderungen."
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing": {
+    "message": "Wissenschaftlicher Workflow und Publikation"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.title": {
+    "message": "Wissenschaftlicher Workflow und Publikation"
+  },
+  "sidebar.tutorialSidebar.category.Scholarly Workflow and Publishing.link.generated-index.description": {
+    "message": "Spezifikationen für Begutachtung, Zitationen, bibliografische Datensätze, Referenzbibliotheken und Publikationsworkflows."
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange": {
+    "message": "Plattform und Datenaustausch"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.title": {
+    "message": "Plattform und Datenaustausch"
+  },
+  "sidebar.tutorialSidebar.category.Platform and Exchange.link.generated-index.description": {
+    "message": "Spezifikationen für Erweiterbarkeit, APIs, Dateiaustausch, Paketierung, Validierung und Langzeitarchivierung."
+  },
+  "sidebar.tutorialSidebar.category.Governance": {
+    "message": "Governance"
+  },
+  "sidebar.tutorialSidebar.category.Governance.link.generated-index.title": {
+    "message": "Governance"
+  },
+  "sidebar.tutorialSidebar.category.Governance.link.generated-index.description": {
+    "message": "Richtlinien zu Autorität, Fahrplan, Reifegrad, Versionierung, Autorschaft, Identität und Pflege der OMI-Spezifikationen."
+  },
+  "sidebar.tutorialSidebar.doc.Vision": {
+    "message": "Vision"
+  },
+  "sidebar.tutorialSidebar.doc.Architecture Overview": {
+    "message": "Architekturübersicht"
+  },
+  "sidebar.tutorialSidebar.doc.Core Principles": {
+    "message": "Grundprinzipien"
+  },
+  "sidebar.tutorialSidebar.doc.Scholarly Object Model": {
+    "message": "Modell wissenschaftlicher Objekte"
+  },
+  "sidebar.tutorialSidebar.doc.Terminology and Definitions": {
+    "message": "Terminologie und Definitionen"
+  },
+  "sidebar.tutorialSidebar.doc.Document Model": {
+    "message": "Dokumentmodell"
+  },
+  "sidebar.tutorialSidebar.doc.Anchor Model": {
+    "message": "Ankermodell"
+  },
+  "sidebar.tutorialSidebar.doc.Annotation Model": {
+    "message": "Annotationsmodell"
+  },
+  "sidebar.tutorialSidebar.doc.Metadata Model": {
+    "message": "Metadatenmodell"
+  },
+  "sidebar.tutorialSidebar.doc.Identity and Contributor Model": {
+    "message": "Identitäts- und Mitwirkendenmodell"
+  },
+  "sidebar.tutorialSidebar.doc.Versioning and Change Model": {
+    "message": "Versionierungs- und Änderungsmodell"
+  },
+  "sidebar.tutorialSidebar.doc.Review Model": {
+    "message": "Begutachtungsmodell"
+  },
+  "sidebar.tutorialSidebar.doc.Citation Model": {
+    "message": "Zitationsmodell"
+  },
+  "sidebar.tutorialSidebar.doc.Bibliographic Record Model": {
+    "message": "Modell bibliografischer Datensätze"
+  },
+  "sidebar.tutorialSidebar.doc.Reference Library and Registry Architecture": {
+    "message": "Architektur der Referenzbibliothek und des Registers"
+  },
+  "sidebar.tutorialSidebar.doc.Publishing Model": {
+    "message": "Publikationsmodell"
+  },
+  "sidebar.tutorialSidebar.doc.Plugin Architecture": {
+    "message": "Plugin-Architektur"
+  },
+  "sidebar.tutorialSidebar.doc.Platform API": {
+    "message": "Plattform-API"
+  },
+  "sidebar.tutorialSidebar.doc.File Format": {
+    "message": "Dateiformat"
+  },
+  "sidebar.tutorialSidebar.doc.Container Architecture": {
+    "message": "Container-Architektur"
+  },
+  "sidebar.tutorialSidebar.doc.Charter": {
+    "message": "Charta"
+  },
+  "sidebar.tutorialSidebar.doc.Roadmap to OMI 1.0": {
+    "message": "Fahrplan zu OMI 1.0"
+  },
+  "sidebar.tutorialSidebar.doc.Implementation Status Matrix": {
+    "message": "Implementierungsstatus-Matrix"
+  },
+  "sidebar.tutorialSidebar.doc.Architecture Audit": {
+    "message": "Architekturprüfung"
+  },
+  "sidebar.tutorialSidebar.doc.Documentation Architecture": {
+    "message": "Dokumentationsarchitektur"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Lifecycle": {
+    "message": "Lebenszyklus der Spezifikationen"
+  },
+  "sidebar.tutorialSidebar.doc.Versioning Policy": {
+    "message": "Versionierungsrichtlinie"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Style Guide": {
+    "message": "Stilrichtlinie für Spezifikationen"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Template": {
+    "message": "Spezifikationsvorlage"
+  },
+  "sidebar.tutorialSidebar.doc.Specification Registry": {
+    "message": "Spezifikationsregister"
+  },
+  "sidebar.tutorialSidebar.doc.Research Modules": {
+    "message": "Forschungsmodule"
+  }
 }
