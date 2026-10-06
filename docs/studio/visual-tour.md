@@ -82,7 +82,7 @@ The Android application and the browser interface share the same core manuscript
 
 ## Research modules
 
-Studio also provides optional research workspaces for history and archives, religious texts, critical editions, corpus linguistics, musicology, cultural heritage, social research, legal sources, and research reproducibility. See the [Research Modules guide](./research-modules.md) for current capabilities, storage behavior, and provider limits.
+Studio also provides optional research workspaces for history and archives, religious texts, critical editions, corpus linguistics, musicology, cultural heritage, social research, legal sources, and research reproducibility. See the [Research Modules guide](../research-modules.md) for current capabilities, storage behavior, and provider limits.
 
 ## What the screenshots demonstrate
 
