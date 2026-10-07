@@ -1,11 +1,11 @@
 import { readFile } from 'node:fs/promises';
 
 const expected = {
-  studio: '0.3.0-beta.3',
+  studio: '0.3.0-beta.4',
   ojs: 'v1.6.0',
   omp: 'v1.5.1',
   iosMarketing: '0.3.0',
-  iosBuild: '15',
+  iosBuild: '16',
 };
 
 const currentFacingFiles = [
@@ -37,6 +37,7 @@ const currentFacingFiles = [
 ];
 
 const staleProductVersions = [
+  '0.3.0-beta.3',
   '0.1.0-alpha.4',
   '0.1.0-beta.3',
   '0.1.0-beta.4',
