@@ -8,7 +8,7 @@ description: Submission, peer review, author revision, editorial decision and pu
 
 Open Manuscript Studio can manage the complete editorial workflow for a **DNS-verified journal or press that does not use OJS or OMP**.
 
-> **Operational beta in Studio 0.3.0-beta.3.** The complete submission → review → author revision → editorial decision → publication path is implemented and is being hardened for the Studio 1.0 line. OJS/OMP integrations keep their existing authority boundary.
+> **Operational beta in Studio 0.3.0-beta.4.** The complete submission → review → author revision → editorial decision → publication path is implemented and is being hardened for the Studio 1.0 line. OJS/OMP integrations keep their existing authority boundary.
 
 ## Authority boundary
 
