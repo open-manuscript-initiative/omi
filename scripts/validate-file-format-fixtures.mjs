@@ -111,14 +111,14 @@ function findDuplicateJsonMemberKeys(source) {
   let cursor = 0;
 
   function skipWhitespace() {
-    while (/\\s/.test(source[cursor] ?? '') && cursor < source.length) cursor += 1;
+    while (/\s/.test(source[cursor] ?? '') && cursor < source.length) cursor += 1;
   }
 
   function readString() {
     const start = cursor;
     cursor += 1;
     while (cursor < source.length) {
-      if (source[cursor] === '\\\\') {
+      if (source[cursor] === '\\') {
         cursor += 2;
       } else if (source[cursor] === '"') {
         cursor += 1;
@@ -190,7 +190,7 @@ function findDuplicateJsonMemberKeys(source) {
 
     while (
       cursor < source.length &&
-      !/[\\s,}\\]]/.test(source[cursor])
+      !/[\s,}\]]/.test(source[cursor])
     ) {
       cursor += 1;
     }
