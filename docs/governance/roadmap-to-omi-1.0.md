@@ -56,7 +56,7 @@ The programme has moved well beyond the initial documentation-audit stage. Gover
 | Multilingual product support | **Operational implementation** | Studio exposes 47 selectable interface languages with localized help and reviewed translation overlays. Normative specification bodies remain English. |
 | Import/export | **Substantive implementation** | DOCX import and broad publication/export targets are implemented, including JATS, HTML, EPUB, printed and interactive PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX-oriented outputs. |
 | Desktop distribution | **Operational beta** | Windows, Linux and macOS packages are built automatically; desktop/cross-platform update notifications are implemented. Current release automation binds published tags to exact build commits and does not replace assets of existing releases. Code-signing work remains in progress. |
-| Canonical schemas and conformance | **Not completed** | Versioned normative schemas, approved fixtures, validator behaviour and formal conformance suites remain major pre-1.0 deliverables. |
+| Canonical schemas and conformance | **Partial foundation; release gate open** | OMI-SPEC-320@0.2.0 now has a versioned Draft 2020-12 schema, eight structural/semantic fixtures and a reference validator. CI enforcement and a requirement-mapped conformance profile are being added; fixture approval, complete requirement coverage, validator diagnostics and independent implementation evidence remain pre-1.0 gates. |
 | Independent implementations | **Not yet verified** | Interoperability evidence beyond the primary reference implementation remains required for OMI 1.0 confidence. |
 
 ## 4. Completed foundation work
