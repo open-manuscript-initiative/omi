@@ -2,8 +2,8 @@
 
 **Specification under test:** `OMI-SPEC-320@0.2.0`  
 **Status:** Draft conformance profile; review required  
-**Canonical schema:** [OMI manuscript 0.2 JSON Schema](../../static/schemas/omi-manuscript-0.2.schema.json)  
-**Fixture manifest:** [0.2.0 fixture manifest](../../static/examples/omi-spec-320/0.2.0/manifest.json)  
+**Canonical schema:** [OMI manuscript 0.2 JSON Schema](/schemas/omi-manuscript-0.2.schema.json)  
+**Fixture manifest:** [0.2.0 fixture manifest](/examples/omi-spec-320/0.2.0/manifest.json)  
 **Reference command:** `npm run test:file-format`
 
 ## Purpose and scope
