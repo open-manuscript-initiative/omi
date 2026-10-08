@@ -48,7 +48,7 @@ for (const fixture of manifest.fixtures) {
   if (
     !Array.isArray(fixture.requirements) ||
     fixture.requirements.length === 0 ||
-    fixture.requirements.some((id) => !/^REQ-FMT-\\d{3}$/.test(id))
+    fixture.requirements.some((id) => !/^REQ-FMT-\d{3}$/.test(id))
   ) {
     throw new Error('Every fixture must map to one or more REQ-FMT-NNN requirements.');
   }
