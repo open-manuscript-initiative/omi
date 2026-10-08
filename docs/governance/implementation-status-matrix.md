@@ -127,7 +127,7 @@ The 2026-08-06 full review did not find authoritative OMI repository artefacts f
 - a formal conformance test suite;
 - independently verified implementations.
 
-The 2026-09-05 OMI-SPEC-320 update added the first canonical versioned manuscript JSON Schema and reference fixtures. The proposed `0.2.0-draft.3` profile now checks 14 requirement-mapped fixtures, strict UTF-8/JSON parsing, selected semantic constraints, deterministic diagnostic codes and pointers, and local-only schema references. The profile and fixtures still need maintainer approval and complete requirement coverage; independent implementation results remain open.
+The 2026-09-05 OMI-SPEC-320 update added the first canonical versioned manuscript JSON Schema and reference fixtures. The `0.2.0-draft.4` profile checks 14 fixtures, strict UTF-8/JSON parsing, configured parser limits, selected semantic constraints, deterministic diagnostics, and local-only schema references. A complete register maps all 72 normative requirements: 10 are tested in this repository, 33 have partial evidence, and 29 remain untested. The initial Draft profile and fixture corpus have recorded maintainer approval; complete behavioral coverage and independent implementation results remain open.
 
 Open Manuscript Studio documents the canonical `OMI-SPEC-320@0.2.0` boundary and has runtime validation and conformance tests. That implementation evidence does not make the Draft schema an approved stable release or prove interoperability with a second implementation.
 

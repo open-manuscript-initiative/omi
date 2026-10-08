@@ -126,7 +126,8 @@ The reference runner is `npm run test:file-format`; the CI workflow runs it on
 changes to the schema, specification, fixtures, or validator, and the website
 build runs the same command.
 
-The current corpus is an initial reviewable set, not a complete approval of
+The current corpus is an initial Draft set whose profile and fixtures have
+been accepted for review; this is not a complete conformance approval of
 OMI-SPEC-320@0.2.0. Its requirement coverage, current limits, and release gates
 are recorded in
 [OMI-SPEC-320 Conformance Profile](./file-format-conformance.md). A successful
@@ -826,7 +827,8 @@ At publication of this draft:
 - the `0.2` JSON Schema is published at the canonical versioned URI;
 - a proposed fixture set and reference validator are published;
 - Open Manuscript Studio documents and tests its `OMI-SPEC-320@0.2.0` schema boundary;
-- fixture approval, full requirement coverage, and independent implementation results remain open;
+- the initial Draft fixture corpus and profile have recorded maintainer approval;
+- full behavioral requirement coverage and independent implementation results remain open;
 - no official OMI 1.0 format status is implied by the Studio implementation or this Draft suite.
 
 Passing the JSON Schema or reference fixtures alone does not establish full conformance.
