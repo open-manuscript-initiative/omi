@@ -14,7 +14,8 @@
   },
   "id": "urn:uuid:924ac355-f66c-4f2d-9946-dd25a7ac4775",
   "locale": "en",
-  "title": "First title",\n  "title": "Second title",
+  "title": "First title",
+  "title": "Second title",
   "sections": [
     {
       "id": "section-introduction",
