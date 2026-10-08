@@ -25,7 +25,7 @@ keywords:
 | Document type | Normative |
 | Normative language | English |
 | Editors | OMI maintainers |
-| Last updated | 2026-09-05 |
+| Last updated | 2026-10-08 |
 | Legacy identifier | `OMI-SPEC-011` |
 | Replaces | `OMI-SPEC-320@0.1.0` |
 | Replaced by | None |
@@ -776,7 +776,7 @@ The fixture manifest identifies:
 - expected diagnostic codes for invalid examples;
 - the fixture purpose.
 
-The initial set includes:
+The current proposed set includes:
 
 - a minimal Core Snapshot;
 - a representative History Exchange document with a namespaced extension;
@@ -785,9 +785,10 @@ The initial set includes:
 - a document containing an unresolved annotation target;
 - a document with reversed creation and update timestamps;
 - a document with inconsistent history heads;
-- a document containing a forbidden credential field.
+- a document containing a forbidden credential field;
+- non-object roots, malformed JSON, unsupported format/schema versions, and duplicate member names, including escape-equivalent names.
 
-The repository reference validator demonstrates schema and selected semantic checks. It is implementation evidence, not yet a complete formal conformance suite. Implementations MUST evaluate the normative requirements in this document in addition to passing the published fixtures.
+The [conformance profile](./file-format-conformance.md) defines the runner's parser, schema, semantic and diagnostic checks. The fixture corpus is still a review candidate; passing it does not establish complete conformance. Implementations MUST evaluate the normative requirements in this document in addition to passing the published fixtures.
 
 ## 24. Normative references
 
@@ -823,10 +824,10 @@ The authoritative implementation evidence is maintained in the [OMI Implementati
 At publication of this draft:
 
 - the `0.2` JSON Schema is published at the canonical versioned URI;
-- an initial fixture set and reference validator are published;
-- Open Manuscript Studio exports a precursor `.omi.json` representation using the unpublished `0.1` schema URI;
-- Studio does not yet claim `OMI-SPEC-320@0.2.0` conformance;
-- no complete third-party validator or formal cross-implementation conformance suite has been verified.
+- a proposed fixture set and reference validator are published;
+- Open Manuscript Studio documents and tests its `OMI-SPEC-320@0.2.0` schema boundary;
+- fixture approval, full requirement coverage, and independent implementation results remain open;
+- no official OMI 1.0 format status is implied by the Studio implementation or this Draft suite.
 
 Passing the JSON Schema or reference fixtures alone does not establish full conformance.
 
@@ -839,7 +840,7 @@ The following issues remain open for later drafts:
 3. decide whether the provisional vendor media type should be registered or replaced;
 4. define a formal compatibility table for all pre-1.0 minor versions;
 5. publish a machine-readable diagnostic schema shared with `OMI-SPEC-180`;
-6. add duplicate-member-name and resource-limit byte fixtures that cannot be represented through ordinary JSON serialization;
+6. add configured resource-limit byte fixtures and adversarial nesting/size cases;
 7. define cross-implementation lossless round-trip tests;
 8. determine which extension capabilities may be advertised in the `omi` envelope;
 9. align externalized container-part reconstruction with the next `OMI-SPEC-330` draft;

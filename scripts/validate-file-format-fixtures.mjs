@@ -1,9 +1,10 @@
 import { readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
+import { parseUniqueJson } from './parse-unique-json.mjs';
 
 const repositoryRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const schemaPath = join(
@@ -29,10 +30,11 @@ const ajv = new Ajv2020({
 addFormats(ajv);
 const validateStructure = ajv.compile(schema);
 
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
 if (
   manifest.specification !== 'OMI-SPEC-320@0.2.0' ||
   manifest.schema !== schema.$id ||
-  manifest.suiteVersion !== '0.2.0-draft.2'
+  manifest.suiteVersion !== '0.2.0-draft.3'
 ) {
   throw new Error('Fixture manifest does not match the pinned OMI-SPEC-320 schema or suite.');
 }
@@ -97,131 +99,36 @@ if (failures > 0) {
 console.log(
   `Validated ${manifest.fixtures.length} OMI-SPEC-320@0.2.0 fixtures against structural and semantic rules.`,
 );
+}
 
 async function validateFixture(path) {
-  const source = await readFile(path, 'utf8');
-  const duplicateKeys = findDuplicateJsonMemberKeys(source);
-  if (duplicateKeys.length > 0) {
-    return duplicateKeys.map((instancePath) => ({
-      code: 'FMT-DUPLICATE-JSON-MEMBER',
-      severity: 'error',
-      instancePath,
-      requirement: 'REQ-FMT-007',
-      message: 'JSON object contains a duplicate member name.',
-    }));
-  }
+  return validateRawDocument(await readFile(path));
+}
 
-  let document;
+export function validateRawDocument(source) {
   try {
-    document = JSON.parse(source);
-  } catch {
+    return validateDocument(parseUniqueJson(source));
+  } catch (error) {
+    const diagnostics = {
+      DUPLICATE_KEY: ['FMT-DUPLICATE-JSON-MEMBER', 'REQ-FMT-007', 'JSON object contains a duplicate member name.'],
+      INVALID_UTF8: ['FMT-INVALID-UTF8', 'REQ-FMT-006', 'Input is not valid UTF-8.'],
+      INVALID_UNICODE: ['FMT-INVALID-UNICODE', 'REQ-FMT-009', 'String contains an unpaired UTF-16 surrogate.'],
+      NON_FINITE_NUMBER: ['FMT-NONFINITE-NUMBER', 'REQ-FMT-010', 'Number is not finite in the interoperable JSON model.'],
+      UNSAFE_INTEGER: ['FMT-UNSAFE-INTEGER', 'REQ-FMT-011', 'Integer is outside the interoperable JSON range.'],
+    };
+    const [code, requirement, message] = diagnostics[error?.code]
+      ?? ['FMT-INVALID-JSON', 'REQ-FMT-006', 'Fixture is not valid JSON.'];
     return [{
-      code: 'FMT-INVALID-JSON',
+      code,
       severity: 'error',
-      instancePath: '/',
-      requirement: 'REQ-FMT-006',
-      message: 'Fixture is not valid JSON.',
+      instancePath: error?.pointer ?? '/',
+      requirement,
+      message,
     }];
   }
-
-  return validateDocument(document);
 }
 
-function findDuplicateJsonMemberKeys(source) {
-  const duplicates = [];
-  let cursor = 0;
-
-  function skipWhitespace() {
-    while (/\s/.test(source[cursor] ?? '') && cursor < source.length) cursor += 1;
-  }
-
-  function readString() {
-    const start = cursor;
-    cursor += 1;
-    while (cursor < source.length) {
-      if (source[cursor] === '\\') {
-        cursor += 2;
-      } else if (source[cursor] === '"') {
-        cursor += 1;
-        break;
-      } else {
-        cursor += 1;
-      }
-    }
-    const token = source.slice(start, cursor);
-    try {
-      return JSON.parse(token);
-    } catch {
-      return token.slice(1, -1);
-    }
-  }
-
-  function visit(path) {
-    skipWhitespace();
-    const token = source[cursor];
-    if (token === '{') {
-      cursor += 1;
-      skipWhitespace();
-      const names = new Set();
-      while (cursor < source.length && source[cursor] !== '}') {
-        if (source[cursor] !== '"') return;
-        const name = readString();
-        const memberPath = path + '/' + escapeJsonPointerToken(String(name));
-        if (names.has(name)) duplicates.push(memberPath);
-        names.add(name);
-        skipWhitespace();
-        if (source[cursor] !== ':') return;
-        cursor += 1;
-        visit(memberPath);
-        skipWhitespace();
-        if (source[cursor] === ',') {
-          cursor += 1;
-          skipWhitespace();
-        } else {
-          break;
-        }
-      }
-      if (source[cursor] === '}') cursor += 1;
-      return;
-    }
-
-    if (token === '[') {
-      cursor += 1;
-      skipWhitespace();
-      let index = 0;
-      while (cursor < source.length && source[cursor] !== ']') {
-        visit(path + '/' + index);
-        index += 1;
-        skipWhitespace();
-        if (source[cursor] === ',') {
-          cursor += 1;
-          skipWhitespace();
-        } else {
-          break;
-        }
-      }
-      if (source[cursor] === ']') cursor += 1;
-      return;
-    }
-
-    if (token === '"') {
-      readString();
-      return;
-    }
-
-    while (
-      cursor < source.length &&
-      !/[\s,}\]]/.test(source[cursor])
-    ) {
-      cursor += 1;
-    }
-  }
-
-  visit('');
-  return duplicates;
-}
-
-function validateDocument(document) {
+export function validateDocument(document) {
   const diagnostics = [];
 
   if (!validateStructure(document)) {
@@ -237,7 +144,7 @@ function validateDocument(document) {
   }
 
   if (!document || typeof document !== 'object' || Array.isArray(document)) {
-    return diagnostics;
+    return sortDiagnostics(diagnostics);
   }
 
   validateTimestampOrder(document, diagnostics);
@@ -246,7 +153,25 @@ function validateDocument(document) {
   validateHistory(document, indexes, diagnostics);
   validateForbiddenSecrets(document, diagnostics);
 
-  return diagnostics;
+  return sortDiagnostics(diagnostics);
+}
+
+function sortDiagnostics(diagnostics) {
+  return diagnostics.sort((left, right) =>
+    compareCodePoints(left.instancePath, right.instancePath)
+      || compareCodePoints(left.code, right.code)
+      || compareCodePoints(left.requirement, right.requirement),
+  );
+}
+
+function compareCodePoints(left, right) {
+  const leftPoints = Array.from(left, (character) => character.codePointAt(0));
+  const rightPoints = Array.from(right, (character) => character.codePointAt(0));
+  const sharedLength = Math.min(leftPoints.length, rightPoints.length);
+  for (let index = 0; index < sharedLength; index += 1) {
+    if (leftPoints[index] !== rightPoints[index]) return leftPoints[index] - rightPoints[index];
+  }
+  return leftPoints.length - rightPoints.length;
 }
 
 function validateTimestampOrder(document, diagnostics) {

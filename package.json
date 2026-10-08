@@ -20,7 +20,7 @@
     "test:i18n:markup": "node scripts/translate-site-incremental-with-deepl.mjs --test-markup-protection",
     "test:i18n:azure-adapter": "node scripts/translate-site-incremental-with-azure.mjs --test-adapter",
     "test:i18n:placeholders": "node scripts/validate-i18n-placeholders.mjs",
-    "test:file-format": "node scripts/validate-file-format-fixtures.mjs",
+    "test:file-format": "node --test tests/file-format-conformance.test.mjs && node scripts/validate-file-format-fixtures.mjs",
     "test:release-metadata": "node scripts/validate-current-release-metadata.mjs",
     "test:react-runtime": "node scripts/validate-react-runtime.mjs"
   },
