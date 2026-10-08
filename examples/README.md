@@ -6,15 +6,18 @@ Example manuscripts, publication packages and reference files.
 
 The versioned OMI-SPEC-320 Draft fixtures are published from
 [`static/examples/omi-spec-320/0.2.0`](../static/examples/omi-spec-320/0.2.0).
-Their `manifest.json` records the expected validity and diagnostic codes for
-each document.
+The manifest records each fixture's expected validity and stable diagnostic
+codes. The corpus is the initial reviewable conformance set for the Draft; it
+does not yet cover every normative requirement or constitute an OMI 1.0
+approval.
 
-Run the structural and semantic reference checks with:
+Run the same reference validator used by CI with:
 
 ```bash
 npm run test:file-format
 ```
 
-The runner uses the canonical Draft 2020-12 schema at
-[`static/schemas/omi-manuscript-0.2.schema.json`](../static/schemas/omi-manuscript-0.2.schema.json)
-and adds the referential checks that JSON Schema cannot express.
+The runner validates structure against the canonical Draft 2020-12 schema and
+applies semantic checks that JSON Schema cannot express. The full
+[conformance profile, coverage matrix, and pre-1.0 release gates](../docs/specifications/file-format-conformance.md)
+describe what the current corpus proves and what remains open.
