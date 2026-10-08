@@ -9,55 +9,61 @@
 ## Purpose and scope
 
 This profile defines how the OMI website repository checks the current
-OMI-SPEC-320 Draft. The file-format JSON Schema is the structural authority.
+OMI-SPEC-320 Draft. The version-pinned JSON Schema is the structural authority.
 The reference validator adds the semantic checks that JSON Schema cannot
-express. The fixture manifest defines expected validity and diagnostic codes.
+express. The fixture manifest defines expected validity, stable diagnostic
+codes, and the requirement identifiers exercised by each case.
 
-A test result is tied to the exact specification version, schema URI, fixture
-manifest, validator source, and Git revision. The profile does not silently
-select a newer schema or fetch a schema named by an input document.
+A run is bound to the exact specification version, schema URI, fixture
+manifest, validator source, and Git revision. It does not select a newer schema
+or fetch a schema named by an input document.
 
-The profile is not yet an OMI 1.0 conformance claim. The fixture set is the
-initial review corpus for this Draft. A green run proves only the behaviours
-represented by its cases.
+The profile is not an OMI 1.0 conformance claim. These fixtures are an initial
+review corpus for the Draft. A green run proves only the behaviours represented
+by the cases.
 
-## Conformance classes in scope
+## Validator behaviour
 
-The current runner exercises a limited subset of the **conforming validator**
-class. It checks:
+For every manifest entry, the runner:
 
-1. structural validity with the Draft 2020-12 schema and Ajv format validation;
-2. manuscript timestamp order;
-3. addressable identifier uniqueness;
-4. in-document references for contributions, annotations, citations,
-   citation clusters, cross-references, and revision history;
-5. root/revision-history head agreement;
-6. forbidden credential fields.
+1. checks that the manifest identifies OMI-SPEC-320@0.2.0 and the schema's
+   exact `$id`;
+2. rejects duplicate/missing fixture paths, absent requirement mappings, and
+   malformed expected-diagnostic declarations;
+3. detects duplicate JSON object member names before `JSON.parse`;
+4. reports malformed JSON with `FMT-INVALID-JSON`;
+5. validates parsed values with Draft 2020-12/Ajv and format checking;
+6. applies timestamp-order, identifier uniqueness, reference, history-head,
+   and credential-exclusion checks;
+7. compares validity and the exact set of diagnostic codes with the manifest.
 
-It does not yet prove complete producer, consumer, migrator, or lossless
-processor conformance. It does not test Studio's import/export round-trip.
+The runner exits non-zero for missing files, invalid manifest structure, parse
+errors, or any expectation mismatch.
 
 ## Current fixture inventory
 
-All fixtures live under
-`static/examples/omi-spec-320/0.2.0/`. Their expected outcomes are normative
-for this draft corpus; each case is checked for both validity and the exact set
-of diagnostic codes.
+The versioned corpus is under
+`static/examples/omi-spec-320/0.2.0/`. Requirement mappings are maintained in
+`manifest.json` and validated by the runner.
 
 | Fixture | Expected result | Behaviour exercised |
 |---|---|---|
-| `valid-minimal.omi.json` | Valid | Small Core Snapshot with an ordered section and block |
-| `valid-history-extension.omi.json` | Valid | History Exchange, Lossless Round Trip declaration, references, namespaced extension |
+| `valid-minimal.omi.json` | Valid | Core Snapshot with ordered section and block |
+| `valid-history-extension.omi.json` | Valid | History Exchange, declared profiles, resolved references, namespaced extension |
 | `invalid-missing-version.omi.json` | `FMT-SCHEMA` | Required OMI format version |
 | `invalid-duplicate-id.omi.json` | `FMT-DUPLICATE-ID` | Duplicate addressable identifier |
-| `invalid-unresolved-reference.omi.json` | `FMT-UNRESOLVED-REFERENCE` | Required in-document target resolution |
-| `invalid-timestamp-order.omi.json` | `FMT-TIMESTAMP-ORDER` | `updatedAt` earlier than `createdAt` |
-| `invalid-history-head-mismatch.omi.json` | `FMT-HISTORY-HEAD-MISMATCH` | Snapshot and history head consistency |
-| `invalid-forbidden-secret.omi.json` | `FMT-FORBIDDEN-SECRET` | Credential exclusion from portable content |
+| `invalid-unresolved-reference.omi.json` | `FMT-UNRESOLVED-REFERENCE` | Missing in-document reference target |
+| `invalid-timestamp-order.omi.json` | `FMT-TIMESTAMP-ORDER` | Update instant earlier than creation |
+| `invalid-history-head-mismatch.omi.json` | `FMT-HISTORY-HEAD-MISMATCH` | Snapshot/history head disagreement |
+| `invalid-forbidden-secret.omi.json` | `FMT-FORBIDDEN-SECRET` | Credential exclusion |
+| `invalid-root-array.omi.json` | `FMT-SCHEMA` | Non-object top-level JSON value |
+| `invalid-duplicate-json-member.omi.json` | `FMT-DUPLICATE-JSON-MEMBER` | Duplicate object member name |
+| `invalid-malformed-json.omi.json` | `FMT-INVALID-JSON` | JSON syntax failure |
+| `invalid-schema-uri-mismatch.omi.json` | `FMT-SCHEMA` | Schema URI does not match the pinned version |
+| `invalid-unsupported-format-version.omi.json` | `FMT-SCHEMA` | Version not accepted by the 0.2.0 schema |
 
-The manifest also states the purpose of every fixture. A validator change that
-changes an expected result must update the fixture or validator and this
-profile in the same reviewed change.
+A changed expected outcome requires a reviewed update to the fixture,
+manifest, validator, and this profile as applicable.
 
 ## Running and CI
 
@@ -68,37 +74,29 @@ npm ci
 npm run test:file-format
 ```
 
-The dedicated **File-format conformance** workflow runs this command on pull
-requests and pushes that affect the schema, normative file-format text,
-fixtures, runner, or package scripts. The website build also runs the same
-command, so a documentation build cannot pass with a failing fixture suite.
+The dedicated **File-format conformance** workflow runs the command on relevant
+pull requests and pushes. The website build runs the same command. This makes
+the fixture suite an automated gate for both schema changes and site releases.
 
-The runner exits non-zero if a fixture is missing, cannot be parsed, or differs
-from its expected validity or diagnostic-code set. Reviewers should inspect
-both the workflow result and the changed fixture/manifest entries.
+## Coverage limits and pre-1.0 release gates
 
-## Current coverage limits and pre-1.0 gates
+The corpus exercises the behaviours above but does not cover every normative
+requirement. The remaining gates include:
 
-The current corpus does **not** yet cover every normative requirement. The
-following work remains before this can be treated as a complete pre-1.0
-conformance suite:
+- approved requirement coverage for every applicable `REQ-FMT-NNN`, with
+  tested, not-applicable, and untested states;
+- malformed UTF-8, duplicate member names with escaped-equivalent keys, and
+  configured resource limits;
+- unsupported-major-version quarantine/read-only behaviour in a consumer;
+- broader optional/null/empty-value, BCP 47, timestamp, URI, and nested-content
+  boundaries;
+- reference target-type rules, revision-history boundary/uniqueness cases, and
+  all profile-specific constraints;
+- lossless import/export round trips and preservation of unknown fields;
+- deterministic machine-readable reports and diagnostic ordering;
+- interoperability evidence from an independent producer or consumer;
+- maintainer approval and an immutable schema release process.
 
-- an approved requirement-to-test matrix for all applicable `REQ-FMT-NNN`
-  identifiers, with explicit tested, not-applicable, and untested states;
-- parser-level tests for malformed UTF-8/JSON, duplicate JSON member names,
-  top-level non-objects, and resource limits;
-- explicit tests for schema URI/version disagreement and unsupported major
-  versions, including safe quarantine behaviour;
-- broader structural boundaries for optional/null/empty values, BCP 47 tags,
-  timestamps, URIs, extension namespaces, and nested sections/blocks;
-- semantic cases for reference target types, revision parent boundaries,
-  revision-ID uniqueness, and profile-specific requirements;
-- round-trip and unknown-field preservation tests for Lossless Round Trip;
-- deterministic machine-readable diagnostic reports and ordering;
-- independently implemented producer/consumer interoperability evidence;
-- maintainer approval of the fixture corpus and immutable schema release
-  process.
-
-Do not describe this Draft profile as “fully conformant” until these gates have
-evidence and the specification's maturity status has advanced through the
-published governance process.
+Do not describe this Draft profile as fully conformant until these gates have
+evidence and the specification maturity status advances under the published
+governance process.
