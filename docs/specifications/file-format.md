@@ -1,6 +1,3 @@
-Warning: truncated output (original token count: 12339)
-Total output lines: 860
-
 ---
 id: file-format
 title: OMI-SPEC-320 — File Format
@@ -364,7 +361,169 @@ The following root members are defined for interoperable exchange. Their detaile
 }
 ```
 
-## 10. Format identification and version negotiation…2339 tokens truncated… stable identifiers, reference targets, and the distinction among absent, empty, and explicitly nullable values.
+## 10. Format identification and version negotiation
+
+### 10.1 Schema identifier
+
+For this version, `schema` MUST have the exact value:
+
+```text
+https://openmanuscript.org/schemas/omi-manuscript-0.2.schema.json
+```
+
+**REQ-FMT-022:** A producer MUST emit the immutable canonical schema URI for the exact format version. It MUST NOT emit a moving `latest` URI as the authoritative schema identifier.
+
+A consumer MAY use a trusted local copy of the schema and MUST NOT require network access merely because the document contains an HTTPS schema URI.
+
+### 10.2 OMI envelope
+
+The `omi` object has the following members:
+
+| Member | Type | Cardinality | Rule |
+|---|---|---:|---|
+| `format` | string | 1 | Exact value `manuscript` |
+| `version` | semantic-version string | 1 | Exact File Format version emitted by the producer |
+| `profiles` | array of strings | 1 | One or more declared conformance profiles |
+| `specifications` | object | 1 | OMI specification identifier to exact version mapping |
+| `generator` | object | 0..1 | Non-authoritative producer identification |
+
+The registered profile tokens in version `0.2.0` are:
+
+| Token | Profile |
+|---|---|
+| `core-snapshot` | Core Snapshot |
+| `history-exchange` | History Exchange |
+| `lossless-round-trip` | Lossless Round Trip |
+
+**REQ-FMT-023:** `omi.format` MUST equal `manuscript` and `omi.version` MUST equal the exact rules used to serialize the document.
+
+**REQ-FMT-024:** `omi.profiles` MUST contain `core-snapshot`, MUST NOT contain duplicate tokens, and MUST declare every additional profile whose required data the producer claims to provide.
+
+**REQ-FMT-025:** `omi.specifications` MUST map each governing OMI specification used by the document to an exact semantic version. A range, branch name, moving tag, or unversioned identifier MUST NOT be used.
+
+The optional `generator` object MAY contain `name`, `version`, and `uri`. A consumer MUST NOT change validation or trust solely because a particular generator is named.
+
+### 10.3 Version handling
+
+**REQ-FMT-026:** A consumer that supports the declared format version MUST use the schema and rules for that version, not the newest version known to the consumer.
+
+**REQ-FMT-027:** A consumer that does not support the declared major version MUST retain or quarantine the original input and MUST NOT expose the document as a successfully imported editable manuscript.
+
+**REQ-FMT-028:** A consumer encountering a newer minor or patch version MAY continue only when its declared compatibility policy permits it. It MUST preserve unknown data and issue a diagnostic identifying the unverified version.
+
+## 11. Manuscript structure
+
+### 11.1 Sections
+
+`sections` is the ordered sequence of top-level manuscript sections. Each section requires:
+
+- `id`: stable object identifier;
+- `title`: section title, which MAY be empty only when the governing document model permits an untitled section;
+- `blocks`: ordered content-block array.
+
+A section MAY contain `role`, `language`, `children`, `extensions`, and fields defined by the declared document-model version.
+
+**REQ-FMT-029:** A producer MUST preserve section and block order. A consumer MUST NOT derive authoritative order by sorting identifiers or titles.
+
+### 11.2 Blocks
+
+Each block requires an `id` and `type`. A block MAY contain portable `content`, structured `data`, child blocks, language, addressable anchors, asset references, and namespaced extensions.
+
+This File Format does not make an editor-specific rich-text tree portable merely because it is embedded as a JSON string. A declared document-model specification or extension namespace must define the meaning of `content` and `data`.
+
+**REQ-FMT-030:** A conforming producer MUST serialize scholarly content using the portable representation selected by `omi.specifications` or a declared extension. It MUST NOT require a consumer to execute or instantiate the producer's editor framework to recover the scholarly text and structure.
+
+**REQ-FMT-031:** When a processor does not understand a block `type`, it MUST retain the block identity, order, raw portable value, children, and extensions under the Lossless Round Trip profile. It MUST NOT silently convert the block to an empty paragraph.
+
+### 11.3 Collections and references
+
+Objects in root collections are addressable by `id`. Relationships use identifier fields defined by the governing semantic specification, such as `targetBlockId`, `sourceBlockId`, `targetId`, `citationIds`, `creatorAgentId`, or revision parent identifiers.
+
+**REQ-FMT-032:** A reference that is required to resolve within the same document MUST identify an existing object of an allowed type. A validator MUST report an unresolved or type-incompatible reference.
+
+**REQ-FMT-033:** A reference MUST NOT use an array index, rendered page number, pixel position, or transient editor offset as its sole durable target.
+
+An external reference MAY remain unresolved locally when its governing field allows an absolute external URI and the document declares that external resolution is permitted. Validation MUST NOT fetch that URI by default.
+
+### 11.4 Assets
+
+`assets` contains logical metadata for binary or external resources. An asset should declare, as applicable:
+
+- `id`;
+- media type;
+- role;
+- human-readable label or filename;
+- size;
+- checksum algorithm and value;
+- accessibility metadata such as alternative text or transcript references;
+- a container-relative or absolute location permitted by the governing profile.
+
+**REQ-FMT-034:** Binary asset bytes MUST NOT be embedded as unbounded base64 data in the core manuscript document. A producer MUST externalize bytes through `OMI-SPEC-330` or use an explicitly declared extension or profile with size limits.
+
+**REQ-FMT-035:** An asset reference MUST resolve to declared asset metadata or to an explicitly allowed external URI. Consumers MUST NOT automatically fetch an external asset during parsing or validation.
+
+## 12. History exchange
+
+### 12.1 History fields
+
+A document declaring `history-exchange` requires:
+
+- `versioningModelVersion`, identifying an exact `OMI-SPEC-160` version;
+- `headRevisionId`, identifying the revision represented by the root snapshot;
+- `revisionHistory`, containing the portable history object.
+
+The `revisionHistory` object requires:
+
+| Member | Meaning |
+|---|---|
+| `completeness` | `complete`, `partial`, or `shallow` |
+| `rootRevisionId` | Earliest represented revision or actual root |
+| `headRevisionId` | Revision represented by the root snapshot |
+| `revisions` | Revision records governed by `OMI-SPEC-160` |
+
+It MAY include `omissionNotice`, branches, change sets, snapshots, integrity evidence, redaction notices, and namespaced extensions.
+
+**REQ-FMT-036:** `headRevisionId`, `revisionHistory.headRevisionId`, and the represented snapshot revision MUST agree.
+
+**REQ-FMT-037:** Every represented revision identifier MUST be unique. Each parent identifier MUST resolve within `revisionHistory.revisions` unless `completeness` is `partial` or `shallow` and the missing boundary is explicitly declared.
+
+**REQ-FMT-038:** A document that omits revision history MUST NOT claim the `history-exchange` profile and MUST NOT imply that the snapshot contains complete provenance.
+
+### 12.2 Externalized history in a container
+
+`OMI-SPEC-330` may store history in a separate container part. In that case, the reconstructed logical document MUST satisfy this section before it is presented as a History Exchange document. The container manifest, not an ad hoc root path string, determines part discovery and integrity.
+
+## 13. Parsing model
+
+A conforming consumer follows these stages in order:
+
+1. retain the original input according to local preservation policy;
+2. apply configured byte-size and resource limits;
+3. decode UTF-8 and reject malformed byte sequences;
+4. tokenize JSON while detecting duplicate object member names;
+5. require a top-level object;
+6. read only the `schema` and `omi` envelope for format selection;
+7. negotiate the declared version and profiles;
+8. select a trusted, version-specific schema;
+9. perform structural validation;
+10. resolve in-document identities and references;
+11. perform semantic and profile validation;
+12. identify supported and unsupported extensions;
+13. expose, quarantine, reject, or migrate the document according to explicit policy.
+
+**REQ-FMT-039:** Parsing MUST be free of content execution. JSON member names, string values, URIs, markup fragments, extension values, and embedded expressions MUST be treated as data unless a later, explicitly authorized processing step defines otherwise.
+
+**REQ-FMT-040:** A parser MUST apply implementation-defined limits for input bytes, nesting depth, object members, array length, string length, and aggregate diagnostics. Exceeding a limit MUST produce a diagnostic and MUST NOT yield an apparently complete manuscript.
+
+**REQ-FMT-041:** Schema selection MUST use a trusted mapping from supported `omi.version` values to schemas. A parser MUST NOT download and execute or trust an arbitrary schema solely because the input names it.
+
+## 14. Serialization model
+
+### 14.1 Required behaviour
+
+**REQ-FMT-042:** A producer MUST emit UTF-8 JSON whose `schema`, `omi.version`, profiles, and dependent specification versions exactly describe the serialized representation.
+
+**REQ-FMT-043:** Serialization MUST preserve semantically significant array order, stable identifiers, reference targets, and the distinction among absent, empty, and explicitly nullable values.
 
 **REQ-FMT-044:** A producer MUST omit implementation-only and secret state described by `REQ-FMT-020` and `REQ-FMT-021`.
 
