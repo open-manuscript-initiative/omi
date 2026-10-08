@@ -6,11 +6,13 @@ on:
       - '.github/workflows/file-format-conformance.yml'
       - 'docs/specifications/file-format.md'
       - 'docs/specifications/file-format-conformance.md'
+      - 'docs/specifications/file-format-requirement-coverage.md'
       - 'examples/**'
       - 'package.json'
       - 'package-lock.json'
       - 'scripts/validate-file-format-fixtures.mjs'
       - 'scripts/parse-unique-json.mjs'
+      - 'scripts/validate-file-format-requirement-coverage.mjs'
       - 'tests/file-format-conformance.test.mjs'
       - 'static/examples/omi-spec-320/**'
       - 'static/schemas/omi-manuscript-0.2.schema.json'
@@ -21,11 +23,13 @@ on:
       - '.github/workflows/file-format-conformance.yml'
       - 'docs/specifications/file-format.md'
       - 'docs/specifications/file-format-conformance.md'
+      - 'docs/specifications/file-format-requirement-coverage.md'
       - 'examples/**'
       - 'package.json'
       - 'package-lock.json'
       - 'scripts/validate-file-format-fixtures.mjs'
       - 'scripts/parse-unique-json.mjs'
+      - 'scripts/validate-file-format-requirement-coverage.mjs'
       - 'tests/file-format-conformance.test.mjs'
       - 'static/examples/omi-spec-320/**'
       - 'static/schemas/omi-manuscript-0.2.schema.json'
@@ -48,5 +52,5 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci
-      - name: Run structural and semantic conformance fixtures
+      - name: Run requirement coverage and conformance checks
         run: npm run test:file-format

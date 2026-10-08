@@ -1,5 +1,13 @@
+const DEFAULT_LIMITS = Object.freeze({
+  maxInputBytes: 10 * 1024 * 1024,
+  maxNestingDepth: 128,
+  maxObjectMembers: 10_000,
+  maxArrayLength: 100_000,
+  maxStringLength: 1_000_000,
+});
+
 /** Parse JSON bytes or text without duplicate-name or lossy-number ambiguity. */
-export function parseUniqueJson(source) {
+export function parseUniqueJson(source, limits = {}) {
   let index = 0;
   let text;
   try {
@@ -8,6 +16,11 @@ export function parseUniqueJson(source) {
       : new TextDecoder('utf-8', { fatal: true }).decode(source);
   } catch {
     throw parserError('INVALID_UTF8', 'Input is not valid UTF-8', '/', 0);
+  }
+  const configuredLimits = { ...DEFAULT_LIMITS, ...limits };
+  const inputBytes = new TextEncoder().encode(text).byteLength;
+  if (inputBytes > configuredLimits.maxInputBytes) {
+    throw parserError('RESOURCE_LIMIT', 'Input byte limit exceeded', '/', 0);
   }
 
   function fail(message) {
@@ -27,6 +40,9 @@ export function parseUniqueJson(source) {
       if (character === '"') {
         index += 1;
         const decoded = JSON.parse(text.slice(start, index));
+        if (Array.from(decoded).length > configuredLimits.maxStringLength) {
+          throw parserError('RESOURCE_LIMIT', 'String length limit exceeded', path, start);
+        }
         for (let offset = 0; offset < decoded.length; offset += 1) {
           const code = decoded.charCodeAt(offset);
           if (code >= 0xD800 && code <= 0xDBFF) {
@@ -53,16 +69,20 @@ export function parseUniqueJson(source) {
     fail('Unterminated JSON string');
   }
 
-  function value(path) {
+  function value(path, depth = 0) {
     whitespace();
     const character = text[index];
-    if (character === '{') return object(path);
-    if (character === '[') return array(path);
+    if (character === '{') return object(path, depth + 1);
+    if (character === '[') return array(path, depth + 1);
     if (character === '"') return string(path);
     const start = index;
     while (index < text.length && !/[\u0009\u000a\u000d\u0020,\]}]/.test(text[index])) index += 1;
     if (start === index) fail('Expected a JSON value');
-    const parsed = JSON.parse(text.slice(start, index));
+    const token = text.slice(start, index);
+    if (/^(?:NaN|[+-]?Infinity)$/.test(token)) {
+      throw parserError('NON_FINITE_NUMBER', 'Non-finite numeric token is not valid JSON', path, start);
+    }
+    const parsed = JSON.parse(token);
     if (typeof parsed === 'number' && !Number.isFinite(parsed)) {
       throw parserError('NON_FINITE_NUMBER', 'Number is not finite in the interoperable JSON model', path, start);
     }
@@ -72,9 +92,11 @@ export function parseUniqueJson(source) {
     return parsed;
   }
 
-  function object(path) {
+  function object(path, depth) {
+    checkDepth(path, depth);
     const result = {};
     const names = new Set();
+    let memberCount = 0;
     index += 1;
     whitespace();
     if (text[index] === '}') { index += 1; return result; }
@@ -82,6 +104,10 @@ export function parseUniqueJson(source) {
       whitespace();
       const key = string(path);
       const childPath = `${path}/${escapePointer(key)}`;
+      memberCount += 1;
+      if (memberCount > configuredLimits.maxObjectMembers) {
+        throw parserError('RESOURCE_LIMIT', 'Object member limit exceeded', childPath, index);
+      }
       if (names.has(key)) {
         throw parserError('DUPLICATE_KEY', `Duplicate JSON member ${JSON.stringify(key)}`, childPath, index);
       }
@@ -90,7 +116,7 @@ export function parseUniqueJson(source) {
       if (text[index] !== ':') fail('Expected colon after object member name');
       index += 1;
       Object.defineProperty(result, key, {
-        value: value(childPath),
+        value: value(childPath, depth),
         enumerable: true,
         configurable: true,
         writable: true,
@@ -103,19 +129,29 @@ export function parseUniqueJson(source) {
     fail('Unterminated JSON object');
   }
 
-  function array(path) {
+  function array(path, depth) {
+    checkDepth(path, depth);
     const result = [];
     index += 1;
     whitespace();
     if (text[index] === ']') { index += 1; return result; }
     while (index < text.length) {
-      result.push(value(`${path}/${result.length}`));
+      if (result.length >= configuredLimits.maxArrayLength) {
+        throw parserError('RESOURCE_LIMIT', 'Array length limit exceeded', path, index);
+      }
+      result.push(value(`${path}/${result.length}`, depth));
       whitespace();
       if (text[index] === ']') { index += 1; return result; }
       if (text[index] !== ',') fail('Expected comma or closing bracket');
       index += 1;
     }
     fail('Unterminated JSON array');
+  }
+
+  function checkDepth(path, depth) {
+    if (depth > configuredLimits.maxNestingDepth) {
+      throw parserError('RESOURCE_LIMIT', 'Nesting depth limit exceeded', path, index);
+    }
   }
 
   const result = value('');

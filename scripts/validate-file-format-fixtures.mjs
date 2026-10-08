@@ -34,7 +34,7 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
 if (
   manifest.specification !== 'OMI-SPEC-320@0.2.0' ||
   manifest.schema !== schema.$id ||
-  manifest.suiteVersion !== '0.2.0-draft.3'
+  manifest.suiteVersion !== '0.2.0-draft.4'
 ) {
   throw new Error('Fixture manifest does not match the pinned OMI-SPEC-320 schema or suite.');
 }
@@ -105,9 +105,11 @@ async function validateFixture(path) {
   return validateRawDocument(await readFile(path));
 }
 
-export function validateRawDocument(source) {
+export function validateRawDocument(source, options = {}) {
   try {
-    return validateDocument(parseUniqueJson(source));
+    return validateDocument(parseUniqueJson(source, options.parserLimits), {
+      maxDiagnostics: options.maxDiagnostics,
+    });
   } catch (error) {
     const diagnostics = {
       DUPLICATE_KEY: ['FMT-DUPLICATE-JSON-MEMBER', 'REQ-FMT-007', 'JSON object contains a duplicate member name.'],
@@ -115,6 +117,7 @@ export function validateRawDocument(source) {
       INVALID_UNICODE: ['FMT-INVALID-UNICODE', 'REQ-FMT-009', 'String contains an unpaired UTF-16 surrogate.'],
       NON_FINITE_NUMBER: ['FMT-NONFINITE-NUMBER', 'REQ-FMT-010', 'Number is not finite in the interoperable JSON model.'],
       UNSAFE_INTEGER: ['FMT-UNSAFE-INTEGER', 'REQ-FMT-011', 'Integer is outside the interoperable JSON range.'],
+      RESOURCE_LIMIT: ['FMT-RESOURCE-LIMIT', 'REQ-FMT-040', 'Configured parser resource limit exceeded.'],
     };
     const [code, requirement, message] = diagnostics[error?.code]
       ?? ['FMT-INVALID-JSON', 'REQ-FMT-006', 'Fixture is not valid JSON.'];
@@ -128,7 +131,7 @@ export function validateRawDocument(source) {
   }
 }
 
-export function validateDocument(document) {
+export function validateDocument(document, { maxDiagnostics = 1_000 } = {}) {
   const diagnostics = [];
 
   if (!validateStructure(document)) {
@@ -137,23 +140,56 @@ export function validateDocument(document) {
         code: 'FMT-SCHEMA',
         severity: 'error',
         instancePath: error.instancePath || '/',
-        requirement: 'REQ-FMT-018',
+      requirement: schemaRequirement(error),
         message: `${error.keyword}: ${error.message ?? 'schema validation failed'}`,
       });
     }
   }
 
   if (!document || typeof document !== 'object' || Array.isArray(document)) {
-    return sortDiagnostics(diagnostics);
+    return boundDiagnostics(diagnostics, maxDiagnostics);
   }
 
   validateTimestampOrder(document, diagnostics);
+  validateAbsoluteAssetUris(document, diagnostics);
   const indexes = indexAddressableObjects(document, diagnostics);
   validateReferences(document, indexes, diagnostics);
   validateHistory(document, indexes, diagnostics);
   validateForbiddenSecrets(document, diagnostics);
 
-  return sortDiagnostics(diagnostics);
+  return boundDiagnostics(diagnostics, maxDiagnostics);
+}
+
+function validateAbsoluteAssetUris(document, diagnostics) {
+  for (const [index, asset] of asArray(document.assets).entries()) {
+    if (typeof asset?.uri !== 'string' || /^[A-Za-z][A-Za-z0-9+.-]*:/.test(asset.uri)) {
+      continue;
+    }
+    diagnostics.push({
+      code: 'FMT-URI',
+      severity: 'error',
+      instancePath: `/assets/${index}/uri`,
+      requirement: 'REQ-FMT-015',
+      message: 'Asset URI must be absolute unless its governing profile explicitly permits a relative reference.',
+    });
+  }
+}
+
+function schemaRequirement(error) {
+  const path = error.instancePath || '/';
+  const missing = error.keyword === 'required' ? error.params?.missingProperty : undefined;
+  const target = missing ? `${path}/${escapeJsonPointerToken(missing)}` : path;
+
+  if (target === '/schema') return 'REQ-FMT-022';
+  if (target === '/omi/format' || target === '/omi/version') return 'REQ-FMT-023';
+  if (target === '/omi/profiles') return 'REQ-FMT-024';
+  if (target.startsWith('/omi/specifications')) return 'REQ-FMT-025';
+  if (target === '/locale' || target.endsWith('/language')) return 'REQ-FMT-014';
+  if (target === '/createdAt' || target === '/updatedAt') return 'REQ-FMT-013';
+  if (target === '/title') return 'REQ-FMT-012';
+  if (target.endsWith('/uri') || target === '/schema') return 'REQ-FMT-015';
+  if (target.endsWith('/id') || target === '/id') return 'REQ-FMT-016';
+  return 'REQ-FMT-018';
 }
 
 function sortDiagnostics(diagnostics) {
@@ -162,6 +198,21 @@ function sortDiagnostics(diagnostics) {
       || compareCodePoints(left.code, right.code)
       || compareCodePoints(left.requirement, right.requirement),
   );
+}
+
+function boundDiagnostics(diagnostics, maxDiagnostics) {
+  const sorted = sortDiagnostics(diagnostics);
+  if (sorted.length <= maxDiagnostics) return sorted;
+  return [
+    ...sorted.slice(0, Math.max(0, maxDiagnostics - 1)),
+    {
+      code: 'FMT-RESOURCE-LIMIT',
+      severity: 'error',
+      instancePath: '/',
+      requirement: 'REQ-FMT-040',
+      message: 'Configured aggregate diagnostic limit exceeded.',
+    },
+  ];
 }
 
 function compareCodePoints(left, right) {

@@ -57,6 +57,42 @@ test('rejects malformed JSON, unpaired surrogates, non-finite values, and unsafe
   assert.throws(() => parseUniqueJson('{"n":1e400}'), (error) => error.code === 'NON_FINITE_NUMBER');
   assert.throws(() => parseUniqueJson('{"n":9007199254740992}'), (error) => error.code === 'UNSAFE_INTEGER');
   assert.equal(parseUniqueJson('{"n":9007199254740991}').n, Number.MAX_SAFE_INTEGER);
+  for (const source of ['{"n":NaN}', '{"n":Infinity}', '{"n":-Infinity}']) {
+    assert.throws(() => parseUniqueJson(source), (error) => error.code === 'NON_FINITE_NUMBER');
+  }
+});
+
+test('enforces byte, nesting, member, array, string, and diagnostic limits', async () => {
+  const limitedCases = [
+    ['{}', { maxInputBytes: 1 }],
+    ['[[[]]]', { maxNestingDepth: 2 }],
+    ['{"a":1,"b":2}', { maxObjectMembers: 1 }],
+    ['[1,2]', { maxArrayLength: 1 }],
+    ['{"s":"two"}', { maxStringLength: 2 }],
+  ];
+  for (const [source, parserLimits] of limitedCases) {
+    assert.throws(
+      () => parseUniqueJson(source, parserLimits),
+      (error) => error.code === 'RESOURCE_LIMIT',
+      source,
+    );
+  }
+
+  const document = parseUniqueJson(await readFile(join(fixtureRoot, 'valid-minimal.omi.json')));
+  document.forbiddenFields = Array.from(
+    { length: 5 }, () => ({ accessToken: 'synthetic-secret' }),
+  );
+  const diagnostics = validateDocument(document, { maxDiagnostics: 2 });
+  assert.equal(diagnostics.length, 2);
+  assert.equal(diagnostics.at(-1).code, 'FMT-RESOURCE-LIMIT');
+  assert.equal(diagnostics.at(-1).requirement, 'REQ-FMT-040');
+
+  assert.deepEqual(validateRawDocument('{"a":"two"}', {
+    parserLimits: { maxStringLength: 2 },
+  }).map(({ code, requirement }) => ({ code, requirement })), [{
+    code: 'FMT-RESOURCE-LIMIT',
+    requirement: 'REQ-FMT-040',
+  }]);
 });
 
 test('returns stable diagnostic codes and pointers without mutating validated documents', async () => {
@@ -74,6 +110,31 @@ test('returns stable diagnostic codes and pointers without mutating validated do
     instancePath: '/annotations/0/targetBlockId',
     requirement: 'REQ-FMT-032',
   }]);
+});
+
+test('maps envelope, presence, timestamp, language, and URI failures to their requirements', async () => {
+  const source = parseUniqueJson(await readFile(join(fixtureRoot, 'valid-minimal.omi.json')));
+  const cases = [
+    ['empty required title', (doc) => { doc.title = ''; }, 'REQ-FMT-012'],
+    ['null required title', (doc) => { doc.title = null; }, 'REQ-FMT-012'],
+    ['timestamp without offset', (doc) => { doc.createdAt = '2026-09-05T08:00:00'; }, 'REQ-FMT-013'],
+    ['malformed language tag', (doc) => { doc.locale = 'not a tag'; }, 'REQ-FMT-014'],
+    ['moving schema identifier', (doc) => { doc.schema = 'https://example.org/latest'; }, 'REQ-FMT-022'],
+    ['wrong format version', (doc) => { doc.omi.version = '0.3.0'; }, 'REQ-FMT-023'],
+    ['duplicate profile token', (doc) => { doc.omi.profiles.push('core-snapshot'); }, 'REQ-FMT-024'],
+    ['non-semver dependency', (doc) => { doc.omi.specifications['OMI-SPEC-100'] = '^0.1'; }, 'REQ-FMT-025'],
+    ['relative asset URI', (doc) => { doc.assets = [{ id: 'asset-1', mediaType: 'image/png', uri: 'images/a.png' }]; }, 'REQ-FMT-015'],
+  ];
+
+  for (const [label, mutate, requirement] of cases) {
+    const document = structuredClone(source);
+    mutate(document);
+    const diagnostics = validateDocument(document);
+    assert.ok(
+      diagnostics.some((diagnostic) => diagnostic.severity === 'error' && diagnostic.requirement === requirement),
+      `${label}: ${JSON.stringify(diagnostics)}`,
+    );
+  }
 });
 
 test('orders multiple diagnostics by JSON Pointer, then code and requirement', async () => {

@@ -1,7 +1,7 @@
 # OMI-SPEC-320 Conformance Profile
 
 **Specification under test:** `OMI-SPEC-320@0.2.0`  
-**Status:** Draft conformance profile; review required  
+**Status:** Draft conformance profile; initial corpus accepted for review
 **Canonical schema:** [OMI manuscript 0.2 JSON Schema](/schemas/omi-manuscript-0.2.schema.json)  
 **Fixture manifest:** [0.2.0 fixture manifest](/examples/omi-spec-320/0.2.0/manifest.json)  
 **Reference command:** `npm run test:file-format`
@@ -13,6 +13,13 @@ OMI-SPEC-320 Draft. The version-pinned JSON Schema is the structural authority.
 The reference validator adds the semantic checks that JSON Schema cannot
 express. The fixture manifest defines expected validity, stable diagnostic
 codes, and the requirement identifiers exercised by each case.
+
+The [complete requirement coverage register](./file-format-requirement-coverage.md)
+maps all 72 normative requirements to tested, partial, or untested evidence.
+CI checks that the register covers the specification exactly once. This is
+complete traceability, not complete behavioral conformance: the register
+identifies requirements needing Studio integration or independent
+implementation evidence.
 
 A run is bound to the exact specification version, schema URI, fixture
 manifest, validator source, and Git revision. It does not select a newer schema
@@ -91,19 +98,19 @@ the fixture suite an automated gate for both schema changes and site releases.
 The corpus exercises the behaviours above but does not cover every normative
 requirement. The remaining gates include:
 
-- approved requirement coverage for every applicable `REQ-FMT-NNN`, with
-  tested, not-applicable, and untested states;
-- configured resource limits and adversarial nesting/size inputs;
+- executable behavioral evidence for requirements marked partial or untested
+  in the coverage register, including Studio producer, consumer, importer,
+  exporter, and migration paths;
+- deployment-specific resource-limit selection and Studio integration;
 - unsupported-major-version quarantine/read-only behaviour in a consumer;
-- broader optional/null/empty-value, BCP 47, timestamp, URI, and nested-content
-  boundaries;
+- broader BCP 47, timestamp, URI, and nested-content boundaries;
 - reference target-type rules, revision-history boundary/uniqueness cases, and
   all profile-specific constraints;
 - lossless import/export round trips and preservation of unknown fields;
 - a shared machine-readable report schema, beyond the stable diagnostic fields
   exercised by this reference runner;
 - interoperability evidence from an independent producer or consumer;
-- maintainer approval and an immutable schema release process.
+- an immutable schema release process.
 
 Do not describe this Draft profile as fully conformant until these gates have
 evidence and the specification maturity status advances under the published
