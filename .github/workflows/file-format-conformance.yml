@@ -1,0 +1,48 @@
+name: File-format conformance
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/file-format-conformance.yml'
+      - 'docs/specifications/file-format.md'
+      - 'docs/specifications/file-format-conformance.md'
+      - 'examples/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'scripts/validate-file-format-fixtures.mjs'
+      - 'static/examples/omi-spec-320/**'
+      - 'static/schemas/omi-manuscript-0.2.schema.json'
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/file-format-conformance.yml'
+      - 'docs/specifications/file-format.md'
+      - 'docs/specifications/file-format-conformance.md'
+      - 'examples/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'scripts/validate-file-format-fixtures.mjs'
+      - 'static/examples/omi-spec-320/**'
+      - 'static/schemas/omi-manuscript-0.2.schema.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  file-format-conformance:
+    name: OMI-SPEC-320@0.2.0 fixtures
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Run structural and semantic conformance fixtures
+        run: npm run test:file-format
