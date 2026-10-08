@@ -26,6 +26,12 @@ The Container Architecture defines the portable package structure used to exchan
 
 The container complements the [File Format](./file-format.md): OMI-SPEC-320 defines the logical manuscript representation, while this specification defines how the related files are assembled into one package.
 
+## Choosing between `.omi` and `.omi.json`
+
+For ordinary saving, sharing, transfer, or backup of a complete manuscript, use the `.omi` package. It is designed to keep the manuscript together with associated resources such as media assets, metadata, history, profiles, and package integrity information. For most users, one `.omi` file is sufficient; exporting both formats is not a normal production requirement.
+
+Use `.omi.json` when a workflow specifically needs the logical manuscript as directly readable JSON, such as inspection, automation, or a software integration. It is not the ZIP container and does not necessarily include related media files. If you are unsure which format to choose, use `.omi`.
+
 ---
 
 ## Recommended Container Layout
