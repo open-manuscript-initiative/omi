@@ -121,7 +121,7 @@ A conformance claim SHOULD state:
 
 The versioned Draft corpus and its machine-readable fixture manifest are
 published at
-[`static/examples/omi-spec-320/0.2.0`](../../static/examples/omi-spec-320/0.2.0).
+[`static/examples/omi-spec-320/0.2.0`](/examples/omi-spec-320/0.2.0/manifest.json).
 The reference runner is `npm run test:file-format`; the CI workflow runs it on
 changes to the schema, specification, fixtures, or validator, and the website
 build runs the same command.
