@@ -46,6 +46,12 @@ The format represents scholarly state rather than page layout or an editor's run
 
 This specification deliberately does not define the physical `.omi` archive, ZIP entry layout, checksums, compression, or package path rules. Those concerns belong to [OMI-SPEC-330 — Container Architecture](./container-architecture.md). A container may carry a document conforming to this specification as one of its parts.
 
+### Choosing a file (informative)
+
+For most people, `.omi` is the recommended choice for saving, sharing, transferring, or backing up a complete manuscript. It is the portable package format and can include the manuscript and related resources such as media assets. You do not normally need to export both formats.
+
+Choose `.omi.json` when you specifically need the manuscript as directly readable JSON for inspection, automation, or a software integration. It is the logical manuscript representation, not the `.omi` ZIP package; related media files may not be bundled with it. If you are unsure, choose `.omi`. See [OMI-SPEC-330 — Container Architecture](./container-architecture.md) for package details.
+
 ## 2. Status of this document
 
 This document is a **Draft** specification of the Open Manuscript Initiative.
