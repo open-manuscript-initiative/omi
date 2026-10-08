@@ -117,6 +117,23 @@ A conformance claim SHOULD state:
 
 **REQ-FMT-005:** A lossless processor MUST preserve unknown extension members and unknown unmodified members, or stop and report the exact data that would be lost.
 
+### 3.5 Published conformance corpus
+
+The versioned Draft corpus and its machine-readable fixture manifest are
+published at
+[`static/examples/omi-spec-320/0.2.0`](../../static/examples/omi-spec-320/0.2.0).
+The reference runner is `npm run test:file-format`; the CI workflow runs it on
+changes to the schema, specification, fixtures, or validator, and the website
+build runs the same command.
+
+The current corpus is an initial reviewable set, not a complete approval of
+OMI-SPEC-320@0.2.0. Its requirement coverage, current limits, and release gates
+are recorded in
+[OMI-SPEC-320 Conformance Profile](./file-format-conformance.md). A successful
+fixture run demonstrates only the behaviours exercised by that exact corpus
+and validator revision. It MUST NOT be presented as proof of complete
+conformance or as an OMI 1.0 conformance claim.
+
 ## 4. Scope
 
 This specification defines:
