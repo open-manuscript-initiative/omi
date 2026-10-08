@@ -31,11 +31,18 @@ For every manifest entry, the runner:
 2. rejects duplicate/missing fixture paths, absent requirement mappings, and
    malformed expected-diagnostic declarations;
 3. detects duplicate JSON object member names before `JSON.parse`;
-4. reports malformed JSON with `FMT-INVALID-JSON`;
-5. validates parsed values with Draft 2020-12/Ajv and format checking;
-6. applies timestamp-order, identifier uniqueness, reference, history-head,
+4. decodes UTF-8 strictly, rejects unpaired Unicode surrogates, non-finite
+   numeric values, and integers outside the I-JSON safe range;
+5. reports malformed JSON with `FMT-INVALID-JSON`;
+6. validates parsed values with Draft 2020-12/Ajv and format checking;
+7. applies timestamp-order, identifier uniqueness, reference, history-head,
    and credential-exclusion checks;
-7. compares validity and the exact set of diagnostic codes with the manifest.
+8. compares validity and the exact set of diagnostic codes with the manifest.
+
+Diagnostics have stable codes, severities, JSON Pointers and requirement
+identifiers. The reference validator orders them by JSON Pointer, code and
+requirement identifier using Unicode code-point order. Message wording is
+informative and is not a cross-implementation comparison field.
 
 The runner exits non-zero for missing files, invalid manifest structure, parse
 errors, or any expectation mismatch.
@@ -58,6 +65,7 @@ The versioned corpus is under
 | `invalid-forbidden-secret.omi.json` | `FMT-FORBIDDEN-SECRET` | Credential exclusion |
 | `invalid-root-array.omi.json` | `FMT-SCHEMA` | Non-object top-level JSON value |
 | `invalid-duplicate-json-member.omi.json` | `FMT-DUPLICATE-JSON-MEMBER` | Duplicate object member name |
+| `invalid-escaped-duplicate-json-member.omi.json` | `FMT-DUPLICATE-JSON-MEMBER` | Distinct JSON escape spellings decode to the same member name |
 | `invalid-malformed-json.omi.json` | `FMT-INVALID-JSON` | JSON syntax failure |
 | `invalid-schema-uri-mismatch.omi.json` | `FMT-SCHEMA` | Schema URI does not match the pinned version |
 | `invalid-unsupported-format-version.omi.json` | `FMT-SCHEMA` | Version not accepted by the 0.2.0 schema |
@@ -85,15 +93,15 @@ requirement. The remaining gates include:
 
 - approved requirement coverage for every applicable `REQ-FMT-NNN`, with
   tested, not-applicable, and untested states;
-- malformed UTF-8, duplicate member names with escaped-equivalent keys, and
-  configured resource limits;
+- configured resource limits and adversarial nesting/size inputs;
 - unsupported-major-version quarantine/read-only behaviour in a consumer;
 - broader optional/null/empty-value, BCP 47, timestamp, URI, and nested-content
   boundaries;
 - reference target-type rules, revision-history boundary/uniqueness cases, and
   all profile-specific constraints;
 - lossless import/export round trips and preservation of unknown fields;
-- deterministic machine-readable reports and diagnostic ordering;
+- a shared machine-readable report schema, beyond the stable diagnostic fields
+  exercised by this reference runner;
 - interoperability evidence from an independent producer or consumer;
 - maintainer approval and an immutable schema release process.
 

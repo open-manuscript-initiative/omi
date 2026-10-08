@@ -56,7 +56,7 @@ The programme has moved well beyond the initial documentation-audit stage. Gover
 | Multilingual product support | **Operational implementation** | Studio exposes 47 selectable interface languages with localized help and reviewed translation overlays. Normative specification bodies remain English. |
 | Import/export | **Substantive implementation** | DOCX import and broad publication/export targets are implemented, including JATS, HTML, EPUB, printed and interactive PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX-oriented outputs. |
 | Desktop distribution | **Operational beta** | Windows, Linux and macOS packages are built automatically; desktop/cross-platform update notifications are implemented. Current release automation binds published tags to exact build commits and does not replace assets of existing releases. Code-signing work remains in progress. |
-| Canonical schemas and conformance | **Partial foundation; release gate open** | OMI-SPEC-320@0.2.0 has a versioned Draft 2020-12 schema, 13 requirement-mapped structural/semantic fixtures, a reference validator and CI enforcement. Fixture approval, complete requirement coverage, full diagnostic/reporting behavior and independent implementation evidence remain pre-1.0 gates. |
+| Canonical schemas and conformance | **Draft suite implemented; release gate open** | OMI-SPEC-320@0.2.0 has a versioned Draft 2020-12 schema, 14 requirement-mapped fixtures, a proposed conformance profile, strict parser and validator tests, and CI enforcement. Maintainer approval, full requirement coverage, a shared validation-report schema and independent implementation evidence remain pre-1.0 gates. |
 | Independent implementations | **Not yet verified** | Interoperability evidence beyond the primary reference implementation remains required for OMI 1.0 confidence. |
 
 ## 4. Completed foundation work
@@ -271,11 +271,11 @@ Exit criterion: at least two independently meaningful external workflow integrat
 
 ### Phase 11 — Capability and conformance testing
 
-**Status:** Started at evidence-report level; formal suite not yet available
+**Status:** Draft conformance profile and executable fixture suite available; formal approval and Stable release remain open.
 
 The Implementation Status Matrix and Studio status reports provide evidence baselines, but focused unit tests do not constitute OMI conformance testing.
 
-Deliverables include `OMI-SPEC-350`, named conformance classes, validator reference implementation, formal test suite, requirement-mapped results and documented deviations.
+Remaining deliverables include `OMI-SPEC-350`, approved conformance classes and fixtures, full requirement-mapped results, a shared validation-report format, documented deviations and independent implementation evidence.
 
 Exit criterion: OMI 1.0 behaviour is demonstrated through executable, versioned evidence rather than prose alone.
 

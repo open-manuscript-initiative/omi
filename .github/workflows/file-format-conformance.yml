@@ -10,6 +10,8 @@ on:
       - 'package.json'
       - 'package-lock.json'
       - 'scripts/validate-file-format-fixtures.mjs'
+      - 'scripts/parse-unique-json.mjs'
+      - 'tests/file-format-conformance.test.mjs'
       - 'static/examples/omi-spec-320/**'
       - 'static/schemas/omi-manuscript-0.2.schema.json'
   push:
@@ -23,6 +25,8 @@ on:
       - 'package.json'
       - 'package-lock.json'
       - 'scripts/validate-file-format-fixtures.mjs'
+      - 'scripts/parse-unique-json.mjs'
+      - 'tests/file-format-conformance.test.mjs'
       - 'static/examples/omi-spec-320/**'
       - 'static/schemas/omi-manuscript-0.2.schema.json'
   workflow_dispatch:
