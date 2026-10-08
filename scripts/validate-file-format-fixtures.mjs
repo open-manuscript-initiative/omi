@@ -29,12 +29,18 @@ const ajv = new Ajv2020({
 addFormats(ajv);
 const validateStructure = ajv.compile(schema);
 
+if (
+  manifest.specification !== 'OMI-SPEC-320@0.2.0' ||
+  manifest.schema !== schema.$id
+) {
+  throw new Error('Fixture manifest does not match the pinned OMI-SPEC-320 schema.');
+}
+
 let failures = 0;
 
 for (const fixture of manifest.fixtures) {
   const fixturePath = join(fixtureRoot, fixture.path);
-  const document = await readJson(fixturePath);
-  const diagnostics = validateDocument(document);
+  const diagnostics = await validateFixture(fixturePath);
   const actualValid = !diagnostics.some(({ severity }) => severity === 'error');
   const actualCodes = new Set(diagnostics.map(({ code }) => code));
   const expectedCodes = new Set(fixture.expectedDiagnostics);
@@ -70,6 +76,129 @@ if (failures > 0) {
 console.log(
   `Validated ${manifest.fixtures.length} OMI-SPEC-320@0.2.0 fixtures against structural and semantic rules.`,
 );
+
+async function validateFixture(path) {
+  const source = await readFile(path, 'utf8');
+  const duplicateKeys = findDuplicateJsonMemberKeys(source);
+  if (duplicateKeys.length > 0) {
+    return duplicateKeys.map((instancePath) => ({
+      code: 'FMT-DUPLICATE-JSON-MEMBER',
+      severity: 'error',
+      instancePath,
+      requirement: 'REQ-FMT-007',
+      message: 'JSON object contains a duplicate member name.',
+    }));
+  }
+
+  let document;
+  try {
+    document = JSON.parse(source);
+  } catch {
+    return [{
+      code: 'FMT-INVALID-JSON',
+      severity: 'error',
+      instancePath: '/',
+      requirement: 'REQ-FMT-006',
+      message: 'Fixture is not valid JSON.',
+    }];
+  }
+
+  return validateDocument(document);
+}
+
+function findDuplicateJsonMemberKeys(source) {
+  const duplicates = [];
+  let cursor = 0;
+
+  function skipWhitespace() {
+    while (/\\s/.test(source[cursor] ?? '') && cursor < source.length) cursor += 1;
+  }
+
+  function readString() {
+    const start = cursor;
+    cursor += 1;
+    while (cursor < source.length) {
+      if (source[cursor] === '\\\\') {
+        cursor += 2;
+      } else if (source[cursor] === '"') {
+        cursor += 1;
+        break;
+      } else {
+        cursor += 1;
+      }
+    }
+    const token = source.slice(start, cursor);
+    try {
+      return JSON.parse(token);
+    } catch {
+      return token.slice(1, -1);
+    }
+  }
+
+  function visit(path) {
+    skipWhitespace();
+    const token = source[cursor];
+    if (token === '{') {
+      cursor += 1;
+      skipWhitespace();
+      const names = new Set();
+      while (cursor < source.length && source[cursor] !== '}') {
+        if (source[cursor] !== '"') return;
+        const name = readString();
+        const memberPath = path + '/' + escapeJsonPointerToken(String(name));
+        if (names.has(name)) duplicates.push(memberPath);
+        names.add(name);
+        skipWhitespace();
+        if (source[cursor] !== ':') return;
+        cursor += 1;
+        visit(memberPath);
+        skipWhitespace();
+        if (source[cursor] === ',') {
+          cursor += 1;
+          skipWhitespace();
+        } else {
+          break;
+        }
+      }
+      if (source[cursor] === '}') cursor += 1;
+      return;
+    }
+
+    if (token === '[') {
+      cursor += 1;
+      skipWhitespace();
+      let index = 0;
+      while (cursor < source.length && source[cursor] !== ']') {
+        visit(path + '/' + index);
+        index += 1;
+        skipWhitespace();
+        if (source[cursor] === ',') {
+          cursor += 1;
+          skipWhitespace();
+        } else {
+          break;
+        }
+      }
+      if (source[cursor] === ']') cursor += 1;
+      return;
+    }
+
+    if (token === '"') {
+      readString();
+      return;
+    }
+
+    while (
+      cursor < source.length &&
+      !/[\\s,}\\]]/.test(source[cursor])
+    ) {
+      cursor += 1;
+    }
+  }
+
+  visit('');
+  return duplicates;
+}
 
 function validateDocument(document) {
   const diagnostics = [];
