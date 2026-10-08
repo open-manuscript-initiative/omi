@@ -31,9 +31,30 @@ const validateStructure = ajv.compile(schema);
 
 if (
   manifest.specification !== 'OMI-SPEC-320@0.2.0' ||
-  manifest.schema !== schema.$id
+  manifest.schema !== schema.$id ||
+  manifest.suiteVersion !== '0.2.0-draft.2'
 ) {
-  throw new Error('Fixture manifest does not match the pinned OMI-SPEC-320 schema.');
+  throw new Error('Fixture manifest does not match the pinned OMI-SPEC-320 schema or suite.');
+}
+if (!Array.isArray(manifest.fixtures) || manifest.fixtures.length === 0) {
+  throw new Error('Fixture manifest must contain at least one test case.');
+}
+const fixturePaths = new Set();
+for (const fixture of manifest.fixtures) {
+  if (!fixture.path || fixturePaths.has(fixture.path)) {
+    throw new Error('Fixture paths must be present and unique.');
+  }
+  fixturePaths.add(fixture.path);
+  if (
+    !Array.isArray(fixture.requirements) ||
+    fixture.requirements.length === 0 ||
+    fixture.requirements.some((id) => !/^REQ-FMT-\\d{3}$/.test(id))
+  ) {
+    throw new Error('Every fixture must map to one or more REQ-FMT-NNN requirements.');
+  }
+  if (!Array.isArray(fixture.expectedDiagnostics)) {
+    throw new Error('Every fixture must declare expected diagnostic codes.');
+  }
 }
 
 let failures = 0;
