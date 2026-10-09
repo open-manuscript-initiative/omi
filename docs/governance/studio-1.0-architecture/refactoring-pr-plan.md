@@ -249,3 +249,14 @@ Each architecture migration PR should state:
 - documentation/specification mismatch closed or intentionally left open.
 
 This decomposition is intentionally conservative. The 1.0 programme should optimize for reversible convergence on explicit contracts, not for the visual neatness of one large refactor.
+
+## 2026-10-09 dependency update
+
+1. **Privacy containment — [Studio PR #630](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/630).** Remove implicit module workspace reads from the manuscript insertion panel; retain title/description insertion. Gate on a regression check and build. Roll back only if an explicit, reviewed alternative protects the confidentiality boundary.
+2. **Module project contract (new PR, after containment).** Inventory localStorage/IndexedDB keys and import/export consumers; characterize synthetic private-record and quota-failure fixtures. Define versioned project JSON distinct from OMI-SPEC-320. No old project data is silently rewritten.
+3. **Workspace repository port (small PRs, after contract).** Expose load/save/export and recoverable error states; migrate statistical IndexedDB and then other modules without changing manuscript semantics. Verify reload, quota/unavailable-storage, import validation, and native/browser delivery.
+4. **Opt-in manuscript projection (after repository contract and ADR-022).** Define typed allow-listed output and diagnostics, show exact selected content and obtain explicit confirmation before a command inserts validated OMI blocks. Test transcript/participant fields never appear by default, plus undo/revision and export round-trip.
+5. **Draft conformance to stable freeze (existing A02–A06 gates).** Retain current 0.2 validator and fixtures, pin source checksum, close requirement coverage and future-version behavior. Do not reintroduce experimental pre-stable migration work solely for compatibility.
+
+The first item is an immediate security boundary correction. Items 2–4 are
+incremental follow-up PRs and must not be folded into a broad module rewrite.
