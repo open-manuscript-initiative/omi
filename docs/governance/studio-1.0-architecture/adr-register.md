@@ -35,6 +35,7 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 | ADR-019 | Stable/preview capability policy | Accepted |
 | ADR-020 | General executable plugin runtime | Deferred |
 | ADR-021 | Website publication assurance and editorial authority | Proposed; delivery remains Preview |
+| ADR-022 | Research module project and manuscript contribution boundary | Proposed; containment in Studio PR #630 |
 
 ---
 
@@ -42,11 +43,11 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 **Question.** Which artifact is the normative wire-format authority: TypeScript interfaces, JSON Schema, or prose specification?
 
-**Decision.** The released OMI JSON Schema in the `omi` repository is the normative machine-executable wire contract. The prose specification defines semantics and invariants that JSON Schema cannot express. Studio vendors the schema from an immutable release, pins it by checksum, derives wire types/codecs from it, and may maintain richer domain types separately.
+**Decision.** The released OMI JSON Schema in the `omi` repository is the normative machine-executable wire contract. The prose specification defines semantics and invariants that JSON Schema cannot express. Studio currently vendors and validates against the OMI-SPEC-320@0.2.0 **Draft** schema, with a shared fixture corpus. Before a stable 1.0 promise, pin an immutable released schema by checksum and derive wire types/codecs from it; richer domain types may remain separate.
 
 **Alternatives considered.** TypeScript-first schema generation; manually synchronized TypeScript and schema; making Studio the format authority.
 
-**Rationale.** Interoperability spans languages and the PKP plugins. TypeScript is not language-neutral. The audited hand-maintained parallel state already drifted: OMI contains a 0.2.0 schema while Studio writes 0.1 and its vendored 0.2 artifact is empty.
+**Rationale.** Interoperability spans languages and the PKP plugins. TypeScript is not language-neutral. The original 2026-09-19 audit found parallel hand-maintained definitions and an empty vendored 0.2 artifact. Studio has since adopted the 0.2 Draft schema and validator. That implementation change closes the original artifact gap but does not promote the Draft to a stable normative release.
 
 **Consequences.** Schema releases and checksums become required. Generated artifacts are not hand-edited. Domain-invariant validation remains a separate layer. Any schema change triggers compatibility review.
 
@@ -388,3 +389,19 @@ These are not new ADRs; they are concrete values required by the decisions above
 | token/session TTL and credential rotation | security review | B10/C12 |
 | performance and bundle budgets | current baseline plus representative devices | D06 |
 | RC soak length and blocker SLA | release ownership | before E05 |
+
+## ADR-022 — Research module project and manuscript contribution boundary
+
+**Question.** May a discipline module's browser-stored project record be copied into portable manuscript content when the researcher selects “Insert module section”?
+
+**Decision.** No. The action inserts a localized module title and description only. Project JSON and IndexedDB records are separate research workspace state; they are neither OMI-SPEC-320 documents nor implicit manuscript content. Any later contribution must be a typed, versioned, allow-listed projection with provenance/loss diagnostics, explicit exact-content preview and confirmation, confidentiality-aware authorization, OMI validation, and a revision-aware application command. Confidential interview and participant fields are excluded by default. Storage failure and backup/recovery state must be visible to the user.
+
+**Alternatives considered.** Recursive flattening of arbitrary records; inserting full project JSON as a blob; prohibiting all future contribution; immediate migration of every module into OMI.
+
+**Rationale.** The existing recursive flattening could disclose private research material and discard structure without a deliberate editorial decision. Modules have different record schemas and retention requirements; a shared portable manuscript format is not their project database.
+
+**Consequences.** [Studio PR #630](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/630) contains the immediate transfer. Versioned module repositories and opt-in projections are separate incremental PRs. Existing module exports retain their own scope and compatibility policy. Synthetic confidential-data, storage-failure, validation and round-trip tests gate a later projection.
+
+**Revisit when.** A reviewed module projection contract and privacy fixtures prove exact-content consent, authorization, retention and reversible manuscript insertion.
+
+---
