@@ -8,7 +8,9 @@ import styles from './studio.module.css';
 
 const STUDIO_VERSION = '0.3.0-beta.5';
 const RELEASE_BASE = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/releases/latest/download';
-const SERVER_SOURCE_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/archive/refs/heads/main.zip';
+const SERVER_API_PACKAGE_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/pkgs/container/open-manuscript-studio-api';
+const SERVER_WEB_PACKAGE_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/pkgs/container/open-manuscript-studio-web';
+const SERVER_DEPLOYMENT_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/tree/main/deployment';
 const GOOGLE_PLAY_TEST_URL = 'https://play.google.com/apps/testing/org.openmanuscript.studio';
 const downloads = {
   windowsExe: `${RELEASE_BASE}/Open-Manuscript-Studio-Windows-x64-Setup.exe`,
@@ -74,8 +76,11 @@ const CURRENT_UPDATE = {
     iosDescription: 'Validated native iPhone/iPad simulator target using the same Studio core. Public TestFlight/App Store installation is not yet available because Apple signing/provisioning and the final Universal Link association are still required.',
     iosAction: 'iOS/iPadOS implementation details',
     serverDeploymentTitle: 'Self-hosted server deployment',
-    serverDeploymentDescription: 'Run the Studio web application and API on your own Linux server with Docker Compose. Windows Server is supported through an Ubuntu Server virtual machine in Hyper-V. Download the full source archive; it is required to build the containers.',
-    serverDownload: 'Download server source (ZIP)',
+    serverDeploymentDescription: 'Run the prebuilt Studio API and web images with Docker Compose on Linux. Windows Server can run the same Linux containers in an Ubuntu Server VM on Hyper-V. No source checkout or local image build is required. Images are available for linux/amd64 and linux/arm64.',
+    serverApiImage: 'API image on GitHub Packages',
+    serverWebImage: 'Web image on GitHub Packages',
+    serverPullCommands: 'Pull the images with Docker:',
+    serverDeploymentFiles: 'Docker Compose deployment files',
     serverGuideEn: 'Administrator guide (English)',
     serverGuideHu: 'Administrator guide (Hungarian)',
     betaTitle: 'Current public beta',
@@ -126,8 +131,11 @@ const CURRENT_UPDATE = {
     iosDescription: 'Validált natív iPhone/iPad szimulátoros célverzió ugyanazzal a Studio-maggal. Nyilvános TestFlight/App Store telepítés még nincs, mert ehhez Apple aláírás/provisioning és a végleges Universal Link társítás szükséges.',
     iosAction: 'iOS/iPadOS megvalósítás részletei',
     serverDeploymentTitle: 'Saját szerveres telepítés',
-    serverDeploymentDescription: 'Futtassa a Studio webes felületét és API-ját saját Linux-szerverén Docker Compose segítségével. A Windows Servert Ubuntu Server virtuális gépen, Hyper-V alatt támogatjuk. A konténerek felépítéséhez a teljes forrásarchívum szükséges.',
-    serverDownload: 'Szerverforrás letöltése (ZIP)',
+    serverDeploymentDescription: 'Futtassa az előre elkészített Studio API- és webes image-eket Docker Compose-zal Linuxon. Windows Serveren ugyanez a Linuxos csomag Ubuntu Server virtuális gépben, Hyper-V alatt futtatható. A szerveren nem kell forráskódot letölteni vagy image-et építeni. Az image-ek linux/amd64 és linux/arm64 architektúrához érhetők el.',
+    serverApiImage: 'API image a GitHub Packagesben',
+    serverWebImage: 'Web image a GitHub Packagesben',
+    serverPullCommands: 'Image-ek letöltése Dockerrel:',
+    serverDeploymentFiles: 'Docker Compose telepítőfájlok',
     serverGuideEn: 'Rendszergazdai súgó (angol)',
     serverGuideHu: 'Rendszergazdai súgó (magyar)',
     betaTitle: 'Jelenlegi nyilvános béta',
@@ -174,8 +182,11 @@ const CURRENT_UPDATE = {
     iosDescription: 'Validiertes natives iPhone/iPad-Simulatorziel mit demselben Studio-Kern. Eine öffentliche TestFlight/App-Store-Installation ist noch nicht verfügbar, da Apple-Signierung/Provisioning und die endgültige Universal-Link-Zuordnung erforderlich sind.',
     iosAction: 'Details zur iOS/iPadOS-Implementierung',
     serverDeploymentTitle: 'Selbst gehostete Serverinstallation',
-    serverDeploymentDescription: 'Führen Sie die Studio-Webanwendung und API mit Docker Compose auf Ihrem eigenen Linux-Server aus. Windows Server wird über eine Ubuntu-Server-VM in Hyper-V unterstützt. Zum Erstellen der Container wird das vollständige Quellarchiv benötigt.',
-    serverDownload: 'Server-Quellcode herunterladen (ZIP)',
+    serverDeploymentDescription: 'Führen Sie die vorgefertigten Studio-API- und Web-Images mit Docker Compose unter Linux aus. Windows Server kann dieselben Linux-Container in einer Ubuntu-Server-VM unter Hyper-V ausführen. Ein Quellcode-Checkout oder lokaler Image-Build ist nicht erforderlich. Die Images sind für linux/amd64 und linux/arm64 verfügbar.',
+    serverApiImage: 'API-Image auf GitHub Packages',
+    serverWebImage: 'Web-Image auf GitHub Packages',
+    serverPullCommands: 'Images mit Docker herunterladen:',
+    serverDeploymentFiles: 'Docker-Compose-Installationsdateien',
     serverGuideEn: 'Administratorhandbuch (Englisch)',
     serverGuideHu: 'Administratorhandbuch (Ungarisch)',
     betaTitle: 'Aktuelle öffentliche Beta',
@@ -277,7 +288,10 @@ export default function StudioDownloads() {
                 <DownloadButton href={downloads.linuxDeb} secondary>{t.deb}</DownloadButton>
               </DownloadCard>
               <DownloadCard title={update.serverDeploymentTitle} description={update.serverDeploymentDescription}>
-                <DownloadButton href={SERVER_SOURCE_URL}>{update.serverDownload}</DownloadButton>
+                <DownloadButton href={SERVER_API_PACKAGE_URL}>{update.serverApiImage}</DownloadButton>
+                <DownloadButton href={SERVER_WEB_PACKAGE_URL} secondary>{update.serverWebImage}</DownloadButton>
+                <p>{update.serverPullCommands}<br /><code>docker pull ghcr.io/open-manuscript-initiative/open-manuscript-studio-api:latest</code><br /><code>docker pull ghcr.io/open-manuscript-initiative/open-manuscript-studio-web:latest</code></p>
+                <Link className="button button--secondary" to={SERVER_DEPLOYMENT_URL}>{update.serverDeploymentFiles}</Link>
                 <Link className="button button--secondary" to="https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/deployment/ADMIN_GUIDE.md">{update.serverGuideEn}</Link>
                 <Link className="button button--secondary" to="https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/deployment/ADMIN_GUIDE.hu.md">{update.serverGuideHu}</Link>
               </DownloadCard>
