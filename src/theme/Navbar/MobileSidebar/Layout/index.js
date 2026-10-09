@@ -22,10 +22,10 @@ export default function NavbarMobileSidebarLayout({header}) {
       )}>
       {header}
       <div className="omi-navbar-sidebar__content menu">
-        <DocumentationSidebarMenu />
         <ul className="omi-navbar-sidebar__languages menu__list">
           <LocaleDropdownNavbarItem mobile />
         </ul>
+        <DocumentationSidebarMenu />
       </div>
     </div>
   );
