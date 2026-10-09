@@ -273,3 +273,16 @@ change the original classifications for that baseline.
 |---|---|---|---|---|---|
 | `VisualInsertPanel` / `officeImport` provenance | HARDEN | Machine filename/part metadata existed, but a file/clipboard object could be inserted without a reviewed visible source. | Per-object source prefill, edit, confirm and portable rendering. | Review [Studio PR #632](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/632); verify export fidelity. | medium |
 | DOCX/PDF, OJS/OMP, HTML/JATS, reference-manager and asset ingress | SPLIT | Different owners and source granularity; no proven universal object-source gate. | Explicit source per document/record/object as appropriate, without rewriting valid OMI imports. | Characterize each path, add missing-source and privacy fixtures, migrate incrementally. | high |
+
+### Source rule coverage (2026-10-09)
+
+| Ingress | Current PR | Remaining 1.0 risk |
+|---|---|---|
+| File/clipboard visual, including HTML visual elements | [#632](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/632) | Adjacency alone does not create a semantic bibliographic link; test every renderer. |
+| DOCX/PDF conversion | [#634](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/634) | One document-level source is not a substitute for distinct citations inside the manuscript; avoid private file paths. |
+| OJS/OMP editable intake | [#636](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/636) after #634 | PKP E2E and anonymity evidence; no reviewer/file identity leak. |
+| RIS/BibTeX/CSL JSON | [#635](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/635) | Bibliographic record is itself the source; file lineage is not a work identifier. |
+| Research workspaces | [#637](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/637) after #631 | Statistical IndexedDB, confidentiality, source validation and structured link remain. |
+| JATS manuscript import | no implementation | Do not claim support; adopt gate if implemented later. |
+
+The coverage tracker is [Studio #633](https://github.com/open-manuscript-initiative/open-manuscript-studio/issues/633).
