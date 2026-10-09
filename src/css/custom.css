@@ -143,3 +143,24 @@
     margin-top: 1rem;
   }
 }
+
+
+/* Make the desktop language switcher read as a clear, interactive control. */
+.navbar__link.omi-navbar-locale {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-100);
+  font-weight: 600;
+}
+
+.navbar__link.omi-navbar-locale:hover,
+.navbar__link.omi-navbar-locale:focus-visible {
+  background: var(--ifm-color-emphasis-200);
+}
+
+/* Keep the locale control available in the custom mobile navigation panel. */
+.omi-navbar-sidebar__languages {
+  margin: 0 0 0.75rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  padding-bottom: 0.75rem;
+}
