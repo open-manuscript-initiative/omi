@@ -22,7 +22,7 @@ keywords:
 | Status | Draft |
 | Version | 0.4.0 |
 | Normative language | English |
-| Last updated | 2026-09-18 |
+| Last updated | 2026-10-09 (Studio file-format evidence correction; original survey baseline retained) |
 | Coverage | Every identifier in the OMI Specification Registry |
 | Evidence baseline | Full `main`-branch review from 2026-08-06, supplemented by OMI-SPEC-320 schema/fixture evidence and an OMI-SPEC-240 publication-profile implementation review against Open Manuscript Studio `63e391d8a3e0191ec2b24e494664df30d66f43e3` on 2026-09-18 |
 | Authority | Informative; the Specification Registry and individual specifications remain authoritative |
@@ -197,7 +197,7 @@ These counts describe the evidence categories used in this document. They do not
 
 No row in this section currently qualifies as **Implemented**, **Tested**, or **Conformant** under the strict definitions above.
 
-The OMI repository now contains a reference fixture validator for `OMI-SPEC-320@0.2.0`. No Studio implementation uses that validator yet, and no formal conformance tests or independent implementation evidence were verified for any specification. Those dimensions are therefore summarized for the complete baseline rather than repeated in every row.
+The OMI repository contains a reference fixture validator for `OMI-SPEC-320@0.2.0`. Studio now vendors the Draft schema and shared 14-fixture corpus and runs JSON Schema Draft 2020-12 plus semantic validation on portable open/save. This is Studio implementation and fixture evidence; a complete normative requirement mapping, stable released schema and independent implementation/conformance evidence are still outstanding. These dimensions are summarized here rather than repeated in every row.
 
 ### 7.1 Foundations and core semantic models
 
