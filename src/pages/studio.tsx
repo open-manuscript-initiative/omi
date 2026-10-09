@@ -8,6 +8,7 @@ import styles from './studio.module.css';
 
 const STUDIO_VERSION = '0.3.0-beta.5';
 const RELEASE_BASE = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/releases/latest/download';
+const SERVER_SOURCE_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/archive/refs/heads/main.zip';
 const GOOGLE_PLAY_TEST_URL = 'https://play.google.com/apps/testing/org.openmanuscript.studio';
 const downloads = {
   windowsExe: `${RELEASE_BASE}/Open-Manuscript-Studio-Windows-x64-Setup.exe`,
@@ -72,6 +73,11 @@ const CURRENT_UPDATE = {
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validated native iPhone/iPad simulator target using the same Studio core. Public TestFlight/App Store installation is not yet available because Apple signing/provisioning and the final Universal Link association are still required.',
     iosAction: 'iOS/iPadOS implementation details',
+    serverDeploymentTitle: 'Self-hosted server deployment',
+    serverDeploymentDescription: 'Run the Studio web application and API on your own Linux server with Docker Compose. Windows Server is supported through an Ubuntu Server virtual machine in Hyper-V. Download the full source archive; it is required to build the containers.',
+    serverDownload: 'Download server source (ZIP)',
+    serverGuideEn: 'Administrator guide (English)',
+    serverGuideHu: 'Administrator guide (Hungarian)',
     betaTitle: 'Current public beta',
     betaText: 'OMI Studio 0.3.0-beta.5 adds source review before references and DOCX/PDF conversions are accepted, preserves per-item provenance for imported visuals without exposing private local filenames, keeps OJS/OMP attribution visible in editable manuscript views, and supports source-backed research excerpts in more safe module fields. The bottom study-notes panel shows only notes anchored in text currently visible in the manuscript, updates as the author scrolls, and uses at most half the usable screen. On Android, Help also displays the platform versionCode.',
     maturity: 'The project is in public beta. Beta development prioritizes regression testing, large-document performance, error recovery, interoperability, migration discipline and trustworthy immutable releases on the path to the first release candidate.',
@@ -119,6 +125,11 @@ const CURRENT_UPDATE = {
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validált natív iPhone/iPad szimulátoros célverzió ugyanazzal a Studio-maggal. Nyilvános TestFlight/App Store telepítés még nincs, mert ehhez Apple aláírás/provisioning és a végleges Universal Link társítás szükséges.',
     iosAction: 'iOS/iPadOS megvalósítás részletei',
+    serverDeploymentTitle: 'Saját szerveres telepítés',
+    serverDeploymentDescription: 'Futtassa a Studio webes felületét és API-ját saját Linux-szerverén Docker Compose segítségével. A Windows Servert Ubuntu Server virtuális gépen, Hyper-V alatt támogatjuk. A konténerek felépítéséhez a teljes forrásarchívum szükséges.',
+    serverDownload: 'Szerverforrás letöltése (ZIP)',
+    serverGuideEn: 'Rendszergazdai súgó (angol)',
+    serverGuideHu: 'Rendszergazdai súgó (magyar)',
     betaTitle: 'Jelenlegi nyilvános béta',
     betaText: 'Az OMI Studio 0.3.0-beta.5 forrásellenőrzést iktat be a hivatkozások és a DOCX/PDF-átalakítás elfogadása elé, megőrzi az importált vizuális elemek egyedi eredetét a helyi fájlnév felfedése nélkül, láthatóan tartja az OJS/OMP-forrásokat a szerkeszthető nézetekben, és több biztonságos modulmezőben tesz lehetővé forrásolt kutatási kivonatokat. Az alsó jegyzetpanel csak az aktuálisan látható kéziratszöveghez horgonyzott jegyzeteket mutatja, görgetéskor frissül, és legfeljebb a hasznos képernyőterület felét foglalja el. Az Android súgója a platform verziókódját is megjeleníti.',
     maturity: 'A projekt nyilvános béta. A béta szakasz fő feladata a regressziós tesztelés, a nagy dokumentumok teljesítménye, a hibából való helyreállás, az interoperabilitás, a migrációs fegyelem és a megbízható, változtathatatlan kiadások biztosítása az első release candidate felé.',
@@ -162,6 +173,11 @@ const CURRENT_UPDATE = {
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validiertes natives iPhone/iPad-Simulatorziel mit demselben Studio-Kern. Eine öffentliche TestFlight/App-Store-Installation ist noch nicht verfügbar, da Apple-Signierung/Provisioning und die endgültige Universal-Link-Zuordnung erforderlich sind.',
     iosAction: 'Details zur iOS/iPadOS-Implementierung',
+    serverDeploymentTitle: 'Selbst gehostete Serverinstallation',
+    serverDeploymentDescription: 'Führen Sie die Studio-Webanwendung und API mit Docker Compose auf Ihrem eigenen Linux-Server aus. Windows Server wird über eine Ubuntu-Server-VM in Hyper-V unterstützt. Zum Erstellen der Container wird das vollständige Quellarchiv benötigt.',
+    serverDownload: 'Server-Quellcode herunterladen (ZIP)',
+    serverGuideEn: 'Administratorhandbuch (Englisch)',
+    serverGuideHu: 'Administratorhandbuch (Ungarisch)',
     betaTitle: 'Aktuelle öffentliche Beta',
     betaText: 'OMI Studio 0.3.0-beta.5 ergänzt eine Quellenprüfung vor der Übernahme von Literaturangaben und DOCX/PDF-Konvertierungen, bewahrt die individuelle Herkunft importierter visueller Objekte ohne private lokale Dateinamen offenzulegen, hält OJS/OMP-Quellen in bearbeitbaren Manuskriptansichten sichtbar und unterstützt quellenbasierte Forschungsauszüge in weiteren sicheren Modulfeldern. Das untere Notizenpanel zeigt nur Notizen zu aktuell sichtbaren Manuskriptstellen, aktualisiert sich beim Scrollen und belegt höchstens die Hälfte des nutzbaren Bildschirms. Die Android-Hilfe zeigt außerdem den Plattform-Versionscode.',
     maturity: 'Das Projekt befindet sich in der öffentlichen Beta. Im Mittelpunkt stehen Regressionstests, Leistung bei großen Dokumenten, Fehlerwiederherstellung, Interoperabilität, saubere Migrationen und vertrauenswürdige unveränderliche Releases auf dem Weg zum ersten Release Candidate.',
@@ -259,6 +275,11 @@ export default function StudioDownloads() {
               <DownloadCard title={t.linux} description={t.linuxText}>
                 <DownloadButton href={downloads.linuxAppImage}>{t.appimage}</DownloadButton>
                 <DownloadButton href={downloads.linuxDeb} secondary>{t.deb}</DownloadButton>
+              </DownloadCard>
+              <DownloadCard title={update.serverDeploymentTitle} description={update.serverDeploymentDescription}>
+                <DownloadButton href={SERVER_SOURCE_URL}>{update.serverDownload}</DownloadButton>
+                <Link className="button button--secondary" to="https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/deployment/ADMIN_GUIDE.md">{update.serverGuideEn}</Link>
+                <Link className="button button--secondary" to="https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/deployment/ADMIN_GUIDE.hu.md">{update.serverGuideHu}</Link>
               </DownloadCard>
             </div>
           </div>
