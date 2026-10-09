@@ -47,6 +47,7 @@ The current Studio source tree reports **`0.3.0-beta.5`**. This release improves
 - **Provenance:** Retains the declared origin of each imported visual object, including author-declared own work, without exposing private local filenames. OJS/OMP source attribution stays visible in editable manuscript projections.
 - **Research excerpts:** Extends source-backed excerpts to additional safe module fields.
 - **Reading notes:** The bottom panel shows only notes anchored to text currently visible in the manuscript, follows scrolling, grows only as needed up to half the usable viewport, and scrolls overflow internally.
+- **Android diagnostics:** Help shows the Android versionCode alongside the shared application version.
 
 This page describes **implemented product capabilities**, not OMI specification conformance. Formal specification maturity and conformance evidence are tracked separately in the [OMI Implementation Status Matrix](./implementation-status-matrix.md). Publication-profile behaviour is mapped requirement by requirement in the [Studio OMI-SPEC-240 Implementation Profile](./studio-omi-spec-240-implementation-profile.md); that profile records implementation evidence and does not make a formal conformance claim.
 

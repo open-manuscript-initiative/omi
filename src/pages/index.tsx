@@ -20,7 +20,7 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
 
 const STUDIO_UPDATE = {
   en: {
-    summary: 'Open Manuscript Studio 0.3.0-beta.5 is the current beta. It improves source review and provenance for imported references, DOCX/PDF material and visual objects, preserves OJS/OMP attribution in editable manuscript views, and expands source-backed research excerpts. Study notes now follow visible manuscript text in a bottom panel capped at half the usable viewport.',
+    summary: 'Open Manuscript Studio 0.3.0-beta.5 is the current beta. It improves source review and provenance for imported references, DOCX/PDF material and visual objects, preserves OJS/OMP attribution in editable manuscript views, and expands source-backed research excerpts. Study notes now follow visible manuscript text in a bottom panel capped at half the usable viewport. On Android, Help also displays the platform versionCode.',
     multiDocument: 'Multi-document desktop editing and document outline',
     wordLike: 'Word-like manuscript-wide split, merge and selection',
     pdf: 'Structural PDF import with geometry-aware footnotes',
@@ -43,7 +43,7 @@ const STUDIO_UPDATE = {
     uiLocales: 'selectable UI locales',
   },
   hu: {
-    summary: 'Az Open Manuscript Studio 0.3.0-beta.5 a jelenlegi béta. Javítja a forrásellenőrzést és az eredetjelölést az importált hivatkozásoknál, DOCX/PDF-anyagoknál és vizuális elemeknél; megőrzi az OJS/OMP-forrásjelölést a szerkeszthető nézetekben, és több biztonságos modulmezőben enged forrásolt kutatási kivonatokat. A jegyzetpanel csak a képernyőn látható kéziratszöveghez horgonyzott jegyzeteket mutatja, és legfeljebb a hasznos képernyő felét foglalja el.',
+    summary: 'Az Open Manuscript Studio 0.3.0-beta.5 a jelenlegi béta. Javítja a forrásellenőrzést és az eredetjelölést az importált hivatkozásoknál, DOCX/PDF-anyagoknál és vizuális elemeknél; megőrzi az OJS/OMP-forrásjelölést a szerkeszthető nézetekben, és több biztonságos modulmezőben enged forrásolt kutatási kivonatokat. A jegyzetpanel csak a képernyőn látható kéziratszöveghez horgonyzott jegyzeteket mutatja, és legfeljebb a hasznos képernyő felét foglalja el. Az Android súgója a platform verziókódját is megjeleníti.',
     multiDocument: 'Többdokumentumos asztali szerkesztés és dokumentumvázlat',
     wordLike: 'Word-szerű, kézirat-szintű szétválasztás, egyesítés és kijelölés',
     pdf: 'Strukturált PDF-import geometria-alapú lábjegyzet-felismeréssel',
@@ -66,7 +66,7 @@ const STUDIO_UPDATE = {
     uiLocales: 'választható felületi lokalizáció',
   },
   de: {
-    summary: 'Open Manuscript Studio 0.3.0-beta.5 ist die aktuelle Beta. Sie verbessert Quellenprüfung und Herkunftsnachweise für importierte Literaturangaben, DOCX/PDF-Material und visuelle Objekte, erhält OJS/OMP-Quellenangaben in bearbeitbaren Ansichten und erweitert quellenbasierte Forschungsauszüge. Das Notizenpanel folgt den sichtbaren Manuskriptstellen und belegt höchstens die Hälfte des nutzbaren Bildschirms.',
+    summary: 'Open Manuscript Studio 0.3.0-beta.5 ist die aktuelle Beta. Sie verbessert Quellenprüfung und Herkunftsnachweise für importierte Literaturangaben, DOCX/PDF-Material und visuelle Objekte, erhält OJS/OMP-Quellenangaben in bearbeitbaren Ansichten und erweitert quellenbasierte Forschungsauszüge. Das Notizenpanel folgt den sichtbaren Manuskriptstellen und belegt höchstens die Hälfte des nutzbaren Bildschirms. Die Android-Hilfe zeigt außerdem den Plattform-Versionscode.',
     multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
     wordLike: 'Word-ähnliches manuskriptweites Teilen, Zusammenführen und Auswählen',
     pdf: 'Strukturierter PDF-Import mit geometriebasierter Fußnotenerkennung',
