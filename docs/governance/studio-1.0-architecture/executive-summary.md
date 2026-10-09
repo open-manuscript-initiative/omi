@@ -182,3 +182,5 @@ requires a selected excerpt and visible source. This is partial coverage:
 DOCX/PDF, PKP intake, reference-manager and other paths remain tracked in
 [Studio issue #633](https://github.com/open-manuscript-initiative/open-manuscript-studio/issues/633).
 Do not claim universal enforcement or formal semantic citation linkage yet.
+
+**Source attribution rollout.** Studio PRs [#634](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/634), [#635](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/635), [#636](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/636) and [#637](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/637) extend the earlier visual/module source gate. The rule is implemented by ingress owner, preserving PKP review anonymity and canonical OMI open behavior. The source is presently visible text or the bibliography record itself; semantic object linkage and renderer conformance remain open in [#633](https://github.com/open-manuscript-initiative/open-manuscript-studio/issues/633).
