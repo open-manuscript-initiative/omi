@@ -266,3 +266,10 @@ The required visual seal is fixed across languages (`OMI · PEER REVIEW · VERIF
 
 These deltas update the 2026-09-19 snapshot; they do not retrospectively
 change the original classifications for that baseline.
+
+### External source attribution delta
+
+| Component | Status | Problem | 1.0 target | Step | Risk |
+|---|---|---|---|---|---|
+| `VisualInsertPanel` / `officeImport` provenance | HARDEN | Machine filename/part metadata existed, but a file/clipboard object could be inserted without a reviewed visible source. | Per-object source prefill, edit, confirm and portable rendering. | Review [Studio PR #632](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/632); verify export fidelity. | medium |
+| DOCX/PDF, OJS/OMP, HTML/JATS, reference-manager and asset ingress | SPLIT | Different owners and source granularity; no proven universal object-source gate. | Explicit source per document/record/object as appropriate, without rewriting valid OMI imports. | Characterize each path, add missing-source and privacy fixtures, migrate incrementally. | high |
