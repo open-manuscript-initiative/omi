@@ -174,3 +174,11 @@ contains that transfer while retaining section insertion. Keep discipline
 workspaces separate from OMI and follow with versioned project storage and an
 explicit, source-attributed and previewed contribution flow. These are targeted changes; the editor,
 module calculators, and publication pipeline do not need a rewrite.
+
+**External object source policy (ADR-023).** File and clipboard visual objects
+now have a proposed per-object source confirmation gate in Studio PR #632,
+with automatic filename/part prefill. The current module excerpt PR #631
+requires a selected excerpt and visible source. This is partial coverage:
+DOCX/PDF, PKP intake, reference-manager and other paths remain tracked in
+[Studio issue #633](https://github.com/open-manuscript-initiative/open-manuscript-studio/issues/633).
+Do not claim universal enforcement or formal semantic citation linkage yet.
