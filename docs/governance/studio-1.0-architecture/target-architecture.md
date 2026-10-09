@@ -806,3 +806,17 @@ Whole-document DOCX/PDF, PKP, HTML/JATS, assets and reference-manager paths
 need individual contract mapping and fixtures. Do not make the Draft OMI wire
 schema reject older valid documents solely to implement an application import
 gate.
+
+### External source implementation coverage (2026-10-09)
+
+The Studio import gate is being rolled out by ingress owner: visual file and
+clipboard objects (#632); converted DOCX/PDF manuscripts with source review
+(#634); editorial OJS/OMP projections with provider/title attribution and no
+private filename in the notice (#636); bibliographic record preview (#635);
+and additional allow-listed research fields (#637). OMI containers and JSON
+remain read/validated without retroactive source rewriting. JATS is an export
+format in Studio today, not a standalone manuscript importer. External HTML
+visual objects use the visual path. The PKP reviewer projection remains a
+separate anonymity boundary. Adjacent source text is an interim visible
+representation; a semantic object-to-source link and exporter fidelity are
+still an architecture-freeze decision, not a completed guarantee.
