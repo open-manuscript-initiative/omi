@@ -159,3 +159,18 @@ Supporting journals and presses without OJS/OMP is part of the 1.0 direction, no
 Public-interest and popular-science publishing may proceed without review, with explicit disclosure. The language-independent seal is `OMI · PEER REVIEW · VERIFIED` or `NOT VERIFIED`, accompanied by localized explanation. It reports recorded workflow evidence, not scientific quality or truth; confidential reviewer data stays private.
 
 Keep the current HTML renderer, publication build and connector foundations. Before freeze, settle the assurance contract and native-vs-external authority (ADR-021). Harden implementation under C15, with website delivery **Preview** until real database/receiver, recovery, privacy and accessibility tests pass. False assurance, reviewer leakage and missing required disclosure remain mandatory release blockers. Public verification portals, expanded review taxonomies and new workflow dashboards are not prerequisites for base 1.0.
+
+## 2026-10-09 update
+
+The Studio's OMI-SPEC-320@0.2.0 runtime validator, vendored Draft schema and
+round-trip fixture now provide stronger implementation evidence than the
+original audit baseline. They do not freeze the format as stable or close the
+remaining future-version and independent-conformance gates.
+
+The most urgent newly observed boundary was the research module insertion UI:
+it could flatten locally saved module records, including sensitive interview
+material, straight into portable manuscript content. [Studio PR #630](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/630)
+contains that transfer while retaining section insertion. Keep discipline
+workspaces separate from OMI and follow with versioned project storage and an
+explicit, previewed contribution flow. These are targeted changes; the editor,
+module calculators, and publication pipeline do not need a rewrite.
