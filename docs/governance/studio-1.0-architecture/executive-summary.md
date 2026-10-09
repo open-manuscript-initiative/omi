@@ -172,5 +172,5 @@ it could flatten locally saved module records, including sensitive interview
 material, straight into portable manuscript content. [Studio PR #630](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/630)
 contains that transfer while retaining section insertion. Keep discipline
 workspaces separate from OMI and follow with versioned project storage and an
-explicit, previewed contribution flow. These are targeted changes; the editor,
+explicit, source-attributed and previewed contribution flow. These are targeted changes; the editor,
 module calculators, and publication pipeline do not need a rewrite.
