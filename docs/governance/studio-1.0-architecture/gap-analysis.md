@@ -255,3 +255,14 @@ The following rows describe the proposed implementation supplement, not the orig
 | `publishing/webPublication.ts`, web routes, outbox migration | HARDEN | Grant, idempotency and transport receipts need real database/receiver recovery evidence. | `ArtifactDeliveryPort` with target-version binding and exact payload receipts. | PostgreSQL migration, WordPress/generic receiver, timeout/crash/reconcile and tamper corpus; retain Preview. | high |
 
 The required visual seal is fixed across languages (`OMI · PEER REVIEW · VERIFIED / NOT VERIFIED`); explanation remains localized. Existing renderer logic is retained. No new general publishing platform or rewrite is required.
+
+## 2026-10-09 evidence delta
+
+| Current component | Status | Problem / evidence | 1.0 target | Next step | Risk |
+|---|---|---|---|---|---|
+| Studio `omiPortableFormat.ts`, vendored 0.2 schema and fixtures | HARDEN | Draft schema validation and an edit/save extension fixture now exist; the original empty-schema gap is closed. The specification is still Draft and the observed round trip covers a finite corpus. | Freeze only after normative requirement mapping, compatibility decision and independent evidence. | Pin immutable schema provenance/checksum in CI; broaden lossless/future-version gates. | high |
+| `ResearchModuleInsertPanel.tsx` | REFACTOR | Main previously read local module JSON and recursively flattened arbitrary fields into a Tiptap block without preview or consent. | Section scaffold only until typed, authorized contribution exists. | Review [Studio PR #630](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/630); add a separate allow-listed projection with privacy fixtures. | high |
+| Module `disciplineWorkspace.ts` / statistical IndexedDB workspaces | SPLIT | Module state is stored in browser storage; availability/retention and JSON export semantics differ from a portable OMI manuscript. | Versioned module project records behind a workspace repository with explicit save/recovery outcomes and retention policy. | Characterize existing imports/exports first, then introduce a port and migrate one module at a time. | medium-high |
+
+These deltas update the 2026-09-19 snapshot; they do not retrospectively
+change the original classifications for that baseline.
