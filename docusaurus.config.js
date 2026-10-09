@@ -75,7 +75,7 @@ const config = {
           {to: '/docs/governance/funding-and-partnerships', label: 'Funding & Partnerships', position: 'left'},
           {to: '/support', label: 'Support', position: 'left'},
           {href: 'https://github.com/open-manuscript-initiative/omi', label: 'GitHub', position: 'right'},
-          {type: 'localeDropdown', position: 'right'},
+          {type: 'localeDropdown', position: 'right', className: 'omi-navbar-locale'},
         ],
       },
       footer: {
