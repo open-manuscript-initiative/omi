@@ -160,7 +160,7 @@
 
 /* Keep the locale control available in the custom mobile navigation panel. */
 .omi-navbar-sidebar__languages {
-  margin: 1rem 0.5rem 0;
-  border-top: 1px solid var(--ifm-color-emphasis-300);
-  padding-top: 0.75rem;
+  margin: 0 0 0.75rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  padding-bottom: 0.75rem;
 }
