@@ -267,3 +267,10 @@ incremental follow-up PRs and must not be folded into a broad module rewrite.
 - **Bibliographic linkage:** after ADR-001/004 schema decisions, add structured object→source links and renderer fidelity fixtures without recoding existing files silently.
 - **Remaining ingress:** characterize DOCX/PDF and HTML/JATS conversions, PKP intake, reference managers and asset transfer in separate PRs; decide source granularity per path before enforcing. Test metadata prefill, correction, anonymity, undo/round-trip and export formats. Keep OMI open semantics separate from external insertion.
 - **Release gate:** no universal-source claim until all supported external insertion paths have proven behavior and synthetic confidentiality fixtures. A successful visual-only PR is partial coverage.
+
+### Dependency update for external source rollout
+
+- #632 (visual source pairing) and #635 (bibliographic review) are independent PRs.
+- #634 (DOCX/PDF source review) introduces a reusable document source notice; #636 (PKP source notice) depends on it and must pass OJS/OMP anonymity and real connector E2E.
+- #637 extends #631's researched, opt-in module projection to named safe fields; no automatic transcript or participant projection.
+- Follow-up: semantic OMI object/source link, renderer export fidelity, statistical IndexedDB adapter with privacy limits, and exact-commit gate evidence. Track in [#633](https://github.com/open-manuscript-initiative/open-manuscript-studio/issues/633). Do not mark ADR-023 fully implemented from UI-only source text.
