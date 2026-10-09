@@ -159,3 +159,26 @@ Supporting journals and presses without OJS/OMP is part of the 1.0 direction, no
 Public-interest and popular-science publishing may proceed without review, with explicit disclosure. The language-independent seal is `OMI · PEER REVIEW · VERIFIED` or `NOT VERIFIED`, accompanied by localized explanation. It reports recorded workflow evidence, not scientific quality or truth; confidential reviewer data stays private.
 
 Keep the current HTML renderer, publication build and connector foundations. Before freeze, settle the assurance contract and native-vs-external authority (ADR-021). Harden implementation under C15, with website delivery **Preview** until real database/receiver, recovery, privacy and accessibility tests pass. False assurance, reviewer leakage and missing required disclosure remain mandatory release blockers. Public verification portals, expanded review taxonomies and new workflow dashboards are not prerequisites for base 1.0.
+
+## 2026-10-09 update
+
+The Studio's OMI-SPEC-320@0.2.0 runtime validator, vendored Draft schema and
+round-trip fixture now provide stronger implementation evidence than the
+original audit baseline. They do not freeze the format as stable or close the
+remaining future-version and independent-conformance gates.
+
+The most urgent newly observed boundary was the research module insertion UI:
+it could flatten locally saved module records, including sensitive interview
+material, straight into portable manuscript content. [Studio PR #630](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/630)
+contains that transfer while retaining section insertion. Keep discipline
+workspaces separate from OMI and follow with versioned project storage and an
+explicit, source-attributed and previewed contribution flow. These are targeted changes; the editor,
+module calculators, and publication pipeline do not need a rewrite.
+
+**External object source policy (ADR-023).** File and clipboard visual objects
+now have a proposed per-object source confirmation gate in Studio PR #632,
+with automatic filename/part prefill. The current module excerpt PR #631
+requires a selected excerpt and visible source. This is partial coverage:
+DOCX/PDF, PKP intake, reference-manager and other paths remain tracked in
+[Studio issue #633](https://github.com/open-manuscript-initiative/open-manuscript-studio/issues/633).
+Do not claim universal enforcement or formal semantic citation linkage yet.
