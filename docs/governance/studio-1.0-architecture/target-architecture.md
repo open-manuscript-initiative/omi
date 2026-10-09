@@ -792,3 +792,17 @@ explicit confirmation, provenance/loss diagnostics and OMI validation. Local
 research data needs a separate persistence/retention owner and failure signal;
 no module JSON export is automatically an OMI interchange format. Treat
 transcripts and participant data as a distinct confidentiality boundary.
+
+## 2026-10-09 source attribution extension (ADR-023)
+
+Studio-created blank objects remain authoring state. Every externally created
+scholarly object inserted into an editable manuscript requires a nonempty,
+visible source, prefilled from file/record/provider metadata where available
+and reviewed before insertion. Preserve machine provenance separately. Treat
+review-confidential and participant identifiers as a security boundary; a
+source label cannot waive confidentiality. Current file/clipboard visual import
+is in [Studio PR #632](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/632).
+Whole-document DOCX/PDF, PKP, HTML/JATS, assets and reference-manager paths
+need individual contract mapping and fixtures. Do not make the Draft OMI wire
+schema reject older valid documents solely to implement an application import
+gate.
