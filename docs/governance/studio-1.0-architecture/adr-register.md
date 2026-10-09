@@ -35,7 +35,8 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 | ADR-019 | Stable/preview capability policy | Accepted |
 | ADR-020 | General executable plugin runtime | Deferred |
 | ADR-021 | Website publication assurance and editorial authority | Proposed; delivery remains Preview |
-| ADR-022 | Research module project and manuscript contribution boundary | Proposed; containment in Studio PR #630 |
+| ADR-022 | Research module project and manuscript contribution boundary | Proposed; partial implementation in Studio PRs #630/#631 |
+| ADR-023 | External object source attribution at Studio import boundary | Proposed; visual import in Studio PR #632 |
 
 ---
 
@@ -403,5 +404,21 @@ These are not new ADRs; they are concrete values required by the decisions above
 **Consequences.** [Studio PR #630](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/630) contains the immediate transfer. Dependent [Studio PR #631](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/631) adds opt-in, source-visible excerpts for four module types; the source is currently manuscript text rather than a semantic OMI citation, so this is partial implementation of this ADR. Versioned module repositories and opt-in projections are separate incremental PRs. Existing module exports retain their own scope and compatibility policy. Synthetic confidential-data, missing-source, source-integrity, storage-failure, validation and round-trip tests gate a later projection. Source metadata must not disclose reviewer or participant identity in an anonymous projection.
 
 **Revisit when.** A reviewed module projection contract and privacy fixtures prove exact-content consent, authorization, retention and reversible manuscript insertion.
+
+---
+
+## ADR-023 — External object source attribution at the Studio import boundary
+
+**Question.** When an image, table, chart, equation, score, research excerpt or other scholarly object originates outside the current OMI manuscript, where is source attribution required?
+
+**Decision.** Studio requires a nonempty, user-visible source before adding external scholarly material to an editable manuscript. Prefill it from trustworthy available input metadata (file name, archive part, declared URL, module record source, or publishing-system file metadata), then let the researcher review/correct the exact value before insertion. Preserve machine import provenance separately. For multiple objects, apply the rule per object, with a visible source adjacent to each. Studio-authored blank objects are exempt. Opening a valid OMI file preserves its own identity, citation and history; the rule does not retroactively reject or silently rewrite it. A source label alone does not authorize disclosure of confidential data.
+
+**Alternatives considered.** Optional attribution; blindly accepting filenames as citations; changing the OMI-SPEC-320 schema to require a new field on every block; appending one source to an entire mixed batch.
+
+**Rationale.** Existing visual import provenance already knows file names/parts but is not always visible in artifacts; clipboard and module inputs may lack a source. An application-level confirmation gate can improve attribution without breaking canonical OMI compatibility. Filename is a hint rather than verified bibliographic evidence.
+
+**Consequences.** [Studio PR #632](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/632) handles file/clipboard visual objects. [Studio PR #631](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/631) handles four module excerpt types. Whole-document DOCX/PDF, OJS/OMP, HTML/JATS, reference-manager and asset paths need individual source ownership mapping and tests. Visible source text is currently not a semantic OMI citation; source-object linkage and exporter fidelity remain 1.0 gates. Do not claim universal enforcement until these paths are covered.
+
+**Revisit when.** The OMI specification defines a stable structured object-provenance/citation link and independent import/export fixtures prove it, or a source is legally unsafe to expose in an anonymized review projection.
 
 ---
