@@ -786,7 +786,8 @@ Discipline-module project records are separate local research workspace data,
 not manuscript state. The current module insertion action is being corrected in
 [Studio PR #630](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/630):
 it inserts the module title and description only, with no implicit transfer of
-saved records. A future typed projection requires an allow-list, preview,
+saved records. A future typed projection requires an allow-list, mandatory structured source
+attribution visibly rendered with the excerpt, exact-content/source preview,
 explicit confirmation, provenance/loss diagnostics and OMI validation. Local
 research data needs a separate persistence/retention owner and failure signal;
 no module JSON export is automatically an OMI interchange format. Treat
