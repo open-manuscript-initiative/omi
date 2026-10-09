@@ -30,8 +30,8 @@ keywords:
 | Field | Value |
 |---|---|
 | Status | **Beta** |
-| Snapshot date | **2026-10-07** |
-| Current development source version | `0.3.0-beta.4` |
+| Snapshot date | **2026-10-09** |
+| Current development source version | `0.3.0-beta.5` |
 | Reference implementation | Open Manuscript Studio |
 | Source repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web target | Modern browsers |
@@ -39,7 +39,14 @@ keywords:
 | Mobile targets | Android public universal APK; iOS/iPadOS validated native simulator target, with TestFlight/App Store distribution pending Apple Developer signing |
 | Web deployment | `studio.openmanuscript.org` |
 
-The current Studio source tree reports **`0.3.0-beta.4`**. This beta adds nine discipline-focused research modules for history and archives, religious texts, critical text editions, corpus linguistics, musicology, cultural heritage, social research methods, legal sources and research reproducibility. It builds on accepted-invitation live collaboration, the primary authoring, import/export, authentication, native-client and OJS/OMP review workflows, plus validated publication-output infrastructure. Packaged downloads track the current immutable GitHub release. Beta does **not** mean that every optional integration or distribution channel is production-complete.
+The current Studio source tree reports **`0.3.0-beta.5`**. This release improves source review and provenance across imported references, DOCX/PDF conversions and visual objects; preserves OJS/OMP attribution in editable manuscript views; and extends source-backed research excerpts to additional safe module fields. Its study-notes panel follows text anchors visible in the manuscript viewport and remains within half of the usable screen. Beta.5 builds on the previous release's collaboration, publication, import/export and nine research-module capabilities. Packaged downloads track the current immutable GitHub release. Beta does **not** mean that every optional integration or distribution channel is production-complete.
+
+## Changes in 0.3.0-beta.5
+
+- **Source review:** Adds a review step before imported references are added to a reference library and before DOCX/PDF manuscript conversion is accepted.
+- **Provenance:** Retains the declared origin of each imported visual object, including author-declared own work, without exposing private local filenames. OJS/OMP source attribution stays visible in editable manuscript projections.
+- **Research excerpts:** Extends source-backed excerpts to additional safe module fields.
+- **Reading notes:** The bottom panel shows only notes anchored to text currently visible in the manuscript, follows scrolling, grows only as needed up to half the usable viewport, and scrolls overflow internally.
 
 This page describes **implemented product capabilities**, not OMI specification conformance. Formal specification maturity and conformance evidence are tracked separately in the [OMI Implementation Status Matrix](./implementation-status-matrix.md). Publication-profile behaviour is mapped requirement by requirement in the [Studio OMI-SPEC-240 Implementation Profile](./studio-omi-spec-240-implementation-profile.md); that profile records implementation evidence and does not make a formal conformance claim.
 
@@ -165,7 +172,7 @@ The current OJS and OMP integrations are bidirectional for review work: Studio c
 
 ## Release and distribution
 
-`0.3.0-beta.4` is the current Studio beta release line. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Public download links follow GitHub's current release rather than embedding one historical tag in the website, while published release assets themselves remain immutable. The application version is independent of the portable OMI manuscript format, which remains `OMI-SPEC-320@0.2.0`.
+`0.3.0-beta.5` is the current Studio beta release line. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Public download links follow GitHub's current release rather than embedding one historical tag in the website, while published release assets themselves remain immutable. The application version is independent of the portable OMI manuscript format, which remains `OMI-SPEC-320@0.2.0`.
 
 iOS/iPadOS currently has a successful CI simulator build rather than a public IPA. The Apple distribution path is prepared but deliberately separated from simulator validation: public/device builds require the real Apple Development Team ID, distribution certificate, provisioning profile and final `apple-app-site-association` configuration before TestFlight/App Store publication can be claimed.
 

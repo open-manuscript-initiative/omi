@@ -28,7 +28,7 @@ Denne opdeling gør det muligt at tilpasse det samme OMI-manuskript til forskell
 
 ## Aktuel status for implementeringen
 
-Funktionerne på denne side er med i den offentlige Studio-version `0.3.0-beta.4`.
+Funktionerne på denne side er med i den offentlige Studio-version `0.3.0-beta.5`.
 
 ### Genanvendelige publikationsformater med navn
 

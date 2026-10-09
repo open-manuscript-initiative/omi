@@ -12,10 +12,10 @@ OMI treats the scholarly manuscript — structure, metadata, contributors, citat
 
 **Open Manuscript Studio** is the OMI reference implementation.
 
-Current public release line: **`0.3.0-beta.4`**.
+Current public release line: **`0.3.0-beta.5`**.
 Project state: **public beta / active stabilization and interoperability development**.
 
-The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. Studio 0.3.0-beta.4 adds linked Word footnotes and endnotes, complete non-printing marks, persistent collaborator chat, clearer DOCX, semantic HTML5 and PDF exports, and improved JATS, IDML and OMI package workflows. It also adds nine research modules for history and archives, religious texts, critical editions, corpus linguistics, musicology, cultural heritage, social research methods, legal sources and reproducibility, alongside live collaboration, editorial workflows and OJS/OMP integration. The portable OMI manuscript format remains `OMI-SPEC-320@0.2.0`. OJS 3.5 and OMP 3.5 remain authoritative when configured and are covered by native end-to-end tests. Android is an operational public-beta target; iOS/iPadOS simulator/native builds are validated while public Apple distribution remains dependent on signing, provisioning and device/TestFlight validation. Published releases remain immutable and provenance-bound to their exact build commit.
+The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. Studio 0.3.0-beta.5 improves source review and provenance for imported references, DOCX/PDF material and visual objects; preserves OJS/OMP attribution in editable manuscript views; and expands source-backed research excerpts. Study notes now follow visible manuscript text in a bottom panel capped at half the usable viewport. It builds on the prior release's nine research modules, collaboration, export and native publishing workflows. The portable OMI manuscript format remains `OMI-SPEC-320@0.2.0`. OJS 3.5 and OMP 3.5 remain authoritative when configured and are covered by native end-to-end tests. Android is an operational public-beta target; iOS/iPadOS simulator/native builds are validated while public Apple distribution remains dependent on signing, provisioning and device/TestFlight validation. Published releases remain immutable and provenance-bound to their exact build commit.
 
 ### Latest development line
 

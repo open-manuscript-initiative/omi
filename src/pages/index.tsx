@@ -20,7 +20,7 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
 
 const STUDIO_UPDATE = {
   en: {
-    summary: 'Open Manuscript Studio 0.3.0-beta.4 is the current beta. It adds linked Word footnotes and endnotes, complete non-printing marks, persistent collaborator chat, clearer DOCX, semantic HTML5 and PDF exports, and improved JATS, IDML and OMI package workflows. It also adds nine research modules for history and archives, religious texts, critical editions, corpus linguistics, musicology, cultural heritage, social research, legal sources and reproducibility, alongside live collaboration, editorial workflows and reusable reference libraries.',
+    summary: 'Open Manuscript Studio 0.3.0-beta.5 is the current beta. It improves source review and provenance for imported references, DOCX/PDF material and visual objects, preserves OJS/OMP attribution in editable manuscript views, and expands source-backed research excerpts. Study notes now follow visible manuscript text in a bottom panel capped at half the usable viewport.',
     multiDocument: 'Multi-document desktop editing and document outline',
     wordLike: 'Word-like manuscript-wide split, merge and selection',
     pdf: 'Structural PDF import with geometry-aware footnotes',
@@ -43,7 +43,7 @@ const STUDIO_UPDATE = {
     uiLocales: 'selectable UI locales',
   },
   hu: {
-    summary: 'Az Open Manuscript Studio 0.3.0-beta.4 összekapcsolt Word-lábjegyzeteket és végjegyzeteket, teljes nem nyomtatható jeleket, tartós közreműködői csevegést, egyértelmű DOCX-, szemantikus HTML5- és PDF-exportot, valamint továbbfejlesztett JATS-, IDML- és OMI-csomagkezelést hoz. Az élő együttműködésre, a Studio-natív szerkesztőségi munkafolyamatokra, az InDesign-kompatibilis tördelésre és az újrahasználható hivatkozástárra épül.',
+    summary: 'Az Open Manuscript Studio 0.3.0-beta.5 a jelenlegi béta. Javítja a forrásellenőrzést és az eredetjelölést az importált hivatkozásoknál, DOCX/PDF-anyagoknál és vizuális elemeknél; megőrzi az OJS/OMP-forrásjelölést a szerkeszthető nézetekben, és több biztonságos modulmezőben enged forrásolt kutatási kivonatokat. A jegyzetpanel csak a képernyőn látható kéziratszöveghez horgonyzott jegyzeteket mutatja, és legfeljebb a hasznos képernyő felét foglalja el.',
     multiDocument: 'Többdokumentumos asztali szerkesztés és dokumentumvázlat',
     wordLike: 'Word-szerű, kézirat-szintű szétválasztás, egyesítés és kijelölés',
     pdf: 'Strukturált PDF-import geometria-alapú lábjegyzet-felismeréssel',
@@ -66,7 +66,7 @@ const STUDIO_UPDATE = {
     uiLocales: 'választható felületi lokalizáció',
   },
   de: {
-    summary: 'Open Manuscript Studio 0.3.0-beta.4 ergänzt verknüpfte Word-Fuß- und Endnoten, die vollständige Anzeige nicht druckbarer Zeichen, einen dauerhaften Chat für Mitwirkende, klarere DOCX-, semantische HTML5- und PDF-Exporte sowie verbesserte JATS-, IDML- und OMI-Paketabläufe. Neu sind außerdem neun Forschungsmodule für Geschichte und Archive, religiöse Texte, kritische Editionen, Korpuslinguistik, Musikwissenschaft, Kulturerbe, Sozialforschungsmethoden, Rechtsquellen und Reproduzierbarkeit.',
+    summary: 'Open Manuscript Studio 0.3.0-beta.5 ist die aktuelle Beta. Sie verbessert Quellenprüfung und Herkunftsnachweise für importierte Literaturangaben, DOCX/PDF-Material und visuelle Objekte, erhält OJS/OMP-Quellenangaben in bearbeitbaren Ansichten und erweitert quellenbasierte Forschungsauszüge. Das Notizenpanel folgt den sichtbaren Manuskriptstellen und belegt höchstens die Hälfte des nutzbaren Bildschirms.',
     multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
     wordLike: 'Word-ähnliches manuskriptweites Teilen, Zusammenführen und Auswählen',
     pdf: 'Strukturierter PDF-Import mit geometriebasierter Fußnotenerkennung',
@@ -196,7 +196,7 @@ export default function Home() {
 
         <section className={styles.studio} aria-labelledby="current-development-status">
           <div className={styles.studioContent}>
-            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.3.0-beta.4 public beta</p>
+            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.3.0-beta.5 public beta</p>
             <h2 id="current-development-status">{t.status}</h2>
             <h3>{t.currentTitle}</h3>
             <p>{studioUpdate.summary}</p>
@@ -210,7 +210,7 @@ export default function Home() {
           </div>
 
           <aside className={styles.studioFeatures} aria-label={t.status}>
-            <h3>0.3.0-beta.4</h3>
+            <h3>0.3.0-beta.5</h3>
             <p>Web · Windows · Linux · macOS · Android · iOS/iPadOS</p>
             <p><strong>47</strong> selectable UI languages</p>
             <nav className={styles.contextLinks} aria-label={t.status}>

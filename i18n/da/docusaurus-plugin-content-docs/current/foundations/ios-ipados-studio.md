@@ -34,7 +34,7 @@ Nuværende udviklingsstatus:
 - Overførslen af mobil-native autentificering deles med Android;
 - Offentlig distribution via TestFlight/App Store er **endnu ikke aktiveret**, da Apple Developer-signeringsoplysningerne og den endelige tilknytning af Universal Link stadig skal konfigureres.
 
-Den nuværende offentlige Studio-udgivelsesserie er `0.3.0-beta.4`. Metadataene for iOS App Store-pakken anvender et Apple-kompatibelt par bestående af kort version og build, samtidig med at Studio-udgivelsesidentiteten bevares i applikationens brugergrænseflade og projektdokumentationen.
+Den nuværende offentlige Studio-udgivelsesserie er `0.3.0-beta.5`. Metadataene for iOS App Store-pakken anvender et Apple-kompatibelt par bestående af kort version og build, samtidig med at Studio-udgivelsesidentiteten bevares i applikationens brugergrænseflade og projektdokumentationen.
 
 ## Applikationsidentitet
 
@@ -43,8 +43,8 @@ Den nuværende offentlige Studio-udgivelsesserie er `0.3.0-beta.4`. Metadataene 
 | Bundle-identifikator | `org.openmanuscript.studio` |
 | Minimumskrav til platform | iOS/iPadOS 14.0 |
 | Kort version i App Store | `0.3.0` |
-| App Store-buildnummer | `16` |
-| Studio-udviklingsserie | `0.3.0-beta.4` |
+| App Store-buildnummer | `17` |
+| Studio-udviklingsserie | `0.3.0-beta.5` |
 
 Apples korte version/build-nummerering er metadata om pakken. Det ændrer ikke versionen af skemaet »OMI« og opretter heller ikke en separat linje for iOS-dokumentkompatibilitet.
 

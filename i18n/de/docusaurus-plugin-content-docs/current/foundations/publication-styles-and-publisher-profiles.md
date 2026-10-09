@@ -28,7 +28,7 @@ Diese Trennung ermöglicht es, dass dasselbe Manuskript unter OMI für verschied
 
 ## Aktueller Stand der Umsetzung
 
-Die auf dieser Seite beschriebenen Funktionen sind in der öffentlichen Studio-Version `0.3.0-beta.4` enthalten.
+Die auf dieser Seite beschriebenen Funktionen sind in der öffentlichen Studio-Version `0.3.0-beta.5` enthalten.
 
 ### Wiederverwendbare benannte Publikationsstile
 
