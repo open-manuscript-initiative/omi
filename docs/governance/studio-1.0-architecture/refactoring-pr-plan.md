@@ -260,3 +260,10 @@ This decomposition is intentionally conservative. The 1.0 programme should optim
 
 The first item is an immediate security boundary correction. Items 2–4 are
 incremental follow-up PRs and must not be folded into a broad module rewrite.
+
+### Source attribution PR dependency (ADR-023)
+
+- **Visual imports:** [Studio PR #632](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/632) pairs each selected file/clipboard visual object with a reviewed visible source; test missing-source rejection and prefills. Independent of the module PR stack.
+- **Bibliographic linkage:** after ADR-001/004 schema decisions, add structured object→source links and renderer fidelity fixtures without recoding existing files silently.
+- **Remaining ingress:** characterize DOCX/PDF and HTML/JATS conversions, PKP intake, reference managers and asset transfer in separate PRs; decide source granularity per path before enforcing. Test metadata prefill, correction, anonymity, undo/round-trip and export formats. Keep OMI open semantics separate from external insertion.
+- **Release gate:** no universal-source claim until all supported external insertion paths have proven behavior and synthetic confidentiality fixtures. A successful visual-only PR is partial coverage.
