@@ -55,6 +55,21 @@ Within a phase, PR identifiers are arranged in dependency order. The register la
 
 **Phase blockers:** no owner for the OMI schema release process; insufficiently concrete OMI-SPEC-100 content grammar; unresolved SPEC-330/implementation differences; undefined stable platform/export scope.
 
+### Drift repair sequence recorded 2026-10-10
+
+These are independent, reviewable changes against the current Studio main;
+their PR numbers are evidence of proposed work, not completion:
+
+1. [#654](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/654): block IDML hidden/restricted annotation disclosure and verify public notes survive. Privacy gate for any IDML preview.
+2. [#657](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/657): characterize the existing DOCX source-font mark through the inline adapter. Follow A06/B06 for a spec-approved AST field/extension and lossless corpus; do not freeze the mark as wire format.
+3. [#656](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/656): move native detection/storage access behind a platform adapter. Follow B10 and D01 for secure native token storage and account/cache partition by origin.
+4. [#655](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/655): run readiness on every main commit, publish main images in beta and commit channels. Follow E02 with the exact-commit cross-workflow aggregator before RC/stable image promotion. Existing `latest` install configurations need explicit migration.
+
+The four PRs do not depend on one another. Merge only after each focused CI
+suite is green; verify #654's privacy regression before exporting synthetic
+self-origin documents. The content codec, secure storage, and exact-commit
+aggregator remain release blockers even if all four land.
+
 ## 4. Phase B — Core refactoring
 
 **Exit condition:** create/open/save and primary editing/history flows are behind the application facade; Tiptap boundary is explicit; portable/persistence/UI ownership is separated; native credentials are not stored in localStorage.
