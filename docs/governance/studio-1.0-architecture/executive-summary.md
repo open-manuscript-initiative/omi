@@ -184,3 +184,19 @@ DOCX/PDF, PKP intake, reference-manager and other paths remain tracked in
 Do not claim universal enforcement or formal semantic citation linkage yet.
 
 **Source attribution rollout.** Studio PRs [#634](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/634), [#635](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/635), [#636](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/636) and [#637](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/637) extend the earlier visual/module source gate. The rule is implemented by ingress owner, preserving PKP review anonymity and canonical OMI open behavior. The source is presently visible text or the bibliography record itself; semantic object linkage and renderer conformance remain open in [#633](https://github.com/open-manuscript-initiative/open-manuscript-studio/issues/633).
+
+## 2026-10-10 drift checkpoint
+
+Current Studio main exposes four notable 1.0 gaps: an IDML hidden annotation
+projection leak, a DOCX source-font hint carried by transitional Tiptap JSON,
+native server selection coupled to Tauri/localStorage, and main container
+images labeled `latest` without the complete RC gate. Proposed, independent
+repairs are [#654](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/654),
+[#657](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/657),
+[#656](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/656), and
+[#655](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/655).
+They are open proposals until merged and verified. Preserve the working DOCX
+font fidelity path during codec migration; block any public artifact that leaks
+hidden provenance. A merged beta image change is still not an RC approval:
+portable AST round trips, native secure storage and exact-commit release
+aggregation remain mandatory before the 1.0 freeze.
