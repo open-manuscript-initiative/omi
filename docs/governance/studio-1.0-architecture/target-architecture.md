@@ -820,3 +820,26 @@ visual objects use the visual path. The PKP reviewer projection remains a
 separate anonymity boundary. Adjacent source text is an interim visible
 representation; a semantic object-to-source link and exporter fidelity are
 still an architecture-freeze decision, not a completed guarantee.
+
+## 2026-10-10 boundary checkpoint
+
+IDML and every other public artifact must project annotations by type,
+rendering hint and visibility before writing any story/notes stream. The
+self-authored origin declaration remains in portable state but never in a
+public or anonymous payload. [Studio #654](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/654)
+proposes the immediate IDML repair; privacy fixture coverage across renderers
+remains required by ADR-017/023.
+
+The DOCX source-font mark is a transitional editor compatibility hint decoded
+at `extractOmiInlineRuns`, not a frozen OMI AST or scholarly semantic.
+[Studio #657](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/657)
+characterizes the existing adapter; ADR-004 still requires a versioned
+`ContentCodec` before a portable content freeze.
+
+Native server selection belongs in a platform adapter, with bearer-token
+invalidation before origin persistence. [Studio #656](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/656)
+proposes that boundary; native secure storage and origin-scoped caches remain
+mandatory follow-up. The continuously published main containers are beta
+artifacts. [Studio #655](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/655)
+separates beta/immutable commit tags and triggers readiness on each commit;
+RC/stable promotion still needs the E02 exact-commit evidence aggregator.
