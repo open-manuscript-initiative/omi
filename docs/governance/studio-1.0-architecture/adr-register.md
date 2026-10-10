@@ -346,7 +346,7 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 **Consequences.** Runtime UI, documentation, and release metadata are generated from or checked against the same capability manifest. Promotion requires a defined evidence gate. Demotion of stable capability within 1.x requires exceptional cause.
 
-**Image/readiness checkpoint (2026-10-10).** The main deploy currently publishes `latest` and a commit image after build/collaboration checks, while readiness is path-filtered. [Studio PR #655](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/655) runs readiness on every main commit and labels main images `beta` plus immutable commit tags. An immutable tag alone does not earn RC approval. E02 still requires exact-commit aggregation of readiness, PKP, security and Stable-platform installer evidence before any 1.0/RC image promotion; existing `latest` installations need an explicit channel/pin migration.
+**Image/readiness checkpoint (2026-10-10).** The main deploy currently publishes `latest` and a commit image after build/collaboration checks, while readiness is path-filtered. [Studio PR #655](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/655) runs readiness on every main commit and labels main images `beta` plus commit-addressed tags. An immutable tag alone does not earn RC approval. E02 still requires exact-commit aggregation of readiness, PKP, security and Stable-platform installer evidence before any 1.0/RC image promotion; existing `latest` installations need an explicit channel/pin migration.
 
 **Revisit when.** Every release is planned and whenever a capability completes its promotion corpus.
 
