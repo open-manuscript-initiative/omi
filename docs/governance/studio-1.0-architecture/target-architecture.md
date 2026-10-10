@@ -841,5 +841,5 @@ invalidation before origin persistence. [Studio #656](https://github.com/open-ma
 proposes that boundary; native secure storage and origin-scoped caches remain
 mandatory follow-up. The continuously published main containers are beta
 artifacts. [Studio #655](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/655)
-separates beta/immutable commit tags and triggers readiness on each commit;
+separates beta/commit-addressed tags and triggers readiness on each commit;
 RC/stable promotion still needs the E02 exact-commit evidence aggregator.
