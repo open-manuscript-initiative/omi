@@ -100,6 +100,8 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 **Consequences.** Every rich-text consumer uses the codec API. Unknown node/mark diagnostics and golden round-trip fixtures are mandatory. Selection and editor undo are runtime state, not portable state.
 
+**Implementation checkpoint (2026-10-10).** The DOCX importer records the Word source typeface in an `omiSourceFont` Tiptap mark; `extractOmiInlineRuns` translates it into a presentation hint consumed by IDML. The existing IDML fixture and [Studio PR #657](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/657) characterize this interim route. It is not a frozen OMI-SPEC-100 field or proof of portable cross-editor round-trip. Keep the hint behind the adapter, report unsupported marks, and require a versioned AST mapping and save/reopen golden corpus before B06/schema freeze; do not delete a working font-fidelity path during that migration.
+
 **Revisit when.** The ProseMirror ecosystem provides a durable language-neutral wire standard that losslessly expresses all required OMI semantics.
 
 ---
@@ -292,6 +294,8 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 **Consequences.** Every adapter receives a contract suite. Stable/preview classification is declared per artifact. iOS can remain preview without a core fork.
 
+**Implementation checkpoint (2026-10-10).** Native endpoint selection currently reads/writes localStorage and clears the native token on server switch. [Studio PR #656](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/656) moves runtime detection and storage access behind a platform adapter and tests fail-closed token invalidation. This is an incremental boundary, not B10 completion: secure storage, per-origin account/cache isolation and auth handoff still need contract tests before native 1.0 promotion.
+
 **Revisit when.** A platform lifecycle genuinely requires different use-case semantics; extend application policy before considering domain forks.
 
 ---
@@ -307,6 +311,8 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 **Rationale.** The current implementation already contains strong but scattered controls such as ZIP limits, LIBXML_NONET, SSRF helpers, and signed launches. They should be organized as threat boundaries rather than replaced.
 
 **Consequences.** Hostile synthetic corpus, fuzzing, and negative-auth matrices become release gates. Diagnostics/logs do not contain manuscript content or local paths. A security fix may override compatibility promises under a documented emergency policy.
+
+**Publication projection checkpoint (2026-10-10).** IDML previously appended all manuscript annotations to a visible notes section, including `renderingHint: hidden` self-origin declarations and `editor_only` notes. [Studio PR #654](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/654) projects only public notes and suppresses private inline markers. This privacy defect blocks preview publication too; require synthetic negative fixtures for every public renderer and anonymous projection.
 
 **Revisit when.** A new input, protocol, provider, or trust assumption is introduced.
 
@@ -339,6 +345,8 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 **Rationale.** Evidence maturity differs substantially between JATS/HTML/DOCX and some DTP/EPUB/iOS areas. Working code should not be deleted merely because it has not yet earned a stable guarantee.
 
 **Consequences.** Runtime UI, documentation, and release metadata are generated from or checked against the same capability manifest. Promotion requires a defined evidence gate. Demotion of stable capability within 1.x requires exceptional cause.
+
+**Image/readiness checkpoint (2026-10-10).** The main deploy currently publishes `latest` and a commit image after build/collaboration checks, while readiness is path-filtered. [Studio PR #655](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/655) runs readiness on every main commit and labels main images `beta` plus immutable commit tags. An immutable tag alone does not earn RC approval. E02 still requires exact-commit aggregation of readiness, PKP, security and Stable-platform installer evidence before any 1.0/RC image promotion; existing `latest` installations need an explicit channel/pin migration.
 
 **Revisit when.** Every release is planned and whenever a capability completes its promotion corpus.
 
@@ -422,5 +430,7 @@ These are not new ADRs; they are concrete values required by the decisions above
 **Consequences.** [Studio PR #632](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/632) handles file/clipboard visual objects. [Studio PR #631](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/631) handles four module excerpt types. [Studio PR #634](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/634) adds a reviewed visible source to DOCX/PDF whole-document conversion; dependent [PR #636](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/636) adds editable OJS/OMP launch-import notices. [PR #635](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/635) previews imported bibliography records whose citations carry the actual source, while [PR #637](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/637) covers additional allow-listed module excerpts. HTML visual inputs are addressed by #632; there is no general standalone JATS manuscript importer to claim. The audited asset attachment call site is the visual insertion path, while existing package restore is a distinct trusted-document operation. [Studio PR #638](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/638) implements the self-authored option for DOCX/PDF whole-document conversion. Dependent [Studio PR #639](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/639) adds a per-object visual choice and one revision batch for object plus hidden declaration. OJS/OMP mixed intake still requires a separately reviewed ownership path. Each open PR is conditional on review/merge. The remaining cross-format obligation is a stable semantic OMI source-object link, export/reimport fidelity, and a synthetic round-trip/anonymization corpus. Visible source text is currently not a semantic OMI citation; source-object linkage and exporter fidelity remain 1.0 gates. Do not claim universal enforcement until these paths are covered.
 
 **Revisit when.** The OMI specification defines a stable structured object-provenance/citation link and independent import/export fixtures prove it, or a source is legally unsafe to expose in an anonymized review projection.
+
+**IDML drift (2026-10-10).** The hidden self-authored declaration was visible in the IDML notes appendix. [Studio PR #654](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/654) is the targeted repair. Do not consider ADR-023 satisfied until its privacy regression runs on the merged commit and remaining public formats are audited with synthetic fixtures.
 
 ---
