@@ -299,3 +299,14 @@ change the original classifications for that baseline.
 | JATS manuscript import | no implementation | Do not claim support; adopt gate if implemented later. |
 
 The coverage tracker is [Studio #633](https://github.com/open-manuscript-initiative/open-manuscript-studio/issues/633).
+
+## 2026-10-11 merged-state reconciliation and remaining gates
+
+| Component | Status | Observed gap | Target and transition | Risk |
+|---|---|---|---|---|
+| IDML annotation appendix | HARDEN | #654 merged; format-specific guard is present | Keep implementation and privacy regression; do not infer other formats from it | medium |
+| HTML/JATS/DOCX and LaTeX/MIF/SLA/XTG annotations | REFACTOR | Public output can disclose hidden or workflow notes | #662 adds one non-mutating publication view and eight-format synthetic fixture; merge only after CI | high |
+| EPUB | HARDEN | Inline private markers can leak; note-body fidelity remains limited | #662 filters anchors; explicit fidelity limitation remains | medium |
+| Readiness and main image channels | HARDEN | #655 merged; per-commit readiness is no RC promotion aggregate | Retain continuous beta builds; E02 must bind evidence and artifacts to one commit/digest | high |
+| Native origin-selection adapter | HARDEN | #656 merged; token invalidation alone is not secure storage/cache isolation | B10/D01 secure storage and origin-scoped account/cache acceptance remain open | high |
+| DOCX source-font adapter | KEEP / HARDEN | #657 characterizes interim compatibility behavior | Keep tested code; ADR-004 codec/AST freeze still pending | medium |
