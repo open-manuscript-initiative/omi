@@ -39,7 +39,7 @@ keywords:
 | Mobilní cíle | Veřejný univerzální APK pro Android; ověřený nativní simulátor pro iOS/iPadOS, distribuce přes TestFlight/App Store čeká na podpis od Apple Developer |
 | Nasazení na webu | `studio.openmanuscript.org` |
 
-Aktuální beta verze Studia je **`0.3.0-beta.6`**. Označení „beta“ znamená, že jsou implementovány hlavní pracovní postupy pro tvorbu obsahu, import/export, ověřování, nativní klient a revize na OJS/OMP a že projekt přešel z fáze vytváření základů funkcí k práci na interoperabilitě, regresních testech, obnově a přípravě na vydání. To **neznamená**, že každá volitelná integrace nebo distribuční kanál jsou zcela připraveny pro produkční nasazení.
+Aktuální beta verze Studia je **`0.3.0-beta.6`**. Tato verze přidává přenosné sémantické propojení importovaných vizuálních objektů s bibliografickými záznamy jejich zdrojů a rozlišuje strojový odhad, deklaraci autora a potvrzení autorem. Označení „beta“ znamená, že jsou implementovány hlavní pracovní postupy pro tvorbu obsahu, import/export, ověřování, nativní klient a revize na OJS/OMP a že projekt přešel z fáze vytváření základů funkcí k práci na interoperabilitě, regresních testech, obnově a přípravě na vydání. To **neznamená**, že každá volitelná integrace nebo distribuční kanál jsou zcela připraveny pro produkční nasazení.
 
 Tato stránka popisuje **implementované funkce produktu**, nikoli soulad sOMIkou specifikací. Úroveň vyspělosti formální specifikace a důkazy o souladu se sledují samostatně v rámci projektu „[OMI Implementation Status Matrix](./implementation-status-matrix.md)“.
 
