@@ -8,7 +8,7 @@ sidebar_label: Forrás- és eredetkapcsolati modell
 
 **Állapot:** Tervezet  
 **Verzió:** 0.1.0  
-**Angol normatív szöveg:** [Source and Derivation Model](../../../../../../docs/specifications/source-attribution-model.md)
+**Angol normatív szöveg:** [Source and Derivation Model](https://github.com/open-manuscript-initiative/omi/blob/main/docs/specifications/source-attribution-model.md)
 
 ## Cél és fogalmak
 

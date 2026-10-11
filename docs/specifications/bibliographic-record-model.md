@@ -23,7 +23,7 @@ The Bibliographic Record Model defines how OMI represents a cited work independe
 
 A bibliographic record is the normalized description of a scholarly or cultural object such as an article, book, chapter, dataset, archival source, software package, image, map, legal document, or web resource.
 
-The model allows one work to be cited many times without duplicating its metadata. It also provides stable targets for source-attribution relationships defined by [OMI-SPEC-225 — Source and Derivation Model](./source-attribution-model.md).
+The model allows one work to be cited many times without duplicating its metadata. It also provides stable targets for source-attribution relationships defined by [OMI-SPEC-225 — Source and Derivation Model](./source-attribution-model).
 
 ---
 
