@@ -9,11 +9,11 @@ import { parseUniqueJson } from './parse-unique-json.mjs';
 const repositoryRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
 const schemaPath = join(
   repositoryRoot,
-  'static/schemas/omi-manuscript-0.2.schema.json',
+  'static/schemas/omi-manuscript-0.3.schema.json',
 );
 const fixtureRoot = join(
   repositoryRoot,
-  'static/examples/omi-spec-320/0.2.0',
+  'static/examples/omi-spec-320/0.3.0',
 );
 const manifestPath = join(fixtureRoot, 'manifest.json');
 
@@ -32,9 +32,9 @@ const validateStructure = ajv.compile(schema);
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
 if (
-  manifest.specification !== 'OMI-SPEC-320@0.2.0' ||
+  manifest.specification !== 'OMI-SPEC-320@0.3.0' ||
   manifest.schema !== schema.$id ||
-  manifest.suiteVersion !== '0.2.0-draft.4'
+  manifest.suiteVersion !== '0.3.0-draft.1'
 ) {
   throw new Error('Fixture manifest does not match the pinned OMI-SPEC-320 schema or suite.');
 }
@@ -97,7 +97,7 @@ if (failures > 0) {
 }
 
 console.log(
-  `Validated ${manifest.fixtures.length} OMI-SPEC-320@0.2.0 fixtures against structural and semantic rules.`,
+  `Validated ${manifest.fixtures.length} OMI-SPEC-320@0.3.0 fixtures against structural and semantic rules.`,
 );
 }
 

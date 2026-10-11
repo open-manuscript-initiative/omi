@@ -60,7 +60,7 @@ Citation B
   pages 45–47
 ```
 
-The work is described once. Each occurrence adds manuscript-specific context such as locator, prefix, suffix, intent, and anchor.
+The work is described once. Each occurrence adds manuscript-specific context such as locator, prefix, suffix, intent, and anchor. Source derivation without an intentional citation is represented separately under OMI-SPEC-225.
 
 ---
 
@@ -131,6 +131,8 @@ Anchoring allows citations to survive editing, review, comparison, and transform
 ---
 
 ## Bibliographic Target
+
+A bibliographic record may be targeted by citations and source-attribution relationships. Source attribution does not create a citation occurrence or rendered citation.
 
 The target is normally a record in the manuscript reference library.
 

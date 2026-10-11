@@ -8,7 +8,7 @@ import { parseUniqueJson } from '../scripts/parse-unique-json.mjs';
 import { validateDocument, validateRawDocument } from '../scripts/validate-file-format-fixtures.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const fixtureRoot = join(root, 'static/examples/omi-spec-320/0.2.0');
+const fixtureRoot = join(root, 'static/examples/omi-spec-320/0.3.0');
 
 test('accepts valid UTF-8 JSON and preserves Unicode, ordering, and numeric values', () => {
   const source = Buffer.from('{"text":"árvíztűrő 😀","values":[true,null,-12.5]}', 'utf8');
@@ -120,7 +120,7 @@ test('maps envelope, presence, timestamp, language, and URI failures to their re
     ['timestamp without offset', (doc) => { doc.createdAt = '2026-09-05T08:00:00'; }, 'REQ-FMT-013'],
     ['malformed language tag', (doc) => { doc.locale = 'not a tag'; }, 'REQ-FMT-014'],
     ['moving schema identifier', (doc) => { doc.schema = 'https://example.org/latest'; }, 'REQ-FMT-022'],
-    ['wrong format version', (doc) => { doc.omi.version = '0.3.0'; }, 'REQ-FMT-023'],
+    ['wrong format version', (doc) => { doc.omi.version = '9.9.9'; }, 'REQ-FMT-023'],
     ['duplicate profile token', (doc) => { doc.omi.profiles.push('core-snapshot'); }, 'REQ-FMT-024'],
     ['non-semver dependency', (doc) => { doc.omi.specifications['OMI-SPEC-100'] = '^0.1'; }, 'REQ-FMT-025'],
     ['relative asset URI', (doc) => { doc.assets = [{ id: 'asset-1', mediaType: 'image/png', uri: 'images/a.png' }]; }, 'REQ-FMT-015'],
@@ -154,7 +154,7 @@ test('orders multiple diagnostics by JSON Pointer, then code and requirement', a
 });
 
 test('keeps schema references local so validation needs no network lookup', async () => {
-  const schema = JSON.parse(await readFile(join(root, 'static/schemas/omi-manuscript-0.2.schema.json'), 'utf8'));
+  const schema = JSON.parse(await readFile(join(root, 'static/schemas/omi-manuscript-0.3.schema.json'), 'utf8'));
   const refs = [];
   const pending = [schema];
   while (pending.length) {

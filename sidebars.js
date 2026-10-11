@@ -55,6 +55,7 @@ const sidebars = {
         {type: 'doc', id: 'specifications/review-model', label: 'Review Model'},
         {type: 'doc', id: 'specifications/citation-model', label: 'Citation Model'},
         {type: 'doc', id: 'specifications/bibliographic-record-model', label: 'Bibliographic Record Model'},
+        {type: 'doc', id: 'specifications/source-attribution-model', label: 'Source and Derivation Model'},
         {type: 'doc', id: 'specifications/reference-library-registry', label: 'Reference Library and Registry Architecture'},
         {type: 'doc', id: 'specifications/publishing-model', label: 'Publishing Model'},
         {type: 'doc', id: 'specifications/rendering-publication-profile-model', label: 'Rendering and Publication Profiles'},
