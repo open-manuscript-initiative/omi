@@ -39,7 +39,7 @@ keywords:
 | Mobilmål | Offentlig universel APK til Android; valideret native simulator-mål til iOS/iPadOS, hvor distribution via TestFlight/App Store afventer signering fra Apple Developer |
 | Webimplementering | `studio.openmanuscript.org` |
 
-Den aktuelle Studio-betaversion er **`0.3.0-beta.6`**. »Beta« betyder, at de primære arbejdsgange inden for redigering, import/eksport, autentificering, native-client samt OJS/OMP er implementeret, og at projektet er gået fra at opbygge grundstrukturen for funktionerne til nu at fokusere på interoperabilitet, regressionsafprøvning, gendannelse og forberedelse til udgivelse. Det betyder **ikke**, at alle valgfri integrations- eller distributionskanaler er klar til produktion.
+Den aktuelle Studio-betaversion er **`0.3.0-beta.6`**. Denne version tilføjer en transportabel semantisk relation fra importerede visuelle objekter til deres bibliografiske kildeposter og skelner mellem maskinelt udledt, forfatterangivet og forfatterbekræftet kilde. »Beta« betyder, at de primære arbejdsgange inden for redigering, import/eksport, autentificering, native-client samt OJS/OMP er implementeret, og at projektet er gået fra at opbygge grundstrukturen for funktionerne til nu at fokusere på interoperabilitet, regressionsafprøvning, gendannelse og forberedelse til udgivelse. Det betyder **ikke**, at alle valgfri integrations- eller distributionskanaler er klar til produktion.
 
 Denne side beskriver **implementerede produktfunktioner**, ikke overensstemmelse med en specifikOMI. Den formelle modenhed af specifikationerne og dokumentation for overensstemmelse registreres separat i [OMI Implementation Status Matrix](./implementation-status-matrix.md).
 
