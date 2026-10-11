@@ -17,7 +17,7 @@ keywords:
 # OMI-SPEC-120 — Scholarly Object Model
 
 **Status:** Draft  
-**Version:** 0.1.0  
+**Version:** 0.2.0  
 **Stability:** Experimental  
 **Category:** Core Specification  
 
@@ -528,6 +528,7 @@ Examples include:
 - review;
 - dependency;
 - provenance link;
+- source attribution and derivation;
 - part-whole relationship.
 
 A relationship object SHOULD identify:

@@ -130,7 +130,7 @@ Development ended before the specification became Stable. The identifier remains
 | `OMI-SPEC-000` | Core Principles | Active | Draft | 0.1.0 | `docs/foundations/core-principles.md` |
 | `OMI-SPEC-100` | Document Model | Active | Draft | 0.1.0 | `docs/specifications/document-model.md` |
 | `OMI-SPEC-110` | Anchor Model | Active | Draft | 0.1.0 | `docs/specifications/anchor-model.md` |
-| `OMI-SPEC-120` | Scholarly Object Model | Active | Draft | 0.1.0 | `docs/specifications/core/scholarly-object-model.md` |
+| `OMI-SPEC-120` | Scholarly Object Model | Active | Draft | 0.2.0 | `docs/specifications/core/scholarly-object-model.md` |
 | `OMI-SPEC-130` | Annotation Model | Active | Draft | 0.2.0 | `docs/specifications/annotation-model.md` |
 | `OMI-SPEC-140` | Metadata Model | Active | Draft | 0.1.0 | `docs/specifications/metadata-model.md` |
 | `OMI-SPEC-150` | Identity and Contributor Model | Active | Draft | 0.1.0 | `docs/specifications/identity-contributor-model.md` |
@@ -147,6 +147,7 @@ Development ended before the specification became Stable. The identifier remains
 | `OMI-SPEC-210` | Citation Model | Active | Draft | 0.2.0 | `docs/specifications/citation-model.md` |
 | `OMI-SPEC-220` | Bibliographic Record Model | Active | Draft | 0.1.0 | `docs/specifications/bibliographic-record-model.md` |
 | `OMI-SPEC-221` | Reference Library and Registry Architecture | Active | Draft | 0.1.0 | `docs/specifications/reference-library-registry.md` |
+| `OMI-SPEC-225` | Source and Derivation Model | Active | Draft | 0.1.0 | `docs/specifications/source-attribution-model.md` |
 | `OMI-SPEC-230` | Publishing Model | Active | Draft | 0.1.0 | `docs/specifications/publishing-model.md` |
 | `OMI-SPEC-240` | Rendering and Publication Profile Model | Active | Draft | 0.1.0 | `docs/specifications/rendering-publication-profile-model.md` |
 
@@ -156,7 +157,7 @@ Development ended before the specification became Stable. The identifier remains
 |---|---|---|---|---|---|
 | `OMI-SPEC-300` | Plugin Architecture | Active | Draft | 0.1.0 | `docs/specifications/plugin-architecture.md` |
 | `OMI-SPEC-310` | Platform API | Active | Draft | 0.1.0 | `docs/specifications/api.md` |
-| `OMI-SPEC-320` | File Format | Active | Draft | 0.2.0 | `docs/specifications/file-format.md` |
+| `OMI-SPEC-320` | File Format | Active | Draft | 0.3.0 | `docs/specifications/file-format.md` |
 | `OMI-SPEC-330` | Container Architecture | Active | Draft | 0.1.0 | `docs/specifications/container-architecture.md` |
 | `OMI-SPEC-340` | Import and Export Model | Reserved | — | — | `docs/specifications/import-export-model.md` |
 | `OMI-SPEC-350` | Capability and Conformance Model | Reserved | — | — | `docs/specifications/capability-conformance-model.md` |

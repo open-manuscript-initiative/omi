@@ -20,7 +20,7 @@ keywords:
 |---|---|
 | Identifier | `OMI-SPEC-320` |
 | Title | File Format |
-| Version | `0.2.0` |
+| Version | `0.3.0` |
 | Status | Draft |
 | Document type | Normative |
 | Normative language | English |
@@ -31,7 +31,7 @@ keywords:
 | Replaced by | None |
 | Depends on | `OMI-SPEC-100`, `OMI-SPEC-120`, `OMI-SPEC-140`, `OMI-SPEC-160`, `OMI-SPEC-180` |
 | Used by | `OMI-SPEC-230`, `OMI-SPEC-330`, `OMI-SPEC-340`, `OMI-SPEC-350` |
-| Schema | [`omi-manuscript-0.2.schema.json`](/schemas/omi-manuscript-0.2.schema.json) |
+| Schema | [`omi-manuscript-0.3.schema.json`](/schemas/omi-manuscript-0.3.schema.json) |
 | Media type | `application/vnd.openmanuscript+json` (provisional) |
 | File extension | `.omi.json` |
 | Profiles | Core Snapshot; History Exchange; Lossless Round Trip |
@@ -134,7 +134,7 @@ build runs the same command.
 
 The current corpus is an initial Draft set whose profile and fixtures have
 been accepted for review; this is not a complete conformance approval of
-OMI-SPEC-320@0.2.0. Its requirement coverage, current limits, and release gates
+OMI-SPEC-320@0.3.0. Its requirement coverage, current limits, and release gates
 are recorded in
 [OMI-SPEC-320 Conformance Profile](./file-format-conformance.md). A successful
 fixture run demonstrates only the behaviours exercised by that exact corpus
@@ -242,11 +242,11 @@ An OMI manuscript document consists of five logical areas:
 |---|---|---|
 | Identification | `schema`, `omi` | Selects this format, version, profiles, and dependent specifications |
 | Manuscript state | `id`, `locale`, `title`, `sections` | Represents the current scholarly state |
-| Related objects | `agents`, `contributions`, `annotations`, `citations`, `assets` | Holds addressable supporting objects and relations |
+| Related objects | `agents`, `contributions`, `annotations`, `citations`, `sourceAttributions`, `assets` | Holds addressable supporting objects and relations |
 | History | `versioningModelVersion`, `headRevisionId`, `revisionHistory` | Optionally exchanges revision evidence |
 | Extensions | `extensions` | Carries namespaced non-core data |
 
-The root object is one logical document. A container may externalize selected collections into separate parts only when `OMI-SPEC-330` defines how those parts are reassembled into the same logical model. Reassembly MUST NOT change the meaning of the document.
+The root object is one logical document. Format 0.3.0 includes the sourceAttributions collection defined by OMI-SPEC-225. A container may externalize selected collections into separate parts only when `OMI-SPEC-330` defines how those parts are reassembled into the same logical model. Reassembly MUST NOT change the meaning of the document.
 
 ## 8. Common representation rules
 
@@ -347,7 +347,7 @@ The following root members are defined for interoperable exchange. Their detaile
 
 ```json
 {
-  "schema": "https://openmanuscript.org/schemas/omi-manuscript-0.2.schema.json",
+  "schema": "https://openmanuscript.org/schemas/omi-manuscript-0.3.schema.json",
   "omi": {
     "format": "manuscript",
     "version": "0.2.0",
@@ -374,7 +374,7 @@ The following root members are defined for interoperable exchange. Their detaile
 For this version, `schema` MUST have the exact value:
 
 ```text
-https://openmanuscript.org/schemas/omi-manuscript-0.2.schema.json
+https://openmanuscript.org/schemas/omi-manuscript-0.3.schema.json
 ```
 
 **REQ-FMT-022:** A producer MUST emit the immutable canonical schema URI for the exact format version. It MUST NOT emit a moving `latest` URI as the authoritative schema identifier.
@@ -832,7 +832,7 @@ At publication of this draft:
 
 - the `0.2` JSON Schema is published at the canonical versioned URI;
 - a proposed fixture set and reference validator are published;
-- Open Manuscript Studio documents and tests its `OMI-SPEC-320@0.2.0` schema boundary;
+- Open Manuscript Studio documents and tests its `OMI-SPEC-320@0.3.0` schema boundary;
 - the initial Draft fixture corpus and profile have recorded maintainer approval;
 - full behavioral requirement coverage and independent implementation results remain open;
 - no official OMI 1.0 format status is implied by the Studio implementation or this Draft suite.
