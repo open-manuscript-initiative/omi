@@ -200,3 +200,11 @@ font fidelity path during codec migration; block any public artifact that leaks
 hidden provenance. A merged beta image change is still not an RC approval:
 portable AST round trips, native secure storage and exact-commit release
 aggregation remain mandatory before the 1.0 freeze.
+
+## 2026-10-11 merged-state reconciliation and remaining gates
+
+Studio main now includes #654–#657: the previous IDML leak, readiness path filtering, native server-selection placement and uncharacterized source-font decoding have targeted repairs. Keep these tested implementations.
+
+The next verified risk is cross-format annotation disclosure. #662 proposes a shared public manuscript projection for eight formats, with synthetic fixtures retaining public notes and excluding private bodies/anchors without modifying the source document. It remains subject to CI and merge. EPUB note-body fidelity and PDF binary/editorial acceptance are explicitly separate.
+
+The remaining pre-RC work is still substantial: native secure storage and origin-scoped cache/account ownership, versioned ContentCodec/portable AST decisions and E02 exact-commit artifact/evidence aggregation. The merged containment work improves the beta but does not establish a stable schema/API freeze or 1.0 readiness. No full rewrite is justified by these findings.
