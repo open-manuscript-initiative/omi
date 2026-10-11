@@ -434,3 +434,12 @@ These are not new ADRs; they are concrete values required by the decisions above
 **IDML drift (2026-10-10).** The hidden self-authored declaration was visible in the IDML notes appendix. [Studio PR #654](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/654) is the targeted repair. Do not consider ADR-023 satisfied until its privacy regression runs on the merged commit and remaining public formats are audited with synthetic fixtures.
 
 ---
+
+## 2026-10-11 merged-state reconciliation and remaining gates
+
+- **ADR-004:** #657 is merged adapter characterization. No new stable portable AST or ContentCodec decision is implied.
+- **ADR-016/017:** #656 is merged origin-selection containment. SecureStorage and origin-scoped account/cache ownership remain unsatisfied; token invalidation does not constitute keystore protection.
+- **ADR-017/023:** #654 is merged IDML privacy containment. #662 extends a shared non-mutating publication view to HTML/JATS/DOCX/EPUB/LaTeX/MIF/SLA/XTG. Public output excludes non-note, hidden and workflow-visible annotations and their known inline anchors; portable state retains them. This is a renderer boundary and does not modify the OMI wire schema. Revisit when structured source-object linkage or anonymous/print projection changes.
+- **ADR-019:** #655 is merged continuous readiness/beta-channel repair. Stable/RC compatibility promotion still requires E02 exact-commit/digest evidence; mutable commit-addressed tags alone prove no artifact immutability.
+
+Alternatives rejected for annotation privacy: deleting private data from portable state; UI-only hiding; eight independent ad hoc rules. The shared view preserves current renderers and makes the public decision testable. Its scope is annotation disclosure, not a general-purpose anonymous manuscript projection or proof that every metadata field is safe.
