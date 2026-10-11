@@ -1,11 +1,11 @@
 import { readFile } from 'node:fs/promises';
 
 const expected = {
-  studio: '0.3.0-beta.5',
+  studio: '0.3.0-beta.6',
   ojs: 'v1.6.0',
   omp: 'v1.5.1',
   iosMarketing: '0.3.0',
-  iosBuild: '17',
+  iosBuild: '18',
 };
 
 const currentFacingFiles = [
@@ -95,7 +95,7 @@ const required = [
   ['docs/studio/visual-tour.md', expected.studio],
   ['docs/foundations/studio-live-collaboration.md', expected.studio],
   ['docs/foundations/studio-live-collaboration.md', 'explicitly accepts'],
-  ['docs/foundations/studio-live-collaboration.md', 'OMI-SPEC-320@0.2.0'],
+  ['docs/foundations/studio-live-collaboration.md', 'OMI-SPEC-320@0.3.0'],
   ['docs/integrations/studio-native-editorial-workflow.md', expected.studio],
   ['docs/integrations/ojs-plugin.md', expected.ojs],
   ['docs/integrations/omp-plugin.md', expected.omp],
