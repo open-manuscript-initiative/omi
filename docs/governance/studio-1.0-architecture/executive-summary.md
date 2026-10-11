@@ -184,3 +184,27 @@ DOCX/PDF, PKP intake, reference-manager and other paths remain tracked in
 Do not claim universal enforcement or formal semantic citation linkage yet.
 
 **Source attribution rollout.** Studio PRs [#634](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/634), [#635](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/635), [#636](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/636) and [#637](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/637) extend the earlier visual/module source gate. The rule is implemented by ingress owner, preserving PKP review anonymity and canonical OMI open behavior. The source is presently visible text or the bibliography record itself; semantic object linkage and renderer conformance remain open in [#633](https://github.com/open-manuscript-initiative/open-manuscript-studio/issues/633).
+
+## 2026-10-10 drift checkpoint
+
+Current Studio main exposes four notable 1.0 gaps: an IDML hidden annotation
+projection leak, a DOCX source-font hint carried by transitional Tiptap JSON,
+native server selection coupled to Tauri/localStorage, and main container
+images labeled `latest` without the complete RC gate. Proposed, independent
+repairs are [#654](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/654),
+[#657](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/657),
+[#656](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/656), and
+[#655](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/655).
+They are open proposals until merged and verified. Preserve the working DOCX
+font fidelity path during codec migration; block any public artifact that leaks
+hidden provenance. A merged beta image change is still not an RC approval:
+portable AST round trips, native secure storage and exact-commit release
+aggregation remain mandatory before the 1.0 freeze.
+
+## 2026-10-11 merged-state reconciliation and remaining gates
+
+Studio main now includes #654–#657: the previous IDML leak, readiness path filtering, native server-selection placement and uncharacterized source-font decoding have targeted repairs. Keep these tested implementations.
+
+The next verified risk is cross-format annotation disclosure. #662 proposes a shared public manuscript projection for eight formats, with synthetic fixtures retaining public notes and excluding private bodies/anchors without modifying the source document. It remains subject to CI and merge. EPUB note-body fidelity and PDF binary/editorial acceptance are explicitly separate.
+
+The remaining pre-RC work is still substantial: native secure storage and origin-scoped cache/account ownership, versioned ContentCodec/portable AST decisions and E02 exact-commit artifact/evidence aggregation. The merged containment work improves the beta but does not establish a stable schema/API freeze or 1.0 readiness. No full rewrite is justified by these findings.

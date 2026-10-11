@@ -11,6 +11,19 @@ description: Evidence-based gap analysis between the audited Open Manuscript Stu
 
 > This is an implementation gap analysis. KEEP/HARDEN/REFACTOR classifications describe the migration strategy for the audited codebase; they do not change the lifecycle or conformance status of an OMI specification.
 
+## 2026-10-10 implementation delta (conditional on PR review)
+
+The original audited baseline above remains dated 2026-09-19. The following
+newer paths were checked against Studio main `bb6cca95ed54615879cc6e6cc58a706425cd4e16`;
+linked fixes are open PRs, not merged evidence.
+
+| Component | Status | Verified drift | Target and next gate |
+|---|---|---|---|
+| `src/services/exportIdml.ts` annotation projection | HARDEN, privacy blocker | The appendix included hidden semantic origin and editor-only annotations; anchored private markers could be rendered. | [Studio #654](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/654) limits public notes and adds a synthetic negative fixture. Audit other public/anonymous renderers before RC. |
+| DOCX `omiSourceFont` mark → `extractOmiInlineRuns` → IDML | REFACTOR | Import fidelity currently rides in Tiptap JSON; IDML does consume the shared inline adapter, so a claim that the renderer independently parses the mark would be inaccurate. | [Studio #657](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/657) pins the transitional behavior. A06/B06 still require a portable AST mapping, explicit loss diagnostics and save/reopen fixtures. |
+| `src/services/studioServer.ts` native selection | REFACTOR | Shared service imports Tauri and owns localStorage plus token invalidation. | [Studio #656](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/656) isolates platform access. B10 secure storage and origin-scoped cache/auth tests remain. |
+| main image publish and `1.0-readiness.yml` | HARDEN | `latest` is published after build/collaboration while readiness only runs for selected paths. | [Studio #655](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/655) uses explicit beta/commit tags and full-commit readiness trigger. E02 exact-commit RC aggregation, PKP and installer gates remain open. |
+
 ## 1. Classification key
 
 | Status | Meaning |
@@ -286,3 +299,14 @@ change the original classifications for that baseline.
 | JATS manuscript import | no implementation | Do not claim support; adopt gate if implemented later. |
 
 The coverage tracker is [Studio #633](https://github.com/open-manuscript-initiative/open-manuscript-studio/issues/633).
+
+## 2026-10-11 merged-state reconciliation and remaining gates
+
+| Component | Status | Observed gap | Target and transition | Risk |
+|---|---|---|---|---|
+| IDML annotation appendix | HARDEN | #654 merged; format-specific guard is present | Keep implementation and privacy regression; do not infer other formats from it | medium |
+| HTML/JATS/DOCX and LaTeX/MIF/SLA/XTG annotations | REFACTOR | Public output can disclose hidden or workflow notes | #662 adds one non-mutating publication view and eight-format synthetic fixture; merge only after CI | high |
+| EPUB | HARDEN | Inline private markers can leak; note-body fidelity remains limited | #662 filters anchors; explicit fidelity limitation remains | medium |
+| Readiness and main image channels | HARDEN | #655 merged; per-commit readiness is no RC promotion aggregate | Retain continuous beta builds; E02 must bind evidence and artifacts to one commit/digest | high |
+| Native origin-selection adapter | HARDEN | #656 merged; token invalidation alone is not secure storage/cache isolation | B10/D01 secure storage and origin-scoped account/cache acceptance remain open | high |
+| DOCX source-font adapter | KEEP / HARDEN | #657 characterizes interim compatibility behavior | Keep tested code; ADR-004 codec/AST freeze still pending | medium |
