@@ -289,3 +289,13 @@ incremental follow-up PRs and must not be folded into a broad module rewrite.
 - #634 (DOCX/PDF source review) introduces a reusable document source notice; #636 (PKP source notice) depends on it and must pass OJS/OMP anonymity and real connector E2E.
 - #637 extends #631's researched, opt-in module projection to named safe fields; no automatic transcript or participant projection.
 - Follow-up: semantic OMI object/source link, renderer export fidelity, statistical IndexedDB adapter with privacy limits, and exact-commit gate evidence. Track in [#633](https://github.com/open-manuscript-initiative/open-manuscript-studio/issues/633). Do not mark ADR-023 fully implemented from UI-only source text.
+
+## 2026-10-11 merged-state reconciliation and remaining gates
+
+1. **Merged containment:** retain #654–#657; their merged-commit checks passed. Do not reopen these fixes as absent implementation.
+2. **Cross-format publication privacy — #662:** depends on current main, modifies only a pure publication projection, eight renderer entry points and synthetic export fixtures. No portable schema/API change. Require existing unit/export, type/build and security checks. Rollback must preserve the privacy boundary rather than restore leaking output. Technical risk: medium; security impact: high.
+3. **B10/D01 secure storage and origin isolation:** separate platform PRs after a platform credential contract; characterize sign-out, origin change, restart, denied keystore, migration and cache ownership. Do not relabel localStorage as secure storage.
+4. **E02 RC evidence aggregation:** separate PR after gate inventory; require same-commit completed successful readiness, PKP, platform/installer and security evidence, artifact digests and receiver/recovery acceptance. Missing/skipped/stale evidence fails closed. Do not block ordinary beta publication by pretending it is RC promotion.
+5. **A06/B05/B06 ContentCodec:** keep existing source-font adapter while introducing characterization and a wire-preserving codec contract; only a later, explicitly reviewed writer-generation PR changes portable AST.
+
+#662 and this documentation checkpoint are proposed until merged. Native secure storage, cache isolation, PDF binary acceptance and E02 remain release blockers, not completed work.
