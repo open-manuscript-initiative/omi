@@ -827,7 +827,7 @@ IDML and every other public artifact must project annotations by type,
 rendering hint and visibility before writing any story/notes stream. The
 self-authored origin declaration remains in portable state but never in a
 public or anonymous payload. [Studio #654](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/654)
-proposes the immediate IDML repair; privacy fixture coverage across renderers
+contains the merged IDML repair; privacy fixture coverage across renderers
 remains required by ADR-017/023.
 
 The DOCX source-font mark is a transitional editor compatibility hint decoded
@@ -838,8 +838,14 @@ characterizes the existing adapter; ADR-004 still requires a versioned
 
 Native server selection belongs in a platform adapter, with bearer-token
 invalidation before origin persistence. [Studio #656](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/656)
-proposes that boundary; native secure storage and origin-scoped caches remain
+implements that boundary; native secure storage and origin-scoped caches remain
 mandatory follow-up. The continuously published main containers are beta
 artifacts. [Studio #655](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/655)
 separates beta/commit-addressed tags and triggers readiness on each commit;
 RC/stable promotion still needs the E02 exact-commit evidence aggregator.
+
+## 2026-10-11 merged-state reconciliation and remaining gates
+
+The October 10 repairs #654–#657 are merged in Studio main at audit commit `302450babf4390585b006c761731fcc51591424b`. IDML privacy, unconditional readiness triggering, native origin-selection ownership and the existing source-font adapter characterization are implemented. These are partial boundary repairs, not completion of the portable ContentCodec, SecureStorage or exact-commit RC aggregator.
+
+A further audit found public-note leakage in LaTeX/MIF/SLA/XPress Tags and visibility-filter omissions in HTML/JATS/DOCX. [Studio #662](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/662) introduces a non-mutating public manuscript view used by eight renderers. Remove private annotation bodies and known private inline anchors before rendering; retain unresolved references for existing diagnostics. Never save this publication view as portable working state. EPUB is included for anchor privacy although its existing renderer does not implement note-body export. IDML retains its already merged guard. PDF inherits HTML filtering where it uses the semantic HTML renderer; binary and editorial print acceptance still require separate fixtures.
