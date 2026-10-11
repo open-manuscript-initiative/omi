@@ -141,12 +141,12 @@ const CURRENT_UPDATE = {
     serverGuideEn: 'Rendszergazdai súgó (angol)',
     serverGuideHu: 'Rendszergazdai súgó (magyar)',
     betaTitle: 'Jelenlegi nyilvános béta',
-    betaText: 'Az OMI Studio 0.3.0-beta.5 forrásellenőrzést iktat be a hivatkozások és a DOCX/PDF-átalakítás elfogadása elé, megőrzi az importált vizuális elemek egyedi eredetét a helyi fájlnév felfedése nélkül, láthatóan tartja az OJS/OMP-forrásokat a szerkeszthető nézetekben, és több biztonságos modulmezőben tesz lehetővé forrásolt kutatási kivonatokat. Az alsó jegyzetpanel csak az aktuálisan látható kéziratszöveghez horgonyzott jegyzeteket mutatja, görgetéskor frissül, és legfeljebb a hasznos képernyőterület felét foglalja el. Az Android súgója a platform verziókódját is megjeleníti.',
+    betaText: 'Az OMI Studio 0.3.0-beta.6 szemantikus forráskapcsolatot ad az importált vizuális objektumokhoz: az objektum a forrás bibliográfiai rekordjára hivatkozik, a kapcsolat pedig jelzi, hogy gépi következtetés, szerzői közlés vagy szerzői megerősítés eredménye. A hordozható kéziratformátum 0.3.0-ra lép; a Studio a nem támogatott régebbi formátumokat csendes migráció nélkül utasítja el.',
     maturity: 'A projekt nyilvános béta. A béta szakasz fő feladata a regressziós tesztelés, a nagy dokumentumok teljesítménye, a hibából való helyreállás, az interoperabilitás, a migrációs fegyelem és a megbízható, változtathatatlan kiadások biztosítása az első release candidate felé.',
   },
   de: {
     title: 'Öffentliche Beta von Open Manuscript Studio',
-    lead: '0.3.0-beta.5 verbessert Quellenprüfung und Herkunftsnachweise beim Import und zeigt Notizen passend zu den aktuell sichtbaren Manuskriptstellen.',
+    lead: '0.3.0-beta.6 ergänzt semantische Quellenbeziehungen von importierten visuellen Objekten zu bibliografischen Datensätzen mit eindeutigem Behauptungsstatus. Das portable OMI-Manuskriptformat wird auf 0.3.0 aktualisiert.',
     items: [
       ['Live-Zusammenarbeit und angenommene Einladungen', 'Laden Sie einen Studio-Autor zu einem Manuskript ein. Die Einladung erscheint im Studio-Posteingang; Zugriff entsteht erst nach der Annahme. Die Beteiligten bearbeiten den Text gleichzeitig und sehen Namen sowie eigene Farben an Live-Cursorn und Auswahlen.'],
       ['InDesign-kompatible Absatz- und Publikationsstile', 'Der Live-Publikationseditor bietet ein InDesign-orientiertes Absatzstilsystem mit Vererbung, detaillierten Steuerelementen und Live-Darstellung, während Manuskriptsemantik und Publikationsdarstellung getrennt bleiben.'],
@@ -192,7 +192,7 @@ const CURRENT_UPDATE = {
     serverGuideEn: 'Administratorhandbuch (Englisch)',
     serverGuideHu: 'Administratorhandbuch (Ungarisch)',
     betaTitle: 'Aktuelle öffentliche Beta',
-    betaText: 'OMI Studio 0.3.0-beta.5 ergänzt eine Quellenprüfung vor der Übernahme von Literaturangaben und DOCX/PDF-Konvertierungen, bewahrt die individuelle Herkunft importierter visueller Objekte ohne private lokale Dateinamen offenzulegen, hält OJS/OMP-Quellen in bearbeitbaren Manuskriptansichten sichtbar und unterstützt quellenbasierte Forschungsauszüge in weiteren sicheren Modulfeldern. Das untere Notizenpanel zeigt nur Notizen zu aktuell sichtbaren Manuskriptstellen, aktualisiert sich beim Scrollen und belegt höchstens die Hälfte des nutzbaren Bildschirms. Die Android-Hilfe zeigt außerdem den Plattform-Versionscode.',
+    betaText: 'OMI Studio 0.3.0-beta.6 ergänzt semantische Quellenbeziehungen von importierten visuellen Objekten zu bibliografischen Datensätzen. Der Beziehungsstatus unterscheidet maschinelle Schlussfolgerung, Angabe durch die Autorin oder den Autor und deren Bestätigung. Das portable OMI-Manuskriptformat wird auf 0.3.0 aktualisiert; nicht unterstützte ältere Formate werden ohne stille Migration abgelehnt.',
     maturity: 'Das Projekt befindet sich in der öffentlichen Beta. Im Mittelpunkt stehen Regressionstests, Leistung bei großen Dokumenten, Fehlerwiederherstellung, Interoperabilität, saubere Migrationen und vertrauenswürdige unveränderliche Releases auf dem Weg zum ersten Release Candidate.',
   },
 } as const;
