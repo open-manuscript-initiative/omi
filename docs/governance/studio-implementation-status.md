@@ -30,8 +30,8 @@ keywords:
 | Field | Value |
 |---|---|
 | Status | **Beta** |
-| Snapshot date | **2026-10-09** |
-| Current development source version | `0.3.0-beta.5` |
+| Snapshot date | **2026-10-11** |
+| Current development source version | `0.3.0-beta.6` |
 | Reference implementation | Open Manuscript Studio |
 | Source repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web target | Modern browsers |
@@ -39,7 +39,13 @@ keywords:
 | Mobile targets | Android public universal APK; iOS/iPadOS validated native simulator target, with TestFlight/App Store distribution pending Apple Developer signing |
 | Web deployment | `studio.openmanuscript.org` |
 
-The current Studio source tree reports **`0.3.0-beta.5`**. This release improves source review and provenance across imported references, DOCX/PDF conversions and visual objects; preserves OJS/OMP attribution in editable manuscript views; and extends source-backed research excerpts to additional safe module fields. Its study-notes panel follows text anchors visible in the manuscript viewport and remains within half of the usable screen. Beta.5 builds on the previous release's collaboration, publication, import/export and nine research-module capabilities. Packaged downloads track the current immutable GitHub release. Beta does **not** mean that every optional integration or distribution channel is production-complete.
+The current Studio source tree reports **`0.3.0-beta.6`**. This release adds a portable semantic source-attribution relation from imported visual objects to bibliographic records, with assertion status distinguishing machine inference, author declaration and author confirmation. It advances the portable manuscript format to OMI-SPEC-320@0.3.0; unsupported older format versions are rejected without silent migration. Packaged downloads track the current immutable GitHub release. Beta does **not** mean that every optional integration or distribution channel is production-complete.
+
+## Changes in 0.3.0-beta.6
+
+- **Semantic source attribution:** Links an imported visual object to the bibliographic record for its source using a portable `prov:wasDerivedFrom` relation. Assertion status distinguishes machine-inferred, author-declared and author-confirmed sources.
+- **Portable format:** Advances OMI-SPEC-320 to 0.3.0. Studio explicitly rejects unsupported older formats and does not migrate them silently.
+- **Version identities:** Studio is `0.3.0-beta.6`; Windows MSI is `0.3.0.6`; iOS beta build is `18`; Android versionCode floor is `1205`.
 
 ## Changes in 0.3.0-beta.5
 
