@@ -127,7 +127,7 @@ A conformance claim SHOULD state:
 
 The versioned Draft corpus and its machine-readable fixture manifest are
 published at
-[`static/examples/omi-spec-320/0.2.0`](/examples/omi-spec-320/0.2.0/manifest.json).
+[`static/examples/omi-spec-320/0.3.0`](/examples/omi-spec-320/0.3.0/manifest.json).
 The reference runner is `npm run test:file-format`; the CI workflow runs it on
 changes to the schema, specification, fixtures, or validator, and the website
 build runs the same command.
@@ -350,7 +350,7 @@ The following root members are defined for interoperable exchange. Their detaile
   "schema": "https://openmanuscript.org/schemas/omi-manuscript-0.3.schema.json",
   "omi": {
     "format": "manuscript",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "profiles": ["core-snapshot"],
     "specifications": {
       "OMI-SPEC-100": "0.1.0",
@@ -393,7 +393,7 @@ The `omi` object has the following members:
 | `specifications` | object | 1 | OMI specification identifier to exact version mapping |
 | `generator` | object | 0..1 | Non-authoritative producer identification |
 
-The registered profile tokens in version `0.2.0` are:
+The registered profile tokens in version `0.3.0` are:
 
 | Token | Profile |
 |---|---|
@@ -774,7 +774,7 @@ Direction metadata SHOULD be represented only when it cannot be derived reliably
 
 ## 23. Examples and conformance fixtures
 
-Published fixtures for this version are available at [`/examples/omi-spec-320/0.2.0/`](/examples/omi-spec-320/0.2.0/manifest.json).
+Published fixtures for this version are available at [`/examples/omi-spec-320/0.3.0/`](/examples/omi-spec-320/0.3.0/manifest.json).
 
 The fixture manifest identifies:
 
@@ -830,7 +830,7 @@ The authoritative implementation evidence is maintained in the [OMI Implementati
 
 At publication of this draft:
 
-- the `0.2` JSON Schema is published at the canonical versioned URI;
+- the `0.3` JSON Schema is published at the canonical versioned URI;
 - a proposed fixture set and reference validator are published;
 - Open Manuscript Studio documents and tests its `OMI-SPEC-320@0.3.0` schema boundary;
 - the initial Draft fixture corpus and profile have recorded maintainer approval;

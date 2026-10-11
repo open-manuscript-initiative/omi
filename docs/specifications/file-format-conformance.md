@@ -1,9 +1,9 @@
 # OMI-SPEC-320 Conformance Profile
 
-**Specification under test:** `OMI-SPEC-320@0.2.0`  
+**Specification under test:** `OMI-SPEC-320@0.3.0`  
 **Status:** Draft conformance profile; initial corpus accepted for review
-**Canonical schema:** [OMI manuscript 0.2 JSON Schema](/schemas/omi-manuscript-0.2.schema.json)  
-**Fixture manifest:** [0.2.0 fixture manifest](/examples/omi-spec-320/0.2.0/manifest.json)  
+**Canonical schema:** [OMI manuscript 0.3 JSON Schema](/schemas/omi-manuscript-0.3.schema.json)  
+**Fixture manifest:** [0.3.0 fixture manifest](/examples/omi-spec-320/0.3.0/manifest.json)  
 **Reference command:** `npm run test:file-format`
 
 ## Purpose and scope
@@ -33,7 +33,7 @@ by the cases.
 
 For every manifest entry, the runner:
 
-1. checks that the manifest identifies OMI-SPEC-320@0.2.0 and the schema's
+1. checks that the manifest identifies OMI-SPEC-320@0.3.0 and the schema's
    exact `$id`;
 2. rejects duplicate/missing fixture paths, absent requirement mappings, and
    malformed expected-diagnostic declarations;
@@ -57,7 +57,7 @@ errors, or any expectation mismatch.
 ## Current fixture inventory
 
 The versioned corpus is under
-`static/examples/omi-spec-320/0.2.0/`. Requirement mappings are maintained in
+`static/examples/omi-spec-320/0.3.0/`. Requirement mappings are maintained in
 `manifest.json` and validated by the runner.
 
 | Fixture | Expected result | Behaviour exercised |
@@ -75,7 +75,7 @@ The versioned corpus is under
 | `invalid-escaped-duplicate-json-member.omi.json` | `FMT-DUPLICATE-JSON-MEMBER` | Distinct JSON escape spellings decode to the same member name |
 | `invalid-malformed-json.omi.json` | `FMT-INVALID-JSON` | JSON syntax failure |
 | `invalid-schema-uri-mismatch.omi.json` | `FMT-SCHEMA` | Schema URI does not match the pinned version |
-| `invalid-unsupported-format-version.omi.json` | `FMT-SCHEMA` | Version not accepted by the 0.2.0 schema |
+| `invalid-unsupported-format-version.omi.json` | `FMT-SCHEMA` | Version not accepted by the 0.3.0 schema |
 
 A changed expected outcome requires a reviewed update to the fixture,
 manifest, validator, and this profile as applicable.
