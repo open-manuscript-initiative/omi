@@ -6,6 +6,9 @@ description: Evidence-based gap analysis between the audited Open Manuscript Stu
 
 # Current → 1.0 Gap Analysis
 
+> Current implementation reconciliation: see the **2026-10-12 current implementation checkpoint** below. Earlier audit snapshots are historical; open repair PRs are not merged guarantees.
+
+
 **Baseline:** Studio `eca2cf45762116e1c00a89b3397840ed89109511`; OMI `e2f421707f1154c0ed30cb7750e0689a837e9b0a`; OJS plugin `6c0842fc1ce6c4a1ea75f7b27660af8011be303b`; OMP plugin `4f7a2c0a2f29f68e3ad05ac73ca7652bc6410ac7`  
 **Date:** 2026-09-19
 
@@ -52,9 +55,9 @@ Refactoring effort will be larger than the replacement percentage because many c
 
 | Current component | Status | Main gap | 1.0 target |
 |---|---|---|---|
-| OMI `omi-manuscript-0.2.schema.json` and fixtures | HARDEN | executable schema/fixtures exist but are not a mandatory website/release gate | immutable released schema with checksum and conformance CI |
-| Studio vendored 0.2 schema | REPLACE | audited artifact is empty | exact released schema vendored from OMI and checksum-pinned |
-| Studio OMI envelope | REFACTOR | creates/exports 0.1 identifiers while OMI draft is 0.2.0 | generated wire codec with explicit envelope/version classification |
+| OMI `omi-manuscript-0.3.schema.json` and fixtures | HARDEN | Draft schema and mandatory conformance checks now exist; stable immutable release/provenance remains pending | immutable released schema with checksum and independent evidence |
+| Studio vendored 0.3 schema | HARDEN | executable Draft validator exists; no stable release pin claim | exact frozen schema with checksum and generated-contract review |
+| Studio OMI envelope | HARDEN | schema and omi.version now declare 0.3; portable ContentCodec/future policy remains incomplete | generated wire codec with explicit classification and stable compatibility policy |
 | `src/types/omi.ts` aggregate | SPLIT | structure, identity, notes, references, assets, history, and app concerns share one unit | acyclic `core/omi/*` modules |
 | empty domain placeholders | REMOVE | files imply ownership without implementation | real canonical modules or no files |
 | `OmiBlock.content: string` | REFACTOR | serialized Tiptap JSON/legacy text acts as portable domain data | versioned OMI content AST behind a Tiptap codec |
@@ -310,3 +313,20 @@ The coverage tracker is [Studio #633](https://github.com/open-manuscript-initiat
 | Readiness and main image channels | HARDEN | #655 merged; per-commit readiness is no RC promotion aggregate | Retain continuous beta builds; E02 must bind evidence and artifacts to one commit/digest | high |
 | Native origin-selection adapter | HARDEN | #656 merged; token invalidation alone is not secure storage/cache isolation | B10/D01 secure storage and origin-scoped account/cache acceptance remain open | high |
 | DOCX source-font adapter | KEEP / HARDEN | #657 characterizes interim compatibility behavior | Keep tested code; ADR-004 codec/AST freeze still pending | medium |
+
+## 2026-10-12 current implementation checkpoint
+
+This checkpoint supersedes earlier dated **implementation-state** descriptions; it does not retrospectively change their audit evidence or declare architecture freeze. Studio main was verified at `6242dbae4e6e7be3f9bff9470f64647554f363d8`; OMI at `bc932272d0cbe18b8e45f758fbdb0d6076344bbf`.
+
+- Studio now writes/validates OMI-SPEC-320@0.3.0 **Draft** with `schema` and `omi.version`, and retains the separately versioned container/history layers. Do not add a redundant schemaVersion field or promise pre-stable 0.2 migration. Stable compatibility obligations still begin with the first frozen stable generation.
+- OMI-SPEC-225@0.1.0 defines `sourceAttributions`: independently identified `prov:wasDerivedFrom` links to bibliographic records with explicit machine-inferred / author-declared / author-confirmed status. These are distinct from citation occurrences, technical import provenance, rights and authorship evidence. The model exists; universal ingress/export coverage does not.
+- [Studio PR #674](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/674) proposes atomic source-relationship cleanup on block-subtree deletion, retaining unrelated relationships, bibliography records and prior revision snapshots. It also proposes explicit HTML/JATS `source-attribution-not-preserved` warnings. Until merged and verified, these are repairs under review, not main guarantees. The warnings disclose loss; they do not establish a lossless mapping or generate a citation/licence claim.
+- Mandatory regression evidence for this repair is actual insertion → checkpoint → subtree deletion → checkpoint → OMI save/reopen → historical revert, plus HTML/JATS per-relationship loss diagnostics and non-mutation. Fixtures must be synthetic/public. Broader deletion/merge paths, additional exporters, anonymous projection and OMI-container source-graph round trips remain separately assessed gates.
+- Preserve the working editor, snapshot history and renderers. Portable AST/ContentCodec, immutable schema provenance, unknown-field/future-version handling, secure native storage and exact-commit RC evidence remain prerequisites; 0.3 adoption is not 1.0 readiness.
+
+| Current component | Status | Problem | Target / action | Risk |
+|---|---|---|---|---|
+| sourceAttributions + visual insertion | HARDEN | structured relationship exists; not every ingress is covered | preserve OMI-SPEC-225 status and explicit source identity; extend coverage only with fixtures | medium |
+| stageRemoveBlock | HARDEN | current main leaves a dangling relationship after deletion | #674 atomic cleanup, retain prior history; gate delete/save/revert lifecycle | high |
+| HTML/JATS source graph | HARDEN | main silently omits unsupported relationships | #674 per-relation warning; future documented mapping and reimport tests | medium–high |
+| Original 0.1/0.2 mismatch observations | KEEP as history | obsolete if read as current state | use this checkpoint and revised format rows for current planning | medium |

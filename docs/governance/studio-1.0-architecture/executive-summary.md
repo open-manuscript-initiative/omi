@@ -6,6 +6,9 @@ description: Executive summary of the Open Manuscript Studio 1.0 target architec
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
+> Current implementation reconciliation: see the **2026-10-12 current implementation checkpoint** below. Earlier audit snapshots are historical; open repair PRs are not merged guarantees.
+
+
 **Audit baseline:** 2026-09-19; Studio `main` @ `eca2cf45762116e1c00a89b3397840ed89109511`, OMI @ `e2f421707f1154c0ed30cb7750e0689a837e9b0a`, OJS plugin @ `6c0842fc1ce6c4a1ea75f7b27660af8011be303b`, OMP plugin @ `4f7a2c0a2f29f68e3ad05ac73ca7652bc6410ac7`.
 
 > This document is an implementation-architecture baseline for Open Manuscript Studio. It does not redefine normative OMI specifications and does not make a formal conformance claim.
@@ -16,7 +19,7 @@ The current Open Manuscript Studio codebase is a viable foundation for 1.0. A fu
 
 The 1.0 problem is therefore not primarily missing functionality. The central problem is that several critical contracts are not yet aligned with the implementation that already works.
 
-The most urgent example is the portable OMI format. The OMI repository already carries OMI-SPEC-320 0.2.0 material and schema fixtures while the audited Studio implementation still writes the 0.1 envelope and contains an empty vendored 0.2 schema artifact. That mismatch must be resolved before schema freeze because it creates the possibility of silent data loss or an incorrect compatibility claim.
+The original audit identified a 0.1/0.2 format mismatch. That specific mismatch is historical: Studio now uses OMI-SPEC-320@0.3.0 Draft with an executable vendored schema. The current source-attribution model introduces new lifecycle and export-fidelity obligations; #674 proposes targeted repairs. Stable schema/AST freeze and independent release evidence remain pending.
 
 The recommended strategy is **controlled refactoring**:
 
@@ -67,7 +70,7 @@ The following areas should not be preserved in their audited form:
 
 ### 1. Portable format and data integrity
 
-The OMI-SPEC-320 0.2 versus Studio 0.1 mismatch is the highest-priority blocker. Open/save/export must share one exact schema plus semantic-invariant validation path. A newer unsupported document must never be silently opened, edited, and overwritten. Unknown extension data also needs demonstrated lossless preservation.
+The original OMI-SPEC-320 0.2 versus Studio 0.1 mismatch is resolved by current 0.3 Draft adoption; stable format and portable AST conformance remain blockers. Open/save/export must share one exact schema plus semantic-invariant validation path. A newer unsupported document must never be silently opened, edited, and overwritten. Unknown extension data also needs demonstrated lossless preservation.
 
 ### 2. Tiptap JSON as portable domain data
 
@@ -181,7 +184,7 @@ with automatic filename/part prefill. The current module excerpt PR #631
 requires a selected excerpt and visible source. This is partial coverage:
 DOCX/PDF, PKP intake, reference-manager and other paths remain tracked in
 [Studio issue #633](https://github.com/open-manuscript-initiative/open-manuscript-studio/issues/633).
-Do not claim universal enforcement or formal semantic citation linkage yet.
+Do not claim universal enforcement: structured derivation linkage now exists under OMI-SPEC-225, but it is distinct from a citation occurrence and still needs lifecycle/export/privacy coverage.
 
 **Source attribution rollout.** Studio PRs [#634](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/634), [#635](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/635), [#636](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/636) and [#637](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/637) extend the earlier visual/module source gate. The rule is implemented by ingress owner, preserving PKP review anonymity and canonical OMI open behavior. The source is presently visible text or the bibliography record itself; semantic object linkage and renderer conformance remain open in [#633](https://github.com/open-manuscript-initiative/open-manuscript-studio/issues/633).
 
@@ -208,3 +211,13 @@ Studio main now includes #654–#657: the previous IDML leak, readiness path fil
 The next verified risk is cross-format annotation disclosure. #662 proposes a shared public manuscript projection for eight formats, with synthetic fixtures retaining public notes and excluding private bodies/anchors without modifying the source document. It remains subject to CI and merge. EPUB note-body fidelity and PDF binary/editorial acceptance are explicitly separate.
 
 The remaining pre-RC work is still substantial: native secure storage and origin-scoped cache/account ownership, versioned ContentCodec/portable AST decisions and E02 exact-commit artifact/evidence aggregation. The merged containment work improves the beta but does not establish a stable schema/API freeze or 1.0 readiness. No full rewrite is justified by these findings.
+
+## 2026-10-12 current implementation checkpoint
+
+This checkpoint supersedes earlier dated **implementation-state** descriptions; it does not retrospectively change their audit evidence or declare architecture freeze. Studio main was verified at `6242dbae4e6e7be3f9bff9470f64647554f363d8`; OMI at `bc932272d0cbe18b8e45f758fbdb0d6076344bbf`.
+
+- Studio now writes/validates OMI-SPEC-320@0.3.0 **Draft** with `schema` and `omi.version`, and retains the separately versioned container/history layers. Do not add a redundant schemaVersion field or promise pre-stable 0.2 migration. Stable compatibility obligations still begin with the first frozen stable generation.
+- OMI-SPEC-225@0.1.0 defines `sourceAttributions`: independently identified `prov:wasDerivedFrom` links to bibliographic records with explicit machine-inferred / author-declared / author-confirmed status. These are distinct from citation occurrences, technical import provenance, rights and authorship evidence. The model exists; universal ingress/export coverage does not.
+- [Studio PR #674](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/674) proposes atomic source-relationship cleanup on block-subtree deletion, retaining unrelated relationships, bibliography records and prior revision snapshots. It also proposes explicit HTML/JATS `source-attribution-not-preserved` warnings. Until merged and verified, these are repairs under review, not main guarantees. The warnings disclose loss; they do not establish a lossless mapping or generate a citation/licence claim.
+- Mandatory regression evidence for this repair is actual insertion → checkpoint → subtree deletion → checkpoint → OMI save/reopen → historical revert, plus HTML/JATS per-relationship loss diagnostics and non-mutation. Fixtures must be synthetic/public. Broader deletion/merge paths, additional exporters, anonymous projection and OMI-container source-graph round trips remain separately assessed gates.
+- Preserve the working editor, snapshot history and renderers. Portable AST/ContentCodec, immutable schema provenance, unknown-field/future-version handling, secure native storage and exact-commit RC evidence remain prerequisites; 0.3 adoption is not 1.0 readiness.
