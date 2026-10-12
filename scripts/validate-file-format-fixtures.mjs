@@ -151,6 +151,7 @@ export function validateDocument(document, { maxDiagnostics = 1_000 } = {}) {
   }
 
   validateTimestampOrder(document, diagnostics);
+  validateLanguageTags(document, diagnostics);
   validateAbsoluteAssetUris(document, diagnostics);
   const indexes = indexAddressableObjects(document, diagnostics);
   validateReferences(document, indexes, diagnostics);
@@ -158,6 +159,91 @@ export function validateDocument(document, { maxDiagnostics = 1_000 } = {}) {
   validateForbiddenSecrets(document, diagnostics);
 
   return boundDiagnostics(diagnostics, maxDiagnostics);
+}
+
+function validateLanguageTags(document, diagnostics) {
+  const grandfathered = new Set([
+    'art-lojban', 'cel-gaulish', 'en-gb-oed', 'i-ami', 'i-bnn', 'i-default',
+    'i-enochian', 'i-hak', 'i-klingon', 'i-lux', 'i-mingo', 'i-navajo',
+    'i-pwn', 'i-tao', 'i-tay', 'i-tsu', 'no-bok', 'no-nyn', 'sgn-be-fr',
+    'sgn-be-nl', 'sgn-ch-de', 'zh-guoyu', 'zh-hakka', 'zh-min',
+    'zh-min-nan', 'zh-xiang',
+  ]);
+  const valid = (tag) => {
+    if (typeof tag !== 'string') return true;
+    const lower = tag.toLowerCase();
+    if (grandfathered.has(lower)) return true;
+    if (/^x(?:-[a-z0-9]{1,8})+$/i.test(tag)) return true;
+
+    const parts = tag.split('-');
+    let index = 0;
+    const language = parts[index++];
+    if (!language || !/^[a-z]{2,8}$/i.test(language)) return false;
+
+    if (language.length <= 3) {
+      let extlangs = 0;
+      while (extlangs < 3 && /^[a-z]{3}$/i.test(parts[index] ?? '')) {
+        index += 1;
+        extlangs += 1;
+      }
+    }
+    if (/^[a-z]{4}$/i.test(parts[index] ?? '')) index += 1;
+    if (/^(?:[a-z]{2}|[0-9]{3})$/i.test(parts[index] ?? '')) index += 1;
+
+    while (/^(?:[a-z0-9]{5,8}|[0-9][a-z0-9]{3})$/i.test(parts[index] ?? '')) {
+      index += 1;
+    }
+    while (/^[0-9a-wy-z]$/i.test(parts[index] ?? '')) {
+      index += 1;
+      let extensionSubtags = 0;
+      while (/^[a-z0-9]{2,8}$/i.test(parts[index] ?? '')) {
+        index += 1;
+        extensionSubtags += 1;
+      }
+      if (extensionSubtags === 0) return false;
+    }
+    if (/^x$/i.test(parts[index] ?? '')) {
+      index += 1;
+      let privateSubtags = 0;
+      while (/^[a-z0-9]{1,8}$/i.test(parts[index] ?? '')) {
+        index += 1;
+        privateSubtags += 1;
+      }
+      if (privateSubtags === 0) return false;
+    }
+    return index === parts.length;
+  };
+
+  const check = (tag, path) => {
+    if (tag !== undefined && !valid(tag)) {
+      diagnostics.push({
+        code: 'FMT-LANGUAGE-TAG',
+        severity: 'error',
+        instancePath: path,
+        requirement: 'REQ-FMT-014',
+        message: 'Language tag is not well-formed BCP 47.',
+      });
+    }
+  };
+  check(document.locale, '/locale');
+
+  function visitSections(sections, path) {
+    for (const [index, section] of asArray(sections).entries()) {
+      const sectionPath = `${path}/${index}`;
+      check(section?.language, `${sectionPath}/language`);
+      for (const [blockIndex, block] of asArray(section?.blocks).entries()) {
+        visitBlock(block, `${sectionPath}/blocks/${blockIndex}`);
+      }
+      visitSections(section?.children, `${sectionPath}/children`);
+    }
+  }
+  function visitBlock(block, path) {
+    check(block?.language, `${path}/language`);
+    for (const [index, child] of asArray(block?.children).entries()) {
+      visitBlock(child, `${path}/children/${index}`);
+    }
+  }
+  visitSections(document.sections, '/sections');
 }
 
 function validateAbsoluteAssetUris(document, diagnostics) {
@@ -294,14 +380,14 @@ function indexAddressableObjects(document, diagnostics) {
 
   for (const [index, revision] of asArray(document.revisionHistory?.revisions).entries()) {
     const path = `/revisionHistory/revisions/${index}`;
-    addObject(revision, path, all, diagnostics);
+    addObject(revision, path, all, diagnostics, 'REQ-FMT-037');
     addObject(revision, path, revisions, null);
   }
 
   return { all, blocks, agents, bibliographicRecords, citations, revisions };
 }
 
-function addObject(value, path, targetIndex, diagnostics) {
+function addObject(value, path, targetIndex, diagnostics, duplicateRequirement = 'REQ-FMT-016') {
   if (!targetIndex || !value || typeof value.id !== 'string') {
     return;
   }
@@ -312,8 +398,8 @@ function addObject(value, path, targetIndex, diagnostics) {
         code: 'FMT-DUPLICATE-ID',
         severity: 'error',
         instancePath: `${path}/id`,
-        requirement: 'REQ-FMT-016',
-        message: `Identifier ${value.id} is already used at ${targetIndex.get(value.id)}.`,
+        requirement: duplicateRequirement,
+        message: 'Identifier is already used in this manuscript.',
       });
     }
     return;
@@ -431,6 +517,7 @@ function validateHistory(document, indexes, diagnostics) {
     '/revisionHistory/rootRevisionId',
     'history root revision',
     diagnostics,
+    'REQ-FMT-036',
   );
   requireReference(
     history.headRevisionId,
@@ -438,6 +525,7 @@ function validateHistory(document, indexes, diagnostics) {
     '/revisionHistory/headRevisionId',
     'history head revision',
     diagnostics,
+    'REQ-FMT-036',
   );
 
   for (const [index, revision] of asArray(history.revisions).entries()) {
@@ -452,6 +540,7 @@ function validateHistory(document, indexes, diagnostics) {
           `/revisionHistory/revisions/${index}/parentRevisionIds/${parentIndex}`,
           'parent revision',
           diagnostics,
+          'REQ-FMT-037',
         );
       }
     }
@@ -467,7 +556,7 @@ function validateHistory(document, indexes, diagnostics) {
   }
 }
 
-function requireReference(value, targetIndex, instancePath, label, diagnostics) {
+function requireReference(value, targetIndex, instancePath, label, diagnostics, requirement = 'REQ-FMT-032') {
   if (typeof value === 'string' && targetIndex.has(value)) {
     return;
   }
@@ -476,8 +565,8 @@ function requireReference(value, targetIndex, instancePath, label, diagnostics) 
     code: 'FMT-UNRESOLVED-REFERENCE',
     severity: 'error',
     instancePath,
-    requirement: 'REQ-FMT-032',
-    message: `${label} ${String(value)} does not resolve in the manuscript.`,
+    requirement,
+    message: `${label} does not resolve in the manuscript.`,
   });
 }
 
