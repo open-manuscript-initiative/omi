@@ -1,6 +1,6 @@
 # OMI-SPEC-320 Requirement Coverage
 
-**Specification:** `OMI-SPEC-320@0.2.0`  
+**Specification:** `OMI-SPEC-320@0.3.0`  
 **Scope:** the website repository's reference parser, schema validator, fixtures, and tests  
 **Coverage status:** complete traceability; partial conformance evidence
 
