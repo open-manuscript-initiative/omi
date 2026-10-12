@@ -137,6 +137,70 @@ test('maps envelope, presence, timestamp, language, and URI failures to their re
   }
 });
 
+
+test('validates BCP 47 tags and preserves valid legacy and private-use forms', async () => {
+  const source = parseUniqueJson(await readFile(join(fixtureRoot, 'valid-minimal.omi.json')));
+  for (const tag of ['en-US', 'zh-Hant-TW', 'en-GB-oed', 'i-klingon', 'x-project']) {
+    const document = structuredClone(source);
+    document.locale = tag;
+    assert.equal(
+      validateDocument(document).some(({ requirement }) => requirement === 'REQ-FMT-014'),
+      false,
+      `expected ${tag} to be a well-formed BCP 47 tag`,
+    );
+  }
+
+  const document = structuredClone(source);
+  document.locale = 'en-US-AB';
+  const diagnostics = validateDocument(document);
+  assert.ok(diagnostics.some(({ code, instancePath, requirement }) =>
+    code === 'FMT-LANGUAGE-TAG'
+      && instancePath === '/locale'
+      && requirement === 'REQ-FMT-014'));
+});
+
+test('redacts unresolved reference values and classifies revision-history rules', async () => {
+  const minimal = parseUniqueJson(await readFile(join(fixtureRoot, 'valid-minimal.omi.json')));
+  const secretReference = 'restricted-manuscript-id-7f3a';
+  const unresolved = structuredClone(minimal);
+  unresolved.annotations = [{
+    id: 'annotation-private',
+    targetBlockId: secretReference,
+  }];
+  const unresolvedDiagnostics = validateDocument(unresolved);
+  assert.ok(unresolvedDiagnostics.some(({ requirement }) => requirement === 'REQ-FMT-032'));
+  assert.equal(JSON.stringify(unresolvedDiagnostics).includes(secretReference), false);
+
+  const history = parseUniqueJson(await readFile(join(fixtureRoot, 'valid-history-extension.omi.json')));
+  const mismatchedHead = structuredClone(history);
+  mismatchedHead.headRevisionId = 'revision-1';
+  assert.ok(validateDocument(mismatchedHead).some(({ requirement, code }) =>
+    requirement === 'REQ-FMT-036' && code === 'FMT-HISTORY-HEAD-MISMATCH'));
+
+  const missingHead = structuredClone(history);
+  missingHead.revisionHistory.headRevisionId = secretReference;
+  const missingHeadDiagnostics = validateDocument(missingHead);
+  assert.ok(missingHeadDiagnostics.some(({ requirement }) => requirement === 'REQ-FMT-036'));
+  assert.equal(JSON.stringify(missingHeadDiagnostics).includes(secretReference), false);
+
+  const complete = structuredClone(history);
+  complete.revisionHistory.revisions[1].parentRevisionIds = [secretReference];
+  const completeDiagnostics = validateDocument(complete);
+  assert.ok(completeDiagnostics.some(({ requirement }) => requirement === 'REQ-FMT-037'));
+  assert.equal(JSON.stringify(completeDiagnostics).includes(secretReference), false);
+
+  for (const completeness of ['partial', 'shallow']) {
+    const bounded = structuredClone(complete);
+    bounded.revisionHistory.completeness = completeness;
+    bounded.revisionHistory.omissionNotice = 'Earlier history is outside this package.';
+    assert.equal(
+      validateDocument(bounded).some(({ requirement }) => requirement === 'REQ-FMT-037'),
+      false,
+      `${completeness} history should allow an explicitly declared boundary`,
+    );
+  }
+});
+
 test('orders multiple diagnostics by JSON Pointer, then code and requirement', async () => {
   const document = parseUniqueJson(await readFile(join(fixtureRoot, 'valid-minimal.omi.json')));
   const firstSection = document.sections[0];
