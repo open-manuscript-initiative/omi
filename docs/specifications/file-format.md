@@ -56,7 +56,7 @@ Choose `.omi.json` when you specifically need the manuscript as directly readabl
 
 This document is a **Draft** specification of the Open Manuscript Initiative.
 
-`0.2.0` was the first template-complete File Format draft, with a published JSON Schema, conformance fixtures, explicit processing rules, and stable requirement identifiers. It replaced the incomplete `0.1.0` draft, which combined logical-format and physical-container concerns without defining interoperable parsing or validation behaviour. `0.3.0` is the current Draft and adds structured source-attribution data, with its own versioned schema and fixture corpus. The approval recorded in [issue #121](https://github.com/open-manuscript-initiative/omi/issues/121) applies only to the `0.2.0` profile and artifacts. The `0.3.0` profile and fixtures await a separate review tracked in [issue #135](https://github.com/open-manuscript-initiative/omi/issues/135). Neither review establishes complete requirement coverage, Stable status, full conformance, or OMI 1.0 readiness.
+`0.2.0` was the first template-complete File Format draft, with a published JSON Schema, conformance fixtures, explicit processing rules, and stable requirement identifiers. It replaced the incomplete `0.1.0` draft, which combined logical-format and physical-container concerns without defining interoperable parsing or validation behaviour. `0.3.0` is the current Draft and adds structured source-attribution data, with its own versioned schema and fixture corpus. The approval recorded in [issue #121](https://github.com/open-manuscript-initiative/omi/issues/121) applies only to the `0.2.0` profile and artifacts. Approval of the `0.3.0` initial reviewable profile and fixture set is recorded in [issue #135](https://github.com/open-manuscript-initiative/omi/issues/135). Neither review establishes complete requirement coverage, Stable status, full conformance, or OMI 1.0 readiness.
 
 Property names, profiles, schema constraints, and migration rules may still change incompatibly before version 1.0. A conformance claim MUST identify this exact specification version or an immutable repository revision.
 
@@ -833,7 +833,7 @@ At publication of this draft:
 - the `0.3` JSON Schema, version-pinned fixture set, and reference validator are published;
 - Open Manuscript Studio's documented runtime remains on the `OMI-SPEC-320@0.2.0` Draft boundary and has not yet adopted `0.3.0`;
 - maintainer approval recorded in [issue #121](https://github.com/open-manuscript-initiative/omi/issues/121) applies only to the `0.2.0` profile and fixture corpus;
-- the `0.3.0` profile and fixture corpus await separate review tracked in [issue #135](https://github.com/open-manuscript-initiative/omi/issues/135);
+- approval of the `0.3.0` initial reviewable profile and fixture corpus is recorded in [issue #135](https://github.com/open-manuscript-initiative/omi/issues/135);
 - full behavioral requirement coverage and independent implementation results remain open;
 - neither Studio implementation evidence nor this Draft suite implies full conformance, Stable status, or OMI 1.0 readiness.
 
