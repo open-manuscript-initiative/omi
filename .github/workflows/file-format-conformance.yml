@@ -15,7 +15,7 @@ on:
       - 'scripts/validate-file-format-requirement-coverage.mjs'
       - 'tests/file-format-conformance.test.mjs'
       - 'static/examples/omi-spec-320/**'
-      - 'static/schemas/omi-manuscript-0.2.schema.json'
+      - 'static/schemas/omi-manuscript-0.3.schema.json'
   push:
     branches:
       - main
@@ -32,7 +32,7 @@ on:
       - 'scripts/validate-file-format-requirement-coverage.mjs'
       - 'tests/file-format-conformance.test.mjs'
       - 'static/examples/omi-spec-320/**'
-      - 'static/schemas/omi-manuscript-0.2.schema.json'
+      - 'static/schemas/omi-manuscript-0.3.schema.json'
   workflow_dispatch:
 
 permissions:
