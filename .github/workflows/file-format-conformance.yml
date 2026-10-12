@@ -40,7 +40,7 @@ permissions:
 
 jobs:
   file-format-conformance:
-    name: OMI-SPEC-320@0.2.0 fixtures
+    name: OMI-SPEC-320@0.3.0 fixtures
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
