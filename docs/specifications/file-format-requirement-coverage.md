@@ -32,7 +32,7 @@ untested requirements into a passing conformance result.
 | `REQ-FMT-011` | tested | parser tests safe-integer boundary and rejection above it | — |
 | `REQ-FMT-012` | partial | tests reject empty and null required titles | Exercise all nullable fields and producer omission/null behavior |
 | `REQ-FMT-013` | partial | schema test rejects a timestamp without an offset; fixture tests timestamp order | RFC 3339 boundary cases and producer output |
-| `REQ-FMT-014` | partial | schema test rejects a malformed language tag | Full BCP 47 validity, recommended casing, and producer behavior |
+| `REQ-FMT-014` | partial | reference tests exercise BCP 47 grammar, legacy tags, and private-use tags | Producer behavior and recommended casing |
 | `REQ-FMT-015` | partial | test rejects a relative asset URI | Other URI fields, explicit relative-base policy, and consumer resolution |
 | `REQ-FMT-016` | partial | non-empty ID schema and duplicate-ID fixture | Cross-version identity stability and manuscript-scope completeness |
 | `REQ-FMT-017` | untested | — | Deletion, tombstone, and ID non-reuse lifecycle tests |
@@ -55,7 +55,7 @@ untested requirements into a passing conformance result.
 | `REQ-FMT-034` | untested | — | Producer binary-size limits and asset externalization tests |
 | `REQ-FMT-035` | partial | asset structure is schema-validated; fixture validation uses local resources | Asset metadata resolution and proof that validation never fetches external assets |
 | `REQ-FMT-036` | partial | `invalid-history-head-mismatch.omi.json` | Snapshot revision agreement and all three-way head cases |
-| `REQ-FMT-037` | partial | duplicate addressable IDs are detected across history | Complete, partial, and shallow history boundary tests |
+| `REQ-FMT-037` | partial | reference tests classify complete, partial, and shallow missing-parent boundaries; revision ID duplicates are checked | Studio history export and broader history graph cases |
 | `REQ-FMT-038` | partial | schema condition links `history-exchange` to history fields | Negative fixture for omitted history/profile and provenance claim behavior |
 | `REQ-FMT-039` | partial | parser preserves `__proto__` as inert data without prototype mutation | Security tests for markup, URLs, formulas, templates, and extension payloads |
 | `REQ-FMT-040` | tested | tests cover byte, depth, member, array, string, and diagnostic limits | Deployment-specific limit selection and Studio integration |
@@ -67,7 +67,7 @@ untested requirements into a passing conformance result.
 | `REQ-FMT-046` | partial | parser preserves Unicode scalar values | Import/edit/export round trip without normalization or text rewriting |
 | `REQ-FMT-047` | tested | fixture runner rejects expected-invalid documents with errors | Every validation layer and declared profile |
 | `REQ-FMT-048` | tested | repeated validation returns stable diagnostics and ordering | Determinism across policy and extension-capability configurations |
-| `REQ-FMT-049` | partial | tests assert JSON Pointer and requirement on unresolved-reference errors | Restricted-content redaction and diagnostic behavior for all error classes |
+| `REQ-FMT-049` | partial | unresolved reference and duplicate-ID diagnostics omit manuscript values while retaining pointer and requirement | Restricted-content redaction for every error class and authorization policies |
 | `REQ-FMT-050` | untested | — | Repair provenance, ordered change list, validation, and source retention |
 | `REQ-FMT-051` | partial | extension schema constrains namespace keys | Producer placement of non-core data and collision prevention |
 | `REQ-FMT-052` | partial | parser preserves unknown values without interpreting them | Consumer extension processing and presentation behavior |
