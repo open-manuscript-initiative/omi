@@ -188,7 +188,7 @@ These counts describe the evidence categories used in this document. They do not
 |---|---|---|---|---|---|---|
 | `OMI-SPEC-300` | [Plugin Architecture](../specifications/plugin-architecture.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-310` | [Platform API](../specifications/api.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-320` | [File Format](../specifications/file-format.md) | Active Draft | 0.2.0 | Current template | [Draft schema](/schemas/omi-manuscript-0.2.schema.json) | [Initial fixtures](/examples/omi-spec-320/0.2.0/manifest.json) |
+| `OMI-SPEC-320` | [File Format](../specifications/file-format.md) | Active Draft | 0.3.0 | Current template | [Draft schema](/schemas/omi-manuscript-0.3.schema.json) | [Initial fixtures](/examples/omi-spec-320/0.3.0/manifest.json) |
 | `OMI-SPEC-330` | [Container Architecture](../specifications/container-architecture.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-340` | Import and Export Model | Reserved | — | Not applicable | Not started | Not started |
 | `OMI-SPEC-350` | Capability and Conformance Model | Reserved | — | Not applicable | Not started | Not started |
@@ -197,7 +197,7 @@ These counts describe the evidence categories used in this document. They do not
 
 No row in this section currently qualifies as **Implemented**, **Tested**, or **Conformant** under the strict definitions above.
 
-The OMI repository contains a reference fixture validator for `OMI-SPEC-320@0.2.0`. Studio now vendors the Draft schema and shared 14-fixture corpus and runs JSON Schema Draft 2020-12 plus semantic validation on portable open/save. This is Studio implementation and fixture evidence; a complete normative requirement mapping, stable released schema and independent implementation/conformance evidence are still outstanding. These dimensions are summarized here rather than repeated in every row.
+The OMI repository contains a reference fixture validator for the current `OMI-SPEC-320@0.3.0` profile and corpus. Studio's documented runtime remains on the `0.2.0` Draft boundary and its shared 14-fixture corpus; adoption of `0.3.0` is still open. The 0.2.0 approval is recorded in issue #121, while review of 0.3.0 is tracked separately in issue #135. Complete normative requirement mapping, full Studio behavior coverage, a Stable schema release, and independent implementation/conformance evidence remain outstanding. These dimensions are summarized here rather than repeated in every row.
 
 ### 7.1 Foundations and core semantic models
 
@@ -245,7 +245,7 @@ The OMI repository contains a reference fixture validator for `OMI-SPEC-320@0.2.
 
 ### 8.2 Draft schema and legacy placeholder reference
 
-The authoritative Draft schema for `OMI-SPEC-320@0.2.0` is published at `https://openmanuscript.org/schemas/omi-manuscript-0.2.schema.json`. The Studio manuscript type still names the earlier `https://openmanuscript.org/schemas/omi-manuscript-0.1.json` URI. No authoritative `0.1` schema is published, so that earlier URI remains an implementation placeholder and does not establish `0.2.0` conformance.
+The current authoritative Draft schema for `OMI-SPEC-320@0.3.0` is published at `https://openmanuscript.org/schemas/omi-manuscript-0.3.schema.json`. Studio's documented runtime still targets `0.2.0`; its manuscript type also retains the earlier `https://openmanuscript.org/schemas/omi-manuscript-0.1.json` URI as an implementation placeholder. No authoritative `0.1` schema is published, and neither that placeholder nor Studio's `0.2.0` support establishes conformance with the current `0.3.0` Draft.
 
 ### 8.3 Implementation-specific models
 
