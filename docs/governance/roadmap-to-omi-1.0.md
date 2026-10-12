@@ -56,7 +56,7 @@ The programme has moved well beyond the initial documentation-audit stage. Gover
 | Multilingual product support | **Operational implementation** | Studio exposes 47 selectable interface languages with localized help and reviewed translation overlays. Normative specification bodies remain English. |
 | Import/export | **Substantive implementation** | DOCX import and broad publication/export targets are implemented, including JATS, HTML, EPUB, printed and interactive PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX-oriented outputs. |
 | Desktop distribution | **Operational beta** | Windows, Linux and macOS packages are built automatically; desktop/cross-platform update notifications are implemented. Current release automation binds published tags to exact build commits and does not replace assets of existing releases. Code-signing work remains in progress. |
-| Canonical schemas and conformance | **Draft suite implemented; release gate open** | OMI-SPEC-320@0.3.0 has a versioned Draft 2020-12 schema, 14 fixtures, strict parser and validator tests, CI enforcement, and a traceability register for all 72 normative requirements (10 tested, 33 partial, 29 untested). The approval recorded in issue #121 applies only to the 0.2.0 corpus; separate review of the 0.3.0 profile and fixtures is tracked in issue #135. Complete Studio behavior coverage, a shared validation-report schema, and independent implementation evidence remain pre-1.0 gates. |
+| Canonical schemas and conformance | **Draft suite implemented; release gate open** | OMI-SPEC-320@0.3.0 has a versioned Draft 2020-12 schema, 14 fixtures, strict parser and validator tests, CI enforcement, and a traceability register for all 72 normative requirements (10 tested, 33 partial, 29 untested). The approval recorded in issue #121 applies only to the 0.2.0 corpus; approval of the 0.3.0 profile and fixtures as an initial reviewable set is recorded in issue #135. Complete Studio behavior coverage, a shared validation-report schema, and independent implementation evidence remain pre-1.0 gates. |
 | Independent implementations | **Not yet verified** | Interoperability evidence beyond the primary reference implementation remains required for OMI 1.0 confidence. |
 
 ## 4. Completed foundation work
@@ -238,7 +238,7 @@ Exit criterion: implementations can determine whether a manuscript satisfies a d
 
 **Status:** Initial OMI-SPEC-320 schema and fixture corpus published; suite-wide work remains open
 
-OMI-SPEC-320@0.3.0 now has a versioned Draft 2020-12 schema, a 14-fixture corpus, strict parser and validator tests, CI enforcement, and requirement traceability. The 0.2.0 corpus approval is recorded in issue #121; the 0.3.0 profile and corpus are pending separate review under issue #135. Remaining work includes schemas and fixtures for other specifications, broader behavioral coverage, Studio adoption, and independent validation evidence.
+OMI-SPEC-320@0.3.0 now has a versioned Draft 2020-12 schema, a 14-fixture corpus, strict parser and validator tests, CI enforcement, and requirement traceability. The 0.2.0 corpus approval is recorded in issue #121; the 0.3.0 profile and corpus are approved as an initial reviewable set under issue #135. Remaining work includes schemas and fixtures for other specifications, broader behavioral coverage, Studio adoption, and independent validation evidence.
 
 Exit criterion: independent implementations validate the same version-pinned fixtures and obtain equivalent structural results.
 
@@ -271,7 +271,7 @@ Exit criterion: at least two independently meaningful external workflow integrat
 
 ### Phase 11 — Capability and conformance testing
 
-**Status:** Draft conformance profile and executable fixture suite available; the 0.2.0 corpus approval is recorded, the 0.3.0 review is open under issue #135, and formal OMI 1.0 approval and Stable release remain open.
+**Status:** Draft conformance profile and executable fixture suite available; the 0.2.0 corpus approval and 0.3.0 initial reviewable-set approval are recorded in issues #121 and #135; formal OMI 1.0 approval and Stable release remain open.
 
 The Implementation Status Matrix and Studio status reports provide evidence baselines, but focused unit tests do not constitute OMI conformance testing.
 
