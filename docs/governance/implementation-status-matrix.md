@@ -129,7 +129,7 @@ The 2026-08-06 full review did not find authoritative OMI repository artefacts f
 
 The 2026-09-05 OMI-SPEC-320 update added the first canonical versioned manuscript JSON Schema and reference fixtures. The `0.2.0-draft.4` profile checks 14 fixtures, strict UTF-8/JSON parsing, configured parser limits, selected semantic constraints, deterministic diagnostics, and local-only schema references. A complete register maps all 72 normative requirements: 10 are tested in this repository, 33 have partial evidence, and 29 remain untested. The initial `OMI-SPEC-320@0.2.0` profile and fixture approval is recorded in [issue #121](https://github.com/open-manuscript-initiative/omi/issues/121). The current `0.3.0` profile and corpus are under separate review in [issue #135](https://github.com/open-manuscript-initiative/omi/issues/135). Neither review establishes complete behavioral coverage, independent implementation evidence, Stable status, or OMI 1.0 readiness.
 
-Open Manuscript Studio currently documents and validates against the `OMI-SPEC-320@0.2.0` Draft boundary. This implementation evidence does not mean Studio has adopted `0.3.0`, approve the `0.3.0` corpus, make either schema a Stable release, or prove interoperability with a second implementation.
+Open Manuscript Studio currently documents and validates against the `OMI-SPEC-320@0.2.0` Draft boundary. This does not show Studio adoption of `0.3.0`, approval of the `0.3.0` corpus, Stable status for either schema, or interoperability with a second implementation.
 
 ## 5. Aggregate snapshot
 
