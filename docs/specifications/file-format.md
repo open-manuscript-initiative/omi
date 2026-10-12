@@ -830,12 +830,12 @@ The authoritative implementation evidence is maintained in the [OMI Implementati
 
 At publication of this draft:
 
-- the `0.3` JSON Schema is published at the canonical versioned URI;
-- a proposed fixture set and reference validator are published;
-- Open Manuscript Studio documents and tests its `OMI-SPEC-320@0.3.0` schema boundary;
-- the initial Draft fixture corpus and profile have recorded maintainer approval;
+- the `0.3` JSON Schema, version-pinned fixture set, and reference validator are published;
+- Open Manuscript Studio's documented runtime remains on the `OMI-SPEC-320@0.2.0` Draft boundary and has not yet adopted `0.3.0`;
+- maintainer approval recorded in [issue #121](https://github.com/open-manuscript-initiative/omi/issues/121) applies only to the `0.2.0` profile and fixture corpus;
+- the `0.3.0` profile and fixture corpus await separate review tracked in [issue #135](https://github.com/open-manuscript-initiative/omi/issues/135);
 - full behavioral requirement coverage and independent implementation results remain open;
-- no official OMI 1.0 format status is implied by the Studio implementation or this Draft suite.
+- neither Studio implementation evidence nor this Draft suite implies full conformance, Stable status, or OMI 1.0 readiness.
 
 Passing the JSON Schema or reference fixtures alone does not establish full conformance.
 
