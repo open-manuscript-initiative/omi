@@ -14,9 +14,9 @@ description: Current programme, completed foundations, reference-implementation 
 |---|---|
 | Document type | Governance and planning |
 | Status | Draft |
-| Version | 0.4.2 |
+| Version | 0.4.3 |
 | Normative language | English |
-| Last updated | 2026-09-18 |
+| Last updated | 2026-10-12 |
 | Planning horizon | OMI 1.0 |
 | Authoritative identifier source | [OMI Specification Registry](./specification-registry.md) |
 | Product implementation baseline | [Studio Implementation Status](./studio-implementation-status.md) |
@@ -56,7 +56,7 @@ The programme has moved well beyond the initial documentation-audit stage. Gover
 | Multilingual product support | **Operational implementation** | Studio exposes 47 selectable interface languages with localized help and reviewed translation overlays. Normative specification bodies remain English. |
 | Import/export | **Substantive implementation** | DOCX import and broad publication/export targets are implemented, including JATS, HTML, EPUB, printed and interactive PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX-oriented outputs. |
 | Desktop distribution | **Operational beta** | Windows, Linux and macOS packages are built automatically; desktop/cross-platform update notifications are implemented. Current release automation binds published tags to exact build commits and does not replace assets of existing releases. Code-signing work remains in progress. |
-| Canonical schemas and conformance | **Draft suite implemented; release gate open** | OMI-SPEC-320@0.3.0 has a versioned Draft 2020-12 schema, 14 fixtures, strict parser and validator tests, CI enforcement, and a traceability register for all 72 normative requirements (10 tested, 33 partial, 29 untested). Initial Draft corpus/profile approval is recorded; complete Studio behavior coverage, a shared validation-report schema, and independent implementation evidence remain pre-1.0 gates. |
+| Canonical schemas and conformance | **Draft suite implemented; release gate open** | OMI-SPEC-320@0.3.0 has a versioned Draft 2020-12 schema, 14 fixtures, strict parser and validator tests, CI enforcement, and a traceability register for all 72 normative requirements (10 tested, 33 partial, 29 untested). The approval recorded in issue #121 applies only to the 0.2.0 corpus; separate review of the 0.3.0 profile and fixtures is tracked in issue #135. Complete Studio behavior coverage, a shared validation-report schema, and independent implementation evidence remain pre-1.0 gates. |
 | Independent implementations | **Not yet verified** | Interoperability evidence beyond the primary reference implementation remains required for OMI 1.0 confidence. |
 
 ## 4. Completed foundation work
@@ -236,11 +236,11 @@ Exit criterion: implementations can determine whether a manuscript satisfies a d
 
 ### Phase 8 — Canonical schemas and examples
 
-**Status:** Planned / critical pre-1.0 work
+**Status:** Initial OMI-SPEC-320 schema and fixture corpus published; suite-wide work remains open
 
-Deliverables include versioned canonical JSON Schemas, stable schema identifiers, authority rules, valid/invalid fixtures, multilingual examples, reference-rich examples and version-history examples.
+OMI-SPEC-320@0.3.0 now has a versioned Draft 2020-12 schema, a 14-fixture corpus, strict parser and validator tests, CI enforcement, and requirement traceability. The 0.2.0 corpus approval is recorded in issue #121; the 0.3.0 profile and corpus are pending separate review under issue #135. Remaining work includes schemas and fixtures for other specifications, broader behavioral coverage, Studio adoption, and independent validation evidence.
 
-Exit criterion: independent implementations validate the same fixtures and obtain equivalent structural results.
+Exit criterion: independent implementations validate the same version-pinned fixtures and obtain equivalent structural results.
 
 ### Phase 9 — Import, export and interoperability mappings
 
@@ -271,7 +271,7 @@ Exit criterion: at least two independently meaningful external workflow integrat
 
 ### Phase 11 — Capability and conformance testing
 
-**Status:** Draft conformance profile and executable fixture suite available; formal approval and Stable release remain open.
+**Status:** Draft conformance profile and executable fixture suite available; the 0.2.0 corpus approval is recorded, the 0.3.0 review is open under issue #135, and formal OMI 1.0 approval and Stable release remain open.
 
 The Implementation Status Matrix and Studio status reports provide evidence baselines, but focused unit tests do not constitute OMI conformance testing.
 
@@ -318,7 +318,7 @@ The highest-value next steps are:
 3. harden OJS synchronization and document verified compatibility boundaries;
 4. harden OMP cross-version compatibility, deployment and recovery against the published profile;
 5. complete Translation, Validation and Collaboration/Permission specification work;
-6. publish the first canonical versioned schema/fixture set;
+6. maintain the versioned OMI-SPEC-320 schema/fixture set through review, and publish canonical schemas and fixtures for the other applicable specifications;
 7. formalize Import/Export and Rendering/Profile semantics from the existing Studio implementation;
 8. complete Windows release-signing integration after signing-service approval;
 9. continue integration-provider work while keeping vendor credentials and authentication models isolated;
