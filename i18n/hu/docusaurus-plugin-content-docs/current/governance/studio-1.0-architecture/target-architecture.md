@@ -6,6 +6,9 @@ description: Az Open Manuscript Studio 1.0 javasolt célarchitektúrája a műk�
 
 # OMI Studio 1.0 Target Architecture
 
+> Aktuális implementáció: a lap végén szereplő **2026-10-12** egyeztetés az irányadó. A régebbi audit történeti adat; a nyitott javítási PR nem main-garancia.
+
+
 **Állapot:** javasolt 1.0 célarchitektúra, döntésre előkészítve  
 **Audit időpontja:** 2026-09-19  
 **Elsődleges implementációs alap:** `open-manuscript-studio/main` @ `eca2cf45762116e1c00a89b3397840ed89109511`  
@@ -908,3 +911,20 @@ A döntés változtathatatlan snapshotként megőrzi a venue, domain, DNS
 verification ID/időpont és szerkesztői szerepkör adatait. Új döntés előtt az
 elavult DNS-ellenőrzést újra kell validálni; későbbi DNS- vagy
 szerepkör-visszavonás nem írja át a történeti provenance-t.
+
+
+## 2026-10-12 — Az aktuális implementáció egyeztetése
+
+Ez a szakasz felülírja a korábbi keltezett részek aktuális implementációra vonatkozó állításait; a korábbi audit történeti bizonyíték marad. Ellenőrzött Studio main: `6242dbae4e6e7be3f9bff9470f64647554f363d8`; OMI: `bc932272d0cbe18b8e45f758fbdb0d6076344bbf`.
+
+A Studio az OMI-SPEC-320@0.3.0 **Draft** sémát írja és validálja. A schema URI és az omi.version elegendő; az alkalmazás, a konténer és a revision külön verziózott. A korábbi kísérleti 0.2 formátumhoz nem keletkezik új migrációs kötelezettség. Ez nem stabil sémafreeze vagy 1.0 kiadási engedély (ADR-001–003).
+
+Az OMI-SPEC-225 strukturált sourceAttributions kapcsolatokat vezetett be, prov:wasDerivedFrom predikátummal és explicit assertion státusszal. Ezek nem azonosak az idézéssel, technikai importeredettel, licenccel vagy igazolt szerzőséggel. A szemantikus kapcsolat már létezik; a teljes import/export lefedettség még nem (ADR-023).
+
+A [Studio #674 PR](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/674) a blokk és leszármazottai törlésekor egyetlen revision-műveletben rendezi a forráskapcsolatokat. A korábbi history, a bibliográfia és a független kapcsolatok megmaradnak. A történeti revision visszaállítása helyreállítja a forrásgráfot is (ADR-007).
+
+Ugyanez a PR a HTML/JATS exportban source-attribution-not-preserved figyelmeztetést ad minden nem reprezentált kapcsolatnál. A validForExport nem veszteségmentességi igazolás; az OMI megőrzi a teljes gráfot. Nem keletkezik automatikus idézet vagy licencállítás (ADR-008/009/023).
+
+A #674 nyitott javítási javaslat, nem main-garancia. Kötelező teszt: beszúrás → checkpoint → teljes blokkág törlése → checkpoint → mentés/újranyitás → korábbi revision visszaállítása; továbbá export-veszteségjelzés és a forrásdokumentum változatlansága. Csak szintetikus vagy nyilvános fixture használható.
+
+A PR-terv sorrendje: célzott életciklusjavítás (Phase B), exportdiagnosztika (Phase C), baseline-egyeztetés (Phase A), majd a többi törlési/összevonási útvonal, konténeres round-trip, anonimizált projekció és exporter-leképezések bizonyítása RC előtt. Az eredeti A02–A08/B05–B07/C03–C05/E02 kapuk továbbra is érvényesek. A működő szerkesztőt, snapshot historyt és renderereket meg kell tartani; teljes újraírás nem indokolt.

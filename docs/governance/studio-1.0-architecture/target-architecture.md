@@ -6,6 +6,9 @@ description: Proposed target architecture for stabilizing the working Open Manus
 
 # Open Manuscript Studio 1.0 Target Architecture
 
+> Current implementation reconciliation: see the **2026-10-12 current implementation checkpoint** below. Earlier audit snapshots are historical; open repair PRs are not merged guarantees.
+
+
 **Status:** proposed 1.0 target architecture, prepared for architecture-freeze decisions  
 **Audit date:** 2026-09-19  
 **Primary implementation baseline:** `open-manuscript-studio/main` @ `eca2cf45762116e1c00a89b3397840ed89109511`  
@@ -849,3 +852,13 @@ RC/stable promotion still needs the E02 exact-commit evidence aggregator.
 The October 10 repairs #654–#657 are merged in Studio main at audit commit `302450babf4390585b006c761731fcc51591424b`. IDML privacy, unconditional readiness triggering, native origin-selection ownership and the existing source-font adapter characterization are implemented. These are partial boundary repairs, not completion of the portable ContentCodec, SecureStorage or exact-commit RC aggregator.
 
 A further audit found public-note leakage in LaTeX/MIF/SLA/XPress Tags and visibility-filter omissions in HTML/JATS/DOCX. [Studio #662](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/662) introduces a non-mutating public manuscript view used by eight renderers. Remove private annotation bodies and known private inline anchors before rendering; retain unresolved references for existing diagnostics. Never save this publication view as portable working state. EPUB is included for anchor privacy although its existing renderer does not implement note-body export. IDML retains its already merged guard. PDF inherits HTML filtering where it uses the semantic HTML renderer; binary and editorial print acceptance still require separate fixtures.
+
+## 2026-10-12 current implementation checkpoint
+
+This checkpoint supersedes earlier dated **implementation-state** descriptions; it does not retrospectively change their audit evidence or declare architecture freeze. Studio main was verified at `6242dbae4e6e7be3f9bff9470f64647554f363d8`; OMI at `bc932272d0cbe18b8e45f758fbdb0d6076344bbf`.
+
+- Studio now writes/validates OMI-SPEC-320@0.3.0 **Draft** with `schema` and `omi.version`, and retains the separately versioned container/history layers. Do not add a redundant schemaVersion field or promise pre-stable 0.2 migration. Stable compatibility obligations still begin with the first frozen stable generation.
+- OMI-SPEC-225@0.1.0 defines `sourceAttributions`: independently identified `prov:wasDerivedFrom` links to bibliographic records with explicit machine-inferred / author-declared / author-confirmed status. These are distinct from citation occurrences, technical import provenance, rights and authorship evidence. The model exists; universal ingress/export coverage does not.
+- [Studio PR #674](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/674) proposes atomic source-relationship cleanup on block-subtree deletion, retaining unrelated relationships, bibliography records and prior revision snapshots. It also proposes explicit HTML/JATS `source-attribution-not-preserved` warnings. Until merged and verified, these are repairs under review, not main guarantees. The warnings disclose loss; they do not establish a lossless mapping or generate a citation/licence claim.
+- Mandatory regression evidence for this repair is actual insertion → checkpoint → subtree deletion → checkpoint → OMI save/reopen → historical revert, plus HTML/JATS per-relationship loss diagnostics and non-mutation. Fixtures must be synthetic/public. Broader deletion/merge paths, additional exporters, anonymous projection and OMI-container source-graph round trips remain separately assessed gates.
+- Preserve the working editor, snapshot history and renderers. Portable AST/ContentCodec, immutable schema provenance, unknown-field/future-version handling, secure native storage and exact-commit RC evidence remain prerequisites; 0.3 adoption is not 1.0 readiness.

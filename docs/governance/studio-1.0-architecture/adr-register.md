@@ -6,6 +6,9 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 # OMI Studio 1.0 ADR Register
 
+> Current implementation reconciliation: see the **2026-10-12 current implementation checkpoint** below. Earlier audit snapshots are historical; open repair PRs are not merged guarantees.
+
+
 **Date:** 2026-09-19
 
 **Interpretation:** these are **proposed decisions**. Moving an ADR from Proposed to Accepted is part of the Phase A architecture freeze. Inclusion in this register does not retrospectively approve a decision without project review.
@@ -44,7 +47,7 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 **Question.** Which artifact is the normative wire-format authority: TypeScript interfaces, JSON Schema, or prose specification?
 
-**Decision.** The released OMI JSON Schema in the `omi` repository is the normative machine-executable wire contract. The prose specification defines semantics and invariants that JSON Schema cannot express. Studio currently vendors and validates against the OMI-SPEC-320@0.2.0 **Draft** schema, with a shared fixture corpus. Before a stable 1.0 promise, pin an immutable released schema by checksum and derive wire types/codecs from it; richer domain types may remain separate.
+**Decision.** The released OMI JSON Schema in the `omi` repository is the normative machine-executable wire contract. The prose specification defines semantics and invariants that JSON Schema cannot express. Studio currently vendors and validates against the OMI-SPEC-320@0.3.0 **Draft** schema, with a shared fixture corpus. Before a stable 1.0 promise, pin an immutable released schema by checksum and derive wire types/codecs from it; richer domain types may remain separate.
 
 **Alternatives considered.** TypeScript-first schema generation; manually synchronized TypeScript and schema; making Studio the format authority.
 
@@ -443,3 +446,26 @@ These are not new ADRs; they are concrete values required by the decisions above
 - **ADR-019:** #655 is merged continuous readiness/beta-channel repair. Stable/RC compatibility promotion still requires E02 exact-commit/digest evidence; mutable commit-addressed tags alone prove no artifact immutability.
 
 Alternatives rejected for annotation privacy: deleting private data from portable state; UI-only hiding; eight independent ad hoc rules. The shared view preserves current renderers and makes the public decision testable. Its scope is annotation disclosure, not a general-purpose anonymous manuscript projection or proof that every metadata field is safe.
+
+## 2026-10-12 current implementation checkpoint
+
+This checkpoint supersedes earlier dated **implementation-state** descriptions; it does not retrospectively change their audit evidence or declare architecture freeze. Studio main was verified at `6242dbae4e6e7be3f9bff9470f64647554f363d8`; OMI at `bc932272d0cbe18b8e45f758fbdb0d6076344bbf`.
+
+- Studio now writes/validates OMI-SPEC-320@0.3.0 **Draft** with `schema` and `omi.version`, and retains the separately versioned container/history layers. Do not add a redundant schemaVersion field or promise pre-stable 0.2 migration. Stable compatibility obligations still begin with the first frozen stable generation.
+- OMI-SPEC-225@0.1.0 defines `sourceAttributions`: independently identified `prov:wasDerivedFrom` links to bibliographic records with explicit machine-inferred / author-declared / author-confirmed status. These are distinct from citation occurrences, technical import provenance, rights and authorship evidence. The model exists; universal ingress/export coverage does not.
+- [Studio PR #674](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/674) proposes atomic source-relationship cleanup on block-subtree deletion, retaining unrelated relationships, bibliography records and prior revision snapshots. It also proposes explicit HTML/JATS `source-attribution-not-preserved` warnings. Until merged and verified, these are repairs under review, not main guarantees. The warnings disclose loss; they do not establish a lossless mapping or generate a citation/licence claim.
+- Mandatory regression evidence for this repair is actual insertion → checkpoint → subtree deletion → checkpoint → OMI save/reopen → historical revert, plus HTML/JATS per-relationship loss diagnostics and non-mutation. Fixtures must be synthetic/public. Broader deletion/merge paths, additional exporters, anonymous projection and OMI-container source-graph round trips remain separately assessed gates.
+- Preserve the working editor, snapshot history and renderers. Portable AST/ContentCodec, immutable schema provenance, unknown-field/future-version handling, secure native storage and exact-commit RC evidence remain prerequisites; 0.3 adoption is not 1.0 readiness.
+
+### ADR reconciliation
+
+| ADR | Current decision / consequence |
+|---|---|
+| ADR-001 | OMI remains the wire authority; 0.3 Draft replaces 0.2 as the observed Studio candidate. Schema provenance/checksum and generated-contract gates remain before stable freeze. |
+| ADR-002 | Existing schema URI plus omi.version remain sufficient; application, container and revision versions remain independent. |
+| ADR-003 | No new pre-stable migration obligation. Explicit refusal is permitted for experimental 0.2 files; unsupported future stable generations still require the agreed quarantine policy. |
+| ADR-007 | Current-state object deletion must update dependent source links in the same revision batch. Historical snapshots retain the old graph; historical revert restores it. No silent rewriting of old revisions. |
+| ADR-008/009 | Unsupported source relationships require explicit fidelity diagnostics. HTML/JATS warnings are proposed in #674; validForExport is not a claim of losslessness. Revisit when target mappings and reimport fixtures exist. |
+| ADR-023 | Structured source linkage is now partially implemented under OMI-SPEC-225 and 0.3 Draft. Adjacent source text is a presentation choice, not the semantic link, rights or verified authorship. Remaining ingress/lifecycle/export/privacy evidence blocks universal enforcement claims. |
+
+These updates reconcile implementation evidence and consequences; they do not promote the Draft schema, ADR-023 or the architecture to frozen/stable status.

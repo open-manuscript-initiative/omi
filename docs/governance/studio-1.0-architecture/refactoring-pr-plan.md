@@ -6,6 +6,9 @@ description: Dependency-aware plan of small, testable, reversible pull requests 
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
+> Current implementation reconciliation: see the **2026-10-12 current implementation checkpoint** below. Earlier audit snapshots are historical; open repair PRs are not merged guarantees.
+
+
 **Baseline:** Studio `eca2cf45762116e1c00a89b3397840ed89109511` and the audited 2026-09-19 OMI/PKP commits  
 **Goal:** reach `1.0.0-rc.1` and then `1.0.0` through small, independently testable, reversible pull requests.
 
@@ -43,7 +46,7 @@ Within a phase, PR identifiers are arranged in dependency order. The register la
 | PR | Goal | Prerequisite | Required evidence | Risk |
 |---|---|---|---|---|
 | A01 | Freeze stable/preview/deferred 1.0 scope and the independent version axes. | — | documentation links and support-matrix completeness | low |
-| A02 | Make OMI 0.2 schema/fixture conformance mandatory OMI CI and a release artifact. | A01 | current fixtures plus negative/future fixtures and schema checksum | medium |
+| A02 | Harden current OMI 0.3 Draft conformance and pin the later immutable stable schema/release artifact. | A01 | current fixtures plus negative/future fixtures and schema checksum | medium |
 | A03 | Vendor the released schema into Studio and introduce `OmiEnvelopeClassifier`/validator in shadow mode. | A02 | checksum-drift, valid/invalid/future classification | medium |
 | A04 | Introduce explicit open policy and future-schema quarantine/read-only handling. | A03 | major/minor/invalid/oversize fixtures; no overwrite; raw recovery | high |
 | A05 | Add pre-save/export validation and unknown-extension preservation. | A03, A04 | open→save semantic equality; invalid save blocked; unknown payload preserved | high |
@@ -271,7 +274,7 @@ This decomposition is intentionally conservative. The 1.0 programme should optim
 2. **Module project contract (new PR, after containment).** Inventory localStorage/IndexedDB keys and import/export consumers; characterize synthetic private-record and quota-failure fixtures. Define versioned project JSON distinct from OMI-SPEC-320. No old project data is silently rewritten.
 3. **Workspace repository port (small PRs, after contract).** Expose load/save/export and recoverable error states; migrate statistical IndexedDB and then other modules without changing manuscript semantics. Verify reload, quota/unavailable-storage, import validation, and native/browser delivery.
 4. **Opt-in manuscript projection (after repository contract and ADR-022).** Define typed allow-listed output and diagnostics, require a source record/citation or declared researcher-authored source, show the exact selected content **and visible source** and obtain explicit confirmation before a command inserts validated OMI blocks. Test missing-source rejection, source integrity, confidential transcript/participant fields excluded by default, plus undo/revision and export round-trip.
-5. **Draft conformance to stable freeze (existing A02–A06 gates).** Retain current 0.2 validator and fixtures, pin source checksum, close requirement coverage and future-version behavior. Do not reintroduce experimental pre-stable migration work solely for compatibility.
+5. **Draft conformance to stable freeze (existing A02–A06 gates).** Retain current 0.3 Draft validator and fixtures, pin source checksum, close requirement coverage and future-version behavior. Do not reintroduce experimental pre-stable migration work solely for compatibility.
 
 The first item is an immediate security boundary correction. Items 2–4 are
 incremental follow-up PRs and must not be folded into a broad module rewrite.
@@ -299,3 +302,22 @@ incremental follow-up PRs and must not be folded into a broad module rewrite.
 5. **A06/B05/B06 ContentCodec:** keep existing source-font adapter while introducing characterization and a wire-preserving codec contract; only a later, explicitly reviewed writer-generation PR changes portable AST.
 
 #662 and this documentation checkpoint are proposed until merged. Native secure storage, cache isolation, PDF binary acceptance and E02 remain release blockers, not completed work.
+
+## 2026-10-12 current implementation checkpoint
+
+This checkpoint supersedes earlier dated **implementation-state** descriptions; it does not retrospectively change their audit evidence or declare architecture freeze. Studio main was verified at `6242dbae4e6e7be3f9bff9470f64647554f363d8`; OMI at `bc932272d0cbe18b8e45f758fbdb0d6076344bbf`.
+
+- Studio now writes/validates OMI-SPEC-320@0.3.0 **Draft** with `schema` and `omi.version`, and retains the separately versioned container/history layers. Do not add a redundant schemaVersion field or promise pre-stable 0.2 migration. Stable compatibility obligations still begin with the first frozen stable generation.
+- OMI-SPEC-225@0.1.0 defines `sourceAttributions`: independently identified `prov:wasDerivedFrom` links to bibliographic records with explicit machine-inferred / author-declared / author-confirmed status. These are distinct from citation occurrences, technical import provenance, rights and authorship evidence. The model exists; universal ingress/export coverage does not.
+- [Studio PR #674](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/674) proposes atomic source-relationship cleanup on block-subtree deletion, retaining unrelated relationships, bibliography records and prior revision snapshots. It also proposes explicit HTML/JATS `source-attribution-not-preserved` warnings. Until merged and verified, these are repairs under review, not main guarantees. The warnings disclose loss; they do not establish a lossless mapping or generate a citation/licence claim.
+- Mandatory regression evidence for this repair is actual insertion → checkpoint → subtree deletion → checkpoint → OMI save/reopen → historical revert, plus HTML/JATS per-relationship loss diagnostics and non-mutation. Fixtures must be synthetic/public. Broader deletion/merge paths, additional exporters, anonymous projection and OMI-container source-graph round trips remain separately assessed gates.
+- Preserve the working editor, snapshot history and renderers. Portable AST/ContentCodec, immutable schema provenance, unknown-field/future-version handling, secure native storage and exact-commit RC evidence remain prerequisites; 0.3 adoption is not 1.0 readiness.
+
+### Immediate dependency-aware repair sequence
+
+1. **R01 / Phase B — source graph lifecycle:** #674; visual application action, source relationships, historical snapshots and lifecycle regression. Depends on merged #670 model; no schema change. Rollback is the repair commit; risk medium.
+2. **R02 / Phase C — explicit HTML/JATS loss:** #674 also contains the small shared diagnostic and renderer version increments. Depends on #670; tests cover per-relation warnings, clean documents and no portable-state mutation. Mapping is intentionally deferred; risk low.
+3. **R03 / Phase A reconciliation — these five baseline documents:** reference #674 as proposed until it merges; update current format to 0.3 Draft and close only the implemented portion of ADR-023. Documentation-only rollback; risk low.
+4. **R04 / before RC:** extend dependency lifecycle to other deletion/merge paths; add container and anonymous-projection source-graph cases and per-exporter mapping/loss gates. Preserve existing A02–A08/B05–B07/C03–C05/E02 prerequisites rather than reopening beta compatibility migrations.
+
+R01/R02 are one reviewable targeted repair PR with separately tested concerns, not a broad architectural rewrite. No schema/API freeze or RC milestone is completed by their merge alone.
