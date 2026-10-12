@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const specificationPath = join(root, 'docs/specifications/file-format.md');
 const coveragePath = join(root, 'docs/specifications/file-format-requirement-coverage.md');
-const manifestPath = join(root, 'static/examples/omi-spec-320/0.2.0/manifest.json');
+const manifestPath = join(root, 'static/examples/omi-spec-320/0.3.0/manifest.json');
 const [specification, coverage, manifestSource] = await Promise.all([
   readFile(specificationPath, 'utf8'),
   readFile(coveragePath, 'utf8'),
