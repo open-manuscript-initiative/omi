@@ -127,9 +127,9 @@ The 2026-08-06 full review did not find authoritative OMI repository artefacts f
 - a formal conformance test suite;
 - independently verified implementations.
 
-The 2026-09-05 OMI-SPEC-320 update added the first canonical versioned manuscript JSON Schema and reference fixtures. The `0.2.0-draft.4` profile checks 14 fixtures, strict UTF-8/JSON parsing, configured parser limits, selected semantic constraints, deterministic diagnostics, and local-only schema references. A complete register maps all 72 normative requirements: 10 are tested in this repository, 33 have partial evidence, and 29 remain untested. The initial Draft profile and fixture corpus have recorded maintainer approval; complete behavioral coverage and independent implementation results remain open.
+The 2026-09-05 OMI-SPEC-320 update added the first canonical versioned manuscript JSON Schema and reference fixtures. The `0.2.0-draft.4` profile checks 14 fixtures, strict UTF-8/JSON parsing, configured parser limits, selected semantic constraints, deterministic diagnostics, and local-only schema references. A complete register maps all 72 normative requirements: 10 are tested in this repository, 33 have partial evidence, and 29 remain untested. The initial `OMI-SPEC-320@0.2.0` profile and fixture approval is recorded in [issue #121](https://github.com/open-manuscript-initiative/omi/issues/121). The current `0.3.0` profile and corpus are under separate review in [issue #135](https://github.com/open-manuscript-initiative/omi/issues/135). Neither review establishes complete behavioral coverage, independent implementation evidence, Stable status, or OMI 1.0 readiness.
 
-Open Manuscript Studio documents the canonical `OMI-SPEC-320@0.2.0` boundary and has runtime validation and conformance tests. That implementation evidence does not make the Draft schema an approved stable release or prove interoperability with a second implementation.
+Open Manuscript Studio currently documents and validates against the `OMI-SPEC-320@0.2.0` Draft boundary. This implementation evidence does not mean Studio has adopted `0.3.0`, approve the `0.3.0` corpus, make either schema a Stable release, or prove interoperability with a second implementation.
 
 ## 5. Aggregate snapshot
 
@@ -265,7 +265,7 @@ The current Studio citation representation contains both occurrence-oriented and
 
 The implementation remains **Partial**. Existing editor controls commit at their current update granularity, so rich-text and text-field editing may create overly fine-grained revisions. Working-state batching and explicit checkpoint commits are therefore the next implementation step before branching and merge behaviour is attempted. Tombstones, state digests, stronger persistence, explicit `REQ-VCH-*` mapping, canonical fixtures, branching, merge bases, conflicts, and formal conformance evidence remain outstanding.
 
-The focused unit tests do not by themselves qualify the implementation as **Tested** under this matrix because no approved OMI conformance fixture set or requirement-mapped conformance runner exists yet.
+The focused unit tests do not by themselves qualify the implementation as **Tested** under this matrix. Approval of the `0.2.0` Draft corpus is recorded in issue #121; the current `0.3.0` corpus is awaiting separate review under issue #135, and neither constitutes a complete requirement-mapped conformance runner.
 
 ### 8.7 Validation and conformance
 
@@ -351,7 +351,7 @@ The next evidence-producing work should proceed in this order:
 1. add working-state batching and explicit checkpoint commits to the Studio `OMI-SPEC-160` implementation so ordinary typing does not create excessively fine-grained committed revisions;
 2. map the implemented Core Revision History subset to the normative `REQ-VCH-*` requirements and record explicit deviations;
 3. add tombstone and integrity/state-digest behaviour required by the selected versioning profile;
-4. adopt `OMI-SPEC-320@0.2.0` in Studio and add requirement-mapped parser, serializer, migration, and round-trip evidence;
+4. upgrade Studio from `OMI-SPEC-320@0.2.0` to the reviewed `0.3.0` contract, then add requirement-mapped parser, serializer, migration, and round-trip evidence;
 5. publish canonical identity and versioning schemas with minimal valid and invalid fixtures;
 6. migrate the remaining active core specifications to the canonical Specification Template;
 7. define the Validation Model and validation-report format;
@@ -363,6 +363,7 @@ The next evidence-producing work should proceed in this order:
 
 | Version | Date | Summary |
 |---|---|---|
+| 0.5.0 | 2026-10-12 | Reconciled the current `OMI-SPEC-320@0.3.0` schema and fixtures with the implementation matrix; distinguished the recorded 0.2.0 approval from the pending 0.3.0 review and Studio adoption gap. |
 | 0.3.0 | 2026-09-05 | Recorded the template-complete `OMI-SPEC-320@0.2.0`, first canonical Draft manuscript schema, initial fixtures and reference validator; updated Studio's remaining adoption gap and aggregate evidence counts. |
 | 0.2.1 | 2026-08-06 | Promoted Studio support for `OMI-SPEC-160` from Exploratory to Partial after the immutable linear revision ledger merged; recorded revision, change-set, snapshot, revert, history-export, and focused-test evidence; advanced the next evidence priority to working-state batching, checkpoint commits, and requirement mapping. |
 | 0.2.0 | 2026-08-06 | Activated `OMI-SPEC-160`, recorded two current-template specifications, updated Studio evidence after the `OMI-SPEC-150` integration, and advanced the evidence programme to a linear revision ledger. |
