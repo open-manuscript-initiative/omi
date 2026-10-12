@@ -1,7 +1,7 @@
 # OMI-SPEC-320 Conformance Profile
 
 **Specification under test:** `OMI-SPEC-320@0.3.0`  
-**Status:** Draft conformance profile; initial corpus accepted for review
+**Status:** Draft conformance profile; 0.3.0 corpus approved as an initial reviewable set in issue #135
 **Canonical schema:** [OMI manuscript 0.3 JSON Schema](/schemas/omi-manuscript-0.3.schema.json)  
 **Fixture manifest:** [0.3.0 fixture manifest](/examples/omi-spec-320/0.3.0/manifest.json)  
 **Reference command:** `npm run test:file-format`
