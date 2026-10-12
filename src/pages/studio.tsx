@@ -6,7 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {getPublicPageCopy} from '../i18n/publicPages';
 import styles from './studio.module.css';
 
-const STUDIO_VERSION = '0.3.0-beta.5';
+const STUDIO_VERSION = '0.3.0-beta.6';
 const RELEASE_BASE = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/releases/latest/download';
 const SERVER_API_PACKAGE_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/pkgs/container/open-manuscript-studio-api';
 const SERVER_WEB_PACKAGE_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/pkgs/container/open-manuscript-studio-web';
@@ -34,8 +34,9 @@ const CAPABILITY_DOC_TARGETS: Record<number, string> = {
 const CURRENT_UPDATE = {
   en: {
     title: 'Open Manuscript Studio public beta',
-    lead: 'Version 0.3.0-beta.5 improves source review and provenance across imports and makes study notes follow the manuscript text currently in view.',
+    lead: 'Version 0.3.0-beta.6 adds portable semantic source links from imported visual objects to bibliographic records, with clear assertion status; it advances the OMI manuscript format to 0.3.0.',
     items: [
+      ['Semantic source attribution', 'Imported visual objects can link to their bibliographic source record with the portable `prov:wasDerivedFrom` relation. The assertion records whether the source was machine-inferred, declared by the author or confirmed by the author. This relation remains separate from citation rendering and technical import provenance.'],
       ['Live collaboration and accepted invitations', 'Invite a Studio author to a manuscript. The invitation appears in their Studio inbox, and access starts only after they accept. Collaborators edit together in real time and see names and distinct colors beside live cursors and selections.'],
       ['InDesign-compatible paragraph and publication styling', 'The live publication editor now exposes an InDesign-inspired paragraph-style system with inheritance-aware controls and live rendering, while keeping manuscript semantics separate from reusable publication presentation.'],
       ['Section ruler, tab stops and columns', 'Authors can apply ruler-driven tabs and multi-column layout to a selected manuscript section, together with text-to-table conversion and compact value controls suited to publishing work.'],
@@ -84,13 +85,14 @@ const CURRENT_UPDATE = {
     serverGuideEn: 'Administrator guide (English)',
     serverGuideHu: 'Administrator guide (Hungarian)',
     betaTitle: 'Current public beta',
-    betaText: 'OMI Studio 0.3.0-beta.5 adds source review before references and DOCX/PDF conversions are accepted, preserves per-item provenance for imported visuals without exposing private local filenames, keeps OJS/OMP attribution visible in editable manuscript views, and supports source-backed research excerpts in more safe module fields. The bottom study-notes panel shows only notes anchored in text currently visible in the manuscript, updates as the author scrolls, and uses at most half the usable screen. On Android, Help also displays the platform versionCode.',
+    betaText: 'OMI Studio 0.3.0-beta.6 adds semantic source attribution for imported visual objects, linking each object to a bibliographic source record and preserving whether the relation was inferred, declared or author-confirmed. The portable OMI manuscript format advances to 0.3.0; unsupported older formats are rejected explicitly without silent migration.',
     maturity: 'The project is in public beta. Beta development prioritizes regression testing, large-document performance, error recovery, interoperability, migration discipline and trustworthy immutable releases on the path to the first release candidate.',
   },
   hu: {
     title: 'Az Open Manuscript Studio nyilvános bétája',
-    lead: 'A 0.3.0-beta.5 javítja az importált anyagok forrásellenőrzését és eredetjelölését, a jegyzeteket pedig a kézirat aktuálisan látható szövegéhez igazítja.',
+    lead: 'A 0.3.0-beta.6 hordozható szemantikus kapcsolatot ad az importált vizuális objektumok és bibliográfiai rekordjaik között, az állítás státuszának jelölésével; az OMI kéziratformátum 0.3.0-ra lép.',
     items: [
+      ['Szemantikus forráskapcsolat', 'Az importált vizuális objektumok hordozható `prov:wasDerivedFrom` kapcsolattal hivatkozhatnak a forrásuk bibliográfiai rekordjára. A kapcsolat jelzi, hogy a forrást a rendszer következtette ki, a szerző adta meg vagy a szerző erősítette meg. Ez külön marad a hivatkozás megjelenítésétől és az import technikai eredetadataitól.'],
       ['Élő együttműködés és elfogadott meghívások', 'Hívjon meg egy Studio-szerzőt a kézirathoz. A meghívás a Studio bejövő meghívásai között jelenik meg; hozzáférés csak elfogadás után jár. A szerzők valós időben együtt szerkeszthetnek, és névvel, külön színnel látják egymás élő kurzorát és kijelölését.'],
       ['InDesign-kompatibilis bekezdés- és kiadványstílusok', 'Az élő kiadványszerkesztő InDesign-mintájú bekezdésstílus-rendszert kapott örökléssel, részletes vezérlőkkel és élő megjelenítéssel, miközben a kézirat szemantikája külön marad a kiadványmegjelenítéstől.'],
       ['Szakaszvonalzó, tabulátorok és hasábok', 'A szerző egy kijelölt kéziratszakaszra vonalzóval kezelhető tabulátorokat és többhasábos elrendezést alkalmazhat; a rendszer szöveg–táblázat átalakítást és kompakt értékmezőket is biztosít.'],
@@ -139,12 +141,12 @@ const CURRENT_UPDATE = {
     serverGuideEn: 'Rendszergazdai súgó (angol)',
     serverGuideHu: 'Rendszergazdai súgó (magyar)',
     betaTitle: 'Jelenlegi nyilvános béta',
-    betaText: 'Az OMI Studio 0.3.0-beta.5 forrásellenőrzést iktat be a hivatkozások és a DOCX/PDF-átalakítás elfogadása elé, megőrzi az importált vizuális elemek egyedi eredetét a helyi fájlnév felfedése nélkül, láthatóan tartja az OJS/OMP-forrásokat a szerkeszthető nézetekben, és több biztonságos modulmezőben tesz lehetővé forrásolt kutatási kivonatokat. Az alsó jegyzetpanel csak az aktuálisan látható kéziratszöveghez horgonyzott jegyzeteket mutatja, görgetéskor frissül, és legfeljebb a hasznos képernyőterület felét foglalja el. Az Android súgója a platform verziókódját is megjeleníti.',
+    betaText: 'Az OMI Studio 0.3.0-beta.6 szemantikus forráskapcsolatot ad az importált vizuális objektumokhoz: az objektum a forrás bibliográfiai rekordjára hivatkozik, a kapcsolat pedig jelzi, hogy gépi következtetés, szerzői közlés vagy szerzői megerősítés eredménye. A hordozható kéziratformátum 0.3.0-ra lép; a Studio a nem támogatott régebbi formátumokat csendes migráció nélkül utasítja el.',
     maturity: 'A projekt nyilvános béta. A béta szakasz fő feladata a regressziós tesztelés, a nagy dokumentumok teljesítménye, a hibából való helyreállás, az interoperabilitás, a migrációs fegyelem és a megbízható, változtathatatlan kiadások biztosítása az első release candidate felé.',
   },
   de: {
     title: 'Öffentliche Beta von Open Manuscript Studio',
-    lead: '0.3.0-beta.5 verbessert Quellenprüfung und Herkunftsnachweise beim Import und zeigt Notizen passend zu den aktuell sichtbaren Manuskriptstellen.',
+    lead: '0.3.0-beta.6 ergänzt semantische Quellenbeziehungen von importierten visuellen Objekten zu bibliografischen Datensätzen mit eindeutigem Behauptungsstatus. Das portable OMI-Manuskriptformat wird auf 0.3.0 aktualisiert.',
     items: [
       ['Live-Zusammenarbeit und angenommene Einladungen', 'Laden Sie einen Studio-Autor zu einem Manuskript ein. Die Einladung erscheint im Studio-Posteingang; Zugriff entsteht erst nach der Annahme. Die Beteiligten bearbeiten den Text gleichzeitig und sehen Namen sowie eigene Farben an Live-Cursorn und Auswahlen.'],
       ['InDesign-kompatible Absatz- und Publikationsstile', 'Der Live-Publikationseditor bietet ein InDesign-orientiertes Absatzstilsystem mit Vererbung, detaillierten Steuerelementen und Live-Darstellung, während Manuskriptsemantik und Publikationsdarstellung getrennt bleiben.'],
@@ -190,7 +192,7 @@ const CURRENT_UPDATE = {
     serverGuideEn: 'Administratorhandbuch (Englisch)',
     serverGuideHu: 'Administratorhandbuch (Ungarisch)',
     betaTitle: 'Aktuelle öffentliche Beta',
-    betaText: 'OMI Studio 0.3.0-beta.5 ergänzt eine Quellenprüfung vor der Übernahme von Literaturangaben und DOCX/PDF-Konvertierungen, bewahrt die individuelle Herkunft importierter visueller Objekte ohne private lokale Dateinamen offenzulegen, hält OJS/OMP-Quellen in bearbeitbaren Manuskriptansichten sichtbar und unterstützt quellenbasierte Forschungsauszüge in weiteren sicheren Modulfeldern. Das untere Notizenpanel zeigt nur Notizen zu aktuell sichtbaren Manuskriptstellen, aktualisiert sich beim Scrollen und belegt höchstens die Hälfte des nutzbaren Bildschirms. Die Android-Hilfe zeigt außerdem den Plattform-Versionscode.',
+    betaText: 'OMI Studio 0.3.0-beta.6 ergänzt semantische Quellenbeziehungen von importierten visuellen Objekten zu bibliografischen Datensätzen. Der Beziehungsstatus unterscheidet maschinelle Schlussfolgerung, Angabe durch die Autorin oder den Autor und deren Bestätigung. Das portable OMI-Manuskriptformat wird auf 0.3.0 aktualisiert; nicht unterstützte ältere Formate werden ohne stille Migration abgelehnt.',
     maturity: 'Das Projekt befindet sich in der öffentlichen Beta. Im Mittelpunkt stehen Regressionstests, Leistung bei großen Dokumenten, Fehlerwiederherstellung, Interoperabilität, saubere Migrationen und vertrauenswürdige unveränderliche Releases auf dem Weg zum ersten Release Candidate.',
   },
 } as const;

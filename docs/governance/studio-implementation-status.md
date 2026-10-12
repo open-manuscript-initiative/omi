@@ -30,8 +30,8 @@ keywords:
 | Field | Value |
 |---|---|
 | Status | **Beta** |
-| Snapshot date | **2026-10-09** |
-| Current development source version | `0.3.0-beta.5` |
+| Snapshot date | **2026-10-11** |
+| Current development source version | `0.3.0-beta.6` |
 | Reference implementation | Open Manuscript Studio |
 | Source repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web target | Modern browsers |
@@ -39,7 +39,13 @@ keywords:
 | Mobile targets | Android public universal APK; iOS/iPadOS validated native simulator target, with TestFlight/App Store distribution pending Apple Developer signing |
 | Web deployment | `studio.openmanuscript.org` |
 
-The current Studio source tree reports **`0.3.0-beta.5`**. This release improves source review and provenance across imported references, DOCX/PDF conversions and visual objects; preserves OJS/OMP attribution in editable manuscript views; and extends source-backed research excerpts to additional safe module fields. Its study-notes panel follows text anchors visible in the manuscript viewport and remains within half of the usable screen. Beta.5 builds on the previous release's collaboration, publication, import/export and nine research-module capabilities. Packaged downloads track the current immutable GitHub release. Beta does **not** mean that every optional integration or distribution channel is production-complete.
+The current Studio source tree reports **`0.3.0-beta.6`**. This release adds a portable semantic source-attribution relation from imported visual objects to bibliographic records, with assertion status distinguishing machine inference, author declaration and author confirmation. It advances the portable manuscript format to OMI-SPEC-320@0.3.0; unsupported older format versions are rejected without silent migration. Packaged downloads track the current immutable GitHub release. Beta does **not** mean that every optional integration or distribution channel is production-complete.
+
+## Changes in 0.3.0-beta.6
+
+- **Semantic source attribution:** Links an imported visual object to the bibliographic record for its source using a portable `prov:wasDerivedFrom` relation. Assertion status distinguishes machine-inferred, author-declared and author-confirmed sources.
+- **Portable format:** Advances OMI-SPEC-320 to 0.3.0. Studio explicitly rejects unsupported older formats and does not migrate them silently.
+- **Version identities:** Studio is `0.3.0-beta.6`; Windows MSI is `0.3.0.6`; iOS beta build is `18`; Android versionCode floor is `1205`.
 
 ## Changes in 0.3.0-beta.5
 
@@ -173,7 +179,7 @@ The current OJS and OMP integrations are bidirectional for review work: Studio c
 
 ## Release and distribution
 
-`0.3.0-beta.5` is the current Studio beta release line. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Public download links follow GitHub's current release rather than embedding one historical tag in the website, while published release assets themselves remain immutable. The application version is independent of the portable OMI manuscript format, which remains `OMI-SPEC-320@0.2.0`.
+`0.3.0-beta.6` is the current Studio beta release line. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Public download links follow GitHub's current release rather than embedding one historical tag in the website, while published release assets themselves remain immutable. The application version is independent of the portable OMI manuscript format, which remains `OMI-SPEC-320@0.2.0`.
 
 iOS/iPadOS currently has a successful CI simulator build rather than a public IPA. The Apple distribution path is prepared but deliberately separated from simulator validation: public/device builds require the real Apple Development Team ID, distribution certificate, provisioning profile and final `apple-app-site-association` configuration before TestFlight/App Store publication can be claimed.
 
