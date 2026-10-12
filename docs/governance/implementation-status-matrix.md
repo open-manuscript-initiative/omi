@@ -127,7 +127,7 @@ The 2026-08-06 full review did not find authoritative OMI repository artefacts f
 - a formal conformance test suite;
 - independently verified implementations.
 
-The 2026-09-05 OMI-SPEC-320 update added the first canonical versioned manuscript JSON Schema and reference fixtures. The `0.2.0-draft.4` profile checks 14 fixtures, strict UTF-8/JSON parsing, configured parser limits, selected semantic constraints, deterministic diagnostics, and local-only schema references. A complete register maps all 72 normative requirements: 10 are tested in this repository, 33 have partial evidence, and 29 remain untested. The initial `OMI-SPEC-320@0.2.0` profile and fixture approval is recorded in [issue #121](https://github.com/open-manuscript-initiative/omi/issues/121). The current `0.3.0` profile and corpus are under separate review in [issue #135](https://github.com/open-manuscript-initiative/omi/issues/135). Neither review establishes complete behavioral coverage, independent implementation evidence, Stable status, or OMI 1.0 readiness.
+The 2026-09-05 OMI-SPEC-320 update added the first canonical versioned manuscript JSON Schema and reference fixtures. The `0.2.0-draft.4` profile checks 14 fixtures, strict UTF-8/JSON parsing, configured parser limits, selected semantic constraints, deterministic diagnostics, and local-only schema references. A complete register maps all 72 normative requirements: 10 are tested in this repository, 33 have partial evidence, and 29 remain untested. The initial `OMI-SPEC-320@0.2.0` profile and fixture approval is recorded in [issue #121](https://github.com/open-manuscript-initiative/omi/issues/121). Approval of the current `0.3.0` profile and corpus as an initial reviewable set is recorded in [issue #135](https://github.com/open-manuscript-initiative/omi/issues/135). Neither review establishes complete behavioral coverage, independent implementation evidence, Stable status, or OMI 1.0 readiness.
 
 Open Manuscript Studio currently documents and validates against the `OMI-SPEC-320@0.2.0` Draft boundary. This does not show Studio adoption of `0.3.0`, approval of the `0.3.0` corpus, Stable status for either schema, or interoperability with a second implementation.
 
@@ -197,7 +197,7 @@ These counts describe the evidence categories used in this document. They do not
 
 No row in this section currently qualifies as **Implemented**, **Tested**, or **Conformant** under the strict definitions above.
 
-The OMI repository contains a reference fixture validator for the current `OMI-SPEC-320@0.3.0` profile and corpus. Studio's documented runtime remains on the `0.2.0` Draft boundary and its shared 14-fixture corpus; adoption of `0.3.0` is still open. The 0.2.0 approval is recorded in issue #121, while review of 0.3.0 is tracked separately in issue #135. Complete normative requirement mapping, full Studio behavior coverage, a Stable schema release, and independent implementation/conformance evidence remain outstanding. These dimensions are summarized here rather than repeated in every row.
+The OMI repository contains a reference fixture validator for the current `OMI-SPEC-320@0.3.0` profile and corpus. Studio's documented runtime remains on the `0.2.0` Draft boundary and its shared 14-fixture corpus; adoption of `0.3.0` is still open. The 0.2.0 approval is recorded in issue #121, and approval of the 0.3.0 initial reviewable set is recorded in issue #135. Complete normative requirement mapping, full Studio behavior coverage, a Stable schema release, and independent implementation/conformance evidence remain outstanding. These dimensions are summarized here rather than repeated in every row.
 
 ### 7.1 Foundations and core semantic models
 
@@ -265,7 +265,7 @@ The current Studio citation representation contains both occurrence-oriented and
 
 The implementation remains **Partial**. Existing editor controls commit at their current update granularity, so rich-text and text-field editing may create overly fine-grained revisions. Working-state batching and explicit checkpoint commits are therefore the next implementation step before branching and merge behaviour is attempted. Tombstones, state digests, stronger persistence, explicit `REQ-VCH-*` mapping, canonical fixtures, branching, merge bases, conflicts, and formal conformance evidence remain outstanding.
 
-The focused unit tests do not by themselves qualify the implementation as **Tested** under this matrix. Approval of the `0.2.0` Draft corpus is recorded in issue #121; the current `0.3.0` corpus is awaiting separate review under issue #135, and neither constitutes a complete requirement-mapped conformance runner.
+The focused unit tests do not by themselves qualify the implementation as **Tested** under this matrix. Approval of the `0.2.0` Draft corpus is recorded in issue #121; the current `0.3.0` corpus has initial reviewable-set approval recorded in issue #135, and neither constitutes a complete requirement-mapped conformance runner.
 
 ### 8.7 Validation and conformance
 
