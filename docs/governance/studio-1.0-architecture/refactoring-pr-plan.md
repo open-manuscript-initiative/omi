@@ -321,3 +321,25 @@ This checkpoint supersedes earlier dated **implementation-state** descriptions; 
 4. **R04 / before RC:** extend dependency lifecycle to other deletion/merge paths; add container and anonymous-projection source-graph cases and per-exporter mapping/loss gates. Preserve existing A02–A08/B05–B07/C03–C05/E02 prerequisites rather than reopening beta compatibility migrations.
 
 R01/R02 are one reviewable targeted repair PR with separately tested concerns, not a broad architectural rewrite. No schema/API freeze or RC milestone is completed by their merge alone.
+
+
+## 2026-10-13 — ODT Preview trust and fidelity checkpoint
+
+The earlier #674 source-lifecycle repair is merged at `5825c15a1bc3860a3371eaa1c20111bfe4b74ea5`; its prior proposal checkpoint is historical.
+
+ODT import/export entered Studio main in #675 (commit `5417e19cb26550508b66c780107eea87382b5f2f`). It adds an interoperability format, not a new OMI schema, account authority or durable working-state format. ODT is **Preview**, pending independent ODF/office fidelity and real-document acceptance; it must not be promoted merely because the ZIP can be opened.
+
+[Studio #678](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/678) proposes targeted containment of two reproduced gaps. The import reader had trusted declared ZIP sizes and fully materialized DEFLATE output before checking it. The exporter omitted sourceAttributions without loss reporting. Treat #678 as a proposal until merge and verification, not a main guarantee.
+
+The proposed boundary retains the 200 MiB input-package limit and enforces 25 MiB per expanded part, 100 MiB aggregate expanded data, and 4096 entries. Actual streamed bytes trigger cancellation before complete output materialization. Local/central headers, bounds, CRC32 and duplicate/unsafe/overlapping entries are checked; encryption, symlinks, ZIP64 and multidisk are explicitly unsupported. Successful repeated reads share the cached budget. CRC is integrity checking, not authenticity.
+
+ODT uses the shared source-attribution-not-preserved diagnostic per unsupported relationship, alongside existing visible delivery warnings. A source label is not a semantic derivation link; no citation, licence or authorship claim is fabricated. Portable OMI retains the authoritative graph/history.
+
+| Area | Decision / release gate |
+|---|---|
+| ADR-008 / ADR-017 — import | HARDEN the existing ODT adapter with real output-byte limits and ZIP integrity. Forged STORE/DEFLATE lengths, aggregate/entry quotas, CRC/header corruption, duplicate paths, truncation and ordinary data-descriptor compatibility are mandatory synthetic regression cases. Preview does not waive security gates. |
+| ADR-008 / ADR-009 / ADR-023 — export | Report loss of every unsupported source relationship, with stable code and object target; preserve original portable state and keep diagnostic messages content-free. A later target mapping needs independent export/reimport proof. |
+| ADR-019 — capability | ODT remains Preview with documented supported subset and losses. ODF schema/independent office acceptance and real-document fidelity gate Stable promotion. |
+| PR plan | Merge/review #678 as the bounded incremental repair after #675; retain the working import projection and delivery paths. Then prove independent ODF validity and cross-office fidelity before any Stable claim. No beta-format migration or renderer rewrite is justified. |
+
+This checkpoint supplements the earlier format matrix and source-graph gates. The original schema/API/ContentCodec/native security/exact-commit RC prerequisites remain in force.
