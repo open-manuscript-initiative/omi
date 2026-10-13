@@ -928,3 +928,20 @@ Ugyanez a PR a HTML/JATS exportban source-attribution-not-preserved figyelmeztet
 A #674 nyitott javítási javaslat, nem main-garancia. Kötelező teszt: beszúrás → checkpoint → teljes blokkág törlése → checkpoint → mentés/újranyitás → korábbi revision visszaállítása; továbbá export-veszteségjelzés és a forrásdokumentum változatlansága. Csak szintetikus vagy nyilvános fixture használható.
 
 A PR-terv sorrendje: célzott életciklusjavítás (Phase B), exportdiagnosztika (Phase C), baseline-egyeztetés (Phase A), majd a többi törlési/összevonási útvonal, konténeres round-trip, anonimizált projekció és exporter-leképezések bizonyítása RC előtt. Az eredeti A02–A08/B05–B07/C03–C05/E02 kapuk továbbra is érvényesek. A működő szerkesztőt, snapshot historyt és renderereket meg kell tartani; teljes újraírás nem indokolt.
+
+
+## 2026-10-13 — ODT: előzetes biztonsági és hűségi besorolás
+
+A korábbi #674 forráséletciklus-javítás már main-ban van (`5825c15a1bc3860a3371eaa1c20111bfe4b74ea5`); a korábbi javaslati státusz történeti adat.
+
+Az ODT import/export a Studio #675-ben került main-ba (`5417e19cb26550508b66c780107eea87382b5f2f`). Ez interoperabilitási formátum, nem új OMI-séma vagy tartós munkafájl. Besorolása **Preview / előzetes**; Stable előtt független ODF-validáció, irodai programok közötti kompatibilitás és valós dokumentumos elfogadás szükséges.
+
+A [Studio #678 PR](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/678) két reprodukált hiány javítását javasolja: a ZIP deklarált méretével megkerülhető kvótát és az exportból jelzés nélkül elvesző sourceAttributions kapcsolatokat. A PR nyitott javaslat, nem main-garancia.
+
+A javasolt importhatár: 200 MiB bemeneti csomag, 25 MiB kibontott részenként, 100 MiB összes kibontott adat és 4096 bejegyzés. A tényleges bájtszámlálás megszakítja a kibontást a korlátnál. Fejléc-, határ-, CRC32-, duplikált/veszélyes útvonal- és átfedésellenőrzés védi a parser előtti határt; titkosított, symlinkes, ZIP64 és többkötetes csomag nem támogatott. Az ismételt olvasás gyorsítótárat használ; a CRC integritásvizsgálat, nem hitelességi aláírás (ADR-008/017).
+
+Az exporter kapcsolatanként source-attribution-not-preserved diagnosztikát és látható figyelmeztetést ad. Az OMI megőrzi a forrásgráfot/historyt; nem keletkezik kitalált idézet, licenc vagy szerzőségi bizonyíték (ADR-008/009/023).
+
+Kötelező regresszió: hamis STORE/DEFLATE méret, tényleges kibontási megszakítás, összesített/bejegyzéskvóta, CRC- és fejlécsérülés, duplikált útvonal, csonkolás, szabályos data-descriptor csomag és változatlan OMI melletti forrásveszteség-jelzés. Csak szintetikus vagy nyilvános fixture használható. Az előzetes besorolás nem mentesít a biztonsági kapuk alól (ADR-019).
+
+PR-sorrend: #675 után a célzott #678 javítás, majd független ODF- és irodai kompatibilitási bizonyíték Stable előtt. A schema/API/ContentCodec/natív biztonság/exact-commit RC kapuk megmaradnak; teljes újraírás nem szükséges.
