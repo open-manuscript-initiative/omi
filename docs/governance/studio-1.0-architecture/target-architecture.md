@@ -885,3 +885,14 @@ ODT uses the shared source-attribution-not-preserved diagnostic per unsupported 
 | PR plan | Merge/review #678 as the bounded incremental repair after #675; retain the working import projection and delivery paths. Then prove independent ODF validity and cross-office fidelity before any Stable claim. No beta-format migration or renderer rewrite is justified. |
 
 This checkpoint supplements the earlier format matrix and source-graph gates. The original schema/API/ContentCodec/native security/exact-commit RC prerequisites remain in force.
+
+
+## Architecture repair checkpoint — 2026-10-15: workspace mode and passkeys
+
+ADR-001/002/005: simple writing is a Studio workspace preference keyed by manuscript ID, persisted locally outside portable manuscript state and revision snapshots. New documents do not write `editorMode`; the Studio vendored 0.3 schema must match the OMI source artifact. Existing unknown fields remain preserved under the general round-trip policy; this repair does not silently delete an imported extension or reinterpret it as authorization. Moving a file to another installation does not transfer local writing-mode preferences. The simple visual editor remains available.
+
+ADR-012/015/016/017: passkeys authenticate the existing local account; they do not establish scholarly identity or publication evidence. `/api/v1/auth/passkeys` is the client contract. `/api/auth/passkeys` remains a compatibility facade over the same handlers and rate limits. HTTP routes own transport/status/cookies, the passkey service owns WebAuthn use cases, and the repository adapter owns identity-database access. Challenges remain expiring and single-use; verification still binds RP, web origin, user handle and user verification. Credential material never enters OMI.
+
+Support is web-origin only: platform-authenticator availability is checked behind a capability adapter. Tauri origins do not advertise this flow. Native promotion requires a verified browser/native handoff and contract tests; do not widen accepted origins to make native UI appear supported. PostgreSQL migration, real authenticator registration/login/revocation, negative origin/RP/signature cases and native handoff evidence remain release requirements, not claims established by mocked route tests.
+
+Validation for the repair includes per-document workspace isolation, unchanged portable bytes/history, schema parity, native-origin capability rejection and v1/legacy route equivalence with replay rejection. This checkpoint records a proposed repair pending merge and CI, not a completed 1.0 freeze.
