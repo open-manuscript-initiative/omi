@@ -275,3 +275,14 @@ Az exporter kapcsolatanként source-attribution-not-preserved diagnosztikát és
 Kötelező regresszió: hamis STORE/DEFLATE méret, tényleges kibontási megszakítás, összesített/bejegyzéskvóta, CRC- és fejlécsérülés, duplikált útvonal, csonkolás, szabályos data-descriptor csomag és változatlan OMI melletti forrásveszteség-jelzés. Csak szintetikus vagy nyilvános fixture használható. Az előzetes besorolás nem mentesít a biztonsági kapuk alól (ADR-019).
 
 PR-sorrend: #675 után a célzott #678 javítás, majd független ODF- és irodai kompatibilitási bizonyíték Stable előtt. A schema/API/ContentCodec/natív biztonság/exact-commit RC kapuk megmaradnak; teljes újraírás nem szükséges.
+
+
+## Architektúrajavítási ellenőrzőpont — 2026-10-15: munkatérmód és passkey
+
+ADR-001/002/005: az egyszerű szerkesztési mód kéziratazonosítóhoz kötött, helyben tárolt Studio-munkatérbeállítás. Új dokumentumban és revision snapshotban nem szerepel `editorMode`; a Studio 0.3 sémájának egyeznie kell az OMI forrásával. A már importált ismeretlen mezők megőrzése továbbra is érvényes: a javítás nem töröl kiterjesztést és nem értelmezi jogosultságként. Másik telepítésre átvitt fájl nem viszi magával a helyi módbeállítást. Az egyszerű vizuális szerkesztő megmarad.
+
+ADR-012/015/016/017: a passkey meglévő helyi accountot hitelesít; nem tudományos identitás és nem publikációs bizonyíték. A klienscontract `/api/v1/auth/passkeys`; a korábbi `/api/auth/passkeys` azonos handlereket és rate limitet használó kompatibilitási adapter. A route kezeli a HTTP-választ és cookie-t, a szolgáltatás a WebAuthn use-case-eket, a repository adapter az identity-adatbázist. Megmarad a lejáró, egyszer használható challenge, az RP/origin/user handle és user verification ellenőrzése. Credential nem kerül OMI-ba.
+
+A támogatás webes originre korlátozott, külön capability adapterrel. Tauri-origin nem hirdeti ezt a folyamatot támogatottnak. A natív támogatás ellenőrzött böngésző–alkalmazás hitelesítési átadást és contractteszteket igényel. A PostgreSQL-migráció, valódi authenticator-regisztráció/belépés/visszavonás, negatív origin/RP/aláírásteszt és natív átadás továbbra is kiadási követelmény; mockolt routeteszt ezt nem igazolja.
+
+A javítás ellenőrzése: dokumentumonkénti módizoláció, változatlan hordozható bájtok és history, sémaegyezés, natív-origin elutasítása és v1/legacy route-egyezés replay-elutasítással. Ez merge és CI előtti javítási terv, nem kész 1.0 freeze.
