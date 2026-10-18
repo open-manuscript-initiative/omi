@@ -273,3 +273,15 @@ ADR-012/015/016/017: a passkey meglévő helyi accountot hitelesít; nem tudomá
 A támogatás webes originre korlátozott, külön capability adapterrel. Tauri-origin nem hirdeti ezt a folyamatot támogatottnak. A natív támogatás ellenőrzött böngésző–alkalmazás hitelesítési átadást és contractteszteket igényel. A PostgreSQL-migráció, valódi authenticator-regisztráció/belépés/visszavonás, negatív origin/RP/aláírásteszt és natív átadás továbbra is kiadási követelmény; mockolt routeteszt ezt nem igazolja.
 
 A javítás ellenőrzése: dokumentumonkénti módizoláció, változatlan hordozható bájtok és history, sémaegyezés, natív-origin elutasítása és v1/legacy route-egyezés replay-elutasítással. Ez merge és CI előtti javítási terv, nem kész 1.0 freeze.
+
+
+## Külső integrációk javítási ellenőrzőpontja — 2026-10-18
+
+| Komponens | Besorolás | Cél és teendő | Bizonyíték / kockázat |
+|---|---|---|---|
+| EuroOffice callback | HARDEN / SPLIT | Revision-CAS, callback-nyugta, service/repository, változtathatatlan helyreállítási mentések | Ismételt/késői/párhuzamos callback; PostgreSQL és valódi provider elfogadása szükséges |
+| DOCX letöltés | HARDEN | Tényleges streamkvóta és ZIP/OPC/XML-integritás a tárolás előtt | Sérült csomag, CRC, hamis méret és kibontási korlát; nem teljes OOXML-konformancia |
+| API/platform | REFACTOR | Additív v1, legacy adapterek, közös transport | Natív originváltáskor a korábbi token nem vihető át; SecureStorage továbbra is külön feladat |
+| Kreditfogyasztó felismerés | HARDEN | Lejáró grant és képdigesthez kötött tartós intent | Elfogadott ismétlés, payloadütközés, UNKNOWN kimenetel; a külső számlázás exactly-once garanciája nem állítható |
+
+A külön DOCX-tárolás szándékos, nem OMI-sémaváltozás. A korábbi egyszerű szerkesztési mód eltávolítása felülírja a történeti munkatérmód-leírást; editorMode nem kerül vissza a hordozható modellbe. A javítások merge és migrációs/CI-bizonyíték előtt tervezett állapotúak.

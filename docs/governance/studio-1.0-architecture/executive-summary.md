@@ -254,3 +254,14 @@ ADR-012/015/016/017: passkeys authenticate the existing local account; they do n
 Support is web-origin only: platform-authenticator availability is checked behind a capability adapter. Tauri origins do not advertise this flow. Native promotion requires a verified browser/native handoff and contract tests; do not widen accepted origins to make native UI appear supported. PostgreSQL migration, real authenticator registration/login/revocation, negative origin/RP/signature cases and native handoff evidence remain release requirements, not claims established by mocked route tests.
 
 Validation for the repair includes per-document workspace isolation, unchanged portable bytes/history, schema parity, native-origin capability rejection and v1/legacy route equivalence with replay rejection. This checkpoint records a proposed repair pending merge and CI, not a completed 1.0 freeze.
+
+
+## External integration stabilization — 2026-10-18
+
+Keep the functioning EuroOffice embedding, Transkribus client, model picker, source attribution and OMI editor. The required changes are bounded: safe callback persistence, validated streamed DOCX reception, v1 adapters/shared transport and a durable paid-execution intent. Ordinary DOCX remains outside OMI; no format rewrite is needed.
+
+Force saves must not be invalidated after the first save. They become recoverable snapshots; final close commits the canonical revision with a precondition and prior-head backup. A late callback cannot replace newer canonical content. Owners can download recovery snapshots without implicitly restoring them.
+
+Recognition submissions persist the exact image digest/model/connection/grant and request identity before spending credits. Accepted retries return the existing job; ambiguous submissions stay unknown and are not automatically reissued. This reduces duplicate spending but cannot guarantee exactly-once billing at an external provider. Confidential review export is not authorized by this uploaded-image capability.
+
+Before deployment, drain existing EuroOffice sessions, back up the database and apply the additive migration; old unbound sessions must reopen. Merge requires synthetic regression and PostgreSQL migration/concurrency evidence. Real-provider and native-device acceptance remains necessary before Stable promotion. ADR-024/025 record these boundaries. This checkpoint describes proposed repairs pending merge/CI, not a completed release freeze.
