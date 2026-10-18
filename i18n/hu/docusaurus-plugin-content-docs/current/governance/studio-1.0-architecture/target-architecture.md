@@ -956,3 +956,16 @@ ADR-012/015/016/017: a passkey meglévő helyi accountot hitelesít; nem tudomá
 A támogatás webes originre korlátozott, külön capability adapterrel. Tauri-origin nem hirdeti ezt a folyamatot támogatottnak. A natív támogatás ellenőrzött böngésző–alkalmazás hitelesítési átadást és contractteszteket igényel. A PostgreSQL-migráció, valódi authenticator-regisztráció/belépés/visszavonás, negatív origin/RP/aláírásteszt és natív átadás továbbra is kiadási követelmény; mockolt routeteszt ezt nem igazolja.
 
 A javítás ellenőrzése: dokumentumonkénti módizoláció, változatlan hordozható bájtok és history, sémaegyezés, natív-origin elutasítása és v1/legacy route-egyezés replay-elutasítással. Ez merge és CI előtti javítási terv, nem kész 1.0 freeze.
+
+
+## Külső szerkesztő és kreditfogyasztó felismerés — 2026-10-18
+
+Az EuroOffice DOCX-dokumentumai elkülönülnek a hordozható OMI-kézirattól. A kanonikus bájtok és revision a Studio tulajdonában vannak, az élő szerkesztési session a külső szerkesztőé. Csak lezáráskori status-2 mentés frissítheti a headet az induló revision ellenőrzésével, adatbázis-sorzár mellett. A status-6 részmentések és az ütköző végleges mentések változtathatatlan helyreállítási pillanatképek. Az ismételt callback nem alkalmazható újra; a késői részmentés nem írhatja felül a frissebb headet. A korábbi head mentése és a callback nyugtája egy tranzakcióban készül. A tulajdonos listázhatja és letöltheti a pillanatképeket; a letöltés nem automatikus visszaállítás.
+
+A bejövő DOCX-nél tényleges streamelt 25 MiB-os korlát, ZIP/OPC-integritás és kötelező XML-részek ellenőrzése szükséges: 25 MiB kibontott részenként, 100 MiB összesen, legfeljebb 4096 elem; ZIP64, titkosítás, symlink, DTD és entity nem támogatott. Ez nem teljes OOXML-sémakonformancia. A callback célja fix HTTPS-origin, redirect tiltott; szolgáltatói URL vagy dokumentumtartalom nem kerül hibalogba.
+
+A klienscontract `/api/v1/eurooffice`, illetve `/api/v1/integrations/transkribus` és `/api/v1/modules/critical-text-edition/transkribus`; a korábbi útvonalak közös handlereket hívó adapterek. A két integráció közös platformtransportot használ, kérésenként kiválasztott szerverrel és tokennel.
+
+A Transkribus-szolgáltatás lejáró grantet ellenőriz, majd beküldés előtt tartós intentet ír: account/workspace/request key, kapcsolat, provider-origin, modell, képdigest, cél, uploaded-image scope, grantazonosító és lejárat. Kép, jelszó, token és felismert szöveg nem része a naplónak. ACCEPTED esetén a process ID megmarad; bizonytalan beküldés UNKNOWN/SUBMITTING állapotból ugyanazzal a kulccsal nem indul újra. Az elfogadott ismétlés meglévő jobot olvas, eltérő payload ütközés. A kliens beküldés előtt menti a kulcsot. Ez nem engedély bizalmas kézirat vagy lektori adat automatikus továbbítására.
+
+Mindkét képesség Preview marad valódi szolgáltatói/platform-elfogadásig. ADR-024/025 egészíti ki az ADR-006/007/008/014/015/016/017 döntéseket. Ez merge, migráció és CI előtti javítási terv, nem kész stabil garancia.

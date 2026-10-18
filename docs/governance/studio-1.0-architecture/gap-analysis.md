@@ -363,3 +363,15 @@ ADR-012/015/016/017: passkeys authenticate the existing local account; they do n
 Support is web-origin only: platform-authenticator availability is checked behind a capability adapter. Tauri origins do not advertise this flow. Native promotion requires a verified browser/native handoff and contract tests; do not widen accepted origins to make native UI appear supported. PostgreSQL migration, real authenticator registration/login/revocation, negative origin/RP/signature cases and native handoff evidence remain release requirements, not claims established by mocked route tests.
 
 Validation for the repair includes per-document workspace isolation, unchanged portable bytes/history, schema parity, native-origin capability rejection and v1/legacy route equivalence with replay rejection. This checkpoint records a proposed repair pending merge and CI, not a completed 1.0 freeze.
+
+
+## External integration repair checkpoint — 2026-10-18
+
+| Component | Classification | Gap and target | Change/evidence | Remaining risk |
+|---|---|---|---|---|
+| EuroOffice callback | HARDEN / SPLIT | Unconditional updates and route-owned use cases → revision CAS, receipt and service/repository ownership | Immutable force/conflict recovery, prior-head backup, row lock; duplicate/stale/concurrent tests | Real provider force-save/final lifecycle and PostgreSQL gate must pass |
+| DOCX download | HARDEN | Full arrayBuffer plus magic-only check → actual streamed quota and bounded ZIP/OPC/XML integrity | Missing/forged-length, malformed/CRC/expanded-quota fixtures | Not full OOXML schema or rendering conformance |
+| Integration API/platform | REFACTOR | New unversioned surfaces and duplicated native token reads → additive v1 plus shared transport | Legacy facades retained; origin-switch token test | Existing general native secure-storage work remains open |
+| Paid recognition | HARDEN | Module toggle/consent alone → expiring grant and durable digest-bound intent | Unique request key, ACCEPTED/UNKNOWN status, no automatic paid retry | Provider cannot guarantee exactly-once billing; unknown outcomes require external reconciliation |
+
+The separate ordinary-DOCX storage is intentional and does not change OMI schema/container semantics. Historical simple-writing-mode checkpoint text is superseded by its subsequent removal; no portable editorMode field is reintroduced. Repairs are proposed until merged and migration/CI evidence is available.

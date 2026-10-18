@@ -286,3 +286,13 @@ ADR-012/015/016/017: a passkey meglévő helyi accountot hitelesít; nem tudomá
 A támogatás webes originre korlátozott, külön capability adapterrel. Tauri-origin nem hirdeti ezt a folyamatot támogatottnak. A natív támogatás ellenőrzött böngésző–alkalmazás hitelesítési átadást és contractteszteket igényel. A PostgreSQL-migráció, valódi authenticator-regisztráció/belépés/visszavonás, negatív origin/RP/aláírásteszt és natív átadás továbbra is kiadási követelmény; mockolt routeteszt ezt nem igazolja.
 
 A javítás ellenőrzése: dokumentumonkénti módizoláció, változatlan hordozható bájtok és history, sémaegyezés, natív-origin elutasítása és v1/legacy route-egyezés replay-elutasítással. Ez merge és CI előtti javítási terv, nem kész 1.0 freeze.
+
+
+## Függőséghelyes integrációjavítás — 2026-10-18
+
+1. **C16a — perzisztencia, high:** additív EuroOfficeSave és RecognitionExecution migráció; session baseRevision; régi sessionök lejáratása. Telepítés előtt az aktív szerkesztőket le kell zárni. Szintetikus PostgreSQL-migráció, párhuzamos CAS/receipt és accounttörlési teszt kötelező.
+2. **C16b — service és parser, medium:** a működő editor-config és felismerési kliens megőrzése, EuroOffice use-case-ek leválasztása; streamelt DOCX/ZIP/XML-korlátok. Részmentés helyreállítási pillanatkép, végleges head csak revision-feltétellel. Előfeltétel C16a; owner-only recovery és hostile-input tesztek blokkolnak.
+3. **C16c — contractok és intent, medium:** v1 előbb, majd kliensek; legacy adapterek; közös platformtransport; fizetős POST előtt intent, bizonytalan kimenetel megőrzése. Előfeltétel C16a/b; replay, payloadütközés, grantlejárat, accountizoláció és token/originváltás tesztelendő.
+4. **C16d — elfogadás, high:** valódi EuroOffice részmentés/lezárás/reopen/crash és Transkribus megszakított beküldés/egyeztetés, Android/web és tulajdonosi recovery. Preview-promóció csak bizonyíték után; külső exactly-once számlázás nem ígérhető.
+
+A közösen telepítendő sémát és szolgáltatásváltást koordinált PR külön commitjaiként lehet vizsgálni. Rollback előtt az EuroOffice és a fizetős Transkribus-végrehajtás letiltása és az aktív szerkesztők lezárása szükséges: a régi kód nem ír kötött sessionmezőket és nem tartja tiszteletben az intentnaplót. Az új táblák és a megőrzött mentések/ismeretlen intentek nem törölhetők; újraengedélyezés csak sématudatos, biztonságos API-val. OMI-formátummigráció nincs. Az RC-aggregátor továbbra is E02.

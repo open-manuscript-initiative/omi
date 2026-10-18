@@ -437,3 +437,36 @@ ADR-012/015/016/017: a passkey meglévő helyi accountot hitelesít; nem tudomá
 A támogatás webes originre korlátozott, külön capability adapterrel. Tauri-origin nem hirdeti ezt a folyamatot támogatottnak. A natív támogatás ellenőrzött böngésző–alkalmazás hitelesítési átadást és contractteszteket igényel. A PostgreSQL-migráció, valódi authenticator-regisztráció/belépés/visszavonás, negatív origin/RP/aláírásteszt és natív átadás továbbra is kiadási követelmény; mockolt routeteszt ezt nem igazolja.
 
 A javítás ellenőrzése: dokumentumonkénti módizoláció, változatlan hordozható bájtok és history, sémaegyezés, natív-origin elutasítása és v1/legacy route-egyezés replay-elutasítással. Ez merge és CI előtti javítási terv, nem kész 1.0 freeze.
+
+
+## ADR-024 — Hagyományos DOCX callback-authority és helyreállítás
+
+**Állapot:** Javasolt; javítás merge és elfogadás előtt.
+
+**Kérdés:** Hogyan védhető ki a késői felülírás az ismételt részmentések megtörése nélkül?
+
+**Döntés:** A kanonikus head a Studio tulajdona. A session induló revisionhöz kötött. A status-6 és az ütköző status-2 változtathatatlan, owner-only letölthető helyreállítási pillanatkép; csak végleges status-2 frissíthet sorzár/CAS mellett. A korábbi head backupja és a nyugta egy tranzakció. A deduplikáció dokumentum/editor key/status/callback URL digest alapján történik; a forrás-URL nem tárolódik. Tárolás előtt streamkvóta és ZIP/OPC/XML-integritás szükséges. Additív v1 és közös service/repository határ.
+
+**Alternatívák:** utolsó beérkező ír; minden részmentés után sessionletiltás; nem dokumentált provider-sorszám feltételezése; ütköző mentés eldobása.
+
+**Indok:** a részmentés normális. A beérkezési sorrend nem bizonyítja a szerkesztési sorrendet, a provider serverVersion szoftververzió, nem mentési sorszám.
+
+**Következmények:** új tárolás és recovery-letöltés; külön retention/kvótapolitika szükséges, e javítás nem töröl csendben mentést. A végleges lezárás authoritative; crash-részmentés letöltéssel állítható helyre. Telepítéskor sessiondrain és a régi sessionök lejáratása szükséges. PostgreSQL és valódi provider lifecycle teszt kell promóció előtt.
+
+**Felülvizsgálat:** igazolt monoton mentési sorszám vagy tartós provider-sessioncontract; a retention és tárhelykvóta külön döntésben.
+
+## ADR-025 — Kreditfogyasztó felismerési intent és grant
+
+**Állapot:** Javasolt; javítás merge és elfogadás előtt.
+
+**Kérdés:** Hogyan engedélyezhető és egyeztethető a bizonytalan hálózati kimenetelű fizetős beküldés?
+
+**Döntés:** Lejáró szervergrant ellenőrzése után, az egyszeri fizetős POST előtt account/workspace/request key szerint egyedi intent készül kapcsolat-, provider-origin-, képdigest-, modell-, cél- és uploaded-image scope-kötéssel. ACCEPTED megőrzi a process ID-t; UNKNOWN/SUBMITTING nem enged új beküldést ugyanazzal a kulccsal. Elfogadott ismétlés meglévő jobot olvas, eltérő payload ütközés. A status account/workspace szerint izolált. A kliens küldés előtt menti a kulcsot. Kép, credential és felismert szöveg nem kerül a naplóba. Bizalmas kézirat/lektoradat automatikus exportjára nincs engedély.
+
+**Alternatívák:** puszta consent checkbox; minden timeout újraküldése; csak böngészőmemóriában tartott intent; külső exactly-once számlázás ígérete.
+
+**Indok:** a timeout nem bizonyít elutasítást. Az adatbázis-egyediség helyi párhuzamos beküldést véd, nem hoz létre elosztott tranzakciót a providerrel.
+
+**Következmények:** additív perzisztencia és v1-statuscontract, megőrzött ismeretlen kimenetelek és explicit provider-oldali egyeztetés. Generikus retry nem fogyaszthat újra kreditet. A job-handle accountkötött; a ledger nem OMI-history vagy publikációsidentitás-bizonyíték.
+
+**Felülvizsgálat:** igazolt provider-idempotencia/egyeztetési API vagy bizalmas kutatási export igénye esetén, a képesség engedélyezése előtt.

@@ -176,3 +176,14 @@ ADR-012/015/016/017: a passkey meglévő helyi accountot hitelesít; nem tudomá
 A támogatás webes originre korlátozott, külön capability adapterrel. Tauri-origin nem hirdeti ezt a folyamatot támogatottnak. A natív támogatás ellenőrzött böngésző–alkalmazás hitelesítési átadást és contractteszteket igényel. A PostgreSQL-migráció, valódi authenticator-regisztráció/belépés/visszavonás, negatív origin/RP/aláírásteszt és natív átadás továbbra is kiadási követelmény; mockolt routeteszt ezt nem igazolja.
 
 A javítás ellenőrzése: dokumentumonkénti módizoláció, változatlan hordozható bájtok és history, sémaegyezés, natív-origin elutasítása és v1/legacy route-egyezés replay-elutasítással. Ez merge és CI előtti javítási terv, nem kész 1.0 freeze.
+
+
+## Külső integrációk stabilizálása — 2026-10-18
+
+Megmarad a működő EuroOffice-beágyazás, Transkribus-kliens, modellválasztó, forrásmodell és OMI-szerkesztő. A javítás határa: biztonságos callback-perzisztencia, streamelt és validált DOCX-fogadás, v1-adapterek/közös transport, tartós fizetős végrehajtási intent. A hagyományos DOCX külön adatmodell marad; OMI-újraírás nem szükséges.
+
+A részmentés nem érvénytelenítheti az első mentés után a sessiont. Helyreállítási pillanatkép lesz, a végleges headet csak lezáráskori revision-ellenőrzött mentés frissíti, korábbi head-backuppal. A tulajdonos a mentéseket letöltheti az aktuális dokumentum automatikus felülírása nélkül.
+
+A felismerési intent a képdigestet, modellt, kapcsolatot és grantet beküldés előtt rögzíti. Az elfogadott ismétlés a meglévő jobot adja vissza; bizonytalan kimenetelt nem küld újra automatikusan. Ez csökkenti a dupla kreditfogyasztást, de a provider exactly-once számlázását nem garantálja. Bizalmas lektori exportot az uploaded-image scope nem engedélyez.
+
+Telepítés előtt aktív EuroOffice-sessionök lezárása, adatbázismentés és additív migráció szükséges; a régi sessionök újranyitandók. Merge-feltétel a szintetikus regresszió és a PostgreSQL-migráció/párhuzamosság bizonyítéka. Stable-promócióhoz valódi szolgáltatói és natív eszközös elfogadás kell. ADR-024/025 rögzíti a határokat. Ez még nem kész release freeze.

@@ -502,3 +502,36 @@ ADR-012/015/016/017: passkeys authenticate the existing local account; they do n
 Support is web-origin only: platform-authenticator availability is checked behind a capability adapter. Tauri origins do not advertise this flow. Native promotion requires a verified browser/native handoff and contract tests; do not widen accepted origins to make native UI appear supported. PostgreSQL migration, real authenticator registration/login/revocation, negative origin/RP/signature cases and native handoff evidence remain release requirements, not claims established by mocked route tests.
 
 Validation for the repair includes per-document workspace isolation, unchanged portable bytes/history, schema parity, native-origin capability rejection and v1/legacy route equivalence with replay rejection. This checkpoint records a proposed repair pending merge and CI, not a completed 1.0 freeze.
+
+
+## ADR-024 — Ordinary DOCX callback authority and recovery
+
+**Status:** Proposed; implementation repair pending merge and acceptance.
+
+**Question.** How can repeated external editor saves avoid stale overwrite without breaking force-save sessions?
+
+**Decision.** Studio owns the canonical DOCX head. Bind each session to its starting revision. Preserve status-6 force saves and conflicting status-2 callbacks as immutable owner-downloadable recovery snapshots; only a final status-2 callback may advance the head under row lock/CAS. Back up the prior head and receipt the callback in the same transaction. Deduplicate by document/editor key/status/callback URL digest; never persist that source URL. Validate streamed size and ZIP/OPC/XML integrity before storage. Use service/repository ports and additive v1 routes with legacy facades.
+
+**Alternatives.** Unconditional last-arrival wins; consume the capability after every force save; require an undocumented provider sequence counter; discard conflicts.
+
+**Rationale.** Repeated force saves are normal. Arrival order is not trustworthy edit order, and provider serverVersion describes its software version, not a monotonic save sequence. Recovery must not silently overwrite newer canonical data.
+
+**Consequences.** New recovery tables/owner downloads, database growth and an explicit retention policy; no silent pruning in this repair. Final close remains authoritative; crash force saves are recovered by download. Deployment drains active editors and expires legacy sessions. PostgreSQL concurrency/migration and real-provider lifecycle evidence are mandatory before promotion.
+
+**Revisit when.** The provider supplies a verified monotonic save sequence or a durable collaborative session contract that safely supports force-save head promotion; recovery retention/storage quotas require a separately reviewed policy.
+
+## ADR-025 — Paid recognition intent and grant binding
+
+**Status:** Proposed; implementation repair pending merge and acceptance.
+
+**Question.** How is a paid external recognition submission authorized and recovered after an ambiguous network result?
+
+**Decision.** The service validates an expiring server module grant, then persists a unique account/workspace request identity bound to connection, provider origin, image digest, model, purpose and uploaded-image scope before its single paid POST. ACCEPTED stores process ID; unknown/in-flight outcomes do not authorize resubmission under the same key. Accepted retries read the prior job and mismatched payloads conflict. Status lookup is account/workspace scoped. Client request identity is saved before sending. No source images, credentials or recognized text belong in this ledger. This scope does not authorize automatic confidential manuscript/review export.
+
+**Alternatives.** Consent checkbox only; retry every timeout; keep intent only in browser memory; promise external exactly-once billing.
+
+**Rationale.** A timeout does not prove the provider rejected a billable request. Database uniqueness prevents competing local submits, but cannot atomically commit a remote provider transaction.
+
+**Consequences.** Additive persistence and v1 status contract, retained unknown outcomes, explicit provider-side reconciliation. Generic retries never spend more credits. Existing stateless job handles remain account bound; the paid ledger is not an OMI history or publication-identity record.
+
+**Revisit when.** The provider exposes a verified idempotency/reconciliation API or confidential research export is requested; then extend the authorization/data-minimization contract before enabling it.
