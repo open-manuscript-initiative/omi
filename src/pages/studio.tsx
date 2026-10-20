@@ -6,7 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {getPublicPageCopy} from '../i18n/publicPages';
 import styles from './studio.module.css';
 
-const STUDIO_VERSION = '0.3.0-beta.6';
+const STUDIO_VERSION = '0.3.0-beta.7';
 const RELEASE_BASE = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/releases/latest/download';
 const SERVER_API_PACKAGE_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/pkgs/container/open-manuscript-studio-api';
 const SERVER_WEB_PACKAGE_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/pkgs/container/open-manuscript-studio-web';
@@ -34,8 +34,13 @@ const CAPABILITY_DOC_TARGETS: Record<number, string> = {
 const CURRENT_UPDATE = {
   en: {
     title: 'Open Manuscript Studio public beta',
-    lead: 'Version 0.3.0-beta.6 adds portable semantic source links from imported visual objects to bibliographic records, with clear assertion status; it advances the OMI manuscript format to 0.3.0.',
+    lead: 'Version 0.3.0-beta.7 brings the latest EuroOffice, Transkribus, ODT, localization and responsive-interface updates into the shared web and native applications.',
     items: [
+      ['Android and EuroOffice viewport', 'System-navigation insets, a persistent editor host and compact floating controls keep the embedded editor within the usable screen.'],
+      ['EuroOffice documents and recovery', 'Standalone documents retain recoverable save snapshots. Revision-bound final saves and duplicate callback handling protect newer document revisions.'],
+      ['Transkribus recognition and model picker', 'Browse public models by name, language or creator. Recognize a single page image after explicit credit consent, then review the text and source rights before insertion. Unknown paid requests are not resubmitted automatically.'],
+      ['ODT interchange — Preview', 'Import and export supported text, tables, notes and images with archive validation and explicit warnings for source relationships that ODT cannot retain. Keep OMI for the complete source graph and history.'],
+      ['Translations and compact settings', 'PO-backed labels and production research-module loading are updated. Desktop settings and language choices use compact wrapping layouts.'],
       ['Semantic source attribution', 'Imported visual objects can link to their bibliographic source record with the portable `prov:wasDerivedFrom` relation. The assertion records whether the source was machine-inferred, declared by the author or confirmed by the author. This relation remains separate from citation rendering and technical import provenance.'],
       ['Live collaboration and accepted invitations', 'Invite a Studio author to a manuscript. The invitation appears in their Studio inbox, and access starts only after they accept. Collaborators edit together in real time and see names and distinct colors beside live cursors and selections.'],
       ['InDesign-compatible paragraph and publication styling', 'The live publication editor now exposes an InDesign-inspired paragraph-style system with inheritance-aware controls and live rendering, while keeping manuscript semantics separate from reusable publication presentation.'],
@@ -84,14 +89,20 @@ const CURRENT_UPDATE = {
     serverDeploymentFiles: 'Docker Compose deployment files',
     serverGuideEn: 'Administrator guide (English)',
     serverGuideHu: 'Administrator guide (Hungarian)',
+    releaseNotes: 'Release notes',
     betaTitle: 'Current public beta',
-    betaText: 'OMI Studio 0.3.0-beta.6 adds semantic source attribution for imported visual objects, linking each object to a bibliographic source record and preserving whether the relation was inferred, declared or author-confirmed. The portable OMI manuscript format advances to 0.3.0; unsupported older formats are rejected explicitly without silent migration.',
+    betaText: 'Open Manuscript Studio 0.3.0-beta.7 brings Android/EuroOffice viewport fixes, recoverable external-editor saves, named Transkribus model selection, Preview ODT interchange, PO-backed translations and compact responsive settings. The portable OMI format remains 0.3.0.',
     maturity: 'The project is in public beta. Beta development prioritizes regression testing, large-document performance, error recovery, interoperability, migration discipline and trustworthy immutable releases on the path to the first release candidate.',
   },
   hu: {
     title: 'Az Open Manuscript Studio nyilvános bétája',
-    lead: 'A 0.3.0-beta.6 hordozható szemantikus kapcsolatot ad az importált vizuális objektumok és bibliográfiai rekordjaik között, az állítás státuszának jelölésével; az OMI kéziratformátum 0.3.0-ra lép.',
+    lead: 'A 0.3.0-beta.7 a legújabb EuroOffice-, Transkribus-, ODT-, fordítási és reszponzív felületi frissítéseket foglalja a közös webes és natív alkalmazásokba.',
     items: [
+      ['Android és EuroOffice megjelenítés', 'A rendszer navigációs sávjának figyelembevétele, az állandó szerkesztőkeret és a kompakt lebegő vezérlők a használható képernyőterületen tartják a beágyazott szerkesztőt.'],
+      ['EuroOffice-dokumentumok és helyreállítás', 'Az önálló dokumentumok helyreállítható mentési pillanatképeket őriznek. A revízióhoz kötött végleges mentés és az ismételt visszahívások kezelése védi az újabb dokumentumváltozatot.'],
+      ['Transkribus-felismerés és modellválasztó', 'A nyilvános modellek név, nyelv vagy készítő szerint kereshetők. Egy oldalkép felismerése kifejezett kreditjóváhagyás után indul; a szöveg és a forrásjogok beszúrás előtt ellenőrizhetők. Bizonytalan kimenetelű fizetős kérés nem indul újra automatikusan.'],
+      ['ODT-adatcsere — előzetes funkció', 'A támogatott szövegek, táblázatok, jegyzetek és képek importja/exportja archívumellenőrzéssel és az elvesző forráskapcsolatok jelzésével működik. A teljes forrásgráf és előzmény megőrzéséhez az OMI-fájlt tartsa meg.'],
+      ['Fordítások és tömörebb beállítások', 'Frissültek a PO-alapú feliratok és a kutatási modulok éles fordításbetöltése. Az asztali beállítások és nyelvválasztók kompakt, több sorba tördelődő elrendezést kapnak.'],
       ['Szemantikus forráskapcsolat', 'Az importált vizuális objektumok hordozható `prov:wasDerivedFrom` kapcsolattal hivatkozhatnak a forrásuk bibliográfiai rekordjára. A kapcsolat jelzi, hogy a forrást a rendszer következtette ki, a szerző adta meg vagy a szerző erősítette meg. Ez külön marad a hivatkozás megjelenítésétől és az import technikai eredetadataitól.'],
       ['Élő együttműködés és elfogadott meghívások', 'Hívjon meg egy Studio-szerzőt a kézirathoz. A meghívás a Studio bejövő meghívásai között jelenik meg; hozzáférés csak elfogadás után jár. A szerzők valós időben együtt szerkeszthetnek, és névvel, külön színnel látják egymás élő kurzorát és kijelölését.'],
       ['InDesign-kompatibilis bekezdés- és kiadványstílusok', 'Az élő kiadványszerkesztő InDesign-mintájú bekezdésstílus-rendszert kapott örökléssel, részletes vezérlőkkel és élő megjelenítéssel, miközben a kézirat szemantikája külön marad a kiadványmegjelenítéstől.'],
@@ -140,14 +151,20 @@ const CURRENT_UPDATE = {
     serverDeploymentFiles: 'Docker Compose telepítőfájlok',
     serverGuideEn: 'Rendszergazdai súgó (angol)',
     serverGuideHu: 'Rendszergazdai súgó (magyar)',
+    releaseNotes: 'Kiadási megjegyzések',
     betaTitle: 'Jelenlegi nyilvános béta',
-    betaText: 'Az OMI Studio 0.3.0-beta.6 szemantikus forráskapcsolatot ad az importált vizuális objektumokhoz: az objektum a forrás bibliográfiai rekordjára hivatkozik, a kapcsolat pedig jelzi, hogy gépi következtetés, szerzői közlés vagy szerzői megerősítés eredménye. A hordozható kéziratformátum 0.3.0-ra lép; a Studio a nem támogatott régebbi formátumokat csendes migráció nélkül utasítja el.',
+    betaText: 'Az Open Manuscript Studio 0.3.0-beta.7 az Android/EuroOffice megjelenítési javításait, a helyreállítható külső szerkesztői mentéseket, a név szerinti Transkribus-modellválasztást, az előzetes ODT-kezelést, a PO-alapú fordításokat és a tömörebb reszponzív beállításokat foglalja új kiadásba. A hordozható OMI-formátum változatlanul 0.3.0.',
     maturity: 'A projekt nyilvános béta. A béta szakasz fő feladata a regressziós tesztelés, a nagy dokumentumok teljesítménye, a hibából való helyreállás, az interoperabilitás, a migrációs fegyelem és a megbízható, változtathatatlan kiadások biztosítása az első release candidate felé.',
   },
   de: {
     title: 'Öffentliche Beta von Open Manuscript Studio',
-    lead: '0.3.0-beta.6 ergänzt semantische Quellenbeziehungen von importierten visuellen Objekten zu bibliografischen Datensätzen mit eindeutigem Behauptungsstatus. Das portable OMI-Manuskriptformat wird auf 0.3.0 aktualisiert.',
+    lead: 'Version 0.3.0-beta.7 bringt die neuesten EuroOffice-, Transkribus-, ODT-, Übersetzungs- und Oberflächenupdates in die gemeinsamen Web- und nativen Anwendungen.',
     items: [
+      ['Android- und EuroOffice-Ansicht', 'Abstände zur Systemnavigation, ein beständiger Editorbereich und kompakte schwebende Bedienelemente halten den eingebetteten Editor im nutzbaren Bildschirmbereich.'],
+      ['EuroOffice-Dokumente und Wiederherstellung', 'Eigenständige Dokumente bewahren wiederherstellbare Speicherversionen. Revisionsgebundene endgültige Speicherung und die Behandlung doppelter Rückmeldungen schützen neuere Dokumentversionen.'],
+      ['Transkribus-Erkennung und Modellauswahl', 'Öffentliche Modelle lassen sich nach Name, Sprache oder Ersteller durchsuchen. Nach ausdrücklicher Zustimmung zum Kreditverbrauch wird ein einzelnes Seitenbild erkannt. Text und Quellenrechte werden vor dem Einfügen geprüft. Bezahlte Anfragen mit unklarem Ausgang werden nicht automatisch wiederholt.'],
+      ['ODT-Austausch — Vorschau', 'Unterstützte Texte, Tabellen, Anmerkungen und Bilder werden mit Archivprüfung und ausdrücklichen Warnungen bei nicht erhaltenen Quellenbeziehungen importiert und exportiert. OMI bewahrt weiterhin den vollständigen Quellengraphen und Verlauf.'],
+      ['Übersetzungen und kompakte Einstellungen', 'PO-basierte Beschriftungen und das Laden von Forschungsmodulübersetzungen sind aktualisiert. Desktop-Einstellungen und Sprachauswahl nutzen kompakte umbrechende Anordnungen.'],
       ['Live-Zusammenarbeit und angenommene Einladungen', 'Laden Sie einen Studio-Autor zu einem Manuskript ein. Die Einladung erscheint im Studio-Posteingang; Zugriff entsteht erst nach der Annahme. Die Beteiligten bearbeiten den Text gleichzeitig und sehen Namen sowie eigene Farben an Live-Cursorn und Auswahlen.'],
       ['InDesign-kompatible Absatz- und Publikationsstile', 'Der Live-Publikationseditor bietet ein InDesign-orientiertes Absatzstilsystem mit Vererbung, detaillierten Steuerelementen und Live-Darstellung, während Manuskriptsemantik und Publikationsdarstellung getrennt bleiben.'],
       ['Abschnittslineal, Tabstopps und Spalten', 'Auf ausgewählte Manuskriptabschnitte lassen sich linealgesteuerte Tabstopps und mehrspaltige Layouts anwenden; zusätzlich stehen Text-zu-Tabelle-Konvertierung und kompakte Werteingaben zur Verfügung.'],
@@ -191,8 +208,9 @@ const CURRENT_UPDATE = {
     serverDeploymentFiles: 'Docker-Compose-Installationsdateien',
     serverGuideEn: 'Administratorhandbuch (Englisch)',
     serverGuideHu: 'Administratorhandbuch (Ungarisch)',
+    releaseNotes: 'Versionshinweise',
     betaTitle: 'Aktuelle öffentliche Beta',
-    betaText: 'OMI Studio 0.3.0-beta.6 ergänzt semantische Quellenbeziehungen von importierten visuellen Objekten zu bibliografischen Datensätzen. Der Beziehungsstatus unterscheidet maschinelle Schlussfolgerung, Angabe durch die Autorin oder den Autor und deren Bestätigung. Das portable OMI-Manuskriptformat wird auf 0.3.0 aktualisiert; nicht unterstützte ältere Formate werden ohne stille Migration abgelehnt.',
+    betaText: 'Open Manuscript Studio 0.3.0-beta.7 bündelt Android-/EuroOffice-Ansichtskorrekturen, wiederherstellbare Speicherversionen, die Transkribus-Modellauswahl nach Namen, ODT-Austausch als Vorschau, PO-basierte Übersetzungen und kompakte responsive Einstellungen. Das portable OMI-Format bleibt bei 0.3.0.',
     maturity: 'Das Projekt befindet sich in der öffentlichen Beta. Im Mittelpunkt stehen Regressionstests, Leistung bei großen Dokumenten, Fehlerwiederherstellung, Interoperabilität, saubere Migrationen und vertrauenswürdige unveränderliche Releases auf dem Weg zum ersten Release Candidate.',
   },
 } as const;
@@ -314,6 +332,7 @@ export default function StudioDownloads() {
           <div className={styles.container}>
             <h2>{update.betaTitle}</h2>
             <p>{update.betaText}</p>
+            <p><Link to="/docs/studio/releases/0.3.0-beta.7">{update.releaseNotes}</Link></p>
             <p>{update.maturity}</p>
             <p>
               <Link to="/docs/governance/studio-implementation-status">{copy.home.status}</Link>
