@@ -30,8 +30,8 @@ keywords:
 | Field | Value |
 |---|---|
 | Status | **Beta** |
-| Snapshot date | **2026-10-11** |
-| Current development source version | `0.3.0-beta.6` |
+| Snapshot date | **2026-10-20** |
+| Current development source version | `0.3.0-beta.7` |
 | Reference implementation | Open Manuscript Studio |
 | Source repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web target | Modern browsers |
@@ -39,7 +39,16 @@ keywords:
 | Mobile targets | Android public universal APK; iOS/iPadOS validated native simulator target, with TestFlight/App Store distribution pending Apple Developer signing |
 | Web deployment | `studio.openmanuscript.org` |
 
-The current Studio source tree reports **`0.3.0-beta.6`**. This release adds a portable semantic source-attribution relation from imported visual objects to bibliographic records, with assertion status distinguishing machine inference, author declaration and author confirmation. It advances the portable manuscript format to OMI-SPEC-320@0.3.0; unsupported older format versions are rejected without silent migration. Packaged downloads track the current immutable GitHub release. Beta does **not** mean that every optional integration or distribution channel is production-complete.
+The current Studio source tree reports **`0.3.0-beta.7`**. This release packages Android/EuroOffice viewport fixes, recoverable external-editor saves, Transkribus recognition with named model selection, Preview ODT import/export, PO-backed localization and compact responsive settings. The portable manuscript format stays at OMI-SPEC-320@0.3.0. Packaged downloads track the current immutable GitHub release; Google Play requires a separate signed release run. See the [beta.7 release notes](/docs/studio/releases/0.3.0-beta.7) for version identities and deployment steps. Beta does **not** mean that every optional integration or distribution channel is production-complete.
+
+## Changes in 0.3.0-beta.7
+
+- **Android and EuroOffice:** keeps the WebView and embedded editor controls above system navigation, with a persistent editor host and compact floating controls.
+- **External editing and recognition:** adds recoverable EuroOffice save snapshots, revision-bound final saves, and Transkribus page recognition with named model selection, explicit credit consent and reviewed source/rights-aware insertion. Unknown paid requests are not automatically resubmitted.
+- **Interchange and localization:** adds Preview ODT import/export with explicit loss diagnostics and fixes PO-backed interface/research-module translations in production bundles.
+- **Interface and accounts:** compact responsive settings, wrapping language choices, removal of the redundant simple text editor, and browser passkeys where configured. Native passkey handoff remains unsupported.
+- **Version identities:** Studio `0.3.0-beta.7`; Windows MSI `0.3.0.7`; iOS short version `0.3.0`, build `19`; Android versionCode floor `1206`. The portable format stays at `OMI-SPEC-320@0.3.0`.
+- **Deployment:** pending application and identity migrations are required; deploy the API before the clients. See the [release notes](/docs/studio/releases/0.3.0-beta.7).
 
 ## Changes in 0.3.0-beta.6
 
@@ -179,7 +188,7 @@ The current OJS and OMP integrations are bidirectional for review work: Studio c
 
 ## Release and distribution
 
-`0.3.0-beta.6` is the current Studio beta release line. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Public download links follow GitHub's current release rather than embedding one historical tag in the website, while published release assets themselves remain immutable. The application version is independent of the portable OMI manuscript format, which remains `OMI-SPEC-320@0.2.0`.
+`0.3.0-beta.7` is the current Studio beta release line. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Public download links follow GitHub's current release rather than embedding one historical tag in the website, while published release assets themselves remain immutable. The application version is independent of the portable OMI manuscript format, which remains `OMI-SPEC-320@0.3.0`.
 
 iOS/iPadOS currently has a successful CI simulator build rather than a public IPA. The Apple distribution path is prepared but deliberately separated from simulator validation: public/device builds require the real Apple Development Team ID, distribution certificate, provisioning profile and final `apple-app-site-association` configuration before TestFlight/App Store publication can be claimed.
 

@@ -12,10 +12,10 @@ OMI treats the scholarly manuscript — structure, metadata, contributors, citat
 
 **Open Manuscript Studio** is the OMI reference implementation.
 
-Current public release line: **`0.3.0-beta.6`**.
+Current public release line: **`0.3.0-beta.7`**.
 Project state: **public beta / active stabilization and interoperability development**.
 
-The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. Studio 0.3.0-beta.6 adds a portable semantic source-attribution relation from each imported visual object to its bibliographic source record, with assertion status distinguishing machine inference, author declaration and author confirmation. The OMI manuscript format advances to 0.3.0; unsupported older formats are rejected without silent migration. It builds on the prior release's research modules, collaboration, export and native publishing workflows. The portable OMI manuscript format remains `OMI-SPEC-320@0.3.0`. OJS 3.5 and OMP 3.5 remain authoritative when configured and are covered by native end-to-end tests. Android is an operational public-beta target; iOS/iPadOS simulator/native builds are validated while public Apple distribution remains dependent on signing, provisioning and device/TestFlight validation. Published releases remain immutable and provenance-bound to their exact build commit.
+The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. Studio 0.3.0-beta.7 packages Android/EuroOffice viewport fixes, recoverable external-editor saves, named Transkribus model selection, Preview ODT interchange, PO-backed translations and compact responsive settings. The portable manuscript format remains `OMI-SPEC-320@0.3.0`. Published releases remain immutable and bound to their exact build commit; Google Play requires a separate signed release run. See the [release notes](docs/studio/releases/0.3.0-beta.7.md) for packaging identities and deployment steps. iOS public distribution still depends on signing, provisioning and device/TestFlight validation.
 
 ### Latest development line
 

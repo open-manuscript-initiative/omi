@@ -26,6 +26,7 @@ const sidebars = {
         {type: 'doc', id: 'foundations/studio-live-collaboration', label: 'Studio Live Collaboration'},
         {type: 'doc', id: 'studio/visual-tour', label: 'Studio Visual Tour'},
         {type: 'doc', id: 'studio/research-modules', label: 'Research Modules'},
+        {type: 'doc', id: 'studio/releases/0.3.0-beta.7', label: 'Studio Release Notes'},
         {type: 'doc', id: 'foundations/ios-ipados-studio', label: 'iOS and iPadOS Studio'},
         {type: 'doc', id: 'foundations/studio-long-form-authoring', label: 'Long-form Authoring'},
         {type: 'doc', id: 'foundations/word-like-manuscript-editing', label: 'Word-like Manuscript Editing'},
