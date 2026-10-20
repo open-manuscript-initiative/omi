@@ -41,14 +41,14 @@ keywords:
 
 The current Studio source tree reports **`0.3.0-beta.8`**. This release fixes duplicate manuscript titles in DOCX imports by recognizing a matching first numbered heading in both standard and large-document import paths. The portable manuscript format stays at OMI-SPEC-320@0.3.0. See the [beta.8 release notes](/docs/studio/releases/0.3.0-beta.8) for version identities and deployment steps. Beta does **not** mean that every optional integration or distribution channel is production-complete.
 
-## Changes in 0.3.0-beta.8
+## Changes in 0.3.0-beta.7
 
 - **Android and EuroOffice:** keeps the WebView and embedded editor controls above system navigation, with a persistent editor host and compact floating controls.
 - **External editing and recognition:** adds recoverable EuroOffice save snapshots, revision-bound final saves, and Transkribus page recognition with named model selection, explicit credit consent and reviewed source/rights-aware insertion. Unknown paid requests are not automatically resubmitted.
 - **Interchange and localization:** adds Preview ODT import/export with explicit loss diagnostics and fixes PO-backed interface/research-module translations in production bundles.
 - **Interface and accounts:** compact responsive settings, wrapping language choices, removal of the redundant simple text editor, and browser passkeys where configured. Native passkey handoff remains unsupported.
-- **Version identities:** Studio `0.3.0-beta.8`; Windows MSI `0.3.0.7`; iOS short version `0.3.0`, build `19`; Android versionCode floor `1206`. The portable format stays at `OMI-SPEC-320@0.3.0`.
-- **Deployment:** pending application and identity migrations are required; deploy the API before the clients. See the [release notes](/docs/studio/releases/0.3.0-beta.8).
+- **Version identities:** Studio `0.3.0-beta.7`; Windows MSI `0.3.0.7`; iOS short version `0.3.0`, build `19`; Android versionCode floor `1206`. The portable format stays at `OMI-SPEC-320@0.3.0`.
+- **Deployment:** pending application and identity migrations are required; deploy the API before the clients. See the [release notes](/docs/studio/releases/0.3.0-beta.7).
 
 ## Changes in 0.3.0-beta.6
 
