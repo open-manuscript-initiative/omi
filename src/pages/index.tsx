@@ -20,7 +20,7 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
 
 const STUDIO_UPDATE = {
   en: {
-    summary: 'Open Manuscript Studio 0.3.0-beta.7 brings Android/EuroOffice viewport fixes, recoverable external-editor saves, named Transkribus model selection, Preview ODT interchange, PO-backed translations and compact responsive settings. The portable OMI format remains 0.3.0.',
+    summary: 'Open Manuscript Studio 0.3.0-beta.8 fixes duplicate manuscript titles when the first numbered heading repeats the DOCX document title. The portable OMI format remains 0.3.0.',
     multiDocument: 'Multi-document desktop editing and document outline',
     wordLike: 'Word-like manuscript-wide split, merge and selection',
     pdf: 'Structural PDF import with geometry-aware footnotes',
@@ -43,7 +43,7 @@ const STUDIO_UPDATE = {
     uiLocales: 'selectable UI locales',
   },
   hu: {
-    summary: 'Az Open Manuscript Studio 0.3.0-beta.7 az Android/EuroOffice megjelenítési javításait, a helyreállítható külső szerkesztői mentéseket, a név szerinti Transkribus-modellválasztást, az előzetes ODT-kezelést, a PO-alapú fordításokat és a tömörebb reszponzív beállításokat foglalja új kiadásba. A hordozható OMI-formátum változatlanul 0.3.0.',
+    summary: 'Az Open Manuscript Studio 0.3.0-beta.8 javítja a Word-importot, ha az első számozott címsor megismétli a dokumentum címét. A hordozható OMI-formátum változatlanul 0.3.0.',
     multiDocument: 'Többdokumentumos asztali szerkesztés és dokumentumvázlat',
     wordLike: 'Word-szerű, kézirat-szintű szétválasztás, egyesítés és kijelölés',
     pdf: 'Strukturált PDF-import geometria-alapú lábjegyzet-felismeréssel',
@@ -66,7 +66,7 @@ const STUDIO_UPDATE = {
     uiLocales: 'választható felületi lokalizáció',
   },
   de: {
-    summary: 'Open Manuscript Studio 0.3.0-beta.7 bündelt Android-/EuroOffice-Ansichtskorrekturen, wiederherstellbare Speicherversionen, die Transkribus-Modellauswahl nach Namen, ODT-Austausch als Vorschau, PO-basierte Übersetzungen und kompakte responsive Einstellungen. Das portable OMI-Format bleibt bei 0.3.0.',
+    summary: 'Open Manuscript Studio 0.3.0-beta.8 behebt doppelte Manuskripttitel beim DOCX-Import, wenn die erste nummerierte Überschrift den Dokumenttitel wiederholt. Das portable OMI-Format bleibt bei 0.3.0.',
     multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
     wordLike: 'Word-ähnliches manuskriptweites Teilen, Zusammenführen und Auswählen',
     pdf: 'Strukturierter PDF-Import mit geometriebasierter Fußnotenerkennung',
@@ -196,7 +196,7 @@ export default function Home() {
 
         <section className={styles.studio} aria-labelledby="current-development-status">
           <div className={styles.studioContent}>
-            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.3.0-beta.7 public beta</p>
+            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.3.0-beta.8 public beta</p>
             <h2 id="current-development-status">{t.status}</h2>
             <h3>{t.currentTitle}</h3>
             <p>{studioUpdate.summary}</p>
@@ -210,7 +210,7 @@ export default function Home() {
           </div>
 
           <aside className={styles.studioFeatures} aria-label={t.status}>
-            <h3>0.3.0-beta.7</h3>
+            <h3>0.3.0-beta.8</h3>
             <p>Web · Windows · Linux · macOS · Android · iOS/iPadOS</p>
             <p><strong>47</strong> selectable UI languages</p>
             <nav className={styles.contextLinks} aria-label={t.status}>
