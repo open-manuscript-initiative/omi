@@ -32,7 +32,7 @@ const COPY: Record<string, Copy> = {
     loading: 'A szerverlista betöltése…',
     unavailable: 'A szerverjegyzék most nem érhető el. Próbálja meg később.',
     empty: 'Jelenleg nincs online, nyilvánosan listázott Studio-szerver.',
-    online: 'Online',
+    online: 'Friss életjel',
     offline: 'Nem érhető el',
     open: 'Szerver megnyitása',
     version: 'Verzió',
@@ -44,7 +44,7 @@ const COPY: Record<string, Copy> = {
     loading: 'Serverliste wird geladen…',
     unavailable: 'Das Serververzeichnis ist derzeit nicht erreichbar. Bitte versuchen Sie es später erneut.',
     empty: 'Derzeit sind keine öffentlichen Studio-Server online.',
-    online: 'Online',
+    online: 'Aktuelles Lebenszeichen',
     offline: 'Nicht erreichbar',
     open: 'Server öffnen',
     version: 'Version',
@@ -56,7 +56,7 @@ const COPY: Record<string, Copy> = {
     loading: 'Loading the server list…',
     unavailable: 'The server directory is unavailable right now. Please try again later.',
     empty: 'There are no public Studio servers online right now.',
-    online: 'Online',
+    online: 'Recent heartbeat',
     offline: 'Unavailable',
     open: 'Open server',
     version: 'Version',
@@ -64,7 +64,7 @@ const COPY: Record<string, Copy> = {
   },
 };
 
-const REGISTRY_API = 'https://studio.openmanuscript.org/api/server-registry/servers';
+const REGISTRY_API = 'https://studio.openmanuscript.org/api/v1/server-registry/servers';
 
 export default function ServersPage(): React.JSX.Element {
   const {i18n} = useDocusaurusContext();

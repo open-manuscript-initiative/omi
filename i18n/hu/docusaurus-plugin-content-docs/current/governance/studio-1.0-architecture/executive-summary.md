@@ -187,3 +187,12 @@ A részmentés nem érvénytelenítheti az első mentés után a sessiont. Helyr
 A felismerési intent a képdigestet, modellt, kapcsolatot és grantet beküldés előtt rögzíti. Az elfogadott ismétlés a meglévő jobot adja vissza; bizonytalan kimenetelt nem küld újra automatikusan. Ez csökkenti a dupla kreditfogyasztást, de a provider exactly-once számlázását nem garantálja. Bizalmas lektori exportot az uploaded-image scope nem engedélyez.
 
 Telepítés előtt aktív EuroOffice-sessionök lezárása, adatbázismentés és additív migráció szükséges; a régi sessionök újranyitandók. Merge-feltétel a szintetikus regresszió és a PostgreSQL-migráció/párhuzamosság bizonyítéka. Stable-promócióhoz valódi szolgáltatói és natív eszközös elfogadás kell. ADR-024/025 rögzíti a határokat. Ez még nem kész release freeze.
+
+
+## 2026-10-21 — Federált szerverjegyzék javítása (ADR-026)
+
+A szerverjegyzék külön discovery-authority: nem account-, kézirat-, lektorálási vagy publikációs jogosultságforrás. A DNS a domain feletti rendelkezést igazolja. Az „online” kizárólag friss hitelesített heartbeatet jelent; nem szolgáltatás-egészség, kompatibilitás, kapacitás vagy megbízhatóság igazolása. A böngésző a kiválasztott originre lép; a natív kliens megtartja az origin/token határt. Nincs kézirat- vagy fióktovábbítás és automatikus terheléselosztás.
+
+Új contract: `/api/v1/server-registry`; a régi útvonal azonos handlerre és rate limitre mutató facád. A route → application service → repository, illetve GitHub audit adapter felelősségek különválnak. A nyilvános DNS-érték mellett külön titkos kérelmezői capability szükséges, 24 órás lejárattal. Atomikus PENDING → VERIFYING → ACTIVE állapotátmenet véd; bizonytalan audit esetén nincs automatikus újraküldés. Az aktív regisztrációk megmaradnak, a korábbi függőket újra kell indítani. A tokenrotáció, visszavonás és heartbeat az aktuális állapotot és tokenhash-t is összehasonlítja.
+
+Ez javítási javaslat, nem lezárt 1.0 garancia. Kötelező a negatív és két útvonalas teszt, a tényleges PostgreSQL-migráció és konkurens lifecycle-teszt, valamint kontrollált DNS/GitHub elfogadási és helyreállítási próba. Telepítési sorrend: migráció → API → kliensek/CLI/honlap. Addig Preview. A natív SecureStorage és originhez kötött account/cache ownership külön nyitott feladat.

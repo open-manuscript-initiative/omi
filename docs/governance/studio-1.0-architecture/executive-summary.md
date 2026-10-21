@@ -265,3 +265,12 @@ Force saves must not be invalidated after the first save. They become recoverabl
 Recognition submissions persist the exact image digest/model/connection/grant and request identity before spending credits. Accepted retries return the existing job; ambiguous submissions stay unknown and are not automatically reissued. This reduces duplicate spending but cannot guarantee exactly-once billing at an external provider. Confidential review export is not authorized by this uploaded-image capability.
 
 Before deployment, drain existing EuroOffice sessions, back up the database and apply the additive migration; old unbound sessions must reopen. Merge requires synthetic regression and PostgreSQL migration/concurrency evidence. Real-provider and native-device acceptance remains necessary before Stable promotion. ADR-024/025 record these boundaries. This checkpoint describes proposed repairs pending merge/CI, not a completed release freeze.
+
+
+## 2026-10-21 — Federated discovery repair checkpoint (ADR-026)
+
+The new server directory is an operational discovery authority, separate from account, manuscript, review and publication authorities. DNS proves domain control only. Heartbeat `online` denotes a recent authenticated heartbeat, not service health, compatibility, capacity or trustworthiness. Browser selection opens the chosen origin; native selection retains the existing origin/token boundary. Discovery never proxies application traffic or transfers accounts/documents automatically.
+
+The repair introduces `/api/v1/server-registry`; the old `/api/server-registry` is a shared-handler facade. The route delegates to application service, repository and GitHub audit adapters. Registration needs a private claimant capability distinct from public DNS data, expires in 24 hours, and uses database CAS for PENDING → VERIFYING → ACTIVE. Unknown audit outcomes stay quarantined without automatic issue resubmission. ACTIVE credentials survive the additive migration; old PENDING entries must re-register. Rotation/revocation/heartbeat updates compare current state and token atomically.
+
+This is a proposed repair checkpoint, not a completed 1.0 freeze. Mandatory evidence includes synthetic negative/dual-mount tests, actual PostgreSQL migration/concurrency/lifecycle tests, plus controlled external DNS/GitHub acceptance and operational recovery. Deploy migration → API → clients/CLI/website; keep discovery Preview until acceptance evidence exists. Origin-scoped account/cache ownership and native SecureStorage remain separate open work.

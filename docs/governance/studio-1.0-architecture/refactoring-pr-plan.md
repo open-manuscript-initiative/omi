@@ -364,3 +364,18 @@ Validation for the repair includes per-document workspace isolation, unchanged p
 4. **C16d — acceptance and promotion (high):** real EuroOffice repeated force-save/close/reopen/crash tests, real Transkribus interrupted submission/reconciliation, owner recovery and Android/web transport acceptance. Requires C16a–c. Keep Preview until demonstrated; do not claim exactly-once upstream billing.
 
 These can be reviewed as separate commits within a coordinated repair PR because the schema and service switch must ship together. Before application rollback disable EuroOffice and paid Transkribus execution and drain editors: old code neither writes bound-session fields nor honors the intent ledger. Retain recovery/ledger tables; do not drop captured saves or unknown paid intents. Re-enable only a schema-aware safe API. No OMI/schema migration is required. Full RC aggregation remains E02.
+
+
+## 2026-10-21 — Federated discovery repair checkpoint (ADR-026)
+
+The new server directory is an operational discovery authority, separate from account, manuscript, review and publication authorities. DNS proves domain control only. Heartbeat `online` denotes a recent authenticated heartbeat, not service health, compatibility, capacity or trustworthiness. Browser selection opens the chosen origin; native selection retains the existing origin/token boundary. Discovery never proxies application traffic or transfers accounts/documents automatically.
+
+The repair introduces `/api/v1/server-registry`; the old `/api/server-registry` is a shared-handler facade. The route delegates to application service, repository and GitHub audit adapters. Registration needs a private claimant capability distinct from public DNS data, expires in 24 hours, and uses database CAS for PENDING → VERIFYING → ACTIVE. Unknown audit outcomes stay quarantined without automatic issue resubmission. ACTIVE credentials survive the additive migration; old PENDING entries must re-register. Rotation/revocation/heartbeat updates compare current state and token atomically.
+
+This is a proposed repair checkpoint, not a completed 1.0 freeze. Mandatory evidence includes synthetic negative/dual-mount tests, actual PostgreSQL migration/concurrency/lifecycle tests, plus controlled external DNS/GitHub acceptance and operational recovery. Deploy migration → API → clients/CLI/website; keep discovery Preview until acceptance evidence exists. Origin-scoped account/cache ownership and native SecureStorage remain separate open work.
+
+| PR | Goal / files | Dependency | Tests | Phase / risk |
+|---|---|---|---|---|
+| C17a | Add registry proof/expiry migration, conditional repository and service; shared v1/legacy routes; CLI/client update | A09, existing registry | negative proof, replay, concurrency, PostgreSQL migration/lifecycle | C / high |
+| C17b | ADR-026 and five baseline documents; website v1 read and heartbeat wording | C17a API deployed before website | EN/HU docs and site builds; operator acceptance | C / medium |
+| C17c | Controlled DNS/GitHub acceptance and quarantine/lost-response recovery rehearsal | C17a–b | recorded synthetic instance, revoke, audit timeout and outage | E blocker before Stable / medium |

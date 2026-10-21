@@ -969,3 +969,12 @@ A klienscontract `/api/v1/eurooffice`, illetve `/api/v1/integrations/transkribus
 A Transkribus-szolgáltatás lejáró grantet ellenőriz, majd beküldés előtt tartós intentet ír: account/workspace/request key, kapcsolat, provider-origin, modell, képdigest, cél, uploaded-image scope, grantazonosító és lejárat. Kép, jelszó, token és felismert szöveg nem része a naplónak. ACCEPTED esetén a process ID megmarad; bizonytalan beküldés UNKNOWN/SUBMITTING állapotból ugyanazzal a kulccsal nem indul újra. Az elfogadott ismétlés meglévő jobot olvas, eltérő payload ütközés. A kliens beküldés előtt menti a kulcsot. Ez nem engedély bizalmas kézirat vagy lektori adat automatikus továbbítására.
 
 Mindkét képesség Preview marad valódi szolgáltatói/platform-elfogadásig. ADR-024/025 egészíti ki az ADR-006/007/008/014/015/016/017 döntéseket. Ez merge, migráció és CI előtti javítási terv, nem kész stabil garancia.
+
+
+## 2026-10-21 — Federált szerverjegyzék javítása (ADR-026)
+
+A szerverjegyzék külön discovery-authority: nem account-, kézirat-, lektorálási vagy publikációs jogosultságforrás. A DNS a domain feletti rendelkezést igazolja. Az „online” kizárólag friss hitelesített heartbeatet jelent; nem szolgáltatás-egészség, kompatibilitás, kapacitás vagy megbízhatóság igazolása. A böngésző a kiválasztott originre lép; a natív kliens megtartja az origin/token határt. Nincs kézirat- vagy fióktovábbítás és automatikus terheléselosztás.
+
+Új contract: `/api/v1/server-registry`; a régi útvonal azonos handlerre és rate limitre mutató facád. A route → application service → repository, illetve GitHub audit adapter felelősségek különválnak. A nyilvános DNS-érték mellett külön titkos kérelmezői capability szükséges, 24 órás lejárattal. Atomikus PENDING → VERIFYING → ACTIVE állapotátmenet véd; bizonytalan audit esetén nincs automatikus újraküldés. Az aktív regisztrációk megmaradnak, a korábbi függőket újra kell indítani. A tokenrotáció, visszavonás és heartbeat az aktuális állapotot és tokenhash-t is összehasonlítja.
+
+Ez javítási javaslat, nem lezárt 1.0 garancia. Kötelező a negatív és két útvonalas teszt, a tényleges PostgreSQL-migráció és konkurens lifecycle-teszt, valamint kontrollált DNS/GitHub elfogadási és helyreállítási próba. Telepítési sorrend: migráció → API → kliensek/CLI/honlap. Addig Preview. A natív SecureStorage és originhez kötött account/cache ownership külön nyitott feladat.
