@@ -285,3 +285,17 @@ A javítás ellenőrzése: dokumentumonkénti módizoláció, változatlan hordo
 | Kreditfogyasztó felismerés | HARDEN | Lejáró grant és képdigesthez kötött tartós intent | Elfogadott ismétlés, payloadütközés, UNKNOWN kimenetel; a külső számlázás exactly-once garanciája nem állítható |
 
 A külön DOCX-tárolás szándékos, nem OMI-sémaváltozás. A korábbi egyszerű szerkesztési mód eltávolítása felülírja a történeti munkatérmód-leírást; editorMode nem kerül vissza a hordozható modellbe. A javítások merge és migrációs/CI-bizonyíték előtt tervezett állapotúak.
+
+
+## 2026-10-21 — Federált szerverjegyzék javítása (ADR-026)
+
+A szerverjegyzék külön discovery-authority: nem account-, kézirat-, lektorálási vagy publikációs jogosultságforrás. A DNS a domain feletti rendelkezést igazolja. Az „online” kizárólag friss hitelesített heartbeatet jelent; nem szolgáltatás-egészség, kompatibilitás, kapacitás vagy megbízhatóság igazolása. A böngésző a kiválasztott originre lép; a natív kliens megtartja az origin/token határt. Nincs kézirat- vagy fióktovábbítás és automatikus terheléselosztás.
+
+Új contract: `/api/v1/server-registry`; a régi útvonal azonos handlerre és rate limitre mutató facád. A route → application service → repository, illetve GitHub audit adapter felelősségek különválnak. A nyilvános DNS-érték mellett külön titkos kérelmezői capability szükséges, 24 órás lejárattal. Atomikus PENDING → VERIFYING → ACTIVE állapotátmenet véd; bizonytalan audit esetén nincs automatikus újraküldés. Az aktív regisztrációk megmaradnak, a korábbi függőket újra kell indítani. A tokenrotáció, visszavonás és heartbeat az aktuális állapotot és tokenhash-t is összehasonlítja.
+
+Ez javítási javaslat, nem lezárt 1.0 garancia. Kötelező a negatív és két útvonalas teszt, a tényleges PostgreSQL-migráció és konkurens lifecycle-teszt, valamint kontrollált DNS/GitHub elfogadási és helyreállítási próba. Telepítési sorrend: migráció → API → kliensek/CLI/honlap. Addig Preview. A natív SecureStorage és originhez kötött account/cache ownership külön nyitott feladat.
+
+| Component | Status | Gap / target | Next step | Risk |
+|---|---|---|---|---|
+| Registry routes / service / repository | SPLIT / HARDEN | Private proof, v1 and CAS replace route-owned verification | Merge repair, migration and dual-mount tests | high |
+| Registry audit and operational recovery | HARDEN | Quarantine unknown side effects; no blind replay | Operator DNS/GitHub/recovery acceptance; future durable audit tooling | medium |

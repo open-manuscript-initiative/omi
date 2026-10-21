@@ -375,3 +375,17 @@ Validation for the repair includes per-document workspace isolation, unchanged p
 | Paid recognition | HARDEN | Module toggle/consent alone → expiring grant and durable digest-bound intent | Unique request key, ACCEPTED/UNKNOWN status, no automatic paid retry | Provider cannot guarantee exactly-once billing; unknown outcomes require external reconciliation |
 
 The separate ordinary-DOCX storage is intentional and does not change OMI schema/container semantics. Historical simple-writing-mode checkpoint text is superseded by its subsequent removal; no portable editorMode field is reintroduced. Repairs are proposed until merged and migration/CI evidence is available.
+
+
+## 2026-10-21 — Federated discovery repair checkpoint (ADR-026)
+
+The new server directory is an operational discovery authority, separate from account, manuscript, review and publication authorities. DNS proves domain control only. Heartbeat `online` denotes a recent authenticated heartbeat, not service health, compatibility, capacity or trustworthiness. Browser selection opens the chosen origin; native selection retains the existing origin/token boundary. Discovery never proxies application traffic or transfers accounts/documents automatically.
+
+The repair introduces `/api/v1/server-registry`; the old `/api/server-registry` is a shared-handler facade. The route delegates to application service, repository and GitHub audit adapters. Registration needs a private claimant capability distinct from public DNS data, expires in 24 hours, and uses database CAS for PENDING → VERIFYING → ACTIVE. Unknown audit outcomes stay quarantined without automatic issue resubmission. ACTIVE credentials survive the additive migration; old PENDING entries must re-register. Rotation/revocation/heartbeat updates compare current state and token atomically.
+
+This is a proposed repair checkpoint, not a completed 1.0 freeze. Mandatory evidence includes synthetic negative/dual-mount tests, actual PostgreSQL migration/concurrency/lifecycle tests, plus controlled external DNS/GitHub acceptance and operational recovery. Deploy migration → API → clients/CLI/website; keep discovery Preview until acceptance evidence exists. Origin-scoped account/cache ownership and native SecureStorage remain separate open work.
+
+| Component | Status | Gap / target | Next step | Risk |
+|---|---|---|---|---|
+| Registry routes / service / repository | SPLIT / HARDEN | Private proof, v1 and CAS replace route-owned verification | Merge repair, migration and dual-mount tests | high |
+| Registry audit and operational recovery | HARDEN | Quarantine unknown side effects; no blind replay | Operator DNS/GitHub/recovery acceptance; future durable audit tooling | medium |

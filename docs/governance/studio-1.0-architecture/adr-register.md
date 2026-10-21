@@ -43,6 +43,8 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 ---
 
+| ADR-026 | Federated server discovery authority | Proposed repair / Preview |
+
 ## ADR-001 — OMI file-format source of truth
 
 **Question.** Which artifact is the normative wire-format authority: TypeScript interfaces, JSON Schema, or prose specification?
@@ -535,3 +537,28 @@ Validation for the repair includes per-document workspace isolation, unchanged p
 **Consequences.** Additive persistence and v1 status contract, retained unknown outcomes, explicit provider-side reconciliation. Generic retries never spend more credits. Existing stateless job handles remain account bound; the paid ledger is not an OMI history or publication-identity record.
 
 **Revisit when.** The provider exposes a verified idempotency/reconciliation API or confidential research export is requested; then extend the authorization/data-minimization contract before enabling it.
+
+
+## 2026-10-21 — Federated discovery repair checkpoint (ADR-026)
+
+The new server directory is an operational discovery authority, separate from account, manuscript, review and publication authorities. DNS proves domain control only. Heartbeat `online` denotes a recent authenticated heartbeat, not service health, compatibility, capacity or trustworthiness. Browser selection opens the chosen origin; native selection retains the existing origin/token boundary. Discovery never proxies application traffic or transfers accounts/documents automatically.
+
+The repair introduces `/api/v1/server-registry`; the old `/api/server-registry` is a shared-handler facade. The route delegates to application service, repository and GitHub audit adapters. Registration needs a private claimant capability distinct from public DNS data, expires in 24 hours, and uses database CAS for PENDING → VERIFYING → ACTIVE. Unknown audit outcomes stay quarantined without automatic issue resubmission. ACTIVE credentials survive the additive migration; old PENDING entries must re-register. Rotation/revocation/heartbeat updates compare current state and token atomically.
+
+This is a proposed repair checkpoint, not a completed 1.0 freeze. Mandatory evidence includes synthetic negative/dual-mount tests, actual PostgreSQL migration/concurrency/lifecycle tests, plus controlled external DNS/GitHub acceptance and operational recovery. Deploy migration → API → clients/CLI/website; keep discovery Preview until acceptance evidence exists. Origin-scoped account/cache ownership and native SecureStorage remain separate open work.
+
+### ADR-026 — Federated server discovery authority
+
+**Status:** Proposed repair; Preview pending CI and operator acceptance.
+
+**Question:** How can independent Studio instances advertise availability without inheriting account, editorial or manuscript authority?
+
+**Decision:** Keep opt-in metadata discovery separate from all application traffic. Registry DB owns registration/token/liveness state; GitHub issues are audit evidence, not an authoritative catalogue of current membership. Require private expiring claimant capability plus public DNS proof, atomic single-owner activation, hashed credentials and CAS rotation/revocation. Unknown GitHub outcomes are quarantined for reconciliation. Use v1 contracts with shared legacy facades and service/repository/adaptor separation.
+
+**Alternatives:** Public DNS alone (cannot authenticate the recipient); GitHub as live database (unnecessary coupling); automatic retries after uncertain issue creation (duplicates); proxy/load balancer (outside discovery scope).
+
+**Reason:** Prevent public proof replay and token races while preserving decentralized Studio operation.
+
+**Consequences:** An additive DB migration invalidates old pending registrations only. Operators retain the private registration token for verification. Lost activation responses and uncertain audit results require controlled reconciliation and fresh registration. Heartbeat is not health/compatibility certification. Tests must cover real database races and credential scope; external acceptance is still required.
+
+**Review trigger:** Dedicated registry hosting, independent moderation, DNS revalidation policy, durable audit outbox/reconciliation tooling, compatibility certification, or any automatic server/account/document movement.

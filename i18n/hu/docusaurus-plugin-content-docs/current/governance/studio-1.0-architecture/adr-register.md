@@ -40,6 +40,8 @@ description: A Studio 1.0 architektúra döntési nyilvántartása és a Phase A
 
 ---
 
+| ADR-026 | Federated server discovery authority | Proposed repair / Preview |
+
 ## ADR-001 — OMI file-format source of truth
 
 **Kérdés.** A TypeScript interface-ek, a JSON Schema és a specifikáció közül melyik a wire format normatív forrása?
@@ -470,3 +472,28 @@ A javítás ellenőrzése: dokumentumonkénti módizoláció, változatlan hordo
 **Következmények:** additív perzisztencia és v1-statuscontract, megőrzött ismeretlen kimenetelek és explicit provider-oldali egyeztetés. Generikus retry nem fogyaszthat újra kreditet. A job-handle accountkötött; a ledger nem OMI-history vagy publikációsidentitás-bizonyíték.
 
 **Felülvizsgálat:** igazolt provider-idempotencia/egyeztetési API vagy bizalmas kutatási export igénye esetén, a képesség engedélyezése előtt.
+
+
+## 2026-10-21 — Federált szerverjegyzék javítása (ADR-026)
+
+A szerverjegyzék külön discovery-authority: nem account-, kézirat-, lektorálási vagy publikációs jogosultságforrás. A DNS a domain feletti rendelkezést igazolja. Az „online” kizárólag friss hitelesített heartbeatet jelent; nem szolgáltatás-egészség, kompatibilitás, kapacitás vagy megbízhatóság igazolása. A böngésző a kiválasztott originre lép; a natív kliens megtartja az origin/token határt. Nincs kézirat- vagy fióktovábbítás és automatikus terheléselosztás.
+
+Új contract: `/api/v1/server-registry`; a régi útvonal azonos handlerre és rate limitre mutató facád. A route → application service → repository, illetve GitHub audit adapter felelősségek különválnak. A nyilvános DNS-érték mellett külön titkos kérelmezői capability szükséges, 24 órás lejárattal. Atomikus PENDING → VERIFYING → ACTIVE állapotátmenet véd; bizonytalan audit esetén nincs automatikus újraküldés. Az aktív regisztrációk megmaradnak, a korábbi függőket újra kell indítani. A tokenrotáció, visszavonás és heartbeat az aktuális állapotot és tokenhash-t is összehasonlítja.
+
+Ez javítási javaslat, nem lezárt 1.0 garancia. Kötelező a negatív és két útvonalas teszt, a tényleges PostgreSQL-migráció és konkurens lifecycle-teszt, valamint kontrollált DNS/GitHub elfogadási és helyreállítási próba. Telepítési sorrend: migráció → API → kliensek/CLI/honlap. Addig Preview. A natív SecureStorage és originhez kötött account/cache ownership külön nyitott feladat.
+
+### ADR-026 — Federált szerverfelderítés authority-határa
+
+**Állapot:** javasolt javítás; Preview, amíg a CI és üzemeltetői elfogadás nem teljesül.
+
+**Kérdés:** hogyan hirdethetik független Studio-példányok az elérhetőségüket account-, szerkesztői és kézirat-authority megszerzése nélkül?
+
+**Döntés:** opt-in metadata-jegyzék, alkalmazási forgalom továbbítása nélkül. A registry adatbázisa authoritative a regisztráció, token és heartbeat tekintetében; a GitHub issue auditnyom, nem aktuális tagsági adatbázis. Külön privát, lejáró kérelmezői capability és nyilvános DNS-bizonyíték, atomikus aktiválás, hash-elt titkok és feltételes rotáció/visszavonás szükséges. Bizonytalan audit elkülönített állapotban marad, egyeztetésig. v1 contract és közös legacy facád; route/service/repository/adapter szétválasztás.
+
+**Alternatívák:** csak DNS (nem hitelesíti a token címzettjét); GitHub mint élő adatbázis (felesleges kapcsolás); bizonytalan issue POST automatikus ismétlése (duplikáció); proxy/terheléselosztó (más feladat).
+
+**Indok:** nyilvános bizonyíték újrajátszásának és tokenversenynek a kivédése a decentralizált működés megőrzésével.
+
+**Következmények:** additív migráció, kizárólag a régi függő regisztrációk érvénytelenítésével. Az üzemeltető titokban őrzi a verification capability-t. Elveszett aktiválási válasz és bizonytalan audit kontrollált egyeztetést és új regisztrációt igényel. A heartbeat nem egészség- vagy kompatibilitásigazolás. Valódi adatbázis-versenytesztek és külső elfogadás szükséges.
+
+**Felülvizsgálat feltétele:** külön registry-host, moderáció, DNS-újraellenőrzési szabály, tartós audit-outbox vagy egyeztető eszközök, kompatibilitástanúsítás, automatikus fiók-/kéziratmozgatás.

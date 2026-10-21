@@ -296,3 +296,18 @@ A javítás ellenőrzése: dokumentumonkénti módizoláció, változatlan hordo
 4. **C16d — elfogadás, high:** valódi EuroOffice részmentés/lezárás/reopen/crash és Transkribus megszakított beküldés/egyeztetés, Android/web és tulajdonosi recovery. Preview-promóció csak bizonyíték után; külső exactly-once számlázás nem ígérhető.
 
 A közösen telepítendő sémát és szolgáltatásváltást koordinált PR külön commitjaiként lehet vizsgálni. Rollback előtt az EuroOffice és a fizetős Transkribus-végrehajtás letiltása és az aktív szerkesztők lezárása szükséges: a régi kód nem ír kötött sessionmezőket és nem tartja tiszteletben az intentnaplót. Az új táblák és a megőrzött mentések/ismeretlen intentek nem törölhetők; újraengedélyezés csak sématudatos, biztonságos API-val. OMI-formátummigráció nincs. Az RC-aggregátor továbbra is E02.
+
+
+## 2026-10-21 — Federált szerverjegyzék javítása (ADR-026)
+
+A szerverjegyzék külön discovery-authority: nem account-, kézirat-, lektorálási vagy publikációs jogosultságforrás. A DNS a domain feletti rendelkezést igazolja. Az „online” kizárólag friss hitelesített heartbeatet jelent; nem szolgáltatás-egészség, kompatibilitás, kapacitás vagy megbízhatóság igazolása. A böngésző a kiválasztott originre lép; a natív kliens megtartja az origin/token határt. Nincs kézirat- vagy fióktovábbítás és automatikus terheléselosztás.
+
+Új contract: `/api/v1/server-registry`; a régi útvonal azonos handlerre és rate limitre mutató facád. A route → application service → repository, illetve GitHub audit adapter felelősségek különválnak. A nyilvános DNS-érték mellett külön titkos kérelmezői capability szükséges, 24 órás lejárattal. Atomikus PENDING → VERIFYING → ACTIVE állapotátmenet véd; bizonytalan audit esetén nincs automatikus újraküldés. Az aktív regisztrációk megmaradnak, a korábbi függőket újra kell indítani. A tokenrotáció, visszavonás és heartbeat az aktuális állapotot és tokenhash-t is összehasonlítja.
+
+Ez javítási javaslat, nem lezárt 1.0 garancia. Kötelező a negatív és két útvonalas teszt, a tényleges PostgreSQL-migráció és konkurens lifecycle-teszt, valamint kontrollált DNS/GitHub elfogadási és helyreállítási próba. Telepítési sorrend: migráció → API → kliensek/CLI/honlap. Addig Preview. A natív SecureStorage és originhez kötött account/cache ownership külön nyitott feladat.
+
+| PR | Goal / files | Dependency | Tests | Phase / risk |
+|---|---|---|---|---|
+| C17a | Add registry proof/expiry migration, conditional repository and service; shared v1/legacy routes; CLI/client update | A09, existing registry | negative proof, replay, concurrency, PostgreSQL migration/lifecycle | C / high |
+| C17b | ADR-026 and five baseline documents; website v1 read and heartbeat wording | C17a API deployed before website | EN/HU docs and site builds; operator acceptance | C / medium |
+| C17c | Controlled DNS/GitHub acceptance and quarantine/lost-response recovery rehearsal | C17a–b | recorded synthetic instance, revoke, audit timeout and outage | E blocker before Stable / medium |

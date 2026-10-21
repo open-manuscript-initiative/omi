@@ -909,3 +909,12 @@ Transkribus uses `/api/v1/integrations/transkribus` and `/api/v1/modules/critica
 A shared platform transport resolves the selected native origin and bearer token on each request. EuroOffice and Transkribus no longer implement their own Tauri/localStorage token paths. Existing native origin switching invalidates the prior token.
 
 Both capabilities remain Preview until real provider and platform acceptance. ADR-024/025 supplement ADR-006/007/008/014/015/016/017. The proposed repair requires merge, migration and CI evidence before it becomes an implemented guarantee.
+
+
+## 2026-10-21 — Federated discovery repair checkpoint (ADR-026)
+
+The new server directory is an operational discovery authority, separate from account, manuscript, review and publication authorities. DNS proves domain control only. Heartbeat `online` denotes a recent authenticated heartbeat, not service health, compatibility, capacity or trustworthiness. Browser selection opens the chosen origin; native selection retains the existing origin/token boundary. Discovery never proxies application traffic or transfers accounts/documents automatically.
+
+The repair introduces `/api/v1/server-registry`; the old `/api/server-registry` is a shared-handler facade. The route delegates to application service, repository and GitHub audit adapters. Registration needs a private claimant capability distinct from public DNS data, expires in 24 hours, and uses database CAS for PENDING → VERIFYING → ACTIVE. Unknown audit outcomes stay quarantined without automatic issue resubmission. ACTIVE credentials survive the additive migration; old PENDING entries must re-register. Rotation/revocation/heartbeat updates compare current state and token atomically.
+
+This is a proposed repair checkpoint, not a completed 1.0 freeze. Mandatory evidence includes synthetic negative/dual-mount tests, actual PostgreSQL migration/concurrency/lifecycle tests, plus controlled external DNS/GitHub acceptance and operational recovery. Deploy migration → API → clients/CLI/website; keep discovery Preview until acceptance evidence exists. Origin-scoped account/cache ownership and native SecureStorage remain separate open work.
