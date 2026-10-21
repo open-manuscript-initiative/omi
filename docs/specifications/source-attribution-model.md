@@ -12,7 +12,7 @@ description: Semantic links between OMI objects and the bibliographic records of
 
 **Draft**
 
-Version: 0.1.0
+Version: 0.2.0
 
 **Depends on:** OMI-SPEC-120 (Scholarly Object Model), OMI-SPEC-220 (Bibliographic Record Model)  
 **Related:** OMI-SPEC-110 (Anchor Model), OMI-SPEC-210 (Citation Model), OMI-SPEC-320 (File Format)
@@ -71,6 +71,18 @@ If a bibliographic record is merged or replaced, every attribution targeting it 
 
 Technical import provenance MAY record portable facts such as source format, import time, source part, importing agent, and software. It MUST remain separate from the bibliographic source claim.
 
+Importing a manuscript MUST NOT, by itself, create a source attribution or a
+visible citation. An application MAY offer the author a source-attribution
+prompt. It MUST allow an author who identifies the imported work as their own
+to continue without adding a source attribution or citation. The absence of a
+source attribution means that no source relationship was asserted; it does
+not assert authorship, ownership, permission, or public-domain status.
+
+An attribution is metadata about a manuscript object and MUST NOT make that
+object immutable or prevent ordinary editing, restructuring, or deletion. If
+the attributed object is deleted, the attribution MUST be removed or resolved
+in the same transaction so that it cannot become a dangling relationship.
+
 Local filesystem paths, temporary URLs, access tokens, and private reviewer or account data MUST NOT be copied into portable public attribution fields.
 
 A declaration that imported work was previously authored outside OMI MUST NOT be presented as independently verified authorship. It does not require a public citation to a local file.
@@ -90,3 +102,4 @@ When an output format cannot represent the attribution, an exporter SHOULD prese
 ## 9. Change history
 
 - **0.1.0** — Initial source-attribution and derivation model.
+- **0.2.0** — Clarified that import alone does not assert a bibliographic source, own-work imports may omit attribution, and source metadata must not restrict editing or deletion.
