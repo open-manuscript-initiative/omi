@@ -7,7 +7,7 @@ sidebar_label: Forrás- és eredetkapcsolati modell
 # OMI-SPEC-225 — Forrás- és eredetkapcsolati modell
 
 **Állapot:** Tervezet  
-**Verzió:** 0.1.0  
+**Verzió:** 0.2.0
 **Angol normatív szöveg:** [Source and Derivation Model](https://github.com/open-manuscript-initiative/omi/blob/main/docs/specifications/source-attribution-model.md)
 
 ## Cél és fogalmak
@@ -41,3 +41,11 @@ A technikai importadatok külön maradnak. Helyi fájlútvonal, ideiglenes URL, 
 Ellenőrizni kell a forrásobjektum és a bibliográfiai rekord feloldhatóságát, az azonosítók egyediségét, valamint a predikátum, státusz és lokátor helyességét. A feloldatlan kapcsolat nem dobható el csendben.
 
 Az OMI-SPEC-320@0.3.0 a kapcsolatokat a kötelező sourceAttributions tömbben szerializálja.
+
+## Saját mű importja és szabad szerkesztése
+
+Az import önmagában nem hozhat létre bibliográfiai forrásállítást vagy látható hivatkozást. A szerző saját műként jelölt importját forrásfelirat nélkül is engedélyezni kell. A forráskapcsolat hiánya nem igazol szerzőséget, tulajdonjogot vagy felhasználási engedélyt.
+
+A forrásmetaadat nem akadályozhat szerkesztést, átrendezést vagy törlést. Egy forráskapcsolattal rendelkező objektum törlésekor a kapcsolatot ugyanabban a tranzakcióban törölni vagy feloldani kell.
+
+A Studio DOCX/ODT/PDF importnál a kifejezett sajátmű-választást a dokumentum `https://openmanuscript.org/extensions/manuscript-import-origin/1` kiterjesztésében őrzi: `version: 1`, `sourceFormat` (`docx`, `odt`, `pdf`), `importedAt` (UTC), `assertion: author-declared:self-authored-outside-omi`. Nem tartalmaz fájlnevet, útvonalat, URL-t, account- vagy tartalomazonosítót. Nincs blokkhoz vagy címsorhoz horgonyozva: minden dokumentumrész szabadon szerkeszthető, cserélhető, mozgatható és törölhető. Történeti önnyilatkozat, nem a későbbi módosítások szerzőségének igazolása. A munkafájl és a core-snapshot megőrzi; a nyilvános publikáció és anonim review-projekció kihagyja. Ehhez nem szükséges új OMI-fájlformátum-verzió.

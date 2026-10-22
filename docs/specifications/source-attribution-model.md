@@ -87,6 +87,18 @@ Local filesystem paths, temporary URLs, access tokens, and private reviewer or a
 
 A declaration that imported work was previously authored outside OMI MUST NOT be presented as independently verified authorship. It does not require a public citation to a local file.
 
+Applications MAY retain an explicit own-work declaration as document-level
+technical import metadata. Studio uses the existing namespaced extension
+`https://openmanuscript.org/extensions/manuscript-import-origin/1` with
+`version: 1`, `sourceFormat` (`docx`, `odt`, or `pdf`), `importedAt` (UTC
+timestamp), and `assertion: "author-declared:self-authored-outside-omi"`.
+This extension has no content target and MUST NOT constrain editing, moving,
+replacing or deleting any document part. It describes the declaration made at
+import time, not the authorship of subsequent edits. It contains no filename,
+path, URL or account identity. Working files and core snapshots preserve it;
+public publication and anonymous review projections omit it. This optional
+extension does not require a new OMI file-format version.
+
 ## 7. Validation
 
 A conforming consumer or validator MUST check that attribution IDs are unique, sourceObjectId resolves to an addressable object, targetBibliographicRecordId resolves to a bibliographic record, predicate and assertionStatus are valid, and an optional locator is structurally valid.
