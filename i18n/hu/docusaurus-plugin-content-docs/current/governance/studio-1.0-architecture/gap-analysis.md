@@ -299,3 +299,12 @@ Ez javítási javaslat, nem lezárt 1.0 garancia. Kötelező a negatív és két
 |---|---|---|---|---|
 | Registry routes / service / repository | SPLIT / HARDEN | Private proof, v1 and CAS replace route-owned verification | Merge repair, migration and dual-mount tests | high |
 | Registry audit and operational recovery | HARDEN | Quarantine unknown side effects; no blind replay | Operator DNS/GitHub/recovery acceptance; future durable audit tooling | medium |
+
+
+## 2026-10-22 — Dokumentumszintű importeredet pontosítása (ADR-023)
+
+Ez a pontosítás felülírja a teljes kézirat sajátmű-nyilatkozatának tartalomhoz horgonyzását. Az OMI-SPEC-225@0.2.0 megengedi saját mű importját bibliográfiai forrásmegjelölés nélkül. A szerző kifejezett sajátmű-választása DOCX/ODT/PDF importnál a `https://openmanuscript.org/extensions/manuscript-import-origin/1` dokumentumkiterjesztésben marad meg: `version: 1`, `sourceFormat`, `importedAt`, `assertion: author-declared:self-authored-outside-omi`. Ez önnyilatkozat, nem hivatkozás vagy igazolt szerzőség. Fájlnév, elérési út, URL, accountazonosító, szakasz-, blokk- és horgonyazonosító nem kerül bele. Más importutak objektumonkénti szabályai megmaradnak.
+
+A dokumentum minden része szabadon szerkeszthető, cserélhető, mozgatható és törölhető. A rekord dokumentummetaadat, nem tartalomkapcsolat; az összes importált tartalom cseréje sem hoz létre hibás horgonyt. Történeti importnyilatkozatot rögzít, nem a későbbi módosítások szerzőségét. A munkafájl, a revision snapshot és a history nélküli core-snapshot megőrzi a meglévő névteres kiterjesztésben, sémaverzió-emelés nélkül. A nyilvános publikációs projekció kihagyja a rekordot az eredeti módosítása nélkül; az anonim szerveroldali review-projekció továbbra is allow-list alapján készül, és nem tartalmazza.
+
+Ellenőrzés: saját DOCX/ODT/PDF import, tartalom és címsor törlése/cseréje, mentés–újranyitás, history nélküli core-snapshot round-trip, revision snapshot, nyilvános export és anonim review-szűrés. A meglévő szerkesztő, importparser és history engine megtartandó. Adatbázis-migráció és régi jelölések konverziója nem szükséges. A javítás a Studio PR merge-je és CI-ellenőrzése előtt tervezett állapotú.

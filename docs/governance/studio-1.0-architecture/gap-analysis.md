@@ -389,3 +389,12 @@ This is a proposed repair checkpoint, not a completed 1.0 freeze. Mandatory evid
 |---|---|---|---|---|
 | Registry routes / service / repository | SPLIT / HARDEN | Private proof, v1 and CAS replace route-owned verification | Merge repair, migration and dual-mount tests | high |
 | Registry audit and operational recovery | HARDEN | Quarantine unknown side effects; no blind replay | Operator DNS/GitHub/recovery acceptance; future durable audit tooling | medium |
+
+
+## 2026-10-22 — Document import origin clarification (ADR-023)
+
+This checkpoint supersedes the requirement to anchor whole-manuscript own-work declarations to imported content. OMI-SPEC-225@0.2.0 permits own-work imports without bibliographic attribution. An explicit own-work choice for DOCX, ODT or PDF stores the version-1 `https://openmanuscript.org/extensions/manuscript-import-origin/1` document extension: `sourceFormat`, `importedAt`, and `assertion: author-declared:self-authored-outside-omi`. It is self-attestation, separate from a citation and verified authorship. No filename, path, URL, account identity, section ID, block ID or anchor is stored. Other import paths retain their existing per-object policy.
+
+Every document part remains editable, replaceable, movable and deletable. The declaration is document metadata and creates no content relationship; replacing all imported content does not produce dangling anchors. It records a historical import declaration, not authorship of later edits. Working OMI, history snapshots and core-snapshot interchange preserve it via the existing namespaced extension contract, without a schema-version change. Public publication projections omit the extension without mutating the working document; anonymous server review projections remain allow-listed and exclude it.
+
+Validation for the repair: DOCX/ODT/PDF own-work intake, deletion/replacement of imported content and titles, save/reopen, history-free core-snapshot round-trip, revision snapshot retention, public export omission and anonymous review filtering. Keep the existing editor, import parsers and revision engine. No database migration or legacy-marker conversion is required. Deployment status remains proposed until the coordinated Studio repair is merged and CI passes.
