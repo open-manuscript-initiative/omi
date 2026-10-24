@@ -28,7 +28,7 @@ Díky tomuto oddělení lze stejný rukopis OMI přizpůsobit pro různé časop
 
 ## Aktuální stav implementace
 
-Funkce popsané na této stránce jsou součástí veřejné verze Studio `0.3.0-beta.8`.
+Funkce popsané na této stránce jsou součástí veřejné verze Studio `0.3.0-beta.9`.
 
 ### Opakovaně použitelné pojmenované styly publikací
 
