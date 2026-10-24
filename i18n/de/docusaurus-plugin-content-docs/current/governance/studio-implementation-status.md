@@ -31,7 +31,7 @@ keywords:
 |---|---|
 | Status | **Beta** |
 | Erfassungsdatum | **07.10.2026** |
-| Aktuelle Produktreihe | `0.3.0-beta.8` |
+| Aktuelle Produktreihe | `0.3.0-beta.9` |
 | Referenzimplementierung | Open Manuscript Studio |
 | Quell-Repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web-Ziel | Moderne Browser |
@@ -39,7 +39,7 @@ keywords:
 | Mobile Zielplattformen | Öffentliche universelle APK für Android; validiertes natives Simulator-Ziel für iOS/iPadOS, wobei die Verteilung über TestFlight/App Store noch der Signierung durch Apple Developer bedarf |
 | Webbereitstellung | `studio.openmanuscript.org` |
 
-Die aktuelle Studio-Beta-Version ist **`0.3.0-beta.8`**. Sie bündelt Android-/EuroOffice-Ansichtskorrekturen, wiederherstellbare Speicherversionen, Transkribus-Erkennung mit Modellauswahl nach Namen, ODT-Austausch als Vorschau, PO-basierte Übersetzungen und kompakte responsive Einstellungen. Das portable Format bleibt bei `OMI-SPEC-320@0.3.0`. Die [Versionshinweise](/docs/studio/releases/0.3.0-beta.8) dokumentieren Paketversionen und Bereitstellung. „Beta“ bedeutet **nicht**, dass jede optionale Integration oder jeder Vertriebskanal produktionsreif ist.
+Die aktuelle Studio-Beta-Version ist **`0.3.0-beta.9`**. Sie bündelt Android-/EuroOffice-Ansichtskorrekturen, wiederherstellbare Speicherversionen, Transkribus-Erkennung mit Modellauswahl nach Namen, ODT-Austausch als Vorschau, PO-basierte Übersetzungen und kompakte responsive Einstellungen. Das portable Format bleibt bei `OMI-SPEC-320@0.3.0`. Die [Versionshinweise](/docs/studio/releases/0.3.0-beta.9) dokumentieren Paketversionen und Bereitstellung. „Beta“ bedeutet **nicht**, dass jede optionale Integration oder jeder Vertriebskanal produktionsreif ist.
 
 Auf dieser Seite werden **implementierte Produktfunktionen** beschrieben, nicht die Konformität mit der „OMI“-Spezifikation. Der Reifegrad der formalen Spezifikation und Nachweise zur Konformität werden separat im „[OMI Implementation Status Matrix](./implementation-status-matrix.md)“ erfasst.
 
@@ -152,7 +152,7 @@ Die aktuellen Integrationen unter OJS und OMP sind für die Begutachtungsarbeit 
 
 ## Veröffentlichung und Vertrieb
 
-`0.3.0-beta.8` ist die aktuelle Beta-Release-Reihe von Studio. „GitHub Actions“ erstellt Release-Artefakte aus dem gemeinsamen Quellcode-Baum für Windows, Linux, macOS und Android. Auf der öffentlichen Studio-Download-Seite können die verfügbaren nativen Pakete, einschließlich der universellen Android-APK, über den Browser abgerufen werden.
+`0.3.0-beta.9` ist die aktuelle Beta-Release-Reihe von Studio. „GitHub Actions“ erstellt Release-Artefakte aus dem gemeinsamen Quellcode-Baum für Windows, Linux, macOS und Android. Auf der öffentlichen Studio-Download-Seite können die verfügbaren nativen Pakete, einschließlich der universellen Android-APK, über den Browser abgerufen werden.
 
 Für iOS/iPadOS gibt es derzeit einen funktionierenden CI-Simulator-Build, jedoch keine öffentliche IPA-Datei. Der Apple-Vertriebsweg ist zwar vorbereitet, wird jedoch bewusst von der Simulator-Validierung getrennt: Für öffentliche Builds und Geräte-Builds sind die echte Apple Development Team ID, das Vertriebszertifikat, das Provisioning-Profil sowie die endgültige Konfiguration der „`apple-app-site-association`“ erforderlich, bevor die Veröffentlichung über TestFlight bzw. im App Store beantragt werden kann.
 
