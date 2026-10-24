@@ -34,7 +34,7 @@ Aktuální stav vývoje:
 - předávání ověřovacích údajů v nativním mobilním prostředí je sdílené s Androidem;
 - Veřejná distribuce prostřednictvím TestFlight a App Store **zatím nebyla zprovozněna**, protože je ještě třeba nakonfigurovat podpisové údaje Apple Developer a finální přiřazení univerzálních odkazů.
 
-Současná veřejná řada verzí ve Studiu je `0.3.0-beta.9`. Metadata balíčku v App Storu pro iOS používají zkrácenou verzi a číslo sestavení kompatibilní s Apple, přičemž v uživatelském rozhraní aplikace a v dokumentaci projektu zůstává zachována identita verze ze Studia.
+Současná veřejná řada verzí ve Studiu je `0.3.0-beta.10`. Metadata balíčku v App Storu pro iOS používají zkrácenou verzi a číslo sestavení kompatibilní s Apple, přičemž v uživatelském rozhraní aplikace a v dokumentaci projektu zůstává zachována identita verze ze Studia.
 
 ## Identita aplikace
 
@@ -43,8 +43,8 @@ Současná veřejná řada verzí ve Studiu je `0.3.0-beta.9`. Metadata balíčk
 | Identifikátor balíčku | `org.openmanuscript.studio` |
 | Minimální požadavky na platformu | iOS/iPadOS 14.0 |
 | Zkrácená verze v App Store | `0.3.0` |
-| Číslo sestavení v App Store | `21` |
-| Řada produktů Studio | `0.3.0-beta.9` |
+| Číslo sestavení v App Store | `22` |
+| Řada produktů Studio | `0.3.0-beta.10` |
 
 Zkrácené označení verzí/číslování sestavení společnosti Apple představuje metadata balíčku. Nemění verzi schématu OMI ani nevytváří samostatnou řadu dokumentů o kompatibilitě s iOS.
 
