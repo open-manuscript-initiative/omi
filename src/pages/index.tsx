@@ -20,7 +20,7 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
 
 const STUDIO_UPDATE = {
   en: {
-    summary: 'Open Manuscript Studio 0.3.0-beta.9 improves Linux deep-link registration and cleanup and includes Dutch and Polish translations. The portable OMI format remains 0.3.0.',
+    summary: 'Open Manuscript Studio 0.3.0-beta.10 keeps the live publication editor responsive during long-document pagination by measuring blocks and footnotes in short animation-frame chunks. The portable OMI format remains 0.3.0.',
     multiDocument: 'Multi-document desktop editing and document outline',
     wordLike: 'Word-like manuscript-wide split, merge and selection',
     pdf: 'Structural PDF import with geometry-aware footnotes',
@@ -43,7 +43,7 @@ const STUDIO_UPDATE = {
     uiLocales: 'selectable UI locales',
   },
   hu: {
-    summary: 'Az Open Manuscript Studio 0.3.0-beta.9 javítja a Linuxos mélyhivatkozások regisztrálását és eltávolítását, és tartalmazza a holland és lengyel fordításokat. A hordozható OMI-formátum változatlanul 0.3.0.',
+    summary: 'Az Open Manuscript Studio 0.3.0-beta.10 a hosszú dokumentumok tördelésekor is használhatóvá teszi az élő kiadványszerkesztőt: rövid képkockánkénti lépésekben méri a blokkokat és a lábjegyzeteket. A hordozható OMI-formátum változatlanul 0.3.0.',
     multiDocument: 'Többdokumentumos asztali szerkesztés és dokumentumvázlat',
     wordLike: 'Word-szerű, kézirat-szintű szétválasztás, egyesítés és kijelölés',
     pdf: 'Strukturált PDF-import geometria-alapú lábjegyzet-felismeréssel',
@@ -66,7 +66,7 @@ const STUDIO_UPDATE = {
     uiLocales: 'választható felületi lokalizáció',
   },
   de: {
-    summary: 'Open Manuscript Studio 0.3.0-beta.9 verbessert die Registrierung und Bereinigung von Linux-Deep-Links und enthält die niederländischen und polnischen Übersetzungen. Das portable OMI-Format bleibt bei 0.3.0.',
+    summary: 'Open Manuscript Studio 0.3.0-beta.10 hält den Live-Publikationseditor bei der Paginierung langer Dokumente bedienbar, indem Blöcke und Fußnoten in kurzen Animationsbildschritten gemessen werden. Das portable OMI-Format bleibt bei 0.3.0.',
     multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
     wordLike: 'Word-ähnliches manuskriptweites Teilen, Zusammenführen und Auswählen',
     pdf: 'Strukturierter PDF-Import mit geometriebasierter Fußnotenerkennung',
@@ -196,7 +196,7 @@ export default function Home() {
 
         <section className={styles.studio} aria-labelledby="current-development-status">
           <div className={styles.studioContent}>
-            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.3.0-beta.9 public beta</p>
+            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.3.0-beta.10 public beta</p>
             <h2 id="current-development-status">{t.status}</h2>
             <h3>{t.currentTitle}</h3>
             <p>{studioUpdate.summary}</p>
@@ -210,7 +210,7 @@ export default function Home() {
           </div>
 
           <aside className={styles.studioFeatures} aria-label={t.status}>
-            <h3>0.3.0-beta.9</h3>
+            <h3>0.3.0-beta.10</h3>
             <p>Web · Windows · Linux · macOS · Android · iOS/iPadOS</p>
             <p><strong>47</strong> selectable UI languages</p>
             <nav className={styles.contextLinks} aria-label={t.status}>
