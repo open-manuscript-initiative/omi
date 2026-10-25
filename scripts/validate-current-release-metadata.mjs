@@ -5,7 +5,7 @@ const expected = {
   ojs: 'v1.6.0',
   omp: 'v1.5.1',
   iosMarketing: '0.3.0',
-  iosBuild: '22',
+  iosBuild: '23',
 };
 
 const currentFacingFiles = [
