@@ -39,7 +39,7 @@ keywords:
 | Mobilní cíle | Veřejný univerzální APK pro Android; ověřený nativní simulátor pro iOS/iPadOS, distribuce přes TestFlight/App Store čeká na podpis od Apple Developer |
 | Nasazení na webu | `studio.openmanuscript.org` |
 
-Aktuální beta verze Studia je **`0.3.0-beta.11`**. Toto vydání zvyšuje odezvu živého publikačního editoru při stránkování dlouhých dokumentů tím, že měří bloky rukopisu a poznámky v krátkých přerušitelných dávkách. Přenosný formát zůstává `OMI-SPEC-320@0.3.0`. [Poznámky k vydání beta.11](/docs/studio/releases/0.3.0-beta.11) uvádějí verze balíčků a postup nasazení. Označení beta **neznamená**, že každá volitelná integrace nebo distribuční kanál jsou připraveny pro produkční provoz.
+Aktuální beta verze Studia je **`0.3.0-beta.11`**. Toto vydání zrychluje práci s dlouhými dokumenty opětovným využitím měření nezměněných řádků a při navigaci vykresluje pouze blízké vodicí čáry stránek. Přenosný formát zůstává `OMI-SPEC-320@0.3.0`. [Poznámky k vydání beta.11](/docs/studio/releases/0.3.0-beta.11) uvádějí verze balíčků a postup nasazení. Označení beta **neznamená**, že každá volitelná integrace nebo distribuční kanál jsou připraveny pro produkční provoz.
 
 Tato stránka popisuje **implementované funkce produktu**, nikoli soulad sOMIkou specifikací. Úroveň vyspělosti formální specifikace a důkazy o souladu se sledují samostatně v rámci projektu „[OMI Implementation Status Matrix](./implementation-status-matrix.md)“.
 
