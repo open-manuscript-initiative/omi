@@ -39,7 +39,7 @@ keywords:
 | Mobile Zielplattformen | Öffentliche universelle APK für Android; validiertes natives Simulator-Ziel für iOS/iPadOS, wobei die Verteilung über TestFlight/App Store noch der Signierung durch Apple Developer bedarf |
 | Webbereitstellung | `studio.openmanuscript.org` |
 
-Die aktuelle Studio-Beta-Version ist **`0.3.0-beta.11`**. Dieses Release hält den Live-Publikationseditor bei der Paginierung langer Manuskripte bedienbar, indem Manuskriptblöcke und Fußnoten in kurzen, abbrechbaren Animationsbildschritten gemessen werden. Das portable Format bleibt bei `OMI-SPEC-320@0.3.0`. Die [Versionshinweise zu beta.11](/docs/studio/releases/0.3.0-beta.11) dokumentieren Paketversionen und Bereitstellung. „Beta“ bedeutet **nicht**, dass jede optionale Integration oder jeder Vertriebskanal produktionsreif ist.
+Die aktuelle Studio-Beta-Version ist **`0.3.0-beta.11`**. Dieses Release verbessert die Bearbeitung langer Dokumente, indem Zeilenmessungen unveränderter Blöcke wiederverwendet und beim Navigieren nur nahe Seitenführungen gerendert werden. Das portable Format bleibt bei `OMI-SPEC-320@0.3.0`. Die [Versionshinweise zu beta.11](/docs/studio/releases/0.3.0-beta.11) dokumentieren Paketversionen und Bereitstellung. „Beta“ bedeutet **nicht**, dass jede optionale Integration oder jeder Vertriebskanal produktionsreif ist.
 
 Auf dieser Seite werden **implementierte Produktfunktionen** beschrieben, nicht die Konformität mit der „OMI“-Spezifikation. Der Reifegrad der formalen Spezifikation und Nachweise zur Konformität werden separat im „[OMI Implementation Status Matrix](./implementation-status-matrix.md)“ erfasst.
 
