@@ -66,7 +66,7 @@ const STUDIO_UPDATE = {
     uiLocales: 'választható felületi lokalizáció',
   },
   de: {
-    summary: 'Open Manuscript Studio 0.3.0-beta.11 hält den Live-Publikationseditor bei der Paginierung langer Dokumente bedienbar, indem Blöcke und Fußnoten in kurzen Animationsbildschritten gemessen werden. Das portable OMI-Format bleibt bei 0.3.0.',
+    summary: 'Open Manuscript Studio 0.3.0-beta.11 verbessert die Bearbeitung langer Dokumente, indem unveränderte Zeilenmessungen wiederverwendet und beim Navigieren nur nahe Seitenführungen gerendert werden. Das portable OMI-Format bleibt bei 0.3.0.',
     multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
     wordLike: 'Word-ähnliches manuskriptweites Teilen, Zusammenführen und Auswählen',
     pdf: 'Strukturierter PDF-Import mit geometriebasierter Fußnotenerkennung',
