@@ -41,6 +41,13 @@ keywords:
 
 The current Studio source tree reports **`0.3.0-beta.11`**. This release improves long-document editing by reusing unchanged line measurements and rendering only nearby print page guides while navigating. The portable manuscript format stays at OMI-SPEC-320@0.3.0. See the [beta.11 release notes](/docs/studio/releases/0.3.0-beta.11) for version identities and deployment steps. Beta does **not** mean that every optional integration or distribution channel is production-complete.
 
+## Recent changes in 0.3.0-beta.8–beta.11
+
+- **0.3.0-beta.11 — long-document editing:** reuses measurements for unchanged content and renders page guides only around the visible area while navigating. No server migration or OMI format change is required. See the [beta.11 release notes](/docs/studio/releases/0.3.0-beta.11).
+- **0.3.0-beta.10 — print pagination:** measures manuscript blocks and footnotes in short, cancellable animation-frame batches to keep the live publication editor responsive. No server migration or OMI format change is required. See the [beta.10 release notes](/docs/studio/releases/0.3.0-beta.10).
+- **0.3.0-beta.9 — Linux and localization:** improves Linux deep-link error handling and includes Dutch and Polish interface and research-module translations. No server migration or OMI format change is required. See the [beta.9 release notes](/docs/studio/releases/0.3.0-beta.9).
+- **0.3.0-beta.8 — DOCX import:** prevents a document title from appearing twice when it is repeated as the first numbered heading, including in large-document imports. No server migration or OMI format change is required. See the [beta.8 release notes](/docs/studio/releases/0.3.0-beta.8).
+
 ## Changes in 0.3.0-beta.7
 
 - **Android and EuroOffice:** keeps the WebView and embedded editor controls above system navigation, with a persistent editor host and compact floating controls.
@@ -120,7 +127,6 @@ This page describes **implemented product capabilities**, not OMI specification 
 | Translation execution | **Configuration-dependent** | Structured DeepL translation operates on selection/block/section/manuscript scopes while preserving inline semantics and excluding citations, code, equations and bibliography records from unsafe flattening. Language variants can be stored separately. |
 | AI integration agents | **Configuration-dependent** | Provider-neutral language editor, metadata assistant, summarizer and citation-checker agents return suggestions through scoped server-side execution. External transmission of review-confidential content requires explicit permission. |
 | Integration audit and extension registry | **Operational foundation / configuration-dependent execution** | Integration execution records operation metadata/digests without storing manuscript text or secrets. Extension manifests support version compatibility, permissions, capabilities and HTTPS-only external endpoints. |
-| Personal reference library | **Operational / authenticated account** | Bibliographic records can be saved once to an account-level personal library and reused across manuscripts. When a record is added to a manuscript, a portable bibliographic snapshot remains inside the document so the file does not depend on the account service to reopen or publish. |
 | Per-document bibliography selection | **Operational** | Each manuscript can explicitly include selected uncited works in its bibliography, while actually cited records remain automatically included. The same selection is respected by HTML, JATS, custom export and Studio-native review snapshots. |
 | Portable OMI export | **Operational** | Portable `.omi.zip` and OMI JSON outputs are available as first-class interchange forms. |
 | Scholarly/publishing exports | **Operational** | JATS XML, semantic offline HTML package, DOCX, EPUB, PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA and LaTeX are represented in the current export layer. JATS, HTML and PDF publication outputs participate in the validated publication-build pipeline, and semantic index fields can be exported back to DOCX. |
@@ -209,7 +215,7 @@ The beta line shifts the release gate from “is the primary workflow implemente
 9. iOS/iPadOS Files/UIDocumentPicker behavior once signed physical-device testing is available;
 10. institution/central administration without privilege leakage into manuscript content;
 11. understandable user-facing recovery for network, authentication, migration, import/export and integration failures;
-12. release provenance, updater fallback behavior and immutable downloadable assets across successive beta releases.
+12. release provenance, updater fallback behavior and immutable downloadable assets across successive beta releases;
 13. invitation expiry, explicit acceptance, authorization, reconnect and shared-document recovery in multi-author collaboration.
 
 Configuration-dependent integrations do not need to be universally available for the beta line, provided their maturity is clearly identified and they do not compromise the stable core workflows.
