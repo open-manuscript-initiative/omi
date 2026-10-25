@@ -92,12 +92,12 @@ const CURRENT_UPDATE = {
     serverGuideHu: 'Administrator guide (Hungarian)',
     releaseNotes: 'Release notes',
     betaTitle: 'Current public beta',
-    betaText: 'Open Manuscript Studio 0.3.0-beta.11 keeps the live publication editor responsive during long-document pagination. The portable OMI format remains 0.3.0.',
+    betaText: 'Open Manuscript Studio 0.3.0-beta.11 improves long-document editing by reusing unchanged line measurements and rendering only nearby print page guides while navigating. The portable OMI format remains 0.3.0.',
     maturity: 'The project is in public beta. Beta development prioritizes regression testing, large-document performance, error recovery, interoperability, migration discipline and trustworthy immutable releases on the path to the first release candidate.',
   },
   hu: {
     title: 'Az Open Manuscript Studio nyilvános bétája',
-    lead: 'A 0.3.0-beta.11 a hosszú dokumentumok tördelésekor is használhatóvá teszi az élő kiadványszerkesztőt a blokkok és lábjegyzetek rövid, megszakítható képkockánkénti mérésével.',
+    lead: 'A 0.3.0-beta.11 a változatlan blokkok méréseinek újrafelhasználásával gyorsítja a hosszú dokumentumok szerkesztését, navigálás közben pedig csak a közeli nyomtatási oldaljelölőket rajzolja ki.',
     items: [
       ['Reszponzív tördelés hosszú dokumentumokhoz', 'A lapozás rövid, megszakítható képkockánkénti lépésekben méri a kéziratblokkokat és lábjegyzeteket, így a hosszú dokumentumok tördelése közben is használható marad az élő kiadványszerkesztő.'],
       ['Android és EuroOffice megjelenítés', 'A rendszer navigációs sávjának figyelembevétele, az állandó szerkesztőkeret és a kompakt lebegő vezérlők a használható képernyőterületen tartják a beágyazott szerkesztőt.'],
@@ -155,7 +155,7 @@ const CURRENT_UPDATE = {
     serverGuideHu: 'Rendszergazdai súgó (magyar)',
     releaseNotes: 'Kiadási megjegyzések',
     betaTitle: 'Jelenlegi nyilvános béta',
-    betaText: 'Az Open Manuscript Studio 0.3.0-beta.11 a hosszú dokumentumok tördelésekor is használhatóvá teszi az élő kiadványszerkesztőt. A hordozható OMI-formátum változatlanul 0.3.0.',
+    betaText: 'Az Open Manuscript Studio 0.3.0-beta.11 újrafelhasználja a változatlan sorok mérési eredményeit, és navigálás közben csak a közeli nyomtatási oldaljelölőket rajzolja ki. A hordozható OMI-formátum változatlanul 0.3.0.',
     maturity: 'A projekt nyilvános béta. A béta szakasz fő feladata a regressziós tesztelés, a nagy dokumentumok teljesítménye, a hibából való helyreállás, az interoperabilitás, a migrációs fegyelem és a megbízható, változtathatatlan kiadások biztosítása az első release candidate felé.',
   },
   de: {
@@ -213,7 +213,7 @@ const CURRENT_UPDATE = {
     serverGuideHu: 'Administratorhandbuch (Ungarisch)',
     releaseNotes: 'Versionshinweise',
     betaTitle: 'Aktuelle öffentliche Beta',
-    betaText: 'Open Manuscript Studio 0.3.0-beta.11 keeps the live publication editor responsive during long-document pagination. The portable OMI format remains 0.3.0.',
+    betaText: 'Open Manuscript Studio 0.3.0-beta.11 improves long-document editing by reusing unchanged line measurements and rendering only nearby print page guides while navigating. The portable OMI format remains 0.3.0.',
     maturity: 'Das Projekt befindet sich in der öffentlichen Beta. Im Mittelpunkt stehen Regressionstests, Leistung bei großen Dokumenten, Fehlerwiederherstellung, Interoperabilität, saubere Migrationen und vertrauenswürdige unveränderliche Releases auf dem Weg zum ersten Release Candidate.',
   },
 } as const;
