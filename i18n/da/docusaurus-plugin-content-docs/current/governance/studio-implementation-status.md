@@ -30,7 +30,7 @@ keywords:
 | Felt | Værdi |
 |---|---|
 | Status | **Beta** |
-| Dato for øjebliksbillede | **5. september 2026** |
+| Dato for øjebliksbillede | **25. oktober 2026** |
 | Aktuel udgivelsesserie | `0.3.0-beta.11` |
 | Referenceimplementering | Open Manuscript Studio |
 | Kildekoderepositorium | `open-manuscript-initiative/open-manuscript-studio` |
@@ -39,7 +39,7 @@ keywords:
 | Mobilmål | Offentlig universel APK til Android; valideret native simulator-mål til iOS/iPadOS, hvor distribution via TestFlight/App Store afventer signering fra Apple Developer |
 | Webimplementering | `studio.openmanuscript.org` |
 
-Den aktuelle Studio-betaversion er **`0.3.0-beta.11`**. Denne udgivelse holder den levende udgivelseseditor responsiv under paginering af lange manuskripter ved at måle manuskriptblokke og noter i korte, afbrydelige trin. Det portable format forbliver `OMI-SPEC-320@0.3.0`. [Udgivelsesnoterne for beta.11](/docs/studio/releases/0.3.0-beta.11) beskriver pakkeversioner og implementering. Beta betyder **ikke**, at enhver valgfri integration eller distributionskanal er produktionsklar.
+Den aktuelle Studio-betaversion er **`0.3.0-beta.11`**. Denne udgivelse genbruger linjemålinger for uændrede blokke og gengiver kun sideguider tæt på det synlige område under navigation. Det portable format forbliver `OMI-SPEC-320@0.3.0`. [Udgivelsesnoterne for beta.11](/docs/studio/releases/0.3.0-beta.11) beskriver pakkeversioner og implementering. Beta betyder **ikke**, at enhver valgfri integration eller distributionskanal er produktionsklar.
 
 Denne side beskriver **implementerede produktfunktioner**, ikke overensstemmelse med en specifikOMI. Den formelle modenhed af specifikationerne og dokumentation for overensstemmelse registreres separat i [OMI Implementation Status Matrix](./implementation-status-matrix.md).
 
