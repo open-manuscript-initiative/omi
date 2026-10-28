@@ -164,3 +164,25 @@
   border-bottom: 1px solid var(--ifm-color-emphasis-300);
   padding-bottom: 0.75rem;
 }
+
+/* Official XERJ contributor badge: external reference, not a certification. */
+.omi-xerj-badge {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  margin-top: .9rem;
+  border-radius: .3rem;
+  text-decoration: none;
+}
+
+.omi-xerj-badge img {
+  display: block;
+  max-width: min(100%, 18rem);
+  height: auto;
+}
+
+.omi-xerj-badge:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}

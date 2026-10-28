@@ -42,5 +42,9 @@
   "item.label.MIT License": {
     "message": "MIT-Lizenz",
     "description": "The label of footer link with label=MIT License"
+  },
+  "item.label.External References": {
+    "message": "Externe Referenzen",
+    "description": "The label of footer link with label=External References"
   }
 }
