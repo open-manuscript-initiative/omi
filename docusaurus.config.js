@@ -99,6 +99,7 @@ const config = {
           {title: 'Project', items: [
             {label: 'Funding & Partnerships', to: '/docs/governance/funding-and-partnerships'},
             {label: 'Grant Readiness Pack', to: '/docs/governance/grant-readiness-pack'},
+            {label: 'External References', to: '/docs/governance/external-references'},
             {label: 'Code signing policy', to: '/docs/governance/code-signing-policy'},
             {label: 'Privacy policy', to: '/docs/governance/privacy-policy'},
             {label: 'MIT License', href: 'https://github.com/open-manuscript-initiative/omi/blob/main/LICENSE'},
@@ -111,6 +112,9 @@ const config = {
             <span>Open standards for scholarly publishing.</span>
             <span>© ${new Date().getFullYear()} Open Manuscript Initiative Contributors.</span>
             <span>Built with Docusaurus.</span>
+            <a class="omi-xerj-badge" href="https://hub.xerj.org/contributors/vargaijanos" target="_blank" rel="noopener noreferrer" aria-label="OMI Studio source code selected for the XERJ Corpus Hub — contributor profile">
+              <img src="https://hub.xerj.org/contributors/vargaijanos/badge.svg" alt="XERJ Corpus Hub contributor" loading="lazy" decoding="async" />
+            </a>
           </div>
         `,
       },
