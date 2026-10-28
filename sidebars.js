@@ -124,6 +124,7 @@ const sidebars = {
         {type: 'doc', id: 'governance/specification-lifecycle', label: 'Specification Lifecycle'},
         {type: 'doc', id: 'governance/versioning-policy', label: 'Versioning Policy'},
         {type: 'doc', id: 'governance/code-signing-policy', label: 'Code Signing Policy'},
+        {type: 'doc', id: 'governance/external-references', label: 'External References'},
         {type: 'doc', id: 'governance/style-guide', label: 'Specification Style Guide'},
         {type: 'doc', id: 'governance/specification-template', label: 'Specification Template'},
         {type: 'doc', id: 'governance/specification-registry', label: 'Specification Registry'},
