@@ -14,7 +14,7 @@ Itt gyűjtjük össze az OMI-ról és szoftvereiről megjelent, külső forrásb
 
 A kiválasztás a **„Preserve conditional UI while localizing labels”** című [369de7305b](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/369de7305becf512603fa3484254d5f26ad2f24c) commitra hivatkozik: **9 fájl**, **206 sornyi változtatás**, TypeScript. A korpusz a rögzített commitnál a teljes tárházat indexeli, nem csupán a módosított fájlokat.
 
-A XERJ bejegyzése szerint a közreműködő hozzájárult a bekerüléshez, és az MIT-licenc ellenőrzése lezárult. Ez **referenciakorpuszba történő felvétel**, nem a XERJ által kibocsátott termékminősítés vagy az OMI-val kötött partnerség.
+A XERJ nyilvántartása rögzíti a közreműködő hozzájárulását és a tárház MIT-licencét. **A kiválasztott korpusz nem feltétlenül érhető el már letölthető, élő csomagként**: a XERJ külön kezeli a kiválasztást, a licencellenőrzést és a publikálást. Az aktuális állapotot a közreműködői és korpuszoldalon lehet ellenőrizni. Ez **referenciakorpuszba történő kiválasztás**, nem a XERJ által kibocsátott termékminősítés vagy az OMI-val kötött partnerség.
 
 [![XERJ Corpus Hub hivatalos közreműködői jelvénye](https://hub.xerj.org/contributors/vargaijanos/badge.svg)](https://hub.xerj.org/contributors/vargaijanos)
 

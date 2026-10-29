@@ -14,7 +14,7 @@ On **14 October 2026**, the [XERJ Corpus Hub](https://hub.xerj.org/contributors/
 
 The selection references the commit **“Preserve conditional UI while localizing labels”** ([369de7305b](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/369de7305becf512603fa3484254d5f26ad2f24c)), involving **9 files**, **206 changed lines**, and TypeScript code. The corpus covers the entire repository at the pinned commit, not just the changed files.
 
-The XERJ entry states that inclusion was agreed with the contributor and that its MIT licence review was cleared. This is **inclusion in a reference corpus**, not a XERJ product certification or an OMI partnership.
+The XERJ record identifies contributor permission and the repository's MIT licence. **A selected corpus is not necessarily live or downloadable**: XERJ distinguishes selection and licence review from publication in its signed, installable catalogue. Its current status must be checked on the contributor and corpus pages. This is a **reference-corpus selection**, not a XERJ product certification or an OMI partnership.
 
 [![XERJ Corpus Hub contributor badge](https://hub.xerj.org/contributors/vargaijanos/badge.svg)](https://hub.xerj.org/contributors/vargaijanos)
 
