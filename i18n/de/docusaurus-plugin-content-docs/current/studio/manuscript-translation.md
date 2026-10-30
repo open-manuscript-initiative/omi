@@ -12,7 +12,7 @@ Der Arbeitsbereich **Übersetzungen** verwaltet sprachliche Varianten eines Manu
 ## Arbeitsablauf
 
 1. Öffnen Sie ein Manuskript und wählen Sie **Manuskript → Übersetzungen**.
-2. Wählen Sie eine konkrete Zielsprache (z. B. \`de\`, \`en-GB\`, \`hu\`). Die Sprache der Benutzeroberfläche schränkt Manuskriptsprachen nicht ein.
+2. Wählen Sie eine konkrete Zielsprache (z. B. `de`, `en-GB`, `hu`). Die Sprache der Benutzeroberfläche schränkt Manuskriptsprachen nicht ein.
 3. Wählen Sie das gesamte Manuskript oder einen Abschnitt. Mehrere Varianten derselben Zielsprache sind möglich.
 4. Bearbeiten Sie den Zieltext und die Übersetzerhinweise. Entscheiden Sie zwischen **gleichwertiger Übersetzung** und **bewusster Adaption**.
 5. Markieren Sie eine Übersetzung erst nach eigener Prüfung ausdrücklich als **geprüft**. Maschinelle Ergebnisse beginnen immer als Entwurf.
@@ -23,7 +23,7 @@ Bei eingerichteter DeepL-Anbindung können Sie eine Vorschau prüfen und mit **A
 
 ## Portable Daten und Änderungsverfolgung
 
-Das experimentelle Studio-Profil \`studio-translation-0.1\` speichert die Varianten unter \`urn:omi:studio:translation:1\`. Portable OMI-Dateien, Prüfpunkte und Versionsrücknahmen bewahren Zuordnungen, Zieltexte, Sprachangaben, Beurteilungen, Prüfungen und vorhandene Herkunftsangaben.
+Das experimentelle Studio-Profil `studio-translation-0.1` speichert die Varianten unter `urn:omi:studio:translation:1`. Portable OMI-Dateien, Prüfpunkte und Versionsrücknahmen bewahren Zuordnungen, Zieltexte, Sprachangaben, Beurteilungen, Prüfungen und vorhandene Herkunftsangaben.
 
 Studio unterscheidet **aktuelle**, **veraltete** und **nicht mehr auffindbare** Quellenzuordnungen. Eine andere, sachlich unabhängige Manuskriptrevision macht nicht automatisch sämtliche Übersetzungen ungültig. Das Ausgangsmanuskript bleibt frei bearbeitbar.
 

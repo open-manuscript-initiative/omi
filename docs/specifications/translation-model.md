@@ -17,9 +17,9 @@ keywords:
 
 | Field | Value |
 |---|---|
-| Identifier | \`OMI-SPEC-170\` |
+| Identifier | `OMI-SPEC-170` |
 | Title | Translation Model |
-| Version | \`0.1.0\` |
+| Version | `0.1.0` |
 | Status | Draft |
 | Document type | Normative (draft requirements); examples and implementation notes are informative |
 | Normative language | English |
@@ -27,10 +27,10 @@ keywords:
 | Last updated | 2026-10-31 |
 | Replaces | None |
 | Replaced by | None |
-| Depends on | \`OMI-SPEC-100\`, \`OMI-SPEC-110\`, \`OMI-SPEC-120\`, \`OMI-SPEC-140\`, \`OMI-SPEC-150\`, \`OMI-SPEC-160\` |
+| Depends on | `OMI-SPEC-100`, `OMI-SPEC-110`, `OMI-SPEC-120`, `OMI-SPEC-140`, `OMI-SPEC-150`, `OMI-SPEC-160` |
 | Used by | Publishing, review, validation, import/export and future conformance profiles |
 | Schemas | No canonical OMI-SPEC-170 schema published |
-| Profiles | [Studio experimental translation profile](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/omi-spec-170-translation-model.md) (non-normative, \`studio-translation-0.1\`) |
+| Profiles | [Studio experimental translation profile](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/omi-spec-170-translation-model.md) (non-normative, `studio-translation-0.1`) |
 | Implementation status | [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md) |
 | Issue tracker | [OMI specification issues](https://github.com/open-manuscript-initiative/omi/issues) |
 
@@ -148,15 +148,15 @@ This diagram is informative; a future canonical schema will define the concrete 
 
 | Conceptual property | Cardinality | Meaning |
 |---|---:|---|
-| \`id\` | 1 | Stable identifier for this variant relationship |
-| \`sourceManuscriptId\` | 1 | Identifier of originating manuscript |
-| \`sourceLanguage\` | 1 | BCP 47 language tag for source |
-| \`targetLanguage\` | 1 | BCP 47 language tag for target |
-| \`scope\` | 1 | Manuscript, section, block or declared extension scope |
-| \`sourceRevisionId\` | 0..1 | Explicit baseline/checkpoint identifier |
-| \`alignments\` | 0..* | Active source/target correspondences |
-| \`archivedAlignments\` | 0..* | Retained but inactive correspondences |
-| \`provenance\` | 0..* | Creation, editing, generation and review events |
+| `id` | 1 | Stable identifier for this variant relationship |
+| `sourceManuscriptId` | 1 | Identifier of originating manuscript |
+| `sourceLanguage` | 1 | BCP 47 language tag for source |
+| `targetLanguage` | 1 | BCP 47 language tag for target |
+| `scope` | 1 | Manuscript, section, block or declared extension scope |
+| `sourceRevisionId` | 0..1 | Explicit baseline/checkpoint identifier |
+| `alignments` | 0..* | Active source/target correspondences |
+| `archivedAlignments` | 0..* | Retained but inactive correspondences |
+| `provenance` | 0..* | Creation, editing, generation and review events |
 
 **REQ-TRN-020:** Source and target language tags MUST be nonempty, well-formed BCP 47 tags; a processor MUST NOT substitute the interface locale for the manuscript's declared language.
 
@@ -166,7 +166,7 @@ This diagram is informative; a future canonical schema will define the concrete 
 
 ### 8.2 Alignment
 
-Conceptual fields include alignment \`id\`, source object or range reference, source snapshot or fingerprint, target content, explicit notes, baseline, modification history and review decision. The translation object MUST NOT change the canonical identity of the referenced section, block or anchor.
+Conceptual fields include alignment `id`, source object or range reference, source snapshot or fingerprint, target content, explicit notes, baseline, modification history and review decision. The translation object MUST NOT change the canonical identity of the referenced section, block or anchor.
 
 **REQ-TRN-023:** A producer MUST preserve enough source reference and baseline evidence for a consumer to determine whether a translation applies to the current recognized source or to an earlier/unknown baseline.
 
@@ -178,7 +178,7 @@ A text fingerprint helps detect changes, but is not a proof of equivalence, auth
 
 ### 8.3 Decisions and provenance
 
-A decision separates the status \`draft\`/\`reviewed\`, equivalence \`unassessed\`/\`equivalent\`/\`adapted\`, review time and optional attributed scholarly agent. Provenance identifies \`human\` or \`machine\` origin and the known provider for machine output. Account identities and scholarly agents are distinct.
+A decision separates the status `draft`/`reviewed`, equivalence `unassessed`/`equivalent`/`adapted`, review time and optional attributed scholarly agent. Provenance identifies `human` or `machine` origin and the known provider for machine output. Account identities and scholarly agents are distinct.
 
 **REQ-TRN-026:** Editing target text or its equivalence decision MUST invalidate any prior review that is no longer applicable to that content.
 
@@ -229,7 +229,7 @@ Implementations MAY store translation relationships in namespaced OMI extensions
 
 **REQ-TRN-050:** A round-trip consumer that claims extension preservation MUST retain unknown safe translation extension members and other unrelated namespaces without reinterpreting them.
 
-The experimental Studio namespace \`urn:omi:studio:translation:1\` and profile \`studio-translation-0.1\` are explicitly **not** the eventual canonical OMI-SPEC-170 wire namespace or version.
+The experimental Studio namespace `urn:omi:studio:translation:1` and profile `studio-translation-0.1` are explicitly **not** the eventual canonical OMI-SPEC-170 wire namespace or version.
 
 ## 12. Versioning and compatibility
 
@@ -269,11 +269,11 @@ Implementations SHOULD minimize retention of provider requests and secrets and S
 
 ## 15. Accessibility considerations
 
-Panels SHOULD expose source/target language metadata, logical reading order, keyboard-operated alignment navigation and text alternatives for supported images. Review, stale and missing states SHOULD be conveyed in text, not color alone. Parallel exports SHOULD set accurate \`lang\` attributes and provide an understandable reading sequence. Accessibility semantics of a fully structured translated publication are separately specified by the applicable publishing profile.
+Panels SHOULD expose source/target language metadata, logical reading order, keyboard-operated alignment navigation and text alternatives for supported images. Review, stale and missing states SHOULD be conveyed in text, not color alone. Parallel exports SHOULD set accurate `lang` attributes and provide an understandable reading sequence. Accessibility semantics of a fully structured translated publication are separately specified by the applicable publishing profile.
 
 ## 16. Internationalisation considerations
 
-Manuscript languages MUST remain distinct from the interface locale and from each contributor's preferred languages. Implementations SHOULD preserve regional/script variants such as \`pt-BR\`, \`zh-Hant\` and historical or mixed-language content without coercing them to UI language choices. They SHOULD preserve bidirectional text and provide appropriate directionality on export. A scope's source language is not necessarily the language of every included quotation.
+Manuscript languages MUST remain distinct from the interface locale and from each contributor's preferred languages. Implementations SHOULD preserve regional/script variants such as `pt-BR`, `zh-Hant` and historical or mixed-language content without coercing them to UI language choices. They SHOULD preserve bidirectional text and provide appropriate directionality on export. A scope's source language is not necessarily the language of every included quotation.
 
 ## 17. Examples
 
@@ -283,7 +283,7 @@ A Hungarian source manuscript has a German target variant, aligned to two sectio
 
 ### 17.2 Existing Studio extension (not normative)
 
-Studio serializes variant records in \`extensions["urn:omi:studio:translation:1"]\`. Its recorded source fingerprints use SHA-256 over deterministic source-context JSON, excluding ephemeral image preview URLs. The profile supports manuscript and section translation in the panel, 20 alignment editors per page, explicit review, archiving, DeepL-preview adoption, state-history persistence and HTML text proofs. The full [implementation profile](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/omi-spec-170-translation-model.md) describes its actual field names and supported source types.
+Studio serializes variant records in `extensions["urn:omi:studio:translation:1"]`. Its recorded source fingerprints use SHA-256 over deterministic source-context JSON, excluding ephemeral image preview URLs. The profile supports manuscript and section translation in the panel, 20 alignment editors per page, explicit review, archiving, DeepL-preview adoption, state-history persistence and HTML text proofs. The full [implementation profile](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/omi-spec-170-translation-model.md) describes its actual field names and supported source types.
 
 A canonical JSON Schema, positive/negative normative fixtures and an independent reference validator are pending. No sample in this Draft should be interpreted as a committed wire schema.
 
@@ -307,7 +307,7 @@ A canonical JSON Schema, positive/negative normative fixtures and an independent
 
 ## 20. Implementation status
 
-The Studio reference implementation merged in [PR #782](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/782). The experimental \`studio-translation-0.1\` profile implements named language variants; source text/anchor fingerprints and change detection; draft, equivalence and review states; optional agent provenance; explicit synchronization and archival; preservation in portable OMI state; DeepL preview acceptance; and constrained parallel/target text proofs. It has focused unit, build and Playwright evidence.
+The Studio reference implementation merged in [PR #782](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/782). The experimental `studio-translation-0.1` profile implements named language variants; source text/anchor fingerprints and change detection; draft, equivalence and review states; optional agent provenance; explicit synchronization and archival; preservation in portable OMI state; DeepL preview acceptance; and constrained parallel/target text proofs. It has focused unit, build and Playwright evidence.
 
 These tests validate the local implementation profile, **not** the canonical OMI-SPEC-170 draft. The canonical record is new and has no independent conformance evidence.
 

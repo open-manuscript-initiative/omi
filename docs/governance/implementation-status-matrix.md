@@ -135,8 +135,8 @@ Open Manuscript Studio currently documents and validates against the `OMI-SPEC-3
 
 | Measure | Current baseline |
 |---|---:|
-| Registered specification identifiers | 23 |
-| Active Draft specifications | 19 |
+| Registered specification identifiers | 24 |
+| Active Draft specifications | 20 |
 | Reserved specifications | 4 |
 | Active specifications using the current template | 5 |
 | Active specifications requiring template migration | 14 |
@@ -150,8 +150,9 @@ Open Manuscript Studio currently documents and validates against the `OMI-SPEC-3
 | Studio status: Exploratory | 5 specifications |
 | Studio status: Not started | 7 specifications |
 | Studio status: Not applicable | 1 specification |
+| Studio status: Not verified | 1 specification |
 
-These counts describe the evidence categories used in this document. They do not measure percentage completion or specification quality.
+These updated counts include the previously uncounted OMI-SPEC-225 registry entry (not verified in the original survey); other implementation evidence retains its original historical baseline. These counts describe the evidence categories used in this document. They do not measure percentage completion or specification quality.
 
 ## 6. Specification readiness matrix
 
@@ -179,6 +180,7 @@ These counts describe the evidence categories used in this document. They do not
 | `OMI-SPEC-210` | [Citation Model](../specifications/citation-model.md) | Active Draft | 0.2.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-220` | [Bibliographic Record Model](../specifications/bibliographic-record-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-221` | [Reference Library and Registry Architecture](../specifications/reference-library-registry.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
+| `OMI-SPEC-225` | [Source and Derivation Model](../specifications/source-attribution-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-230` | [Publishing Model](../specifications/publishing-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-240` | [Rendering and Publication Profile Model](../specifications/rendering-publication-profile-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
 
@@ -223,6 +225,7 @@ The OMI repository contains a reference fixture validator for the current `OMI-S
 | `OMI-SPEC-210` | Partial | `OmiCitation` and the manuscript citation array represent citation keys, labels, source types, and dates. | Separate citation occurrences from bibliographic records; anchor occurrences and define rendering-independent semantics. |
 | `OMI-SPEC-220` | Exploratory | The current citation type contains a small set of record-like fields. | Dedicated bibliographic record identity, contributors, titles, containers, identifiers, provenance, merging, and validation. |
 | `OMI-SPEC-221` | Not started | No manuscript-level reference library or external registry integration was verified. | Library membership, record reuse, lookup, reconciliation, caching, provenance, and deduplication behaviour. |
+| `OMI-SPEC-225` | Not verified | The source-attribution specification is registered, but this 2026-10-31 scoped translation update did not audit its Studio implementation. | Confirm provenance semantics, validation and implementation evidence in a separate review. |
 | `OMI-SPEC-230` | Not started | The alpha editor can manipulate and export manuscript data, but no specification-aligned publishing pipeline was verified. | Publication jobs, profiles, transformations, output provenance, failure handling, and semantic-source preservation. |
 | `OMI-SPEC-240` | Partial | Studio has publisher profiles, reusable semantic-role publication styles, IDML style import, distinct print/interactive PDF targets, semantic HTML, language-aware hyphenation, publication diagnostics and `.omi-build.json` provenance. A dedicated [implementation profile](./studio-omi-spec-240-implementation-profile.md) maps all `REQ-RPP-*` requirements to current evidence. | Publish machine-readable profile/style artefacts and requirement fixtures; complete unknown-extension, substitution/glyph, authorization-projection and accessible-PDF evidence; adopt a formal conformance suite before making a conformance claim. |
 

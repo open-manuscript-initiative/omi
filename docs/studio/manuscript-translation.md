@@ -12,7 +12,7 @@ The **Translations** workspace supports translations of manuscript content witho
 ## How to work with translations
 
 1. Open the manuscript and choose **Manuscript → Translations**.
-2. Select a target language (a concrete BCP 47 tag such as \`de\`, \`en-GB\` or \`hu\`).
+2. Select a target language (a concrete BCP 47 tag such as `de`, `en-GB` or `hu`).
 3. Translate the whole manuscript or a selected section. Multiple variants of the same target language are allowed.
 4. Edit target text and translator notes for each alignment. Choose **Equivalent translation** or **Intentional adaptation**.
 5. Use **Mark as reviewed** only after checking the target against its current source. Machine suggestions always begin as drafts.
@@ -23,7 +23,7 @@ If DeepL is configured, an author may review the provider's preview and choose *
 
 ## What travels with the file?
 
-The experimental \`studio-translation-0.1\` profile stores translation records in the OMI manuscript's namespaced extension \`urn:omi:studio:translation:1\`. Portable OMI JSON, checkpoint/history and revision reversion retain those records. They record source scope and baseline, source/target language, target text, equivalence, review and human/machine provenance where available.
+The experimental `studio-translation-0.1` profile stores translation records in the OMI manuscript's namespaced extension `urn:omi:studio:translation:1`. Portable OMI JSON, checkpoint/history and revision reversion retain those records. They record source scope and baseline, source/target language, target text, equivalence, review and human/machine provenance where available.
 
 Studio compares recognized source units to determine whether a translation is **current**, **stale** or **missing**. An unrelated revision does not automatically invalidate every segment. The original source is always editable.
 
