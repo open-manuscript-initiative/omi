@@ -6,7 +6,21 @@ description: A jelenlegi Open Manuscript Studio implementáció és az 1.0 céla
 
 # Current → 1.0 Gap Analysis
 
-> Aktuális implementáció: a lap végén szereplő **2026-10-12** egyeztetés az irányadó. A régebbi audit történeti adat; a nyitott javítási PR nem main-garancia.
+> Aktuális biztonsági egyeztetés: **2026-10-30**, alább. A felülírt korábbi checkpoint történeti állapot; a javasolt javítási teszt nem merge-/telepítési garancia.
+
+## Biztonsági határok egyeztetése — 2026-10-30
+
+Auditált Studio: [`540f67a`](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/540f67a018b200d21c5c74d98c3fe80ada8260c6). E checkpoint pontosításai mellett a korábbi sorok történeti állapotot jelölnek.
+
+| Jelenlegi komponens | Státusz | Probléma / megmaradó rés | 1.0 cél és következő lépés | Kockázat |
+|---|---|---|---|---|
+| `verifiedFederatedIdentity.ts`, central/institutionAccess service | KEEP + HARDEN | ACTIVE allow-listes bootstrap már egyező, igazolt OIDC/SAML-emailt kér; régi grant nem ellenőrződik visszamenőleg. Az adminútmutató még bármely SSO-kapcsolást elegendőnek írta. | Útmutató-javítás, privát grantreview, megbízható IdP-újrahitelesítés, tesztelt második owner/helyreállítás, service negatív tesztek. Bizonyíték nem hamisítható, utolsó owner nem vonható vissza. ADR-012/017. | Közepes: bootstrapelutasítás / történeti grant |
+| `cookieOriginGuard.ts`, `requireSession.ts`, `app.ts` | KEEP + HARDEN | Szigorú Origin implementált, régi scriptek elhagyhatják. Korábbi tesztek főként helper/statikus mountellenőrzések. | Pontos natív/PKP kivételek és downstream hitelesítés megtartása; valódi HTTP invalid-bearer/session/parser regresszió; kliensátállás dokumentálása. ADR-015/017. | Közepes: 403 / túl tág kivétel |
+| `pdfImportAdmission.ts`, `pdfImportRoutes.ts` | KEEP + HARDEN | Aktív/megőrzött limit, 429/503 és retry fejléc megvan; nincs uploadfoglalás vagy elosztott kvóta; restart elveszti az állapotot. | Aktív 1/2, megőrzött 12/100 user/processz és 30 perces lusta lejárat dokumentálása. Többpéldányos támogatás előtt koordinált admission. ADR-017. | Közepes: összesített memória/terhelés és recovery |
+| `pdfWorkerEnvironment.ts`, Poppler/Vivliostyle hívás | KEEP + HARDEN | API-titkok öröklése kizárt, de azonos OS-user, HOME/fájlelérés és hálózat megmarad. | Meglévő szűrés/teszt megtartása; külön worker/fájlrendszer/erőforrás izoláció (#774), kapcsolódáskori egress (#765). Sandbox nem tekinthető késznek. ADR-016/017. | Magas, amíg nincs telepítési bizonyíték |
+| `ci.yml`, `1.0-readiness.yml`, security tesztek | HARDEN | Bővült unit gate; nem bizonyít valódi IdP-t, adatbázis-versenyt vagy hostizolációt. | HTTP/bootstrap contract suite backend-előkészítés után; E02 azonos commit/digest host/PKP/natív bizonyítékokkal. ADR-019. | Magas, ha ezek nélkül történik RC-promóció |
+
+Célzott dokumentáció- és tesztjavítás, nem schema/API tömeges migráció. Új DB-migráció nincs. [Átállás és recovery](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/server/security-contract-rollout.md). Az OMI/PKP pluginokban ehhez nem kell protokollváltás.
 
 
 **Baseline:** Studio `eca2cf45762116e1c00a89b3397840ed89109511`; OMI `e2f421707f1154c0ed30cb7750e0689a837e9b0a`; OJS plugin `6c0842fc1ce6c4a1ea75f7b27660af8011be303b`; OMP plugin `4f7a2c0a2f29f68e3ad05ac73ca7652bc6410ac7`  

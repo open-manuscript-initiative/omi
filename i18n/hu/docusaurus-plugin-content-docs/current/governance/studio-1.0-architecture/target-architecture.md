@@ -6,7 +6,23 @@ description: Az Open Manuscript Studio 1.0 javasolt célarchitektúrája a műk�
 
 # OMI Studio 1.0 Target Architecture
 
-> Aktuális implementáció: a lap végén szereplő **2026-10-12** egyeztetés az irányadó. A régebbi audit történeti adat; a nyitott javítási PR nem main-garancia.
+> Aktuális biztonsági egyeztetés: **2026-10-30**, alább. A felülírt korábbi checkpoint történeti állapot; a javasolt javítási teszt nem merge-/telepítési garancia.
+
+## Biztonsági határok egyeztetése — 2026-10-30
+
+Ellenőrzött implementáció: Studio [`540f67a`](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/540f67a018b200d21c5c74d98c3fe80ada8260c6), benne az [admin-bootstrap](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/f7497cf08c9841e21567aab1e044c3bd4c712380), [Origin/parser védelem](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/a2eede7898bd092020a6e1cbb4d45e05d780a6d2) és [PDF-admission](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/d81c8c7f67d8a5dd0895039595084b273adb9b9c). A checkpoint felülírja a korábbi, kevésbé pontos biztonsági leírásokat; nem módosít OMI-sémát, konténert, editorhatárt vagy szerzői szerkesztési jogot.
+
+| Határ és tulajdonos | Contract és függőségi irány |
+|---|---|
+| Hitelesítés → helyi jogosultság (ADR-012/017) | Automatikus központi/intézményi bootstrap: ACTIVE, allow-listes account, kapcsolt OIDC/SAML-profil boolean `emailVerified: true` értékkel és egyező emaillel. Felhasználónév, jelszó, passkey vagy másik SSO-fiók nem elég. A meglévő grant külön, privát felülvizsgálat tárgya. Ez nem szerzőség-, kézirathozzáférés- vagy lektorálási bizonyíték. |
+| HTTP → session service → application (ADR-015/017) | Módosító cookie-kéréshez pontosan engedélyezett Origin kell; hiányzó/opaque/idegen érték elutasítandó. Natív marker + bearer csak az Origin-védelmet kerüli meg: a bearer tényleges ellenőrzése kötelező, hibás bearer után nincs cookie-fallback. Csak a két pontos PKP review-launch POST kap további kivételt; session, HMAC, lejárat/nonce és scope ellenőrzés megmarad. A CORS független. |
+| HTTP-admission → parser (ADR-015/017) | Rate limit a JSON előtt; az `app.ts` felsorolt nagyméretű dokumentumútvonalain sessionellenőrzés is a JSON előtt. Nyers PDF előtt session/admission, job-beillesztés előtt szinkron kvótaellenőrzés. Legacy és v1 ugyanazt a globális szabályt kapja; tömeges route-átnevezés nem kell. |
+| PDF-import application → processzregiszter (ADR-017) | Aktív queued/processing: user 1, processz 2; megőrzött: user 12, processz 100. Userlimit 429, processzlimit 503, strukturált kód és route `Retry-After: 60`. Processzlokális, létrehozástól számított 30 perc után lusta törléssel; újraindításkor elvész. A korai ellenőrzés nem uploadfoglalás. |
+| PDF-platformadapter (ADR-016/017) | Poppler/Vivliostyle csak engedélyezett futtatási környezetet örököl, API-titkok és `NODE_OPTIONS` nélkül. Ez nem fájlrendszer-/hálózati sandbox. Külön workeridentity, mountok, CPU/RAM/pid/temp és kapcsolódáskori egress továbbra is telepítési felelősség és RC-gate. |
+
+A működő service-ek és adapterek megtartandók. A célzott javítás [üzemeltetési runbookot](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/server/security-contract-rollout.md) és HTTP/service regressziókat ad, új identity/PDF alrendszer nélkül. Az új tesztek sessionstore-t és repositoryt mockolnak; valódi IdP/PostgreSQL/PKP és telepített sandbox elfogadás külön szükséges.
+
+Nyitott támadási út: azonos OS-userrel olvasható credentialfájl (#774), kapcsolódáskori privát/metadata elérés és DNS rebinding (#765), többprocesszes PDF-kvóta. Telepítésen igazolt lezárásig a gap/PR-regiszterben maradnak. Rollbacknél sem gyengíthető az Origin vagy az igazolt-email követelmény.
 
 
 **Állapot:** javasolt 1.0 célarchitektúra, döntésre előkészítve  

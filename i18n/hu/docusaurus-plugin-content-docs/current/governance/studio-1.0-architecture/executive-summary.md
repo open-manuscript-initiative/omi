@@ -6,7 +6,18 @@ description: Az Open Manuscript Studio 1.0 célarchitektúrájának, fő kockáz
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
-> Aktuális implementáció: a lap végén szereplő **2026-10-12** egyeztetés az irányadó. A régebbi audit történeti adat; a nyitott javítási PR nem main-garancia.
+> Aktuális biztonsági egyeztetés: **2026-10-30**, alább. A felülírt korábbi checkpoint történeti állapot; a javasolt javítási teszt nem merge-/telepítési garancia.
+
+## Biztonsági határok egyeztetése — 2026-10-30
+
+A Studio [`540f67a`](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/540f67a018b200d21c5c74d98c3fe80ada8260c6) állapotáig bejutott védelmek erősítik a célarchitektúrát, megtartandók. A drift a baseline/átállási contract hiánya; nem indokol identity-, connector- vagy PDF-engine-újraírást.
+
+- Admin-bootstrap: ACTIVE allow-listes account és kifejezetten igazolt egyező OIDC/SAML-email. Régi grant privát review, második owner és megbízható IdP-recovery tesztelendő; hiányzó claim nem vezethet bypasshoz.
+- Módosító cookie-kérés: engedélyezett Origin. Natív bearer/pontos aláírt PKP-launch kivétel mellett downstream hitelesítés marad; invalid bearer nem válthat cookie-ra. Régi kliens 403-átállása dokumentálandó.
+- PDF: processzlokális kvóta (user/processz: aktív 1/2, megőrzött 12/100), retryolható 429/503, elillanó jobállapot; worker env allowlist. Ez nem clusterkvóta, tartós recovery vagy OS-/hálózati izoláció.
+- Operátori útmutató-javítás és HTTP/provisioning regresszió CI/readiness bekötéssel. Nincs schema/container/DB-migráció vagy kéziratszerkesztési korlátozás.
+
+A legnagyobb megmaradó kockázat üzemeltetési: worker filesystem/resource izoláció (#774), kapcsolódáskori egress (#765), azonos candidate telepítési elfogadás. Ezek RC-blokkolók; unit teszt nem zárja le őket. Freeze előtt ADR-012/015/016/017/019 pontos authority/Origin/PDF contract; RC előtt azonos commit/digesthez telepített izoláció, browser/native/PKP, recovery és a többi gate kell. Lásd a PR-terv S01–S05 egységeit és az [átállási runbookot](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/server/security-contract-rollout.md).
 
 
 **Audit baseline:** 2026-09-19; Studio `main` @ `eca2cf45762116e1c00a89b3397840ed89109511`, OMI @ `e2f421707f1154c0ed30cb7750e0689a837e9b0a`, OJS plugin @ `6c0842fc1ce6c4a1ea75f7b27660af8011be303b`, OMP plugin @ `4f7a2c0a2f29f68e3ad05ac73ca7652bc6410ac7`.

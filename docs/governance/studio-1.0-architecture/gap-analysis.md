@@ -6,7 +6,21 @@ description: Evidence-based gap analysis between the audited Open Manuscript Stu
 
 # Current → 1.0 Gap Analysis
 
-> Current implementation reconciliation: see the **2026-10-12 current implementation checkpoint** below. Earlier audit snapshots are historical; open repair PRs are not merged guarantees.
+> Current security reconciliation: **2026-10-30**, below. Earlier dated checkpoints remain historical where superseded. Proposed repair tests are not merged/deployed guarantees.
+
+## Security boundary reconciliation — 2026-10-30
+
+Implementation audited at Studio [`540f67a`](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/540f67a018b200d21c5c74d98c3fe80ada8260c6). Earlier rows are historical where this checkpoint is more specific.
+
+| Current component | Status | Current issue / remaining gap | 1.0 target and next action | Risk |
+|---|---|---|---|---|
+| `verifiedFederatedIdentity.ts`, central/institutionAccess services | KEEP + HARDEN | Verified matching OIDC/SAML email now gates ACTIVE allow-listed bootstrap; older grants are not retroactively checked. Operator guide still described any linked federation. | Correct guide; private grant review, trusted-IdP reauthentication and tested second-owner recovery; service-level negative tests. Do not forge profile evidence or revoke last owner. ADR-012/017. | Medium: provisioning lockout / retained historical grants |
+| `cookieOriginGuard.ts`, `requireSession.ts`, `app.ts` | KEEP + HARDEN | Strict Origin policy is implemented; older scripts may omit Origin. Existing unit tests mostly exercise a helper/static mount order. | Retain exact PKP/native exceptions and independent downstream validation. Add real HTTP invalid-bearer/no-cookie/parser-order regressions; document approved browser/native/server-script rollout. ADR-015/017. | Medium: client 403, widened exception risk |
+| `pdfImportAdmission.ts`, `pdfImportRoutes.ts` | KEEP + HARDEN | User/process active and retained caps, 429/503 and retry header implemented. No upload reservation or distributed quota; registry lost on restart. | Document user 1/process 2 active, user 12/process 100 retained, lazy 30-minute retention. Require coordinated admission before multi-instance support. ADR-017. | Medium: aggregate memory/load and recovery |
+| `pdfWorkerEnvironment.ts`, Poppler/Vivliostyle callsites | KEEP + HARDEN | Allowlist excludes inherited API secrets; still same OS user, HOME/file access and networking remain possible. | Keep minimization and synthetic subprocess tests; deploy independent least-privilege worker/filesystem/resource limits (#774), verify connection-time egress (#765). No claim of sandbox completion. ADR-016/017. | High until deployment isolation/egress evidence |
+| `ci.yml`, `1.0-readiness.yml`, security tests | HARDEN | Security unit gate grew; no unit test proves real IdP, database concurrency or host isolation. | Add server HTTP/bootstrap contract suite after server setup; E02 aggregates same candidate commit/digest plus actual host/PKP/native acceptance. ADR-019. | High for unsupported RC promotion |
+
+The targeted repair is documentation and test coverage, not a schema/API mass migration. No database migration is added. [Rollout/recovery runbook](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/server/security-contract-rollout.md). OMI/PKP plugins need no matching protocol change for these contracts.
 
 
 **Baseline:** Studio `eca2cf45762116e1c00a89b3397840ed89109511`; OMI `e2f421707f1154c0ed30cb7750e0689a837e9b0a`; OJS plugin `6c0842fc1ce6c4a1ea75f7b27660af8011be303b`; OMP plugin `4f7a2c0a2f29f68e3ad05ac73ca7652bc6410ac7`  

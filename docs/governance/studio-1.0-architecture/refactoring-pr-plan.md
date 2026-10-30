@@ -6,7 +6,23 @@ description: Dependency-aware plan of small, testable, reversible pull requests 
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
-> Current implementation reconciliation: see the **2026-10-12 current implementation checkpoint** below. Earlier audit snapshots are historical; open repair PRs are not merged guarantees.
+> Current security reconciliation: **2026-10-30**, below. Earlier dated checkpoints remain historical where superseded. Proposed repair tests are not merged/deployed guarantees.
+
+## Security boundary reconciliation — 2026-10-30
+
+This is a small extension to B09–B11/C12 and D/E security evidence, not a new prerequisite to rewrite authentication or PDF processing. Existing Studio security changes through [`540f67a`](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/540f67a018b200d21c5c74d98c3fe80ada8260c6) are retained.
+
+| Unit / phase | Goal, modules and expected files | Prerequisite | Evidence | Change / rollback risk |
+|---|---|---|---|---|
+| S01 — A/B reconciliation | Correct verified-email and central-auth descriptions; add `docs/server/security-contract-rollout.md`; two server contract test files, package script and CI/readiness invocation. | Merged bootstrap, Origin and PDF hardening through #775 | Existing release-security suite; real HTTP Origin/session/parser tests and mocked-repository provisioning tests; server compile | Low; no runtime contract/DB change. Roll back docs/tests independently without removing security controls |
+| S02 — A freeze checkpoint | Reconcile five baseline documents in EN/HU, ADR-012/015/016/017/019; distinguish implemented environment filtering from deployment sandbox guarantees. | S01 reviewed; implementation facts independently verified on main | Documentation/MDX link build; trace contracts to code and test names | Low; document repair, no compatibility promise for all legacy endpoints |
+| S03 — D worker/egress hardening | Separate PDF worker identity/container; credential-free mounts, CPU/RAM/pid/temp limits, network deny; connection-time destination controls (#774/#765). Expected deployment manifests plus existing PDF/network adapters and ops docs; select packaging for actual supported installations. | S01 policy and operator deployment inventory | Host canary: deny credential-file/private/metadata access, cap resource abuse; permit approved integrations; fonts/media/rendering recovery on supported platforms | High; can disrupt fonts/network/renderer availability. Controlled canary and reviewed secure artifact rollback; never restore blanket network/environment access |
+| S04 — D capacity acceptance | Shared atomic admission/lifecycle only if multi-instance PDF import is supported; otherwise explicitly scope deployment limitation. Expected PDF admission/job repository port and deployment configuration. | S01; supported deployment topology decision | Simultaneous multi-process quota, release/expiry/restart and ownership tests | Medium; contract/adapter first, migrate separately; do not imply current process map is distributed |
+| S05 — E02 RC evidence | Attach security unit/HTTP, private grant review/recovery, browser/native/PKP and deployed isolation/egress results to candidate commit and artifact digest. | S01–S03; S04 when applicable; existing E02 prerequisites | Mandatory negative and positive acceptance, no private manuscript or credential data in Git/CI | High promotion risk if missing; block promotion while retaining authoring and explicit beta status |
+
+S01's HTTP/provisioning suite is `npm run test:security-boundary-contracts`, run after backend dependencies and Prisma generation in CI/readiness; `npm run test:release-security` remains the fast unit gate. Actual host/IdP/database tests are not replaced by mocks. None of S01/S02 requires database migrations. Existing-grant review changes operational authorization only under existing admin safeguards; it must not restrict authors' manuscript editing.
+
+Freeze requires documented cookie compatibility, exact native/PKP exceptions, matching verified-email authority, PDF status/limit semantics and an agreed deployment evidence owner. RC additionally requires successful security evidence; updating a baseline alone cannot satisfy E02.
 
 
 **Baseline:** Studio `eca2cf45762116e1c00a89b3397840ed89109511` and the audited 2026-09-19 OMI/PKP commits  

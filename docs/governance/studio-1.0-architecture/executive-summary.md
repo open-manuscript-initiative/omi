@@ -6,7 +6,18 @@ description: Executive summary of the Open Manuscript Studio 1.0 target architec
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
-> Current implementation reconciliation: see the **2026-10-12 current implementation checkpoint** below. Earlier audit snapshots are historical; open repair PRs are not merged guarantees.
+> Current security reconciliation: **2026-10-30**, below. Earlier dated checkpoints remain historical where superseded. Proposed repair tests are not merged/deployed guarantees.
+
+## Security boundary reconciliation — 2026-10-30
+
+The new Studio security controls through [`540f67a`](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/540f67a018b200d21c5c74d98c3fe80ada8260c6) reinforce the target architecture and should be kept. The drift is an incomplete baseline/rollout contract, not a reason to replace identity, connectors or the PDF engine.
+
+- Admin bootstrap now requires an ACTIVE allow-listed account and explicitly verified matching OIDC/SAML email. Review older grants privately; test a second owner and trusted-IdP recovery. Missing claims must not lead to verification bypass.
+- Unsafe cookie writes require approved Origin. Native bearer and exact signed PKP-launch exceptions retain downstream authentication; invalid bearer must not fall back to a cookie. Document the 403 transition for older clients.
+- PDF imports have process-local admission limits (user/process: 1/2 active, 12/100 retained), retryable 429/503 errors and volatile job state. Workers receive allow-listed environment variables. These controls do not establish cluster quotas, durable recovery or OS/network isolation.
+- Repair the operator guides and add HTTP/provisioning regression coverage in both CI and readiness. The coordinated changes introduce no schema/container/DB migration and impose no restriction on manuscript editing.
+
+The largest remaining security risk is operational: worker filesystem/resource isolation (#774), actual connection-time egress protection (#765) and candidate-specific deployment acceptance. They remain mandatory RC blockers; a green unit test cannot close them. Before freeze, record precise authority, Origin exceptions and PDF error/limit contracts in ADR-012/015/016/017/019. Before RC, aggregate deployed isolation, browser/native/PKP, recovery and other existing release gates for the same commit/artifact digest. See S01–S05 in the PR plan and the [rollout runbook](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/server/security-contract-rollout.md).
 
 
 **Audit baseline:** 2026-09-19; Studio `main` @ `eca2cf45762116e1c00a89b3397840ed89109511`, OMI @ `e2f421707f1154c0ed30cb7750e0689a837e9b0a`, OJS plugin @ `6c0842fc1ce6c4a1ea75f7b27660af8011be303b`, OMP plugin @ `4f7a2c0a2f29f68e3ad05ac73ca7652bc6410ac7`.

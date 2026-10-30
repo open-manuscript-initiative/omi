@@ -6,7 +6,23 @@ description: Függőségtudatos, kis és visszagörgethető pull requestekre bon
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
-> Aktuális implementáció: a lap végén szereplő **2026-10-12** egyeztetés az irányadó. A régebbi audit történeti adat; a nyitott javítási PR nem main-garancia.
+> Aktuális biztonsági egyeztetés: **2026-10-30**, alább. A felülírt korábbi checkpoint történeti állapot; a javasolt javítási teszt nem merge-/telepítési garancia.
+
+## Biztonsági határok egyeztetése — 2026-10-30
+
+A B09–B11/C12 és D/E biztonsági bizonyítékok kis bővítése; nem auth/PDF-újraírás. A Studio [`540f67a`](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/540f67a018b200d21c5c74d98c3fe80ada8260c6) állapotáig merge-elt védelmek megtartandók.
+
+| Egység / fázis | Cél, modulok, várható fájlok | Előfeltétel | Bizonyíték | Változás / rollback kockázat |
+|---|---|---|---|---|
+| S01 — A/B egyeztetés | Igazolt email/központi auth leírása; `docs/server/security-contract-rollout.md`; két server contract teszt, package script és CI/readiness bekötés. | Bootstrap/Origin/PDF védelem #775-ig merge-elve | Release-security, valódi HTTP Origin/session/parser és mockolt repositorys provisioning, server compile | Low; nincs runtime/DB-változás. Teszt/dokumentáció külön visszavonható, védelem megmarad |
+| S02 — A freeze checkpoint | Öt baseline EN/HU, ADR-012/015/016/017/019; környezetszűrés és telepítési sandbox szétválasztása. | S01 review; main-kód önálló ellenőrzése | Dokumentáció/MDX-linkbuild; contract→kód/teszt visszakövetés | Low; nem minden legacy API befagyasztása |
+| S03 — D worker/egress | Külön workeridentity/container, titokmentes mountok, CPU/RAM/pid/temp/network korlát; kapcsolódáskori célvédelem (#774/#765). Várható deployment manifest, PDF/network adapter, ops doc; csomagolás a tényleges telepítésekhez. | S01 és operátori deploymentleltár | Host canary: credential/private/metadata tiltás és erőforráskorlát; engedélyezett integrációk/fontok/média/render/recovery | High; font/hálózat/renderer sérülhet. Kontrollált canary és biztonságos artifact rollback; teljes hozzáférés nem állítható vissza |
+| S04 — D kapacitás | Közös atomikus admission/lifecycle, ha többpéldányos PDF támogatott; különben deklarált korlát. PDF job/admission repositoryport és deploymentconfig. | S01; támogatott topológia döntése | Többprocesszes konkurens kvóta, felszabadítás/lejárat/restart/ownership | Medium; contract/adapter előbb, migráció külön. A processzmap nem elosztott |
+| S05 — E02 RC | Unit/HTTP, privát grantreview/recovery, browser/native/PKP és telepített izoláció/egress ugyanahhoz a commit/digesthez. | S01–S03; S04 ahol kell; E02 többi feltétele | Kötelező pozitív/negatív elfogadás, privát kézirat és credential Git/CI nélkül | High, ha hiányzik; promóció blokkolása, szerkesztés és explicit beta megmarad |
+
+S01: `npm run test:security-boundary-contracts` a backend-függőségek és Prisma-generálás után CI/readiness alatt; a `test:release-security` gyors unit gate megmarad. Mock nem helyettesít valódi host/IdP/adatbázis-tesztet. S01/S02 nem igényel DB-migrációt. Régi grant áttekintése a meglévő adminszabályok szerint történik; nem korlátozhatja a szerző kéziratszerkesztését.
+
+Freeze előtt pontos cookie-kompatibilitás, natív/PKP kivétel, igazolt-email authority, PDF státusz/limit és deployment evidence owner kell. RC előtt sikeres biztonsági bizonyíték is kötelező; a baseline frissítése önmagában nem E02-teljesítés.
 
 
 **Baseline:** Studio `eca2cf45762116e1c00a89b3397840ed89109511` és a 2026-09-19-i OMI/PKP commitok  

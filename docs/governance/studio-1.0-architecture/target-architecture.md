@@ -6,7 +6,23 @@ description: Proposed target architecture for stabilizing the working Open Manus
 
 # Open Manuscript Studio 1.0 Target Architecture
 
-> Current implementation reconciliation: see the **2026-10-12 current implementation checkpoint** below. Earlier audit snapshots are historical; open repair PRs are not merged guarantees.
+> Current security reconciliation: **2026-10-30**, below. Earlier dated checkpoints remain historical where superseded. Proposed repair tests are not merged/deployed guarantees.
+
+## Security boundary reconciliation — 2026-10-30
+
+Verified implementation: Studio [`540f67a`](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/540f67a018b200d21c5c74d98c3fe80ada8260c6), including [admin bootstrap](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/f7497cf08c9841e21567aab1e044c3bd4c712380), [Origin/parser controls](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/a2eede7898bd092020a6e1cbb4d45e05d780a6d2) and [PDF admission](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/d81c8c7f67d8a5dd0895039595084b273adb9b9c). This checkpoint supersedes less specific earlier security statements; it changes no OMI schema/container, editor boundary or authors' ability to edit manuscript content.
+
+| Boundary / owner | Contract and dependency direction |
+|---|---|
+| Authentication → local authorization (ADR-012/017) | Central/institutional bootstrap requires ACTIVE allow-listed account plus matching linked OIDC/SAML email with boolean `emailVerified: true`. Username, password, passkey or unrelated SSO link is insufficient. Existing grants remain operational records, requiring separate private review. This is not scholarly identity, manuscript access or review authority. |
+| HTTP transport → session service → application (ADR-015/017) | Unsafe cookie writes require exact approved Origin; missing/opaque/foreign Origin fails closed. Native marker + bearer only bypasses Origin: the session service must validate bearer with no invalid-bearer fallback to cookie. Only exact signed PKP POST review-launch paths have the additional Origin exception; session, HMAC, expiry/nonce and scope verification remain mandatory. CORS is independent. |
+| HTTP admission → parsers (ADR-015/017) | Rate limits precede JSON allocation; the large document routes explicitly listed in `app.ts` authenticate before JSON decoding. PDF raw import checks session/admission before raw decoding, then synchronously rechecks quota before job insertion. Legacy and v1 mounts share the global policy; no route renaming is required. |
+| PDF import application → process registry (ADR-017) | Queued/processing caps: user 1, process 2; retained caps: user 12, process 100. User capacity returns 429, process capacity 503, structured codes and route `Retry-After: 60`. Registry is process-local, lazily expires at 30 minutes from creation and is lost on restart; early admission does not reserve an upload slot. |
+| PDF platform worker adapter (ADR-016/017) | Poppler/Vivliostyle inherit allow-listed runtime variables, excluding API secrets and `NODE_OPTIONS`. This is environment minimization, not filesystem/network isolation. Worker identity, mounts, CPU/RAM/pid/temp and connection-time egress controls remain deployment responsibilities and RC gates. |
+
+Preserve the working services and adapters. The targeted repair adds an [operational runbook](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/server/security-contract-rollout.md) and HTTP/service contract regressions, without changing database authority or introducing a replacement auth/PDF subsystem. Its proposed tests mock the session store/repositories; real IdP, PostgreSQL, PKP and deployed sandbox acceptance remain separate.
+
+Threat paths still open: same-OS-user worker access to credential files (#774); connection-time private/metadata egress and DNS rebinding (#765); cluster-wide PDF admission. Keep these in the gap/PR register until deployment-specific evidence exists. Security fixes do not justify weakening Origin or verified-email rules during rollback.
 
 
 **Status:** proposed 1.0 target architecture, prepared for architecture-freeze decisions  
