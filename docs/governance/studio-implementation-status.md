@@ -30,8 +30,8 @@ keywords:
 | Field | Value |
 |---|---|
 | Status | **Beta** |
-| Snapshot date | **2026-10-25** |
-| Current development source version | `0.3.0-beta.11` |
+| Snapshot date | **2026-10-30** |
+| Current development source version | `0.3.0-beta.12` |
 | Reference implementation | Open Manuscript Studio |
 | Source repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web target | Modern browsers |
@@ -39,9 +39,11 @@ keywords:
 | Mobile targets | Android public universal APK; iOS/iPadOS validated native simulator target, with TestFlight/App Store distribution pending Apple Developer signing |
 | Web deployment | `studio.openmanuscript.org` |
 
-The current Studio source tree reports **`0.3.0-beta.11`**. This release improves long-document editing by reusing unchanged line measurements and rendering only nearby print page guides while navigating. The portable manuscript format stays at OMI-SPEC-320@0.3.0. See the [beta.11 release notes](/docs/studio/releases/0.3.0-beta.11) for version identities and deployment steps. Beta does **not** mean that every optional integration or distribution channel is production-complete.
+The current Studio source tree reports **`0.3.0-beta.12`**. This release packages native TLS and Tokio security updates, native plugin fixes and more reliable macOS DMG creation. The portable manuscript format stays at OMI-SPEC-320@0.3.0. See the [beta.12 release notes](/docs/studio/releases/0.3.0-beta.12) for version identities and deployment steps. Beta does **not** mean that every optional integration or distribution channel is production-complete.
 
-## Recent changes in 0.3.0-beta.8–beta.11
+## Recent changes in 0.3.0-beta.8–beta.12
+
+- **0.3.0-beta.12 — native security and installers:** packages TLS/Tokio security updates, opener/persisted-scope updates and bounded macOS DMG packaging retries into new builds. See the [beta.12 release notes](/docs/studio/releases/0.3.0-beta.12).
 
 - **0.3.0-beta.11 — long-document editing:** reuses measurements for unchanged content and renders page guides only around the visible area while navigating. No server migration or OMI format change is required. See the [beta.11 release notes](/docs/studio/releases/0.3.0-beta.11).
 - **0.3.0-beta.10 — print pagination:** measures manuscript blocks and footnotes in short, cancellable animation-frame batches to keep the live publication editor responsive. No server migration or OMI format change is required. See the [beta.10 release notes](/docs/studio/releases/0.3.0-beta.10).
@@ -194,7 +196,7 @@ The current OJS and OMP integrations are bidirectional for review work: Studio c
 
 ## Release and distribution
 
-`0.3.0-beta.11` is the current Studio beta release line. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Public download links follow GitHub's current release rather than embedding one historical tag in the website, while published release assets themselves remain immutable. The application version is independent of the portable OMI manuscript format, which remains `OMI-SPEC-320@0.3.0`.
+`0.3.0-beta.12` is the current Studio beta release line. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Public download links follow GitHub's current release rather than embedding one historical tag in the website, while published release assets themselves remain immutable. The application version is independent of the portable OMI manuscript format, which remains `OMI-SPEC-320@0.3.0`.
 
 iOS/iPadOS currently has a successful CI simulator build rather than a public IPA. The Apple distribution path is prepared but deliberately separated from simulator validation: public/device builds require the real Apple Development Team ID, distribution certificate, provisioning profile and final `apple-app-site-association` configuration before TestFlight/App Store publication can be claimed.
 

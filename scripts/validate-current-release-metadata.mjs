@@ -1,14 +1,23 @@
 import { readFile } from 'node:fs/promises';
 
 const expected = {
-  studio: '0.3.0-beta.11',
+  studio: '0.3.0-beta.12',
   ojs: 'v1.6.0',
   omp: 'v1.5.1',
   iosMarketing: '0.3.0',
-  iosBuild: '23',
+  iosBuild: '24',
+  windowsMsi: '0.3.0.12',
+  androidFloor: '1211',
 };
 
+const releaseNotesFiles = [
+  `docs/studio/releases/${expected.studio}.md`,
+  ...['hu', 'de'].map((locale) =>
+    `i18n/${locale}/docusaurus-plugin-content-docs/current/studio/releases/${expected.studio}.md`),
+];
+
 const currentFacingFiles = [
+  ...releaseNotesFiles,
   'README.md',
   'src/pages/index.tsx',
   'src/pages/studio.tsx',
@@ -107,6 +116,14 @@ const required = [
 for (const [path, value] of required) {
   if (!contents.get(path)?.includes(value)) {
     failures.push(`${path}: expected current release marker ${value}`);
+  }
+}
+
+for (const path of releaseNotesFiles) {
+  for (const value of [expected.studio, expected.windowsMsi, expected.androidFloor, `| \`${expected.iosBuild}\` |`]) {
+    if (!contents.get(path)?.includes(value)) {
+      failures.push(`${path}: expected release packaging marker ${value}`);
+    }
   }
 }
 
