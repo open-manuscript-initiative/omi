@@ -6,7 +6,21 @@ description: A Studio 1.0 architektúra döntési nyilvántartása és a Phase A
 
 # OMI Studio 1.0 ADR Register
 
-> Aktuális implementáció: a lap végén szereplő **2026-10-12** egyeztetés az irányadó. A régebbi audit történeti adat; a nyitott javítási PR nem main-garancia.
+> Aktuális biztonsági egyeztetés: **2026-10-30**, alább. A felülírt korábbi checkpoint történeti állapot; a javasolt javítási teszt nem merge-/telepítési garancia.
+
+## Biztonsági határok egyeztetése — 2026-10-30
+
+ADR-012/015/016/017/019 pontosítása, a kevésbé konkrét történeti checkpointok helyett. Ellenőrzött Studio: [`540f67a`](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/540f67a018b200d21c5c74d98c3fe80ada8260c6). Az összehangolt javítás merge-ig dokumentáció-/tesztjavaslat; nem állít telepített hostvédelmet.
+
+| ADR / kérdés | Döntés | Alternatíva és indok | Következmény / felülvizsgálat |
+|---|---|---|---|
+| ADR-012: admin-bootstrap authority? | ACTIVE allow-listes account + egyező, boolean-igazolt OIDC/SAML-email; explicit központi operatorjelölt is ACTIVE és igazolt. Régi grant privát review; külön scholarly/review authority. | Csak email, bármely SSO vagy username nem bizonyít címhez tartozást. Identity-újraírás nem kell. | Megbízható IdP-újrahitelesítés, második owner/recovery és audit; claim nem hamisítható. Új issuer/claim/email-szabály vagy tervezett break-glass esetén review. |
+| ADR-015: legacy/v1 cookie írás? | Globális pontos Origin, strukturált 403/no-store; rate/session az érintett nagy parserek előtt. Additív v1 megmarad. | CORS önmagában, teljes integration-kivétel vagy régi kliens kedvéért gyengítés elutasítva. | Script/native szerződésfrissítés, mindkét mount teszt; nincs tömeges átnevezés. Új cookie-kliens/form/v1-mount esetén review. |
+| ADR-016: natív marker jelentése? | Marker + nem üres bearer csak Origin-kivétel; valódi bearerellenőrzés, invalid esetén cookie-fallback nélkül. Runtime platformadapterben. | Marker nem hitelesítés, Tauri Origin nem implicit bizalom. | HTTP pozitív/negatív regresszió; SecureStorage/origin-cache munka nyitott. Transport/auth-handoff változáskor review. |
+| ADR-017: PKP/PDF határ? | Pontos POST review-launch kivételek session/HMAC/nonce/lejárat/scope mellett. PDF user/processz aktív 1/2, megőrzött 12/100; 429/503/retry. Env allowlist nem OS-sandbox. | Általános connector-kivétel, korlátlan job, teljes env és processzlokális kvóta globálisnak nevezése elutasítva. | Meglévő kód megtartása; worker/filesystem/resource/network és kapcsolódáskori egress elfogadás (#774/#765); többpéldány előtt elosztott kvóta. Topológia/renderer/protokoll változáskor review. |
+| ADR-019: milyen gate blokkol? | Gyors security unit + server HTTP/bootstrap contract suite; valódi deployment/IdP/PKP/native és exact-candidate aggregáció továbbra is kötelező. Preview nem kivétel. | Helper/statikus teszt önmagában, mockolt DB mint integráció vagy envteszt mint sandboxbizonyíték elutasítva. | S01–S05, kontrollált rollout/recovery. Capability-promóció/új subprocess/aggregáció esetén review. |
+
+[Security rollout és recovery](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/server/security-contract-rollout.md): pontos hibák/kivételek/korlátok. Nincs OMI/container-verzióváltás vagy DB-migráció. Minden kéziratrész szerkeszthető marad; service-admission/publikációs jogosultság nem szerkesztési korlát.
 
 
 **Dátum:** 2026-09-19  

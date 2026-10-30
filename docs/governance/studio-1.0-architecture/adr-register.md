@@ -6,7 +6,21 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 # OMI Studio 1.0 ADR Register
 
-> Current implementation reconciliation: see the **2026-10-12 current implementation checkpoint** below. Earlier audit snapshots are historical; open repair PRs are not merged guarantees.
+> Current security reconciliation: **2026-10-30**, below. Earlier dated checkpoints remain historical where superseded. Proposed repair tests are not merged/deployed guarantees.
+
+## Security boundary reconciliation — 2026-10-30
+
+These refinements apply to ADR-012/015/016/017/019 and supersede less specific historical checkpoints. Facts are verified against Studio [`540f67a`](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/540f67a018b200d21c5c74d98c3fe80ada8260c6). The coordinated repair is a documentation/test proposal until merged; it does not claim host controls have been deployed.
+
+| ADR / question | Decision | Alternatives and reason | Consequences / review trigger |
+|---|---|---|---|
+| ADR-012: what authorizes administrator bootstrap? | ACTIVE allow-listed local account plus linked OIDC/SAML boolean-verified matching email. Explicit central operator candidates also require ACTIVE verified federation. Older grants need private review; authentication evidence is separate from scholarly/review authority. | Reject email-only bootstrap, any-SSO linkage and username-derived verification: they do not prove the allow-listed address. Avoid a replacement identity model. | Trusted IdP reauthentication, second-owner recovery and audit; never fabricate claims. Revisit on issuer/claim policy, account-email change or a designed break-glass mechanism. |
+| ADR-015: what protects legacy/v1 cookie writes? | Global exact-Origin policy for unsafe cookie requests, structured 403/no-store. Rate/session gates before applicable large parsers. Additive v1 strategy remains unchanged. | CORS alone, path-wide integration exemptions and weakening checks for older clients are rejected. | Update script/native client contracts and test both surfaces; no mass route rename. Revisit new cookie clients, form routes or additional v1 mounts. |
+| ADR-016: what does the native marker mean? | Marker plus nonempty bearer bypasses only Origin; downstream validates bearer first and cannot fall back to cookie on invalid bearer. Native runtime remains a platform adapter concern. | Marker as authentication or implicit trust in Tauri Origin is rejected. | HTTP positive/negative regression; secure storage/origin-scoped caches remain open. Revisit transport/auth-handoff changes. |
+| ADR-017: how are PKP and PDF boundaries enforced? | Exact POST review-launch exceptions retain session, HMAC/nonce/expiry/scope verification. PDF quota 1/2 active, 12/100 retained per user/process; 429/503 and retry header. Environment allowlist minimizes inherited secrets but is not an OS sandbox. | Blanket connector exception, unbounded jobs, full env inheritance or calling process-local quotas global are rejected. | Keep working code; require worker filesystem/resource/network isolation and connection-time egress acceptance (#774/#765), distributed quota before multi-instance support. Revisit topology, renderer or connector protocol changes. |
+| ADR-019: what evidence blocks promotion? | Fast unit security gate plus server HTTP/bootstrap contract suite; real deployment/IdP/PKP/native evidence and exact-candidate aggregation still mandatory. Preview does not waive security. | Helper/static tests alone, mocked database as integration proof or green env-filter tests as sandbox proof are rejected. | S01–S05 in PR plan, with controlled rollout/recovery. Revisit capability promotion, new subprocess or evidence-aggregation changes. |
+
+[Security rollout and recovery](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/server/security-contract-rollout.md) specifies errors/exceptions and operational limits. No OMI/container version or DB migration changes. All manuscript parts remain editable; service admission and publication authorization do not become document-editing restrictions.
 
 
 **Date:** 2026-09-19
