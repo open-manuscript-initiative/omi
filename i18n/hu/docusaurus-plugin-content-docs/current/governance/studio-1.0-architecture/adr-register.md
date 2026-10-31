@@ -6,7 +6,21 @@ description: A Studio 1.0 architektúra döntési nyilvántartása és a Phase A
 
 # OMI Studio 1.0 ADR Register
 
-> Aktuális biztonsági egyeztetés: **2026-10-30**, alább. A felülírt korábbi checkpoint történeti állapot; a javasolt javítási teszt nem merge-/telepítési garancia.
+> Aktuális egyeztetés: **2026-10-31**, alább. A felülírt checkpoint történeti adat; javasolt javításhoz merge/CI kell, helyi evidence nem telepítési elfogadás.
+
+## Draft fordítási, exchange- és jogosultsági checkpoint — 2026-10-31
+
+Pontosítás a Studio [f41dadf](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/f41dadf07f566ea782e9eaf3193271ff9def8e12) után, a meglévő függőségi iránnyal. Merge-ig javasolt javítás. Konkrét határok: [Studio ADR-029](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-029-translation-export-and-application-boundaries.md).
+
+| ADR / kérdés | Döntés | Alternatíva / indok | Következmény / felülvizsgálat |
+|---|---|---|---|
+| 011/017/023: reviewed fordítás kiadhat privát note-ot? | Nem. Public-note szűrés output/readiness előtt, mindkét HTML-ben, aktuális láthatósággal. Privát manuscript/history/ledger megmarad. | Minden reviewed alignment dumpja vagy sourcejegyzet törlése privacy/adatvesztés miatt elutasítva. | Kötelező negatív exportgate; private nem blokkol public proofot. Új audience esetén review; anonim review külön szerverprojekció. |
+| 004/005/007: fordítási command/horgony tulajdonosa? | Sessionportos application, Zustand/auth facade, meglévő checkpoint. Profil/path kísérleti. | Új store/history vagy editorútvonal szemantikus befagyasztása szükségtelen/hibás. | Plain-session/store/reopen/revert teszt, future opaque. Canonical170/ContentCodec/verziózott locator esetén review. |
+| 008/009: exchange riportfolyamat? | Application `ExportExchangeSession`: warning/inspect/delivery/fail; UI összeállítja a meglévő renderert/deliveryt. | React mint riportauthority vagy renderer-újraírás elutasítva. | Teljes registry/streaming/maradék hívók nyitottak. Új formátum/audience/validator esetén review. |
+| 007/011/012/017: kollaboráció authority? | Aktuális elfogadott DB-membership + ACTIVE account; üzenetenként/15 s idle, 5 s deadline; downgrade read-only; expiry/revoke/unavailable bontás. | Portable szerzőség/admincímke/clientboolean nem grant. | Single-node egész kézirat, nincs editorial/segment implicit jog; reconnect nem bypass. Föderáció/topológia/translator scope/revocation SLA esetén review. |
+| 001/008/019: új riport = konformancia? | Validation/exchange/self-assessment/core-review/publication-build külön; hiányos/nem jóváhagyott suite indeterminate. | Envelope/másolt validator/helyi zöld suite nem független/Stable bizonyíték. | Pontos verzió/subject/freshness/exclusion, RC-gate marad; core Draft nem írja át producert. Jóváhagyott profil/független evidence esetén review. |
+
+Nincs schema/container/API-v1-átnevezés vagy DB-migráció. Minden kéziratrész, importált tartalom is szerkeszthető és törölhető marad.
 
 ## Biztonsági határok egyeztetése — 2026-10-30
 

@@ -6,7 +6,22 @@ description: Dependency-aware plan of small, testable, reversible pull requests 
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
-> Current security reconciliation: **2026-10-30**, below. Earlier dated checkpoints remain historical where superseded. Proposed repair tests are not merged/deployed guarantees.
+> Current reconciliation: **2026-10-31**, below. Earlier checkpoints remain historical where superseded. Proposed repairs require merge and CI; local evidence is not deployment acceptance.
+
+## Draft translation, exchange and authority checkpoint — 2026-10-31
+
+These dependency-ordered units supplement B06/B07/C01–C05/C11/E02. Keep existing model functions, renderers, Yjs and revision history.
+
+| Unit / phase | Goal and files | Prerequisite | Tests | Breaking / technical risk |
+|---|---|---|---|---|
+| T01 — immediate security | Public-note filtering before translation HTML units/readiness in `translationExport.ts`; new privacy fixture, release-security import. | Existing public-note predicate | Both HTML modes; hidden/editor/workflow/origin notes; late visibility edits; stale/new public notes; private edits do not block; original unchanged | Intentional removal of private output; low technical / high unpatched privacy risk |
+| T02 — B application | `translationCommands.ts` port; keep `app/translationActions.ts` facade. | Existing translation model/checkpoint ledger; can be reviewed after T01 | Plain session and actual store, pending events, source basis, save/reopen/revert and invalid command atomicity | No API/schema change; medium refactor risk |
+| T03 — C exchange | Application-owned `ExportExchangeSession`; migrate standard export panel's report lifecycle. | Existing report/byte inspection service | Warning preservation, actual digest, no completion before inspection, failure, cancellation; existing format/sidecar tests and build | Local report contract unchanged; medium refactor risk |
+| T04 — A documentation | Five EN/HU baselines and Studio ADR-029; reconcile existing ADR-028 and new core-review evidence. | T01–T03 concrete reviewable implementation | EN/HU documentation builds; code/fixture/version traceability | No compatibility change; low risk |
+| T05 — B/C later contract | Introduce registry/ports before migrating remaining importer/exporter callers; editor-independent translation anchors via explicitly versioned codec mapping. | T02/T03; A06/B06 and normative profile decisions | Adapter parity, byte/fidelity diagnostics, unknown fields, shifted text paths, cross-editor round trips; separate migration PR | Potential profile compatibility change; high risk; no silent locator reinterpretation |
+| T06 — E acceptance | Existing collaboration reauthorization/reconnect and privacy gates, external interoperability and exact-candidate evidence. | T01–T04 and other RC prerequisites | Real transport downgrade/revocation/unavailable authority, offline denial, anonymous cross-surface fixtures, approved profile/independent evidence | High promotion risk if missing; beta/local self-assessment is not certification |
+
+T01–T03 can be delivered as one bounded repair with separate commits, or independently in this order. Roll back adapter extraction independently; never restore private HTML leakage. Private-note review cannot become a condition for public proof output or an editor lock. No schema/container/DB migration is required. The current session-local receipts, complete target semantics/streaming and uninstrumented export routes remain declared follow-up scope.
 
 ## Security boundary reconciliation — 2026-10-30
 

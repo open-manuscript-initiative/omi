@@ -6,7 +6,22 @@ description: Proposed target architecture for stabilizing the working Open Manus
 
 # Open Manuscript Studio 1.0 Target Architecture
 
-> Current security reconciliation: **2026-10-30**, below. Earlier dated checkpoints remain historical where superseded. Proposed repair tests are not merged/deployed guarantees.
+> Current reconciliation: **2026-10-31**, below. Earlier checkpoints remain historical where superseded. Proposed repairs require merge and CI; local evidence is not deployment acceptance.
+
+## Draft translation, exchange and authority checkpoint — 2026-10-31
+
+Audited implementation: Studio [f41dadf](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/f41dadf07f566ea782e9eaf3193271ff9def8e12); specification evidence: OMI [c9f135f](https://github.com/open-manuscript-initiative/omi/commit/c9f135f018f0a1152d1075b551412ecf32a40292). The coordinated repair is proposed until the Studio companion is merged and CI passes. It introduces no schema/container version, API-route rename, DB migration or authoring lock.
+
+| Boundary | Target contract / retained implementation |
+|---|---|
+| Translation → public proof | Use the existing public-note predicate before collecting output units and checking readiness. Hidden, workflow and non-note annotations and their target text/anchors are excluded from both parallel and target HTML. Recheck current visibility. Private-note edits do not gate public release. The original manuscript, private translation ledger and history remain intact; a reviewed alignment is not permission to disclose. |
+| Application → session adapter | `createTranslationCommands(TranslationSessionPort)` owns translation use cases and pending-change/checkpoint orchestration. Zustand/auth lookup is only the composition adapter. Updates are synchronous and atomic; reject a different active manuscript. Keep current history/checkpoint engine and all source editing. |
+| Editor adapter → portable local profile | `urn:omi:studio:translation:1`, `studio-translation-0.1`, and `translation.model.set` are experimental Studio contracts. Tiptap JSON paths are transitional locators with source-fingerprint stale detection, not frozen OMI anchors or completed ContentCodec. Stable adoption requires explicit versioned conversion and shifted-path/round-trip fixtures. Future profiles remain opaque. |
+| Export application → renderer/delivery | `ExportExchangeSession` owns report lifecycle, warnings, byte/envelope inspection, cancellation and failure; UI owns format selection/notices and platform delivery. Office preparation remains a framework-independent receipt service. Keep existing renderers/sidecars. Complete registry, streaming and semantic validators remain incremental work. |
+| Membership authority → collaboration transport | ADR-028's whole-manuscript single-node policy: accepted database membership + ACTIVE account, admission/per-message checks, idle sweep 15 s, authorization deadline 5 s. Downgrade means read-only; revocation/expiry/unavailable authority closes transport. Fresh tickets do not turn denied local edits into shared writes. No role implies publication approval or segment-level translator permissions. |
+| Evidence → release governance | Keep manuscript-validation, exchange, conformance-self-assessment, core-review and publication-build artifacts distinct. An envelope check is not semantic target validation, translation review is not peer review, and unapproved/incomplete suites remain indeterminate. Existing exact-candidate RC/privacy/security gates still apply. |
+
+The bounded core-review validator/schema/fixtures target new Draft source revisions only. Existing OMI-SPEC-320 producer declarations and normal validation reports remain unchanged; no silent adoption of the revised semantic contracts. The same shared validator in OMI and Studio is not independent evidence. See [Studio ADR-029](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-029-translation-export-and-application-boundaries.md) for the repair and its exclusions.
 
 ## Security boundary reconciliation — 2026-10-30
 

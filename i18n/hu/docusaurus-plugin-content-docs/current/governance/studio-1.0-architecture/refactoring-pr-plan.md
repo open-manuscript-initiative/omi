@@ -6,7 +6,22 @@ description: Függőségtudatos, kis és visszagörgethető pull requestekre bon
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
-> Aktuális biztonsági egyeztetés: **2026-10-30**, alább. A felülírt korábbi checkpoint történeti állapot; a javasolt javítási teszt nem merge-/telepítési garancia.
+> Aktuális egyeztetés: **2026-10-31**, alább. A felülírt checkpoint történeti adat; javasolt javításhoz merge/CI kell, helyi evidence nem telepítési elfogadás.
+
+## Draft fordítási, exchange- és jogosultsági checkpoint — 2026-10-31
+
+B06/B07/C01–C05/C11/E02 kiegészítése. Meglévő modellek, rendererek, Yjs és history megtartandó.
+
+| Egység / fázis | Cél / fájl | Előfeltétel | Teszt | Breaking / technikai kockázat |
+|---|---|---|---|---|
+| T01 — azonnali security | Public-note szűrés a `translationExport.ts` output/readiness előtt; negatív fixture és release-security bekötés. | Meglévő public-note predikátum | Két mód; hidden/editor/workflow/origin; késői láthatóságváltás; új/stale public note; private nem blokkol; eredeti sértetlen | Privát output szándékosan eltűnik; low technikai / high javítatlan privacy |
+| T02 — B application | `translationCommands.ts` port, `app/translationActions.ts` facade. | Translationmodell/checkpoint; T01 után review | Plain-session és valódi store, pending event, sourcebasis, reopen/revert és hibás parancs atomicitása | Nincs API/schema-váltás; medium |
+| T03 — C exchange | `ExportExchangeSession`, standard panel riportfolyamatának átkötése. | Meglévő report/bájtvizsgáló service | Warning/digest, inspect előtti completion tiltása, fail/cancel; meglévő export/sidecar és build | Helyi riportcontract változatlan; medium |
+| T04 — A dokumentáció | Öt EN/HU baseline + Studio ADR-029; ADR-028/core-review összehangolása. | T01–T03 reviewzható eredménye | EN/HU build, kód/fixture/verzió trace | Nincs kompatibilitásváltás; low |
+| T05 — későbbi B/C | Registry/port előbb, maradék hívók migrációja utána; editorfüggetlen fordításhorgony verziózott codec-konverzióval. | T02/T03, A06/B06 és normatív profil | Adapterparitás, byte/fidelity diagnosztika, unknown/eltolt path/cross-editor round-trip; külön migration PR | Lehetséges profiltörés; high, csendes átértelmezés tilos |
+| T06 — E elfogadás | Kollaboráció reauth/reconnect/privacy, külső interoperabilitás, exact-candidate evidence. | T01–T04 és többi RC-feltétel | Valódi transport downgrade/revoke/unavailable, offline denial, anonim felületek, jóváhagyott profil/független evidence | Hiányában high promóciós kockázat; beta/self-assessment nem tanúsítás |
+
+T01–T03 kis javításként külön commitokban vagy ebben a sorrendben külön PR-okban szállítható. Adapterkiszervezés külön rollbackelhető; privát HTML-szivárgás nem állítható vissza. Privát jegyzet ellenőrzése nem válhat publikus export- vagy szerkesztési feltétellé. Nincs schema/container/DB-migráció. Sessionlokális receipt, teljes célvalidáció/streaming és nem instrumentált export további scope.
 
 ## Biztonsági határok egyeztetése — 2026-10-30
 

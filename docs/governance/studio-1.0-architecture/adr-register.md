@@ -6,7 +6,21 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 # OMI Studio 1.0 ADR Register
 
-> Current security reconciliation: **2026-10-30**, below. Earlier dated checkpoints remain historical where superseded. Proposed repair tests are not merged/deployed guarantees.
+> Current reconciliation: **2026-10-31**, below. Earlier checkpoints remain historical where superseded. Proposed repairs require merge and CI; local evidence is not deployment acceptance.
+
+## Draft translation, exchange and authority checkpoint — 2026-10-31
+
+This refines existing ADRs after Studio [f41dadf](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/f41dadf07f566ea782e9eaf3193271ff9def8e12), retaining the original dependency direction. The coordinated repair is proposed until reviewed/merged; [Studio ADR-029](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-029-translation-export-and-application-boundaries.md) records concrete implementation boundaries.
+
+| ADR / question | Decision | Alternative and reason | Consequence / revisit |
+|---|---|---|---|
+| ADR-011/017/023: may reviewed translation disclose private notes? | No. Public-note predicate before output unit collection/readiness, both HTML modes, current visibility. Keep private manuscript/history/translation data. | Dump all reviewed alignments or delete source notes: rejected for privacy/data loss. | Mandatory negative export gate; private units do not block public proof. Revisit explicit new audiences; anonymous review remains separate server projection. |
+| ADR-004/005/007: who owns translation commands and anchors? | Session-port application commands, Zustand/auth composition facade, existing checkpoints. Current profile/path locators are experimental. | New store/history product or freezing editor JSON paths as semantic anchors: unnecessary/unsafe. | Plain-session and store/reopen/revert tests; unknown profiles opaque. Revisit canonical 170, ContentCodec or versioned locator conversion. |
+| ADR-008/009: who owns exchange-report execution? | Application `ExportExchangeSession` owns warning/inspection/delivery-state/failure lifecycle; UI selects/composes existing renderers and delivery. | React as report authority or wholesale renderer rewrite: rejected. | Complete registry/streaming/remaining callers still open. Revisit new formats, audience or target validation. |
+| ADR-007/011/012/017: collaboration authority? | Current accepted DB membership + ACTIVE account; each message and 15 s idle recheck, 5 s deadline; read-only downgrade, fail-closed expiry/revocation/unavailability. | Portable authorship/admin label/client boolean as grant: rejected. | Single-node whole-manuscript profile; no implied editorial/segment grant; reconnect cannot bypass denial. Revisit federated/multi-node authority, translator scopes and revocation SLA. |
+| ADR-001/008/019: do the new reports establish conformance? | Keep validation, exchange, self-assessment, bounded core-review and publication-build artifacts separate. Incomplete/unapproved coverage remains indeterminate. | Envelope validity, copied validator or a passing local suite as independent/Stable proof: rejected. | Exact versions/subjects/freshness/exclusions and existing RC gates; newly revised core Drafts do not alter producer declarations. Revisit approved canonical profiles and independent evidence. |
+
+No schema/container/API-v1 rename or DB migration is implied. Normal manuscript editing stays available, including deletion and replacement of imported content.
 
 ## Security boundary reconciliation — 2026-10-30
 

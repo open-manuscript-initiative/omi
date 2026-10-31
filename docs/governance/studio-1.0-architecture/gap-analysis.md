@@ -6,7 +6,22 @@ description: Evidence-based gap analysis between the audited Open Manuscript Stu
 
 # Current → 1.0 Gap Analysis
 
-> Current security reconciliation: **2026-10-30**, below. Earlier dated checkpoints remain historical where superseded. Proposed repair tests are not merged/deployed guarantees.
+> Current reconciliation: **2026-10-31**, below. Earlier checkpoints remain historical where superseded. Proposed repairs require merge and CI; local evidence is not deployment acceptance.
+
+## Draft translation, exchange and authority checkpoint — 2026-10-31
+
+Audited Studio [f41dadf](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/f41dadf07f566ea782e9eaf3193271ff9def8e12). Proposed repair evidence is not merged/deployed acceptance.
+
+| Component | Status | Verified gap | Target / migration / risk |
+|---|---|---|---|
+| `translationExport.ts` → `buildStructuredTranslationPlan` | HARDEN | Hidden/editor-only annotation bodies could appear in both HTML proofs after review. | Apply the shared public-note predicate before output/readiness; retain private state; negative tests in release-security. High privacy risk until merged. |
+| `translationActions.ts` | REFACTOR | New use cases directly own Zustand mutation and auth-store lookup. | Extract `translationCommands.ts` with synchronous atomic session port; retain the old action API as composition adapter. Plain-session and existing save/history/revert tests. Medium coupling risk; no history rewrite. |
+| `translation.ts` local extension/path anchors | KEEP + HARDEN | Tiptap paths/fingerprints are useful transitional locators, not stable cross-editor anchors. | Declare experimental profile and operation; retain unknown-profile preservation; version any later semantic locator conversion. Medium compatibility risk. |
+| `ExportFormatsPanel.tsx` report lifecycle | REFACTOR | Byte/report/failure/cancellation orchestration lived in React. | `ExportExchangeSession` owns that lifecycle; preserve renderers/sidecars/delivery. Complete registry, streaming and uninstrumented flows remain open. Medium evidence inconsistency risk. |
+| `collaborationPolicy.ts`, ticket/live service | KEEP + HARDEN | New per-message/15 s idle checks and 5 s deadline are absent from central baseline. | Record role authority, read-only downgrade, disconnect/reconnect and single-node whole-manuscript scope. Preserve denial behavior and tests. Medium availability/authority risk. |
+| 180/340/350/core-review reports and CI | KEEP + HARDEN | Multiple evidence types may be mistaken for interchangeable certification or RC approval. | Explicit scope/version/subject/freshness and incomplete/indeterminate distinctions. Core shared code is not independent evidence; exact-artifact release gates remain. Medium governance risk. |
+
+No OJS/OMP protocol or DB migration is needed for this repair. Ordinary authoring remains unrestricted. See [Studio ADR-029](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-029-translation-export-and-application-boundaries.md). The new core Drafts are review targets, not a silent change to the main writer's specification versions.
 
 ## Security boundary reconciliation — 2026-10-30
 
