@@ -30,7 +30,7 @@ A szerző saját, jogosultan szerkeszthető kéziratát továbbra is szabadon m�
 
 ## Kapcsolódás a többi specifikációhoz
 
-A [személyazonossági és közreműködői modell](https://openmanuscript.org/hu/docs/identity-contributor-model/) (150) kezeli a tudományos hozzárendeléseket; a [verzió- és változásmodell](https://openmanuscript.org/hu/docs/versioning-change-model/) (160) az ellenőrizhető kéziratverziókat; a [fordítási modell](https://openmanuscript.org/hu/docs/translation-model/) (170) a nyelvi változatokat; a [validációs modell](https://openmanuscript.org/hu/docs/validation-model/) (180) az ellenőrzések bizonyítékait; a [bírálati modell](https://openmanuscript.org/hu/docs/review-model/) (200) a szerkesztői és lektori folyamatokat.
+A [személyazonossági és közreműködői modell](https://openmanuscript.org/hu/docs/specifications/identity-contributor-model/) (150) kezeli a tudományos hozzárendeléseket; a [verzió- és változásmodell](https://openmanuscript.org/hu/docs/specifications/versioning-change-model/) (160) az ellenőrizhető kéziratverziókat; a [fordítási modell](https://openmanuscript.org/hu/docs/specifications/translation-model/) (170) a nyelvi változatokat; a [validációs modell](https://openmanuscript.org/hu/docs/specifications/validation-model/) (180) az ellenőrzések bizonyítékait; a [bírálati modell](https://openmanuscript.org/hu/docs/specifications/review-model/) (200) a szerkesztői és lektori folyamatokat.
 
 ## Mi működik már a Stúdióban?
 
