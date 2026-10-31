@@ -311,7 +311,7 @@ Studio interface/help localization and website navigation demonstrate multilingu
 
 ## 9. Immediate priorities
 
-The [core review programme](./core-model-readiness.md) now pins all 24 model/source versions and Studio evidence. The 000/120/100/140 Draft rewrites, 66-requirement inventory and 22-fixture review profile are prepared. Continue with requirement applicability and public review before promoting lifecycle states; apply the documented foundation-first order. Security and production fixes remain continuous.
+The [core review programme](https://openmanuscript.org/docs/governance/core-model-readiness/) now pins all 24 model/source versions and Studio evidence. The 000/120/100/140 Draft rewrites, 66-requirement inventory and 22-fixture review profile are prepared. Continue with requirement applicability and public review before promoting lifecycle states; apply the documented foundation-first order. Security and production fixes remain continuous.
 
 
 The highest-value next steps are:
