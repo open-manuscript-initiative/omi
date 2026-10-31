@@ -30,14 +30,14 @@ A szerző saját, jogosultan szerkeszthető kéziratát továbbra is szabadon m�
 
 ## Kapcsolódás a többi specifikációhoz
 
-A [személyazonossági és közreműködői modell](./identity-contributor-model.md) (150) kezeli a tudományos hozzárendeléseket; a [verzió- és változásmodell](./versioning-change-model.md) (160) az ellenőrizhető kéziratverziókat; a [fordítási modell](./translation-model.md) (170) a nyelvi változatokat; a [validációs modell](./validation-model.md) (180) az ellenőrzések bizonyítékait; a [bírálati modell](./review-model.md) (200) a szerkesztői és lektori folyamatokat.
+A [személyazonossági és közreműködői modell](https://openmanuscript.org/hu/docs/identity-contributor-model/) (150) kezeli a tudományos hozzárendeléseket; a [verzió- és változásmodell](https://openmanuscript.org/hu/docs/versioning-change-model/) (160) az ellenőrizhető kéziratverziókat; a [fordítási modell](https://openmanuscript.org/hu/docs/translation-model/) (170) a nyelvi változatokat; a [validációs modell](https://openmanuscript.org/hu/docs/validation-model/) (180) az ellenőrzések bizonyítékait; a [bírálati modell](https://openmanuscript.org/hu/docs/review-model/) (200) a szerkesztői és lektori folyamatokat.
 
 ## Mi működik már a Stúdióban?
 
-A [Stúdió élő együttműködési funkciója](../foundations/studio-live-collaboration.md) támogatja a meghívások elfogadását, a hitelesített közös szerkesztést és a résztvevők jelölését. A megvalósítás Yjs-alapú, egy kiszolgálón üzemeltethető és PostgreSQL-t használ a tartós állapothoz. Ez **termékfunkció**, nem a 190-es szabvány hivatalosan igazolt megfelelősége.
+A [Stúdió élő együttműködési funkciója](https://openmanuscript.org/hu/docs/foundations/studio-live-collaboration/) támogatja a meghívások elfogadását, a hitelesített közös szerkesztést és a résztvevők jelölését. A megvalósítás Yjs-alapú, egy kiszolgálón üzemeltethető és PostgreSQL-t használ a tartós állapothoz. Ez **termékfunkció**, nem a 190-es szabvány hivatalosan igazolt megfelelősége.
 
 ## Következő lépések az OMI 1.0-ig
 
 Szükséges a jogosultságok, meghívások, döntések és auditálási események kanonikus adatsémája; a jogosultság-visszavonást, szerepkör-megkerülést és kettős vak bírálatot ellenőrző negatív tesztek; valamint független megvalósításon alapuló interoperabilitási bizonyíték.
 
-A részletes mérföldkövek az [OMI 1.0 roadmapjában](../governance/roadmap-to-omi-1.0.md), az implementációs bizonyítékok a [státuszmátrixban](../governance/implementation-status-matrix.md) olvashatók.
+A részletes mérföldkövek az [OMI 1.0 roadmapjában](https://openmanuscript.org/hu/docs/governance/roadmap-to-omi-1.0/), az implementációs bizonyítékok a [státuszmátrixban](https://openmanuscript.org/hu/docs/governance/implementation-status-matrix/) olvashatók.
