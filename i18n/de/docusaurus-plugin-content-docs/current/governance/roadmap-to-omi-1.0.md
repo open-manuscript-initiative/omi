@@ -97,7 +97,7 @@ Die Familie der kanonischen Spezifikationen ist nach Bereichen permanenter Ident
 | `OMI-SPEC-160` | Versionsverwaltung und Änderungsmodell | Aktiv | Entwurf |
 | `OMI-SPEC-170` | Übersetzungsmodell | Reserviert | Geplant |
 | `OMI-SPEC-180` | Validierungsmodell | Reserviert | Geplant |
-| `OMI-SPEC-190` | Modell für Zusammenarbeit und Berechtigungen | Reserviert | Geplant |
+| `OMI-SPEC-190` | [Kollaborations- und Berechtigungsmodell](https://openmanuscript.org/de/docs/specifications/collaboration-permission-model/) | Aktiv | Draft 0.1.0 |
 
 ### 5.2 Wissenschaftlicher Arbeitsablauf, Literaturangaben und Veröffentlichung
 
