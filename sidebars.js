@@ -51,6 +51,7 @@ const sidebars = {
         {type: 'doc', id: 'specifications/versioning-change-model', label: 'Versioning and Change Model'},
         {type: 'doc', id: 'specifications/translation-model', label: 'Translation Model'},
         {type: 'doc', id: 'specifications/validation-model', label: 'Validation Model'},
+        {type: 'doc', id: 'specifications/collaboration-permission-model', label: 'Collaboration and Permission Model'},
       ],
     },
     {
