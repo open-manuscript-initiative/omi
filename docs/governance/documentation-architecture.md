@@ -197,7 +197,7 @@ Annotation Model
 Metadata Model applies across these layers.
 ```
 
-Reserved specifications such as Translation Model, Validation Model, and Collaboration and Permission Model MUST NOT appear as active documents until their canonical files exist.
+Reserved specifications MUST NOT appear as active documents until their canonical files exist and their registry status is updated. Translation Model (OMI-SPEC-170), Validation Model (OMI-SPEC-180), and Collaboration and Permission Model (OMI-SPEC-190) now have Draft canonical documents; their normative maturity remains distinct from Studio implementation support.
 
 ## 7. Scholarly Workflow and Publishing
 

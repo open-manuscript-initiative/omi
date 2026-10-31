@@ -18,6 +18,8 @@ multiple invited authors. The current deployment uses the existing single-node
 Studio service and PostgreSQL-backed collaboration state. This feature does
 not change the portable OMI manuscript format (`OMI-SPEC-320@0.3.0`).
 
+This page documents **current Studio behaviour**, not formal specification conformance. See [OMI-SPEC-190 — Collaboration and Permission Model](https://openmanuscript.org/docs/specifications/collaboration-permission-model/) for the separate Draft 0.1.0 standard: resource-scoped authorization, invitation lifecycle, live-session revocation, reviewer confidentiality and audit evidence. Canonical conformance artefacts remain unpublished.
+
 ## Invite and accept
 
 1. A manuscript author opens its collaboration controls and invites a Studio

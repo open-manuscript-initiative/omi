@@ -13,11 +13,11 @@ description: Authoritative registry of Open Manuscript Initiative specification 
 |---|---|
 | Document type | Governance registry |
 | Status | Draft |
-| Version | 0.4.1 |
+| Version | 0.4.2 |
 | Normative language | English |
 | Registry namespace | `OMI-SPEC` |
 | Applies to | Normative OMI specifications and reserved specification identifiers |
-| Last updated | 2026-10-31 (OMI-SPEC-170 and OMI-SPEC-180 Draft entries) |
+| Last updated | 2026-10-31 (OMI-SPEC-170, 180 and 190 Draft entries) |
 
 ## 1. Purpose
 
@@ -137,7 +137,7 @@ Development ended before the specification became Stable. The identifier remains
 | `OMI-SPEC-160` | Versioning and Change Model | Active | Draft | 0.1.0 | `docs/specifications/versioning-change-model.md` |
 | `OMI-SPEC-170` | Translation Model | Active | Draft | 0.1.0 | `docs/specifications/translation-model.md` |
 | `OMI-SPEC-180` | Validation Model | Active | Draft | 0.1.0 | `docs/specifications/validation-model.md` |
-| `OMI-SPEC-190` | Collaboration and Permission Model | Reserved | — | — | `docs/specifications/collaboration-permission-model.md` |
+| `OMI-SPEC-190` | Collaboration and Permission Model | Active | Draft | 0.1.0 | `docs/specifications/collaboration-permission-model.md` |
 
 ### 6.2 Scholarly workflow, references, and publishing
 
@@ -569,6 +569,7 @@ The adoption does not by itself change the lifecycle status of any specification
 
 | Version | Date | Summary |
 |---|---|---|
+| 0.4.2 | 2026-10-31 | Activated `OMI-SPEC-190`, Collaboration and Permission Model, as Draft 0.1.0; normative grant, session, invitation, confidentiality, audit and federation requirements remain pending canonical schemas/fixtures. |
 | 0.4.0 | 2026-09-09 | Activated `OMI-SPEC-240`, Rendering and Publication Profile Model, as Draft version 0.1.0. |
 | 0.3.1 | 2026-09-05 | Advanced `OMI-SPEC-320`, File Format, to Draft version 0.2.0 after its template-complete rewrite and publication of the first canonical manuscript schema and fixtures. |
 | 0.3.0 | 2026-08-06 | Activated `OMI-SPEC-160`, Versioning and Change Model, as Draft version 0.1.0. |
