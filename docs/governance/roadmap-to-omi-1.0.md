@@ -118,8 +118,8 @@ The canonical specification family is organised by permanent identifier range.
 | `OMI-SPEC-310` | Platform API | Active | Draft |
 | `OMI-SPEC-320` | File Format | Active | Draft |
 | `OMI-SPEC-330` | Container Architecture | Active | Draft |
-| `OMI-SPEC-340` | Import and Export Model | Reserved | Planned |
-| `OMI-SPEC-350` | Capability and Conformance Model | Reserved | Planned |
+| `OMI-SPEC-340` | Import and Export Model | Active | Draft |
+| `OMI-SPEC-350` | Capability and Conformance Model | Active | Draft |
 
 The registry remains authoritative when this summary and the registry differ.
 
@@ -246,7 +246,7 @@ Exit criterion: independent implementations validate the same version-pinned fix
 
 **Status:** Reference implementation active; normative model incomplete
 
-Studio already exercises DOCX import and multiple publishing exports. `OMI-SPEC-340` must convert this practical experience into explicit transformation rules, loss reporting, round-trip expectations and mapping fixtures.
+Studio already exercises DOCX import and multiple publishing exports. [OMI-SPEC-340 — Import and Export Model](https://openmanuscript.org/docs/specifications/import-export-model/) is now a Draft 0.1.0 contract for mapping, non-destructive processing, loss reporting, provenance and round-trip assessment. Versioned schema artifacts, format-specific mappings, executable fixtures and independent interoperability evidence are still required.
 
 Priority mappings include JATS XML, HTML, DOCX, EPUB, CSL JSON/BibTeX/RIS where applicable, Crossref/DataCite metadata, OJS exchange and preservation packages.
 
@@ -275,7 +275,7 @@ Exit criterion: at least two independently meaningful external workflow integrat
 
 The Implementation Status Matrix and Studio status reports provide evidence baselines, but focused unit tests do not constitute OMI conformance testing.
 
-Remaining deliverables include `OMI-SPEC-350`, approved conformance classes and fixtures, full requirement-mapped results, a shared validation-report format, documented deviations and independent implementation evidence.
+[OMI-SPEC-350 — Capability and Conformance Model](https://openmanuscript.org/docs/specifications/capability-conformance-model/) now defines a Draft 0.1.0 vocabulary for capability disclosures, scoped claims, test suites, evidence and independent verification. Remaining deliverables include approved machine-readable schemas and conformance suites, full requirement-mapped results, an adopted shared validation-report format, documented deviations and independent implementation evidence.
 
 Exit criterion: OMI 1.0 behaviour is demonstrated through executable, versioned evidence rather than prose alone.
 
@@ -319,7 +319,7 @@ The highest-value next steps are:
 4. harden OMP cross-version compatibility, deployment and recovery against the published profile;
 5. review the [OMI-SPEC-190 Draft](https://openmanuscript.org/docs/specifications/collaboration-permission-model/) and OMI-SPEC-170/180; publish canonical authorization/grant/invitation/audit vocabularies, versioned fixtures and requirement-mapped tests for review anonymity and membership revocation;
 6. maintain the versioned OMI-SPEC-320 schema/fixture set through review, and publish canonical schemas and fixtures for the other applicable specifications;
-7. formalize Import/Export and Rendering/Profile semantics from the existing Studio implementation;
+7. advance the OMI-SPEC-340 Draft mapping, loss-report and round-trip contracts into reviewable schemas and test fixtures, while mapping Studio implementation evidence;
 8. complete Windows release-signing integration after signing-service approval;
 9. continue integration-provider work while keeping vendor credentials and authentication models isolated;
 10. recruit at least one independent implementation or interoperability prototype before OMI 1.0.

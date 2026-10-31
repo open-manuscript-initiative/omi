@@ -188,8 +188,8 @@ Diese Kennzahlen beschreiben die in diesem Dokument verwendeten Nachweiskategori
 | `OMI-SPEC-310` | [Platform API](../specifications/api.md) | Aktiver Entwurf | 0.1.0 | Migration erforderlich | Nicht veröffentlicht | Nicht veröffentlicht |
 | `OMI-SPEC-320` | [File Format](../specifications/file-format.md) | Aktiver Entwurf | 0.2.0 | Aktuelle Vorlage | [Draft schema](/schemas/omi-manuscript-0.2.schema.json) | [Initial fixtures](/examples/omi-spec-320/0.2.0/manifest.json) |
 | `OMI-SPEC-330` | [Container Architecture](../specifications/container-architecture.md) | Aktiver Entwurf | 0.1.0 | Migration erforderlich | Nicht veröffentlicht | Nicht veröffentlicht |
-| `OMI-SPEC-340` | Import- und Exportmodell | Reserviert | — | Nicht zutreffend | Noch nicht begonnen | Noch nicht begonnen |
-| `OMI-SPEC-350` | Funktions- und Konformitätsmodell | Reserviert | — | Nicht zutreffend | Noch nicht begonnen | Noch nicht begonnen |
+| `OMI-SPEC-340` | [Import- und Exportmodell](https://openmanuscript.org/docs/specifications/import-export-model/) | Aktiver Entwurf | 0.1.0 | Aktuelle Vorlage | Nicht veröffentlicht | Nicht veröffentlicht |
+| `OMI-SPEC-350` | [Fähigkeits- und Konformitätsmodell](https://openmanuscript.org/docs/specifications/capability-conformance-model/) | Aktiver Entwurf | 0.1.0 | Aktuelle Vorlage | Nicht veröffentlicht | Nicht veröffentlicht |
 
 ## 7. Belege zur Umsetzung von „Open Manuscript Studio“
 
@@ -232,8 +232,8 @@ Das Repository „OMI“ enthält nun einen Referenz-Fixture-Validator für „`
 | `OMI-SPEC-310` | Noch nicht gestartet | Der aktuelle Alpha-Status betrifft in erster Linie die Client-Seite; es wurde keine Implementierung verifiziert, die die registrierte Plattform API beansprucht. | Versionierter API-Vertrag, Authentifizierung, Autorisierung, Ressourcen, Ereignisse, Fehler, Paginierung und Tests. |
 | `OMI-SPEC-320` | Teilweise | Das Studio exportiert „`.omi.json`“ als „`application/vnd.openmanuscript+json`“, übernimmt die Schema-URI „`0.1`“ des Vorgängers, lässt das veraltete eingebettete Feld „`authors`“ in kanonischen Exporten weg und fügt eine portierbare Revisionshistorie hinzu. | Übernahme des „`0.2.0`“-Umschlags und -Schemas; Implementierung von Versionsaushandlung, Erkennung doppelter Elemente, mehrstufiger Validierung, Beibehaltung unbekannter Felder sowie Migrations- und Verlustberichterstattung; Zuordnung des Verhaltens zu `REQ-FMT-*`. |
 | `OMI-SPEC-330` | Noch nicht gestartet | Es wurde kein Containerpaket, Manifest, Asset-Graph, Integritätsdatensatz oder Verpackungs-WorkOMIverifiziert. | Implementieren Sie das Paketlayout, das Manifest, die Medienverarbeitung, Prüfsummen, Signaturen, die Sicherheit beim Entpacken und die Aufbewahrungsregeln. |
-| `OMI-SPEC-340` | Explorativ | Es gibt Möglichkeiten zum Export eines Manuskripts JSON sowie zur Migration von Identitäten und Versionshistorien; eine allgemeine Import-Benutzeroberfläche oder Round-Trip-Nachweise wurden nicht überprüft. | Die Spezifikation verfassen; Import, Export, Zuordnung, Verlustberichte, den Umgang mit nicht unterstützten Inhalten und Round-Trip-Fixtures hinzufügen. |
-| `OMI-SPEC-350` | Noch nicht gestartet | Es wurde keine Funktionsfähigkeitserklärung, kein Format für Funktionsfähigkeitsangaben und kein Konformitätsprüfprogramm verifiziert. | Definieren Sie Konformitätsklassen, Funktionsfähigkeitsangaben, Testmanifeste, Ergebnisberichte und Regeln zur Überprüfung von Funktionsfähigkeitsangaben. |
+| `OMI-SPEC-340` | Explorativ | Es gibt Möglichkeiten zum Export eines Manuskripts JSON sowie zur Migration von Identitäten und Versionshistorien; eine allgemeine Import-Benutzeroberfläche oder Round-Trip-Nachweise wurden nicht überprüft. | Versionierte Mapping-/Report-Schemata, formatbezogene Profile, Verlustberichte und Round-Trip-Fixtures veröffentlichen; Studio-Verhalten nach Anforderungen testen. |
+| `OMI-SPEC-350` | Noch nicht gestartet | Es wurde keine Funktionsfähigkeitserklärung, kein Format für Funktionsfähigkeitsangaben und kein Konformitätsprüfprogramm verifiziert. | Maschinenlesbare Fähigkeits- und Claim-Schemata, Manifest- und Ergebnisformate, vollständige Testabdeckung sowie unabhängige Prüfverfahren veröffentlichen. |
 
 ## 8. Übergreifende Ergebnisse und bekannte Abweichungen
 

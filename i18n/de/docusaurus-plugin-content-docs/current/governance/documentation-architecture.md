@@ -224,6 +224,8 @@ Es enthält:
 2. **OMI-SPEC-310 — Plattform-API**
 3. **OMI-SPEC-320 — Dateiformat**
 4. **OMI-SPEC-330 — Container-Architektur**
+5. **OMI-SPEC-340 — Import- und Exportmodell**
+6. **OMI-SPEC-350 — Fähigkeits- und Konformitätsmodell**
 
 Diese Dokumente MÜSSEN von den semantischen Modellen getrennt bleiben.
 

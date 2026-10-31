@@ -13,11 +13,11 @@ description: Authoritative registry of Open Manuscript Initiative specification 
 |---|---|
 | Document type | Governance registry |
 | Status | Draft |
-| Version | 0.4.2 |
+| Version | 0.4.3 |
 | Normative language | English |
 | Registry namespace | `OMI-SPEC` |
 | Applies to | Normative OMI specifications and reserved specification identifiers |
-| Last updated | 2026-10-31 (OMI-SPEC-170, 180 and 190 Draft entries) |
+| Last updated | 2026-10-31 (OMI-SPEC-340 and 350 Draft activation) |
 
 ## 1. Purpose
 
@@ -159,8 +159,8 @@ Development ended before the specification became Stable. The identifier remains
 | `OMI-SPEC-310` | Platform API | Active | Draft | 0.1.0 | `docs/specifications/api.md` |
 | `OMI-SPEC-320` | File Format | Active | Draft | 0.3.0 | `docs/specifications/file-format.md` |
 | `OMI-SPEC-330` | Container Architecture | Active | Draft | 0.1.0 | `docs/specifications/container-architecture.md` |
-| `OMI-SPEC-340` | Import and Export Model | Reserved | — | — | `docs/specifications/import-export-model.md` |
-| `OMI-SPEC-350` | Capability and Conformance Model | Reserved | — | — | `docs/specifications/capability-conformance-model.md` |
+| `OMI-SPEC-340` | Import and Export Model | Active | Draft | 0.1.0 | `docs/specifications/import-export-model.md` |
+| `OMI-SPEC-350` | Capability and Conformance Model | Active | Draft | 0.1.0 | `docs/specifications/capability-conformance-model.md` |
 
 ## 7. Dependency registry
 
@@ -190,7 +190,7 @@ The dependency list records direct normative dependencies expected for the canon
 | `OMI-SPEC-320` | `OMI-SPEC-100`, `OMI-SPEC-120`, `OMI-SPEC-140`, `OMI-SPEC-160`, `OMI-SPEC-180` |
 | `OMI-SPEC-330` | `OMI-SPEC-320` |
 | `OMI-SPEC-340` | `OMI-SPEC-100`, `OMI-SPEC-140`, `OMI-SPEC-180`, `OMI-SPEC-220`, `OMI-SPEC-320` |
-| `OMI-SPEC-350` | `OMI-SPEC-000`, `OMI-SPEC-300`, `OMI-SPEC-310`, `OMI-SPEC-320`, `OMI-SPEC-340` |
+| `OMI-SPEC-350` | `OMI-SPEC-000`, `OMI-SPEC-320`, `OMI-SPEC-340` |
 
 Dependencies MUST NOT be inferred solely from this table when implementing a particular released version. The exact versioned specification and suite manifest govern released conformance.
 
@@ -569,6 +569,7 @@ The adoption does not by itself change the lifecycle status of any specification
 
 | Version | Date | Summary |
 |---|---|---|
+| 0.4.3 | 2026-10-31 | Activated `OMI-SPEC-340` Import and Export Model and `OMI-SPEC-350` Capability and Conformance Model as Draft 0.1.0; canonical mapping/report schemas, suites and independent evidence remain open. |
 | 0.4.2 | 2026-10-31 | Activated `OMI-SPEC-190`, Collaboration and Permission Model, as Draft 0.1.0; normative grant, session, invitation, confidentiality, audit and federation requirements remain pending canonical schemas/fixtures. |
 | 0.4.0 | 2026-09-09 | Activated `OMI-SPEC-240`, Rendering and Publication Profile Model, as Draft version 0.1.0. |
 | 0.3.1 | 2026-09-05 | Advanced `OMI-SPEC-320`, File Format, to Draft version 0.2.0 after its template-complete rewrite and publication of the first canonical manuscript schema and fixtures. |

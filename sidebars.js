@@ -75,6 +75,8 @@ const sidebars = {
         {type: 'doc', id: 'specifications/platform-api', label: 'Platform API'},
         {type: 'doc', id: 'specifications/file-format', label: 'File Format'},
         {type: 'doc', id: 'specifications/container-architecture', label: 'Container Architecture'},
+        {type: 'doc', id: 'specifications/import-export-model', label: 'Import and Export Model'},
+        {type: 'doc', id: 'specifications/capability-conformance-model', label: 'Capability and Conformance Model'},
       ],
     },
     {

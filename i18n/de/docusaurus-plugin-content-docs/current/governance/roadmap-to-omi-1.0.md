@@ -118,8 +118,8 @@ Die Familie der kanonischen Spezifikationen ist nach Bereichen permanenter Ident
 | `OMI-SPEC-310` | Plattform API | Aktiv | Entwurf |
 | `OMI-SPEC-320` | Dateiformat | Aktiv | Entwurf |
 | `OMI-SPEC-330` | Container-Architektur | Aktiv | Entwurf |
-| `OMI-SPEC-340` | Import- und Exportmodell | Reserviert | Geplant |
-| `OMI-SPEC-350` | Funktions- und Konformitätsmodell | Reserviert | Geplant |
+| `OMI-SPEC-340` | Import- und Exportmodell | Aktiv | Entwurf |
+| `OMI-SPEC-350` | Funktions- und Konformitätsmodell | Aktiv | Entwurf |
 
 Bei Abweichungen zwischen dieser Zusammenfassung und dem Register ist das Register maßgebend.
 
@@ -246,7 +246,7 @@ Abschlusskriterium: Unabhängige Implementierungen validieren dieselben Testfäl
 
 **Status:** Referenzimplementierung aktiv; normatives Modell unvollständig
 
-Das Studio nutzt bereits den Import von „DOCX“ und mehrere Exportformate für die Veröffentlichung. `OMI-SPEC-340` muss diese praktischen Erfahrungen in explizite Transformationsregeln, Fehlerberichte, Round-Trip-Erwartungen und Mapping-Vorlagen umsetzen.
+Das Studio unterstützt bereits DOCX-Import und verschiedene Exportformate. [OMI-SPEC-340](https://openmanuscript.org/docs/specifications/import-export-model/) ist jetzt ein Entwurf 0.1.0 zu Mapping-Regeln, Verlustberichten und Round-Trips. Kanonische Schemata, formatbezogene Fixtures und unabhängige Interoperabilitätsnachweise stehen noch aus.
 
 Zu den vorrangigen Zuordnungen gehören JATS, XML, HTML, DOCX, EPUB, CSL, JSON/BibTeX/RIS (sofern zutreffend), Crossref/DataCite-Metadaten sowie OJS-Austausch- und Archivierungspakete.
 
@@ -275,7 +275,7 @@ Abschlusskriterium: Mindestens zwei voneinander unabhängige, aussagekräftige e
 
 Die Implementierungsstatusmatrix und die Studio-Statusberichte liefern Nachweise für die Ausgangsbasis, doch gezielte Komponententests stellen keine Konformitätsprüfung gemäß „OMI“ dar.
 
-Zu den zu liefernden Ergebnissen gehören „`OMI-SPEC-350`“, benannte Konformitätsklassen, eine Referenzimplementierung des Validators, eine formale Testsuite, auf die Anforderungen abgebildete Ergebnisse sowie dokumentierte Abweichungen.
+[OMI-SPEC-350](https://openmanuscript.org/docs/specifications/capability-conformance-model/) liegt als Entwurf 0.1.0 zu Fähigkeitserklärungen, Nachweisen, Testabdeckung und unabhängiger Prüfung vor. Maschinenlesbare Schemata, anerkannte Testsuiten und unabhängige Evidenz sind weiterhin offen.
 
 Abschlusskriterium: Das Verhalten von „OMI“ 1.0 wird anhand von ausführbaren, versionierten Nachweisen und nicht nur anhand von Textbeschreibungen demonstriert.
 
