@@ -20,9 +20,9 @@ keywords:
 |---|---|
 | Document type | Governance status report |
 | Status | Draft |
-| Version | 0.5.1 |
+| Version | 0.5.2 |
 | Normative language | English |
-| Last updated | 2026-10-31 (OMI-SPEC-170/180/190 Drafts, Studio evidence; historical survey baselines retained) |
+| Last updated | 2026-10-31 (OMI-SPEC-340/350 Drafts added; historical Studio evidence baselines retained) |
 | Coverage | Every identifier in the OMI Specification Registry |
 | Evidence baseline | The original 2026-08-06 full review and later OMI-SPEC-320 and OMI-SPEC-240 evidence, supplemented by Studio PR #782 for OMI-SPEC-170 and the proposed Studio PR #783 local experimental validation report for OMI-SPEC-180 on 2026-10-31 |
 | Authority | Informative; the Specification Registry and individual specifications remain authoritative |
@@ -192,8 +192,8 @@ These updated counts include the previously uncounted OMI-SPEC-225 registry entr
 | `OMI-SPEC-310` | [Platform API](../specifications/api.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-320` | [File Format](../specifications/file-format.md) | Active Draft | 0.3.0 | Current template | [Draft schema](/schemas/omi-manuscript-0.3.schema.json) | [Initial fixtures](/examples/omi-spec-320/0.3.0/manifest.json) |
 | `OMI-SPEC-330` | [Container Architecture](../specifications/container-architecture.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-340` | Import and Export Model | Reserved | — | Not applicable | Not started | Not started |
-| `OMI-SPEC-350` | Capability and Conformance Model | Reserved | — | Not applicable | Not started | Not started |
+| `OMI-SPEC-340` | [Import and Export Model](../specifications/import-export-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
+| `OMI-SPEC-350` | [Capability and Conformance Model](../specifications/capability-conformance-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
 
 ## 7. Open Manuscript Studio implementation evidence
 
@@ -237,8 +237,8 @@ The OMI repository contains a reference fixture validator for the current `OMI-S
 | `OMI-SPEC-310` | Not started | Current alpha state is primarily client-side; no implementation claiming the registered Platform API was verified. | Versioned API contract, authentication, authorization, resources, events, errors, pagination, and tests. |
 | `OMI-SPEC-320` | Partial | Studio uses the canonical `OMI-SPEC-320@0.2.0` envelope and schema boundary, with open/save validation and lifecycle/conformance tests. | Complete requirement-to-test coverage and round-trip evidence; obtain maintainer approval for fixtures and the profile; verify the accepted suite in an independent implementation; finalize stable format status. |
 | `OMI-SPEC-330` | Not started | No OMI container package, manifest, asset graph, integrity record, or packaging workflow was verified. | Implement package layout, manifest, media handling, checksums, signatures, extraction safety, and preservation rules. |
-| `OMI-SPEC-340` | Exploratory | Export of a manuscript JSON representation plus identity and version-history migration paths exist; no general import UI or round-trip evidence was verified. | Write the specification; add import, export, mapping, loss reports, unsupported-content handling, and round-trip fixtures. |
-| `OMI-SPEC-350` | Not started | No capability declaration, implementation claim format, or conformance runner was verified. | Define conformance classes, capability statements, test manifests, result reports, and claim-verification rules. |
+| `OMI-SPEC-340` | Exploratory | Canonical Draft 0.1.0 published; earlier audit observed manuscript JSON export and identity/history migration paths. Wider Studio import and export features are documented separately and were not verified here against all Draft requirements. | Publish mapping/report JSON Schemas, format-specific mappings, loss diagnostics and round-trip fixtures; verify actual Studio behavior with requirement-mapped tests. |
+| `OMI-SPEC-350` | Not started | Canonical Draft 0.1.0 defines classes, claims, coverage, manifests and verification obligations; no machine-readable conformance system or independent verifier was verified. | Publish capability/claim/evidence schemas, test manifests and runners, requirement coverage, and independent-verification policy and test evidence. |
 
 ## 8. Cross-cutting findings and known deviations
 
