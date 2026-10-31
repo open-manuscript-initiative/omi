@@ -14,9 +14,9 @@ description: Current programme, completed foundations, reference-implementation 
 |---|---|
 | Document type | Governance and planning |
 | Status | Draft |
-| Version | 0.4.3 |
+| Version | 0.4.4 |
 | Normative language | English |
-| Last updated | 2026-10-31 (translation-model draft alignment) |
+| Last updated | 2026-10-31 (translation and validation Draft alignment) |
 | Planning horizon | OMI 1.0 |
 | Authoritative identifier source | [OMI Specification Registry](./specification-registry.md) |
 | Product implementation baseline | [Studio Implementation Status](./studio-implementation-status.md) |
@@ -46,7 +46,7 @@ The programme has moved well beyond the initial documentation-audit stage. Gover
 | Governance foundation | **Largely completed** | Charter, lifecycle, versioning, style, terminology, registry, documentation architecture, specification template and code-signing policy are published. |
 | Website/product synchronization | **Active and maintained** | The public Studio page and dated Studio status report track implemented product capabilities separately from normative conformance, with release/version data synchronized to the current public beta line. |
 | Identifier migration | **Completed for active specifications** | Active specifications use the canonical `OMI-SPEC-*` allocation architecture. |
-| Core semantic models | **In progress** | Identity/contributor and versioning/change models have substantive reference implementation evidence; the translation model is now a Draft, while validation and collaboration remain incomplete at specification level. |
+| Core semantic models | **In progress** | Identity/contributor and versioning/change models have substantive reference implementation evidence; translation and validation models are now Drafts, while canonical validation report schema, fixtures and collaboration requirements remain incomplete. |
 | Reference implementation | **Public beta (`0.3.0-beta.12`)** | Structured editing, multilingual UI/help, server-backed accounts, accepted-invitation live collaboration, peer review, native OJS/OMP integration, imports/exports, publisher profiles, search, desktop/mobile builds, cross-platform update notifications, immutable release provenance, nine domain-focused research modules, semantic source attribution for imported visuals, viewport-aware study notes and Android version-code diagnostics in Help are present. |
 | Peer review | **Operational implementation** | Double-blind review foundations, reviewer workspaces, editor review dashboard and externally assigned review handling are implemented. Formal specification conformance remains future work. |
 | OJS integration | **Operational / configuration-dependent** | The v1.6.0 plugin and Studio workflow provide signed author/editor/reviewer launch, scoped file transfer, native review forms, corrections, separated feedback and signed writeback; native OJS 3.5 E2E verification is green. Full profile coverage and conformance remain incomplete. |
@@ -96,7 +96,7 @@ The canonical specification family is organised by permanent identifier range.
 | `OMI-SPEC-150` | Identity and Contributor Model | Active | Draft |
 | `OMI-SPEC-160` | Versioning and Change Model | Active | Draft |
 | `OMI-SPEC-170` | [Translation Model](https://openmanuscript.org/docs/specifications/translation-model/) | Active | Draft 0.1.0 |
-| `OMI-SPEC-180` | Validation Model | Reserved | Planned |
+| `OMI-SPEC-180` | [Validation Model](https://openmanuscript.org/docs/specifications/validation-model/) | Active | Draft 0.1.0 |
 | `OMI-SPEC-190` | Collaboration and Permission Model | Reserved | Planned |
 
 ### 5.2 Scholarly workflow, references and publishing
@@ -162,7 +162,7 @@ The OMI 1.0 programme must:
 1. maintain a stable and understandable specification hierarchy;
 2. preserve one canonical document and route for each normative concept;
 3. use permanent identifiers consistently across prose, schemas, examples and tests;
-4. complete missing translation, validation, collaboration and rendering models;
+4. advance draft translation and validation models to reviewed interoperable schemas, and complete remaining collaboration and rendering requirements;
 5. migrate active Draft specifications to the canonical specification structure;
 6. publish canonical machine-readable schemas and controlled vocabularies;
 7. provide valid, invalid, minimal, comprehensive, multilingual and discipline-sensitive examples;
@@ -228,9 +228,9 @@ The reference implementation now demonstrates this direction across documents as
 
 **Status:** Product implementation partially ahead of specification
 
-Publishing profiles and broad export behaviour exist in Studio, while formal Validation and Rendering/Publication Profile specifications remain incomplete.
+Publishing profiles and broad export behaviour exist in Studio. OMI-SPEC-180 is now a Draft, backed by a proposed Studio experimental report profile; canonical report schema, approved fixtures, independent validation and complete release-gate mapping are still outstanding.
 
-Priority: define machine-readable validation reports, profile identity/inheritance, semantic-source preservation, errors/warnings and deterministic output requirements.
+Priority: review the [OMI-SPEC-180 Draft](https://openmanuscript.org/docs/specifications/validation-model/), standardize versioned report/profile manifests, semantic-source binding, errors/warnings, outcome versus completeness, deterministic output, normative fixtures and independent validators. [Studio PR #783](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/783) is experimental evidence, not conformance.
 
 Exit criterion: implementations can determine whether a manuscript satisfies a declared profile and generate outputs without silently changing the semantic source.
 
@@ -317,7 +317,7 @@ The highest-value next steps are:
 2. map operational peer-review behaviour back to `OMI-SPEC-200` requirements;
 3. harden OJS synchronization and document verified compatibility boundaries;
 4. harden OMP cross-version compatibility, deployment and recovery against the published profile;
-5. complete Translation, Validation and Collaboration/Permission specification work;
+5. progress Translation and Validation Drafts through schema/fixture review and complete Collaboration/Permission specification work;
 6. maintain the versioned OMI-SPEC-320 schema/fixture set through review, and publish canonical schemas and fixtures for the other applicable specifications;
 7. formalize Import/Export and Rendering/Profile semantics from the existing Studio implementation;
 8. complete Windows release-signing integration after signing-service approval;
