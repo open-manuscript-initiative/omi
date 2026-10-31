@@ -32,7 +32,7 @@ keywords:
 | Used by | The OMI 1.0 suite and future registered implementation profiles |
 | Schemas | No canonical OMI-SPEC-350 claim, manifest or results schema published |
 | Profiles | Capability Disclosure; Self-Assessment; Verified Conformance (future registered profiles) |
-| Implementation status | [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md) |
+| Implementation status | [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/) |
 | Issue tracker | [OMI specification issues](https://github.com/open-manuscript-initiative/omi/issues) |
 
 ## 1. Abstract
@@ -45,7 +45,7 @@ It provides a common language for comparing editors, converters, servers, APIs, 
 
 This is **OMI-SPEC-350 Draft 0.1.0** for community review. Its claim schema, capability taxonomy, assertion levels, suite manifests and conformance-runner protocol are not yet canonical. No formal OMI 1.0 certificate or independently verified conformance claim can be issued solely by following the prose in this Draft.
 
-The [Specification Registry](../governance/specification-registry.md) governs the effective lifecycle and version. Any claim MUST identify its exact versioned basis; a 'latest' or unqualified 'OMI-compatible' label is not a substitute.
+The [Specification Registry](https://openmanuscript.org/docs/governance/specification-registry/) governs the effective lifecycle and version. Any claim MUST identify its exact versioned basis; a 'latest' or unqualified 'OMI-compatible' label is not a substitute.
 
 ## 3. Conformance
 
@@ -250,24 +250,24 @@ The `sha256:example` value is deliberately not a digest. No suite with this iden
 
 ## 18. Normative references
 
-- [OMI-SPEC-000 — Core Principles](../foundations/core-principles.md)
-- [OMI-SPEC-300 — Plugin Architecture](./plugin-architecture.md)
-- [OMI-SPEC-310 — Platform API](./api.md)
-- [OMI-SPEC-320 — File Format](./file-format.md)
-- [OMI-SPEC-340 — Import and Export Model](./import-export-model.md)
-- [OMI Specification Registry](../governance/specification-registry.md)
+- [OMI-SPEC-000 — Core Principles](https://openmanuscript.org/docs/foundations/core-principles/)
+- [OMI-SPEC-300 — Plugin Architecture](https://openmanuscript.org/docs/specifications/plugin-architecture/)
+- [OMI-SPEC-310 — Platform API](https://openmanuscript.org/docs/specifications/api/)
+- [OMI-SPEC-320 — File Format](https://openmanuscript.org/docs/specifications/file-format/)
+- [OMI-SPEC-340 — Import and Export Model](https://openmanuscript.org/docs/specifications/import-export-model/)
+- [OMI Specification Registry](https://openmanuscript.org/docs/governance/specification-registry/)
 - BCP 14 (RFC 2119 and RFC 8174)
 
 ## 19. Informative references
 
-- [OMI-SPEC-180 — Validation Model](./validation-model.md)
-- [OMI-SPEC-240 — Rendering and Publication Profile Model](./rendering-publication-profile-model.md)
-- [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md)
-- [Roadmap to OMI 1.0](../governance/roadmap-to-omi-1.0.md)
+- [OMI-SPEC-180 — Validation Model](https://openmanuscript.org/docs/specifications/validation-model/)
+- [OMI-SPEC-240 — Rendering and Publication Profile Model](https://openmanuscript.org/docs/specifications/rendering-publication-profile-model/)
+- [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/)
+- [Roadmap to OMI 1.0](https://openmanuscript.org/docs/governance/roadmap-to-omi-1.0/)
 
 ## 20. Implementation status
 
-The reference repository has an OMI-SPEC-320 schema, fixtures and a validator with partial requirement coverage. This is not an approved suite-wide OMI-SPEC-350 claim system. No canonical capability statement schema, suite-manifest schema, independent verifier or certification authority has been published. [Matrix of observed evidence](../governance/implementation-status-matrix.md).
+The reference repository has an OMI-SPEC-320 schema, fixtures and a validator with partial requirement coverage. This is not an approved suite-wide OMI-SPEC-350 claim system. No canonical capability statement schema, suite-manifest schema, independent verifier or certification authority has been published. [Matrix of observed evidence](https://openmanuscript.org/docs/governance/implementation-status-matrix/).
 
 ## 21. Unresolved issues
 
