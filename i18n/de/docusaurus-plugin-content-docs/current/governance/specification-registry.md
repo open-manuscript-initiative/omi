@@ -158,8 +158,8 @@ Die Entwicklung wurde beendet, bevor die Spezifikation den Status „Stable“ e
 | `OMI-SPEC-310` | Plattform API | Aktiv | Entwurf | 0.1.0 | `docs/specifications/api.md` |
 | `OMI-SPEC-320` | Dateiformat | Aktiv | Entwurf | 0.2.0 | `docs/specifications/file-format.md` |
 | `OMI-SPEC-330` | Container-Architektur | Aktiv | Entwurf | 0.1.0 | `docs/specifications/container-architecture.md` |
-| `OMI-SPEC-340` | Import- und Exportmodell | Reserviert | — | — | `docs/specifications/import-export-model.md` |
-| `OMI-SPEC-350` | Funktions- und Konformitätsmodell | Reserviert | — | — | `docs/specifications/capability-conformance-model.md` |
+| `OMI-SPEC-340` | Import- und Exportmodell | Aktiv | Entwurf | 0.1.0 | `docs/specifications/import-export-model.md` |
+| `OMI-SPEC-350` | Funktions- und Konformitätsmodell | Aktiv | Entwurf | 0.1.0 | `docs/specifications/capability-conformance-model.md` |
 
 ## 7. Abhängigkeitsregister
 
