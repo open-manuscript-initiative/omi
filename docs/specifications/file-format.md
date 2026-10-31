@@ -812,7 +812,7 @@ The [conformance profile](./file-format-conformance.md) defines the runner's par
 - [OMI Specification Registry](../governance/specification-registry.md)
 - [OMI Versioning Policy](../governance/versioning-policy.md)
 - [OMI-SPEC-160 — Versioning and Change Model](./versioning-change-model.md)
-- [OMI-SPEC-180 — Validation Model (Reserved)](../governance/specification-registry.md)
+- [OMI-SPEC-180 — Validation Model (Draft)](https://openmanuscript.org/docs/specifications/validation-model/)
 - [OMI-SPEC-330 — Container Architecture](./container-architecture.md)
 
 ## 25. Informative references

@@ -13,11 +13,11 @@ description: Authoritative registry of Open Manuscript Initiative specification 
 |---|---|
 | Document type | Governance registry |
 | Status | Draft |
-| Version | 0.4.0 |
+| Version | 0.4.1 |
 | Normative language | English |
 | Registry namespace | `OMI-SPEC` |
 | Applies to | Normative OMI specifications and reserved specification identifiers |
-| Last updated | 2026-10-31 (OMI-SPEC-170 Draft entry) |
+| Last updated | 2026-10-31 (OMI-SPEC-170 and OMI-SPEC-180 Draft entries) |
 
 ## 1. Purpose
 
@@ -136,7 +136,7 @@ Development ended before the specification became Stable. The identifier remains
 | `OMI-SPEC-150` | Identity and Contributor Model | Active | Draft | 0.1.0 | `docs/specifications/identity-contributor-model.md` |
 | `OMI-SPEC-160` | Versioning and Change Model | Active | Draft | 0.1.0 | `docs/specifications/versioning-change-model.md` |
 | `OMI-SPEC-170` | Translation Model | Active | Draft | 0.1.0 | `docs/specifications/translation-model.md` |
-| `OMI-SPEC-180` | Validation Model | Reserved | — | — | `docs/specifications/validation-model.md` |
+| `OMI-SPEC-180` | Validation Model | Active | Draft | 0.1.0 | `docs/specifications/validation-model.md` |
 | `OMI-SPEC-190` | Collaboration and Permission Model | Reserved | — | — | `docs/specifications/collaboration-permission-model.md` |
 
 ### 6.2 Scholarly workflow, references, and publishing
