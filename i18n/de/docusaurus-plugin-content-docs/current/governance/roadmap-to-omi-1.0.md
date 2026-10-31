@@ -246,7 +246,7 @@ Abschlusskriterium: Unabhängige Implementierungen validieren dieselben Testfäl
 
 **Status:** Referenzimplementierung aktiv; normatives Modell unvollständig
 
-Das Studio unterstützt bereits DOCX-Import und verschiedene Exportformate. [OMI-SPEC-340](../../../../../../docs/specifications/import-export-model.md) ist jetzt ein Entwurf 0.1.0 zu Mapping-Regeln, Verlustberichten und Round-Trips. Kanonische Schemata, formatbezogene Fixtures und unabhängige Interoperabilitätsnachweise stehen noch aus.
+Das Studio unterstützt bereits DOCX-Import und verschiedene Exportformate. [OMI-SPEC-340](https://openmanuscript.org/docs/specifications/import-export-model/) ist jetzt ein Entwurf 0.1.0 zu Mapping-Regeln, Verlustberichten und Round-Trips. Kanonische Schemata, formatbezogene Fixtures und unabhängige Interoperabilitätsnachweise stehen noch aus.
 
 Zu den vorrangigen Zuordnungen gehören JATS, XML, HTML, DOCX, EPUB, CSL, JSON/BibTeX/RIS (sofern zutreffend), Crossref/DataCite-Metadaten sowie OJS-Austausch- und Archivierungspakete.
 
