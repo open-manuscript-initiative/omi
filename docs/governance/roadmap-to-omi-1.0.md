@@ -14,9 +14,9 @@ description: Current programme, completed foundations, reference-implementation 
 |---|---|
 | Document type | Governance and planning |
 | Status | Draft |
-| Version | 0.4.4 |
+| Version | 0.4.5 |
 | Normative language | English |
-| Last updated | 2026-10-31 (translation and validation Draft alignment) |
+| Last updated | 2026-10-31 (OMI-SPEC-190 Draft and collaboration roadmap alignment) |
 | Planning horizon | OMI 1.0 |
 | Authoritative identifier source | [OMI Specification Registry](./specification-registry.md) |
 | Product implementation baseline | [Studio Implementation Status](./studio-implementation-status.md) |
@@ -46,7 +46,7 @@ The programme has moved well beyond the initial documentation-audit stage. Gover
 | Governance foundation | **Largely completed** | Charter, lifecycle, versioning, style, terminology, registry, documentation architecture, specification template and code-signing policy are published. |
 | Website/product synchronization | **Active and maintained** | The public Studio page and dated Studio status report track implemented product capabilities separately from normative conformance, with release/version data synchronized to the current public beta line. |
 | Identifier migration | **Completed for active specifications** | Active specifications use the canonical `OMI-SPEC-*` allocation architecture. |
-| Core semantic models | **In progress** | Identity/contributor and versioning/change models have substantive reference implementation evidence; translation and validation models are now Drafts, while canonical validation report schema, fixtures and collaboration requirements remain incomplete. |
+| Core semantic models | **In progress** | Identity/contributor and versioning/change models have substantive reference implementation evidence; translation, validation and collaboration/permission models are now Drafts, while canonical validation/authorization artefacts, independent fixtures and cross-server authorization remain incomplete. |
 | Reference implementation | **Public beta (`0.3.0-beta.12`)** | Structured editing, multilingual UI/help, server-backed accounts, accepted-invitation live collaboration, peer review, native OJS/OMP integration, imports/exports, publisher profiles, search, desktop/mobile builds, cross-platform update notifications, immutable release provenance, nine domain-focused research modules, semantic source attribution for imported visuals, viewport-aware study notes and Android version-code diagnostics in Help are present. |
 | Peer review | **Operational implementation** | Double-blind review foundations, reviewer workspaces, editor review dashboard and externally assigned review handling are implemented. Formal specification conformance remains future work. |
 | OJS integration | **Operational / configuration-dependent** | The v1.6.0 plugin and Studio workflow provide signed author/editor/reviewer launch, scoped file transfer, native review forms, corrections, separated feedback and signed writeback; native OJS 3.5 E2E verification is green. Full profile coverage and conformance remain incomplete. |
@@ -97,7 +97,7 @@ The canonical specification family is organised by permanent identifier range.
 | `OMI-SPEC-160` | Versioning and Change Model | Active | Draft |
 | `OMI-SPEC-170` | [Translation Model](https://openmanuscript.org/docs/specifications/translation-model/) | Active | Draft 0.1.0 |
 | `OMI-SPEC-180` | [Validation Model](https://openmanuscript.org/docs/specifications/validation-model/) | Active | Draft 0.1.0 |
-| `OMI-SPEC-190` | Collaboration and Permission Model | Reserved | Planned |
+| `OMI-SPEC-190` | [Collaboration and Permission Model](https://openmanuscript.org/docs/specifications/collaboration-permission-model/) | Active | Draft 0.1.0 |
 
 ### 5.2 Scholarly workflow, references and publishing
 
@@ -208,9 +208,9 @@ Exit criterion: a minimum semantic manuscript, its objects, contributors, identi
 
 **Status:** Implementation ahead of specification in several areas
 
-Peer review, roles and multilingual product behaviour now exist in Studio, while the Translation Model is now a Draft based on an experimental Studio implementation, and Collaboration/Permission remains reserved.
+Peer review, accepted-invitation live collaboration, scoped server access, roles and multilingual product behaviour exist in Studio. The [OMI-SPEC-170 Draft](https://openmanuscript.org/docs/specifications/translation-model/) and [OMI-SPEC-190 Draft](https://openmanuscript.org/docs/specifications/collaboration-permission-model/) provide separate semantic contracts; neither feature availability nor a Draft constitutes formal conformance.
 
-Priority: review the new [OMI-SPEC-170 Draft](https://openmanuscript.org/docs/specifications/translation-model/), evolve source-target identity, divergence/synchronization and review evidence into canonical schemas and independent tests, and define implementation-independent requirements for review anonymity, roles and auditability.
+Priority: review OMI-SPEC-170 and OMI-SPEC-190 together; formalize manuscript/section/translation/review scopes, deny-by-default action evaluation, invitation acceptance, active-session revocation, reviewer anonymity, accountable delegation, policy epochs and confidential audit evidence. Publish canonical grants/decision/event schemas and adversarial cross-API/export tests; establish independent interoperability evidence.
 
 Exit criterion: collaboration, review, annotation, permission and multilingual relationships are representable as structured, version-aware scholarly objects.
 
@@ -317,12 +317,24 @@ The highest-value next steps are:
 2. map operational peer-review behaviour back to `OMI-SPEC-200` requirements;
 3. harden OJS synchronization and document verified compatibility boundaries;
 4. harden OMP cross-version compatibility, deployment and recovery against the published profile;
-5. progress Translation and Validation Drafts through schema/fixture review and complete Collaboration/Permission specification work;
+5. review the [OMI-SPEC-190 Draft](https://openmanuscript.org/docs/specifications/collaboration-permission-model/) and OMI-SPEC-170/180; publish canonical authorization/grant/invitation/audit vocabularies, versioned fixtures and requirement-mapped tests for review anonymity and membership revocation;
 6. maintain the versioned OMI-SPEC-320 schema/fixture set through review, and publish canonical schemas and fixtures for the other applicable specifications;
 7. formalize Import/Export and Rendering/Profile semantics from the existing Studio implementation;
 8. complete Windows release-signing integration after signing-service approval;
 9. continue integration-provider work while keeping vendor credentials and authentication models isolated;
 10. recruit at least one independent implementation or interoperability prototype before OMI 1.0.
+
+### Collaboration and permission milestones (OMI-SPEC-190)
+
+| Milestone | Evidence required | Status |
+|---|---|---|
+| C1 — Semantic Draft | Scoped grants, effective actions, invitations, revocation, confidentiality, revisions and federation boundaries in a public Draft | **Proposed Draft 0.1.0** |
+| C2 — Canonical contract | Reviewed versioned grant, invitation, decision and audit schemas; controlled action vocabulary and policy epoch semantics | **Open** |
+| C3 — Adversarial verification | Executable negative fixtures for pending/expired invitations, cross-manuscript access, viewer WebSocket writes, role escalation, revoke/reconnect and double-blind leaks | **Open** |
+| C4 — Studio evidence | Requirement-to-code/test mapping covering REST, WebSocket, export, review projection, local/offline paths and revision checkpoints | **Partial; not conformance** |
+| C5 — Independent interoperability | At least one non-Studio implementation or interoperable validator demonstrates scoped grant and denial semantics across a second authority | **Not verified** |
+
+OMI 1.0 collaboration readiness requires C2–C5 evidence; live co-editing alone cannot satisfy the standard. Existing local editing and portable semantic manuscripts must remain available without a central collaboration server.
 
 ## 10. Release criteria for OMI 1.0
 
@@ -335,6 +347,7 @@ A 1.0 release requires, at minimum:
 - canonical machine-readable schemas;
 - explicit versioning and compatibility rules;
 - validation semantics and conformance classes;
+- canonical collaboration authorization, invitation/revocation, confidentiality and audit semantics with independently executable negative tests;
 - normative import/export behaviour for declared mappings;
 - executable conformance fixtures and tests;
 - documented implementation evidence from Studio;
