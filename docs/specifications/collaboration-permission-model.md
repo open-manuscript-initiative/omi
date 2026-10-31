@@ -32,7 +32,7 @@ keywords:
 | Related | OMI-SPEC-110, OMI-SPEC-130, OMI-SPEC-170, OMI-SPEC-180, OMI-SPEC-200, OMI-SPEC-240, OMI-SPEC-310, OMI-SPEC-320, OMI-SPEC-350 |
 | Schemas / fixtures | Canonical permission/grant/event schema and normative fixtures **not yet published** |
 | Reference implementation | [Studio collaboration architecture (ADR-023)](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-023-manuscript-collaboration.md) |
-| Evidence tracking | [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md) |
+| Evidence tracking | [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/) |
 | Issues | [OMI specification issues](https://github.com/open-manuscript-initiative/omi/issues) |
 
 ## 1. Abstract
@@ -43,7 +43,7 @@ Collaboration MUST preserve the portability of manuscript semantics. Neither a l
 
 ## 2. Status and language
 
-This is a proposed **Draft 0.1.0**, not Stable, a deployment claim or a certification. The [Specification Registry](../governance/specification-registry.md) determines the authoritative lifecycle state after review and merge. **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT** and **MAY** are normative requirement terms. Statements under “Implementation evidence”, examples and roadmap are informative.
+This is a proposed **Draft 0.1.0**, not Stable, a deployment claim or a certification. The [Specification Registry](https://openmanuscript.org/docs/governance/specification-registry/) determines the authoritative lifecycle state after review and merge. **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT** and **MAY** are normative requirement terms. Statements under “Implementation evidence”, examples and roadmap are informative.
 
 This draft establishes a semantic requirement set, not a canonical interoperable JSON authorization token, permission manifest or transport API. Formal OMI-SPEC-190 conformance must await accepted schemas, versioned fixtures, normative authorization profiles and independent validation.
 
@@ -51,7 +51,7 @@ This draft establishes a semantic requirement set, not a canonical interoperable
 
 Within scope: scholarly resource identity and tenancy; principal identity and acting context; permissions and grants; manuscript/document/section/translation/review scopes; membership and invitation state; session access and live editing; policy evaluation; review confidentiality and audit evidence; lifecycle and failure behaviour; portability and federation boundaries.
 
-Outside scope: a prescribed user interface, login provider, password method, Yjs/CRDT/operational-transformation protocol, database, mandatory cloud account, legal determination of copyright, academic authorship credit, or publisher policy. Editorial workflow and its decision states belong to [OMI-SPEC-200](./review-model.md); contributor assertions to [OMI-SPEC-150](./identity-contributor-model.md); semantic history to [OMI-SPEC-160](./versioning-change-model.md). A collaboration grant does not create contributor authorship or a published license.
+Outside scope: a prescribed user interface, login provider, password method, Yjs/CRDT/operational-transformation protocol, database, mandatory cloud account, legal determination of copyright, academic authorship credit, or publisher policy. Editorial workflow and its decision states belong to [OMI-SPEC-200](https://openmanuscript.org/docs/specifications/review-model/); contributor assertions to [OMI-SPEC-150](https://openmanuscript.org/docs/specifications/identity-contributor-model/); semantic history to [OMI-SPEC-160](https://openmanuscript.org/docs/specifications/versioning-change-model/). A collaboration grant does not create contributor authorship or a published license.
 
 ## 4. Conformance classes
 
@@ -255,9 +255,9 @@ These are candidate cases for future canonical fixtures, not claims that a compl
 
 ## 16. Studio implementation evidence (informative)
 
-Open Manuscript Studio has a server-authorized, accepted-invitation collaboration flow using Yjs, document-scoped tickets and PostgreSQL-backed state in its supported single-node deployment profile. Its [ADR-023](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-023-manuscript-collaboration.md) distinguishes live replicas, authoritative access and semantic revision checkpoints. The [Studio live collaboration guide](../foundations/studio-live-collaboration.md) describes current author workflows.
+Open Manuscript Studio has a server-authorized, accepted-invitation collaboration flow using Yjs, document-scoped tickets and PostgreSQL-backed state in its supported single-node deployment profile. Its [ADR-023](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-023-manuscript-collaboration.md) distinguishes live replicas, authoritative access and semantic revision checkpoints. The [Studio live collaboration guide](https://openmanuscript.org/docs/foundations/studio-live-collaboration/) describes current author workflows.
 
-The separately maintained [Studio implementation status](../governance/studio-implementation-status.md) records product capabilities, not compliance. Local workspace models and editorial permission surfaces do not prove all requirements here. In particular, published canonical grant/event schemas, independently executable OMI-SPEC-190 fixtures, complete cross-surface anonymity tests and cross-server authorization conformance remain outstanding. Do not construe this Draft as evidence of deployed support for every action, role, denial or delegation feature.
+The separately maintained [Studio implementation status](https://openmanuscript.org/docs/governance/studio-implementation-status/) records product capabilities, not compliance. Local workspace models and editorial permission surfaces do not prove all requirements here. In particular, published canonical grant/event schemas, independently executable OMI-SPEC-190 fixtures, complete cross-surface anonymity tests and cross-server authorization conformance remain outstanding. Do not construe this Draft as evidence of deployed support for every action, role, denial or delegation feature.
 
 ## 17. Open issues before review candidate
 
@@ -273,9 +273,9 @@ The separately maintained [Studio implementation status](../governance/studio-im
 
 ## 18. References
 
-**Normative model dependencies:** [Document Model](./document-model.md), [Scholarly Object Model](./core/scholarly-object-model.md), [Identity and Contributor Model](./identity-contributor-model.md), [Versioning and Change Model](./versioning-change-model.md).
+**Normative model dependencies:** [Document Model](https://openmanuscript.org/docs/specifications/document-model/), [Scholarly Object Model](https://openmanuscript.org/docs/specifications/core/scholarly-object-model/), [Identity and Contributor Model](https://openmanuscript.org/docs/specifications/identity-contributor-model/), [Versioning and Change Model](https://openmanuscript.org/docs/specifications/versioning-change-model/).
 
-**Related and informative:** [Specification Registry](../governance/specification-registry.md), [Roadmap to OMI 1.0](../governance/roadmap-to-omi-1.0.md), [Studio collaboration architecture](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-023-manuscript-collaboration.md), [Studio implementation status](../governance/studio-implementation-status.md).
+**Related and informative:** [Specification Registry](https://openmanuscript.org/docs/governance/specification-registry/), [Roadmap to OMI 1.0](https://openmanuscript.org/docs/governance/roadmap-to-omi-1.0/), [Studio collaboration architecture](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-023-manuscript-collaboration.md), [Studio implementation status](https://openmanuscript.org/docs/governance/studio-implementation-status/).
 
 ## 19. Change history
 
