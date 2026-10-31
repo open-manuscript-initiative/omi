@@ -190,7 +190,7 @@ The dependency list records direct normative dependencies expected for the canon
 | `OMI-SPEC-320` | `OMI-SPEC-100`, `OMI-SPEC-120`, `OMI-SPEC-140`, `OMI-SPEC-160`, `OMI-SPEC-180` |
 | `OMI-SPEC-330` | `OMI-SPEC-320` |
 | `OMI-SPEC-340` | `OMI-SPEC-100`, `OMI-SPEC-140`, `OMI-SPEC-180`, `OMI-SPEC-220`, `OMI-SPEC-320` |
-| `OMI-SPEC-350` | `OMI-SPEC-000`, `OMI-SPEC-300`, `OMI-SPEC-310`, `OMI-SPEC-320`, `OMI-SPEC-340` |
+| `OMI-SPEC-350` | `OMI-SPEC-000`, `OMI-SPEC-320`, `OMI-SPEC-340` |
 
 Dependencies MUST NOT be inferred solely from this table when implementing a particular released version. The exact versioned specification and suite manifest govern released conformance.
 
