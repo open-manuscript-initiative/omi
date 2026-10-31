@@ -16,7 +16,7 @@ description: Current programme, completed foundations, reference-implementation 
 | Status | Draft |
 | Version | 0.4.3 |
 | Normative language | English |
-| Last updated | 2026-10-12 |
+| Last updated | 2026-10-31 (translation-model draft alignment) |
 | Planning horizon | OMI 1.0 |
 | Authoritative identifier source | [OMI Specification Registry](./specification-registry.md) |
 | Product implementation baseline | [Studio Implementation Status](./studio-implementation-status.md) |
@@ -46,7 +46,7 @@ The programme has moved well beyond the initial documentation-audit stage. Gover
 | Governance foundation | **Largely completed** | Charter, lifecycle, versioning, style, terminology, registry, documentation architecture, specification template and code-signing policy are published. |
 | Website/product synchronization | **Active and maintained** | The public Studio page and dated Studio status report track implemented product capabilities separately from normative conformance, with release/version data synchronized to the current public beta line. |
 | Identifier migration | **Completed for active specifications** | Active specifications use the canonical `OMI-SPEC-*` allocation architecture. |
-| Core semantic models | **In progress** | Identity/contributor and versioning/change models have substantive reference implementation evidence; validation, translation and collaboration remain incomplete at specification level. |
+| Core semantic models | **In progress** | Identity/contributor and versioning/change models have substantive reference implementation evidence; the translation model is now a Draft, while validation and collaboration remain incomplete at specification level. |
 | Reference implementation | **Public beta (`0.3.0-beta.12`)** | Structured editing, multilingual UI/help, server-backed accounts, accepted-invitation live collaboration, peer review, native OJS/OMP integration, imports/exports, publisher profiles, search, desktop/mobile builds, cross-platform update notifications, immutable release provenance, nine domain-focused research modules, semantic source attribution for imported visuals, viewport-aware study notes and Android version-code diagnostics in Help are present. |
 | Peer review | **Operational implementation** | Double-blind review foundations, reviewer workspaces, editor review dashboard and externally assigned review handling are implemented. Formal specification conformance remains future work. |
 | OJS integration | **Operational / configuration-dependent** | The v1.6.0 plugin and Studio workflow provide signed author/editor/reviewer launch, scoped file transfer, native review forms, corrections, separated feedback and signed writeback; native OJS 3.5 E2E verification is green. Full profile coverage and conformance remain incomplete. |
@@ -95,7 +95,7 @@ The canonical specification family is organised by permanent identifier range.
 | `OMI-SPEC-140` | Metadata Model | Active | Draft |
 | `OMI-SPEC-150` | Identity and Contributor Model | Active | Draft |
 | `OMI-SPEC-160` | Versioning and Change Model | Active | Draft |
-| `OMI-SPEC-170` | Translation Model | Reserved | Planned |
+| `OMI-SPEC-170` | [Translation Model](https://openmanuscript.org/docs/specifications/translation-model/) | Active | Draft 0.1.0 |
 | `OMI-SPEC-180` | Validation Model | Reserved | Planned |
 | `OMI-SPEC-190` | Collaboration and Permission Model | Reserved | Planned |
 
@@ -208,9 +208,9 @@ Exit criterion: a minimum semantic manuscript, its objects, contributors, identi
 
 **Status:** Implementation ahead of specification in several areas
 
-Peer review, roles and multilingual product behaviour now exist in Studio, while Translation and Collaboration/Permission specifications remain incomplete or reserved.
+Peer review, roles and multilingual product behaviour now exist in Studio, while the Translation Model is now a Draft based on an experimental Studio implementation, and Collaboration/Permission remains reserved.
 
-Priority: use implementation evidence to draft precise, implementation-independent requirements for review anonymity, role boundaries, translation relationships, divergence/synchronization and auditability.
+Priority: review the new [OMI-SPEC-170 Draft](https://openmanuscript.org/docs/specifications/translation-model/), evolve source-target identity, divergence/synchronization and review evidence into canonical schemas and independent tests, and define implementation-independent requirements for review anonymity, roles and auditability.
 
 Exit criterion: collaboration, review, annotation, permission and multilingual relationships are representable as structured, version-aware scholarly objects.
 

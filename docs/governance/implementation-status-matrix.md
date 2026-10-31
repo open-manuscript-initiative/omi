@@ -22,9 +22,9 @@ keywords:
 | Status | Draft |
 | Version | 0.4.0 |
 | Normative language | English |
-| Last updated | 2026-10-09 (Studio file-format evidence correction; original survey baseline retained) |
+| Last updated | 2026-10-31 (OMI-SPEC-170 Draft and Studio evidence; other original survey baselines retained) |
 | Coverage | Every identifier in the OMI Specification Registry |
-| Evidence baseline | Full `main`-branch review from 2026-08-06, supplemented by OMI-SPEC-320 schema/fixture evidence and an OMI-SPEC-240 publication-profile implementation review against Open Manuscript Studio `63e391d8a3e0191ec2b24e494664df30d66f43e3` on 2026-09-18 |
+| Evidence baseline | The original 2026-08-06 full review and later OMI-SPEC-320 and OMI-SPEC-240 evidence, supplemented by Studio PR #782 and the experimental translation profile on 2026-10-30 for OMI-SPEC-170 only |
 | Authority | Informative; the Specification Registry and individual specifications remain authoritative |
 
 ## 1. Purpose
@@ -101,7 +101,7 @@ The words **implemented**, **tested**, and **conformant** are intentionally stri
 
 ## 4. Evidence baseline
 
-The baseline review used the public OMI specification repository and the current Open Manuscript Studio repository.
+The baseline review used the public OMI specification repository and the Open Manuscript Studio repository. A scoped update dated 2026-10-31 incorporates the merged translation implementation from [Studio PR #782](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/782) for OMI-SPEC-170 alone. Earlier evidence statements for other specifications remain historical baselines.
 
 Verified Studio evidence includes:
 
@@ -135,10 +135,10 @@ Open Manuscript Studio currently documents and validates against the `OMI-SPEC-3
 
 | Measure | Current baseline |
 |---|---:|
-| Registered specification identifiers | 23 |
-| Active Draft specifications | 18 |
-| Reserved specifications | 5 |
-| Active specifications using the current template | 4 |
+| Registered specification identifiers | 24 |
+| Active Draft specifications | 20 |
+| Reserved specifications | 4 |
+| Active specifications using the current template | 5 |
 | Active specifications requiring template migration | 14 |
 | Canonical machine-readable specification artefact sets published | 1 Draft set verified |
 | Published conformance fixture sets | 1 initial set verified |
@@ -146,12 +146,13 @@ Open Manuscript Studio currently documents and validates against the `OMI-SPEC-3
 | Formal conformance test suites | 0 verified |
 | Draft conformance profiles | 1 proposed; maintainer review pending |
 | Independent implementations | 0 verified |
-| Studio status: Partial | 9 specifications |
-| Studio status: Exploratory | 6 specifications |
+| Studio status: Partial | 10 specifications |
+| Studio status: Exploratory | 5 specifications |
 | Studio status: Not started | 7 specifications |
 | Studio status: Not applicable | 1 specification |
+| Studio status: Not verified | 1 specification |
 
-These counts describe the evidence categories used in this document. They do not measure percentage completion or specification quality.
+These updated counts include the previously uncounted OMI-SPEC-225 registry entry (not verified in the original survey); other implementation evidence retains its original historical baseline. These counts describe the evidence categories used in this document. They do not measure percentage completion or specification quality.
 
 ## 6. Specification readiness matrix
 
@@ -167,7 +168,7 @@ These counts describe the evidence categories used in this document. They do not
 | `OMI-SPEC-140` | [Metadata Model](../specifications/metadata-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-150` | [Identity and Contributor Model](../specifications/identity-contributor-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
 | `OMI-SPEC-160` | [Versioning and Change Model](../specifications/versioning-change-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
-| `OMI-SPEC-170` | Translation Model | Reserved | — | Not applicable | Not started | Not started |
+| `OMI-SPEC-170` | [Translation Model](https://openmanuscript.org/docs/specifications/translation-model/) | Active Draft | 0.1.0 | Current template | Not published | Not published |
 | `OMI-SPEC-180` | Validation Model | Reserved | — | Not applicable | Not started | Not started |
 | `OMI-SPEC-190` | Collaboration and Permission Model | Reserved | — | Not applicable | Not started | Not started |
 
@@ -179,6 +180,7 @@ These counts describe the evidence categories used in this document. They do not
 | `OMI-SPEC-210` | [Citation Model](../specifications/citation-model.md) | Active Draft | 0.2.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-220` | [Bibliographic Record Model](../specifications/bibliographic-record-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-221` | [Reference Library and Registry Architecture](../specifications/reference-library-registry.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
+| `OMI-SPEC-225` | [Source and Derivation Model](https://openmanuscript.org/docs/specifications/source-attribution-model/) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-230` | [Publishing Model](../specifications/publishing-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-240` | [Rendering and Publication Profile Model](../specifications/rendering-publication-profile-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
 
@@ -211,7 +213,7 @@ The OMI repository contains a reference fixture validator for the current `OMI-S
 | `OMI-SPEC-140` | Partial | Manuscript state represents locale, title, subtitle, abstract, keywords, identifiers, agents, contributions, and timestamps. | Metadata provenance, controlled terms, cardinalities, profiles, validation, and external mappings. |
 | `OMI-SPEC-150` | Partial | The Studio declares `OMI-SPEC-150@0.1.0`, separates accounts from agents, represents name forms, identifier and affiliation assertions, contextual contributions, roles, order and corresponding status, migrates legacy authors, exposes a multilingual contributor editor, and includes focused unit tests. | Canonical schema, complete visibility and provenance processing, additional agent types, reconciliation, backend persistence, requirement mapping, and conformance fixtures. |
 | `OMI-SPEC-160` | Partial | The Studio declares `OMI-SPEC-160@0.1.0`; creates immutable root and child revisions with one-parent linear ancestry; records semantic change sets and events for manuscript and contributor mutations; stores complete or shallow snapshots; performs non-destructive reverts as new revisions; resolves actor attribution conservatively; exposes multilingual history UI; exports revision history; and includes focused unit tests. | Working-state batching and checkpoint commits, tombstones, integrity/state digests, explicit `REQ-VCH-*` mapping, canonical schemas and fixtures, branching and merge support, persistence hardening, and formal conformance tests. |
-| `OMI-SPEC-170` | Exploratory | Manuscripts have a locale; user and workspace models include working languages and a translator role. | Translation objects, source-target relationships, equivalence, divergence, synchronization, and provenance. |
+| `OMI-SPEC-170` | Partial (experimental profile) | Studio [PR #782](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/782) added a portable, namespaced translation ledger, distinct BCP 47 language variants, source/object alignment fingerprints, calculated stale/missing state, explicit review/equivalence decisions, machine/human provenance, non-destructive source synchronization and archival, DeepL-preview adoption, portable history, and HTML text proofs. [Local implementation contract](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/omi-spec-170-translation-model.md) and focused unit/Playwright tests are available. | No canonical 170 JSON Schema or conformance fixtures, no independent validation, and no full structured target manuscript, many-to-many ranges, translation-aware DOCX/PDF/JATS output or target edition identity; experimental implementation is not normative conformance. |
 | `OMI-SPEC-180` | Not started | No canonical validator or validation-report model was verified. | Draft the Validation Model and publish machine-readable report semantics and test fixtures. |
 | `OMI-SPEC-190` | Exploratory | Workspace code defines roles, permissions, members, invitations, reviewer and translator roles, with local persistence. | Write the specification; add server-enforced authorization, manuscript-scoped permissions, auditability, and conformance tests. |
 
@@ -223,6 +225,7 @@ The OMI repository contains a reference fixture validator for the current `OMI-S
 | `OMI-SPEC-210` | Partial | `OmiCitation` and the manuscript citation array represent citation keys, labels, source types, and dates. | Separate citation occurrences from bibliographic records; anchor occurrences and define rendering-independent semantics. |
 | `OMI-SPEC-220` | Exploratory | The current citation type contains a small set of record-like fields. | Dedicated bibliographic record identity, contributors, titles, containers, identifiers, provenance, merging, and validation. |
 | `OMI-SPEC-221` | Not started | No manuscript-level reference library or external registry integration was verified. | Library membership, record reuse, lookup, reconciliation, caching, provenance, and deduplication behaviour. |
+| `OMI-SPEC-225` | Not verified | The source-attribution specification is registered, but this 2026-10-31 scoped translation update did not audit its Studio implementation. | Confirm provenance semantics, validation and implementation evidence in a separate review. |
 | `OMI-SPEC-230` | Not started | The alpha editor can manipulate and export manuscript data, but no specification-aligned publishing pipeline was verified. | Publication jobs, profiles, transformations, output provenance, failure handling, and semantic-source preservation. |
 | `OMI-SPEC-240` | Partial | Studio has publisher profiles, reusable semantic-role publication styles, IDML style import, distinct print/interactive PDF targets, semantic HTML, language-aware hyphenation, publication diagnostics and `.omi-build.json` provenance. A dedicated [implementation profile](./studio-omi-spec-240-implementation-profile.md) maps all `REQ-RPP-*` requirements to current evidence. | Publish machine-readable profile/style artefacts and requirement fixtures; complete unknown-extension, substitution/glyph, authorization-projection and accessible-PDF evidence; adopt a formal conformance suite before making a conformance claim. |
 
