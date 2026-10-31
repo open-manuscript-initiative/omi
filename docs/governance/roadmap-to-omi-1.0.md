@@ -246,7 +246,7 @@ Exit criterion: independent implementations validate the same version-pinned fix
 
 **Status:** Reference implementation active; normative model incomplete
 
-Studio already exercises DOCX import and multiple publishing exports. [OMI-SPEC-340 — Import and Export Model](../specifications/import-export-model.md) is now a Draft 0.1.0 contract for mapping, non-destructive processing, loss reporting, provenance and round-trip assessment. Versioned schema artifacts, format-specific mappings, executable fixtures and independent interoperability evidence are still required.
+Studio already exercises DOCX import and multiple publishing exports. [OMI-SPEC-340 — Import and Export Model](https://openmanuscript.org/docs/specifications/import-export-model/) is now a Draft 0.1.0 contract for mapping, non-destructive processing, loss reporting, provenance and round-trip assessment. Versioned schema artifacts, format-specific mappings, executable fixtures and independent interoperability evidence are still required.
 
 Priority mappings include JATS XML, HTML, DOCX, EPUB, CSL JSON/BibTeX/RIS where applicable, Crossref/DataCite metadata, OJS exchange and preservation packages.
 
@@ -275,7 +275,7 @@ Exit criterion: at least two independently meaningful external workflow integrat
 
 The Implementation Status Matrix and Studio status reports provide evidence baselines, but focused unit tests do not constitute OMI conformance testing.
 
-[OMI-SPEC-350 — Capability and Conformance Model](../specifications/capability-conformance-model.md) now defines a Draft 0.1.0 vocabulary for capability disclosures, scoped claims, test suites, evidence and independent verification. Remaining deliverables include approved machine-readable schemas and conformance suites, full requirement-mapped results, an adopted shared validation-report format, documented deviations and independent implementation evidence.
+[OMI-SPEC-350 — Capability and Conformance Model](https://openmanuscript.org/docs/specifications/capability-conformance-model/) now defines a Draft 0.1.0 vocabulary for capability disclosures, scoped claims, test suites, evidence and independent verification. Remaining deliverables include approved machine-readable schemas and conformance suites, full requirement-mapped results, an adopted shared validation-report format, documented deviations and independent implementation evidence.
 
 Exit criterion: OMI 1.0 behaviour is demonstrated through executable, versioned evidence rather than prose alone.
 
