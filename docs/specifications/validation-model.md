@@ -233,6 +233,8 @@ An interchangeable report SHOULD include: report identity, creation time, format
 
 **REQ-VAL-042:** A local payload failure MUST be distinguished from an inaccessible asset store; the former may establish a document error, the latter leaves coverage incomplete.
 
+**REQ-VAL-043:** Given the same inspected state, declared profile, supported check set, available evidence and policy, a processor MUST produce semantically equivalent check outcomes and diagnostic codes/locations; report IDs and execution timestamps MAY differ.
+
 The producing system MAY provide navigation, filtering and pagination. Such UI choices do not form part of normative report semantics.
 
 ## 10. Validation and error handling
