@@ -31,7 +31,7 @@ keywords:
 | Used by | Publishing, review, validation, import/export and future conformance profiles |
 | Schemas | No canonical OMI-SPEC-170 schema published |
 | Profiles | [Studio experimental translation profile](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/omi-spec-170-translation-model.md) (non-normative, `studio-translation-0.1`) |
-| Implementation status | [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md) |
+| Implementation status | [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/) |
 | Issue tracker | [OMI specification issues](https://github.com/open-manuscript-initiative/omi/issues) |
 
 ## 1. Abstract
@@ -46,7 +46,7 @@ This Draft sets the interoperable semantic direction; a canonical wire schema, c
 
 This document is an OMI **Draft** specification, published for technical and scholarly review. Requirements and the eventual serialization may change incompatibly before Stable. An implementation that advertises support MUST identify the exact version or immutable document commit and MUST distinguish the canonical draft from a local implementation profile.
 
-The [Specification Registry](../governance/specification-registry.md) is authoritative for identifier allocation and lifecycle status. Publication as Draft does not establish Review Candidate, a stable format, formal conformance or an accepted schema.
+The [Specification Registry](https://openmanuscript.org/docs/governance/specification-registry/) is authoritative for identifier allocation and lifecycle status. Publication as Draft does not establish Review Candidate, a stable format, formal conformance or an accepted schema.
 
 ## 3. Conformance
 
@@ -112,7 +112,7 @@ Identity belongs to OMI-SPEC-150; revision semantics to OMI-SPEC-160; target sch
 - **Synchronization:** explicit acceptance of a changed source baseline, distinct from automatic retranslating.
 - **Text proof:** an inspectable translated or parallel text output that is not necessarily a complete semantic manuscript or edition.
 
-The [OMI terminology](../governance/terminology.md) also applies.
+The [OMI terminology](https://openmanuscript.org/docs/governance/terminology/) also applies.
 
 ## 6. Design principles
 
@@ -233,7 +233,7 @@ The experimental Studio namespace `urn:omi:studio:translation:1` and profile `st
 
 ## 12. Versioning and compatibility
 
-This specification follows the [OMI Versioning Policy](../governance/versioning-policy.md). Support declarations identify version and profile. A future normative schema may require explicit conversion from Studio's experimental extension.
+This specification follows the [OMI Versioning Policy](https://openmanuscript.org/docs/governance/versioning-policy/). Support declarations identify version and profile. A future normative schema may require explicit conversion from Studio's experimental extension.
 
 - Compatible clarifications preserve existing semantic decisions and identifiers.
 - Breaking property semantics, anchor interpretation, review transitions or serialization require a versioned migration contract.
@@ -289,21 +289,21 @@ A canonical JSON Schema, positive/negative normative fixtures and an independent
 
 ## 18. Normative references
 
-- [OMI-SPEC-100 — Document Model](./document-model.md)
-- [OMI-SPEC-110 — Anchor Model](./anchor-model.md)
-- [OMI-SPEC-120 — Scholarly Object Model](./core/scholarly-object-model.md)
-- [OMI-SPEC-140 — Metadata Model](./metadata-model.md)
-- [OMI-SPEC-150 — Identity and Contributor Model](./identity-contributor-model.md)
-- [OMI-SPEC-160 — Versioning and Change Model](./versioning-change-model.md)
-- [OMI Versioning Policy](../governance/versioning-policy.md)
+- [OMI-SPEC-100 — Document Model](https://openmanuscript.org/docs/specifications/document-model/)
+- [OMI-SPEC-110 — Anchor Model](https://openmanuscript.org/docs/specifications/anchor-model/)
+- [OMI-SPEC-120 — Scholarly Object Model](https://openmanuscript.org/docs/specifications/core/scholarly-object-model/)
+- [OMI-SPEC-140 — Metadata Model](https://openmanuscript.org/docs/specifications/metadata-model/)
+- [OMI-SPEC-150 — Identity and Contributor Model](https://openmanuscript.org/docs/specifications/identity-contributor-model/)
+- [OMI-SPEC-160 — Versioning and Change Model](https://openmanuscript.org/docs/specifications/versioning-change-model/)
+- [OMI Versioning Policy](https://openmanuscript.org/docs/governance/versioning-policy/)
 - [IETF BCP 47 — Language Tags](https://www.rfc-editor.org/info/bcp47)
 
 ## 19. Informative references
 
 - [Studio OMI-SPEC-170 experimental implementation profile](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/omi-spec-170-translation-model.md)
 - [Studio translation-model source](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/src/model/translation.ts)
-- [Studio translation documentation](../studio/manuscript-translation.md)
-- [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md)
+- [Studio translation documentation](https://openmanuscript.org/docs/studio/manuscript-translation/)
+- [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/)
 
 ## 20. Implementation status
 

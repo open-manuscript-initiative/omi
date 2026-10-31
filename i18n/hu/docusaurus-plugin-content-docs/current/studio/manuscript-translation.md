@@ -35,6 +35,6 @@ A HTML-export **szöveges ellenőrző példány**, nem teljes értékű szerkesz
 
 ## Szabványosítás
 
-Az [OMI-SPEC-170 — Translation Model](../specifications/translation-model.md) jelenleg **0.1.0 Draft szabványtervezet**. Ettől különbözik a Stúdióban már működő, **kísérleti megvalósítási profil**. Sem a kezelőfelület, sem ez az útmutató nem jelent hivatalos szabványmegfelelőségi tanúsítást.
+Az [OMI-SPEC-170 — Translation Model](https://openmanuscript.org/docs/specifications/translation-model/) jelenleg **0.1.0 Draft szabványtervezet**. Ettől különbözik a Stúdióban már működő, **kísérleti megvalósítási profil**. Sem a kezelőfelület, sem ez az útmutató nem jelent hivatalos szabványmegfelelőségi tanúsítást.
 
 A [Stúdió technikai profiljában](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/omi-spec-170-translation-model.md) olvashatók az adatmezők és a tesztelési részletek. A szabvány hiteles nyelve az angol.

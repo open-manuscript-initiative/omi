@@ -95,7 +95,7 @@ The canonical specification family is organised by permanent identifier range.
 | `OMI-SPEC-140` | Metadata Model | Active | Draft |
 | `OMI-SPEC-150` | Identity and Contributor Model | Active | Draft |
 | `OMI-SPEC-160` | Versioning and Change Model | Active | Draft |
-| `OMI-SPEC-170` | [Translation Model](../specifications/translation-model.md) | Active | Draft 0.1.0 |
+| `OMI-SPEC-170` | [Translation Model](https://openmanuscript.org/docs/specifications/translation-model/) | Active | Draft 0.1.0 |
 | `OMI-SPEC-180` | Validation Model | Reserved | Planned |
 | `OMI-SPEC-190` | Collaboration and Permission Model | Reserved | Planned |
 
@@ -210,7 +210,7 @@ Exit criterion: a minimum semantic manuscript, its objects, contributors, identi
 
 Peer review, roles and multilingual product behaviour now exist in Studio, while the Translation Model is now a Draft based on an experimental Studio implementation, and Collaboration/Permission remains reserved.
 
-Priority: review the new [OMI-SPEC-170 Draft](../specifications/translation-model.md), evolve source-target identity, divergence/synchronization and review evidence into canonical schemas and independent tests, and define implementation-independent requirements for review anonymity, roles and auditability.
+Priority: review the new [OMI-SPEC-170 Draft](https://openmanuscript.org/docs/specifications/translation-model/), evolve source-target identity, divergence/synchronization and review evidence into canonical schemas and independent tests, and define implementation-independent requirements for review anonymity, roles and auditability.
 
 Exit criterion: collaboration, review, annotation, permission and multilingual relationships are representable as structured, version-aware scholarly objects.
 

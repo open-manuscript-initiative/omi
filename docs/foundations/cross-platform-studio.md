@@ -46,7 +46,7 @@ The shared core includes, wherever technically possible:
 - metadata, contributor, citation, annotation and versioning logic;
 - reusable account-level reference libraries with portable per-document bibliography selection;
 - Studio-native editorial workflow for verified publications without OJS/OMP;
-- multilingual interface and authoring support, including [source-aligned language variants and translation review](../studio/manuscript-translation.md);
+- multilingual interface and authoring support, including [source-aligned language variants and translation review](https://openmanuscript.org/docs/studio/manuscript-translation/);
 - authentication, password recovery and connected-identity workflows;
 - double-blind peer review behavior;
 - OJS and OMP integration workflows;

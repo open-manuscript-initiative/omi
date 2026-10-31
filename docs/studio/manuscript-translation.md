@@ -35,6 +35,6 @@ HTML exports are **aligned text proofs**, not fully structured target manuscript
 
 ## Specification status
 
-[OMI-SPEC-170 — Translation Model](../specifications/translation-model.md) is a **Draft 0.1.0** semantic specification, distinct from the already implemented **experimental Studio profile**. Neither the Studio feature nor this guide establishes formal specification conformance.
+[OMI-SPEC-170 — Translation Model](https://openmanuscript.org/docs/specifications/translation-model/) is a **Draft 0.1.0** semantic specification, distinct from the already implemented **experimental Studio profile**. Neither the Studio feature nor this guide establishes formal specification conformance.
 
 Technical details: [Studio implementation contract](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/omi-spec-170-translation-model.md).

@@ -35,6 +35,6 @@ Die HTML-Ausgaben sind **ausgerichtete Textprüffassungen**, keine vollständige
 
 ## Spezifikationsstatus
 
-[OMI-SPEC-170 — Translation Model](../specifications/translation-model.md) ist ein **Draft 0.1.0** der semantischen Spezifikation und nicht mit dem bereits implementierten **experimentellen Studio-Profil** gleichzusetzen. Formale Konformität wird nicht beansprucht.
+[OMI-SPEC-170 — Translation Model](https://openmanuscript.org/docs/specifications/translation-model/) ist ein **Draft 0.1.0** der semantischen Spezifikation und nicht mit dem bereits implementierten **experimentellen Studio-Profil** gleichzusetzen. Formale Konformität wird nicht beansprucht.
 
 Technische Details: [Studio-Implementierungsprofil](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/omi-spec-170-translation-model.md). Die normative Dokumentsprache ist Englisch.

@@ -168,7 +168,7 @@ These updated counts include the previously uncounted OMI-SPEC-225 registry entr
 | `OMI-SPEC-140` | [Metadata Model](../specifications/metadata-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-150` | [Identity and Contributor Model](../specifications/identity-contributor-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
 | `OMI-SPEC-160` | [Versioning and Change Model](../specifications/versioning-change-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
-| `OMI-SPEC-170` | [Translation Model](../specifications/translation-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
+| `OMI-SPEC-170` | [Translation Model](https://openmanuscript.org/docs/specifications/translation-model/) | Active Draft | 0.1.0 | Current template | Not published | Not published |
 | `OMI-SPEC-180` | Validation Model | Reserved | — | Not applicable | Not started | Not started |
 | `OMI-SPEC-190` | Collaboration and Permission Model | Reserved | — | Not applicable | Not started | Not started |
 
