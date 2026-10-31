@@ -14,7 +14,7 @@ This page previously contained the provisional **OMI-SPEC-009: Scholarly Object 
 
 That provisional identifier and duplicate document have been retired. The canonical specification is now:
 
-**[OMI-SPEC-120 — Scholarly Object Model](./core/scholarly-object-model.md)**
+**[OMI-SPEC-120 — Scholarly Object Model](https://openmanuscript.org/docs/specifications/core/scholarly-object-model/)**
 
 :::
 

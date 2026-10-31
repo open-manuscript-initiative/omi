@@ -239,4 +239,4 @@ In der Dokumentation MUSS unterschieden werden zwischen:
 
 Ein im Integrationskatalog aufgeführter Anbieter ist nicht automatisch produktionsreif. Ein Integrationsprofil im Entwurfsstadium wird nicht automatisch implementiert. Umgekehrt kann das Produkt bereits in Betrieb sein, bevor ein vollständiges KonformitätsOMI-Rahmenwerk verfügbar ist.
 
-Verwenden Sie [Integration Implementation Status](./implementation-status.md) für die aktuelle Basisversion der Referenzimplementierung und [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md) für Belege auf Spezifikationsebene.
+Verwenden Sie [Integration Implementation Status](./implementation-status.md) für die aktuelle Basisversion der Referenzimplementierung und [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/) für Belege auf Spezifikationsebene.

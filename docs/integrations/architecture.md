@@ -239,4 +239,4 @@ Documentation MUST distinguish:
 
 A provider appearing in the integration catalog is not automatically production-ready. A Draft integration profile is not automatically implemented. Conversely, operational product behaviour may exist before a complete OMI conformance framework is available.
 
-Use [Integration Implementation Status](./implementation-status.md) for the current reference-implementation baseline and the [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md) for specification-level evidence.
+Use [Integration Implementation Status](./implementation-status.md) for the current reference-implementation baseline and the [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/) for specification-level evidence.

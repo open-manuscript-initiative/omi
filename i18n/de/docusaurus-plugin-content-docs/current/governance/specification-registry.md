@@ -127,12 +127,12 @@ Die Entwicklung wurde beendet, bevor die Spezifikation den Status „Stable“ e
 
 | Kennung | Offizieller Titel | Zuweisung | Lebenszyklus | Version | Kanonischer Pfad |
 |---|---|---|---|---|---|
-| `OMI-SPEC-000` | Grundprinzipien | Aktiv | Entwurf | 0.1.0 | `docs/foundations/core-principles.md` |
-| `OMI-SPEC-100` | Dokumentmodell | Aktiv | Entwurf | 0.1.0 | `docs/specifications/document-model.md` |
+| `OMI-SPEC-000` | Grundprinzipien | Aktiv | Entwurf | 0.2.0 | `docs/foundations/core-principles.md` |
+| `OMI-SPEC-100` | Dokumentmodell | Aktiv | Entwurf | 0.2.0 | `docs/specifications/document-model.md` |
 | `OMI-SPEC-110` | Anchor-Modell | Aktiv | Entwurf | 0.1.0 | `docs/specifications/anchor-model.md` |
-| `OMI-SPEC-120` | Scholarly Object Model | Aktiv | Entwurf | 0.1.0 | `docs/specifications/core/scholarly-object-model.md` |
+| `OMI-SPEC-120` | Scholarly Object Model | Aktiv | Entwurf | 0.3.0 | `docs/specifications/core/scholarly-object-model.md` |
 | `OMI-SPEC-130` | Annotationsmodell | Aktiv | Entwurf | 0.2.0 | `docs/specifications/annotation-model.md` |
-| `OMI-SPEC-140` | Metadatenmodell | Aktiv | Entwurf | 0.1.0 | `docs/specifications/metadata-model.md` |
+| `OMI-SPEC-140` | Metadatenmodell | Aktiv | Entwurf | 0.2.0 | `docs/specifications/metadata-model.md` |
 | `OMI-SPEC-150` | Identitäts- und Mitwirkermodell | Aktiv | Entwurf | 0.1.0 | `docs/specifications/identity-contributor-model.md` |
 | `OMI-SPEC-160` | Versionsverwaltung und Änderungsmodell | Aktiv | Entwurf | 0.1.0 | `docs/specifications/versioning-change-model.md` |
 | `OMI-SPEC-170` | Übersetzungsmodell | Reserviert | — | — | `docs/specifications/translation-model.md` |
@@ -418,7 +418,7 @@ Ein Registrierungseintrag SOLLTE auf solche Artefakte verweisen, sofern diese vo
 
 Das Register erfasst die Spezifikation, Identität und Reife, nicht die Konformität der Umsetzung.
 
-Die evidenzbasierte „[OMI Implementation Status Matrix](./implementation-status-matrix.md)“ erfasst für jeden registrierten Bezeichner Angaben zur Implementierung, zum Schema, zu Testfällen, zu Validatoren, zu Tests sowie zu unabhängigen Implementierungsnachweisen.
+Die evidenzbasierte „[OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/)“ erfasst für jeden registrierten Bezeichner Angaben zur Implementierung, zum Schema, zu Testfällen, zu Validatoren, zu Tests sowie zu unabhängigen Implementierungsnachweisen.
 
 Das Vorhandensein von Code mit ähnlichem Namen in Open Manuscript Studio ist kein ausreichender Nachweis für die Konformität mit der Spezifikation.
 

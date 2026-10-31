@@ -33,7 +33,7 @@ keywords:
 | Used by | `OMI-SPEC-160`, `OMI-SPEC-170`, `OMI-SPEC-190`, `OMI-SPEC-200`, `OMI-SPEC-220`, `OMI-SPEC-310` |
 | Schemas | None published |
 | Profiles | None published |
-| Implementation status | [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md) |
+| Implementation status | [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/) |
 | Issue tracker | Open Manuscript Initiative repository issues |
 
 ## 1. Abstract
@@ -995,7 +995,7 @@ These structures demonstrate relevant design work but do not yet implement this 
 - identity reconciliation and reversible merge behaviour;
 - requirement-to-code mapping and conformance tests.
 
-The authoritative evidence classification is maintained in the [Implementation Status Matrix](../governance/implementation-status-matrix.md).
+The authoritative evidence classification is maintained in the [Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/).
 
 ## 21. Unresolved issues
 

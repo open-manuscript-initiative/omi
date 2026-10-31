@@ -41,7 +41,7 @@ keywords:
 
 Die aktuelle Studio-Beta-Version ist **`0.3.0-beta.12`**. Dieses Release enthält native TLS- und Tokio-Sicherheitsupdates, Plugin-Korrekturen und eine zuverlässigere Erstellung von macOS-DMG-Installern. Das portable Format bleibt bei `OMI-SPEC-320@0.3.0`. Die [Versionshinweise zu beta.12](/docs/studio/releases/0.3.0-beta.12) dokumentieren Paketversionen und Bereitstellung. „Beta“ bedeutet **nicht**, dass jede optionale Integration oder jeder Vertriebskanal produktionsreif ist.
 
-Auf dieser Seite werden **implementierte Produktfunktionen** beschrieben, nicht die Konformität mit der „OMI“-Spezifikation. Der Reifegrad der formalen Spezifikation und Nachweise zur Konformität werden separat im „[OMI Implementation Status Matrix](./implementation-status-matrix.md)“ erfasst.
+Auf dieser Seite werden **implementierte Produktfunktionen** beschrieben, nicht die Konformität mit der „OMI“-Spezifikation. Der Reifegrad der formalen Spezifikation und Nachweise zur Konformität werden separat im „[OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/)“ erfasst.
 
 ## Statusbegriffe
 

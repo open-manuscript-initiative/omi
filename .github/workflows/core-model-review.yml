@@ -1,0 +1,38 @@
+name: Core model review evidence
+on:
+  pull_request:
+    paths:
+      - 'docs/foundations/core-principles.md'
+      - 'docs/specifications/**'
+      - 'docs/governance/specification-registry.md'
+      - 'static/examples/omi-core/**'
+      - 'static/schemas/omi-core-snapshot-0.1.schema.json'
+      - 'static/tools/core-snapshot-validator-0.1.mjs'
+      - 'static/evidence/**'
+      - 'scripts/validate-core-review.mjs'
+      - 'scripts/validate-readiness-inventory.mjs'
+      - 'tests/core-review.test.mjs'
+      - 'package.json'
+      - '.github/workflows/core-model-review.yml'
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  core-model-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run test:core-models
+      - run: node scripts/validate-core-review.mjs --report test-results/core-review.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: core-review-evidence
+          path: test-results/core-review.json
+          retention-days: 14

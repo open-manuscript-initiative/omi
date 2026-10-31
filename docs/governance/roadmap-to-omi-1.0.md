@@ -14,7 +14,7 @@ description: Current programme, completed foundations, reference-implementation 
 |---|---|
 | Document type | Governance and planning |
 | Status | Draft |
-| Version | 0.4.5 |
+| Version | 0.5.0 |
 | Normative language | English |
 | Last updated | 2026-10-31 (OMI-SPEC-190 Draft and collaboration roadmap alignment) |
 | Planning horizon | OMI 1.0 |
@@ -72,7 +72,7 @@ Published governance and architecture foundations include:
 - [OMI Specification Registry](./specification-registry.md);
 - [Documentation Architecture](./documentation-architecture.md);
 - [OMI Specification Template](./specification-template.md);
-- [OMI Implementation Status Matrix](./implementation-status-matrix.md);
+- [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/);
 - [Studio Implementation Status](./studio-implementation-status.md);
 - [Code Signing Policy](./code-signing-policy.md);
 - [Integration Implementation Status](../integrations/implementation-status.md).
@@ -238,7 +238,7 @@ Exit criterion: implementations can determine whether a manuscript satisfies a d
 
 **Status:** Initial OMI-SPEC-320 schema and fixture corpus published; suite-wide work remains open
 
-OMI-SPEC-320@0.3.0 now has a versioned Draft 2020-12 schema, a 14-fixture corpus, strict parser and validator tests, CI enforcement, and requirement traceability. The 0.2.0 corpus approval is recorded in issue #121; the 0.3.0 profile and corpus are approved as an initial reviewable set under issue #135. Remaining work includes schemas and fixtures for other specifications, broader behavioral coverage, Studio adoption, and independent validation evidence.
+OMI-SPEC-320@0.3.0 now has a versioned Draft 2020-12 schema, a 14-fixture corpus, strict parser and validator tests, CI enforcement, and requirement traceability. The 0.2.0 corpus approval is recorded in issue #121; the 0.3.0 profile and corpus are approved as an initial reviewable set under issue #135. Studio main already declares the 0.3.0 runtime/schema boundary. The separate core review profile adds partial structural/metadata evidence for 000/120/100/140. Remaining work includes complete behavioral coverage, other model schemas, explicit migration evidence and independent validation.
 
 Exit criterion: independent implementations validate the same version-pinned fixtures and obtain equivalent structural results.
 
@@ -310,6 +310,9 @@ Exit criterion: the governing process formally approves the suite as Stable and 
 Studio interface/help localization and website navigation demonstrate multilingual implementation capability. Full official translations of normative specifications should follow stabilization of the English 1.0 suite to avoid maintaining divergent normative texts during rapid Draft evolution.
 
 ## 9. Immediate priorities
+
+The [core review programme](https://openmanuscript.org/docs/governance/core-model-readiness/) now pins all 24 model/source versions and Studio evidence. The 000/120/100/140 Draft rewrites, 66-requirement inventory and 22-fixture review profile are prepared. Continue with requirement applicability and public review before promoting lifecycle states; apply the documented foundation-first order. Security and production fixes remain continuous.
+
 
 The highest-value next steps are:
 

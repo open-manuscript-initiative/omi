@@ -34,7 +34,7 @@ keywords:
 | Verwendet von | `OMI-SPEC-170`, `OMI-SPEC-190`, `OMI-SPEC-200`, `OMI-SPEC-230`, `OMI-SPEC-310`, `OMI-SPEC-320`, `OMI-SPEC-340` |
 | Schemata | Keine veröffentlicht |
 | Profile | Versionshistorie des Hauptzweigs; Verzweigungen und Zusammenführungen; Austausch von Snapshots |
-| Umsetzungsstatus | [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md) |
+| Umsetzungsstatus | [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/) |
 | Issue-Tracker | Probleme im „Open Manuscript Initiative“-Repository |
 
 ## 1. Zusammenfassung

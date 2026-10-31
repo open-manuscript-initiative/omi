@@ -1,0 +1,276 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openmanuscript.org/schemas/omi-core-snapshot-0.1.schema.json",
+  "title": "OMI core snapshot review projection 0.1.0 (Draft; incomplete)",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "locale",
+    "createdAt",
+    "updatedAt",
+    "sections"
+  ],
+  "properties": {
+    "id": {
+      "$ref": "#/$defs/id"
+    },
+    "title": {
+      "type": "string"
+    },
+    "locale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string"
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "\\S"
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/section"
+      }
+    },
+    "agents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "contributions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "annotations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "bibliographicRecords": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "citationClusters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "crossReferences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "namedAnchors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "sourceAttributions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "publicationCorrections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/id"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "block": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "content"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "type": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "content": {
+          "type": "string"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/block"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "section": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "blocks"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "title": {
+          "type": "string"
+        },
+        "parentSectionId": {
+          "$ref": "#/$defs/id"
+        },
+        "blocks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/block"
+          }
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/section"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

@@ -35,7 +35,7 @@ keywords:
 | Medientyp | `application/vnd.openmanuscript+json` (vorläufig) |
 | Dateiendung | `.omi.json` |
 | Profile | Core-Snapshot; History Exchange; Verlustfreier Round-Trip |
-| Umsetzungsstatus | [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md) |
+| Umsetzungsstatus | [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/) |
 | Issue-Tracker | Probleme im „Open Manuscript Initiative“-Repository |
 
 ## 1. Zusammenfassung
@@ -801,7 +801,7 @@ Der Repository-Referenz-Validator demonstriert Schema- und ausgewählte semantis
 
 ## 26. Stand der Umsetzung
 
-Die maßgeblichen Implementierungsnachweise werden im „[OMI Implementation Status Matrix](../governance/implementation-status-matrix.md)“ gepflegt.
+Die maßgeblichen Implementierungsnachweise werden im „[OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/)“ gepflegt.
 
 Zum Zeitpunkt der Veröffentlichung dieses Entwurfs:
 
