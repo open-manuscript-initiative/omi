@@ -192,8 +192,8 @@ These updated counts include the previously uncounted OMI-SPEC-225 registry entr
 | `OMI-SPEC-310` | [Platform API](../specifications/api.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-320` | [File Format](../specifications/file-format.md) | Active Draft | 0.3.0 | Current template | [Draft schema](/schemas/omi-manuscript-0.3.schema.json) | [Initial fixtures](/examples/omi-spec-320/0.3.0/manifest.json) |
 | `OMI-SPEC-330` | [Container Architecture](../specifications/container-architecture.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-340` | [Import and Export Model](../specifications/import-export-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
-| `OMI-SPEC-350` | [Capability and Conformance Model](../specifications/capability-conformance-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
+| `OMI-SPEC-340` | [Import and Export Model](https://openmanuscript.org/docs/specifications/import-export-model/) | Active Draft | 0.1.0 | Current template | Not published | Not published |
+| `OMI-SPEC-350` | [Capability and Conformance Model](https://openmanuscript.org/docs/specifications/capability-conformance-model/) | Active Draft | 0.1.0 | Current template | Not published | Not published |
 
 ## 7. Open Manuscript Studio implementation evidence
 
