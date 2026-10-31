@@ -170,7 +170,7 @@ These updated counts include the previously uncounted OMI-SPEC-225 registry entr
 | `OMI-SPEC-160` | [Versioning and Change Model](../specifications/versioning-change-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
 | `OMI-SPEC-170` | [Translation Model](https://openmanuscript.org/docs/specifications/translation-model/) | Active Draft | 0.1.0 | Current template | Not published | Not published |
 | `OMI-SPEC-180` | [Validation Model](https://openmanuscript.org/docs/specifications/validation-model/) | Active Draft | 0.1.0 | Current template | No canonical schema published; Studio experimental report schema exists | No canonical fixtures; Studio local fixtures only |
-| `OMI-SPEC-190` | [Collaboration and Permission Model](../specifications/collaboration-permission-model.md) | Active Draft | 0.1.0 | Current template | No canonical grant/audit schema | No normative fixtures |
+| `OMI-SPEC-190` | [Collaboration and Permission Model](https://openmanuscript.org/docs/specifications/collaboration-permission-model/) | Active Draft | 0.1.0 | Current template | No canonical grant/audit schema | No normative fixtures |
 
 ### 6.2 Scholarly workflow, references, and publishing
 
