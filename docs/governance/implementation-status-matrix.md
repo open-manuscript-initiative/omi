@@ -20,9 +20,9 @@ keywords:
 |---|---|
 | Document type | Governance status report |
 | Status | Draft |
-| Version | 0.4.1 |
+| Version | 0.5.1 |
 | Normative language | English |
-| Last updated | 2026-10-31 (OMI-SPEC-170 and 180 Drafts, Studio evidence; other original survey baselines retained) |
+| Last updated | 2026-10-31 (OMI-SPEC-170/180/190 Drafts, Studio evidence; historical survey baselines retained) |
 | Coverage | Every identifier in the OMI Specification Registry |
 | Evidence baseline | The original 2026-08-06 full review and later OMI-SPEC-320 and OMI-SPEC-240 evidence, supplemented by Studio PR #782 for OMI-SPEC-170 and the proposed Studio PR #783 local experimental validation report for OMI-SPEC-180 on 2026-10-31 |
 | Authority | Informative; the Specification Registry and individual specifications remain authoritative |
@@ -136,9 +136,9 @@ Open Manuscript Studio currently documents and validates against the `OMI-SPEC-3
 | Measure | Current baseline |
 |---|---:|
 | Registered specification identifiers | 24 |
-| Active Draft specifications | 21 |
-| Reserved specifications | 3 |
-| Active specifications using the current template | 6 |
+| Active Draft specifications | 22 |
+| Reserved specifications | 2 |
+| Active specifications using the current template | 7 |
 | Active specifications requiring template migration | 14 |
 | Canonical machine-readable specification artefact sets published | 1 Draft set verified |
 | Published conformance fixture sets | 1 initial set verified |
@@ -170,7 +170,7 @@ These updated counts include the previously uncounted OMI-SPEC-225 registry entr
 | `OMI-SPEC-160` | [Versioning and Change Model](../specifications/versioning-change-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
 | `OMI-SPEC-170` | [Translation Model](https://openmanuscript.org/docs/specifications/translation-model/) | Active Draft | 0.1.0 | Current template | Not published | Not published |
 | `OMI-SPEC-180` | [Validation Model](https://openmanuscript.org/docs/specifications/validation-model/) | Active Draft | 0.1.0 | Current template | No canonical schema published; Studio experimental report schema exists | No canonical fixtures; Studio local fixtures only |
-| `OMI-SPEC-190` | Collaboration and Permission Model | Reserved | — | Not applicable | Not started | Not started |
+| `OMI-SPEC-190` | [Collaboration and Permission Model](../specifications/collaboration-permission-model.md) | Active Draft | 0.1.0 | Current template | No canonical grant/audit schema | No normative fixtures |
 
 ### 6.2 Scholarly workflow, references, and publishing
 
@@ -215,7 +215,7 @@ The OMI repository contains a reference fixture validator for the current `OMI-S
 | `OMI-SPEC-160` | Partial | The Studio declares `OMI-SPEC-160@0.1.0`; creates immutable root and child revisions with one-parent linear ancestry; records semantic change sets and events for manuscript and contributor mutations; stores complete or shallow snapshots; performs non-destructive reverts as new revisions; resolves actor attribution conservatively; exposes multilingual history UI; exports revision history; and includes focused unit tests. | Working-state batching and checkpoint commits, tombstones, integrity/state digests, explicit `REQ-VCH-*` mapping, canonical schemas and fixtures, branching and merge support, persistence hardening, and formal conformance tests. |
 | `OMI-SPEC-170` | Partial (experimental profile) | Studio [PR #782](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/782) added a portable, namespaced translation ledger, distinct BCP 47 language variants, source/object alignment fingerprints, calculated stale/missing state, explicit review/equivalence decisions, machine/human provenance, non-destructive source synchronization and archival, DeepL-preview adoption, portable history, and HTML text proofs. [Local implementation contract](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/omi-spec-170-translation-model.md) and focused unit/Playwright tests are available. | No canonical 170 JSON Schema or conformance fixtures, no independent validation, and no full structured target manuscript, many-to-many ranges, translation-aware DOCX/PDF/JATS output or target edition identity; experimental implementation is not normative conformance. |
 | `OMI-SPEC-180` | Partial (experimental PR #783) | [Studio PR #783](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/783) proposes a `studio-validation-0.1` profile, three manifests (authoring, exchange, publication preflight), checks for IDs/relationships/anchors/history/recognized translations/portability/assets/publisher requirements, source-bound digests, distinct outcome vs completeness, stable diagnostic codes/JSON Pointer locations and standalone reports. A local JSON Schema, semantic validator, fixtures, 18 focused tests and browser scenarios are supplied on its PR branch. | PR merge/deployment pending; no canonical OMI-SPEC-180 schema or normative conformance fixtures, independent verification or signed reports. Preflight deliberately does not replace JATS/PDF/signature release gates. |
-| `OMI-SPEC-190` | Exploratory | Workspace code defines roles, permissions, members, invitations, reviewer and translator roles, with local persistence. | Write the specification; add server-enforced authorization, manuscript-scoped permissions, auditability, and conformance tests. |
+| `OMI-SPEC-190` | Partial (non-conformant) | The [Studio ADR-023](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-023-manuscript-collaboration.md) and current Studio guide document document-scoped invitations, accepted membership, server-authorized live sessions and PostgreSQL-backed single-node Yjs synchronization; local workspace roles and separate editorial assignment anonymity also exist. These are implementation facts, not compliance with the new Draft. | Publish canonical 190 grant/decision/invitation/audit schemas, map REQ-COL requirements to server and client enforcement, test session revocation, delegation/denials and multi-surface double-blind confidentiality, and obtain independent conformance evidence. |
 
 ### 7.2 Scholarly workflow, references, and publishing
 
@@ -366,6 +366,7 @@ The next evidence-producing work should proceed in this order:
 
 | Version | Date | Summary |
 |---|---|---|
+| 0.5.1 | 2026-10-31 | Added OMI-SPEC-190 Draft 0.1.0; registry/readiness counts and Studio evidence updated without implying conformance. |
 | 0.5.0 | 2026-10-12 | Reconciled the current `OMI-SPEC-320@0.3.0` schema and fixtures with the implementation matrix; distinguished the recorded 0.2.0 approval from the pending 0.3.0 review and Studio adoption gap. |
 | 0.3.0 | 2026-09-05 | Recorded the template-complete `OMI-SPEC-320@0.2.0`, first canonical Draft manuscript schema, initial fixtures and reference validator; updated Studio's remaining adoption gap and aggregate evidence counts. |
 | 0.2.1 | 2026-08-06 | Promoted Studio support for `OMI-SPEC-160` from Exploratory to Partial after the immutable linear revision ledger merged; recorded revision, change-set, snapshot, revert, history-export, and focused-test evidence; advanced the next evidence priority to working-state batching, checkpoint commits, and requirement mapping. |
