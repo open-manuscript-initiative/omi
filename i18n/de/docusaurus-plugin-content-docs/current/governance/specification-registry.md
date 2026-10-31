@@ -189,7 +189,7 @@ Die Abhängigkeitsliste enthält die direkten normativen Abhängigkeiten, die f�
 | `OMI-SPEC-320` | `OMI-SPEC-100`, `OMI-SPEC-120`, `OMI-SPEC-140`, `OMI-SPEC-160`, `OMI-SPEC-180` |
 | `OMI-SPEC-330` | `OMI-SPEC-320` |
 | `OMI-SPEC-340` | `OMI-SPEC-100`, `OMI-SPEC-140`, `OMI-SPEC-180`, `OMI-SPEC-220`, `OMI-SPEC-320` |
-| `OMI-SPEC-350` | `OMI-SPEC-000`, `OMI-SPEC-300`, `OMI-SPEC-310`, `OMI-SPEC-320`, `OMI-SPEC-340` |
+| `OMI-SPEC-350` | `OMI-SPEC-000`, `OMI-SPEC-320`, `OMI-SPEC-340` |
 
 Bei der Implementierung einer bestimmten veröffentlichten Version DÜRFEN Abhängigkeiten NICHT ausschließlich aus dieser Tabelle abgeleitet werden. Die genaue versionsspezifische Spezifikation und das Suite-Manifest regeln die Konformität der veröffentlichten Version.
 
