@@ -30,10 +30,10 @@ Berechtigte Autorinnen und Autoren müssen ihre eigenen Manuskriptinhalte frei b
 
 ## Beziehung zum Studio
 
-[Open Manuscript Studio](../foundations/studio-live-collaboration.md) bietet bereits Einladungsannahme und serverautorisierte gemeinsame Bearbeitung mit Yjs und dauerhaftem PostgreSQL-Zustand in einem Einzelknotenprofil. Das ist ein **experimentell zu normierendes Implementierungsprofil**, keine zertifizierte Umsetzung sämtlicher OMI-SPEC-190-Anforderungen.
+[Open Manuscript Studio](https://openmanuscript.org/de/docs/foundations/studio-live-collaboration/) bietet bereits Einladungsannahme und serverautorisierte gemeinsame Bearbeitung mit Yjs und dauerhaftem PostgreSQL-Zustand in einem Einzelknotenprofil. Das ist ein **experimentell zu normierendes Implementierungsprofil**, keine zertifizierte Umsetzung sämtlicher OMI-SPEC-190-Anforderungen.
 
 ## Bis OMI 1.0
 
 Ausstehend sind verbindliche versionierte Rechte-/Einladungs-/Audit-Schemas, unabhängige Negativtests für Zugriffsentzug und Rollenwechsel, umfassende Anonymitätsprüfungen sowie Interoperabilitätsnachweise außerhalb von Studio.
 
-Siehe die [Roadmap zu OMI 1.0](../governance/roadmap-to-omi-1.0.md), die [Implementierungsstatusmatrix](../governance/implementation-status-matrix.md) und den [englischen Normtext](https://openmanuscript.org/docs/specifications/collaboration-permission-model/).
+Siehe die [Roadmap zu OMI 1.0](https://openmanuscript.org/de/docs/governance/roadmap-to-omi-1.0/), die [Implementierungsstatusmatrix](https://openmanuscript.org/de/docs/governance/implementation-status-matrix/) und den [englischen Normtext](https://openmanuscript.org/docs/specifications/collaboration-permission-model/).
