@@ -32,7 +32,7 @@ keywords:
 | Used by | `OMI-SPEC-350` |
 | Schemas | No canonical OMI-SPEC-340 mapping or report schema published |
 | Profiles | Import Mapping; Export Mapping; Loss-Aware Exchange; Round-Trip Assessment (Draft conceptual profiles) |
-| Implementation status | [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md) |
+| Implementation status | [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/) |
 | Issue tracker | [OMI specification issues](https://github.com/open-manuscript-initiative/omi/issues) |
 
 ## 1. Abstract
@@ -235,24 +235,24 @@ The example values are illustrative; `sha256:example` is not an actual digest. T
 
 ## 18. Normative references
 
-- [OMI-SPEC-100 — Document Model](./document-model.md)
-- [OMI-SPEC-140 — Metadata Model](./metadata-model.md)
-- [OMI-SPEC-180 — Validation Model](./validation-model.md)
-- [OMI-SPEC-220 — Bibliographic Record Model](./bibliographic-record-model.md)
-- [OMI-SPEC-320 — File Format](./file-format.md)
-- [OMI Specification Registry](../governance/specification-registry.md)
+- [OMI-SPEC-100 — Document Model](https://openmanuscript.org/docs/specifications/document-model/)
+- [OMI-SPEC-140 — Metadata Model](https://openmanuscript.org/docs/specifications/metadata-model/)
+- [OMI-SPEC-180 — Validation Model](https://openmanuscript.org/docs/specifications/validation-model/)
+- [OMI-SPEC-220 — Bibliographic Record Model](https://openmanuscript.org/docs/specifications/bibliographic-record-model/)
+- [OMI-SPEC-320 — File Format](https://openmanuscript.org/docs/specifications/file-format/)
+- [OMI Specification Registry](https://openmanuscript.org/docs/governance/specification-registry/)
 - BCP 14 (RFC 2119 and RFC 8174), normative-keyword interpretation
 
 ## 19. Informative references
 
-- [OMI-SPEC-240 — Rendering and Publication Profile Model](./rendering-publication-profile-model.md)
-- [OMI-SPEC-330 — Container Architecture](./container-architecture.md)
-- [OMI-SPEC-350 — Capability and Conformance Model](./capability-conformance-model.md)
-- [Roadmap to OMI 1.0](../governance/roadmap-to-omi-1.0.md)
+- [OMI-SPEC-240 — Rendering and Publication Profile Model](https://openmanuscript.org/docs/specifications/rendering-publication-profile-model/)
+- [OMI-SPEC-330 — Container Architecture](https://openmanuscript.org/docs/specifications/container-architecture/)
+- [OMI-SPEC-350 — Capability and Conformance Model](https://openmanuscript.org/docs/specifications/capability-conformance-model/)
+- [Roadmap to OMI 1.0](https://openmanuscript.org/docs/governance/roadmap-to-omi-1.0/)
 
 ## 20. Implementation status
 
-Studio has DOCX import and several export paths; these do not by themselves demonstrate compliance with this draft. No canonical OMI-SPEC-340 report schema, approved mappings, requirement-mapped fixture corpus, validated round-trip suite or independent implementation evidence is yet published. Refer to the [implementation matrix](../governance/implementation-status-matrix.md) for the evidence boundary.
+Studio has DOCX import and several export paths; these do not by themselves demonstrate compliance with this draft. No canonical OMI-SPEC-340 report schema, approved mappings, requirement-mapped fixture corpus, validated round-trip suite or independent implementation evidence is yet published. Refer to the [implementation matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/) for the evidence boundary.
 
 ## 21. Unresolved issues
 
