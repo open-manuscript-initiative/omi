@@ -27,8 +27,8 @@ keywords:
 | Last updated | 2026-10-31 |
 | Replaces | None |
 | Replaced by | None |
-| Depends on | `OMI-SPEC-000`, `OMI-SPEC-300`, `OMI-SPEC-310`, `OMI-SPEC-320`, `OMI-SPEC-340` |
-| Related specifications | `OMI-SPEC-180`, `OMI-SPEC-240`, `OMI-SPEC-330` |
+| Depends on | `OMI-SPEC-000`, `OMI-SPEC-320`, `OMI-SPEC-340` |
+| Related specifications | `OMI-SPEC-180`, `OMI-SPEC-240`, `OMI-SPEC-300`, `OMI-SPEC-310`, `OMI-SPEC-330` |
 | Used by | The OMI 1.0 suite and future registered implementation profiles |
 | Schemas | No canonical OMI-SPEC-350 claim, manifest or results schema published |
 | Profiles | Capability Disclosure; Self-Assessment; Verified Conformance (future registered profiles) |
@@ -251,8 +251,6 @@ The `sha256:example` value is deliberately not a digest. No suite with this iden
 ## 18. Normative references
 
 - [OMI-SPEC-000 — Core Principles](https://openmanuscript.org/docs/foundations/core-principles/)
-- [OMI-SPEC-300 — Plugin Architecture](https://openmanuscript.org/docs/specifications/plugin-architecture/)
-- [OMI-SPEC-310 — Platform API](https://openmanuscript.org/docs/specifications/api/)
 - [OMI-SPEC-320 — File Format](https://openmanuscript.org/docs/specifications/file-format/)
 - [OMI-SPEC-340 — Import and Export Model](https://openmanuscript.org/docs/specifications/import-export-model/)
 - [OMI Specification Registry](https://openmanuscript.org/docs/governance/specification-registry/)
@@ -260,6 +258,8 @@ The `sha256:example` value is deliberately not a digest. No suite with this iden
 
 ## 19. Informative references
 
+- [OMI-SPEC-300 — Plugin Architecture](https://openmanuscript.org/docs/specifications/plugin-architecture/)
+- [OMI-SPEC-310 — Platform API](https://openmanuscript.org/docs/specifications/api/)
 - [OMI-SPEC-180 — Validation Model](https://openmanuscript.org/docs/specifications/validation-model/)
 - [OMI-SPEC-240 — Rendering and Publication Profile Model](https://openmanuscript.org/docs/specifications/rendering-publication-profile-model/)
 - [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/)
