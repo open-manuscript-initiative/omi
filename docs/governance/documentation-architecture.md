@@ -197,7 +197,7 @@ Annotation Model
 Metadata Model applies across these layers.
 ```
 
-Reserved specifications MUST NOT appear as active documents until their canonical files exist and their registry status is updated. Translation Model (OMI-SPEC-170), Validation Model (OMI-SPEC-180), and Collaboration and Permission Model (OMI-SPEC-190) now have Draft canonical documents; their normative maturity remains distinct from Studio implementation support.
+Reserved specifications MUST NOT appear as active documents until their canonical files exist and their registry status is updated. Translation Model (OMI-SPEC-170), Validation Model (OMI-SPEC-180), and Collaboration and Permission Model (OMI-SPEC-190) now have Draft canonical documents; their normative maturity remains distinct from Studio implementation support. The same distinction applies to the newly activated OMI-SPEC-340 and OMI-SPEC-350 Drafts in Platform and Exchange.
 
 ## 7. Scholarly Workflow and Publishing
 
@@ -232,6 +232,8 @@ It contains:
 2. **OMI-SPEC-310 — Platform API**
 3. **OMI-SPEC-320 — File Format**
 4. **OMI-SPEC-330 — Container Architecture**
+5. **OMI-SPEC-340 — Import and Export Model**
+6. **OMI-SPEC-350 — Capability and Conformance Model**
 
 These documents MUST remain distinct from the semantic models.
 
