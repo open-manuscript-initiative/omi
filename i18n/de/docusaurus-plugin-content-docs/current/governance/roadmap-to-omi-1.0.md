@@ -72,7 +72,7 @@ Zu den veröffentlichten Grundlagen für Governance und Architektur gehören:
 - [OMI Specification Registry](./specification-registry.md);
 - [Documentation Architecture](./documentation-architecture.md);
 - [OMI Specification Template](./specification-template.md);
-- [OMI Implementation Status Matrix](./implementation-status-matrix.md);
+- [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/);
 - [Studio Implementation Status](./studio-implementation-status.md);
 - [Code Signing Policy](./code-signing-policy.md);
 - [Integration Implementation Status](../integrations/implementation-status.md).

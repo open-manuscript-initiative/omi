@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "npm run test:i18n && npm run test:release-metadata && npm run test:react-runtime && npm run test:file-format && docusaurus build",
+    "build": "npm run test:i18n && npm run test:release-metadata && npm run test:react-runtime && npm run test:file-format && npm run test:core-models && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -22,7 +22,8 @@
     "test:i18n:placeholders": "node scripts/validate-i18n-placeholders.mjs",
     "test:file-format": "node scripts/validate-file-format-requirement-coverage.mjs && node --test tests/file-format-conformance.test.mjs && node scripts/validate-file-format-fixtures.mjs",
     "test:release-metadata": "node scripts/validate-current-release-metadata.mjs",
-    "test:react-runtime": "node scripts/validate-react-runtime.mjs"
+    "test:react-runtime": "node scripts/validate-react-runtime.mjs",
+    "test:core-models": "node --test tests/core-review.test.mjs && node scripts/validate-core-review.mjs && node scripts/validate-readiness-inventory.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.2",

@@ -1,0 +1,790 @@
+{
+  "format": "omi-readiness-evidence",
+  "version": "0.1.0",
+  "reviewDate": "2026-10-31",
+  "specificationBaseCommit": "b4e12ef9ffdf53be34cd16bbcb45d9530123c120",
+  "studioBaseCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+  "snapshot": "proposed-core-review-revisions-on-draft-baseline",
+  "lifecyclePromotions": [],
+  "independentImplementationsVerified": 0,
+  "models": [
+    {
+      "id": "OMI-SPEC-000",
+      "title": "Core Principles",
+      "version": "0.2.0",
+      "status": "Draft",
+      "canonicalPath": "docs/foundations/core-principles.md",
+      "phase": 1,
+      "studioEvidence": "architectural",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "README.md",
+          "sha256": "35f8c252503971e6bbca59f3fb0d0fee46bd789eb2c2b119b83c9f0fcec741aa"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-100",
+      "title": "Document Model",
+      "version": "0.2.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/document-model.md",
+      "phase": 1,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/types/omi.ts",
+          "sha256": "2d9c513ba33e36e45ca567f1479c3b4f6b0573f0fec05e108c5cfc23c322c999"
+        },
+        {
+          "path": "src/app/useStudioStore.ts",
+          "sha256": "ef4bb58a8317b0a113f7e04e4238a70e0688eaaed1b4081f3a8b2da6cd7dac7e"
+        },
+        {
+          "path": "tests/document-structure.test.ts",
+          "sha256": "ee5e2525f5f860bd88e406622a36debfdce00eaceb05aa1f04f15a31d0b58e7d"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-110",
+      "title": "Anchor Model",
+      "version": "0.1.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/anchor-model.md",
+      "phase": 2,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/model/namedAnchors.ts",
+          "sha256": "bdde8c234f2d7beebd5bb64c75c6865988f63fbda0869a382c6c11c0e2e3cbd8"
+        },
+        {
+          "path": "tests/named-anchors.test.ts",
+          "sha256": "a100414fde514e8e15d63442578bf7d3e412c7736e2ece2e13d996c1f5925f41"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-120",
+      "title": "Scholarly Object Model",
+      "version": "0.3.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/core/scholarly-object-model.md",
+      "phase": 1,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/types/omi.ts",
+          "sha256": "2d9c513ba33e36e45ca567f1479c3b4f6b0573f0fec05e108c5cfc23c322c999"
+        },
+        {
+          "path": "src/services/manuscriptValidation.ts",
+          "sha256": "9f1376bf91823ec6210c565f61b6bfaf7339e44d046264cb1a32ccf227850afa"
+        },
+        {
+          "path": "tests/identity-model.test.ts",
+          "sha256": "e0aa695449b7bc8c5645c9c460d416031946c3e4975bcd77f6e0f0053c8aaf39"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-130",
+      "title": "Annotation Model",
+      "version": "0.2.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/annotation-model.md",
+      "phase": 2,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/model/notes.ts",
+          "sha256": "d77686f66d04c9c3e52194627e51780f3ead2e51737605d5a2cefc3570ec219c"
+        },
+        {
+          "path": "tests/notes-model.test.ts",
+          "sha256": "571eece6f7aa97feb0f80eb862eaf611c35e0d832e5d45a795331c57fc3e144e"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-140",
+      "title": "Metadata Model",
+      "version": "0.2.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/metadata-model.md",
+      "phase": 1,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/model/scholarlyMetadata.ts",
+          "sha256": "b9cc358a10a5b40e5beb5410d35c59a2b6bfeb4e1fb1548c84ae60513a43ef59"
+        },
+        {
+          "path": "src/app/scholarlyMetadataActions.ts",
+          "sha256": "21562c5a0cdd8a78656c282716ac3372b2e0ce612286bfea76cb400d687e0c1e"
+        },
+        {
+          "path": "tests/keywords-model.test.ts",
+          "sha256": "876d9896a51ae6d565ff7a8e1ce2236bd7ca4447a23ca2a4af8832dd9cc68147"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-150",
+      "title": "Identity and Contributor Model",
+      "version": "0.1.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/identity-contributor-model.md",
+      "phase": 2,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/model/identity.ts",
+          "sha256": "9596637a7f54b9f0156d39aca94e82c3063ab735cac58508897f82a824522598"
+        },
+        {
+          "path": "tests/identity-model.test.ts",
+          "sha256": "e0aa695449b7bc8c5645c9c460d416031946c3e4975bcd77f6e0f0053c8aaf39"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-160",
+      "title": "Versioning and Change Model",
+      "version": "0.1.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/versioning-change-model.md",
+      "phase": 3,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/model/versioning.ts",
+          "sha256": "e27351794f532224e92cf0e17193b5cd423630c96e61ce36b314581e8697601a"
+        },
+        {
+          "path": "src/model/workingState.ts",
+          "sha256": "afdbc585313ad29ded8bb31a4ab2e8c46419ab35abc0982021936e0b79cbc275"
+        },
+        {
+          "path": "src/model/tombstone.ts",
+          "sha256": "149296a7184345acb8fee0295c16bc9f0cf9c3bbb7190b74e8621fd0202f9b31"
+        },
+        {
+          "path": "src/model/stateDigest.ts",
+          "sha256": "9c94ed6b3eff8448891e19beb5e1b9ec0e074a5acbdfea62bff2ad9fe22fdf33"
+        },
+        {
+          "path": "tests/versioning-model.test.ts",
+          "sha256": "ad8ae7d86edc0badf726a25392e3eff19157cb89710d695c956bdc91b25633e5"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-170",
+      "title": "Translation Model",
+      "version": "0.1.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/translation-model.md",
+      "phase": 6,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/model/translation.ts",
+          "sha256": "7c906f988c50e30c743f93f1e0f1c8547125835517c34252cc9eafe5d6cc56a3"
+        },
+        {
+          "path": "tests/translation-model.test.ts",
+          "sha256": "f43028c84b2b5e2b7ff4084cb157aa9c5734679421c5a812a8cfdbebc3338fdd"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-180",
+      "title": "Validation Model",
+      "version": "0.1.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/validation-model.md",
+      "phase": 3,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/services/manuscriptValidation.ts",
+          "sha256": "9f1376bf91823ec6210c565f61b6bfaf7339e44d046264cb1a32ccf227850afa"
+        },
+        {
+          "path": "src/model/validation.ts",
+          "sha256": "d2e22a7d0f281264f68cc91d0795e8748091ab452afbb9bca5f6f52c9c312841"
+        },
+        {
+          "path": "tests/validation-model.test.ts",
+          "sha256": "02b40d53b7192b99fe28722ccc5ca8b6f2ee3d785edd900def6fe66aa037f70c"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-190",
+      "title": "Collaboration and Permission Model",
+      "version": "0.1.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/collaboration-permission-model.md",
+      "phase": 6,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "server/src/services/collaborationInvitationService.ts",
+          "sha256": "20c20528b68c3276600eb82887f9ed931917c4631fec2c00c34735fb9f3b8ec3"
+        },
+        {
+          "path": "server/src/services/collaborationTicketService.ts",
+          "sha256": "56854ea8f684ec7c083bc757c8784d87685ac6475ce1115bf4426de75fdbfd84"
+        },
+        {
+          "path": "tests/collaboration-ticket-service.test.mjs",
+          "sha256": "cfa746e728dec1676613817c1e4e37fe534f21936c5d6e9aad24436a131e7769"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-200",
+      "title": "Review Model",
+      "version": "0.1.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/review-model.md",
+      "phase": 6,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/model/peerReview.ts",
+          "sha256": "241225518254dd7d843dea160e122831a3a1a7d60df387a8146d0def79f393a8"
+        },
+        {
+          "path": "tests/peer-review-model.test.ts",
+          "sha256": "d6913dddc6e56a5b462d2c614a2aba61dc17ec3b9ea8cec1f402b570cb7766c9"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-210",
+      "title": "Citation Model",
+      "version": "0.2.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/citation-model.md",
+      "phase": 4,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/model/citations.ts",
+          "sha256": "c14e46f484780fce115a487e9bef8cbb40c5bc1c83c8e4f16e00a71d51def589"
+        },
+        {
+          "path": "tests/citation-model.test.ts",
+          "sha256": "1872ec5c1eb8ce370e6eac8414567f4d55762bc4ce4a7989eb6ad00f73c0298e"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-220",
+      "title": "Bibliographic Record Model",
+      "version": "0.1.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/bibliographic-record-model.md",
+      "phase": 4,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/types/omi.ts",
+          "sha256": "2d9c513ba33e36e45ca567f1479c3b4f6b0573f0fec05e108c5cfc23c322c999"
+        },
+        {
+          "path": "tests/bibliographic-lookup.test.ts",
+          "sha256": "fd2902f02d6e6ab94daa618d6c066518b5459587cf9d56e4bf7c6b1fafa91f4a"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-221",
+      "title": "Reference Library and Registry Architecture",
+      "version": "0.1.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/reference-library-registry.md",
+      "phase": 4,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/services/referenceManagerApi.ts",
+          "sha256": "8aa7140dd7141d601097a2ea4528f9cc891886b1bc9a6d526247b1d3bf236c12"
+        },
+        {
+          "path": "tests/reference-manager-integrations.test.ts",
+          "sha256": "e782edf847e5007163428dfc7e507a761d85c9c6ecae29287d040b3b88a8a299"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-225",
+      "title": "Source and Derivation Model",
+      "version": "0.2.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/source-attribution-model.md",
+      "phase": 4,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/model/sourceAttributionExport.ts",
+          "sha256": "9fb6235c76448325b0fd0ffcd0bfc7ac35a174fa7d4541a8d8f725d21b067a48"
+        },
+        {
+          "path": "tests/source-attribution-lifecycle.test.ts",
+          "sha256": "de7c2d52988abe7885a51c20110d09b0557b85e6f8466d7a70ebb1d710c14ab7"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-230",
+      "title": "Publishing Model",
+      "version": "0.1.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/publishing-model.md",
+      "phase": 7,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/model/publicationBuild.ts",
+          "sha256": "dfec89786d6fa5be8522c2878a2c9d088ccbf62d1419f631fe87e76e42d7d658"
+        },
+        {
+          "path": "tests/publication-build.test.ts",
+          "sha256": "d34a05c0e8c4762a60a36c556048bfe99ea7a5323c267ff98d24143d1d6ed6fe"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-240",
+      "title": "Rendering and Publication Profile Model",
+      "version": "0.1.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/rendering-publication-profile-model.md",
+      "phase": 7,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/model/publicationProfile.ts",
+          "sha256": "40a3ad5b052add3506446cdcb13594cfed0ee4f265392131d595e3464c0fb630"
+        },
+        {
+          "path": "tests/publication-profile.test.ts",
+          "sha256": "e0f73e15fbad48d990235b2a3d8a5aa91f5cfaa8192e066cf38067d8e53939af"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-300",
+      "title": "Plugin Architecture",
+      "version": "0.1.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/plugin-architecture.md",
+      "phase": 9,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/modules/registry.ts",
+          "sha256": "c38b64aa7dc9e47cdd5c42ba381257a66992c66d980bf376852119f47453964d"
+        },
+        {
+          "path": "tests/studio-module-framework.test.ts",
+          "sha256": "7510ee4ce4319036e5f0e33940ac204319bb38d11cfff1105572ecef768b4b88"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-310",
+      "title": "Platform API",
+      "version": "0.1.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/api.md",
+      "phase": 9,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/services/authApi.ts",
+          "sha256": "a1d65af753f88d1d856493dec60773d7a46514c27bcd55087a19cbf2fdd72ec8"
+        },
+        {
+          "path": "tests/studio-api-transport.test.ts",
+          "sha256": "472c8e588062e209c74125e6b9018e6d4057a22ff5d1c038c7e85866ca34f642"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-320",
+      "title": "File Format",
+      "version": "0.3.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/file-format.md",
+      "phase": 5,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/model/omiFormatConstants.ts",
+          "sha256": "b16a024d0584cb9d11af36c96f96a432b554befc030bd08d66b823bdc28bddcd"
+        },
+        {
+          "path": "src/services/omiPortableFormat.ts",
+          "sha256": "9b05da61e5495c13745a0a817a7629972b5c19549227ed1fbaafc82bf0ab2a2b"
+        },
+        {
+          "path": "tests/omi-file-format.test.ts",
+          "sha256": "98814b622a013b824aee90d7e3ff2a808d204984323d4e84de9c9a4caf586c1c"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-330",
+      "title": "Container Architecture",
+      "version": "0.1.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/container-architecture.md",
+      "phase": 5,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/services/omiContainer.ts",
+          "sha256": "870072fb199cb73f18fba9f1c4f702f8081d2c65871c3f9324146840f4d1237f"
+        },
+        {
+          "path": "tests/asset-container.test.ts",
+          "sha256": "5931584fe49796e279a9f696f9517ac5d39708cc1f2ef57a4b280b400824ed97"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-340",
+      "title": "Import and Export Model",
+      "version": "0.1.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/import-export-model.md",
+      "phase": 8,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/services/docxImportStrategy.ts",
+          "sha256": "f4eb1c9c7e7e26e19190a791145c4531d2888cec6859f9944c210578ee5b7f51"
+        },
+        {
+          "path": "src/components/ExportFormatsPanel.tsx",
+          "sha256": "4fe2324736492732cd893a856de30a1a32c2dd5590e2a5503f5370c39d0b9b98"
+        },
+        {
+          "path": "tests/docx-import.test.ts",
+          "sha256": "109e028220ecedea7f099bd6ffbf4b369e81752ed046620e8cfb551871748ae2"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    },
+    {
+      "id": "OMI-SPEC-350",
+      "title": "Capability and Conformance Model",
+      "version": "0.1.0",
+      "status": "Draft",
+      "canonicalPath": "docs/specifications/capability-conformance-model.md",
+      "phase": 9,
+      "studioEvidence": "partial",
+      "studioCommit": "5a69669131dac56379bce50ce6ce300c9464a900",
+      "evidence": [
+        {
+          "path": "src/model/jatsConformance.ts",
+          "sha256": "fc186ca1ec9a6898ead571fd090f6923b479b3991cd52ecf1e5b2ea0dc0c3e35"
+        },
+        {
+          "path": "tests/jats-conformance.test.ts",
+          "sha256": "a9150b4260c5b7c4ccf0da8f0c4d5f2a641333caade59d739cf03bee6a1b7eb6"
+        }
+      ],
+      "unverifiedCandidatePaths": [],
+      "promotion": "not-requested",
+      "remainingGates": [
+        "requirement-mapped-complete-coverage",
+        "public-review-disposition",
+        "independent-interoperability",
+        "compatibility-and-migration-review",
+        "maintainer-decision"
+      ]
+    }
+  ],
+  "studioPortableContract": {
+    "formatVersion": "0.3.0",
+    "schema": "https://openmanuscript.org/schemas/omi-manuscript-0.3.schema.json",
+    "declaredSpecifications": {
+      "OMI-SPEC-100": "0.1.0",
+      "OMI-SPEC-120": "0.2.0",
+      "OMI-SPEC-140": "0.1.0",
+      "OMI-SPEC-150": "0.1.0",
+      "OMI-SPEC-160": "0.1.0",
+      "OMI-SPEC-210": "0.1.0",
+      "OMI-SPEC-220": "0.1.0",
+      "OMI-SPEC-225": "0.1.0"
+    },
+    "note": "Producer declarations are not rewritten by review-profile adoption; earlier declared Draft contracts remain explicit."
+  },
+  "openPullRequests": [
+    {
+      "repository": "open-manuscript-initiative/open-manuscript-studio",
+      "number": 785,
+      "head": "74c8912007d2a802f25b1059cbb6efd4ac082c47",
+      "stateAtReview": "open",
+      "checksAtReview": "all-executed-checks-successful",
+      "merged": false
+    }
+  ],
+  "coreReview": {
+    "requirements": 66,
+    "partial": 20,
+    "untested": 46,
+    "fixtures": 22,
+    "approved": false,
+    "outcome": "indeterminate"
+  },
+  "dependencyCycles": [
+    [
+      "OMI-SPEC-210",
+      "OMI-SPEC-221",
+      "OMI-SPEC-210"
+    ]
+  ],
+  "corrections": [
+    "Studio already uses the 0.3.0 file-format/schema boundary.",
+    "Core object source revision was 0.2.0 before this rewrite; new Draft is 0.3.0.",
+    "Source/Derivation source revision is 0.2.0, and its registry dependency entry was missing.",
+    "Previous aggregate matrix mixed historical evidence with newer source revisions."
+  ]
+}

@@ -33,7 +33,7 @@ keywords:
 | Verwendet von | `OMI-SPEC-160`, `OMI-SPEC-170`, `OMI-SPEC-190`, `OMI-SPEC-200`, `OMI-SPEC-220`, `OMI-SPEC-310` |
 | Schemata | Keine veröffentlicht |
 | Profile | Keine veröffentlicht |
-| Umsetzungsstatus | [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md) |
+| Umsetzungsstatus | [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/) |
 | Issue-Tracker | Probleme im „Open Manuscript Initiative“-Repository |
 
 ## 1. Zusammenfassung
@@ -995,7 +995,7 @@ Diese Strukturen veranschaulichen relevante Entwurfsarbeiten, setzen diese Spezi
 - Identitätsabgleich und reversibles Zusammenführungsverhalten;
 - Zuordnung von Anforderungen zu Code und Konformitätstests.
 
-Die Klassifizierung der Beweiskraft wird in der „[Implementation Status Matrix](../governance/implementation-status-matrix.md)“ geführt.
+Die Klassifizierung der Beweiskraft wird in der „[Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/)“ geführt.
 
 ## 21. Ungeklärte Fragen
 

@@ -35,7 +35,7 @@ keywords:
 | Media type | `application/vnd.openmanuscript+json` (provisional) |
 | File extension | `.omi.json` |
 | Profiles | Core Snapshot; History Exchange; Lossless Round Trip |
-| Implementation status | [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md) |
+| Implementation status | [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/) |
 | Issue tracker | Open Manuscript Initiative repository issues |
 
 ## 1. Abstract
@@ -826,7 +826,7 @@ The [conformance profile](./file-format-conformance.md) defines the runner's par
 
 ## 26. Implementation status
 
-The authoritative implementation evidence is maintained in the [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md).
+The authoritative implementation evidence is maintained in the [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/).
 
 At publication of this draft:
 

@@ -102,4 +102,4 @@ See [Institutional and Central Administration](./institutional-administration.md
 
 The statuses on this page describe the **Open Manuscript Studio product implementation**. They do not assign OMI conformance to a connector. Formal conformance requires versioned requirements, test fixtures and the capability/conformance framework.
 
-For specification-level status, see the [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md). For the broader Studio product baseline, see [Studio Implementation Status](../governance/studio-implementation-status.md).
+For specification-level status, see the [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/). For the broader Studio product baseline, see [Studio Implementation Status](../governance/studio-implementation-status.md).

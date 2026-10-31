@@ -102,4 +102,4 @@ Das Verwaltungsmodell finden Sie unter [Institutional and Central Administration
 
 Die Statusangaben auf dieser Seite beschreiben die **Open Manuscript Studio-Produktimplementierung**. Sie bescheinigen einem Konnektor keine Konformität mit dem „OMI“. Für eine formale Konformität sind versionierte Anforderungen, Testvorrichtungen sowie das Rahmenwerk für Leistungsfähigkeit und Konformität erforderlich.
 
-Informationen zum Status auf Spezifikationsebene finden Sie unter [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md). Informationen zur allgemeinen Produktbasis von Studio finden Sie unter [Studio Implementation Status](../governance/studio-implementation-status.md).
+Informationen zum Status auf Spezifikationsebene finden Sie unter [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/). Informationen zur allgemeinen Produktbasis von Studio finden Sie unter [Studio Implementation Status](../governance/studio-implementation-status.md).

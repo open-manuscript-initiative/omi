@@ -14,7 +14,7 @@ Auf dieser Seite war zuvor die vorläufige Fassung von **OMI-SPEC-009: Scholarly
 
 Diese vorläufige Kennung und das Duplikat-Dokument wurden außer Kraft gesetzt. Die kanonische Spezifikation lautet nun:
 
-**[OMI-SPEC-120 — Scholarly Object Model](./core/scholarly-object-model.md)**
+**[OMI-SPEC-120 — Scholarly Object Model](https://openmanuscript.org/docs/specifications/core/scholarly-object-model/)**
 
 :::
 

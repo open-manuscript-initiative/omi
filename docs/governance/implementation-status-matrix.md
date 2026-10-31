@@ -2,374 +2,71 @@
 id: implementation-status-matrix
 title: OMI Implementation Status Matrix
 sidebar_label: Implementation Status Matrix
-description: Evidence-based status of OMI specifications, schemas, examples, reference implementation support, validation, and conformance testing.
-keywords:
-  - Open Manuscript Initiative
-  - OMI
-  - implementation status
-  - conformance
-  - Open Manuscript Studio
-  - roadmap
+description: Version-pinned evidence inventory for all 24 OMI models, with core review coverage and explicit maturity gates.
 ---
 
-# Open Manuscript Initiative Implementation Status Matrix
-
-## Document metadata
-
-| Field | Value |
-|---|---|
-| Document type | Governance status report |
-| Status | Draft |
-| Version | 0.5.2 |
-| Normative language | English |
-| Last updated | 2026-10-31 (OMI-SPEC-340/350 Drafts added; historical Studio evidence baselines retained) |
-| Coverage | Every identifier in the OMI Specification Registry |
-| Evidence baseline | The original 2026-08-06 full review and later OMI-SPEC-320 and OMI-SPEC-240 evidence, supplemented by Studio PR #782 for OMI-SPEC-170 and the proposed Studio PR #783 local experimental validation report for OMI-SPEC-180 on 2026-10-31 |
-| Authority | Informative; the Specification Registry and individual specifications remain authoritative |
-
-## 1. Purpose
+# OMI Implementation Status Matrix
 
-This document records the current implementation and verification status of every specification identifier allocated by the Open Manuscript Initiative.
+## Evidence baseline
 
-It separates five questions that must not be conflated:
+Version **0.6.0**, reviewed 2026-10-31. Informative evidence report; no lifecycle promotion. This replaces the mixed historical aggregate with a reproducible 24-model inventory. The registry and exact versioned normative text remain authoritative.
 
-1. Does a canonical specification document exist?
-2. Has that document been migrated to the current OMI Specification Template?
-3. Are machine-readable artefacts and conformance fixtures published?
-4. Does Open Manuscript Studio implement identifiable parts of the specification?
-5. Has the behaviour been validated, tested for conformance, or demonstrated independently?
+- Specification baseline: [`b4e12ef`](https://github.com/open-manuscript-initiative/omi/commit/b4e12ef9ffdf53be34cd16bbcb45d9530123c120), plus the proposed core Draft revisions in this change.
+- Studio baseline: [`5a69669`](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/5a69669131dac56379bce50ce6ce300c9464a900).
+- [Machine-readable inventory with file hashes](/evidence/readiness-2026-10-31.json).
+- [Studio PR #785](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/785) was open with successful executed checks at review time. Its new 190/340/350 profiles are **proposed**, not merged baseline evidence. This snapshot is historical, not a live PR-status widget.
 
-The matrix is intended to:
+## Interpretation
 
-- expose gaps between prose specifications and executable evidence;
-- prevent experimental implementation code from being mistaken for normative conformance;
-- provide a baseline for planning and review;
-- identify the next evidence required for each specification;
-- support future release-readiness decisions.
-
-## 2. Authority and interpretation
-
-The [OMI Specification Registry](./specification-registry.md) is authoritative for:
-
-- permanent specification identifiers;
-- official titles;
-- allocation states;
-- lifecycle states;
-- exact versions;
-- canonical paths.
-
-Individual specification documents are authoritative for their normative requirements.
-
-This matrix is an informative evidence report. It does not:
-
-- change a specification lifecycle state;
-- assign conformance to an implementation;
-- make an unpublished schema authoritative;
-- replace a specification, validator, test suite, or implementation report;
-- guarantee that every experimental feature is aligned with the latest specification text.
-
-A specification may be a mature document without an implementation. An implementation may contain substantial functionality while the related specification remains Draft. These are independent dimensions.
-
-## 3. Status vocabulary
-
-### 3.1 Specification and artefact states
-
-| State | Meaning |
-|---|---|
-| **Active Draft** | A canonical specification document exists and is registered with Draft lifecycle status. |
-| **Reserved** | The identifier and subject are allocated, but no accepted Draft specification exists. |
-| **Current template** | The active specification was created or comprehensively rewritten using the current Specification Template. |
-| **Migration required** | The active document predates the canonical Specification Template or does not yet contain all required metadata, conformance, compatibility, evidence, and change-history sections. |
-| **Draft artefact published** | A versioned machine-readable artefact is present at an authoritative location but remains subject to incompatible change before Stable. |
-| **Initial fixtures published** | Versioned positive and negative examples exist, but they do not yet constitute a complete formal conformance suite. |
-| **Not published** | The relevant canonical schema, fixture set, report format, or other machine-readable artefact is not present at an authoritative repository location. |
-| **Not started** | No repository evidence of substantive work was verified for the stated dimension. |
-| **Not applicable** | The stated dimension is not required for the specification in its current role. |
-
-### 3.2 Implementation-evidence states
-
-| State | Meaning |
-|---|---|
-| **Exploratory** | Related types, fields, UI concepts, or workflows exist, but they are incomplete, implementation-specific, or not demonstrably aligned with the canonical specification. |
-| **Partial** | An identifiable subset of the specification domain is represented or usable, but major requirements, validation, interoperability, or lifecycle behaviour are absent. |
-| **Implemented** | Applicable normative behaviour is implemented and mapped to a declared specification version, but formal conformance testing is not complete. |
-| **Tested** | The implementation has automated evidence covering applicable normative requirements for a declared version. |
-| **Conformant** | The implementation satisfies a published conformance class using the approved conformance suite and records any permitted limitations. |
-| **Not verified** | Evidence may exist outside the reviewed repositories, but it was not verified for this baseline. |
-
-The words **implemented**, **tested**, and **conformant** are intentionally strict. They must not be inferred from the existence of similarly named classes, interfaces, pages, or examples.
-
-## 4. Evidence baseline
-
-The baseline review used the public OMI specification repository and the Open Manuscript Studio repository. A scoped update dated 2026-10-31 incorporates the merged translation implementation from [Studio PR #782](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/782) and the proposed, not-yet-merged experimental validation implementation from [Studio PR #783](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/783) for OMI-SPEC-170 and 180 respectively. Earlier evidence statements for other specifications remain historical baselines.
-
-Verified Studio evidence includes:
-
-- the alpha scope declared in `README.md`;
-- the manuscript, annotation, citation, block, section, agent, and contribution interfaces in `src/types/omi.ts` and `src/model/identity.ts`;
-- manuscript editing and contributor actions in `src/app/useStudioStore.ts`;
-- legacy author migration in `src/document/migrateIdentityModel.ts`;
-- account-to-agent separation in `src/model/user.ts`;
-- workspace roles, permissions, invitations, reviewer and translator roles in `src/model/workspace.ts`;
-- the current local-storage workspace implementation in `src/store/workspaceStore.ts`;
-- identity and contributor unit tests in `tests/identity-model.test.ts`;
-- the `OMI-SPEC-160@0.1.0` revision, change-set, change-event, snapshot, history-completeness, commit, validation, and revert model in `src/model/versioning.ts`;
-- timestamp-only revision-history migration in `src/document/migrateVersioningModel.ts`;
-- the multilingual revision-history interface in `src/components/HistoryPanel.tsx`;
-- versioning unit tests in `tests/versioning-model.test.ts` covering immutable roots, parent preservation, linear history, atomic change sets, reverts, shallow migration, validation, and export;
-- the OMI-SPEC-240 publication-profile/style implementation in `src/services/publicationStyleExport.ts`, `src/components/PublicationStyleEditor.tsx`, `src/components/PublisherProfileEditor.tsx`, `src/services/idmlPublicationStyleImport.ts`, `src/services/publicationBuildSidecar.ts`, the Vivliostyle PDF path, and associated HTML/JATS/PDF tests and architecture notes.
-
-The current versioning implementation was merged to Open Manuscript Studio in PR #2 with merge commit `65f3a2f4fa9eaf6adf370f4bae5eec1e98521db2`.
-
-The 2026-08-06 full review did not find authoritative OMI repository artefacts for:
-
-- a machine-readable validation-report format;
-- a formal conformance test suite;
-- independently verified implementations.
-
-The 2026-09-05 OMI-SPEC-320 update added the first canonical versioned manuscript JSON Schema and reference fixtures. The `0.2.0-draft.4` profile checks 14 fixtures, strict UTF-8/JSON parsing, configured parser limits, selected semantic constraints, deterministic diagnostics, and local-only schema references. A complete register maps all 72 normative requirements: 10 are tested in this repository, 33 have partial evidence, and 29 remain untested. The initial `OMI-SPEC-320@0.2.0` profile and fixture approval is recorded in [issue #121](https://github.com/open-manuscript-initiative/omi/issues/121). Approval of the current `0.3.0` profile and corpus as an initial reviewable set is recorded in [issue #135](https://github.com/open-manuscript-initiative/omi/issues/135). Neither review establishes complete behavioral coverage, independent implementation evidence, Stable status, or OMI 1.0 readiness.
-
-Open Manuscript Studio currently documents and validates against the `OMI-SPEC-320@0.2.0` Draft boundary. This does not show Studio adoption of `0.3.0`, approval of the `0.3.0` corpus, Stable status for either schema, or interoperability with a second implementation.
-
-## 5. Aggregate snapshot
-
-| Measure | Current baseline |
-|---|---:|
-| Registered specification identifiers | 24 |
-| Active Draft specifications | 22 |
-| Reserved specifications | 2 |
-| Active specifications using the current template | 7 |
-| Active specifications requiring template migration | 14 |
-| Canonical machine-readable specification artefact sets published | 1 Draft set verified |
-| Published conformance fixture sets | 1 initial set verified |
-| Validator implementations | 1 reference fixture validator verified |
-| Formal conformance test suites | 0 verified |
-| Draft conformance profiles | 1 proposed; maintainer review pending |
-| Independent implementations | 0 verified |
-| Studio status: Partial | 11 specifications |
-| Studio status: Exploratory | 5 specifications |
-| Studio status: Not started | 6 specifications |
-| Studio status: Not applicable | 1 specification |
-| Studio status: Not verified | 1 specification |
-
-These updated counts include the previously uncounted OMI-SPEC-225 registry entry (not verified in the original survey); other implementation evidence retains its original historical baseline. These counts describe the evidence categories used in this document. They do not measure percentage completion or specification quality.
-
-## 6. Specification readiness matrix
-
-### 6.1 Foundations and core semantic models
-
-| Identifier | Specification | Registry state | Version | Template | Machine-readable artefacts | Conformance fixtures |
-|---|---|---|---|---|---|---|
-| `OMI-SPEC-000` | [Core Principles](../foundations/core-principles.md) | Active Draft | 0.1.0 | Migration required | Not applicable | Not published |
-| `OMI-SPEC-100` | [Document Model](../specifications/document-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-110` | [Anchor Model](../specifications/anchor-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-120` | [Scholarly Object Model](../specifications/core/scholarly-object-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-130` | [Annotation Model](../specifications/annotation-model.md) | Active Draft | 0.2.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-140` | [Metadata Model](../specifications/metadata-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-150` | [Identity and Contributor Model](../specifications/identity-contributor-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
-| `OMI-SPEC-160` | [Versioning and Change Model](../specifications/versioning-change-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
-| `OMI-SPEC-170` | [Translation Model](https://openmanuscript.org/docs/specifications/translation-model/) | Active Draft | 0.1.0 | Current template | Not published | Not published |
-| `OMI-SPEC-180` | [Validation Model](https://openmanuscript.org/docs/specifications/validation-model/) | Active Draft | 0.1.0 | Current template | No canonical schema published; Studio experimental report schema exists | No canonical fixtures; Studio local fixtures only |
-| `OMI-SPEC-190` | [Collaboration and Permission Model](https://openmanuscript.org/docs/specifications/collaboration-permission-model/) | Active Draft | 0.1.0 | Current template | No canonical grant/audit schema | No normative fixtures |
+A listed file demonstrates related code or tests, not full requirement coverage. Partial means identifiable product behavior with open normative/interoperability gaps. Architectural means principles guide design rather than define a standalone executable feature. No model is labelled conformant. No independent implementation is verified here. The vendored shared validator is not independent evidence.
 
-### 6.2 Scholarly workflow, references, and publishing
+## All-model inventory
 
-| Identifier | Specification | Registry state | Version | Template | Machine-readable artefacts | Conformance fixtures |
-|---|---|---|---|---|---|---|
-| `OMI-SPEC-200` | [Review Model](../specifications/review-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-210` | [Citation Model](../specifications/citation-model.md) | Active Draft | 0.2.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-220` | [Bibliographic Record Model](../specifications/bibliographic-record-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-221` | [Reference Library and Registry Architecture](../specifications/reference-library-registry.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-225` | [Source and Derivation Model](https://openmanuscript.org/docs/specifications/source-attribution-model/) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-230` | [Publishing Model](../specifications/publishing-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-240` | [Rendering and Publication Profile Model](../specifications/rendering-publication-profile-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
+| Model | Draft version | Studio evidence | Review phase | Pinned evidence examples |
+|---|---|---|---:|---|
+| `OMI-SPEC-000` — Core Principles | 0.2.0 | architectural | 1 | [README.md](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/README.md) |
+| `OMI-SPEC-100` — Document Model | 0.2.0 | partial | 1 | [src/types/omi.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/types/omi.ts); [src/app/useStudioStore.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/app/useStudioStore.ts) |
+| `OMI-SPEC-110` — Anchor Model | 0.1.0 | partial | 2 | [src/model/namedAnchors.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/model/namedAnchors.ts); [tests/named-anchors.test.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/tests/named-anchors.test.ts) |
+| `OMI-SPEC-120` — Scholarly Object Model | 0.3.0 | partial | 1 | [src/types/omi.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/types/omi.ts); [src/services/manuscriptValidation.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/services/manuscriptValidation.ts) |
+| `OMI-SPEC-130` — Annotation Model | 0.2.0 | partial | 2 | [src/model/notes.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/model/notes.ts); [tests/notes-model.test.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/tests/notes-model.test.ts) |
+| `OMI-SPEC-140` — Metadata Model | 0.2.0 | partial | 1 | [src/model/scholarlyMetadata.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/model/scholarlyMetadata.ts); [src/app/scholarlyMetadataActions.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/app/scholarlyMetadataActions.ts) |
+| `OMI-SPEC-150` — Identity and Contributor Model | 0.1.0 | partial | 2 | [src/model/identity.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/model/identity.ts); [tests/identity-model.test.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/tests/identity-model.test.ts) |
+| `OMI-SPEC-160` — Versioning and Change Model | 0.1.0 | partial | 3 | [src/model/versioning.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/model/versioning.ts); [src/model/workingState.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/model/workingState.ts) |
+| `OMI-SPEC-170` — Translation Model | 0.1.0 | partial | 6 | [src/model/translation.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/model/translation.ts); [tests/translation-model.test.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/tests/translation-model.test.ts) |
+| `OMI-SPEC-180` — Validation Model | 0.1.0 | partial | 3 | [src/services/manuscriptValidation.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/services/manuscriptValidation.ts); [src/model/validation.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/model/validation.ts) |
+| `OMI-SPEC-190` — Collaboration and Permission Model | 0.1.0 | partial | 6 | [server/src/services/collaborationInvitationService.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/server/src/services/collaborationInvitationService.ts); [server/src/services/collaborationTicketService.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/server/src/services/collaborationTicketService.ts) |
+| `OMI-SPEC-200` — Review Model | 0.1.0 | partial | 6 | [src/model/peerReview.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/model/peerReview.ts); [tests/peer-review-model.test.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/tests/peer-review-model.test.ts) |
+| `OMI-SPEC-210` — Citation Model | 0.2.0 | partial | 4 | [src/model/citations.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/model/citations.ts); [tests/citation-model.test.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/tests/citation-model.test.ts) |
+| `OMI-SPEC-220` — Bibliographic Record Model | 0.1.0 | partial | 4 | [src/types/omi.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/types/omi.ts); [tests/bibliographic-lookup.test.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/tests/bibliographic-lookup.test.ts) |
+| `OMI-SPEC-221` — Reference Library and Registry Architecture | 0.1.0 | partial | 4 | [src/services/referenceManagerApi.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/services/referenceManagerApi.ts); [tests/reference-manager-integrations.test.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/tests/reference-manager-integrations.test.ts) |
+| `OMI-SPEC-225` — Source and Derivation Model | 0.2.0 | partial | 4 | [src/model/sourceAttributionExport.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/model/sourceAttributionExport.ts); [tests/source-attribution-lifecycle.test.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/tests/source-attribution-lifecycle.test.ts) |
+| `OMI-SPEC-230` — Publishing Model | 0.1.0 | partial | 7 | [src/model/publicationBuild.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/model/publicationBuild.ts); [tests/publication-build.test.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/tests/publication-build.test.ts) |
+| `OMI-SPEC-240` — Rendering and Publication Profile Model | 0.1.0 | partial | 7 | [src/model/publicationProfile.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/model/publicationProfile.ts); [tests/publication-profile.test.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/tests/publication-profile.test.ts) |
+| `OMI-SPEC-300` — Plugin Architecture | 0.1.0 | partial | 9 | [src/modules/registry.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/modules/registry.ts); [tests/studio-module-framework.test.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/tests/studio-module-framework.test.ts) |
+| `OMI-SPEC-310` — Platform API | 0.1.0 | partial | 9 | [src/services/authApi.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/services/authApi.ts); [tests/studio-api-transport.test.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/tests/studio-api-transport.test.ts) |
+| `OMI-SPEC-320` — File Format | 0.3.0 | partial | 5 | [src/model/omiFormatConstants.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/model/omiFormatConstants.ts); [src/services/omiPortableFormat.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/services/omiPortableFormat.ts) |
+| `OMI-SPEC-330` — Container Architecture | 0.1.0 | partial | 5 | [src/services/omiContainer.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/services/omiContainer.ts); [tests/asset-container.test.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/tests/asset-container.test.ts) |
+| `OMI-SPEC-340` — Import and Export Model | 0.1.0 | partial | 8 | [src/services/docxImportStrategy.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/services/docxImportStrategy.ts); [src/components/ExportFormatsPanel.tsx](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/components/ExportFormatsPanel.tsx) |
+| `OMI-SPEC-350` — Capability and Conformance Model | 0.1.0 | partial | 9 | [src/model/jatsConformance.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/src/model/jatsConformance.ts); [tests/jats-conformance.test.ts](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/5a69669131dac56379bce50ce6ce300c9464a900/tests/jats-conformance.test.ts) |
 
-### 6.3 Platform, exchange, and conformance
+## Core review evidence
 
-| Identifier | Specification | Registry state | Version | Template | Machine-readable artefacts | Conformance fixtures |
-|---|---|---|---|---|---|---|
-| `OMI-SPEC-300` | [Plugin Architecture](../specifications/plugin-architecture.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-310` | [Platform API](../specifications/api.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-320` | [File Format](../specifications/file-format.md) | Active Draft | 0.3.0 | Current template | [Draft schema](/schemas/omi-manuscript-0.3.schema.json) | [Initial fixtures](/examples/omi-spec-320/0.3.0/manifest.json) |
-| `OMI-SPEC-330` | [Container Architecture](../specifications/container-architecture.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-340` | [Import and Export Model](https://openmanuscript.org/docs/specifications/import-export-model/) | Active Draft | 0.1.0 | Current template | Not published | Not published |
-| `OMI-SPEC-350` | [Capability and Conformance Model](https://openmanuscript.org/docs/specifications/capability-conformance-model/) | Active Draft | 0.1.0 | Current template | Not published | Not published |
+The 000/120/100/140 rewrites provide **66 requirement IDs**, **22 versioned fixtures**, a minimal structural schema and a bounded pure validator. **20 requirements have partial fixture evidence; 46 remain untested**. No requirement is promoted to complete evidence merely because one fixture passes. [Detailed profile](https://openmanuscript.org/docs/specifications/core-snapshot-review-profile/).
 
-## 7. Open Manuscript Studio implementation evidence
+The Studio companion panel runs this separate experimental profile without changing existing validation-report versions or manuscript producer declarations. It is proposed support until merged and deployed.
 
-No row in this section currently qualifies as **Implemented**, **Tested**, or **Conformant** under the strict definitions above.
+## Corrections and current gates
 
-The OMI repository contains a reference fixture validator for the current `OMI-SPEC-320@0.3.0` profile and corpus. Studio's documented runtime remains on the `0.2.0` Draft boundary and its shared 14-fixture corpus; adoption of `0.3.0` is still open. The 0.2.0 approval is recorded in issue #121, and approval of the 0.3.0 initial reviewable set is recorded in issue #135. Complete normative requirement mapping, full Studio behavior coverage, a Stable schema release, and independent implementation/conformance evidence remain outstanding. These dimensions are summarized here rather than repeated in every row.
+The runtime file-format constants already identify OMI-SPEC-320@0.3.0 and the 0.3 schema; the former claim that Studio still uses 0.2.0 was stale. Source and Derivation is 0.2.0; the registry version and missing dependency row are corrected. The new core Draft versions are not silently substituted into existing producer envelopes.
 
-### 7.1 Foundations and core semantic models
+The citation/library dependency cycle `OMI-SPEC-210 → OMI-SPEC-221 → OMI-SPEC-210` must be reviewed as a coordinated group; no strict independent promotion order is implied for those two models. This Draft cycle remains recorded, not silently removed.
 
-| Identifier | Studio status | Verified evidence | Primary gap before stronger status |
-|---|---|---|---|
-| `OMI-SPEC-000` | Not applicable | Principles guide architecture rather than defining a directly executable component. | Convert cross-suite principles into traceable requirements and review criteria. |
-| `OMI-SPEC-100` | Partial | `OmiManuscript` contains sections and blocks; the Studio store selects sections, edits blocks, and adds sections. | Canonical schema, invariants, block semantics, extension rules, validation, and requirement mapping. |
-| `OMI-SPEC-110` | Exploratory | Annotations can refer to `targetBlockId` and optional `targetText`. | Stable anchor identity, selectors, resolution, mutation behaviour, ambiguity handling, and tests. |
-| `OMI-SPEC-120` | Partial | A typed manuscript aggregate contains agents, contributions, sections, blocks, annotations, citations, identifiers, timestamps, and revision history. | Align object boundaries and lifecycles with the specification; publish schema and validation evidence. |
-| `OMI-SPEC-130` | Partial | `OmiAnnotation` defines an identifier, type, target block, optional target text, body, and rendering hint; annotations are exposed in manuscript state. | Canonical targets, motivations, authorship, lifecycle, threading, permissions, validation, and interchange. |
-| `OMI-SPEC-140` | Partial | Manuscript state represents locale, title, subtitle, abstract, keywords, identifiers, agents, contributions, and timestamps. | Metadata provenance, controlled terms, cardinalities, profiles, validation, and external mappings. |
-| `OMI-SPEC-150` | Partial | The Studio declares `OMI-SPEC-150@0.1.0`, separates accounts from agents, represents name forms, identifier and affiliation assertions, contextual contributions, roles, order and corresponding status, migrates legacy authors, exposes a multilingual contributor editor, and includes focused unit tests. | Canonical schema, complete visibility and provenance processing, additional agent types, reconciliation, backend persistence, requirement mapping, and conformance fixtures. |
-| `OMI-SPEC-160` | Partial | The Studio declares `OMI-SPEC-160@0.1.0`; creates immutable root and child revisions with one-parent linear ancestry; records semantic change sets and events for manuscript and contributor mutations; stores complete or shallow snapshots; performs non-destructive reverts as new revisions; resolves actor attribution conservatively; exposes multilingual history UI; exports revision history; and includes focused unit tests. | Working-state batching and checkpoint commits, tombstones, integrity/state digests, explicit `REQ-VCH-*` mapping, canonical schemas and fixtures, branching and merge support, persistence hardening, and formal conformance tests. |
-| `OMI-SPEC-170` | Partial (experimental profile) | Studio [PR #782](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/782) added a portable, namespaced translation ledger, distinct BCP 47 language variants, source/object alignment fingerprints, calculated stale/missing state, explicit review/equivalence decisions, machine/human provenance, non-destructive source synchronization and archival, DeepL-preview adoption, portable history, and HTML text proofs. [Local implementation contract](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/omi-spec-170-translation-model.md) and focused unit/Playwright tests are available. | No canonical 170 JSON Schema or conformance fixtures, no independent validation, and no full structured target manuscript, many-to-many ranges, translation-aware DOCX/PDF/JATS output or target edition identity; experimental implementation is not normative conformance. |
-| `OMI-SPEC-180` | Partial (experimental PR #783) | [Studio PR #783](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/783) proposes a `studio-validation-0.1` profile, three manifests (authoring, exchange, publication preflight), checks for IDs/relationships/anchors/history/recognized translations/portability/assets/publisher requirements, source-bound digests, distinct outcome vs completeness, stable diagnostic codes/JSON Pointer locations and standalone reports. A local JSON Schema, semantic validator, fixtures, 18 focused tests and browser scenarios are supplied on its PR branch. | PR merge/deployment pending; no canonical OMI-SPEC-180 schema or normative conformance fixtures, independent verification or signed reports. Preflight deliberately does not replace JATS/PDF/signature release gates. |
-| `OMI-SPEC-190` | Partial (non-conformant) | The [Studio ADR-023](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-023-manuscript-collaboration.md) and current Studio guide document document-scoped invitations, accepted membership, server-authorized live sessions and PostgreSQL-backed single-node Yjs synchronization; local workspace roles and separate editorial assignment anonymity also exist. These are implementation facts, not compliance with the new Draft. | Publish canonical 190 grant/decision/invitation/audit schemas, map REQ-COL requirements to server and client enforcement, test session revocation, delegation/denials and multi-surface double-blind confidentiality, and obtain independent conformance evidence. |
+Every stronger status still requires exact normative applicability, code/test mapping, versioned positive and negative fixtures, compatible behavior, public review, meaningful independent evidence and a recorded approval. A successful Studio build is one implementation observation.
 
-### 7.2 Scholarly workflow, references, and publishing
+## Change history
 
-| Identifier | Studio status | Verified evidence | Primary gap before stronger status |
-|---|---|---|---|
-| `OMI-SPEC-200` | Exploratory | Workspace roles include reviewer and members may be allowed to create annotations. | Review objects, assignments, rounds, states, decisions, confidentiality, identity disclosure, and event history. |
-| `OMI-SPEC-210` | Partial | `OmiCitation` and the manuscript citation array represent citation keys, labels, source types, and dates. | Separate citation occurrences from bibliographic records; anchor occurrences and define rendering-independent semantics. |
-| `OMI-SPEC-220` | Exploratory | The current citation type contains a small set of record-like fields. | Dedicated bibliographic record identity, contributors, titles, containers, identifiers, provenance, merging, and validation. |
-| `OMI-SPEC-221` | Not started | No manuscript-level reference library or external registry integration was verified. | Library membership, record reuse, lookup, reconciliation, caching, provenance, and deduplication behaviour. |
-| `OMI-SPEC-225` | Not verified | The source-attribution specification is registered, but this 2026-10-31 scoped translation update did not audit its Studio implementation. | Confirm provenance semantics, validation and implementation evidence in a separate review. |
-| `OMI-SPEC-230` | Not started | The alpha editor can manipulate and export manuscript data, but no specification-aligned publishing pipeline was verified. | Publication jobs, profiles, transformations, output provenance, failure handling, and semantic-source preservation. |
-| `OMI-SPEC-240` | Partial | Studio has publisher profiles, reusable semantic-role publication styles, IDML style import, distinct print/interactive PDF targets, semantic HTML, language-aware hyphenation, publication diagnostics and `.omi-build.json` provenance. A dedicated [implementation profile](./studio-omi-spec-240-implementation-profile.md) maps all `REQ-RPP-*` requirements to current evidence. | Publish machine-readable profile/style artefacts and requirement fixtures; complete unknown-extension, substitution/glyph, authorization-projection and accessible-PDF evidence; adopt a formal conformance suite before making a conformance claim. |
-
-### 7.3 Platform, exchange, and conformance
-
-| Identifier | Studio status | Verified evidence | Primary gap before stronger status |
-|---|---|---|---|
-| `OMI-SPEC-300` | Not started | No plugin manifest, extension API, capability boundary, or isolation mechanism was verified. | Define and implement plugin identity, lifecycle, permissions, extension points, compatibility, and failure containment. |
-| `OMI-SPEC-310` | Not started | Current alpha state is primarily client-side; no implementation claiming the registered Platform API was verified. | Versioned API contract, authentication, authorization, resources, events, errors, pagination, and tests. |
-| `OMI-SPEC-320` | Partial | Studio uses the canonical `OMI-SPEC-320@0.2.0` envelope and schema boundary, with open/save validation and lifecycle/conformance tests. | Complete requirement-to-test coverage and round-trip evidence; obtain maintainer approval for fixtures and the profile; verify the accepted suite in an independent implementation; finalize stable format status. |
-| `OMI-SPEC-330` | Not started | No OMI container package, manifest, asset graph, integrity record, or packaging workflow was verified. | Implement package layout, manifest, media handling, checksums, signatures, extraction safety, and preservation rules. |
-| `OMI-SPEC-340` | Exploratory | Canonical Draft 0.1.0 published; earlier audit observed manuscript JSON export and identity/history migration paths. Wider Studio import and export features are documented separately and were not verified here against all Draft requirements. | Publish mapping/report JSON Schemas, format-specific mappings, loss diagnostics and round-trip fixtures; verify actual Studio behavior with requirement-mapped tests. |
-| `OMI-SPEC-350` | Not started | Canonical Draft 0.1.0 defines classes, claims, coverage, manifests and verification obligations; no machine-readable conformance system or independent verifier was verified. | Publish capability/claim/evidence schemas, test manifests and runners, requirement coverage, and independent-verification policy and test evidence. |
-
-## 8. Cross-cutting findings and known deviations
-
-### 8.1 Specification-template migration
-
-`OMI-SPEC-150`, `OMI-SPEC-160`, and `OMI-SPEC-240` were created directly from the canonical Specification Template. `OMI-SPEC-320` was comprehensively rewritten against it in version `0.2.0`. The other 14 active specifications require controlled migration that preserves permanent identifiers, canonical routes, and change histories while adding the required metadata and evidence sections.
-
-### 8.2 Draft schema and legacy placeholder reference
-
-The current authoritative Draft schema for `OMI-SPEC-320@0.3.0` is published at `https://openmanuscript.org/schemas/omi-manuscript-0.3.schema.json`. Studio's documented runtime still targets `0.2.0`; its manuscript type also retains the earlier `https://openmanuscript.org/schemas/omi-manuscript-0.1.json` URI as an implementation placeholder. No authoritative `0.1` schema is published, and neither that placeholder nor Studio's `0.2.0` support establishes conformance with the current `0.3.0` Draft.
-
-### 8.3 Implementation-specific models
-
-The Studio types are useful design evidence but are not automatically the normative OMI data model. Differences must be documented and resolved through specification issues or implementation changes.
-
-### 8.4 Local collaboration persistence
-
-The current workspace store explicitly uses local browser persistence and states that production multi-user behaviour requires authenticated backend APIs. It therefore demonstrates domain exploration, not server-enforced collaboration conformance.
-
-### 8.5 Citation and record separation
-
-The current Studio citation representation contains both occurrence-oriented and record-oriented information. The Citation Model and Bibliographic Record Model require a clearer separation before either implementation can be considered complete.
-
-### 8.6 Versioning and change history
-
-`OMI-SPEC-160` now has a first portable reference implementation in Studio. The merged implementation provides immutable linear revisions, one-parent ancestry, semantic change sets and events, complete or shallow snapshots, conservative actor attribution, non-destructive reverts, a multilingual history view, portable history export, and focused unit tests.
-
-The implementation remains **Partial**. Existing editor controls commit at their current update granularity, so rich-text and text-field editing may create overly fine-grained revisions. Working-state batching and explicit checkpoint commits are therefore the next implementation step before branching and merge behaviour is attempted. Tombstones, state digests, stronger persistence, explicit `REQ-VCH-*` mapping, canonical fixtures, branching, merge bases, conflicts, and formal conformance evidence remain outstanding.
-
-The focused unit tests do not by themselves qualify the implementation as **Tested** under this matrix. Approval of the `0.2.0` Draft corpus is recorded in issue #121; the current `0.3.0` corpus has initial reviewable-set approval recorded in issue #135, and neither constitutes a complete requirement-mapped conformance runner.
-
-### 8.7 Validation and conformance
-
-The OMI-SPEC-320 schema, proposed suite, and reference validator establish an executable evidence baseline. Parser tests now cover duplicate and escaped-equivalent member names, malformed UTF-8/JSON, Unicode scalar validity, and safe integer boundaries; semantic tests check stable diagnostic ordering. Resource limits, full `REQ-FMT-*` coverage, migration, lossless round trips, maintainer approval, and independent implementation results remain open, so the Draft profile does not qualify an implementation as **Conformant**.
-
-Advancement for each specification still requires, as applicable:
-
-- exact normative requirements;
-- declared conformance classes;
-- canonical schemas and fixtures where applicable;
-- a validator or conformance runner;
-- machine-readable test results tied to exact specification versions.
-
-## 9. Evidence required for status advancement
-
-### 9.1 Exploratory to Partial
-
-A feature may move from **Exploratory** to **Partial** when:
-
-- a distinct implementation component exists;
-- its relationship to a registered specification is documented;
-- the implemented subset and known omissions are explicit;
-- the behaviour is usable beyond placeholder data or naming similarity.
-
-### 9.2 Partial to Implemented
-
-A feature may move to **Implemented** only when:
-
-- the relevant specification is an active document;
-- the implementation declares the exact specification version;
-- applicable normative requirements are mapped to code or documented behaviour;
-- required error handling and persistence semantics are present;
-- known deviations are recorded;
-- applicable machine-readable artefacts are used.
-
-### 9.3 Implemented to Tested
-
-A feature may move to **Tested** only when:
-
-- automated tests cover applicable normative requirements;
-- valid and invalid fixtures are versioned;
-- test results are reproducible;
-- the test suite identifies the exact specification and artefact versions.
-
-### 9.4 Tested to Conformant
-
-A feature may move to **Conformant** only when:
-
-- an approved conformance class exists;
-- the official or accepted conformance suite passes;
-- permitted optional behaviour and limitations are declared;
-- the claim is published in a verifiable implementation report.
-
-## 10. Maintenance procedure
-
-This matrix should be updated whenever a pull request:
-
-- creates or reserves a specification;
-- changes a specification lifecycle state or version;
-- publishes or replaces a schema, vocabulary, fixture set, validator, or test suite;
-- adds substantive Studio support;
-- records an independent implementation;
-- changes a known deviation;
-- publishes a conformance claim.
-
-Every status-changing update should identify evidence such as:
-
-- a canonical document or artefact path;
-- an immutable commit;
-- a test run or result report;
-- an implementation issue or pull request;
-- an exact specification version;
-- a declared conformance class.
-
-Status must be downgraded when evidence becomes stale, incompatible, withdrawn, or no longer reproducible.
-
-The complete matrix should be reviewed before each OMI release and at every lifecycle transition to Review Candidate, Implementation Candidate, or Stable.
-
-## 11. Immediate evidence programme
-
-The next evidence-producing work should proceed in this order:
-
-1. add working-state batching and explicit checkpoint commits to the Studio `OMI-SPEC-160` implementation so ordinary typing does not create excessively fine-grained committed revisions;
-2. map the implemented Core Revision History subset to the normative `REQ-VCH-*` requirements and record explicit deviations;
-3. add tombstone and integrity/state-digest behaviour required by the selected versioning profile;
-4. upgrade Studio from `OMI-SPEC-320@0.2.0` to the reviewed `0.3.0` contract, then add requirement-mapped parser, serializer, migration, and round-trip evidence;
-5. publish canonical identity and versioning schemas with minimal valid and invalid fixtures;
-6. migrate the remaining active core specifications to the canonical Specification Template;
-7. define the Validation Model and validation-report format;
-8. establish automated cross-specification schema and conformance checks;
-9. draft `OMI-SPEC-170`, Translation Model, using the revision ledger as its version-aware foundation;
-10. record known deviations as linked issues and seek an independently developed parser, validator, or interoperability prototype.
-
-## 12. Change history
-
-| Version | Date | Summary |
+| Version | Date | Change |
 |---|---|---|
-| 0.5.1 | 2026-10-31 | Added OMI-SPEC-190 Draft 0.1.0; registry/readiness counts and Studio evidence updated without implying conformance. |
-| 0.5.0 | 2026-10-12 | Reconciled the current `OMI-SPEC-320@0.3.0` schema and fixtures with the implementation matrix; distinguished the recorded 0.2.0 approval from the pending 0.3.0 review and Studio adoption gap. |
-| 0.3.0 | 2026-09-05 | Recorded the template-complete `OMI-SPEC-320@0.2.0`, first canonical Draft manuscript schema, initial fixtures and reference validator; updated Studio's remaining adoption gap and aggregate evidence counts. |
-| 0.2.1 | 2026-08-06 | Promoted Studio support for `OMI-SPEC-160` from Exploratory to Partial after the immutable linear revision ledger merged; recorded revision, change-set, snapshot, revert, history-export, and focused-test evidence; advanced the next evidence priority to working-state batching, checkpoint commits, and requirement mapping. |
-| 0.2.0 | 2026-08-06 | Activated `OMI-SPEC-160`, recorded two current-template specifications, updated Studio evidence after the `OMI-SPEC-150` integration, and advanced the evidence programme to a linear revision ledger. |
-| 0.1.1 | 2026-08-06 | Activated `OMI-SPEC-150` in the readiness matrix, recorded it as the first specification using the current template, and updated the immediate evidence programme. |
-| 0.1.0 | 2026-08-06 | Initial evidence-based matrix covering all 23 registered identifiers, current specification artefacts, Open Manuscript Studio support, validation, testing, deviations, and status-advancement rules. |
+| 0.6.0 | 2026-10-31 | Rebuilt all-model source/code inventory, corrected 0.3.0 runtime and version drift, added 66-requirement core review evidence and explicit open gates. No lifecycle promotion. |
+
+Earlier evidence baselines remain available in repository history; their old counts are not current completion percentages.

@@ -13,11 +13,11 @@ description: Authoritative registry of Open Manuscript Initiative specification 
 |---|---|
 | Document type | Governance registry |
 | Status | Draft |
-| Version | 0.4.3 |
+| Version | 0.5.0 |
 | Normative language | English |
 | Registry namespace | `OMI-SPEC` |
 | Applies to | Normative OMI specifications and reserved specification identifiers |
-| Last updated | 2026-10-31 (OMI-SPEC-340 and 350 Draft activation) |
+| Last updated | 2026-10-31 (core-model evidence review) |
 
 ## 1. Purpose
 
@@ -127,12 +127,12 @@ Development ended before the specification became Stable. The identifier remains
 
 | Identifier | Official title | Allocation | Lifecycle | Version | Canonical path |
 |---|---|---|---|---|---|
-| `OMI-SPEC-000` | Core Principles | Active | Draft | 0.1.0 | `docs/foundations/core-principles.md` |
-| `OMI-SPEC-100` | Document Model | Active | Draft | 0.1.0 | `docs/specifications/document-model.md` |
+| `OMI-SPEC-000` | Core Principles | Active | Draft | 0.2.0 | `docs/foundations/core-principles.md` |
+| `OMI-SPEC-100` | Document Model | Active | Draft | 0.2.0 | `docs/specifications/document-model.md` |
 | `OMI-SPEC-110` | Anchor Model | Active | Draft | 0.1.0 | `docs/specifications/anchor-model.md` |
-| `OMI-SPEC-120` | Scholarly Object Model | Active | Draft | 0.2.0 | `docs/specifications/core/scholarly-object-model.md` |
+| `OMI-SPEC-120` | Scholarly Object Model | Active | Draft | 0.3.0 | `docs/specifications/core/scholarly-object-model.md` |
 | `OMI-SPEC-130` | Annotation Model | Active | Draft | 0.2.0 | `docs/specifications/annotation-model.md` |
-| `OMI-SPEC-140` | Metadata Model | Active | Draft | 0.1.0 | `docs/specifications/metadata-model.md` |
+| `OMI-SPEC-140` | Metadata Model | Active | Draft | 0.2.0 | `docs/specifications/metadata-model.md` |
 | `OMI-SPEC-150` | Identity and Contributor Model | Active | Draft | 0.1.0 | `docs/specifications/identity-contributor-model.md` |
 | `OMI-SPEC-160` | Versioning and Change Model | Active | Draft | 0.1.0 | `docs/specifications/versioning-change-model.md` |
 | `OMI-SPEC-170` | Translation Model | Active | Draft | 0.1.0 | `docs/specifications/translation-model.md` |
@@ -147,7 +147,7 @@ Development ended before the specification became Stable. The identifier remains
 | `OMI-SPEC-210` | Citation Model | Active | Draft | 0.2.0 | `docs/specifications/citation-model.md` |
 | `OMI-SPEC-220` | Bibliographic Record Model | Active | Draft | 0.1.0 | `docs/specifications/bibliographic-record-model.md` |
 | `OMI-SPEC-221` | Reference Library and Registry Architecture | Active | Draft | 0.1.0 | `docs/specifications/reference-library-registry.md` |
-| `OMI-SPEC-225` | Source and Derivation Model | Active | Draft | 0.1.0 | `docs/specifications/source-attribution-model.md` |
+| `OMI-SPEC-225` | Source and Derivation Model | Active | Draft | 0.2.0 | `docs/specifications/source-attribution-model.md` |
 | `OMI-SPEC-230` | Publishing Model | Active | Draft | 0.1.0 | `docs/specifications/publishing-model.md` |
 | `OMI-SPEC-240` | Rendering and Publication Profile Model | Active | Draft | 0.1.0 | `docs/specifications/rendering-publication-profile-model.md` |
 
@@ -183,6 +183,7 @@ The dependency list records direct normative dependencies expected for the canon
 | `OMI-SPEC-210` | `OMI-SPEC-110`, `OMI-SPEC-120`, `OMI-SPEC-220`, `OMI-SPEC-221` |
 | `OMI-SPEC-220` | `OMI-SPEC-120`, `OMI-SPEC-140`, `OMI-SPEC-150` |
 | `OMI-SPEC-221` | `OMI-SPEC-140`, `OMI-SPEC-210`, `OMI-SPEC-220` |
+| `OMI-SPEC-225` | `OMI-SPEC-120`, `OMI-SPEC-220` |
 | `OMI-SPEC-230` | `OMI-SPEC-100`, `OMI-SPEC-140`, `OMI-SPEC-180`, `OMI-SPEC-210`, `OMI-SPEC-240`, `OMI-SPEC-320` |
 | `OMI-SPEC-240` | `OMI-SPEC-100`, `OMI-SPEC-140`, `OMI-SPEC-210` |
 | `OMI-SPEC-300` | `OMI-SPEC-000`, `OMI-SPEC-350` |
@@ -419,7 +420,7 @@ A registry entry SHOULD link to such artefacts when they exist.
 
 The registry records specification identity and maturity, not implementation conformance.
 
-The evidence-based [OMI Implementation Status Matrix](./implementation-status-matrix.md) records implementation, schema, fixture, validator, testing, and independent-implementation evidence for every registered identifier.
+The evidence-based [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/) records implementation, schema, fixture, validator, testing, and independent-implementation evidence for every registered identifier.
 
 The existence of similarly named code in Open Manuscript Studio is not sufficient evidence of specification conformance.
 
@@ -569,6 +570,7 @@ The adoption does not by itself change the lifecycle status of any specification
 
 | Version | Date | Summary |
 |---|---|---|
+| 0.5.0 | 2026-10-31 | Published template-complete core Draft revisions and bounded review evidence; corrected source-model version and dependency entry. No lifecycle promotion. |
 | 0.4.3 | 2026-10-31 | Activated `OMI-SPEC-340` Import and Export Model and `OMI-SPEC-350` Capability and Conformance Model as Draft 0.1.0; canonical mapping/report schemas, suites and independent evidence remain open. |
 | 0.4.2 | 2026-10-31 | Activated `OMI-SPEC-190`, Collaboration and Permission Model, as Draft 0.1.0; normative grant, session, invitation, confidentiality, audit and federation requirements remain pending canonical schemas/fixtures. |
 | 0.4.0 | 2026-09-09 | Activated `OMI-SPEC-240`, Rendering and Publication Profile Model, as Draft version 0.1.0. |
