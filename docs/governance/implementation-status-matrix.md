@@ -180,7 +180,7 @@ These updated counts include the previously uncounted OMI-SPEC-225 registry entr
 | `OMI-SPEC-210` | [Citation Model](../specifications/citation-model.md) | Active Draft | 0.2.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-220` | [Bibliographic Record Model](../specifications/bibliographic-record-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-221` | [Reference Library and Registry Architecture](../specifications/reference-library-registry.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
-| `OMI-SPEC-225` | [Source and Derivation Model](../specifications/source-attribution-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
+| `OMI-SPEC-225` | [Source and Derivation Model](https://openmanuscript.org/docs/specifications/source-attribution-model/) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-230` | [Publishing Model](../specifications/publishing-model.md) | Active Draft | 0.1.0 | Migration required | Not published | Not published |
 | `OMI-SPEC-240` | [Rendering and Publication Profile Model](../specifications/rendering-publication-profile-model.md) | Active Draft | 0.1.0 | Current template | Not published | Not published |
 
