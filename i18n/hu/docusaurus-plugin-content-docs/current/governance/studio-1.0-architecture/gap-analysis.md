@@ -6,7 +6,22 @@ description: A jelenlegi Open Manuscript Studio implementáció és az 1.0 céla
 
 # Current → 1.0 Gap Analysis
 
-> Aktuális biztonsági egyeztetés: **2026-10-30**, alább. A felülírt korábbi checkpoint történeti állapot; a javasolt javítási teszt nem merge-/telepítési garancia.
+> Aktuális egyeztetés: **2026-10-31**, alább. A felülírt checkpoint történeti adat; javasolt javításhoz merge/CI kell, helyi evidence nem telepítési elfogadás.
+
+## Draft fordítási, exchange- és jogosultsági checkpoint — 2026-10-31
+
+Auditált Studio: [f41dadf](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/f41dadf07f566ea782e9eaf3193271ff9def8e12). A javítási bizonyíték nem merge-/telepítési elfogadás.
+
+| Komponens | Státusz | Igazolt rés | Cél / átállás / kockázat |
+|---|---|---|---|
+| `translationExport.ts` → translation planner | HARDEN | Reviewed rejtett/editor-only jegyzet mindkét HTML-ben megjelenhetett. | Meglévő public-note predikátum az output/readiness előtt; privát állapot megtartása, release-security negatív fixture. Magas adatvédelmi kockázat merge-ig. |
+| `translationActions.ts` | REFACTOR | Use-case közvetlenül Zustandot és auth-store-t kezel. | `translationCommands.ts` atomikus sessionporttal, régi action facade megmarad; plain-session/store/reopen/history/revert teszt. Közepes coupling; nincs history-újraírás. |
+| `translation.ts` profil/path | KEEP + HARDEN | Hasznos átmeneti fingerprint/path, de nem stabil editorfüggetlen horgony. | Kísérleti profil/művelet; unknown megőrzése; későbbi locatorváltás explicit verziózva. Közepes kompatibilitási kockázat. |
+| Exportpanel riportfolyamata | REFACTOR | Reactben futott bájt/riport/cancel/fail vezérlés. | `ExportExchangeSession` application service; renderer/sidecar/delivery megtartása. Registry/streaming/még nem instrumentált utak nyitottak. Közepes evidence-kockázat. |
+| Kollaboráció policy/ticket/live | KEEP + HARDEN | Új per-message/15 s idle recheck, 5 s deadline nem szerepelt a baseline-ban. | DB-authority, read-only downgrade, bontás/reconnect, single-node whole-manuscript határ rögzítése. Denial és tesztek megmaradnak. Közepes availability/authority kockázat. |
+| 180/340/350/core-review és CI | KEEP + HARDEN | Többféle riport összetéveszthető tanúsítással vagy RC-elfogadással. | Pontos verzió/subject/freshness/scope és incomplete/indeterminate. Másolt validator nem független bizonyíték; artifact gate-ek maradnak. Közepes governance-kockázat. |
+
+Nincs OJS/OMP-protokollváltás vagy DB-migráció. Szerkesztés nem korlátozott. [Studio ADR-029](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-029-translation-export-and-application-boundaries.md). Az új core Draft review-cél, nem a writer verziódeklarációjának csendes átírása.
 
 ## Biztonsági határok egyeztetése — 2026-10-30
 

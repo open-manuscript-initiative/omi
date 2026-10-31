@@ -6,7 +6,22 @@ description: Az Open Manuscript Studio 1.0 javasolt célarchitektúrája a műk�
 
 # OMI Studio 1.0 Target Architecture
 
-> Aktuális biztonsági egyeztetés: **2026-10-30**, alább. A felülírt korábbi checkpoint történeti állapot; a javasolt javítási teszt nem merge-/telepítési garancia.
+> Aktuális egyeztetés: **2026-10-31**, alább. A felülírt checkpoint történeti adat; javasolt javításhoz merge/CI kell, helyi evidence nem telepítési elfogadás.
+
+## Draft fordítási, exchange- és jogosultsági checkpoint — 2026-10-31
+
+Auditált Studio: [f41dadf](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/f41dadf07f566ea782e9eaf3193271ff9def8e12); OMI: [c9f135f](https://github.com/open-manuscript-initiative/omi/commit/c9f135f018f0a1152d1075b551412ecf32a40292). A javítás merge és sikeres CI előtt javasolt állapot. Nincs schema/container-verzióváltás, API-átnevezés, DB-migráció vagy szerkesztési zárolás.
+
+| Határ | Célcontract / megtartott működés |
+|---|---|
+| Fordítás → nyilvános HTML | A meglévő public-note predikátum az exportegységek gyűjtése és készültségellenőrzése előtt fusson. Rejtett/workflow/nem-note annotáció, fordítása és horgonya mindkét HTML-ből kimarad. Aktuális láthatóság dönt; privát jegyzet változása nem blokkol. Munkadokumentum, fordítási ledger és history sértetlen; reviewed állapot nem közzétételi jogosultság. |
+| Application → sessionadapter | `createTranslationCommands(TranslationSessionPort)` kezeli a fordítási use-case-eket és checkpoint/pending-change folyamatot. Zustand/auth csak composition adapter. Szinkron atomikus frissítés, másik aktív kézirat elutasítása; meglévő history és teljes szerkeszthetőség marad. |
+| Editoradapter → helyi portable profil | `urn:omi:studio:translation:1`, `studio-translation-0.1`, `translation.model.set` kísérleti Studio-contract. Tiptap-útvonal átmeneti locator fingerprinttel, nem befagyasztott OMI-horgony/ContentCodec. Későbbi szemantikus váltás explicit verziózott konverzióval és round-trip/eltolt-path fixture-rel. Future profil opaque. |
+| Export application → renderer/delivery | `ExportExchangeSession` kezeli a riport életciklusát, warningot, bájt/envelope vizsgálatot, cancel/fail állapotot. UI: választás, értesítés, platformdelivery. Office-receipt service frameworkfüggetlen marad. Renderer/sidecar megtartandó; teljes registry, streaming és szemantikus validator további feladat. |
+| Membership-authority → kollaboráció | ADR-028 single-node, whole-manuscript policy: elfogadott aktuális DB-membership + ACTIVE account; belépési/üzenetenkénti és 15 s idle ellenőrzés, 5 s authhatáridő. Downgrade read-only; visszavonás/lejárat/elérhetetlen authority bontás. Új ticket nem enged tiltott lokális írást. Nincs implicit publikációs vagy segmentszintű fordítói jog. |
+| Evidence → release | Validation/exchange/self-assessment/core-review/publication-build külön artifact. Envelope nem teljes célvalidáció, fordításellenőrzés nem peer review, hiányos/nem jóváhagyott suite indeterminate. Exact-candidate RC/privacy/security gate megmarad. |
+
+Az új core Draftokra célzó review-validator/schema/fixture megfigyelési profil. A meglévő OMI-SPEC-320 producerdeklaráció és validation-report változatlan; nincs csendes szemantikus átállás. OMI és Studio közös validatora nem független bizonyíték. Részletek: [Studio ADR-029](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-029-translation-export-and-application-boundaries.md).
 
 ## Biztonsági határok egyeztetése — 2026-10-30
 

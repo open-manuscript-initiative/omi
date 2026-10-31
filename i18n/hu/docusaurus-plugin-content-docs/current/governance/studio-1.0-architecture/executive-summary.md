@@ -6,7 +6,19 @@ description: Az Open Manuscript Studio 1.0 célarchitektúrájának, fő kockáz
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
-> Aktuális biztonsági egyeztetés: **2026-10-30**, alább. A felülírt korábbi checkpoint történeti állapot; a javasolt javítási teszt nem merge-/telepítési garancia.
+> Aktuális egyeztetés: **2026-10-31**, alább. A felülírt checkpoint történeti adat; javasolt javításhoz merge/CI kell, helyi evidence nem telepítési elfogadás.
+
+## Draft fordítási, exchange- és jogosultsági checkpoint — 2026-10-31
+
+Az új Draft-implementációk megtartandók, célzott privacy-javítással és kis felelősségkiszervezéssel. Editor/store/kollaboráció/history-újraírás nem indokolt.
+
+A sürgős hiba: privát annotáció megjelenhetett mindkét fordítási HTML-ben. A javítás a meglévő public-note predikátummal szűri az outputot és readiness-t, minden privát munkadatot megőrizve. Fordításreview nem közzétételi vagy szakmai peer-review authority. Privát jegyzet nem szerkesztési zárolás vagy idegen publikus-exportfeltétel.
+
+Fordításcommand szinkron application sessionport mögé kerül; Zustand/auth compatibility adapter. Extension/historyoperation/Tiptap-path kísérleti, amíg nincs elfogadott, verziózott editorfüggetlen mapping. Standard exportriport-életciklus application service-be kerül; renderer/sidecar marad. Teljes registry/streaming/célszemantika további feladat.
+
+Rögzítendő a single-node kollaboráció: aktuális membership/ACTIVE account, per-message/15 s idle recheck, 5 s deadline, read-only downgrade és fail-closed bontás/reconnect. Validation/exchange/self-assessment/core-review nem publikációs bizonyíték vagy exact-candidate RC-elfogadás. Új core Draft és közös korlátos validator nem producerverzióváltás vagy független konformancia.
+
+T01–T04 azonnali javítás, T05/T06 további freeze/acceptance feladat. Az ADR-regiszter 001/004/005/007/008/009/011/012/017/019/023 térképe irányadó. Nincs schema/container/DB-migráció vagy szerkesztési korlát. Merge/sikeres CI előtt a javítás nem main-garancia.
 
 ## Biztonsági határok egyeztetése — 2026-10-30
 

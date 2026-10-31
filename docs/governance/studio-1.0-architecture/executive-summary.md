@@ -6,7 +6,19 @@ description: Executive summary of the Open Manuscript Studio 1.0 target architec
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
-> Current security reconciliation: **2026-10-30**, below. Earlier dated checkpoints remain historical where superseded. Proposed repair tests are not merged/deployed guarantees.
+> Current reconciliation: **2026-10-31**, below. Earlier checkpoints remain historical where superseded. Proposed repairs require merge and CI; local evidence is not deployment acceptance.
+
+## Draft translation, exchange and authority checkpoint — 2026-10-31
+
+The new Draft implementations are worth keeping, with a targeted privacy repair and small ownership extractions. No editor, store, collaboration or history rewrite is justified.
+
+The urgent defect is private annotation disclosure in both translation HTML proofs. The repair filters output and readiness through the existing public-note predicate, retaining all private authoring data. Translation review is not disclosure authority or scientific peer review. Private notes never become an authoring lock or an unrelated public-export prerequisite.
+
+Translation commands move behind a synchronous application session port; Zustand/auth stays in a compatibility adapter. The current extension, history operation and Tiptap path locators remain explicitly experimental until a versioned editor-independent mapping is accepted. Standard export-report lifecycle moves into an application service while renderers and sidecars remain. Complete registry, streaming and target semantic validation are still follow-up work.
+
+Reconcile the implemented single-node collaboration authority: current membership/ACTIVE account, per-message and 15 s idle checks, five-second authorization deadline, read-only downgrade and fail-closed disconnect/reconnect. Distinguish the new validation/exchange/self-assessment/core-review artifacts from publication evidence and exact-candidate RC approval. New core Drafts and a shared bounded validator do not silently change producer versions or supply independent conformance.
+
+T01–T04 in the PR plan provide the immediate repair; T05/T06 retain the remaining freeze/acceptance obligations. Update ADR-001/004/005/007/008/009/011/012/017/019/023 as mapped in the register. No schema/container/DB migration or manuscript-editing restriction is introduced. The Studio companion must pass CI before these proposed repairs count as merged guarantees.
 
 ## Security boundary reconciliation — 2026-10-30
 
