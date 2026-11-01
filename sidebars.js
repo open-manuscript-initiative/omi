@@ -124,6 +124,7 @@ const sidebars = {
             {type: 'doc', id: 'governance/studio-1.0-architecture/target-architecture', label: 'Target Architecture'},
             {type: 'doc', id: 'governance/studio-1.0-architecture/gap-analysis', label: 'Current to 1.0 Gap Analysis'},
             {type: 'doc', id: 'governance/studio-1.0-architecture/refactoring-pr-plan', label: 'Refactoring and PR Plan'},
+            {type: 'doc', id: 'governance/studio-1.0-architecture/implementation-review-2026-11-01', label: 'Implementation Review (Nov 2026)' },
             {type: 'doc', id: 'governance/studio-1.0-architecture/adr-register', label: 'ADR Register'},
           ],
         },
