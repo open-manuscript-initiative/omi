@@ -6,7 +6,12 @@ description: Függőségtudatos, kis és visszagörgethető pull requestekre bon
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
-> Aktuális egyeztetés: **2026-10-31**, alább. A felülírt checkpoint történeti adat; javasolt javításhoz merge/CI kell, helyi evidence nem telepítési elfogadás.
+> Aktuális egyeztetés: **2026-11-01** — [bizonyítékalapú megvalósítási felülvizsgálat](./implementation-review-2026-11-01.md). A korábbi checkpoint történeti adat; javasolt javításhoz merge/CI kell, helyi bizonyíték nem telepítési elfogadás.
+
+
+## 2026-11-01 – az ütemterv felülvizsgálata
+
+A [részletes új állapotjelentés](./implementation-review-2026-11-01.md) elkülöníti a működő, részben igazolt, előkészített és külső elfogadásra váró feladatokat. Az A01–F03 ütemtervben **54 tervezési egység** szerepel (A=10, B=13, C=15, D=8, E=5, F=3), nem 53. A Studio [#811-es PR-je](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/811) csak az A10 függőségi határellenőrzés első, körülhatárolt részét készíti el. A már merge-elt [#810](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/810) a kiadási kaput szigorítja, de nem teljes E02-aggregátor. A #765/#774 VPS-elfogadása, #271 glib, a hordozható AST/ContentCodec, natív SecureStorage és a független megfelelőség még nyitott. A régebbi tervezési táblázatok nem aktuális teljesítési nyilatkozatok.
 
 ## Draft fordítási, exchange- és jogosultsági checkpoint — 2026-10-31
 
