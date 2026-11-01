@@ -6,6 +6,26 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 # OMI Studio 1.0 ADR Register
 
+> Current checkpoint: **2026-11-01**. Earlier checkpoints are historical where superseded. Proposed repairs require merge/CI; real acceptance remains separate.
+
+## Session, integration and release evidence reconciliation — 2026-11-01
+
+Reviewable repairs: [Studio #813](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/813) · [Studio #814](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/814) · [Studio #815](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/815) · [Studio #816](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/816) · [Studio #817](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/817). During the repair, [Studio #812](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/812) merged the E02 collector. #817 reuses that existing latest-attempt/same-SHA/job/archive gate (including OMI-SPEC-320 conformance), adds candidate-only build/review and binds actual publication bytes/manual receipt; it does not introduce a competing workflow inventory.
+
+The following refinements are recorded in [Studio ADR-030](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-030-session-integration-and-release-boundaries.md), pending companion merge and CI.
+
+| ADR / question | Decision | Alternatives / reason | Consequence / revisit condition |
+|---|---|---|---|
+| 014/016/017 — remote Office authority? | Opaque sandbox at element and HTTP policy, no API self connection; exact window/channel + null origin | API-origin `allow-same-origin` rejected; separate cookieless host valid but not required infrastructure | Matched rollout and real browser/native acceptance; revisit provider need for storage, never weaken API-origin isolation |
+| 004/005/006/007 — tab/session owner? | Application manager, active-store projection, pending/selection recovery; per-ID native save binding | React manuscript list/global path rejected; no state-library rewrite | Retain checkpoint-on-switch; revisit editor focus/undo and validated scoped-handle restoration; no portable session fields |
+| 014/015/020 — registry API version? | Additive v1 plus shared legacy router/service/repository; declaration is not grant | Payload version alone insufficient; no general executable runtime | Owner/parity tests; revisit public DTO or lifecycle expansion with explicit version policy |
+| 007/018 — may previews rewrite historical evidence? | Preserve exact historical snapshots; explicit current-document serialization profile + shared golden | Silent v1 canonicalization change or destructive history rewrite rejected | Larger historical parts bounded by quotas; future normalization requires separately versioned evidence-preserving conversion |
+| 016/017 — production PDF fallback? | Required socket, dedicated worker local executor | Same-user API execution rejected in production | Missing worker disables PDF only; real systemd/ACL/network/limits gate. Revisit supported deployment topology |
+| 019 — what permits RC publication? | Exact prior build SHA/file hashes + trusted workflow results + complete owner/manual receipt + strict issue gate | Green markers/issue closure/rebuilt different bytes insufficient | No missing-evidence promotion; attestation is not independent certification. Revisit gate scope and workflow/artifact contract changes |
+
+No OMI schema/container generation, database migration or general manuscript editing restriction is introduced. The previous claim of pending-change loss on tab switching was not established: that path already checkpointed. The global save-location defect and historical v1 digest change were verified by concrete regressions.
+
+
 > Current reconciliation: **2026-10-31**, below. Earlier checkpoints remain historical where superseded. Proposed repairs require merge and CI; local evidence is not deployment acceptance.
 
 ## Draft translation, exchange and authority checkpoint — 2026-10-31

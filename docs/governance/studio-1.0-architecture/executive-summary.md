@@ -6,6 +6,23 @@ description: Executive summary of the Open Manuscript Studio 1.0 target architec
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
+> Current checkpoint: **2026-11-01**. Earlier checkpoints are historical where superseded. Proposed repairs require merge/CI; real acceptance remains separate.
+
+## Session, integration and release evidence reconciliation — 2026-11-01
+
+Reviewable repairs: [Studio #813](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/813) · [Studio #814](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/814) · [Studio #815](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/815) · [Studio #816](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/816) · [Studio #817](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/817). During the repair, [Studio #812](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/812) merged the E02 collector. #817 reuses that existing latest-attempt/same-SHA/job/archive gate (including OMI-SPEC-320 conformance), adds candidate-only build/review and binds actual publication bytes/manual receipt; it does not introduce a competing workflow inventory.
+
+Keep the existing editor, immutable revisions, container parser and renderers. The repair is bounded and proposed until companion merge/CI; it does not establish 1.0 readiness.
+
+The verified highest-risk defects are the API-origin Office sandbox privilege and the global native working-file path. Use an opaque-origin sandbox and per-manuscript save bindings. An application-owned document-session manager preserves pending batches, selection and recovery through multiple opens; checkpoint-on-switch already existed, so the earlier claim of automatic pending loss on that path is corrected.
+
+A shared synthetic container fixture exposed a subtler integrity problem: deleting previews inside historical nested sections can change the existing v1 state digest. Preserve exact historical snapshots, declare the current-document serialization profile and verify the same golden in both repositories. Do not silently rewrite digest semantics or create a large migration framework.
+
+The extension registry receives an additive `/api/v1` facade over a shared router/service/repository; it still grants no manuscript access. Production PDF requires the isolated worker; missing host configuration fails PDF only. For 1.0 publication, bind owner acceptance to the actual prior native artifacts and hashes plus same-SHA CI/CodeQL/PKP/readiness results and manual host/device evidence. Missing evidence blocks tagging, not authoring.
+
+No app release bump, DB migration, new OMI schema generation or OJS/OMP protocol change. ContentCodec/portable AST, secure native storage, real provider/host/device acceptance and independent interoperability remain open. ADR-004/005/006/007/014/015/016/017/018/019/020 and R01–R07 in the PR plan carry the changes. The complete 54-unit implementation roadmap remains; passing this repair does not collapse the rest of the beta-to-RC work.
+
+
 > Current reconciliation: **2026-10-31**, below. Earlier checkpoints remain historical where superseded. Proposed repairs require merge and CI; local evidence is not deployment acceptance.
 
 ## Draft translation, exchange and authority checkpoint — 2026-10-31

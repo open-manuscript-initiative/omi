@@ -6,6 +6,25 @@ description: Evidence-based gap analysis between the audited Open Manuscript Stu
 
 # Current → 1.0 Gap Analysis
 
+> Current checkpoint: **2026-11-01**. Earlier checkpoints are historical where superseded. Proposed repairs require merge/CI; real acceptance remains separate.
+
+## Session, integration and release evidence reconciliation — 2026-11-01
+
+Reviewable repairs: [Studio #813](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/813) · [Studio #814](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/814) · [Studio #815](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/815) · [Studio #816](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/816) · [Studio #817](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/817). During the repair, [Studio #812](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/812) merged the E02 collector. #817 reuses that existing latest-attempt/same-SHA/job/archive gate (including OMI-SPEC-320 conformance), adds candidate-only build/review and binds actual publication bytes/manual receipt; it does not introduce a competing workflow inventory.
+
+| Current component | Status | Verified problem → proposed repair | Residual risk / evidence |
+|---|---|---|---|
+| `EuroOfficeIsolatedFrame`, embed host | HARDEN | API-origin remote code with same-origin sandbox → opaque origin plus HTTP CSP sandbox, exact window/channel checks, no API self network | High until matched API/native rollout and actual Office acceptance; real browser negative parent/storage/API access test |
+| `App.tsx`, working store, recovery | REFACTOR | React-owned tab manuscripts → application session manager, active-store adapter and runtime recovery fields | Medium; switch already checkpointed. New external-open pending/selection/history regression, real store + memory ports, mobile E2E |
+| `nativeManuscriptFile.ts` | HARDEN | Global last-open path could overwrite another manuscript → per-manuscript runtime bindings | High data-integrity risk repaired; mocked native IO proves A/B output routing. Scoped-handle persistence remains separate |
+| Extension routes | SPLIT | Versioned payload on unversioned URL + route SQL → additive v1/legacy shared router, application service and repository | Medium; HTTP tests for 401, strict manifest, owner isolation and parity; real PostgreSQL acceptance still separate |
+| Container history serializer | HARDEN | Nested historical preview stripping changes legacy v1 digest subjects → preserve exact historical snapshots; declare implementation profile | High integrity risk; actual-reader golden + independent ZIP/CRC/hash fixture. History may be larger; no silent v1 algorithm rewrite |
+| PDF worker configuration | HARDEN | Production could silently execute locally → required socket and separate explicit local worker executor | High until actual systemd/ACL/resource/egress evidence; renderer failure does not lock manuscripts |
+| Release publication guard | HARDEN | Issues/local markers alone insufficient → exact reviewed prior artifacts, hashes, same-SHA workflow evidence and mandatory manual receipt | High promotion risk; foreign/missing/gate/hash negative fixtures. Actual host/device findings cannot be closed by CI |
+
+The companion repair is proposed pending merge/CI; this is not a declaration of deployment or 1.0 completion. OJS/OMP protocol and normative OMI schema stay unchanged. See ADR-004/005/006/007/014/015/016/017/018/019 and Studio ADR-030.
+
+
 > Current reconciliation: **2026-10-31**, below. Earlier checkpoints remain historical where superseded. Proposed repairs require merge and CI; local evidence is not deployment acceptance.
 
 ## Draft translation, exchange and authority checkpoint — 2026-10-31

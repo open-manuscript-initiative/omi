@@ -6,6 +6,27 @@ description: Függőségtudatos, kis és visszagörgethető pull requestekre bon
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
+> Aktuális checkpoint: **2026-11-01**. Az eltérő régi checkpointok történeti bejegyzések. A javítás merge/CI-t igényel; valós elfogadás külön szükséges.
+
+## Session, integráció és kiadási evidence egységesítése — 2026-11-01
+
+Ellenőrizhető javítások: [Studio #813](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/813) · [Studio #814](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/814) · [Studio #815](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/815) · [Studio #816](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/816) · [Studio #817](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/817). Közben a [Studio #812](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/812) bevezette az E02 collectort. A #817 ezt a meglévő latest-attempt/azonos-SHA/job/archive gate-et használja, az OMI-SPEC-320 conformance-szal együtt; candidate-only buildet, tényleges publikációs byte-hash-t és kézi receipt-bekötést ad hozzá. Nem vezet be párhuzamos workflow-leltárt.
+
+Az R01–R07 javítások a meglévő **54 elemű A–F tervet egészítik ki**, nem számozzák át. Az editor, Yjs, revision és rendererek maradnak.
+
+| Javítás / fázis | Cél / fájlok | Előfeltétel | Kötelező teszt | Breaking / technikai kockázat |
+|---|---|---|---|---|
+| R01 / D | Opaque Office sandbox, iframe + embed host + CSP | Meglévő owner launch | Valós host/browser parent/storage/API tiltás; Windows/Android mentés/újranyitás | Páros API/native rollout; közepes, javítatlan security magas |
+| R02 / B | DocumentSessionManager, store adapter, App/recovery, native ID-helyek | Meglévő store/history | Két pending dokumentum, batched open, selection/checkpoint/recovery, tényleges mockolt native A/B írás | Nincs portable változás; közepes |
+| R03 / C | Extension v1/legacy közös router/service/repository és kliens | Meglévő manifest validator | 401/validáció/owner/parity | Additív; alacsony–közepes |
+| R04 / A+C | Szerializációs profil, pontos history, két repó közös golden és 330 implementációs megjegyzés | 320/330 reader és v1 digest | Reader + független ZIP/CRC/hash, historical digest és unknown-profile denial | Kísérleti additív profil; közepes |
+| R05 / D | Production socketkövetelmény, worker local executor és guide | Meglévő systemd socket | Production hiány/false opt-out tiltás, nincs fallback, valós host/secret/resource/network elfogadás | PDF nem elérhető konfigurációig; közepes |
+| R06 / E | RC evidence script, prior-build és JSON input, pontos artifact reuse | Strict issue gate és tényleges elfogadás | Hiányzó/idegen SHA/run/gate/hash elutasítása; sikeres azonos-SHA build/CI/CodeQL/PKP/readiness | Beta marad; közepes technikai, magas kiadásbiztonsági súly |
+| R07 / A | Öt EN/HU baseline, ADR-030, nem normatív 330 profil | R01–R06 konkrét kód és fixture | EN/HU build, 54-unit roadmap gate, fixture-egyezés | Nincs schema/DB/release bump; alacsony |
+
+Az adapterek külön visszavonhatók, a userfájl/recovery/pontos history megőrzendő. Office rollback csak biztonságos páros API/native verzióval. Globális mentési útvonal, külső fő-WebView script, production PDF fallback és release bypass nem állítható vissza. Valós kézi/device/provider/host bizonyítékot nem gyártunk teszteredményből.
+
+
 > Aktuális egyeztetés: **2026-11-01** — [bizonyítékalapú megvalósítási felülvizsgálat](./implementation-review-2026-11-01.md). A korábbi checkpoint történeti adat; javasolt javításhoz merge/CI kell, helyi bizonyíték nem telepítési elfogadás.
 
 

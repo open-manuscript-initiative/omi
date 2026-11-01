@@ -190,6 +190,16 @@ Opening a container must not automatically execute packaged code.
 
 ---
 
+## Non-normative Studio implementation profile — 2026-11-01
+
+Proposed implementation: [Studio #816](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/816), pending merge/CI. The Studio Draft writer declares `serializationProfile: urn:omi:studio:container:asset-previews:1` in `META-INF/manifest.json`. This is a bounded **Studio implementation profile**, not promotion of OMI-SPEC-330 or a new canonical file-format generation. The container remains `0.1.0-alpha.1`; absent profile is the existing experimental reader path. Unknown explicitly declared profiles must not become silently editable/overwritable packages.
+
+The profile uses STORE ZIP, manifested paths, raw-byte SHA-256 and the existing separate 0.3 Draft core-snapshot document/history parts. It recursively resolves current asset-backed image references in embedded section and block trees, verifies retained as well as referenced binary assets, and replaces current-document preview `src` with an empty string. Missing/corrupt payloads prohibit a purported complete export. Duplicate, case/NFC-ambiguous, traversal, drive-root and control-character paths are invalid.
+
+**Historical snapshot states are preserved exactly**, including legacy image previews, identifiers, events and existing digest declarations. The earlier proposal to strip all historical previews is superseded: the existing `omi-manuscript-state-json-v1` implementation did not exclude previews within embedded section children. Removing those bytes can change old digest/signature subjects. Never repair this by silently changing v1 canonicalization or overwriting an existing digest. A future history normalization needs an explicitly versioned, evidence-preserving contract. Current output quotas remain; preserving history may keep redundant preview bytes in the history part.
+
+The [shared synthetic golden fixture](/examples/studio-container-profile-v1/golden.json) is copied byte-for-byte to Studio `tests/fixtures/container-profile-v1.json`. Frozen archive SHA-256: `e27470ca7de4c5e0c02f8b2f3942ebb8bfe1db207e5156a2090097947ae45ee3`. Studio tests exercise the actual reader and historical state digests; OMI uses Python's independent ZIP/CRC/SHA-256 processing for this fixture. This is cross-repository package evidence, not complete independent semantic conformance or schema freeze.
+
 ## Change history
 
 - **0.1.0** — Migrated from provisional `OMI-SPEC-012` to canonical `OMI-SPEC-330`; repaired the malformed Markdown structure and expanded the initial package requirements.

@@ -6,6 +6,27 @@ description: Az Open Manuscript Studio 1.0 javasolt célarchitektúrája a műk�
 
 # OMI Studio 1.0 Target Architecture
 
+> Aktuális checkpoint: **2026-11-01**. Az eltérő régi checkpointok történeti bejegyzések. A javítás merge/CI-t igényel; valós elfogadás külön szükséges.
+
+## Session, integráció és kiadási evidence egységesítése — 2026-11-01
+
+Ellenőrizhető javítások: [Studio #813](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/813) · [Studio #814](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/814) · [Studio #815](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/815) · [Studio #816](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/816) · [Studio #817](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/817). Közben a [Studio #812](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/812) bevezette az E02 collectort. A #817 ezt a meglévő latest-attempt/azonos-SHA/job/archive gate-et használja, az OMI-SPEC-320 conformance-szal együtt; candidate-only buildet, tényleges publikációs byte-hash-t és kézi receipt-bekötést ad hozzá. Nem vezet be párhuzamos workflow-leltárt.
+
+A javítás megőrzi a működő editort, revision engine-t és renderereket. Forrás: Studio `6139a144`, OMI `65f25c9`. Az alábbi állapot a kapcsolódó PR merge-je, CI-je és valós telepítési elfogadása előtt **javasolt javítás**. A részletes döntések: [Studio ADR-030](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-030-session-integration-and-release-boundaries.md).
+
+| Határ | Szerződés |
+|---|---|
+| Külső Office → native/API | Opaque-origin iframe, HTML- és HTTP CSP sandbox; nincs same-origin/form/popup jog vagy API-self kapcsolat. A parent null origint, pontos ablakot és véletlen channelt ellenőriz. Csak scoped launch konfiguráció lép át. Az API/native páros telepítése és valós Office/device teszt szükséges. |
+| Application → UI/store | Az alkalmazási session manager birtokolja a nyitott manuscriptokat, pending batch-et és selection/proofing állapotot. A Zustand az aktív session adaptere, React snapshotot olvas. A fülváltás eddig is checkpointolt; az új open előtt is őrizzük a kimenő állapotot. Recovery külön cache. |
+| Session → native storage | Manuscript ID szerinti futásidejű fájltársítás; A mentése nem használhatja B útvonalát. Natív URI nem kerül OMI-ba/recoverybe. Ismeretlen hely → Save As; shared-device mód minden társítást töröl. |
+| Registry → API/repository | Additív `/api/v1/integrations/extensions[/capabilities]`, azonos `/api` kompatibilitási router/service/owner repository. A payload és HTTP verzió külön fogalom. Nincs automatikus pluginaktiválás vagy access grant. |
+| Container → history | Explicit Draft Studio szerializációs profil: az aktuális dokumentum preview-ja rekurzívan normalizálható, a történeti snapshot pontos byte/mező/digest jelentése megmarad. Ismeretlen explicit profil elutasítandó; hiányzó régi profil továbbra is olvasható. Közös szintetikus golden fixture mindkét repóban. |
+| API → PDF worker | Production esetén kötelező izolált socket, false opt-out sem ad fallbacket. A worker külön helyi executort használ, nem dispatchel saját magának. Test/dev fallback marad. Valós systemd/ACL/resource/network bizonyíték továbbra is kötelező. |
+| Evidence → 1.0 kiadás | Pontos korábban elfogadott native build, tényleges fájlhash-ek, azonos SHA-hoz tartozó sikeres main CI/CodeQL/PKP/readiness, kézi elfogadás és strict issue gate a tag előtt. Owner attestation nem független tanúsítás. |
+
+Nincs app-verzióemelés, DB migráció, új OMI séma-generáció, OJS/OMP protokollváltás vagy szerkesztési tiltás. ContentCodec, secure native storage és független interoperabilitás még nyitott. Régi v1 digest-algoritmust nem értelmezünk át csendben a történeti preview-törlés kedvéért.
+
+
 > Aktuális egyeztetés: **2026-10-31**, alább. A felülírt checkpoint történeti adat; javasolt javításhoz merge/CI kell, helyi evidence nem telepítési elfogadás.
 
 ## Draft fordítási, exchange- és jogosultsági checkpoint — 2026-10-31

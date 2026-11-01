@@ -6,6 +6,27 @@ description: Proposed target architecture for stabilizing the working Open Manus
 
 # Open Manuscript Studio 1.0 Target Architecture
 
+> Current checkpoint: **2026-11-01**. Earlier checkpoints are historical where superseded. Proposed repairs require merge/CI; real acceptance remains separate.
+
+## Session, integration and release evidence reconciliation — 2026-11-01
+
+Reviewable repairs: [Studio #813](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/813) · [Studio #814](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/814) · [Studio #815](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/815) · [Studio #816](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/816) · [Studio #817](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/817). During the repair, [Studio #812](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/812) merged the E02 collector. #817 reuses that existing latest-attempt/same-SHA/job/archive gate (including OMI-SPEC-320 conformance), adds candidate-only build/review and binds actual publication bytes/manual receipt; it does not introduce a competing workflow inventory.
+
+The coordinated repair keeps the working editor, revision engine and renderers. Source review: Studio [6139a144](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/6139a144) and OMI [65f25c9](https://github.com/open-manuscript-initiative/omi/commit/65f25c9). Proposed until companion PR merge/CI and actual deployment acceptance; [Studio ADR-030](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-030-session-integration-and-release-boundaries.md) gives the detailed decisions.
+
+| Boundary | Contract |
+|---|---|
+| Remote Office → native/API | Opaque-origin iframe enforced by HTML and HTTP CSP sandbox; no same-origin/forms/popups, no API self connection. Parent verifies null origin + exact window + random channel. Only scoped launch configuration crosses. Matched API/native rollout; actual provider/device acceptance required. |
+| Application → UI/store | Application session manager owns all open manuscripts, pending batches and selection/proofing projections. Zustand projects the active session; React observes snapshots. Keep checkpoint-on-switch; the previous report did not prove pending-loss on this already-checkpointing path. Capture outgoing state before other opens; persist runtime recovery separately. |
+| Session → native storage | Opaque working locations keyed by manuscript ID, never global last-file authority. Save A cannot use B's path. Native paths stay out of OMI/recovery; unbound sessions use Save As. Shared-device policy clears all bindings. |
+| Registry → API/repository | Additive `/api/v1/integrations/extensions[/capabilities]`, legacy `/api` facade, same authenticated router, service and per-owner repository. Payload API version and HTTP version are distinct. No unrelated execution-route rename or plugin activation/grant. |
+| Container → history | Explicit Draft Studio serialization profile; recursively normalize current-document image previews, preserve exact historical snapshot bytes/digest semantics. Unknown explicit profiles reject; absent legacy profile stays readable. Shared synthetic golden in both repositories; [non-normative profile](../../specifications/container-architecture.md). |
+| API → PDF worker | Production requires isolated socket, regardless of false opt-out. Dedicated worker invokes its local executor, never self-dispatches. Test/dev fallback remains explicit. Host/systemd/ACL/cgroup/network acceptance is mandatory and not inferred from source. |
+| Evidence → 1.0 publication | Exact reviewed prior native build, actual release-file digests, successful same-SHA main CI/CodeQL/PKP/readiness runs, all manual acceptance references and strict issue gate before tag. Owner attestation is not independent certification. Missing evidence blocks promotion, not author editing. |
+
+No application release bump, DB migration, OMI schema generation or OJS/OMP protocol change. Stable ContentCodec, secure native storage and complete independent interoperability still remain open. Do not reinterpret the existing v1 state-digest algorithm to compensate for historical preview removal.
+
+
 > Current reconciliation: **2026-10-31**, below. Earlier checkpoints remain historical where superseded. Proposed repairs require merge and CI; local evidence is not deployment acceptance.
 
 ## Draft translation, exchange and authority checkpoint — 2026-10-31

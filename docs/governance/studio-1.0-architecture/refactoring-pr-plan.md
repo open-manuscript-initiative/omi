@@ -6,6 +6,27 @@ description: Dependency-aware plan of small, testable, reversible pull requests 
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
+> Current checkpoint: **2026-11-01**. Earlier checkpoints are historical where superseded. Proposed repairs require merge/CI; real acceptance remains separate.
+
+## Session, integration and release evidence reconciliation — 2026-11-01
+
+Reviewable repairs: [Studio #813](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/813) · [Studio #814](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/814) · [Studio #815](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/815) · [Studio #816](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/816) · [Studio #817](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/817). During the repair, [Studio #812](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/812) merged the E02 collector. #817 reuses that existing latest-attempt/same-SHA/job/archive gate (including OMI-SPEC-320 conformance), adds candidate-only build/review and binds actual publication bytes/manual receipt; it does not introduce a competing workflow inventory.
+
+These bounded repairs supplement the existing 54-unit A–F plan without renumbering it. Preserve the editor, Yjs, immutable checkpoints and renderers.
+
+| Repair / phase | Goal / expected files | Dependency | Blocking regression | Breaking / technical risk |
+|---|---|---|---|---|
+| R01 / D | Opaque Office sandbox in `EuroOfficeIsolatedFrame.tsx`, server embed host and CSP | Existing owner-scoped Office launch | Real host/browser parent/storage/API denial and handshake; Windows/Android provider save/reopen | API/native must roll out as a matching pair; medium technical / high unpatched security risk |
+| R02 / B | `documentSessionManager.ts`, Zustand session adapter, `App.tsx`, recovery; per-ID native locations | Existing store/history; independent from R01 | Two pending manuscripts, batched open, selection, checkpoint, recovery; actual mocked native A/B writes | No portable change; medium |
+| R03 / C | Shared extension router, `extensionRegistryService` + repository, client v1 URLs | Existing manifest schema | v1/legacy validation, 401 and per-owner parity | Additive endpoint; low–medium |
+| R04 / A+C | Manifest serialization profile; preserve exact historic snapshots; shared golden and spec implementation note | Existing 320/330 reader and v1 digest evidence | Actual Studio reader + independent ZIP/CRC/SHA processing, historical digest preservation and unknown profile denial | Experimental additive profile; medium; never silently migrate historical evidence |
+| R05 / D | Production socket requirement; dedicated worker local executor and rollout guide | Existing systemd socket implementation | Missing/false opt-out production failure; no dispatch fallback; real host resource/secret/network acceptance | PDF unavailable until service configured; medium |
+| R06 / E | `rc-evidence.mjs`, workflow dispatch evidence/prior-build inputs, exact artifact reuse | Existing strict issue gate, all real acceptance | Missing/foreign SHA/run/gate/hash denial; exact prior platform build jobs and CI/CodeQL/PKP/readiness results | Beta flow retained; high promotion-safety importance / medium technical |
+| R07 / A | Five EN/HU baselines, Studio ADR-030 and non-normative 330 profile | R01–R06 concrete code and fixtures | EN/HU docs, 54-unit roadmap contract and cross-repo fixture equality | No schema/DB/release bump; low |
+
+Roll back ownership/API adapters independently; keep user files/recovery and exact history. Office rollback must use a matched secure API/native pair. Never restore remote main-WebView code, global save paths, production PDF fallback or a release bypass. Actual physical/provider/host evidence remains an owner acceptance step, not fabricated automation output.
+
+
 > Current reconciliation: **2026-11-01** — [evidence-based implementation review](./implementation-review-2026-11-01.md). Earlier dated checkpoints remain historical where superseded. Proposed repairs require merge and CI; local evidence is not deployment acceptance.
 
 

@@ -6,6 +6,25 @@ description: A jelenlegi Open Manuscript Studio implementáció és az 1.0 céla
 
 # Current → 1.0 Gap Analysis
 
+> Aktuális checkpoint: **2026-11-01**. Az eltérő régi checkpointok történeti bejegyzések. A javítás merge/CI-t igényel; valós elfogadás külön szükséges.
+
+## Session, integráció és kiadási evidence egységesítése — 2026-11-01
+
+Ellenőrizhető javítások: [Studio #813](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/813) · [Studio #814](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/814) · [Studio #815](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/815) · [Studio #816](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/816) · [Studio #817](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/817). Közben a [Studio #812](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/812) bevezette az E02 collectort. A #817 ezt a meglévő latest-attempt/azonos-SHA/job/archive gate-et használja, az OMI-SPEC-320 conformance-szal együtt; candidate-only buildet, tényleges publikációs byte-hash-t és kézi receipt-bekötést ad hozzá. Nem vezet be párhuzamos workflow-leltárt.
+
+| Komponens | Státusz | Ellenőrzött probléma → javítás | Maradó kockázat / bizonyíték |
+|---|---|---|---|
+| EuroOffice iframe/embed host | HARDEN | API-origin külső kód same-origin joggal → opaque sandbox és HTTP CSP, pontos ablak/channel, nincs API-self kapcsolat | Magas a páros API/native rollout és valós provider/device elfogadás előtt; böngészős negatív parent/storage/API teszt |
+| App/store/recovery | REFACTOR | Reactben tárolt manuscriptlista → application session manager és aktív-store adapter | Közepes; fülváltás eddig is checkpointolt. Két pending dokumentum, batched open, selection/history/recovery teszt |
+| Native manuscript fájl | HARDEN | Globális last-file útvonal más dokumentumot írhat felül → ID szerinti futásidejű társítás | Magas adatvesztési hiba javítva; tényleges IO-adapter mockkal A/B mentés. Scoped-handle újraengedélyezés külön munka |
+| Extension route | SPLIT | Verziózott payload unversioned URL-en és közvetlen SQL → közös additív v1/router/service/repository | Közepes; HTTP 401, strict manifest, owner izoláció és legacy parity; valós PostgreSQL elfogadás külön |
+| Container history | HARDEN | Beágyazott történeti preview-törlés megváltoztathatja a v1 digest subjectet → pontos snapshot megőrzés és explicit profil | Magas; tényleges reader + független ZIP/CRC/hash golden. Történet nagyobb lehet; nincs csendes v1-átértelmezés |
+| PDF process config | HARDEN | Production helyi fallback → kötelező socket és külön worker-executor | Magas valós host/systemd/ACL/egress bizonyítékig; csak PDF elérhetőségét korlátozza |
+| Release guard | HARDEN | Issue/local marker nem elég → pontos prior build, tényleges fájlhash, azonos SHA workflow és teljes kézi receipt | Magas promóciós kockázat; idegen/hiányzó subject/gate/hash negatív tesztek; CI nem pótol eszközt/hostot |
+
+A kapcsolódó PR merge/CI előtt javasolt állapot. Normatív OMI séma és OJS/OMP protokoll változatlan. ADR-004/005/006/007/014/015/016/017/018/019 és Studio ADR-030 frissítendő.
+
+
 > Aktuális egyeztetés: **2026-10-31**, alább. A felülírt checkpoint történeti adat; javasolt javításhoz merge/CI kell, helyi evidence nem telepítési elfogadás.
 
 ## Draft fordítási, exchange- és jogosultsági checkpoint — 2026-10-31

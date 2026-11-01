@@ -6,6 +6,23 @@ description: Az Open Manuscript Studio 1.0 célarchitektúrájának, fő kockáz
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
+> Aktuális checkpoint: **2026-11-01**. Az eltérő régi checkpointok történeti bejegyzések. A javítás merge/CI-t igényel; valós elfogadás külön szükséges.
+
+## Session, integráció és kiadási evidence egységesítése — 2026-11-01
+
+Ellenőrizhető javítások: [Studio #813](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/813) · [Studio #814](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/814) · [Studio #815](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/815) · [Studio #816](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/816) · [Studio #817](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/817). Közben a [Studio #812](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/812) bevezette az E02 collectort. A #817 ezt a meglévő latest-attempt/azonos-SHA/job/archive gate-et használja, az OMI-SPEC-320 conformance-szal együtt; candidate-only buildet, tényleges publikációs byte-hash-t és kézi receipt-bekötést ad hozzá. Nem vezet be párhuzamos workflow-leltárt.
+
+A meglévő editor, immutable history, container parser és rendererek megtartandók. A javítás célzott; a kapcsolódó PR merge/CI előtt javasolt, és nem jelent 1.0 készültséget.
+
+A legfontosabb igazolt hibák az API-origin Office sandboxjoga és a globális native munkafájl-útvonal. Opaque-origin sandbox és manuscript ID szerinti fájltársítás javítja ezeket. Application session manager őrzi a pending batch-et, selectiont és recoveryt több open között. A fülváltás már checkpointolt, ezért az erre állított automatikus pending-vesztést pontosítjuk.
+
+A közös szintetikus konténer-fixture finomabb integritási hibát is feltárt: a beágyazott történeti preview-k törlése megváltoztathatja a régi v1 digestet. Pontos historymegőrzés, explicit current-document profil és mindkét repóban ellenőrzött golden szükséges; csendes digest-átértelmezés és nagy migrációs framework nem indokolt.
+
+Az extension registry additív `/api/v1` felületet és közös router/service/repository határt kap, manuscript grant nélkül. Production PDF-hez izolált worker kell; hiánya csak a PDF-műveletet tiltja. Az 1.0 kiadás előtt az elfogadást a tényleges prior native artifacthoz/hashhez, azonos SHA CI/CodeQL/PKP/readiness eredményhez és valós kézi host/device evidence-hez kötjük. Hiányzó bizonyíték a tagelést blokkolja, a szerkesztést nem.
+
+Nincs app-verzióemelés, DB migráció, új OMI séma vagy OJS/OMP protokollváltás. ContentCodec/portable AST, secure native storage, valós provider/host/device elfogadás és független interoperabilitás nyitott. ADR-004/005/006/007/014/015/016/017/018/019/020 és R01–R07 hordozza a döntéseket. Az eredeti 54 elemű roadmap megmarad; ez a javítás nem helyettesíti a teljes beta→RC munkát.
+
+
 > Aktuális egyeztetés: **2026-10-31**, alább. A felülírt checkpoint történeti adat; javasolt javításhoz merge/CI kell, helyi evidence nem telepítési elfogadás.
 
 ## Draft fordítási, exchange- és jogosultsági checkpoint — 2026-10-31
