@@ -30,8 +30,9 @@ keywords:
 | Feld | Wert |
 |---|---|
 | Status | **Beta** |
-| Erfassungsdatum | **25.10.2026** |
-| Aktuelle Produktreihe | `0.3.0-beta.12` |
+| Erfassungsdatum | **01.11.2026** |
+| Dokumentierte öffentliche Beta | `0.3.0-beta.12` |
+| Vorbereiteter Entwicklungsstand | `0.3.0-beta.13` (keine neue Download-Freigabe) |
 | Referenzimplementierung | Open Manuscript Studio |
 | Quell-Repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web-Ziel | Moderne Browser |
@@ -40,6 +41,14 @@ keywords:
 | Webbereitstellung | `studio.openmanuscript.org` |
 
 Die aktuelle Studio-Beta-Version ist **`0.3.0-beta.12`**. Dieses Release enthält native TLS- und Tokio-Sicherheitsupdates, Plugin-Korrekturen und eine zuverlässigere Erstellung von macOS-DMG-Installern. Das portable Format bleibt bei `OMI-SPEC-320@0.3.0`. Die [Versionshinweise zu beta.12](/docs/studio/releases/0.3.0-beta.12) dokumentieren Paketversionen und Bereitstellung. „Beta“ bedeutet **nicht**, dass jede optionale Integration oder jeder Vertriebskanal produktionsreif ist.
+
+## Neuigkeiten aus dem Entwicklungszweig (1. November 2026)
+
+Die zusammengeführten Studio-PRs [#802](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/802), [#804](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/804), [#805](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/805) und [#806](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/806) erweitern die PDF-Prüfung fehlender Bilder, die Wiederherstellung verifizierter Medien, die SHA-256-Prüfung von Cloud-Sicherungen und die **mobilen Registerkarten für mehrere Manuskripte**. Die abschließenden Prüfungen der PRs #805 und #806 waren erfolgreich.
+
+Ein Manuskript wurde auf einem zweiten Gerät erfolgreich **aus dem konfigurierten Cloud-Speicher** geöffnet. Dies bestätigt die manuelle Übernahme portabler OMI-Pakete, nicht die automatische Hintergrundsynchronisierung aller ausschließlich lokal gespeicherten Binärdaten. Die vollständige serverseitige Medienspeicherung wird weiter unter [#803](https://github.com/open-manuscript-initiative/open-manuscript-studio/issues/803) verfolgt. Die sechs beim November-Check sichtbaren Dependabot-Warnungen müssen erneut anhand des GitHub-Abhängigkeitsgraphen geprüft werden; sie gelten nicht als abgeschlossen.
+
+Der [ausführliche Entwicklungsbericht vom 1. November](/docs/studio/updates/2026-11-01-stabilization) unterscheidet nachgewiesene Funktionen, Grenzen und Freigabebedingungen. Die vorbereitete beta.13-Version bedeutet **keine neue öffentliche Distribution**.
 
 Auf dieser Seite werden **implementierte Produktfunktionen** beschrieben, nicht die Konformität mit der „OMI“-Spezifikation. Der Reifegrad der formalen Spezifikation und Nachweise zur Konformität werden separat im „[OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/)“ erfasst.
 
@@ -56,7 +65,7 @@ Auf dieser Seite werden **implementierte Produktfunktionen** beschrieben, nicht 
 |---|---|---|
 | Live-Zusammenarbeit an Manuskripten | **Betriebsbereit** | Die Yjs-Synchronisierung ermöglicht gemeinsames Bearbeiten, nachdem eingeladene Autoren die Einladung in Studio angenommen haben. Einladungen lassen sich im Studio-Posteingang ohne E-Mail-Benachrichtigung annehmen; Live-Cursor zeigen Namen und unterschiedliche Farben. Die Änderungserfassung im Peer-Review bleibt getrennt. |
 | Strukturierte Manuskriptbearbeitung | **Funktionsfähig** | Semantische Abschnitte, Rich Text, Überschriften, Inline-Formatierung, Listen, Anmerkungen, Literaturverweise, Tabellen und die Bearbeitung strukturierter Inhalte. |
-| Desktop-Arbeitsbereich für mehrere Dokumente | **In Betrieb** | Dank Dokumentenregisterkarten im Browser-Stil können mehrere Manuskripte auf dem Desktop geöffnet bleiben. Vollbildansichten von Studio und Konto sowie eine ein- und ausblendbare Dokumentgliederung im Word-Stil unterstützen die Navigation in langen Texten, während die mobile Version ihren kompakten Arbeitsablauf beibehält. |
+| Mehrdokument-Arbeitsbereich auf Desktop und Mobilgeräten | **Im Entwicklungszweig integriert** | Desktop und Android/iOS verwenden nun Registerkarten für mehrere gleichzeitig geöffnete Manuskripte; auf Mobilgeräten erscheinen kompakte, horizontal scrollbare und berührungsgerechte Tabs über dem Editor. Die automatische Wiederherstellung aller mobilen Tabs nach einem App-Neustart ist noch nicht nachgewiesen. |
 | Wiederherstellung von Sitzungen/Arbeitsbereichen | **Funktionsfähig** | Der Status von nativen und Web-Arbeitsbereichen kann den vorherigen Arbeitskontext wiederherstellen, einschließlich des Status geöffneter Dokumente, während explizite Steuerelemente zum Schließen von Dokumenten es dem Benutzer ermöglichen, ein Manuskript zu verlassen, ohne die umgebende Anwendungssitzung zu verlieren. |
 | Steuerelemente für die Rich-Text-Formatierung | **In Betrieb** | Die kompakte Inline-Formatierung bleibt neben der Auswahl verfügbar; das erweiterte Desktop-Menü ist angedockt und passt sich der Bildschirmgröße an, während die Inline-Sprache aus den konfigurierten Manuskriptsprachen und nicht aus freiem Text ausgewählt wird. Die automatische schwebende Formatierung kann in den Editor-Einstellungen deaktiviert werden. Mobile Auswahlsteuerelemente vermeiden Konflikte mit der nativen Benutzeroberfläche zur Textauswahl. |
 | Strukturiertes Suchen und Ersetzen | **In Betrieb** | Overlay zum Suchen und Ersetzen, Suchbereiche und Ergebnisnavigation mit responsivem Zugriff, der sowohl im Desktop- als auch im mobilen Layout verfügbar ist. |
@@ -101,7 +110,8 @@ Auf dieser Seite werden **implementierte Produktfunktionen** beschrieben, nicht 
 | Lokal synchronisierte Ordner | **Auf dem Desktop verfügbar** | OneDrive, SharePoint, Google Drive, Dropbox, Nextcloud, iCloud Drive und andere auf dem Desktop synchronisierte Ordner werden als Verbindungsmethoden ihres jeweiligen Anbieters behandelt. Studio schreibt portierbare „OMI“-Dateien lokal, während der Client des Anbieters die Authentifizierung und Synchronisierung durchführt. |
 | Nativer Dokumenten-Workflow für Android | **Operative Beta-Phase** | Android nutzt die systemeigene Auswahlfunktion des „Documents / Storage Access Framework“ zum Öffnen, Speichern, Speichern unter, für portable „`.omi.zip`“-Sicherungen sowie für unterstützte Exportziele anstelle allgemeiner Berechtigungen für den gemeinsamen Speicher. Der Dokumentenlebenszyklus sowie das Verhalten beim Schließen und erneuten Öffnen von Dokumenten sind weiterhin Gegenstand gezielter Regressionstests in der Beta-Phase. |
 | Nativer „Files“-Workflow unter iOS/iPadOS | **Validiertes natives Ziel** | Auf dem iPhone/iPad wird der „Apple Files“-/„UIDocumentPicker“-Workflow mit sicherheitsbezogenem Dokumentenzugriff zum Öffnen und Speichern von „OMI“-Dateien sowie für mobilrelevante Exportziele verwendet. Für die öffentliche Verteilung sind weiterhin eine Apple-Signierung/Provisionierung sowie eine Gerätevalidierung erforderlich. |
-| WebDAV / Nextcloud-Direktspeicher | **Konfigurationsabhängig** | Direkte WebDAV-/Nextcloud-Verbindungen unterstützen verschlüsselte serverseitige Anmeldedaten, Verbindungstests sowie das Hochladen, Wiederherstellen und Löschen von Backups auf verschiedenen Geräten. |
+| WebDAV / Nextcloud-Direktspeicher | **Konfigurationsabhängig** | Direkte WebDAV-/Nextcloud-Verbindungen unterstützen verschlüsselte serverseitige Anmeldedaten, Verbindungstests sowie das Hochladen, Wiederherstellen und Löschen von Backups auf verschiedenen Geräten. Die Integritätsprüfung von Upload, Download und Medien erfolgt über SHA-256; fehlende referenzierte Bilder verhindern eine positive Bestätigung des Speichervorgangs. |
+| Wiederherstellung fehlender Medien | **Im Entwicklungszweig integriert** | Validierte OMI-Pakete ermöglichen das gezielte Wiederherstellen passender Bilddaten desselben Manuskripts, ohne Text oder Revisionen zu ersetzen. Kein automatisches Hintergrund-Nachladen. |
 | Integrationskatalog | **In Betrieb** | Anbieterverzeichnis, Katalog-Benutzeroberfläche, Status-Client, deklarierte Authentifizierungsmodi und Ausführungsflächen sind vorhanden. |
 | Windows-Desktopanwendung | **Betriebsbereite Beta-Version** | Die Tauri 2-Windows-Anwendung, EXE-/MSI-Pakete, native Authentifizierung, Zugriff auf lokale Dateien und native Speicherabläufe sind implementiert. |
 | Linux- und macOS-Pakete | **Operative Build-Ziele** | Die Release-Automatisierung definiert Ziele für Linux AppImage/DEB und macOS Intel/Apple Silicon DMG. Die Signierung/Notarisierung der Plattformen erfolgt weiterhin separat im Rahmen der Release-Sicherung. |
