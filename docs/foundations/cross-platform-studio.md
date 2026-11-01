@@ -66,7 +66,7 @@ Native authentication uses transport appropriate to application origins. Tauri c
 
 Cross-platform does not mean forcing the same screen layout onto every device.
 
-Desktop Studio now supports browser-style multi-document tabs, full-window Studio/Account surfaces and a toggleable Word-like document outline beside the editor. Mobile Studio uses the same manuscript and editing logic but presents it through touch-oriented navigation, compact controls, drawers and responsive panels. Tablets can progressively restore multi-panel editing where screen size permits it.
+Desktop Studio supports browser-style multi-document tabs, full-window Studio/Account surfaces and a toggleable Word-like document outline beside the editor. The merged development line also brings **multiple open manuscript tabs to Android and iOS**, with a compact, horizontally scrollable, touch-friendly strip above the editor. Switching manuscripts preserves their in-session tab entries; automatic restoration of all tabs after a mobile app restart is **not yet claimed**. Mobile Studio otherwise shares the manuscript and editing logic while presenting touch-oriented navigation, drawers and responsive panels. Tablets can progressively restore multi-panel editing where screen size permits it.
 
 Current mobile work includes responsive navigation, document and details views, account/profile access, insertion controls, search, language switching, sign-out, ORCID/OIDC in-app-browser return handling, native file-provider opening/saving, native export delivery and consistent OMI Studio branding. Android uses Documents/SAF; iPhone/iPad uses Files/UIDocumentPicker. These are presentation/platform concerns; they do not require separate Android or Apple manuscript models.
 
@@ -104,6 +104,12 @@ For OneDrive, SharePoint, Google Drive, Dropbox, Nextcloud, iCloud Drive and sim
 - Studio writes portable OMI files while the provider client handles network synchronization.
 
 Direct WebDAV/Nextcloud connections remain a separate profile-scoped server integration with encrypted credentials.
+
+## Cross-device package integrity and recovery (development update)
+
+The [1 November 2026 Studio development update](/docs/studio/updates/2026-11-01-stabilization) documents merged SHA-256 cloud backup checks, image-payload preflight before PDF rendering, and user-initiated restoration of verified `.omi` media. A cloud-saved manuscript was opened successfully on another device in a manual acceptance test.
+
+This demonstrates **portable cloud package use**, not automatic upload and hydration of all local-only IndexedDB assets. Server-managed per-manuscript binary storage, background retrieval, migration and offline conflict handling remain open in [Studio #803](https://github.com/open-manuscript-initiative/open-manuscript-studio/issues/803). These source improvements are not automatically included in published native builds.
 
 ## Android-native file workflow
 
