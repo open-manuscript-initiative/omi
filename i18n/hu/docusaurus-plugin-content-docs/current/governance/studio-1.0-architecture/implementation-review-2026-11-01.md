@@ -8,7 +8,7 @@ description: Az OMI Studio 1.0 architekturális tervének, a szabványosítási 
 
 **2026. november 1. · Tájékoztató jellegű vizsgálat; nem kiadási vagy szabványjóváhagyás.**
 
-Az áttekintés alapja a [refaktorálási és PR-terv](./refactoring-pr-plan.md), a [hiányelemzés](./gap-analysis.md), az [OMI 1.0 szabványosítási ütemterve](../roadmap-to-omi-1.0.md), valamint a [Studio legfrissebb Route A kiadási ellenőrzése](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/release/2026-11-01-route-a-audit.md). Külön kezeljük a **működő funkciót**, a **rögzített architekturális szerződést**, a **szabványtervezet érettségét** és a **valós telepítési/elfogadási bizonyítékot**.
+Az áttekintés alapja a [refaktorálási és PR-terv](./refactoring-pr-plan.md), a [hiányelemzés](./gap-analysis.md), az [OMI 1.0 szabványosítási ütemterve](https://openmanuscript.org/docs/governance/roadmap-to-omi-1.0/), valamint a [Studio legfrissebb Route A kiadási ellenőrzése](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/release/2026-11-01-route-a-audit.md). Külön kezeljük a **működő funkciót**, a **rögzített architekturális szerződést**, a **szabványtervezet érettségét** és a **valós telepítési/elfogadási bizonyítékot**.
 
 **Két különálló 1.0 cél létezik:** a Studio 1.0 az előre rögzített platformokra vonatkozó *Route A* termékkiadás; az OMI 1.0 a független szoftverek által is értelmezhető, felülvizsgált normatív szabványcsalád. A működő Studio önmagában nem teszi Stable állapotúvá az OMI-SPEC Draft dokumentumokat.
 
@@ -33,7 +33,7 @@ A **#765 és #774** azért nyitott kiadásblokkoló, mert a dokumentált éles V
 
 ## Az OMI 1.0 szabványosítás külön hiányai
 
-A [24 modell áttekintése](../implementation-status-matrix.md) nem minősítés. A 2026. október 31-i bizonyítékok alapján az alapmodellek 66 követelményéből **20 csak részlegesen vizsgált és 46 nem vizsgált**; az OMI-SPEC-320 formátummodell 72 követelményéből **10 tesztelt, 33 részleges, 29 teszteletlen**. Ezek az adott dátumhoz kötött bizonyítékok, nem a mai készültségi arányok.
+A [24 modell áttekintése](https://openmanuscript.org/docs/governance/implementation-status-matrix/) nem minősítés. A 2026. október 31-i bizonyítékok alapján az alapmodellek 66 követelményéből **20 csak részlegesen vizsgált és 46 nem vizsgált**; az OMI-SPEC-320 formátummodell 72 követelményéből **10 tesztelt, 33 részleges, 29 teszteletlen**. Ezek az adott dátumhoz kötött bizonyítékok, nem a mai készültségi arányok.
 
 A normatív szabványhoz még szükséges:
 
