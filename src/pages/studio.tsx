@@ -224,6 +224,17 @@ const CURRENT_UPDATE = {
   },
 } as const;
 
+const DEVELOPMENT_UPDATE_LABELS = {
+  en: '1 November 2026 development update: mobile multi-document tabs, verified cloud backups, media recovery and PDF export checks (not a new public release)',
+  hu: '2026. november 1-jei fejlesztési frissítés: mobilos dokumentumfülek, ellenőrzött felhőmentés, képek helyreállítása és PDF-export (még nem új kiadás)',
+  de: 'Entwicklungsupdate vom 1. November 2026: mobile Dokument-Tabs, Cloud-Prüfung, Medienwiederherstellung und PDF-Export (keine neue öffentliche Version)',
+} as const;
+
+function developmentUpdateLabel(locale: string) {
+  if (locale === 'hu' || locale === 'de') return DEVELOPMENT_UPDATE_LABELS[locale];
+  return DEVELOPMENT_UPDATE_LABELS.en;
+}
+
 function getCurrentUpdate(locale: string) {
   if (locale === 'hu' || locale === 'de') return CURRENT_UPDATE[locale];
   return CURRENT_UPDATE.en;
@@ -269,6 +280,9 @@ export default function StudioDownloads() {
               ))}
             </div>
             <p className={styles.sectionLead}>{update.maturity}</p>
+            <p className={styles.sectionLead}>
+              <Link to="/docs/studio/updates/2026-11-01-stabilization">{developmentUpdateLabel(i18n.currentLocale)}</Link>
+            </p>
           </div>
         </section>
 

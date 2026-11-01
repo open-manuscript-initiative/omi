@@ -64,7 +64,7 @@ Bei der nativen Authentifizierung wird ein für die Herkunft der Anwendung geeig
 
 „Plattformübergreifend“ bedeutet nicht, jedem Gerät das gleiche Bildschirmlayout aufzuzwingen.
 
-Desktop Studio unterstützt nun Registerkarten für mehrere Dokumente im Browser-Stil, Studio-/Konto-Oberflächen im Vollbildmodus sowie eine ein- und ausblendbare Dokumentgliederung im Word-Stil neben dem Editor. Mobile Studio nutzt dieselbe Manuskript- und Bearbeitungslogik, präsentiert diese jedoch über eine touchorientierte Navigation, kompakte Bedienelemente, Ausklappmenüs und responsive Bedienfelder. Auf Tablets kann die Bearbeitung mit mehreren Bedienfeldern schrittweise wiederhergestellt werden, sofern die Bildschirmgröße dies zulässt.
+Desktop Studio unterstützt Registerkarten für mehrere Dokumente im Browser-Stil, Studio-/Konto-Oberflächen im Vollbildmodus sowie eine ein- und ausblendbare Dokumentgliederung im Word-Stil. Im zusammengeführten Entwicklungsstand gibt es **auch auf Android und iOS mehrere gleichzeitig geöffnete Manuskripte**. Kompakte, horizontal scrollbare Registerkarten liegen in einer eigenen Zeile über dem Editor. Ein Wechsel bewahrt die Dokumente während der laufenden Sitzung; die automatische Wiederherstellung aller mobilen Registerkarten nach einem App-Neustart ist **nicht zugesichert**. Die Manuskript- und Bearbeitungslogik bleibt zwischen Desktop und Mobilgeräten gemeinsam.
 
 Zu den aktuellen Funktionen für die mobile Nutzung gehören eine responsive Navigation, Dokument- und Detailansichten, Zugriff auf Konto/Profil, Eingabesteuerelemente, Suche, Sprachumschaltung, Abmeldung, die Verarbeitung von Rückgaben aus dem In-App-Browser bei „ORCID“/OIDC, das Öffnen und Speichern über den nativen Dateimanager, native Exportfunktionen sowie ein einheitliches „OMI Studio“-Branding. Android verwendet „Documents/SAF“, iPhone/iPad verwendet „Files/UIDocumentPicker“. Hierbei handelt es sich um darstellungs- und plattformspezifische Aspekte; sie erfordern keine separaten Manuskriptmodelle für Android oder Apple.
 
@@ -102,6 +102,12 @@ Für OneDrive, SharePoint, Google Drive, Dropbox, Nextcloud, iCloud Drive und ä
 - Studio schreibt portable „OMI“-Dateien, während der Provider-Client die Netzwerksynchronisation übernimmt.
 
 Direkte WebDAV-/Nextcloud-Verbindungen bleiben eine separate, auf das Profil beschränkte Serverintegration mit verschlüsselten Anmeldedaten.
+
+## Cloud-Paketprüfung und geräteübergreifende Nutzung (Entwicklungsstand)
+
+Der [Entwicklungsbericht vom 1. November 2026](/docs/studio/updates/2026-11-01-stabilization) beschreibt die SHA-256-Integritätsprüfung von Cloud-Sicherungen, die Kontrolle fehlender Bilddaten vor dem PDF-Export und die manuelle Wiederherstellung passender Medien aus einem geprüften `.omi`-Paket. Das erfolgreiche Öffnen eines Cloud-Manuskripts auf einem zweiten Gerät wurde praktisch bestätigt.
+
+Dies belegt die **manuelle Übernahme portabler Cloud-Pakete**, nicht die automatische Übertragung sämtlicher lokaler IndexedDB-Medien. Die dauerhafte serverseitige Speicherung und automatische Nachladung bleiben in [Studio #803](https://github.com/open-manuscript-initiative/open-manuscript-studio/issues/803) offen. Die bereits zusammengeführten Entwicklungsänderungen sind nicht automatisch Bestandteil veröffentlichter Native-Builds.
 
 ## Android-nativer Datei-Workflow
 

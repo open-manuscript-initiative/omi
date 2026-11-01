@@ -30,8 +30,9 @@ keywords:
 | Field | Value |
 |---|---|
 | Status | **Beta** |
-| Snapshot date | **2026-10-30** |
-| Current development source version | `0.3.0-beta.12` |
+| Snapshot date | **2026-11-01** |
+| Staged development source candidate | `0.3.0-beta.13` (not a public download announcement) |
+| Last documented public beta | `0.3.0-beta.12` |
 | Reference implementation | Open Manuscript Studio |
 | Source repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web target | Modern browsers |
@@ -39,7 +40,15 @@ keywords:
 | Mobile targets | Android public universal APK; iOS/iPadOS validated native simulator target, with TestFlight/App Store distribution pending Apple Developer signing |
 | Web deployment | `studio.openmanuscript.org` |
 
-The current Studio source tree reports **`0.3.0-beta.12`**. This release packages native TLS and Tokio security updates, native plugin fixes and more reliable macOS DMG creation. The portable manuscript format stays at OMI-SPEC-320@0.3.0. See the [beta.12 release notes](/docs/studio/releases/0.3.0-beta.12) for version identities and deployment steps. Beta does **not** mean that every optional integration or distribution channel is production-complete.
+The published-release information remains based on **`0.3.0-beta.12`**, which packages native TLS and Tokio security updates, native plugin fixes and more reliable macOS DMG creation. The merged development line prepares **`0.3.0-beta.13`**, but staging its sources and documentation is **not** approval to change public downloads or native app-store binaries. The portable manuscript format stays at `OMI-SPEC-320@0.3.0`. See [beta.12 release notes](/docs/studio/releases/0.3.0-beta.12) and the [staged beta.13 notes](/docs/studio/releases/0.3.0-beta.13).
+
+## Recent source changes (1 November 2026; not a new release)
+
+Studio PRs [#802](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/802), [#804](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/804), [#805](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/805) and [#806](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/806) are merged. Together they add PDF asset preflight diagnostics, verified missing-media recovery, cloud-package upload/download integrity checks and a compact **mobile multi-document tab strip**. The last #805 and #806 development commits passed the required CI, CodeQL, iOS simulator and 1.0 readiness checks.
+
+An author also successfully opened a cloud-saved manuscript on another device. This verifies **manual cloud package portability**, not transparent background synchronization of every local image. Automatic server-side binary asset storage remains under [#803](https://github.com/open-manuscript-initiative/open-manuscript-studio/issues/803). The six Dependabot alerts visible during the November review require a fresh dependency-graph assessment; they have **not** been treated as closed.
+
+Read the [1 November development update](/docs/studio/updates/2026-11-01-stabilization) for evidence, limitations and next steps.
 
 ## Recent changes in 0.3.0-beta.8–beta.12
 
@@ -90,7 +99,7 @@ This page describes **implemented product capabilities**, not OMI specification 
 | Section ruler, tabs and columns | **Operational** | A ruler can apply paragraph/section tab stops and multi-column settings to the active section; selected text can also be converted into structured tables. |
 | InDesign-compatible paragraph styles | **Operational** | Reusable paragraph styles expose InDesign-oriented typography, spacing, indentation, rules, keep options and related publication controls with live rendering while remaining separate from manuscript semantics. |
 | Adaptive form-field sizing | **Operational** | Short numeric and fixed-length controls use compact content-oriented widths instead of automatically stretching across the available row. |
-| Desktop multi-document workspace | **Operational** | Browser-style document tabs keep multiple manuscripts open on desktop. Full-window Studio/Account surfaces and a toggleable Word-like document outline support long-form navigation while mobile retains its compact structure workflow. |
+| Desktop and mobile multi-document workspace | **Operational in merged development source** | Browser-style document tabs keep several manuscripts open on desktop; Android/iOS now use compact horizontal, touch-sized tabs in a dedicated row. Tabs survive switching during the active session; persistence of all mobile tabs across application restart is not yet claimed. |
 | One-step responsive navigation | **Operational** | Studio navigation opens directly without an intermediate second-level menu. Desktop and mobile use the same responsive navigation model, including a same-position control for closing the navigation surface. |
 | Session/workspace restoration | **Operational** | Native and web workspace state can restore the previous working context, including open-document state, while explicit document-close controls allow the user to leave a manuscript without losing the surrounding application session. |
 | Rich-text formatting controls | **Operational** | Compact inline formatting remains available near the selection; the expanded desktop menu is docked and viewport-safe, while inline language is selected from configured manuscript languages rather than free text. Automatic floating formatting can be disabled in editor settings. Mobile selection controls avoid collision with native text-selection UI. |
@@ -137,7 +146,7 @@ This page describes **implemented product capabilities**, not OMI specification 
 | JATS 1.4 validated export | **Operational** | Studio targets NISO JATS 1.4 Article Authoring with the MathML 3 DTD. The server performs full offline validation with a pinned local schema package and rejects untrusted entity/DTD substitution. |
 | JATS semantic conformance and release gates | **Operational** | A machine-readable OMI→JATS capability matrix distinguishes stable, conditional and fallback mappings. Error-level renderer diagnostics and known fidelity fallbacks can block release even when XML is DTD-valid. |
 | Publication build provenance | **Operational** | JATS, semantic HTML and PDF publication artifacts receive portable `.omi-build.json` sidecars containing the committed revision, state/profile digests, artifact SHA-256, Studio build identity and renderer information. |
-| Printed and interactive PDF export | **Operational / server renderer required** | PDF export distinguishes print/archive output from interactive output. Final artifacts are rendered with pinned Vivliostyle CLI rather than the browser print dialog; print/archive mode removes active hyperlinks while interactive mode preserves usable scholarly and external links. |
+| Printed and interactive PDF export | **Operational / server renderer required** | PDF export distinguishes print/archive output from interactive output. Final artifacts are rendered with pinned Vivliostyle CLI rather than the browser print dialog; print/archive mode removes active hyperlinks while interactive mode preserves usable scholarly and external links. Merged preflight checks reject missing, corrupted or unresolved referenced images instead of silently producing incomplete output. |
 | Cross-platform export delivery | **Operational** | Hosted Studio uses browser downloads; installed Tauri clients use native save/document-provider dialogs and binary writes for supported export targets. Publication sidecars are delivered alongside the artifact where the platform exposes a sibling path, or through a second save action on mobile document providers. |
 | Publisher profiles | **Operational** | Publisher profile, export stylesheet and print stylesheet handling are separated from manuscript semantics and included in publication-build provenance. The implementation is mapped to `OMI-SPEC-240@0.1.0` in the dedicated [Studio implementation profile](./studio-omi-spec-240-implementation-profile.md), with remaining gaps recorded explicitly and no formal conformance claim. |
 | Device-aware storage mode | **Operational on installed clients** | Studio keeps a per-user, per-device “own device” trust preference. Own devices can retain normal native working paths; newly seen/shared devices default to a restricted mode that does not retain local working paths. |
@@ -146,7 +155,8 @@ This page describes **implemented product capabilities**, not OMI specification 
 | Locally synchronized folders | **Operational on desktop** | OneDrive, SharePoint, Google Drive, Dropbox, Nextcloud, iCloud Drive and other desktop-synchronized folders are treated as connection methods of their actual provider. Studio writes portable OMI files locally while the provider client performs authentication/synchronization. |
 | Android native document workflow | **Operational beta** | Android uses the system Documents / Storage Access Framework picker for opening, Save, Save As, portable `.omi.zip` backup and supported export destinations instead of broad shared-storage permissions. Document lifecycle and close/reopen behavior remain part of focused beta regression testing. |
 | iOS/iPadOS native Files workflow | **Validated native target** | iPhone/iPad uses the Apple Files / UIDocumentPicker workflow with security-scoped document access for opening/saving OMI files and mobile-relevant export destinations. Public distribution still requires Apple signing/provisioning and device validation. |
-| WebDAV / Nextcloud direct storage | **Configuration-dependent** | Direct WebDAV/Nextcloud connections support encrypted server-side credentials, connection testing, portable backup upload, restore and deletion. |
+| WebDAV / Nextcloud direct storage | **Configuration-dependent** | Direct WebDAV/Nextcloud connections support encrypted server-side credentials, connection testing, portable backup upload, restore and deletion. Cloud-package upload/download integrity now uses SHA-256 and validates the package identity and restored referenced media; a reported successful save does not silently omit missing images. |
+| Missing-media recovery | **Operational in merged development source** | Referenced assets can be audited and verified bytes restored from a valid OMI container belonging to the same manuscript without replacing its text or revision history. This is user-initiated, not background synchronization. |
 | Integrations catalogue | **Operational** | Provider registry, catalogue UI, status client, declared authentication modes and execution surfaces are present. |
 | Windows desktop application | **Operational beta** | Tauri 2 Windows application, EXE/MSI packaging, native authentication, local-file access and native save flows are implemented. |
 | Linux and macOS packaging | **Operational build targets** | Release automation defines Linux AppImage/DEB and macOS Intel/Apple Silicon DMG targets. Platform signing/notarization remains separate release-hardening work. |
@@ -198,7 +208,7 @@ The current OJS and OMP integrations are bidirectional for review work: Studio c
 
 ## Release and distribution
 
-`0.3.0-beta.12` is the current Studio beta release line. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Public download links follow GitHub's current release rather than embedding one historical tag in the website, while published release assets themselves remain immutable. The application version is independent of the portable OMI manuscript format, which remains `OMI-SPEC-320@0.3.0`.
+`0.3.0-beta.12` is the documented public beta release line; `0.3.0-beta.13` is a staged source candidate. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Public download links follow GitHub's current release rather than embedding one historical tag in the website, while published release assets themselves remain immutable. The application version is independent of the portable OMI manuscript format, which remains `OMI-SPEC-320@0.3.0`.
 
 iOS/iPadOS currently has a successful CI simulator build rather than a public IPA. The Apple distribution path is prepared but deliberately separated from simulator validation: public/device builds require the real Apple Development Team ID, distribution certificate, provisioning profile and final `apple-app-site-association` configuration before TestFlight/App Store publication can be claimed.
 

@@ -28,6 +28,7 @@ const sidebars = {
         {type: 'doc', id: 'studio/research-modules', label: 'Research Modules'},
         {type: 'doc', id: 'studio/manuscript-translation', label: 'Manuscript Translation'},
         {type: 'doc', id: 'studio/manuscript-validation', label: 'Manuscript Validation'},
+        {type: 'doc', id: 'studio/updates/2026-11-01-stabilization', label: 'Studio Development Update (Nov 2026)'},
         {type: 'doc', id: 'studio/releases/0.3.0-beta.12', label: 'Studio Release Notes'},
         {type: 'doc', id: 'foundations/ios-ipados-studio', label: 'iOS and iPadOS Studio'},
         {type: 'doc', id: 'foundations/studio-long-form-authoring', label: 'Long-form Authoring'},
