@@ -6,7 +6,12 @@ description: Dependency-aware plan of small, testable, reversible pull requests 
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
-> Current reconciliation: **2026-10-31**, below. Earlier checkpoints remain historical where superseded. Proposed repairs require merge and CI; local evidence is not deployment acceptance.
+> Current reconciliation: **2026-11-01** — [evidence-based implementation review](./implementation-review-2026-11-01.md). Earlier dated checkpoints remain historical where superseded. Proposed repairs require merge and CI; local evidence is not deployment acceptance.
+
+
+## 2026-11-01 implementation plan reconciliation
+
+The [dated cross-repository audit](./implementation-review-2026-11-01.md) now distinguishes implemented, partially verified, staged and externally blocked work. The 54 planned unit identifiers are checked by the documentation CI, while Studio [PR #811](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/811) adds the **first** A10 semantic-model dependency boundary only. [#810](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/810) is merged, providing a strict manual RC red-gate and SHA publication approval; it does not deliver the full E02 same-SHA cross-workflow aggregator. Host deployment evidence for #765/#774, Linux GTK/glib #271, portable ContentCodec/AST, native SecureStorage, independent normative conformance and RC physical-device sign-off remain explicitly open. The original tables below are the planning baseline, not a declaration of current completion.
 
 ## Draft translation, exchange and authority checkpoint — 2026-10-31
 
@@ -43,7 +48,7 @@ Freeze requires documented cookie compatibility, exact native/PKP exceptions, ma
 **Baseline:** Studio `eca2cf45762116e1c00a89b3397840ed89109511` and the audited 2026-09-19 OMI/PKP commits  
 **Goal:** reach `1.0.0-rc.1` and then `1.0.0` through small, independently testable, reversible pull requests.
 
-> The identifiers A01–F03 define **53 planned PR units**. They are planning identifiers, not existing GitHub pull-request numbers.
+> The identifiers A01–F03 define **54 planned PR units**. They are planning identifiers, not existing GitHub pull-request numbers.
 
 ## 1. Execution principles
 
