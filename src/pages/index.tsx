@@ -20,6 +20,8 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
 
 const STUDIO_UPDATE = {
   en: {
+    developmentUpdate: '1 November 2026: mobile multi-document tabs, verified cloud packages, media recovery and stricter PDF checks have been merged into the development source—not announced as a new public download.',
+    developmentUpdateLink: 'Read the development update',
     summary: 'Open Manuscript Studio 0.3.0-beta.12 includes native TLS and Tokio security updates, native plugin fixes and more reliable macOS installer creation. The portable OMI format remains 0.3.0.',
     multiDocument: 'Multi-document desktop editing and document outline',
     wordLike: 'Word-like manuscript-wide split, merge and selection',
@@ -43,6 +45,8 @@ const STUDIO_UPDATE = {
     uiLocales: 'selectable UI locales',
   },
   hu: {
+    developmentUpdate: '2026. november 1.: a mobilos többdokumentumos fülek, az ellenőrzött felhőmentés, a képek helyreállítása és a PDF-export ellenőrzése bekerült a fejlesztési forrásba. Ez még nem új nyilvános alkalmazáskiadás.',
+    developmentUpdateLink: 'A fejlesztési beszámoló megnyitása',
     summary: 'Az Open Manuscript Studio 0.3.0-beta.12 a natív alkalmazások TLS- és Tokio-biztonsági frissítéseit, bővítményjavításait és megbízhatóbb macOS-telepítőkészítést tartalmaz. A hordozható OMI-formátum változatlanul 0.3.0.',
     multiDocument: 'Többdokumentumos asztali szerkesztés és dokumentumvázlat',
     wordLike: 'Word-szerű, kézirat-szintű szétválasztás, egyesítés és kijelölés',
@@ -66,6 +70,8 @@ const STUDIO_UPDATE = {
     uiLocales: 'választható felületi lokalizáció',
   },
   de: {
+    developmentUpdate: '1. November 2026: Mobile Registerkarten für mehrere Manuskripte, geprüfte Cloud-Pakete, Medienwiederherstellung und strengere PDF-Prüfungen sind im Entwicklungszweig integriert, jedoch noch keine neue öffentliche Download-Version.',
+    developmentUpdateLink: 'Entwicklungsbericht lesen',
     summary: 'Open Manuscript Studio 0.3.0-beta.12 enthält TLS- und Tokio-Sicherheitsupdates für native Anwendungen, Plugin-Korrekturen und eine zuverlässigere Erstellung von macOS-Installern. Das portable OMI-Format bleibt bei 0.3.0.',
     multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
     wordLike: 'Word-ähnliches manuskriptweites Teilen, Zusammenführen und Auswählen',
@@ -201,6 +207,9 @@ export default function Home() {
             <h3>{t.currentTitle}</h3>
             <p>{studioUpdate.summary}</p>
             <p>{current}</p>
+            <p>{studioUpdate.developmentUpdate}{' '}
+              <Link to="/docs/studio/updates/2026-11-01-stabilization">{studioUpdate.developmentUpdateLink}</Link>
+            </p>
             <div className={styles.studioActions}>
               <Link className="button button--primary button--lg" to={installHref}>{installLabel}</Link>
               <Link className="button button--secondary button--lg" to="/docs/foundations/word-like-manuscript-editing">Word-like editing</Link>
