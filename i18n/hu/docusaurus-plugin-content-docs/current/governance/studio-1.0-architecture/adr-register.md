@@ -6,6 +6,26 @@ description: A Studio 1.0 architektúra döntési nyilvántartása és a Phase A
 
 # OMI Studio 1.0 ADR Register
 
+> Aktuális checkpoint: **2026-11-01**. Az eltérő régi checkpointok történeti bejegyzések. A javítás merge/CI-t igényel; valós elfogadás külön szükséges.
+
+## Session, integráció és kiadási evidence egységesítése — 2026-11-01
+
+Ellenőrizhető javítások: [Studio #813](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/813) · [Studio #814](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/814) · [Studio #815](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/815) · [Studio #816](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/816) · [Studio #817](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/817). Közben a [Studio #812](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/812) bevezette az E02 collectort. A #817 ezt a meglévő latest-attempt/azonos-SHA/job/archive gate-et használja, az OMI-SPEC-320 conformance-szal együtt; candidate-only buildet, tényleges publikációs byte-hash-t és kézi receipt-bekötést ad hozzá. Nem vezet be párhuzamos workflow-leltárt.
+
+Részletek: [Studio ADR-030](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-030-session-integration-and-release-boundaries.md). A kapcsolódó javítás merge/CI előtt javasolt.
+
+| ADR / kérdés | Döntés | Alternatíva / indok | Következmény / felülvizsgálat |
+|---|---|---|---|
+| 014/016/017 — Office authority? | Opaque iframe + HTTP CSP sandbox, nincs API-self; null origin/pontos ablak/channel | API-origin same-origin jog elutasítva; külön cookieless host lehetséges, infrastruktúrája nem szükséges | Páros rollout és valós elfogadás; provider storage igénynél újraértékelendő, izoláció nem gyengíthető |
+| 004/005/006/007 — session owner? | Application manager, aktív-store projekció, pending/selection recovery; ID szerinti native hely | React manuscriptlista/globális fájl elutasítva; nincs store-rewrite | Checkpoint marad; focus/undo és scoped-handle recovery külön szerződés, nincs portable sessionadat |
+| 014/015/020 — registry version? | Additív v1 és közös legacy router/service/repository; declaration nem grant | Payloadverzió önmagában nem HTTP-verzió; nincs executable runtime | Owner/parity teszt; DTO/lifecycle bővüléskor explicit verziódöntés |
+| 007/018 — historical preview? | Pontos snapshotmegőrzés, current-document profil és közös golden | Csendes v1-algoritmusváltás/history rewrite elutasítva | Nagyobb history kvótákkal; későbbi normalizálás külön verziózott evidence-preserving konverzió |
+| 016/017 — production PDF fallback? | Kötelező socket, worker helyi executor | API-user process fallback elutasítva | Hiány csak PDF-et tilt; valós systemd/ACL/network/resource gate; topology változásnál újraértékelendő |
+| 019 — RC engedély? | Prior build SHA/fájlhash + trusted workflow + teljes kézi receipt + strict issue gate | Zöld marker/lezárt issue/újragyártott eltérő byte nem elég | Hiányzó evidence nem promótálható; attestation nem független tanúsítás; scope/gate/workflow váltáskor felülvizsgálat |
+
+Nincs séma/container-generáció, DB migráció vagy általános szerkesztési korlát. A korábbi pending-vesztés állítás a fülváltásra nem bizonyított: az már checkpointolt. A globális útvonalhiba és historical v1 digestváltozás konkrét regresszióval igazolt.
+
+
 > Aktuális egyeztetés: **2026-10-31**, alább. A felülírt checkpoint történeti adat; javasolt javításhoz merge/CI kell, helyi evidence nem telepítési elfogadás.
 
 ## Draft fordítási, exchange- és jogosultsági checkpoint — 2026-10-31
