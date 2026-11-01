@@ -8,7 +8,7 @@ description: Evidence-bounded gap audit of the Studio 1.0 PR plan, the separate 
 
 **Reviewed 2026-11-01 · Status: informative audit, not release or normative approval.**
 
-This page reconciles the [Studio refactoring/PR plan](./refactoring-pr-plan.md), [Current-to-1.0 Gap Analysis](./gap-analysis.md), [OMI 1.0 normative roadmap](../roadmap-to-omi-1.0.md), and the latest [Studio release-gate audit](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/release/2026-11-01-route-a-audit.md). It distinguishes **working product behavior**, **architectural contracts**, **specification maturity** and **deployment/acceptance evidence**. It is intentionally conservative where evidence is incomplete.
+This page reconciles the [Studio refactoring/PR plan](./refactoring-pr-plan.md), [Current-to-1.0 Gap Analysis](./gap-analysis.md), [OMI 1.0 normative roadmap](https://openmanuscript.org/docs/governance/roadmap-to-omi-1.0/), and the latest [Studio release-gate audit](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/release/2026-11-01-route-a-audit.md). It distinguishes **working product behavior**, **architectural contracts**, **specification maturity** and **deployment/acceptance evidence**. It is intentionally conservative where evidence is incomplete.
 
 **Two different 1.0 milestones exist.** Studio 1.0 is a Route A product release with a declared Stable platform subset. OMI 1.0 is a reviewed, interoperable normative specification suite; Studio being feature-complete does **not** promote OMI-SPEC Drafts to Stable.
 
@@ -38,7 +38,7 @@ The [Studio audit of 1 November](https://github.com/open-manuscript-initiative/o
 
 ## Separate OMI standards-programme gaps
 
-The [24-model implementation inventory](../implementation-status-matrix.md) is still informative. The recorded 2026-10-31 core profile has 66 requirement IDs and 22 fixtures; **20 partial and 46 untested** requirement coverage items, not 66 passed tests. The file-format profile records 72 requirements (**10 tested, 33 partial, 29 untested**). They are evidence snapshots, not current percent-complete figures. No model should be declared independently conformant from a Studio build.
+The [24-model implementation inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/) is still informative. The recorded 2026-10-31 core profile has 66 requirement IDs and 22 fixtures; **20 partial and 46 untested** requirement coverage items, not 66 passed tests. The file-format profile records 72 requirements (**10 tested, 33 partial, 29 untested**). They are evidence snapshots, not current percent-complete figures. No model should be declared independently conformant from a Studio build.
 
 Outstanding normative programme work, beyond the Studio application:
 
