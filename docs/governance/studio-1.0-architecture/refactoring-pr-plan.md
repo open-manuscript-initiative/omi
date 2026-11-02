@@ -6,7 +6,15 @@ description: Dependency-aware plan of small, testable, reversible pull requests 
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
-> Current checkpoint: **2026-11-01**. Earlier checkpoints are historical where superseded. Proposed repairs require merge/CI; real acceptance remains separate.
+
+
+## Outbound security and acceptance checkpoint — 2026-11-02
+
+Retain the existing 54 A01–F03 units and dependencies. C12/C13 now characterize and harden the merged pinned transport rather than introduce a replacement. D-phase acceptance records the service-cgroup/shared-UID topology and separate PDF worker. E02 still requires exact-candidate workflow/artifact and owner/manual receipts; issue closure cannot replace them.
+
+**Current evidence authority:** [reviewed security/acceptance checkpoint](https://openmanuscript.org/docs/governance/studio-1.0-architecture/security-acceptance-2026-11-02/). Its dated status supersedes older claims below that #765/#774 are open or that connection-time pinning has no implementation. Historical findings remain historical; closed issues do not supply missing RC receipts.
+
+> Historical checkpoint: **2026-11-01**. Earlier checkpoints are historical where superseded. Proposed repairs require merge/CI; real acceptance remains separate.
 
 ## Session, integration and release evidence reconciliation — 2026-11-01
 

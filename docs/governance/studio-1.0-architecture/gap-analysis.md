@@ -6,7 +6,15 @@ description: Evidence-based gap analysis between the audited Open Manuscript Stu
 
 # Current → 1.0 Gap Analysis
 
-> Current checkpoint: **2026-11-01**. Earlier checkpoints are historical where superseded. Proposed repairs require merge/CI; real acceptance remains separate.
+
+
+## Outbound security and acceptance checkpoint — 2026-11-02
+
+Reclassify connection-time outbound transport from missing implementation to HARDEN: merged for WebDAV, PKP, configured publishing/AI, OIDC/ORCID/JWKS and Office callback paths. The host filter is partial and does not cover every outbound helper. Keep the remaining transport inventory, controlled-host negative tests and evidence reconciliation explicit.
+
+**Current evidence authority:** [reviewed security/acceptance checkpoint](https://openmanuscript.org/docs/governance/studio-1.0-architecture/security-acceptance-2026-11-02/). Its dated status supersedes older claims below that #765/#774 are open or that connection-time pinning has no implementation. Historical findings remain historical; closed issues do not supply missing RC receipts.
+
+> Historical checkpoint: **2026-11-01**. Earlier checkpoints are historical where superseded. Proposed repairs require merge/CI; real acceptance remains separate.
 
 ## Session, integration and release evidence reconciliation — 2026-11-01
 

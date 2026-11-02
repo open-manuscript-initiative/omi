@@ -6,7 +6,15 @@ description: Executive summary of the Open Manuscript Studio 1.0 target architec
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
-> Current checkpoint: **2026-11-01**. Earlier checkpoints are historical where superseded. Proposed repairs require merge/CI; real acceptance remains separate.
+
+
+## Outbound security and acceptance checkpoint — 2026-11-02
+
+Keep the working security implementation. The change needed now is explicit compatibility documentation and traceable release evidence: closed security issues are recorded as closed, while actual host acceptance and exact-candidate receipts remain separately assessed. No schema/API freeze, release promotion, database migration or manuscript editing restriction follows from this reconciliation.
+
+**Current evidence authority:** [reviewed security/acceptance checkpoint](https://openmanuscript.org/docs/governance/studio-1.0-architecture/security-acceptance-2026-11-02/). Its dated status supersedes older claims below that #765/#774 are open or that connection-time pinning has no implementation. Historical findings remain historical; closed issues do not supply missing RC receipts.
+
+> Historical checkpoint: **2026-11-01**. Earlier checkpoints are historical where superseded. Proposed repairs require merge/CI; real acceptance remains separate.
 
 ## Session, integration and release evidence reconciliation — 2026-11-01
 

@@ -6,7 +6,15 @@ description: Az Open Manuscript Studio 1.0 javasolt célarchitektúrája a műk�
 
 # OMI Studio 1.0 Target Architecture
 
-> Aktuális checkpoint: **2026-11-01**. Az eltérő régi checkpointok történeti bejegyzések. A javítás merge/CI-t igényel; valós elfogadás külön szükséges.
+
+
+## Outbound védelem és elfogadási checkpoint — 2026-11-02
+
+ADR-012/014/016/017: az API megtartja a közös, nem root Plesk-felhasználót. A szolgáltatás cgroupjához kötött IP-szűrés részleges hostvédelmet ad; az alkalmazási HTTP-adapterek külön, a tényleges socket DNS-feloldásánál rögzítik és ellenőrzik a nyilvános célcímeket. A PDF-worker külön OS-identitásban és hálózati névtérben marad. Ezek külön trust boundary-k.
+
+**Aktuális bizonyítékforrás:** [biztonsági és elfogadási checkpoint](https://openmanuscript.org/hu/docs/governance/studio-1.0-architecture/security-acceptance-2026-11-02/). Ez felülírja az alábbi korábbi állításokat, amelyek #765/#774 nyitott állapotát vagy a connection-time pinning implementációjának hiányát írják. A régi megállapítások történetiek; lezárt issue nem pótolja a hiányzó RC-receiptet.
+
+> Történeti checkpoint: **2026-11-01**. Az eltérő régi checkpointok történeti bejegyzések. A javítás merge/CI-t igényel; valós elfogadás külön szükséges.
 
 ## Session, integráció és kiadási evidence egységesítése — 2026-11-01
 
