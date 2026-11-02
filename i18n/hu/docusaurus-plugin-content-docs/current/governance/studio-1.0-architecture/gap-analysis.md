@@ -6,7 +6,15 @@ description: A jelenlegi Open Manuscript Studio implementáció és az 1.0 céla
 
 # Current → 1.0 Gap Analysis
 
-> Aktuális checkpoint: **2026-11-01**. Az eltérő régi checkpointok történeti bejegyzések. A javítás merge/CI-t igényel; valós elfogadás külön szükséges.
+
+
+## Outbound védelem és elfogadási checkpoint — 2026-11-02
+
+A connection-time outbound transport már megvalósított HARDEN alap: WebDAV, PKP, konfigurált publikálás/AI, OIDC/ORCID/JWKS és Office callback útvonalak használják. A hostszűrés részleges, és nem bizonyítja az összes outbound helper lefedettségét. Marad a további útvonalak leltára, a kontrollált negatív hostteszt és a bizonyítékok egységesítése.
+
+**Aktuális bizonyítékforrás:** [biztonsági és elfogadási checkpoint](https://openmanuscript.org/hu/docs/governance/studio-1.0-architecture/security-acceptance-2026-11-02/). Ez felülírja az alábbi korábbi állításokat, amelyek #765/#774 nyitott állapotát vagy a connection-time pinning implementációjának hiányát írják. A régi megállapítások történetiek; lezárt issue nem pótolja a hiányzó RC-receiptet.
+
+> Történeti checkpoint: **2026-11-01**. Az eltérő régi checkpointok történeti bejegyzések. A javítás merge/CI-t igényel; valós elfogadás külön szükséges.
 
 ## Session, integráció és kiadási evidence egységesítése — 2026-11-01
 

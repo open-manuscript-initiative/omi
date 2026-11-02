@@ -6,7 +6,15 @@ description: Proposed target architecture for stabilizing the working Open Manus
 
 # Open Manuscript Studio 1.0 Target Architecture
 
-> Current checkpoint: **2026-11-01**. Earlier checkpoints are historical where superseded. Proposed repairs require merge/CI; real acceptance remains separate.
+
+
+## Outbound security and acceptance checkpoint — 2026-11-02
+
+ADR-012/014/016/017: the API service retains its shared non-root Plesk identity. A service-cgroup IP filter supplies partial host containment; application HTTP adapters independently enforce public-address DNS pinning on the actual socket. The PDF worker remains a separate OS identity and network namespace. These are distinct trust boundaries.
+
+**Current evidence authority:** [reviewed security/acceptance checkpoint](https://openmanuscript.org/docs/governance/studio-1.0-architecture/security-acceptance-2026-11-02/). Its dated status supersedes older claims below that #765/#774 are open or that connection-time pinning has no implementation. Historical findings remain historical; closed issues do not supply missing RC receipts.
+
+> Historical checkpoint: **2026-11-01**. Earlier checkpoints are historical where superseded. Proposed repairs require merge/CI; real acceptance remains separate.
 
 ## Session, integration and release evidence reconciliation — 2026-11-01
 

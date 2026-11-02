@@ -6,7 +6,15 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 # OMI Studio 1.0 ADR Register
 
-> Current checkpoint: **2026-11-01**. Earlier checkpoints are historical where superseded. Proposed repairs require merge/CI; real acceptance remains separate.
+
+
+## Outbound security and acceptance checkpoint — 2026-11-02
+
+Refine ADR-012/014/016/017 with the two-layer outbound policy and compatibility restrictions; refine ADR-019 with separate issue, source-test, operator and exact-candidate receipt states. Alternatives, consequences and revisit conditions are recorded in the linked checkpoint and Studio ADR-031. No new private-address exemption or stable support promise is approved.
+
+**Current evidence authority:** [reviewed security/acceptance checkpoint](https://openmanuscript.org/docs/governance/studio-1.0-architecture/security-acceptance-2026-11-02/). Its dated status supersedes older claims below that #765/#774 are open or that connection-time pinning has no implementation. Historical findings remain historical; closed issues do not supply missing RC receipts.
+
+> Historical checkpoint: **2026-11-01**. Earlier checkpoints are historical where superseded. Proposed repairs require merge/CI; real acceptance remains separate.
 
 ## Session, integration and release evidence reconciliation — 2026-11-01
 

@@ -6,7 +6,15 @@ description: Függőségtudatos, kis és visszagörgethető pull requestekre bon
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
-> Aktuális checkpoint: **2026-11-01**. Az eltérő régi checkpointok történeti bejegyzések. A javítás merge/CI-t igényel; valós elfogadás külön szükséges.
+
+
+## Outbound védelem és elfogadási checkpoint — 2026-11-02
+
+Az eredeti 54 A01–F03 egység és függőségeik megmaradnak. C12/C13 a merge-elt pinned transportot stabilizálja, nem új rendszert vezet be. A D fázis a közös UID/szolgáltatás-cgroup és a külön PDF-worker tényleges elfogadását rögzíti. E02 továbbra is azonos candidate workflow/artifact és owner/manual receipt bizonyítékot igényel; az issue lezárása ezt nem helyettesíti.
+
+**Aktuális bizonyítékforrás:** [biztonsági és elfogadási checkpoint](https://openmanuscript.org/hu/docs/governance/studio-1.0-architecture/security-acceptance-2026-11-02/). Ez felülírja az alábbi korábbi állításokat, amelyek #765/#774 nyitott állapotát vagy a connection-time pinning implementációjának hiányát írják. A régi megállapítások történetiek; lezárt issue nem pótolja a hiányzó RC-receiptet.
+
+> Történeti checkpoint: **2026-11-01**. Az eltérő régi checkpointok történeti bejegyzések. A javítás merge/CI-t igényel; valós elfogadás külön szükséges.
 
 ## Session, integráció és kiadási evidence egységesítése — 2026-11-01
 

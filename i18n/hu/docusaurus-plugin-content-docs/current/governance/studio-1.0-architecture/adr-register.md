@@ -6,7 +6,15 @@ description: A Studio 1.0 architektúra döntési nyilvántartása és a Phase A
 
 # OMI Studio 1.0 ADR Register
 
-> Aktuális checkpoint: **2026-11-01**. Az eltérő régi checkpointok történeti bejegyzések. A javítás merge/CI-t igényel; valós elfogadás külön szükséges.
+
+
+## Outbound védelem és elfogadási checkpoint — 2026-11-02
+
+Az ADR-012/014/016/017 a kétszintű outbound védelemmel és kompatibilitási korlátaival pontosul; ADR-019 külön kezeli az issue, forrásteszt, operátori és exact-candidate receipt állapotát. Az alternatívák, következmények és felülvizsgálati feltételek a kapcsolt checkpointban és a Studio ADR-031-ben szerepelnek. Új privátcím-kivételt vagy Stable ígéretet nem hagyunk jóvá.
+
+**Aktuális bizonyítékforrás:** [biztonsági és elfogadási checkpoint](https://openmanuscript.org/hu/docs/governance/studio-1.0-architecture/security-acceptance-2026-11-02/). Ez felülírja az alábbi korábbi állításokat, amelyek #765/#774 nyitott állapotát vagy a connection-time pinning implementációjának hiányát írják. A régi megállapítások történetiek; lezárt issue nem pótolja a hiányzó RC-receiptet.
+
+> Történeti checkpoint: **2026-11-01**. Az eltérő régi checkpointok történeti bejegyzések. A javítás merge/CI-t igényel; valós elfogadás külön szükséges.
 
 ## Session, integráció és kiadási evidence egységesítése — 2026-11-01
 
