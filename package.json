@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "npm run test:i18n && npm run test:release-metadata && npm run test:react-runtime && npm run test:file-format && npm run test:core-models && npm run test:roadmap && docusaurus build",
+    "build": "npm run test:dependency-security && npm run test:i18n && npm run test:release-metadata && npm run test:react-runtime && npm run test:file-format && npm run test:core-models && npm run test:roadmap && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -24,7 +24,8 @@
     "test:release-metadata": "node scripts/validate-current-release-metadata.mjs",
     "test:react-runtime": "node scripts/validate-react-runtime.mjs",
     "test:core-models": "node --test tests/core-review.test.mjs && node scripts/validate-core-review.mjs && node scripts/validate-readiness-inventory.mjs",
-    "test:roadmap": "node --test tests/implementation-roadmap.test.mjs && node scripts/validate-implementation-roadmap.mjs"
+    "test:roadmap": "node --test tests/implementation-roadmap.test.mjs && node scripts/validate-implementation-roadmap.mjs",
+    "test:dependency-security": "node --test tests/dependency-security.test.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.2",
@@ -44,8 +45,8 @@
   },
   "overrides": {
     "nanoid": "3.3.18",
-    "qs": "6.16.0",
-    "serialize-javascript": "7.0.5",
+    "qs": "6.16.1",
+    "serialize-javascript": "7.1.4",
     "uuid": "11.1.1",
     "tinypool": "2.2.0",
     "postcss-selector-parser": "7.1.7"
