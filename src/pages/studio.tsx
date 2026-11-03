@@ -4,9 +4,9 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import {getPublicPageCopy} from '../i18n/publicPages';
+import {STUDIO_PUBLISHED_VERSION, STUDIO_SOURCE_VERSION, STUDIO_PUBLISHED_RELEASE_NOTES, STUDIO_SOURCE_RELEASE_NOTES} from '../studioReleaseVersions';
 import styles from './studio.module.css';
 
-const STUDIO_VERSION = '0.3.0-beta.12';
 const RELEASE_BASE = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/releases/latest/download';
 const SERVER_API_PACKAGE_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/pkgs/container/open-manuscript-studio-api';
 const SERVER_WEB_PACKAGE_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/pkgs/container/open-manuscript-studio-web';
@@ -94,6 +94,7 @@ const CURRENT_UPDATE = {
     serverGuideHu: 'Administrator guide (Hungarian)',
     releaseNotes: 'Release notes',
     betaTitle: 'Current public beta',
+    buildTitle: 'Development build', buildDescription: 'The Studio source and builds currently identify as beta.13. This is not yet a newly published native app release; downloads remain on the last approved public release.', buildNotes: 'beta.13 preparation and release checks',
     betaText: 'Open Manuscript Studio 0.3.0-beta.12 includes native TLS and Tokio security updates, native plugin fixes and more reliable macOS installer creation. The portable OMI format remains 0.3.0.',
     maturity: 'The project is in public beta. Beta development prioritizes regression testing, large-document performance, error recovery, interoperability, migration discipline and trustworthy immutable releases on the path to the first release candidate.',
   },
@@ -159,6 +160,7 @@ const CURRENT_UPDATE = {
     serverGuideHu: 'Rendszergazdai súgó (magyar)',
     releaseNotes: 'Kiadási megjegyzések',
     betaTitle: 'Jelenlegi nyilvános béta',
+    buildTitle: 'Fejlesztési build', buildDescription: 'A Stúdió forráskódja és buildje jelenleg beta.13. Ez még nem újonnan közzétett natív alkalmazáskiadás; a letöltések a legutóbb jóváhagyott nyilvános kiadást követik.', buildNotes: 'A beta.13 előkészítése és kiadási ellenőrzései',
     betaText: 'Az Open Manuscript Studio 0.3.0-beta.12 a natív alkalmazások TLS- és Tokio-biztonsági frissítéseit, bővítményjavításait és megbízhatóbb macOS-telepítőkészítést tartalmaz. A hordozható OMI-formátum változatlanul 0.3.0.',
     maturity: 'A projekt nyilvános béta. A béta szakasz fő feladata a regressziós tesztelés, a nagy dokumentumok teljesítménye, a hibából való helyreállás, az interoperabilitás, a migrációs fegyelem és a megbízható, változtathatatlan kiadások biztosítása az első release candidate felé.',
   },
@@ -219,6 +221,7 @@ const CURRENT_UPDATE = {
     serverGuideHu: 'Administratorhandbuch (Ungarisch)',
     releaseNotes: 'Versionshinweise',
     betaTitle: 'Aktuelle öffentliche Beta',
+    buildTitle: 'Entwicklungs-Build', buildDescription: 'Der Studio-Quellcode und aktuelle Builds tragen beta.13. Dies ist noch keine neu veröffentlichte native App-Version; Downloads folgen weiterhin der zuletzt freigegebenen Veröffentlichung.', buildNotes: 'Vorbereitung und Freigabeprüfungen für beta.13',
     betaText: 'Open Manuscript Studio 0.3.0-beta.12 enthält TLS- und Tokio-Sicherheitsupdates für native Anwendungen, Plugin-Korrekturen und eine zuverlässigere Erstellung von macOS-Installern. Das portable OMI-Format bleibt bei 0.3.0.',
     maturity: 'Das Projekt befindet sich in der öffentlichen Beta. Im Mittelpunkt stehen Regressionstests, Leistung bei großen Dokumenten, Fehlerwiederherstellung, Interoperabilität, saubere Migrationen und vertrauenswürdige unveränderliche Releases auf dem Weg zum ersten Release Candidate.',
   },
@@ -251,9 +254,10 @@ export default function StudioDownloads() {
       <main className={styles.page}>
         <section className={styles.hero}>
           <img src="/img/favicon.svg" alt="Open Manuscript Initiative" className={styles.icon} />
-          <p className={styles.kicker}>Open Manuscript Initiative · {STUDIO_VERSION} public beta</p>
+          <p className={styles.kicker}>Open Manuscript Initiative · {STUDIO_PUBLISHED_VERSION} public beta</p>
           <h1>Open Manuscript Studio</h1>
           <p className={styles.lead}>{t.lead}</p>
+          <p><strong>{update.buildTitle}: <Link to={STUDIO_SOURCE_RELEASE_NOTES}>{STUDIO_SOURCE_VERSION}</Link>.</strong> {update.buildDescription}</p>
           <div className={styles.actions}>
             <Link className="button button--primary button--lg" to="https://studio.openmanuscript.org">{t.browserButton}</Link>
             <Link className="button button--secondary button--lg" to="https://github.com/open-manuscript-initiative/open-manuscript-studio">{t.source}</Link>
@@ -355,7 +359,10 @@ export default function StudioDownloads() {
           <div className={styles.container}>
             <h2>{update.betaTitle}</h2>
             <p>{update.betaText}</p>
-            <p><Link to="/docs/studio/releases/0.3.0-beta.12">{update.releaseNotes}</Link></p>
+            <p><Link to={STUDIO_PUBLISHED_RELEASE_NOTES}>{update.releaseNotes} – {STUDIO_PUBLISHED_VERSION}</Link></p>
+            <h3>{update.buildTitle}: {STUDIO_SOURCE_VERSION}</h3>
+            <p>{update.buildDescription}</p>
+            <p><Link to={STUDIO_SOURCE_RELEASE_NOTES}>{update.buildNotes}</Link></p>
             <p>{update.maturity}</p>
             <p>
               <Link to="/docs/governance/studio-implementation-status">{copy.home.status}</Link>

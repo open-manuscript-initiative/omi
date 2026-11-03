@@ -6,6 +6,7 @@ import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import {getPublicPageCopy} from '../i18n/publicPages';
+import {STUDIO_PUBLISHED_VERSION, STUDIO_SOURCE_VERSION, STUDIO_SOURCE_RELEASE_NOTES} from '../studioReleaseVersions';
 import styles from './index.module.css';
 
 const GOOGLE_PLAY_TEST_URL = 'https://play.google.com/apps/testing/org.openmanuscript.studio';
@@ -22,6 +23,7 @@ const STUDIO_UPDATE = {
   en: {
     developmentUpdate: '1 November 2026: mobile multi-document tabs, verified cloud packages, media recovery and stricter PDF checks have been merged into the development source—not announced as a new public download.',
     developmentUpdateLink: 'Read the development update',
+    buildStatus: 'Development build', buildStatusDetail: 'Prepared source version; public downloads remain on the last approved release.',
     summary: 'Open Manuscript Studio 0.3.0-beta.12 includes native TLS and Tokio security updates, native plugin fixes and more reliable macOS installer creation. The portable OMI format remains 0.3.0.',
     multiDocument: 'Multi-document desktop editing and document outline',
     wordLike: 'Word-like manuscript-wide split, merge and selection',
@@ -47,6 +49,7 @@ const STUDIO_UPDATE = {
   hu: {
     developmentUpdate: '2026. november 1.: a mobilos többdokumentumos fülek, az ellenőrzött felhőmentés, a képek helyreállítása és a PDF-export ellenőrzése bekerült a fejlesztési forrásba. Ez még nem új nyilvános alkalmazáskiadás.',
     developmentUpdateLink: 'A fejlesztési beszámoló megnyitása',
+    buildStatus: 'Fejlesztési build', buildStatusDetail: 'Előkészített forrásváltozat; a nyilvános letöltések továbbra is a legutóbb jóváhagyott kiadást kínálják.',
     summary: 'Az Open Manuscript Studio 0.3.0-beta.12 a natív alkalmazások TLS- és Tokio-biztonsági frissítéseit, bővítményjavításait és megbízhatóbb macOS-telepítőkészítést tartalmaz. A hordozható OMI-formátum változatlanul 0.3.0.',
     multiDocument: 'Többdokumentumos asztali szerkesztés és dokumentumvázlat',
     wordLike: 'Word-szerű, kézirat-szintű szétválasztás, egyesítés és kijelölés',
@@ -72,6 +75,7 @@ const STUDIO_UPDATE = {
   de: {
     developmentUpdate: '1. November 2026: Mobile Registerkarten für mehrere Manuskripte, geprüfte Cloud-Pakete, Medienwiederherstellung und strengere PDF-Prüfungen sind im Entwicklungszweig integriert, jedoch noch keine neue öffentliche Download-Version.',
     developmentUpdateLink: 'Entwicklungsbericht lesen',
+    buildStatus: 'Entwicklungs-Build', buildStatusDetail: 'Vorbereiteter Quellstand; öffentliche Downloads bleiben bis zur Freigabe auf der letzten Veröffentlichung.',
     summary: 'Open Manuscript Studio 0.3.0-beta.12 enthält TLS- und Tokio-Sicherheitsupdates für native Anwendungen, Plugin-Korrekturen und eine zuverlässigere Erstellung von macOS-Installern. Das portable OMI-Format bleibt bei 0.3.0.',
     multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
     wordLike: 'Word-ähnliches manuskriptweites Teilen, Zusammenführen und Auswählen',
@@ -202,10 +206,11 @@ export default function Home() {
 
         <section className={styles.studio} aria-labelledby="current-development-status">
           <div className={styles.studioContent}>
-            <p className={styles.sectionKicker}>Open Manuscript Studio · 0.3.0-beta.12 public beta</p>
+            <p className={styles.sectionKicker}>Open Manuscript Studio · {STUDIO_PUBLISHED_VERSION} public beta</p>
             <h2 id="current-development-status">{t.status}</h2>
             <h3>{t.currentTitle}</h3>
             <p>{studioUpdate.summary}</p>
+            <p><strong>{studioUpdate.buildStatus}: <Link to={STUDIO_SOURCE_RELEASE_NOTES}>{STUDIO_SOURCE_VERSION}</Link>.</strong> {studioUpdate.buildStatusDetail}</p>
             <p>{current}</p>
             <p>{studioUpdate.developmentUpdate}{' '}
               <Link to="/docs/studio/updates/2026-11-01-stabilization">{studioUpdate.developmentUpdateLink}</Link>
@@ -219,7 +224,8 @@ export default function Home() {
           </div>
 
           <aside className={styles.studioFeatures} aria-label={t.status}>
-            <h3>0.3.0-beta.12</h3>
+            <h3>{STUDIO_PUBLISHED_VERSION}</h3>
+            <p>{studioUpdate.buildStatus}: <Link to={STUDIO_SOURCE_RELEASE_NOTES}>{STUDIO_SOURCE_VERSION}</Link></p>
             <p>Web · Windows · Linux · macOS · Android · iOS/iPadOS</p>
             <p><strong>47</strong> selectable UI languages</p>
             <nav className={styles.contextLinks} aria-label={t.status}>
