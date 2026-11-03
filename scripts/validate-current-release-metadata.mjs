@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 
 const expected = {
   studio: '0.3.0-beta.12',
+  stagedStudio: '0.3.0-beta.13',
   ojs: 'v1.6.0',
   omp: 'v1.5.1',
   iosMarketing: '0.3.0',
@@ -16,7 +17,15 @@ const releaseNotesFiles = [
     `i18n/${locale}/docusaurus-plugin-content-docs/current/studio/releases/${expected.studio}.md`),
 ];
 
+const stagedReleaseNotesFiles = [
+  `docs/studio/releases/${expected.stagedStudio}.md`,
+  ...['hu', 'de'].map((locale) =>
+    `i18n/${locale}/docusaurus-plugin-content-docs/current/studio/releases/${expected.stagedStudio}.md`),
+];
+
 const currentFacingFiles = [
+  ...stagedReleaseNotesFiles,
+  'src/studioReleaseVersions.ts',
   ...releaseNotesFiles,
   'README.md',
   'src/pages/index.tsx',
@@ -97,6 +106,13 @@ for (const [path, content] of contents) {
 
 const required = [
   ['README.md', expected.studio],
+  ['src/studioReleaseVersions.ts', `STUDIO_PUBLISHED_VERSION = '${expected.studio}'`],
+  ['src/studioReleaseVersions.ts', `STUDIO_SOURCE_VERSION = '${expected.stagedStudio}'`],
+  ['src/pages/index.tsx', 'STUDIO_SOURCE_VERSION'],
+  ['src/pages/studio.tsx', 'STUDIO_SOURCE_VERSION'],
+  ['src/pages/index.tsx', 'STUDIO_PUBLISHED_VERSION'],
+  ['src/pages/studio.tsx', 'STUDIO_PUBLISHED_VERSION'],
+  ['docs/governance/studio-implementation-status.md', expected.stagedStudio],
   ['src/pages/index.tsx', expected.studio],
   ['src/pages/studio.tsx', expected.studio],
   ['docs/governance/studio-implementation-status.md', expected.studio],
@@ -116,6 +132,12 @@ const required = [
 for (const [path, value] of required) {
   if (!contents.get(path)?.includes(value)) {
     failures.push(`${path}: expected current release marker ${value}`);
+  }
+}
+
+for (const path of stagedReleaseNotesFiles) {
+  if (!contents.get(path)?.includes(expected.stagedStudio)) {
+    failures.push(`${path}: expected staged Studio version ${expected.stagedStudio}`);
   }
 }
 
@@ -148,5 +170,5 @@ if (failures.length) {
 }
 
 console.log(
-  `Current release metadata verified: Studio ${expected.studio}, OJS ${expected.ojs}, OMP ${expected.omp}, iOS ${expected.iosMarketing} build ${expected.iosBuild}.`,
+  `Current release metadata verified: public Studio ${expected.studio}, staged Studio ${expected.stagedStudio}, OJS ${expected.ojs}, OMP ${expected.omp}, iOS ${expected.iosMarketing} build ${expected.iosBuild}.`,
 );
