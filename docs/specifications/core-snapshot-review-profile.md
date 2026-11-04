@@ -12,14 +12,29 @@ Version **0.1.0**, status **Draft, unapproved review profile**. This is a bounde
 
 The profile supplies partial executable evidence for OMI-SPEC-000@0.2.0, OMI-SPEC-120@0.3.0, OMI-SPEC-100@0.2.0 and OMI-SPEC-140@0.2.0. These source revisions remain Draft. The runtime check is an observational validator, not an editor, renderer, authorization service or certification authority.
 
-The initial corpus has **22 fixtures** mapped to **20 partially evidenced requirements**. All **66** core requirements are inventoried; **46 are untested**. No row is marked fully tested. A passing fixture suite therefore yields **indeterminate normative conformance**. A valid snapshot result means valid within this narrow review scope only.
+The initial corpus had **22 fixtures** mapped to **20 partially evidenced requirements**. The 2026-11-04 validation evidence supplement adds **12 executable behavioral cases** for five previously untested requirements. All **66** core requirements are inventoried: **25 have partial evidence and 41 remain untested**. No row is marked fully tested. A passing suite therefore yields **indeterminate normative conformance**. A valid snapshot result means valid within this narrow review scope only. The suite is now `0.1.0-draft.2`; the profile, schema and validator remain version 0.1.0.
 
 ## Artifacts
 
 - [Structural projection schema](/schemas/omi-core-snapshot-0.1.schema.json), JSON Schema Draft 2020-12, additional properties preserved.
 - [Pure validator module](/tools/core-snapshot-validator-0.1.mjs), exported `validateCoreSnapshot(value, options)`.
-- [Versioned fixture and requirement manifest](/examples/omi-core/0.1.0/manifest.json), containing fixture SHA-256 digests, expected outcomes, exact diagnostic sets and partial requirement mappings.
-- [Readiness inventory](/evidence/readiness-2026-10-31.json), with source/code baselines and outstanding gates.
+- [Versioned fixture and requirement manifest](/examples/omi-core/0.1.0/manifest.json), containing fixture SHA-256 digests, expected outcomes, exact diagnostic sets, a digest-bound behavioral module and partial requirement mappings.
+- [Readiness inventory](/evidence/readiness-2026-10-31.json), preserving the original source/code baselines and outstanding gates.
+- [2026-11-04 validation evidence supplement](/evidence/core-validation-2026-11-04.json), with current coverage, exact manifest/validator digests and remaining exclusions.
+
+## Validation behavior evidence — 2026-11-04
+
+The CLI and Node test runner both execute the mapped cases in `scripts/core-validation-behaviors.mjs`. A failed assertion or missing/altered mapping fails the command before a passing report is written. The report records fixture results and behavioral results separately.
+
+| Requirement | Executed evidence | Remaining scope |
+|---|---|---|
+| `REQ-DOC-012` | Stable error codes and exact JSON-pointer locations, including escaped extension keys; frozen invalid input remains unchanged. | Editor navigation and complete source-format diagnostics. |
+| `REQ-DOC-013` | Exact node/depth/diagnostic boundaries; truncated diagnostics; invalid outcome takes precedence over incomplete inspection; cycles and invalid limit options. | Raw byte limits and the separate file-format parser. |
+| `REQ-OBJ-015` | Asset URL strings remain inert; guarded Fetch/HTTP/HTTPS calls and JavaScript execution sentinel are untouched. | Complete asset-processing isolation and other processors. |
+| `REQ-OBJ-018` | Deeply frozen valid, invalid, incomplete and cyclic graphs; repeated validation; detached report mutation. | Editor locking and editing behavior. |
+| `REQ-MET-018` | Titles, language, localized opaque values and provenance remain unchanged, including on failure and incomplete inspection. | Full metadata conversion and import/export paths. |
+
+All five mappings are **partial** and apply to the observational validator role. No production editor, authorization, independent implementation or Stable claim is inferred. The validator and existing JSON fixtures are unchanged, so the Studio's vendored 0.1.0 validator remains the same implementation; these additional Node behavioral cases are not claimed to run in its browser panel.
 
 ## Inspected projection
 
@@ -45,7 +60,7 @@ Diagnostics carry stable codes, severity and JSON-pointer locations, without sou
 
 ## Execution and evidence
 
-Run `npm run test:core-models` in the specification repository. `node scripts/validate-core-review.mjs --report test-results/core-review.json` records the pinned suite digest, fixtures, coverage, runner environment and timestamp. Fixture failure or corrupted/missing coverage is a failing command; indeterminate normative coverage is an expected disclosed result.
+Run `npm run test:core-models` in the specification repository. `node scripts/validate-core-review.mjs --report test-results/core-review.json` records the pinned suite and behavioral-module digests, fixture and behavioral results, coverage, runner environment and timestamp. Fixture/behavior failure or corrupted/missing coverage is a failing command; indeterminate normative coverage is an expected disclosed result.
 
 The Studio companion vendors the exact same module and corpus with a source digest. Its separate Core model review panel can export a source-digest-bound result; a later edit makes the report stale. Existing validation-report formats and manuscript version declarations remain unchanged. Shared source is **not independent implementation evidence**.
 

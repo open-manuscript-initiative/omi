@@ -4,6 +4,7 @@ import { dirname, resolve, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import Ajv2020 from 'ajv/dist/2020.js';
 import { validateCoreSnapshot } from '../static/tools/core-snapshot-validator-0.1.mjs';
+import { coreValidationBehaviors, runCoreValidationBehaviors } from './core-validation-behaviors.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export async function verifyCoreReview() {
@@ -30,6 +31,15 @@ export async function verifyCoreReview() {
   const mapped = manifest.requirements.map(item => item.id);
   if (new Set(requirements).size !== requirements.length || new Set(mapped).size !== mapped.length
     || requirements.length !== mapped.length || requirements.some(id => !mapped.includes(id))) throw new Error('Incomplete or duplicate normative requirement inventory.');
+  if (manifest.behaviorModule?.path !== 'scripts/core-validation-behaviors.mjs'
+    || createHash('sha256').update(await readFile(join(root, manifest.behaviorModule.path))).digest('hex') !== manifest.behaviorModule.sha256) {
+    throw new Error('Behavior module integrity mismatch.');
+  }
+  const behaviorMappings = coreValidationBehaviors.map(({ id, requirements }) => ({ id, requirements }));
+  if (JSON.stringify(manifest.behaviors) !== JSON.stringify(behaviorMappings)
+    || new Set(behaviorMappings.map(item => item.id)).size !== behaviorMappings.length
+    || behaviorMappings.some(item => !item.requirements.length || new Set(item.requirements).size !== item.requirements.length
+      || item.requirements.some(id => !mapped.includes(id)))) throw new Error('Invalid behavioral requirement mapping.');
   const cases = new Set();
   const results = [];
   for (const fixture of manifest.fixtures) {
@@ -51,17 +61,22 @@ export async function verifyCoreReview() {
   }
   for (const item of manifest.requirements) {
     const expected = manifest.fixtures.filter(fixture => fixture.requirements.includes(item.id)).map(fixture => fixture.id);
+    const expectedBehaviors = manifest.behaviors.filter(behavior => behavior.requirements.includes(item.id)).map(behavior => behavior.id);
     if (!['partial', 'untested'].includes(item.status) || JSON.stringify(expected) !== JSON.stringify(item.fixtures)
-      || (item.status === 'partial') !== (item.fixtures.length > 0)) throw new Error(`Invalid coverage: ${item.id}`);
+      || JSON.stringify(expectedBehaviors) !== JSON.stringify(item.behaviors ?? [])
+      || (item.status === 'partial') !== (item.fixtures.length + expectedBehaviors.length > 0)) throw new Error(`Invalid coverage: ${item.id}`);
   }
+  const behavioralResults = await runCoreValidationBehaviors();
   return { profile: manifest.profile, suiteVersion: manifest.suiteVersion, approved: false,
-    suiteDigest: createHash('sha256').update(manifestBytes).digest('hex'), runner: 'core-review-0.1.0',
+    suiteDigest: createHash('sha256').update(manifestBytes).digest('hex'), behaviorModule: manifest.behaviorModule,
+    runner: 'core-review-0.1.1',
     environment: `${process.version}/${process.platform}/${process.arch}`, createdAt: new Date().toISOString(),
-    results, requirements: manifest.requirements, coverage: 'incomplete', outcome: 'indeterminate', independent: false };
+    results, behavioralResults, requirements: manifest.requirements, coverage: 'incomplete', outcome: 'indeterminate', independent: false };
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const report = await verifyCoreReview();
-  console.log(`Core review: ${report.results.length} fixtures pass; ${report.requirements.length} requirements accounted for; normative conformance remains ${report.outcome}.`);
+  const partial = report.requirements.filter(item => item.status === 'partial').length;
+  console.log(`Core review: ${report.results.length} fixtures and ${report.behavioralResults.length} behavioral cases pass; ${partial} partial and ${report.requirements.length - partial} untested requirements; normative conformance remains ${report.outcome}.`);
   const reportIndex = process.argv.indexOf('--report');
   if (reportIndex !== -1) {
     const destination = resolve(process.argv[reportIndex + 1]);

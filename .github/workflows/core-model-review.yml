@@ -10,6 +10,7 @@ on:
       - 'static/tools/core-snapshot-validator-0.1.mjs'
       - 'static/evidence/**'
       - 'scripts/validate-core-review.mjs'
+      - 'scripts/core-validation-behaviors.mjs'
       - 'scripts/validate-readiness-inventory.mjs'
       - 'tests/core-review.test.mjs'
       - 'package.json'

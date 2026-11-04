@@ -1,4 +1,5 @@
 import { readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { dirname, resolve, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -17,8 +18,25 @@ for (const [, id, , version, path] of rows) {
   if (!item.evidence.length || item.evidence.some(evidence => !/^[a-f0-9]{64}$/.test(evidence.sha256) || evidence.path.startsWith('/') || evidence.path.includes('..'))) throw new Error(`Invalid pinned evidence: ${id}`);
 }
 const manifest = JSON.parse(await readFile(join(root, 'static/examples/omi-core/0.1.0/manifest.json'), 'utf8'));
+// Preserve the dated 31 October fixture baseline; behavioral evidence has its own dated supplement.
 if (inventory.coreReview.requirements !== manifest.requirements.length || inventory.coreReview.fixtures !== manifest.fixtures.length
-  || inventory.coreReview.partial !== manifest.requirements.filter(item => item.status === 'partial').length
-  || inventory.coreReview.untested !== manifest.requirements.filter(item => item.status === 'untested').length
+  || inventory.coreReview.partial !== manifest.requirements.filter(item => item.fixtures.length > 0).length
+  || inventory.coreReview.untested !== manifest.requirements.filter(item => item.fixtures.length === 0).length
   || inventory.lifecyclePromotions.length !== 0 || inventory.coreReview.approved !== false) throw new Error('Invalid core evidence summary or unauthorized promotion.');
+const supplement = JSON.parse(await readFile(join(root, 'static/evidence/core-validation-2026-11-04.json'), 'utf8'));
+const summary = supplement.coreReview;
+const newPartial = manifest.requirements.filter(item => item.status === 'partial' && item.fixtures.length === 0).map(item => item.id);
+const digest = async path => createHash('sha256').update(await readFile(join(root, path))).digest('hex');
+if (supplement.baselineInventory !== '/evidence/readiness-2026-10-31.json'
+  || supplement.suiteVersion !== manifest.suiteVersion
+  || supplement.manifestSha256 !== await digest('static/examples/omi-core/0.1.0/manifest.json')
+  || supplement.validatorSha256 !== await digest('static/tools/core-snapshot-validator-0.1.mjs')
+  || summary.requirements !== manifest.requirements.length || summary.fixtures !== manifest.fixtures.length
+  || summary.behaviors !== manifest.behaviors.length
+  || summary.partial !== manifest.requirements.filter(item => item.status === 'partial').length
+  || summary.untested !== manifest.requirements.filter(item => item.status === 'untested').length
+  || JSON.stringify(supplement.newPartialRequirements) !== JSON.stringify(newPartial)
+  || summary.approved !== false || summary.outcome !== 'indeterminate'
+  || supplement.independent !== false || supplement.lifecyclePromotions.length !== 0) throw new Error('Invalid behavioral evidence supplement or unauthorized promotion.');
 console.log(`Readiness inventory: all ${rows.length} source/registry versions and pinned evidence records are consistent; no lifecycle promotions.`);
+console.log(`Core validation supplement: ${summary.behaviors} behavioral cases; ${summary.partial} partial and ${summary.untested} untested requirements.`);
