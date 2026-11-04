@@ -6,6 +6,8 @@ description: Aktuální program, dokončené základy, pokrok v referenční imp
 
 # Plán vývoje pro verzi 1.0 programu „OMI“ 1.0
 
+**4. listopadu 2026: automatické kontroly RC1 uspěly.** Zdrojový kandidát je `1.0.0-rc.1`, veřejné stahování zůstává `0.3.0-beta.13`. Zveřejnění RC vyžaduje skutečné ruční přijetí. Linux a macOS: Preview; iOS/iPadOS: experimentální. [Stav RC1 a důkazy](/docs/studio/releases/1.0.0-rc.1).
+
 ## Vytvoření otevřeného standardu pro vědecké publikování
 
 ## Metadata dokumentu
@@ -47,7 +49,7 @@ Program se již výrazně posunul za počáteční fázi auditu dokumentace. Byl
 | Synchronizace webových stránek a produktů | **Aktivní a udržovaná** | Veřejná stránka Studio a datovaná zpráva o stavu Studia nyní sledují implementované funkce produktu odděleně od shody s normami. |
 | Migrace identifikátorů | **Dokončeno pro aktivní specifikace** | Aktivní specifikace využívají standardní architekturu přidělování adres `OMI-SPEC-*`. |
 | Základní sémantické modely | **Ve vývoji** | Modely identity/přispěvatelů a verzování/změn mají k dispozici podstatné důkazy o referenční implementaci; validace, překlad a spolupráce zůstávají na úrovni specifikace neúplné. |
-| Referenční implementace | **Veřejná beta verze (`0.3.0-beta.12`)** | K dispozici jsou strukturované úpravy, vícejazyčné uživatelské rozhraní a nápověda, účty podporované serverem, vzájemné hodnocení, nativní integrace s OJS/OMP, importy a exporty, profily vydavatelů, vyhledávání, verze pro stolní počítače a mobilní zařízení a proces aktualizace. |
+| Referenční implementace | **Veřejná beta verze (`0.3.0-beta.13`)** | K dispozici jsou strukturované úpravy, vícejazyčné uživatelské rozhraní a nápověda, účty podporované serverem, vzájemné hodnocení, nativní integrace s OJS/OMP, importy a exporty, profily vydavatelů, vyhledávání, verze pro stolní počítače a mobilní zařízení a proces aktualizace. |
 | Recenze | **Provozní implementace** | Byly implementovány základy dvojitě slepé recenze, pracovní prostory recenzentů, řídicí panel pro recenze editorů a zpracování externě přidělených recenzí. Soulad s formální specifikací zůstává předmětem budoucí práce. |
 | Integrace s OJS | **Závisí na provozu a konfiguraci** | Plugin verze v1.6.0 a pracovní postup ve Studiu umožňují spuštění s podpisem autora/editora/recenzenta, přenos souborů v omezeném rozsahu, nativní formuláře pro recenze, opravy, oddělenou zpětnou vazbu a zápis s podpisem; nativní ověření E2E podle normy „OJS“ 3.5 je v pořádku. Úplné pokrytí profilu a shoda s normou zatím nejsou kompletní. |
 | Integrace s OMP | **Závisí na provozu / konfiguraci** | Plugin verze 1.5.1 a pracovní postup ve Studiu umožňují spouštění s podpisem autora/redaktora/recenzenta, přiřazování monografií/publikací/studií, přístup k recenzím pouze pro přiřazené studie, nativní formuláře, opravy, oddělenou zpětnou vazbu a zpětné zapsání s podpisem; nativní OMP 3.5 E2E ověření je v pořádku. |

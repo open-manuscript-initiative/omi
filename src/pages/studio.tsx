@@ -4,10 +4,11 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import {getPublicPageCopy} from '../i18n/publicPages';
-import {STUDIO_PUBLISHED_VERSION, STUDIO_SOURCE_VERSION, STUDIO_PUBLISHED_RELEASE_NOTES, STUDIO_SOURCE_RELEASE_NOTES} from '../studioReleaseVersions';
+import {STUDIO_PUBLISHED_VERSION, STUDIO_SOURCE_VERSION, STUDIO_PUBLISHED_RELEASE_NOTES, STUDIO_SOURCE_RELEASE_NOTES, STUDIO_PUBLISHED_DOWNLOAD_BASE, STUDIO_WEB_VERSION, STUDIO_ANDROID_VERSION, STUDIO_ANDROID_RC_DOWNLOAD_URL} from '../studioReleaseVersions';
+import StudioReleaseStatus from '../components/StudioReleaseStatus';
 import styles from './studio.module.css';
 
-const RELEASE_BASE = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/releases/latest/download';
+const RELEASE_BASE = STUDIO_PUBLISHED_DOWNLOAD_BASE;
 const SERVER_API_PACKAGE_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/pkgs/container/open-manuscript-studio-api';
 const SERVER_WEB_PACKAGE_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/pkgs/container/open-manuscript-studio-web';
 const SERVER_DEPLOYMENT_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/tree/main/deployment';
@@ -33,8 +34,8 @@ const CAPABILITY_DOC_TARGETS: Record<number, string> = {
 
 const CURRENT_UPDATE = {
   en: {
-    title: 'Open Manuscript Studio public beta',
-    lead: 'Version 0.3.0-beta.12 packages native dependency security updates, plugin fixes and more reliable macOS installer creation.',
+    title: "Open Manuscript Studio — Web and Android RC",
+    lead: "Web Studio and the Android APK are available as 1.0.0-rc.1, with unified frame/page layout and responsive long-document editing. Desktop downloads remain 0.3.0-beta.13.",
     items: [
       ['Native dependency security updates', 'Packages rustls-webpki 0.103.16 and Tokio 1.53.3 with regression gates for the affected versions. The wasm32-only root-certificate dependency is also updated.'],
       ['Reliable macOS DMG packaging', 'Transient hdiutil resource contention retries only installer packaging, without repeating application compilation.'],
@@ -71,16 +72,16 @@ const CURRENT_UPDATE = {
       ['Federated sign-in', 'Google, Microsoft and configurable institutional OpenID Connect providers use Authorization Code + PKCE, state/nonce checks and issuer/audience validation. Existing accounts require explicit identity linking rather than e-mail auto-linking.'],
       ['Device-aware storage', 'Installed clients distinguish trusted personal devices from shared/foreign devices. Own devices can use native local/system storage; shared devices prefer profile cloud connections and do not retain local working paths.'],
       ['Android-native file workflow', 'Android uses the system Documents / Storage Access Framework picker for opening, saving, Save As and portable OMI backup/export destinations instead of broad shared-storage permissions.'],
-      ['Android and Google Play beta distribution', 'Signed Android AAB/APK builds are operational. Google Play closed testing is available for eligible testers, while the universal APK remains available as a direct beta download from the current GitHub release.'],
+      ['Android RC and Google Play distribution', 'The signed direct-install Android APK is 1.0.0-rc.1. Google Play remains a separate distribution channel with its own build and update process.'],
       ['iOS and iPadOS native target', 'The shared Tauri client generates and compiles as an Apple Silicon iPhone/iPad simulator app. Files/UIDocumentPicker storage, mobile export delivery and native authentication handoff are implemented; TestFlight/App Store distribution still requires Apple Developer signing, provisioning and Universal Link association.'],
       ['Institutional and central administration', 'Personal and institutional profiles are separated. Institution MEMBER/ADMIN/OWNER roles, administrator sign-in, OMI central administration, scoped institution Admin API credentials and append-only admin audit events are implemented without granting manuscript access.'],
       ['Verified scholarly identity', 'ORCID linking is integrated with cryptographic author signing: immutable committed revisions can be bound to verified ORCID identity and portable WebAuthn/issuer verification evidence.'],
       ['Publishing-system workflows', 'OJS and OMP 3.5 author, editor and double-anonymous reviewer workflows are operational when configured. Native end-to-end tests verify assignment-scoped files, review forms, corrections, separated feedback and signed writeback, while the standalone author flow now also supports direct submission from Studio.'],
     ],
     nativeAppsTitle: 'Native applications and platform builds',
-    nativeAppsDescription: 'Studio uses one OMI application core across desktop and mobile. Download links follow the current GitHub release without rewriting historical release assets. Android is distributed through Google Play closed testing and as a signed universal beta APK; validated targets that still require platform-store signing are clearly marked.',
-    androidPlayDescription: 'Google Play closed testing is available for eligible testers. Use the Play testing link for managed installation and updates; the universal APK remains available as a direct beta download.',
-    androidPlayAction: 'Install Android beta from Google Play',
+    nativeAppsDescription: "Web and Android APK use 1.0.0-rc.1. The Android RC package is a ZIP from the verified GitHub build; sign-in may be required. Extract the ZIP and install its APK. Desktop download buttons select the existing 0.3.0-beta.13 release.",
+    androidPlayDescription: "The Android RC is distributed directly as an APK package. The Google Play testing channel is separate; its installation link does not identify an RC build.",
+    androidPlayAction: "Google Play testing channel",
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validated native iPhone/iPad simulator target using the same Studio core. Public TestFlight/App Store installation is not yet available because Apple signing/provisioning and the final Universal Link association are still required.',
     iosAction: 'iOS/iPadOS implementation details',
@@ -93,14 +94,15 @@ const CURRENT_UPDATE = {
     serverGuideEn: 'Administrator guide (English)',
     serverGuideHu: 'Administrator guide (Hungarian)',
     releaseNotes: 'Release notes',
-    betaTitle: 'Current public beta',
-    buildTitle: 'Development build', buildDescription: 'The Studio source and builds currently identify as beta.13. This is not yet a newly published native app release; downloads remain on the last approved public release.', buildNotes: 'beta.13 preparation and release checks',
-    betaText: 'Open Manuscript Studio 0.3.0-beta.12 includes native TLS and Tokio security updates, native plugin fixes and more reliable macOS installer creation. The portable OMI format remains 0.3.0.',
-    maturity: 'The project is in public beta. Beta development prioritizes regression testing, large-document performance, error recovery, interoperability, migration discipline and trustworthy immutable releases on the path to the first release candidate.',
+    androidRcAction: "Download Android RC (ZIP)",
+    betaTitle: "Desktop packages",
+    buildTitle: "Web and Android RC", buildDescription: "1.0.0-rc.1 is available in the hosted web Studio and as an Android APK. Desktop release acceptance remains separate.", buildNotes: "RC1 changes, evidence and support scope",
+    betaText: "Desktop downloads use Open Manuscript Studio 0.3.0-beta.13. Web and Android APK use 1.0.0-rc.1. The portable manuscript format remains OMI-SPEC-320@0.3.0.",
+    maturity: "Web and Android APK are RC. Linux native and macOS remain Preview; iOS/iPadOS is Experimental. Specification maturity is unchanged.",
   },
   hu: {
-    title: 'Az Open Manuscript Studio nyilvános bétája',
-    lead: 'A 0.3.0-beta.12 a natív függőségek biztonsági frissítéseit, bővítményjavításokat és megbízhatóbb macOS-telepítőkészítést tartalmaz.',
+    title: "Open Manuscript Studio – webes és Android RC",
+    lead: "A webes Studio és az Android APK már 1.0.0-rc.1 kiadási jelöltként használható, egységes keret- és oldaltördeléssel, gyors hosszúkézirat-kezeléssel. Az asztali letöltések verziója továbbra is 0.3.0-beta.13.",
     items: [
       ['Natív függőségek biztonsági frissítése', 'A rustls-webpki 0.103.16 és a Tokio 1.53.3 javításait a sérülékeny verziók visszakerülését tiltó tesztek kísérik. A csak wasm32-célon használt gyökértanúsítvány-csomag is frissül.'],
       ['Megbízhatóbb macOS DMG-csomagolás', 'Átmeneti hdiutil-erőforrásfoglaltságnál csak a telepítőcsomag készítése ismétlődik, az alkalmazás újrafordítása nélkül.'],
@@ -137,16 +139,16 @@ const CURRENT_UPDATE = {
       ['Federált bejelentkezés', 'Google, Microsoft és konfigurálható intézményi OpenID Connect szolgáltatók Authorization Code + PKCE, state/nonce és issuer/audience ellenőrzést használnak. Meglévő fiókhoz külső identitás csak kifejezett összekapcsolással rendelhető.'],
       ['Eszköztudatos tárhelykezelés', 'A telepített kliensek megkülönböztetik a saját és a megosztott/idegen eszközt. Saját eszközön használható a natív helyi vagy rendszerszintű tárhely; megosztott eszközön a profilhoz kötött felhőkapcsolat az elsődleges, és a helyi munkafájl útvonala nem marad meg.'],
       ['Android natív fájlmunkafolyamat', 'Androidon a rendszer Dokumentumok / Storage Access Framework választója kezeli a megnyitást, mentést, más helyre mentést és az OMI biztonsági mentések/exportok célját, általános tárhely-hozzáférés nélkül.'],
-      ['Android és Google Play béta terjesztés', 'Az aláírt Android AAB/APK buildek működnek. A Google Play zárt tesztelése elérhető a jogosult tesztelők számára, miközben az univerzális APK közvetlen béta letöltésként továbbra is elérhető az aktuális GitHub-kiadásból.'],
+      ['Android RC és Google Play terjesztés', 'Az aláírt, közvetlenül telepíthető Android APK már 1.0.0-rc.1. A Google Play külön terjesztési csatorna, saját build- és frissítési folyamattal.'],
       ['iOS és iPadOS natív célverzió', 'A közös Tauri kliens már Apple Silicon iPhone/iPad szimulátoros alkalmazásként is generálható és sikeresen fordul. Elkészült a Files/UIDocumentPicker tárhelykezelés, a mobil export és a natív hitelesítési visszatérés; a TestFlight/App Store terjesztéshez még Apple Developer aláírás, provisioning és Universal Link társítás szükséges.'],
       ['Intézményi és központi adminisztráció', 'A személyes és intézményi profilok különváltak. Elkészült az intézményi MEMBER/ADMIN/OWNER modell, az adminisztrátori belépés, az OMI központi adminisztráció, a scope-olt intézményi Admin API és az adminisztrációs auditnapló — kéziratokhoz való automatikus hozzáférés nélkül.'],
       ['Hitelesített tudományos identitás', 'Az ORCID-kapcsolás bekerült a kriptográfiai szerzői aláírásba: változtathatatlan, szerveren rögzített revízió köthető ellenőrzött ORCID-identitáshoz és hordozható WebAuthn/issuer ellenőrzési bizonyítékhoz.'],
       ['Publikációs rendszerkapcsolatok', 'A konfigurált OJS és OMP 3.5 szerzői, szerkesztői és kettős vak lektori munkafolyamatok működnek. Natív végponttól végpontig tartó tesztek ellenőrzik a hozzárendelt fájlokat, lektori űrlapokat, javításokat, elkülönített visszajelzéseket és az aláírt visszaírást; az önálló szerzői folyamat pedig már közvetlen Studio-beküldést is támogat.'],
     ],
     nativeAppsTitle: 'Natív alkalmazások és platformbuildek',
-    nativeAppsDescription: 'A Studio ugyanazt az OMI alkalmazásmagot használja asztali és mobil rendszereken. A letöltési linkek mindig az aktuális GitHub-kiadást követik anélkül, hogy a korábbi kiadások assetjeit át kellene írni. Androidon a Google Play zárt tesztelése és az aláírt univerzális béta APK is működő terjesztési útvonal.',
-    androidPlayDescription: 'A Google Play zárt tesztelése elérhető a jogosult tesztelők számára. A Play tesztoldal kezeli a telepítést és a frissítéseket; a közvetlen béta letöltéshez az univerzális APK is megmarad.',
-    androidPlayAction: 'Android béta telepítése a Google Playről',
+    nativeAppsDescription: "A webes és az Android APK-változat verziója 1.0.0-rc.1. Az Android RC ZIP-csomagja az ellenőrzött GitHub-buildből tölthető le; ehhez bejelentkezés szükséges lehet. Csomagold ki a ZIP-et, majd telepítsd a benne található APK-t. Az asztali gombok a meglévő 0.3.0-beta.13 kiadásra mutatnak.",
+    androidPlayDescription: "Az Android RC közvetlen APK-csomagból telepíthető. A Google Play tesztelési csatornája külön útvonal; az ottani telepítési link önmagában nem azonosít RC-buildet.",
+    androidPlayAction: "Google Play tesztelési csatorna",
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validált natív iPhone/iPad szimulátoros célverzió ugyanazzal a Studio-maggal. Nyilvános TestFlight/App Store telepítés még nincs, mert ehhez Apple aláírás/provisioning és a végleges Universal Link társítás szükséges.',
     iosAction: 'iOS/iPadOS megvalósítás részletei',
@@ -159,14 +161,15 @@ const CURRENT_UPDATE = {
     serverGuideEn: 'Rendszergazdai súgó (angol)',
     serverGuideHu: 'Rendszergazdai súgó (magyar)',
     releaseNotes: 'Kiadási megjegyzések',
-    betaTitle: 'Jelenlegi nyilvános béta',
-    buildTitle: 'Fejlesztési build', buildDescription: 'A Stúdió forráskódja és buildje jelenleg beta.13. Ez még nem újonnan közzétett natív alkalmazáskiadás; a letöltések a legutóbb jóváhagyott nyilvános kiadást követik.', buildNotes: 'A beta.13 előkészítése és kiadási ellenőrzései',
-    betaText: 'Az Open Manuscript Studio 0.3.0-beta.12 a natív alkalmazások TLS- és Tokio-biztonsági frissítéseit, bővítményjavításait és megbízhatóbb macOS-telepítőkészítést tartalmaz. A hordozható OMI-formátum változatlanul 0.3.0.',
-    maturity: 'A projekt nyilvános béta. A béta szakasz fő feladata a regressziós tesztelés, a nagy dokumentumok teljesítménye, a hibából való helyreállás, az interoperabilitás, a migrációs fegyelem és a megbízható, változtathatatlan kiadások biztosítása az első release candidate felé.',
+    androidRcAction: "Android RC letöltése (ZIP)",
+    betaTitle: "Asztali csomagok",
+    buildTitle: "Webes és Android RC", buildDescription: "Az 1.0.0-rc.1 a webes Stúdióban és Android APK-ként használható. Az asztali kiadások elfogadása külön folyamat.", buildNotes: "RC1-változások, bizonyítékok és támogatási kör",
+    betaText: "Az asztali letöltések verziója Open Manuscript Studio 0.3.0-beta.13. A webes és az Android APK-változat már 1.0.0-rc.1. A hordozható kéziratformátum változatlanul OMI-SPEC-320@0.3.0.",
+    maturity: "A webes és az Android APK-változat RC. A natív Linux és a macOS Preview, az iOS/iPadOS kísérleti. A specifikációk érettsége változatlan.",
   },
   de: {
-    title: 'Öffentliche Beta von Open Manuscript Studio',
-    lead: 'Version 0.3.0-beta.12 enthält Sicherheitsupdates nativer Abhängigkeiten, Plugin-Korrekturen und eine zuverlässigere Erstellung von macOS-Installern.',
+    title: "Open Manuscript Studio — Web- und Android-RC",
+    lead: "Web Studio und das Android-APK stehen als 1.0.0-rc.1 bereit, mit vereinheitlichtem Rahmen-/Seitenlayout und reaktionsschneller Bearbeitung langer Manuskripte. Desktop-Downloads bleiben bei 0.3.0-beta.13.",
     items: [
       ['Sicherheitsupdates nativer Abhängigkeiten', 'Enthält rustls-webpki 0.103.16 und Tokio 1.53.3 mit Regressionstests gegen betroffene Versionen. Auch die nur für wasm32 verwendete Stammzertifikat-Abhängigkeit wird aktualisiert.'],
       ['Zuverlässigere macOS-DMG-Paketierung', 'Bei vorübergehender hdiutil-Ressourcenbelegung wird nur die Installer-Paketierung wiederholt, ohne die Anwendung erneut zu kompilieren.'],
@@ -205,9 +208,9 @@ const CURRENT_UPDATE = {
       ['Publikationssystem-Workflows', 'Konfigurierte OJS- und OMP-3.5-Workflows für Autoren, Redakteure und doppelt anonyme Gutachter sind funktionsfähig. Native End-to-End-Tests prüfen zugewiesene Dateien, Begutachtungsformulare, Korrekturen, getrenntes Feedback und signierte Rückschreibung; der eigenständige Autorenfluss unterstützt nun auch direkte Studio-Einreichungen.'],
     ],
     nativeAppsTitle: 'Native Anwendungen und Plattform-Builds',
-    nativeAppsDescription: 'Studio verwendet denselben OMI-Anwendungskern auf Desktop- und Mobilplattformen. Download-Links folgen dem aktuellen GitHub-Release, ohne historische Release-Assets umzuschreiben. Android wird über den geschlossenen Google-Play-Test und zusätzlich als signiertes universelles Beta-APK verteilt.',
-    androidPlayDescription: 'Der geschlossene Google-Play-Test ist für berechtigte Tester verfügbar. Die Play-Testseite übernimmt Installation und Updates; das universelle APK bleibt zusätzlich als direkter Beta-Download verfügbar.',
-    androidPlayAction: 'Android-Beta über Google Play installieren',
+    nativeAppsDescription: "Web und Android-APK verwenden 1.0.0-rc.1. Das Android-RC-Paket wird als ZIP aus dem geprüften GitHub-Build angeboten; eine Anmeldung kann erforderlich sein. ZIP entpacken und die enthaltene APK installieren. Desktop-Downloads verwenden das bestehende Release 0.3.0-beta.13.",
+    androidPlayDescription: "Der Android-RC wird direkt als APK-Paket bereitgestellt. Der Google-Play-Testkanal ist getrennt; sein Installationslink identifiziert keinen RC-Build.",
+    androidPlayAction: "Google-Play-Testkanal",
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validiertes natives iPhone/iPad-Simulatorziel mit demselben Studio-Kern. Eine öffentliche TestFlight/App-Store-Installation ist noch nicht verfügbar, da Apple-Signierung/Provisioning und die endgültige Universal-Link-Zuordnung erforderlich sind.',
     iosAction: 'Details zur iOS/iPadOS-Implementierung',
@@ -220,10 +223,11 @@ const CURRENT_UPDATE = {
     serverGuideEn: 'Administratorhandbuch (Englisch)',
     serverGuideHu: 'Administratorhandbuch (Ungarisch)',
     releaseNotes: 'Versionshinweise',
-    betaTitle: 'Aktuelle öffentliche Beta',
-    buildTitle: 'Entwicklungs-Build', buildDescription: 'Der Studio-Quellcode und aktuelle Builds tragen beta.13. Dies ist noch keine neu veröffentlichte native App-Version; Downloads folgen weiterhin der zuletzt freigegebenen Veröffentlichung.', buildNotes: 'Vorbereitung und Freigabeprüfungen für beta.13',
-    betaText: 'Open Manuscript Studio 0.3.0-beta.12 enthält TLS- und Tokio-Sicherheitsupdates für native Anwendungen, Plugin-Korrekturen und eine zuverlässigere Erstellung von macOS-Installern. Das portable OMI-Format bleibt bei 0.3.0.',
-    maturity: 'Das Projekt befindet sich in der öffentlichen Beta. Im Mittelpunkt stehen Regressionstests, Leistung bei großen Dokumenten, Fehlerwiederherstellung, Interoperabilität, saubere Migrationen und vertrauenswürdige unveränderliche Releases auf dem Weg zum ersten Release Candidate.',
+    androidRcAction: "Android-RC herunterladen (ZIP)",
+    betaTitle: "Desktop-Pakete",
+    buildTitle: "Web- und Android-RC", buildDescription: "1.0.0-rc.1 ist im gehosteten Web Studio und als Android-APK verfügbar. Die Desktop-Abnahme erfolgt getrennt.", buildNotes: "RC1-Änderungen, Nachweise und Supportumfang",
+    betaText: "Desktop-Downloads verwenden Open Manuscript Studio 0.3.0-beta.13. Web und Android-APK verwenden 1.0.0-rc.1. Das portable Manuskriptformat bleibt OMI-SPEC-320@0.3.0.",
+    maturity: "Web und Android-APK sind RC. Linux nativ und macOS bleiben Preview; iOS/iPadOS ist experimentell. Der Reifegrad der Spezifikationen bleibt unverändert.",
   },
 } as const;
 
@@ -254,8 +258,9 @@ export default function StudioDownloads() {
       <main className={styles.page}>
         <section className={styles.hero}>
           <img src="/img/favicon.svg" alt="Open Manuscript Initiative" className={styles.icon} />
-          <p className={styles.kicker}>Open Manuscript Initiative · {STUDIO_PUBLISHED_VERSION} public beta</p>
+          <p className={styles.kicker}>Open Manuscript Initiative · {STUDIO_SOURCE_VERSION}</p>
           <h1>Open Manuscript Studio</h1>
+          <StudioReleaseStatus />
           <p className={styles.lead}>{t.lead}</p>
           <p><strong>{update.buildTitle}: <Link to={STUDIO_SOURCE_RELEASE_NOTES}>{STUDIO_SOURCE_VERSION}</Link>.</strong> {update.buildDescription}</p>
           <div className={styles.actions}>
@@ -266,7 +271,7 @@ export default function StudioDownloads() {
 
         <section className={styles.section}>
           <div className={styles.container}>
-            <h2>{t.browserTitle}</h2>
+            <h2>{t.browserTitle} · {STUDIO_WEB_VERSION}</h2>
             <p>{t.browserText}</p>
           </div>
         </section>
@@ -311,26 +316,27 @@ export default function StudioDownloads() {
             <h2>{update.nativeAppsTitle}</h2>
             <p className={styles.sectionLead}>{update.nativeAppsDescription}</p>
             <div className={styles.grid}>
-              <DownloadCard title={t.windows} description={t.windowsText}>
+              <DownloadCard title={`${t.windows} · ${STUDIO_PUBLISHED_VERSION}`} description={t.windowsText}>
                 <DownloadButton href={downloads.windowsExe}>{t.setup}</DownloadButton>
                 <DownloadButton href={downloads.windowsMsi} secondary>{t.msi}</DownloadButton>
                 <p><Link to="/docs/governance/code-signing-policy">Code signing policy</Link></p>
               </DownloadCard>
-              <DownloadCard title={t.android ?? 'Android'} description={t.androidText ?? 'Installable universal APK for Android devices.'}>
-                <DownloadButton href={GOOGLE_PLAY_TEST_URL}>{update.androidPlayAction}</DownloadButton>
-                <DownloadButton href={downloads.android} secondary>{t.apk ?? 'Download Android APK'}</DownloadButton>
+              <DownloadCard title={`${t.android ?? 'Android'} · ${STUDIO_ANDROID_VERSION}`} description={t.androidText ?? 'Installable universal APK for Android devices.'}>
+                <DownloadButton href={STUDIO_ANDROID_RC_DOWNLOAD_URL}>{update.androidRcAction}</DownloadButton>
+                <DownloadButton href={GOOGLE_PLAY_TEST_URL} secondary>{update.androidPlayAction}</DownloadButton>
+                <DownloadButton href={downloads.android} secondary>{t.apk ?? 'Download Android APK'} · {STUDIO_PUBLISHED_VERSION}</DownloadButton>
                 <p>{update.androidPlayDescription}</p>
               </DownloadCard>
               <DownloadCard title={update.iosTitle} description={update.iosDescription}>
                 <Link className="button button--secondary" to="/docs/foundations/ios-ipados-studio">{update.iosAction}</Link>
               </DownloadCard>
-              <DownloadCard title={t.macArm} description={t.macArmText}>
+              <DownloadCard title={`${t.macArm} · ${STUDIO_PUBLISHED_VERSION} · Preview`} description={t.macArmText}>
                 <DownloadButton href={downloads.macArm}>{t.arm}</DownloadButton>
               </DownloadCard>
-              <DownloadCard title={t.macIntel} description={t.macIntelText}>
+              <DownloadCard title={`${t.macIntel} · ${STUDIO_PUBLISHED_VERSION} · Preview`} description={t.macIntelText}>
                 <DownloadButton href={downloads.macIntel}>{t.intel}</DownloadButton>
               </DownloadCard>
-              <DownloadCard title={t.linux} description={t.linuxText}>
+              <DownloadCard title={`${t.linux} · ${STUDIO_PUBLISHED_VERSION} · Preview`} description={t.linuxText}>
                 <DownloadButton href={downloads.linuxAppImage}>{t.appimage}</DownloadButton>
                 <DownloadButton href={downloads.linuxDeb} secondary>{t.deb}</DownloadButton>
               </DownloadCard>

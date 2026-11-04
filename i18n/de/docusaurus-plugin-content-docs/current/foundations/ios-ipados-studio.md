@@ -18,6 +18,8 @@ keywords:
 
 # Open Manuscript Studio unter iOS und iPadOS
 
+**4. November 2026 — RC1-Nachweise erfolgreich.** Der Quellstand `1.0.0-rc.1` (`e1200268ad549c0a40ace8724715cd2405e9d03c`) bestand CI, CodeQL, PKP, Readiness, native Builds und [E02](https://github.com/open-manuscript-initiative/open-manuscript-studio/actions/runs/41745224810). Die native RC-Veröffentlichung benötigt noch die tatsächliche manuelle Abnahme. Öffentliche Downloads: `0.3.0-beta.13`; Linux nativ und macOS Preview, iOS/iPadOS experimentell. [RC1-Status](/docs/studio/releases/1.0.0-rc.1).
+
 Open Manuscript Studio nutzt auf dem iPhone und iPad denselben Anwendungskern „React“ / „TypeScript“, dasselbe Manuskriptmodell „OMI“ und dieselbe native Shell-Architektur „Tauri 2“ wie auf den anderen unterstützten Plattformen. Die iOS/iPadOS-Version ist daher kein separater Produktzweig und führt kein Apple-spezifisches Manuskriptformat ein.
 
 ## Aktueller Stand
@@ -34,7 +36,7 @@ Aktueller Entwicklungsstand:
 - Die Übergabe bei der mobil-nativen Authentifizierung erfolgt gemeinsam mit Android;
 - Die Veröffentlichung über TestFlight und den App Store ist **noch nicht beansprucht**, da die Signaturdaten für Apple Developer und die endgültige Zuordnung des Universal Links noch konfiguriert werden müssen.
 
-Die aktuelle öffentliche Studio-Release-Reihe lautet „`0.3.0-beta.12`“. Die Metadaten des Bundles im iOS App Store verwenden ein Apple-kompatibles Paar aus Kurzversion und Build, wobei die Studio-Release-Identität in der Benutzeroberfläche der Anwendung und in der Projektdokumentation beibehalten wird.
+Die aktuelle öffentliche Studio-Release-Reihe lautet „`0.3.0-beta.13`“. Die Metadaten des Bundles im iOS App Store verwenden ein Apple-kompatibles Paar aus Kurzversion und Build, wobei die Studio-Release-Identität in der Benutzeroberfläche der Anwendung und in der Projektdokumentation beibehalten wird.
 
 ## Anwendungsidentität
 
@@ -42,9 +44,9 @@ Die aktuelle öffentliche Studio-Release-Reihe lautet „`0.3.0-beta.12`“. Die
 |---|---|
 | Bundle-ID | `org.openmanuscript.studio` |
 | Mindestanforderungen an die Plattform | iOS/iPadOS 14.0 |
-| Kurzbeschreibung im App Store | `0.3.0` |
-| App Store-Build-Nummer | `24` |
-| Studio-Entwicklungsreihe | `0.3.0-beta.12` |
+| Kurzbeschreibung im App Store | `1.0.0` |
+| App Store-Build-Nummer | `26` |
+| Studio-Entwicklungsreihe | `1.0.0-rc.1` |
 
 Die Apple-Kurzbezeichnung bzw. die Build-Nummerierung ist eine Metadatenangabe zur Paketierung. Sie ändert weder die Schemaversion von „OMI“ noch führt sie zu einer separaten Kompatibilitätsreihe für iOS-Dokumente.
 

@@ -25,14 +25,16 @@ keywords:
 
 # Open Manuscript Studio — Aktueller Stand der Umsetzung
 
+**4. November 2026 — RC1-Nachweise erfolgreich.** Der Quellstand `1.0.0-rc.1` (`e1200268ad549c0a40ace8724715cd2405e9d03c`) bestand CI, CodeQL, PKP, Readiness, native Builds und [E02](https://github.com/open-manuscript-initiative/open-manuscript-studio/actions/runs/41745224810). Die native RC-Veröffentlichung benötigt noch die tatsächliche manuelle Abnahme. Öffentliche Downloads: `0.3.0-beta.13`; Linux nativ und macOS Preview, iOS/iPadOS experimentell. [RC1-Status](/docs/studio/releases/1.0.0-rc.1).
+
 ## Momentaufnahme
 
 | Feld | Wert |
 |---|---|
-| Status | **Beta** |
-| Erfassungsdatum | **01.11.2026** |
-| Dokumentierte öffentliche Beta | `0.3.0-beta.12` |
-| Vorbereiteter Entwicklungsstand | `0.3.0-beta.13` (keine neue Download-Freigabe) |
+| Status | **Web and Android RC; desktop beta/Preview** |
+| Erfassungsdatum | **04.11.2026** |
+| Dokumentierte öffentliche Beta | `0.3.0-beta.13` |
+| Vorbereiteter Entwicklungsstand | `1.0.0-rc.1` (E02 erfolgreich; native Freigabe ausstehend) |
 | Referenzimplementierung | Open Manuscript Studio |
 | Quell-Repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web-Ziel | Moderne Browser |
@@ -40,7 +42,7 @@ keywords:
 | Mobile Zielplattformen | Öffentliche universelle APK für Android; validiertes natives Simulator-Ziel für iOS/iPadOS, wobei die Verteilung über TestFlight/App Store noch der Signierung durch Apple Developer bedarf |
 | Webbereitstellung | `studio.openmanuscript.org` |
 
-Die aktuelle Studio-Beta-Version ist **`0.3.0-beta.12`**. Dieses Release enthält native TLS- und Tokio-Sicherheitsupdates, Plugin-Korrekturen und eine zuverlässigere Erstellung von macOS-DMG-Installern. Das portable Format bleibt bei `OMI-SPEC-320@0.3.0`. Die [Versionshinweise zu beta.12](/docs/studio/releases/0.3.0-beta.12) dokumentieren Paketversionen und Bereitstellung. „Beta“ bedeutet **nicht**, dass jede optionale Integration oder jeder Vertriebskanal produktionsreif ist.
+Die aktuelle Studio-Beta-Version ist **`0.3.0-beta.13`**. Dieses Release enthält native TLS- und Tokio-Sicherheitsupdates, Plugin-Korrekturen und eine zuverlässigere Erstellung von macOS-DMG-Installern. Das portable Format bleibt bei `OMI-SPEC-320@0.3.0`. Die [Versionshinweise zu beta.13](/docs/studio/releases/0.3.0-beta.13) dokumentieren Paketversionen und Bereitstellung. „Beta“ bedeutet **nicht**, dass jede optionale Integration oder jeder Vertriebskanal produktionsreif ist.
 
 ## Neuigkeiten aus dem Entwicklungszweig (1. November 2026)
 
@@ -162,7 +164,7 @@ Die aktuellen Integrationen unter OJS und OMP sind für die Begutachtungsarbeit 
 
 ## Veröffentlichung und Vertrieb
 
-`0.3.0-beta.12` ist die aktuelle Beta-Release-Reihe von Studio. „GitHub Actions“ erstellt Release-Artefakte aus dem gemeinsamen Quellcode-Baum für Windows, Linux, macOS und Android. Auf der öffentlichen Studio-Download-Seite können die verfügbaren nativen Pakete, einschließlich der universellen Android-APK, über den Browser abgerufen werden.
+`0.3.0-beta.13` ist die aktuelle Beta-Release-Reihe von Studio. „GitHub Actions“ erstellt Release-Artefakte aus dem gemeinsamen Quellcode-Baum für Windows, Linux, macOS und Android. Auf der öffentlichen Studio-Download-Seite können die verfügbaren nativen Pakete, einschließlich der universellen Android-APK, über den Browser abgerufen werden.
 
 Für iOS/iPadOS gibt es derzeit einen funktionierenden CI-Simulator-Build, jedoch keine öffentliche IPA-Datei. Der Apple-Vertriebsweg ist zwar vorbereitet, wird jedoch bewusst von der Simulator-Validierung getrennt: Für öffentliche Builds und Geräte-Builds sind die echte Apple Development Team ID, das Vertriebszertifikat, das Provisioning-Profil sowie die endgültige Konfiguration der „`apple-app-site-association`“ erforderlich, bevor die Veröffentlichung über TestFlight bzw. im App Store beantragt werden kann.
 

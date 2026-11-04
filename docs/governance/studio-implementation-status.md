@@ -25,14 +25,16 @@ keywords:
 
 # Open Manuscript Studio — Current Implementation Status
 
+**4 November 2026 — Web and Android RC available.** Web Studio and the direct-install Android APK use `1.0.0-rc.1`. [Open Web Studio](https://studio.openmanuscript.org) or [download the Android RC package](https://github.com/open-manuscript-initiative/open-manuscript-studio/actions/runs/41741830930/artifacts/13282507414). Desktop downloads remain `0.3.0-beta.13`; Linux native and macOS are Preview, iOS/iPadOS Experimental. See [RC1 availability and changes](/docs/studio/releases/1.0.0-rc.1).
+
 ## Snapshot
 
 | Field | Value |
 |---|---|
-| Status | **Beta** |
-| Snapshot date | **2026-11-01** |
-| Staged development source candidate | `0.3.0-beta.13` (not a public download announcement) |
-| Last documented public beta | `0.3.0-beta.12` |
+| Status | **Web and Android RC; desktop beta/Preview** |
+| Snapshot date | **2026-11-04** |
+| Staged development source candidate | `1.0.0-rc.1` (Web and Android RC; desktop acceptance separate) |
+| Last documented public beta | `0.3.0-beta.13` |
 | Reference implementation | Open Manuscript Studio |
 | Source repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web target | Modern browsers |
@@ -40,7 +42,7 @@ keywords:
 | Mobile targets | Android public universal APK; iOS/iPadOS validated native simulator target, with TestFlight/App Store distribution pending Apple Developer signing |
 | Web deployment | `studio.openmanuscript.org` |
 
-The published-release information remains based on **`0.3.0-beta.12`**, which packages native TLS and Tokio security updates, native plugin fixes and more reliable macOS DMG creation. The merged development line prepares **`0.3.0-beta.13`**, but staging its sources and documentation is **not** approval to change public downloads or native app-store binaries. The portable manuscript format stays at `OMI-SPEC-320@0.3.0`. See [beta.12 release notes](/docs/studio/releases/0.3.0-beta.12) and the [staged beta.13 notes](/docs/studio/releases/0.3.0-beta.13).
+Web Studio and the Android APK are **`1.0.0-rc.1`**. Desktop public downloads remain **`0.3.0-beta.13`**. See [RC availability and installation](/docs/studio/releases/1.0.0-rc.1) and [desktop beta.13 notes](/docs/studio/releases/0.3.0-beta.13). The portable manuscript format remains `OMI-SPEC-320@0.3.0`.
 
 ## Recent source changes (1 November 2026; not a new release)
 
@@ -52,7 +54,7 @@ Read the [1 November development update](/docs/studio/updates/2026-11-01-stabili
 
 ## Recent changes in 0.3.0-beta.8–beta.12
 
-- **0.3.0-beta.12 — native security and installers:** packages TLS/Tokio security updates, opener/persisted-scope updates and bounded macOS DMG packaging retries into new builds. See the [beta.12 release notes](/docs/studio/releases/0.3.0-beta.12).
+- **0.3.0-beta.13 — native security and installers:** packages TLS/Tokio security updates, opener/persisted-scope updates and bounded macOS DMG packaging retries into new builds. See the [beta.13 release notes](/docs/studio/releases/0.3.0-beta.13).
 
 - **0.3.0-beta.11 — long-document editing:** reuses measurements for unchanged content and renders page guides only around the visible area while navigating. No server migration or OMI format change is required. See the [beta.11 release notes](/docs/studio/releases/0.3.0-beta.11).
 - **0.3.0-beta.10 — print pagination:** measures manuscript blocks and footnotes in short, cancellable animation-frame batches to keep the live publication editor responsive. No server migration or OMI format change is required. See the [beta.10 release notes](/docs/studio/releases/0.3.0-beta.10).
@@ -82,7 +84,7 @@ Read the [1 November development update](/docs/studio/updates/2026-11-01-stabili
 - **Reading notes:** The bottom panel shows only notes anchored to text currently visible in the manuscript, follows scrolling, grows only as needed up to half the usable viewport, and scrolls overflow internally.
 - **Android diagnostics:** Help shows the Android versionCode alongside the shared application version.
 
-This page describes **implemented product capabilities**, not OMI specification conformance. The [OMI-SPEC-190 Collaboration and Permission Model Draft](https://openmanuscript.org/docs/specifications/collaboration-permission-model/) defines separate semantic obligations for grants, scoped access, invitations, live-session revocation, anonymity, audit and federation. Existing server-authorized Studio collaboration demonstrates part of this direction but **no normative OMI-SPEC-190 conformance claim or independent fixture suite** is available. The [OMI-SPEC-180 Draft](https://openmanuscript.org/docs/specifications/validation-model/) and the [author validation guide](https://openmanuscript.org/docs/studio/manuscript-validation/) document Studio PR #783 as a **proposed experimental implementation**, not as an already deployed capability or a normative conformance claim. Source-aligned manuscript translations now have a [Studio author guide](https://openmanuscript.org/docs/studio/manuscript-translation/) and a separate [OMI-SPEC-170 Draft](https://openmanuscript.org/docs/specifications/translation-model/); the existing Studio translation extension is experimental, not normative conformance. Formal specification maturity and conformance evidence are tracked separately in the [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/). Publication-profile behaviour is mapped requirement by requirement in the [Studio OMI-SPEC-240 Implementation Profile](./studio-omi-spec-240-implementation-profile.md); that profile records implementation evidence and does not make a formal conformance claim.
+This page describes **implemented product capabilities**, not OMI specification conformance. The [OMI-SPEC-190 Collaboration and Permission Model Draft](https://openmanuscript.org/docs/specifications/collaboration-permission-model/) defines separate semantic obligations for grants, scoped access, invitations, live-session revocation, anonymity, audit and federation. Existing server-authorized Studio collaboration demonstrates part of this direction but **no normative OMI-SPEC-190 conformance claim or independent fixture suite** is available. The [OMI-SPEC-180 Draft](https://openmanuscript.org/docs/specifications/validation-model/) and the [author validation guide](https://openmanuscript.org/docs/studio/manuscript-validation/) document the merged experimental validation implementation and its RC progress/timing improvements, without making a normative conformance claim. Source-aligned manuscript translations now have a [Studio author guide](https://openmanuscript.org/docs/studio/manuscript-translation/) and a separate [OMI-SPEC-170 Draft](https://openmanuscript.org/docs/specifications/translation-model/); the existing Studio translation extension is experimental, not normative conformance. Formal specification maturity and conformance evidence are tracked separately in the [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/). Publication-profile behaviour is mapped requirement by requirement in the [Studio OMI-SPEC-240 Implementation Profile](./studio-omi-spec-240-implementation-profile.md); that profile records implementation evidence and does not make a formal conformance claim.
 
 ## Status vocabulary
 
@@ -208,7 +210,7 @@ The current OJS and OMP integrations are bidirectional for review work: Studio c
 
 ## Release and distribution
 
-`0.3.0-beta.12` is the documented public beta release line; `0.3.0-beta.13` is a staged source candidate. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Public download links follow GitHub's current release rather than embedding one historical tag in the website, while published release assets themselves remain immutable. The application version is independent of the portable OMI manuscript format, which remains `OMI-SPEC-320@0.3.0`.
+`1.0.0-rc.1` is available for Web and the direct Android APK. Desktop packages remain on `0.3.0-beta.13`. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Desktop downloads are pinned to their published tag; the Android RC link selects its exact build artifact, while published release assets remain immutable. The application version is independent of the portable OMI manuscript format, which remains `OMI-SPEC-320@0.3.0`.
 
 iOS/iPadOS currently has a successful CI simulator build rather than a public IPA. The Apple distribution path is prepared but deliberately separated from simulator validation: public/device builds require the real Apple Development Team ID, distribution certificate, provisioning profile and final `apple-app-site-association` configuration before TestFlight/App Store publication can be claimed.
 

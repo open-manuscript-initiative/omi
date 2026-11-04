@@ -5,6 +5,8 @@ sidebar_label: Multiplatformní Studio
 
 # Multiplatformní architektura studia
 
+**4. listopadu 2026: automatické kontroly RC1 uspěly.** Zdrojový kandidát je `1.0.0-rc.1`, veřejné stahování zůstává `0.3.0-beta.13`. Zveřejnění RC vyžaduje skutečné ruční přijetí. Linux a macOS: Preview; iOS/iPadOS: experimentální. [Stav RC1 a důkazy](/docs/studio/releases/1.0.0-rc.1).
+
 Open Manuscript Studio je koncipován jako jednotné akademické autorské prostředí, které funguje na webu, na stolních počítačích i na mobilních zařízeních, aniž by docházelo k roztříštění modelu rukopisu nebo implementace pracovního postupu.
 
 Projekt neudržuje pro každý operační systém samostatné aplikace. Studio využívá jedno jádro aplikace React/TypeScript a jeden model rukopisu OMI, zatímco tenké vrstvy specifické pro danou platformu poskytují nativní funkce tam, kde je to zapotřebí.
@@ -16,7 +18,7 @@ Projekt neudržuje pro každý operační systém samostatné aplikace. Studio v
 | Web | **Provozní** | Hostované studio |
 | Windows | **Funkční** | Tauri 2 EXE/MSI |
 | macOS | **Cíl automatizované kompilace** | DMG pro Intel a Apple Silicon; zabezpečení podepisování a notářského ověřování zůstává zachováno |
-| Linux | **Cíl automatizované kompilace** | AppImage a DEB |
+| Linux | **Preview for RC1** | AppImage/DEB; inherited Rust `glib 0.18.5` advisory #271 remains open |
 | Android | **Funkční veřejná beta verze** | Univerzální soubor APK vytvořený v rámci sdíleného procesu vydávání; balení určené pro obchody bude následovat |
 | iOS / iPadOS | **Ověřený cíl sestavení nativní aplikace** | Sestavení pro simulátor iPhone/iPad proběhlo úspěšně; distribuce prostřednictvím TestFlightu a App Store vyžaduje podepsání vývojářským certifikátem Apple a finální přiřazení univerzálního odkazu |
 

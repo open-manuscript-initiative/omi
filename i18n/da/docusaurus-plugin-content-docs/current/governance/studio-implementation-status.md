@@ -25,13 +25,15 @@ keywords:
 
 # Open Manuscript Studio — Nuværende status for implementeringen
 
+**4. november 2026: De automatiske RC1-kontroller er bestået.** Kildekandidaten er `1.0.0-rc.1`; offentlige downloads forbliver `0.3.0-beta.13`. RC-udgivelsen kræver faktisk manuel accept. Linux og macOS: Preview; iOS/iPadOS: eksperimentel. [RC1-status og dokumentation](/docs/studio/releases/1.0.0-rc.1).
+
 ## Øjebliksbillede
 
 | Felt | Værdi |
 |---|---|
-| Status | **Beta** |
-| Dato for øjebliksbillede | **25. oktober 2026** |
-| Aktuel udgivelsesserie | `0.3.0-beta.12` |
+| Status | **Web and Android RC; desktop beta/Preview** |
+| Dato for øjebliksbillede | **4. november 2026** |
+| Aktuel udgivelsesserie | `0.3.0-beta.13` |
 | Referenceimplementering | Open Manuscript Studio |
 | Kildekoderepositorium | `open-manuscript-initiative/open-manuscript-studio` |
 | Webmål | Moderne browsere |
@@ -39,7 +41,7 @@ keywords:
 | Mobilmål | Offentlig universel APK til Android; valideret native simulator-mål til iOS/iPadOS, hvor distribution via TestFlight/App Store afventer signering fra Apple Developer |
 | Webimplementering | `studio.openmanuscript.org` |
 
-Den aktuelle Studio-betaversion er **`0.3.0-beta.12`**. Denne udgivelse indeholder sikkerhedsopdateringer til native TLS- og Tokio-afhængigheder, pluginrettelser og mere pålidelig oprettelse af DMG-installationspakker til macOS. Det portable format forbliver `OMI-SPEC-320@0.3.0`. [Udgivelsesnoterne for beta.12](/docs/studio/releases/0.3.0-beta.12) beskriver pakkeversioner og implementering. Beta betyder **ikke**, at enhver valgfri integration eller distributionskanal er produktionsklar.
+Den aktuelle Studio-betaversion er **`0.3.0-beta.13`**. Denne udgivelse indeholder sikkerhedsopdateringer til native TLS- og Tokio-afhængigheder, pluginrettelser og mere pålidelig oprettelse af DMG-installationspakker til macOS. Det portable format forbliver `OMI-SPEC-320@0.3.0`. [Udgivelsesnoterne for beta.13](/docs/studio/releases/0.3.0-beta.13) beskriver pakkeversioner og implementering. Beta betyder **ikke**, at enhver valgfri integration eller distributionskanal er produktionsklar.
 
 Denne side beskriver **implementerede produktfunktioner**, ikke overensstemmelse med en specifikOMI. Den formelle modenhed af specifikationerne og dokumentation for overensstemmelse registreres separat i [OMI Implementation Status Matrix](./implementation-status-matrix.md).
 
@@ -152,7 +154,7 @@ De nuværende integrationer med OJS og OMP fungerer i begge retninger i forbinde
 
 ## Udgivelse og distribution
 
-`0.3.0-beta.12` er den aktuelle serie af Studio-betaversioner. GitHub Actions genererer udgivelsesfiler fra det delte kildetræ til Windows, Linux, macOS og Android. Den offentlige Studio-downloadside giver adgang via browseren og viser de tilgængelige native pakker, herunder den universelle APK til Android.
+`0.3.0-beta.13` er den aktuelle serie af Studio-betaversioner. GitHub Actions genererer udgivelsesfiler fra det delte kildetræ til Windows, Linux, macOS og Android. Den offentlige Studio-downloadside giver adgang via browseren og viser de tilgængelige native pakker, herunder den universelle APK til Android.
 
 iOS/iPadOS har i øjeblikket en vellykket CI-simulatorversion i stedet for en offentlig IPA-fil. Apples distributionsvej er klar, men er bevidst adskilt fra simulatorvalideringen: Offentlige versioner og enhedsversioner kræver det rigtige Apple Development Team ID, distributionscertifikat, provisioning-profil og den endelige konfiguration af »`apple-app-site-association`«, før der kan ansøges om offentliggørelse via TestFlight/App Store.
 
