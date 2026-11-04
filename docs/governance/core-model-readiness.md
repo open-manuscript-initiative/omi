@@ -6,11 +6,21 @@ sidebar_label: Core Model Readiness
 
 # Core Model Readiness and Stabilization Order
 
-Core validation evidence updated **2026-11-04**; all-model source/Studio baselines remain dated **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/), [original machine-readable snapshot](/evidence/readiness-2026-10-31.json) and [validation supplement](/evidence/core-validation-2026-11-04.json).
+Core validation and identity/reference evidence updated **2026-11-04**; all-model source/Studio baselines remain dated **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/), [original machine-readable snapshot](/evidence/readiness-2026-10-31.json), [validation supplement](/evidence/core-validation-2026-11-04.json) and [combined evidence index](/evidence/core-identity-reference-2026-11-04.json).
+
+## Second bundle: identity continuity and deletion — 2026-11-04
+
+Twelve Studio scenarios exercise actual edits, formatting, renaming, subtree moves, reparenting/cycle rejection, section layout, deletion, checkpoints, `.omi` save/reopen and explicit revision restoration. They add **seven partial requirement observations**: `REQ-PRI-004`, `REQ-OBJ-004/008/009/016` and `REQ-DOC-002/003`. Combined with the validator evidence, the 66-requirement inventory now has **32 partial / 34 untested / 0 fully evidenced** entries. The validator-only manifest retains its separate 25-partial/41-untested scope.
+
+The [archived Studio report](/evidence/studio-identity-reference-2026-11-04.json) pins [commit b9c80c1](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/b9c80c198b920d26d15bf5275b4f1219eed9e1c3), file digests and case mappings. [Studio PR #856](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/856) was open at this evidence capture; these observations do not establish a merged or deployed release. OMI CI verifies the archived report and re-executes its own validator cases; Studio CI independently runs the same Studio case code, which remains reference-implementation evidence rather than a second implementation.
+
+The tests exposed a save/reopen failure after deleting a referenced figure and missing descendant deletion events. The candidate fixes remove affected active relationships atomically, leave visible unresolved-reference text in surviving prose, retain the original relation in history, record descendant deletion and reject reserved IDs before a store update, including before checkpoint. Strict portable-reference validation remains in force. Explicit revision restoration recovers the semantic objects and relationships.
+
+Full editing-path coverage, all specialized relationships, split/merge equivalence, native/browser acceptance and independent interoperability remain open. **Next bundle: exported credentials and confidential metadata.** No lifecycle promotion is requested.
 
 ## First validation test bundle — 2026-11-04
 
-Twelve new executable behavioral cases cover `REQ-DOC-012`, `REQ-DOC-013`, `REQ-OBJ-015`, `REQ-OBJ-018` and `REQ-MET-018` in the core snapshot validator role. They exercise frozen input graphs, deterministic located diagnostics, exact resource boundaries, truncated results, cycles, detached reports and inert asset references. The existing 22 JSON fixtures remain unchanged. Current coverage is **25 partial / 41 untested / 0 fully evidenced** requirements out of 66. See the [scope and exclusions for each requirement](../specifications/core-snapshot-review-profile.md#validation-behavior-evidence--2026-11-04).
+Twelve new executable behavioral cases cover `REQ-DOC-012`, `REQ-DOC-013`, `REQ-OBJ-015`, `REQ-OBJ-018` and `REQ-MET-018` in the core snapshot validator role. They exercise frozen input graphs, deterministic located diagnostics, exact resource boundaries, truncated results, cycles, detached reports and inert asset references. The existing 22 JSON fixtures remain unchanged. Validator-only coverage is **25 partial / 41 untested / 0 fully evidenced** requirements out of 66. See the [scope and exclusions for each requirement](../specifications/core-snapshot-review-profile.md#validation-behavior-evidence--2026-11-04).
 
 The validator passed these checks without a runtime change. Editor locks, raw-byte parser limits, full metadata conversion and independent conformance remain outside this bundle. Next bundles are identity continuity, dependent references after deletion, and credentials/confidential metadata in exports. No lifecycle promotion is requested.
 

@@ -12,7 +12,7 @@ Version **0.1.0**, status **Draft, unapproved review profile**. This is a bounde
 
 The profile supplies partial executable evidence for OMI-SPEC-000@0.2.0, OMI-SPEC-120@0.3.0, OMI-SPEC-100@0.2.0 and OMI-SPEC-140@0.2.0. These source revisions remain Draft. The runtime check is an observational validator, not an editor, renderer, authorization service or certification authority.
 
-The initial corpus had **22 fixtures** mapped to **20 partially evidenced requirements**. The 2026-11-04 validation evidence supplement adds **12 executable behavioral cases** for five previously untested requirements. All **66** core requirements are inventoried: **25 have partial evidence and 41 remain untested**. No row is marked fully tested. A passing suite therefore yields **indeterminate normative conformance**. A valid snapshot result means valid within this narrow review scope only. The suite is now `0.1.0-draft.2`; the profile, schema and validator remain version 0.1.0.
+The initial corpus had **22 fixtures** mapped to **20 partially evidenced requirements**. The 2026-11-04 validation evidence supplement adds **12 executable behavioral cases** for five previously untested requirements. All **66** core requirements are inventoried: within the validator-only scope, **25 have partial evidence and 41 remain untested**. Separate Studio observations bring [combined role-scoped coverage](../governance/core-model-readiness.md#second-bundle-identity-continuity-and-deletion--2026-11-04) to **32 partial / 34 untested**. No row is marked fully tested. A passing suite therefore yields **indeterminate normative conformance**. A valid snapshot result means valid within this narrow review scope only. The suite is now `0.1.0-draft.2`; the profile, schema and validator remain version 0.1.0.
 
 ## Artifacts
 
@@ -21,6 +21,7 @@ The initial corpus had **22 fixtures** mapped to **20 partially evidenced requir
 - [Versioned fixture and requirement manifest](/examples/omi-core/0.1.0/manifest.json), containing fixture SHA-256 digests, expected outcomes, exact diagnostic sets, a digest-bound behavioral module and partial requirement mappings.
 - [Readiness inventory](/evidence/readiness-2026-10-31.json), preserving the original source/code baselines and outstanding gates.
 - [2026-11-04 validation evidence supplement](/evidence/core-validation-2026-11-04.json), with current coverage, exact manifest/validator digests and remaining exclusions.
+- [Combined evidence index](/evidence/core-identity-reference-2026-11-04.json) and [archived Studio identity/reference run](/evidence/studio-identity-reference-2026-11-04.json), keeping editor/serializer observations separate from this validator's runtime scope.
 
 ## Validation behavior evidence — 2026-11-04
 
@@ -61,6 +62,8 @@ Diagnostics carry stable codes, severity and JSON-pointer locations, without sou
 ## Execution and evidence
 
 Run `npm run test:core-models` in the specification repository. `node scripts/validate-core-review.mjs --report test-results/core-review.json` records the pinned suite and behavioral-module digests, fixture and behavioral results, coverage, runner environment and timestamp. Fixture/behavior failure or corrupted/missing coverage is a failing command; indeterminate normative coverage is an expected disclosed result.
+
+`node scripts/validate-core-implementation-evidence.mjs --report test-results/core-implementation-evidence.json` verifies the archived Studio report's digest, commit binding, exact target specification revisions and case/requirement mappings, then derives combined partial coverage without changing the validator-only manifest. Its report identifies the validator cases as locally executed and the Studio cases as an archived reference-implementation run. It does not execute Studio or assert deployment status. Failed, duplicated, misversioned or overstated archived cases fail the evidence gate.
 
 The Studio companion vendors the exact same module and corpus with a source digest. Its separate Core model review panel can export a source-digest-bound result; a later edit makes the report stale. Existing validation-report formats and manuscript version declarations remain unchanged. Shared source is **not independent implementation evidence**.
 

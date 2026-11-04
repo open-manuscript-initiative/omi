@@ -11,8 +11,10 @@ on:
       - 'static/evidence/**'
       - 'scripts/validate-core-review.mjs'
       - 'scripts/core-validation-behaviors.mjs'
+      - 'scripts/validate-core-implementation-evidence.mjs'
       - 'scripts/validate-readiness-inventory.mjs'
       - 'tests/core-review.test.mjs'
+      - 'tests/core-implementation-evidence.test.mjs'
       - 'package.json'
       - '.github/workflows/core-model-review.yml'
   push:
@@ -32,8 +34,9 @@ jobs:
       - run: npm ci
       - run: npm run test:core-models
       - run: node scripts/validate-core-review.mjs --report test-results/core-review.json
+      - run: node scripts/validate-core-implementation-evidence.mjs --report test-results/core-implementation-evidence.json
       - uses: actions/upload-artifact@v4
         with:
           name: core-review-evidence
-          path: test-results/core-review.json
+          path: test-results/core*.json
           retention-days: 14
