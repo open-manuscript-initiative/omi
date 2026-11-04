@@ -1,6 +1,6 @@
 {
   "profile": "urn:omi:profile:core-snapshot-review:0.1.0",
-  "suiteVersion": "0.1.0-draft.1",
+  "suiteVersion": "0.1.0-draft.2",
   "approved": false,
   "specifications": {
     "OMI-SPEC-000": "0.2.0",
@@ -564,8 +564,11 @@
       "specification": "OMI-SPEC-120",
       "version": "0.3.0",
       "area": "assets",
-      "status": "untested",
-      "fixtures": []
+      "status": "partial",
+      "fixtures": [],
+      "behaviors": [
+        "inert-asset-references"
+      ]
     },
     {
       "id": "REQ-OBJ-016",
@@ -590,8 +593,15 @@
       "specification": "OMI-SPEC-120",
       "version": "0.3.0",
       "area": "editability",
-      "status": "untested",
-      "fixtures": []
+      "status": "partial",
+      "fixtures": [],
+      "behaviors": [
+        "frozen-valid-input",
+        "frozen-invalid-input",
+        "frozen-incomplete-input",
+        "detached-report",
+        "cycles-and-shared-values"
+      ]
     },
     {
       "id": "REQ-DOC-001",
@@ -700,16 +710,29 @@
       "specification": "OMI-SPEC-100",
       "version": "0.2.0",
       "area": "validation",
-      "status": "untested",
-      "fixtures": []
+      "status": "partial",
+      "fixtures": [],
+      "behaviors": [
+        "frozen-invalid-input",
+        "stable-escaped-diagnostic-location",
+        "exact-diagnostic-limit"
+      ]
     },
     {
       "id": "REQ-DOC-013",
       "specification": "OMI-SPEC-100",
       "version": "0.2.0",
       "area": "limits",
-      "status": "untested",
-      "fixtures": []
+      "status": "partial",
+      "fixtures": [],
+      "behaviors": [
+        "exact-node-limit",
+        "exact-depth-limit",
+        "exact-diagnostic-limit",
+        "invalid-over-incomplete",
+        "cycles-and-shared-values",
+        "invalid-limit-options"
+      ]
     },
     {
       "id": "REQ-DOC-014",
@@ -893,8 +916,99 @@
       "specification": "OMI-SPEC-140",
       "version": "0.2.0",
       "area": "editability",
-      "status": "untested",
-      "fixtures": []
+      "status": "partial",
+      "fixtures": [],
+      "behaviors": [
+        "frozen-valid-input",
+        "frozen-invalid-input",
+        "frozen-incomplete-input",
+        "detached-report"
+      ]
+    }
+  ],
+  "behaviorModule": {
+    "path": "scripts/core-validation-behaviors.mjs",
+    "sha256": "2950b3a00bbc569c44b4642ec93abf7ca9b6b5c25e4bb90a26b45903968edc21"
+  },
+  "behaviors": [
+    {
+      "id": "frozen-valid-input",
+      "requirements": [
+        "REQ-OBJ-018",
+        "REQ-MET-018"
+      ]
+    },
+    {
+      "id": "frozen-invalid-input",
+      "requirements": [
+        "REQ-OBJ-018",
+        "REQ-MET-018",
+        "REQ-DOC-012"
+      ]
+    },
+    {
+      "id": "frozen-incomplete-input",
+      "requirements": [
+        "REQ-OBJ-018",
+        "REQ-MET-018"
+      ]
+    },
+    {
+      "id": "detached-report",
+      "requirements": [
+        "REQ-OBJ-018",
+        "REQ-MET-018"
+      ]
+    },
+    {
+      "id": "stable-escaped-diagnostic-location",
+      "requirements": [
+        "REQ-DOC-012"
+      ]
+    },
+    {
+      "id": "exact-node-limit",
+      "requirements": [
+        "REQ-DOC-013"
+      ]
+    },
+    {
+      "id": "exact-depth-limit",
+      "requirements": [
+        "REQ-DOC-013"
+      ]
+    },
+    {
+      "id": "exact-diagnostic-limit",
+      "requirements": [
+        "REQ-DOC-013",
+        "REQ-DOC-012"
+      ]
+    },
+    {
+      "id": "invalid-over-incomplete",
+      "requirements": [
+        "REQ-DOC-013"
+      ]
+    },
+    {
+      "id": "cycles-and-shared-values",
+      "requirements": [
+        "REQ-OBJ-018",
+        "REQ-DOC-013"
+      ]
+    },
+    {
+      "id": "invalid-limit-options",
+      "requirements": [
+        "REQ-DOC-013"
+      ]
+    },
+    {
+      "id": "inert-asset-references",
+      "requirements": [
+        "REQ-OBJ-015"
+      ]
     }
   ]
 }

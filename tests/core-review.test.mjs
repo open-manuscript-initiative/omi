@@ -2,15 +2,23 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { validateCoreSnapshot } from '../static/tools/core-snapshot-validator-0.1.mjs';
 import { verifyCoreReview } from '../scripts/validate-core-review.mjs';
+import { coreValidationBehaviors } from '../scripts/core-validation-behaviors.mjs';
 const snapshot = () => ({ id: 'm', title: '', locale: 'hu', createdAt: '2026-10-31T00:00:00Z', updatedAt: '2026-10-31T00:00:00Z', sections: [{ id: 's', title: '', blocks: [{ id: 'b', type: 'paragraph', content: 'text' }] }] });
 
 test('all fixture digests, requirements, schemas, deterministic diagnostics and nonmutation are verified', async () => {
   const report = await verifyCoreReview();
   assert.equal(report.results.length, 22);
   assert.equal(report.requirements.length, 66);
+  assert.equal(report.behavioralResults.length, 12);
+  assert.equal(report.requirements.filter(item => item.status === 'partial').length, 25);
+  assert.equal(report.requirements.filter(item => item.status === 'untested').length, 41);
+  assert.ok(report.behavioralResults.every(item => item.status === 'pass'));
   assert.equal(report.outcome, 'indeterminate');
   assert.equal(report.approved, false);
 });
+for (const behavior of coreValidationBehaviors) {
+  test(`${behavior.id} [${behavior.requirements.join(', ')}]`, behavior.run);
+}
 test('JSON cycle and bounded depth/size never become complete validity', () => {
   const cyclic = snapshot(); cyclic.extensions = { self: cyclic };
   assert.equal(validateCoreSnapshot(cyclic).outcome, 'invalid');

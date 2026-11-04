@@ -6,9 +6,15 @@ sidebar_label: Core Model Readiness
 
 # Core Model Readiness and Stabilization Order
 
-Reviewed **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/) and [machine-readable snapshot](/evidence/readiness-2026-10-31.json).
+Core validation evidence updated **2026-11-04**; all-model source/Studio baselines remain dated **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/), [original machine-readable snapshot](/evidence/readiness-2026-10-31.json) and [validation supplement](/evidence/core-validation-2026-11-04.json).
 
-## Completed in this review
+## First validation test bundle — 2026-11-04
+
+Twelve new executable behavioral cases cover `REQ-DOC-012`, `REQ-DOC-013`, `REQ-OBJ-015`, `REQ-OBJ-018` and `REQ-MET-018` in the core snapshot validator role. They exercise frozen input graphs, deterministic located diagnostics, exact resource boundaries, truncated results, cycles, detached reports and inert asset references. The existing 22 JSON fixtures remain unchanged. Current coverage is **25 partial / 41 untested / 0 fully evidenced** requirements out of 66. See the [scope and exclusions for each requirement](../specifications/core-snapshot-review-profile.md#validation-behavior-evidence--2026-11-04).
+
+The validator passed these checks without a runtime change. Editor locks, raw-byte parser limits, full metadata conversion and independent conformance remain outside this bundle. Next bundles are identity continuity, dependent references after deletion, and credentials/confidential metadata in exports. No lifecycle promotion is requested.
+
+## Completed in the original 2026-10-31 review
 
 - Reconciled all 24 registry entries against source and pinned Studio evidence. Corrected obsolete 0.2.0 runtime claims: Studio already uses the 0.3.0 manuscript/schema boundary.
 - Rewrote OMI-SPEC-000/120/100/140 using the canonical 23-section structure, with 66 stable requirement IDs and explicit scope, compatibility, privacy, accessibility and review gaps.

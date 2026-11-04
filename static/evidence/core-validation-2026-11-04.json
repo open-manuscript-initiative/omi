@@ -1,0 +1,42 @@
+{
+  "format": "omi-core-validation-evidence",
+  "version": "0.1.0",
+  "reviewDate": "2026-11-04",
+  "baselineInventory": "/evidence/readiness-2026-10-31.json",
+  "specificationBaseCommit": "b299700ecfd3d2d8f27fdd930f1d8648918b439d",
+  "studioEvidenceRefreshed": false,
+  "suiteVersion": "0.1.0-draft.2",
+  "manifestSha256": "5672c9afc12eeae9b65a715fe3d00b98db3f4d28cd56f895644538cbd675c99c",
+  "validatorSha256": "5a90c9f43c60b1e613823e117b0487e631a79c7b20d52d8ad9a6160bb7180341",
+  "coreReview": {
+    "requirements": 66,
+    "partial": 25,
+    "untested": 41,
+    "fixtures": 22,
+    "behaviors": 12,
+    "approved": false,
+    "outcome": "indeterminate"
+  },
+  "newPartialRequirements": [
+    "REQ-OBJ-015",
+    "REQ-OBJ-018",
+    "REQ-DOC-012",
+    "REQ-DOC-013",
+    "REQ-MET-018"
+  ],
+  "scope": "Core snapshot observational validator only; tests are executed by verifyCoreReview before any passing report is emitted.",
+  "exclusions": [
+    "editor-lock-behavior",
+    "raw-byte-parser-limits",
+    "full-import-export",
+    "complete-asset-processing-isolation",
+    "independent-conformance"
+  ],
+  "independent": false,
+  "lifecyclePromotions": [],
+  "nextBundle": [
+    "identity-continuity",
+    "deletion-and-dependent-references",
+    "export-credentials-and-confidentiality"
+  ]
+}
