@@ -10,6 +10,7 @@ const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
 const suites = {
   'studio-core-identity-reference-0.1.0': ['OMI-SPEC-000', 'OMI-SPEC-100', 'OMI-SPEC-120'],
   'studio-core-export-privacy-0.1.0': ['OMI-SPEC-000', 'OMI-SPEC-140'],
+  'studio-core-metadata-0.1.0': ['OMI-SPEC-000', 'OMI-SPEC-120', 'OMI-SPEC-140'],
 };
 
 export function inspectStudioCoreEvidence(implementation, requirements, sourceCommit) {
@@ -49,17 +50,18 @@ export function inspectStudioCoreEvidence(implementation, requirements, sourceCo
 }
 
 export async function verifyCoreImplementationEvidence() {
-  // Validator checks execute here; both Studio suites remain explicitly archived observations.
+  // Validator checks execute here; Studio suites remain explicitly archived observations.
   const validator = await verifyCoreReview();
-  const index = JSON.parse(await readFile(join(root, 'static/evidence/core-export-privacy-2026-11-04.json'), 'utf8'));
+  const index = JSON.parse(await readFile(join(root, 'static/evidence/core-metadata-2026-11-04.json'), 'utf8'));
   assert.equal(index.format, 'omi-combined-core-evidence-index');
   assert.equal(validator.suiteDigest, index.validatorManifestSha256, 'validator baseline integrity');
   assert.equal(sha256(await readFile(join(root, 'scripts/validate-file-format-fixtures.mjs'))), index.fileFormatValidatorSha256);
-  assert.equal(index.studioEvidence.length, 2);
-  assert.equal(new Set(index.studioEvidence.map(item => item.suite)).size, 2);
+  assert.equal(index.studioEvidence.length, Object.keys(suites).length);
+  assert.equal(new Set(index.studioEvidence.map(item => item.suite)).size, Object.keys(suites).length);
+  assert.ok(Object.hasOwn(suites, index.newSuite));
   const implementations = [], records = [], covered = new Set();
   for (const entry of index.studioEvidence) {
-    assert.ok(/^static\/evidence\/studio-(?:identity-reference|export-privacy)-2026-11-04\.json$/.test(entry.path));
+    assert.ok(/^static\/evidence\/studio-(?:identity-reference|export-privacy|metadata)-2026-11-04\.json$/.test(entry.path));
     const bytes = await readFile(join(root, entry.path));
     assert.equal(sha256(bytes), entry.sha256, 'Studio evidence integrity');
     const implementation = JSON.parse(bytes);
@@ -82,15 +84,16 @@ export async function verifyCoreImplementationEvidence() {
     untested: requirements.filter(item => item.status === 'untested').length,
     fullyEvidenced: 0,
   };
-  const previous = records.find(item => item.suite === 'studio-core-identity-reference-0.1.0');
   const oldCoverage = new Set(validator.requirements.filter(item => item.status === 'partial').map(item => item.id));
-  for (const item of previous.requirements) oldCoverage.add(item.id);
+  for (const record of records.filter(item => item.suite !== index.newSuite)) {
+    for (const item of record.requirements) oldCoverage.add(item.id);
+  }
   assert.deepEqual(index.newPartialRequirements, [...covered].filter(id => !oldCoverage.has(id)).sort());
   assert.deepEqual(index.counts, counts);
   assert.equal(index.approved, false);
   assert.equal(index.independent, false);
   assert.deepEqual(index.lifecyclePromotions, []);
-  return { format: 'omi-combined-core-evidence', version: '0.2.0', createdAt: new Date().toISOString(),
+  return { format: 'omi-combined-core-evidence', version: '0.3.0', createdAt: new Date().toISOString(),
     counts, requirements, validator: { execution: 'local', suiteVersion: validator.suiteVersion,
       suiteDigest: validator.suiteDigest, fixtures: validator.results.length, behaviors: validator.behavioralResults.length },
     implementations, approved: false, independent: false, coverage: 'incomplete', outcome: 'indeterminate',
