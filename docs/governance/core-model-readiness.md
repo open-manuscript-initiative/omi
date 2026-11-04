@@ -6,7 +6,21 @@ sidebar_label: Core Model Readiness
 
 # Core Model Readiness and Stabilization Order
 
-Core validation, identity/reference, export/privacy and metadata evidence updated **2026-11-04**; all-model source/Studio baselines remain dated **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/), [original machine-readable snapshot](/evidence/readiness-2026-10-31.json), [validation supplement](/evidence/core-validation-2026-11-04.json) and [current combined evidence index](/evidence/core-metadata-2026-11-04.json).
+Core validation, identity/reference, export/privacy, metadata and localized conversion evidence updated **2026-11-04**; all-model source/Studio baselines remain dated **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/), [original machine-readable snapshot](/evidence/readiness-2026-10-31.json), [validation supplement](/evidence/core-validation-2026-11-04.json) and [current combined evidence index](/evidence/core-localized-conversion-2026-11-04.json).
+
+## Fifth bundle: localized metadata and conversion loss — 2026-11-04
+
+Twelve Studio scenarios add partial observations for **REQ-MET-011**, **REQ-MET-017** and **REQ-PRI-008**, with further preservation evidence for already-partial REQ-MET-018. Combined coverage is **43 partial / 23 untested / 0 fully evidenced** requirements out of 66. Validator-only scope remains 25 partial / 41 untested.
+
+The [archived localized conversion report](/evidence/studio-localized-conversion-2026-11-04.json) pins Studio [f191c97](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/f191c9787a47680c4d5e290c03d3861a96a6ba9d), proposed in [PR #859](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/859). The [current index](/evidence/core-localized-conversion-2026-11-04.json) combines four separately pinned Studio runs with locally executed validator cases. These are observations of one reference implementation, not independent interoperability or deployed-release certification.
+
+The cases exposed regional locale collapse during OJS normalization and a missing primary-language map entry during localized edits. Recognized language tags retain region/script distinctions, legacy underscore spellings are canonicalized, and conflicting aliases reject the import before returning a candidate. The source launch stays unchanged. Localized editing retains the scalar primary abstract/keywords while seeding their missing localized entry.
+
+Actual DOCX/ODT package XML confirms that secondary localized abstracts/keywords are absent. The candidate now discloses those omissions and missing scholarly metadata through the export warning/report path. Typed observations distinguish preservation, normalization, omission and unverified mapping, without copying metadata values. Empty variants absent from output are disclosed as omitted. Portable save/reopen retains all tested localized variants; conversion never invents missing rights or publication facts.
+
+Seven import/edit cases fail on the preceding implementation and pass after the fixes. The twelve new cases, full Studio test run and production build pass; focused office/export/privacy checks also pass after the final report adjustment. Complete localized titles, all metadata profiles, every adapter, HTML-to-text correctness, full language-tag support and independent round trips remain open. Every mapping stays partial.
+
+**Next bundle: unknown extensions and vocabulary preservation.** No lifecycle promotion is requested.
 
 ## Fourth bundle: metadata assertion states and provenance — 2026-11-04
 
@@ -18,7 +32,7 @@ The cases exposed loss of existing ORCID assertion evidence and private visibili
 
 Assertions, visibility states and inferred source attribution survive checkpoint and portable save/reopen. Inspection does not verify claims or mutate evidence. Verified/rejected fixtures are synthetic preservation inputs, not independent real-world proof. Complete metadata profiles, external identity/membership verification, all import/conversion paths, server authorization and independent interoperability remain open. Every mapping remains partial.
 
-**Next bundle: localized metadata and explicit conversion loss.** No lifecycle promotion is requested.
+The localized metadata/conversion follow-up is recorded in the fifth bundle above. No lifecycle promotion is requested.
 
 ## Third bundle: export credentials and confidential metadata — 2026-11-04
 

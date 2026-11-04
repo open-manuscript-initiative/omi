@@ -1,0 +1,62 @@
+{
+  "format": "omi-combined-core-evidence-index",
+  "version": "0.4.0",
+  "reviewDate": "2026-11-04",
+  "previousIndex": "/evidence/core-metadata-2026-11-04.json",
+  "validatorManifestSha256": "5672c9afc12eeae9b65a715fe3d00b98db3f4d28cd56f895644538cbd675c99c",
+  "fileFormatValidatorSha256": "890849ebc12be203965f3fa6d29cde0894cc7b0221e4c255157766a302edc76c",
+  "studioEvidence": [
+    {
+      "path": "static/evidence/studio-identity-reference-2026-11-04.json",
+      "sha256": "14c3732417df98669fd3fc25ec6418b6f4c2e6092f0e651aec14e84f66853878",
+      "sourceCommit": "b9c80c198b920d26d15bf5275b4f1219eed9e1c3",
+      "pullRequest": "https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/856",
+      "mergedAtReview": false,
+      "suite": "studio-core-identity-reference-0.1.0"
+    },
+    {
+      "path": "static/evidence/studio-export-privacy-2026-11-04.json",
+      "sha256": "2874378ffa8dc6336d9d953eb060f304ebfbb5b0aec0096cb24a12bce95ac910",
+      "sourceCommit": "da5b53085edfa2fee6b5a036ca9abc40a9642d16",
+      "suite": "studio-core-export-privacy-0.1.0",
+      "pullRequest": "https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/857",
+      "mergedAtReview": false
+    },
+    {
+      "path": "static/evidence/studio-metadata-2026-11-04.json",
+      "sha256": "8de1f89b0eb1975d9fc635d0dcb1d3c391c981427ca4c12e059e705c0bc3130e",
+      "sourceCommit": "d49003c79d23d795862729910d5e16bc994d69a6",
+      "suite": "studio-core-metadata-0.1.0",
+      "pullRequest": "https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/858",
+      "mergedAtReview": false
+    },
+    {
+      "path": "static/evidence/studio-localized-conversion-2026-11-04.json",
+      "sha256": "816bb5a75ceb4fc77fe0062b8a7e45f00eef54aa84ed83de6fd236e16aacb9aa",
+      "sourceCommit": "f191c9787a47680c4d5e290c03d3861a96a6ba9d",
+      "suite": "studio-core-localized-conversion-0.1.0",
+      "pullRequest": "https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/859",
+      "mergedAtReview": false
+    }
+  ],
+  "counts": {
+    "requirements": 66,
+    "validatorPartial": 25,
+    "combinedPartial": 43,
+    "untested": 23,
+    "fullyEvidenced": 0
+  },
+  "newPartialRequirements": [
+    "REQ-MET-011",
+    "REQ-MET-017",
+    "REQ-PRI-008"
+  ],
+  "scope": "Union of local core validator checks and four archived, separately commit-pinned Studio reference-implementation runs. No independent or deployed-release conformance claim.",
+  "approved": false,
+  "independent": false,
+  "lifecyclePromotions": [],
+  "nextBundle": [
+    "unknown-extension-and-vocabulary-preservation"
+  ],
+  "newSuite": "studio-core-localized-conversion-0.1.0"
+}
