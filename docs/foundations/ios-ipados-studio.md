@@ -18,6 +18,8 @@ keywords:
 
 # Open Manuscript Studio on iOS and iPadOS
 
+**4 November 2026 — Web and Android RC available.** Web Studio and the direct-install Android APK use `1.0.0-rc.1`. [Open Web Studio](https://studio.openmanuscript.org) or [download the Android RC package](https://github.com/open-manuscript-initiative/open-manuscript-studio/actions/runs/41741830930/artifacts/13282507414). Desktop downloads remain `0.3.0-beta.13`; Linux native and macOS are Preview, iOS/iPadOS Experimental. See [RC1 availability and changes](/docs/studio/releases/1.0.0-rc.1).
+
 Open Manuscript Studio uses the same React/TypeScript application core, OMI manuscript model and Tauri 2 native shell architecture on iPhone and iPad as on the other supported platforms. The iOS/iPadOS target is therefore not a separate product fork and does not introduce an Apple-specific manuscript format.
 
 ## Current status
@@ -34,7 +36,7 @@ Current development status:
 - mobile-native authentication handoff is shared with Android;
 - public TestFlight/App Store distribution is **not yet claimed**, because Apple Developer signing credentials and the final Universal Link association still have to be configured.
 
-The current public Studio release line is `0.3.0-beta.12`. The iOS App Store bundle metadata uses an Apple-compatible short version/build pair while preserving the Studio release identity in the application UI and project documentation.
+The current public Studio release line is `0.3.0-beta.13`. The iOS App Store bundle metadata uses an Apple-compatible short version/build pair while preserving the Studio release identity in the application UI and project documentation.
 
 ## Application identity
 
@@ -42,9 +44,9 @@ The current public Studio release line is `0.3.0-beta.12`. The iOS App Store bun
 |---|---|
 | Bundle identifier | `org.openmanuscript.studio` |
 | Minimum platform | iOS/iPadOS 14.0 |
-| App Store short version | `0.3.0` |
-| App Store build number | `24` |
-| Studio development line | `0.3.0-beta.12` |
+| App Store short version | `1.0.0` |
+| App Store build number | `26` |
+| Studio development line | `1.0.0-rc.1` |
 
 The Apple short version/build numbering is packaging metadata. It does not change the OMI schema version or create a separate iOS document compatibility line.
 

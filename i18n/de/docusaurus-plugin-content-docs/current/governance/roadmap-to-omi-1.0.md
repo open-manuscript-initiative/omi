@@ -6,6 +6,8 @@ description: Aktuelles Programm, abgeschlossene Grundlagen, Fortschritt bei der 
 
 # Roadmap für „OMI“ 1.0
 
+**4. November 2026 — RC1-Nachweise erfolgreich.** Der Quellstand `1.0.0-rc.1` (`e1200268ad549c0a40ace8724715cd2405e9d03c`) bestand CI, CodeQL, PKP, Readiness, native Builds und [E02](https://github.com/open-manuscript-initiative/open-manuscript-studio/actions/runs/41745224810). Die native RC-Veröffentlichung benötigt noch die tatsächliche manuelle Abnahme. Öffentliche Downloads: `0.3.0-beta.13`; Linux nativ und macOS Preview, iOS/iPadOS experimentell. [RC1-Status](/docs/studio/releases/1.0.0-rc.1).
+
 ## Entwicklung eines offenen Standards für wissenschaftliches Publizieren
 
 ## Metadaten des Dokuments
@@ -47,7 +49,7 @@ Das Programm hat die anfängliche Phase der Dokumentationsprüfung bereits weit 
 | Synchronisierung von Website und Produkt | **Aktiv und gepflegt** | Auf der öffentlichen Studio-Seite und im datierten Studio-Statusbericht werden nun die implementierten Produktfunktionen getrennt von der normativen Konformität erfasst. |
 | Migration von Identifikatoren | **Für aktive Spezifikationen abgeschlossen** | Aktive Spezifikationen verwenden die kanonische Zuweisungsarchitektur „`OMI-SPEC-*`“. |
 | Zentrale semantische Modelle | **In Arbeit** | Für die Modelle zu Identität/Mitwirkenden sowie Versionierung/Änderungen liegen umfangreiche Belege in Form von Referenzimplementierungen vor; die Modelle zu Validierung, Übersetzung und Zusammenarbeit sind auf Spezifikationsebene noch unvollständig. |
-| Referenzimplementierung | **Öffentliche Beta-Version (`0.3.0-beta.12`)** | Strukturierte Bearbeitung, mehrsprachige Benutzeroberfläche/Hilfe, servergestützte Konten, Peer-Review, native Integration von OJS/OMP, Import-/Exportfunktionen, Verlagsprofile, Suchfunktion, Desktop-/Mobilversionen und Update-Ablauf sind vorhanden. |
+| Referenzimplementierung | **Öffentliche Beta-Version (`0.3.0-beta.13`)** | Strukturierte Bearbeitung, mehrsprachige Benutzeroberfläche/Hilfe, servergestützte Konten, Peer-Review, native Integration von OJS/OMP, Import-/Exportfunktionen, Verlagsprofile, Suchfunktion, Desktop-/Mobilversionen und Update-Ablauf sind vorhanden. |
 | Peer-Review | **Operative Umsetzung** | Die Grundlagen für das Doppelblind-Review-Verfahren, die Arbeitsbereiche für Gutachter, das Review-Dashboard für Redakteure sowie die Abwicklung extern zugewiesener Gutachten sind implementiert. Die Konformität mit der formalen Spezifikation muss noch umgesetzt werden. |
 | OJS-Integration | **Betriebs- und konfigurationsabhängig** | Das Plugin v1.6.0 und der Studio-Workflow bieten einen signierten Start für Autoren, Redakteure und Prüfer, eine bereichsbezogene Dateiübertragung, native Prüfformulare, Korrekturen, getrenntes Feedback und signiertes Zurückschreiben; die native End-to-End-Verifizierung gemäß „OJS“ 3.5 ist erfolgreich. Die vollständige Profilabdeckung und Konformität sind noch unvollständig. |
 | OMP-Integration | **Betriebs- bzw. konfigurationsabhängig** | Das Plugin v1.5.1 und der Studio-Workflow bieten einen signierten Start für Autoren, Redakteure und Gutachter, die Zuordnung von Monografien, Publikationen und Studien, den Zugriff auf Gutachten ausschließlich für zugewiesene Studien, native Formulare, Korrekturen, getrenntes Feedback und signierte Rückmeldungen; die native E2E-Verifizierung von „OMP“ 3.5 ist erfolgreich. |

@@ -18,6 +18,8 @@ keywords:
 
 # Open Manuscript Studio v systémech iOS a iPadOS
 
+**4. listopadu 2026: automatické kontroly RC1 uspěly.** Zdrojový kandidát je `1.0.0-rc.1`, veřejné stahování zůstává `0.3.0-beta.13`. Zveřejnění RC vyžaduje skutečné ruční přijetí. Linux a macOS: Preview; iOS/iPadOS: experimentální. [Stav RC1 a důkazy](/docs/studio/releases/1.0.0-rc.1).
+
 Open Manuscript Studio využívá stejné jádro aplikace React/TypeScript, model rukopisů OMI a nativní architekturu prostředí Tauri 2 na zařízeních iPhone a iPad, stejně jako na ostatních podporovaných platformách. Verze pro iOS/iPadOS tedy není samostatnou odnoží produktu a nezavádí žádný formát rukopisů specifický pro Apple.
 
 ## Aktuální stav
@@ -34,7 +36,7 @@ Aktuální stav vývoje:
 - předávání ověřovacích údajů v nativním mobilním prostředí je sdílené s Androidem;
 - Veřejná distribuce prostřednictvím TestFlight a App Store **zatím nebyla zprovozněna**, protože je ještě třeba nakonfigurovat podpisové údaje Apple Developer a finální přiřazení univerzálních odkazů.
 
-Současná veřejná řada verzí ve Studiu je `0.3.0-beta.12`. Metadata balíčku v App Storu pro iOS používají zkrácenou verzi a číslo sestavení kompatibilní s Apple, přičemž v uživatelském rozhraní aplikace a v dokumentaci projektu zůstává zachována identita verze ze Studia.
+Současná veřejná řada verzí ve Studiu je `0.3.0-beta.13`. Metadata balíčku v App Storu pro iOS používají zkrácenou verzi a číslo sestavení kompatibilní s Apple, přičemž v uživatelském rozhraní aplikace a v dokumentaci projektu zůstává zachována identita verze ze Studia.
 
 ## Identita aplikace
 
@@ -42,9 +44,9 @@ Současná veřejná řada verzí ve Studiu je `0.3.0-beta.12`. Metadata balíč
 |---|---|
 | Identifikátor balíčku | `org.openmanuscript.studio` |
 | Minimální požadavky na platformu | iOS/iPadOS 14.0 |
-| Zkrácená verze v App Store | `0.3.0` |
-| Číslo sestavení v App Store | `24` |
-| Řada produktů Studio | `0.3.0-beta.12` |
+| Zkrácená verze v App Store | `1.0.0` |
+| Číslo sestavení v App Store | `26` |
+| Řada produktů Studio | `1.0.0-rc.1` |
 
 Zkrácené označení verzí/číslování sestavení společnosti Apple představuje metadata balíčku. Nemění verzi schématu OMI ani nevytváří samostatnou řadu dokumentů o kompatibilitě s iOS.
 

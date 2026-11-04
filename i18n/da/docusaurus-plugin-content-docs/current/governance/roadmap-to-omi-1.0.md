@@ -6,6 +6,8 @@ description: Aktuelt program, færdiggjorte grundlag, fremskridt med referenceim
 
 # Køreplan for »OMI« 1.0
 
+**4. november 2026: De automatiske RC1-kontroller er bestået.** Kildekandidaten er `1.0.0-rc.1`; offentlige downloads forbliver `0.3.0-beta.13`. RC-udgivelsen kræver faktisk manuel accept. Linux og macOS: Preview; iOS/iPadOS: eksperimentel. [RC1-status og dokumentation](/docs/studio/releases/1.0.0-rc.1).
+
 ## Udvikling af en åben standard for videnskabelig publicering
 
 ## Dokumentmetadata
@@ -47,7 +49,7 @@ Programmet er kommet langt videre end den indledende fase med dokumentationsgenn
 | Synkronisering af websted og produkt | **Aktiv og vedligeholdt** | Den offentlige Studio-side og den daterede Studio-statusrapport viser nu de implementerede produktfunktioner separat fra den normative overensstemmelse. |
 | Migrering af identifikatorer | **Afsluttet for aktive specifikationer** | Aktive specifikationer anvender den kanoniske tildelingsarkitektur `OMI-SPEC-*`. |
 | Centrale semantiske modeller | **Under udarbejdelse** | Der foreligger omfattende dokumentation for referenceimplementeringer af modellerne for identitet/bidragydere og versionering/ændringer; validering, oversættelse og samarbejde er endnu ikke fuldt udarbejdet på specifikationsniveau. |
-| Referenceimplementering | **Offentlig betaversion (`0.3.0-beta.12`)** | Struktureret redigering, flersproget brugergrænseflade og hjælp, serverbaserede konti, peer review, indbygget integration med OJS/OMP, import/eksport, udgiverprofiler, søgning, versioner til desktop og mobil samt opdateringsproces er til stede. |
+| Referenceimplementering | **Offentlig betaversion (`0.3.0-beta.13`)** | Struktureret redigering, flersproget brugergrænseflade og hjælp, serverbaserede konti, peer review, indbygget integration med OJS/OMP, import/eksport, udgiverprofiler, søgning, versioner til desktop og mobil samt opdateringsproces er til stede. |
 | Peer review | **Operationel implementering** | Grundlaget for dobbeltblind bedømmelse, bedømmeres arbejdsmiljøer, redaktørens bedømmelsesoversigt og håndtering af eksternt tildelte bedømmelser er implementeret. Overholdelse af den formelle specifikation er stadig et fremtidigt arbejde. |
 | OJS-integration | **Drifts- og konfigurationsafhængig** | Plugin-versionen v1.6.0 og Studio-arbejdsgangen muliggør signeret opstart for forfatter/redaktør/korrekturlæser, filoverførsel inden for afgrænsede rammer, indbyggede korrekturformularer, rettelser, adskilt feedback og signeret tilbageskrivning; den indbyggede E2E-verifikation i henhold til »OJS« 3.5 viser grønt. Den fulde profildækning og overensstemmelse er stadig ufuldstændig. |
 | Integration med OMP | **Driftsmæssigt / konfigurationsafhængigt** | Plugin v1.5.1 og Studio-arbejdsgangen muliggør signeret opstart for forfatter/redaktør/korrekturlæser, tilknytning af monografier/publikationer/undersøgelser, adgang til korrekturlæsning udelukkende for tildelte undersøgelser, indbyggede formularer, rettelser, adskilt feedback og signeret tilbagemelding; indbygget OMP 3.5 E2E-verifikation er grøn. |

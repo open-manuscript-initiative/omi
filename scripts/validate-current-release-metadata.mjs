@@ -1,14 +1,16 @@
 import { readFile } from 'node:fs/promises';
 
 const expected = {
-  studio: '0.3.0-beta.12',
-  stagedStudio: '0.3.0-beta.13',
+  studio: '0.3.0-beta.13',
+  stagedStudio: '1.0.0-rc.1',
   ojs: 'v1.6.0',
   omp: 'v1.5.1',
   iosMarketing: '0.3.0',
-  iosBuild: '24',
-  windowsMsi: '0.3.0.12',
-  androidFloor: '1211',
+  iosBuild: '25',
+  windowsMsi: '0.3.0.13',
+  androidFloor: '1212',
+  iosSourceMarketing: '1.0.0',
+  iosSourceBuild: '26',
 };
 
 const releaseNotesFiles = [
@@ -26,6 +28,7 @@ const stagedReleaseNotesFiles = [
 const currentFacingFiles = [
   ...stagedReleaseNotesFiles,
   'src/studioReleaseVersions.ts',
+  'src/components/StudioReleaseStatus/index.tsx',
   ...releaseNotesFiles,
   'README.md',
   'src/pages/index.tsx',
@@ -106,6 +109,19 @@ for (const [path, content] of contents) {
 
 const required = [
   ['README.md', expected.studio],
+  ['README.md', expected.stagedStudio],
+  ['src/studioReleaseVersions.ts', 'e1200268ad549c0a40ace8724715cd2405e9d03c'],
+  ['src/studioReleaseVersions.ts', '41745224810'],
+  ['src/studioReleaseVersions.ts', `STUDIO_WEB_VERSION = '${expected.stagedStudio}'`],
+  ['src/studioReleaseVersions.ts', `STUDIO_ANDROID_VERSION = '${expected.stagedStudio}'`],
+  ['src/studioReleaseVersions.ts', '/actions/runs/41741830930/artifacts/13282507414'],
+  ['src/pages/studio.tsx', 'href={STUDIO_ANDROID_RC_DOWNLOAD_URL}'],
+  ['src/pages/index.tsx', 'isAndroid ? STUDIO_ANDROID_RC_DOWNLOAD_URL'],
+  ['src/pages/studio.tsx', 'STUDIO_PUBLISHED_DOWNLOAD_BASE'],
+  ['src/pages/index.tsx', '<StudioReleaseStatus />'],
+  ['src/pages/studio.tsx', '<StudioReleaseStatus />'],
+  ['src/components/StudioReleaseStatus/index.tsx', 'Preview'],
+  ['src/components/StudioReleaseStatus/index.tsx', 'Web and Android RC available'],
   ['src/studioReleaseVersions.ts', `STUDIO_PUBLISHED_VERSION = '${expected.studio}'`],
   ['src/studioReleaseVersions.ts', `STUDIO_SOURCE_VERSION = '${expected.stagedStudio}'`],
   ['src/pages/index.tsx', 'STUDIO_SOURCE_VERSION'],
@@ -125,8 +141,8 @@ const required = [
   ['docs/integrations/ojs-plugin.md', expected.ojs],
   ['docs/integrations/omp-plugin.md', expected.omp],
   ['docs/foundations/ios-ipados-studio.md', expected.studio],
-  ['docs/foundations/ios-ipados-studio.md', `App Store short version | \`${expected.iosMarketing}\``],
-  ['docs/foundations/ios-ipados-studio.md', `App Store build number | \`${expected.iosBuild}\``],
+  ['docs/foundations/ios-ipados-studio.md', `App Store short version | \`${expected.iosSourceMarketing}\``],
+  ['docs/foundations/ios-ipados-studio.md', `App Store build number | \`${expected.iosSourceBuild}\``],
 ];
 
 for (const [path, value] of required) {
@@ -155,8 +171,8 @@ for (const locale of ['bg', 'cs', 'da', 'de']) {
   if (!contents.get(iosPath)?.includes(expected.studio)) {
     failures.push(`${iosPath}: expected current Studio version ${expected.studio}`);
   }
-  if (!contents.get(iosPath)?.includes(`| \`${expected.iosBuild}\` |`)) {
-    failures.push(`${iosPath}: expected current iOS build number ${expected.iosBuild}`);
+  if (!contents.get(iosPath)?.includes(`| \`${expected.iosSourceBuild}\` |`)) {
+    failures.push(`${iosPath}: expected RC source iOS build number ${expected.iosSourceBuild}`);
   }
   if (!contents.get(statusPath)?.includes('Yjs')) {
     failures.push(`${statusPath}: expected live-collaboration feature status`);
@@ -170,5 +186,5 @@ if (failures.length) {
 }
 
 console.log(
-  `Current release metadata verified: public Studio ${expected.studio}, staged Studio ${expected.stagedStudio}, OJS ${expected.ojs}, OMP ${expected.omp}, iOS ${expected.iosMarketing} build ${expected.iosBuild}.`,
+  `Current release metadata verified: public Studio ${expected.studio}, staged Studio ${expected.stagedStudio}, OJS ${expected.ojs}, OMP ${expected.omp}, published iOS metadata ${expected.iosMarketing}/${expected.iosBuild}, RC iOS source ${expected.iosSourceMarketing}/${expected.iosSourceBuild}.`,
 );

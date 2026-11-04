@@ -18,6 +18,8 @@ keywords:
 
 # Open Manuscript Studio på iOS og iPadOS
 
+**4. november 2026: De automatiske RC1-kontroller er bestået.** Kildekandidaten er `1.0.0-rc.1`; offentlige downloads forbliver `0.3.0-beta.13`. RC-udgivelsen kræver faktisk manuel accept. Linux og macOS: Preview; iOS/iPadOS: eksperimentel. [RC1-status og dokumentation](/docs/studio/releases/1.0.0-rc.1).
+
 Open Manuscript Studio bruger den samme applikationskerne fra React/TypeScript, manuskriptmodellen fra OMI og den indbyggede Tauri 2-shell-arkitektur på iPhone og iPad som på de øvrige understøttede platforme. iOS/iPadOS-versionen er derfor ikke en separat produktgren og indfører ikke et Apple-specifikt manuskriptformat.
 
 ## Nuværende status
@@ -34,7 +36,7 @@ Nuværende udviklingsstatus:
 - Overførslen af mobil-native autentificering deles med Android;
 - Offentlig distribution via TestFlight/App Store er **endnu ikke aktiveret**, da Apple Developer-signeringsoplysningerne og den endelige tilknytning af Universal Link stadig skal konfigureres.
 
-Den nuværende offentlige Studio-udgivelsesserie er `0.3.0-beta.12`. Metadataene for iOS App Store-pakken anvender et Apple-kompatibelt par bestående af kort version og build, samtidig med at Studio-udgivelsesidentiteten bevares i applikationens brugergrænseflade og projektdokumentationen.
+Den nuværende offentlige Studio-udgivelsesserie er `0.3.0-beta.13`. Metadataene for iOS App Store-pakken anvender et Apple-kompatibelt par bestående af kort version og build, samtidig med at Studio-udgivelsesidentiteten bevares i applikationens brugergrænseflade og projektdokumentationen.
 
 ## Applikationsidentitet
 
@@ -42,9 +44,9 @@ Den nuværende offentlige Studio-udgivelsesserie er `0.3.0-beta.12`. Metadataene
 |---|---|
 | Bundle-identifikator | `org.openmanuscript.studio` |
 | Minimumskrav til platform | iOS/iPadOS 14.0 |
-| Kort version i App Store | `0.3.0` |
-| App Store-buildnummer | `24` |
-| Studio-udviklingsserie | `0.3.0-beta.12` |
+| Kort version i App Store | `1.0.0` |
+| App Store-buildnummer | `26` |
+| Studio-udviklingsserie | `1.0.0-rc.1` |
 
 Apples korte version/build-nummerering er metadata om pakken. Det ændrer ikke versionen af skemaet »OMI« og opretter heller ikke en separat linje for iOS-dokumentkompatibilitet.
 

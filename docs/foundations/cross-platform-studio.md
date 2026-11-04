@@ -5,6 +5,8 @@ sidebar_label: Cross-platform Studio
 
 # Cross-platform Studio Architecture
 
+**4 November 2026 — Web and Android RC available.** Web Studio and the direct-install Android APK use `1.0.0-rc.1`. [Open Web Studio](https://studio.openmanuscript.org) or [download the Android RC package](https://github.com/open-manuscript-initiative/open-manuscript-studio/actions/runs/41741830930/artifacts/13282507414). Desktop downloads remain `0.3.0-beta.13`; Linux native and macOS are Preview, iOS/iPadOS Experimental. See [RC1 availability and changes](/docs/studio/releases/1.0.0-rc.1).
+
 Open Manuscript Studio is designed as a single scholarly authoring environment that runs across web, desktop and mobile targets without fragmenting the manuscript model or workflow implementation.
 
 The project does not maintain unrelated applications for each operating system. Studio shares one React/TypeScript application core and one OMI manuscript model, while thin platform-specific layers provide native capabilities where required.
@@ -13,11 +15,11 @@ The project does not maintain unrelated applications for each operating system. 
 
 | Platform | Current status | Delivery direction |
 |---|---|---|
-| Web | **Operational** | Hosted Studio |
+| Web | **RC `1.0.0-rc.1`** | Hosted Studio |
 | Windows | **Operational** | Tauri 2 EXE/MSI |
 | macOS | **Automated build target** | Intel and Apple Silicon DMG; signing/notarization hardening remains |
-| Linux | **Automated build target** | AppImage and DEB |
-| Android | **Operational public beta** | Universal APK from the shared release workflow; Google Play testing plus signed universal APK |
+| Linux | **Preview for RC1** | AppImage/DEB; inherited Rust `glib 0.18.5` advisory #271 remains open |
+| Android | **RC `1.0.0-rc.1`** | Signed direct-install APK package; Google Play is a separate channel |
 | iOS / iPadOS | **Validated native build target** | iPhone/iPad simulator build succeeds; TestFlight/App Store distribution requires Apple Developer signing and final Universal Link association |
 
 Android is no longer only an architectural or development target. A public universal APK is generated from the shared Tauri 2 code line and uses the same account, document, review, integration and export logic as the other clients, with mobile-specific responsive presentation and Android-native Documents/Storage Access Framework file handling.

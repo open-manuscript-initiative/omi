@@ -6,10 +6,10 @@ import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import {getPublicPageCopy} from '../i18n/publicPages';
-import {STUDIO_PUBLISHED_VERSION, STUDIO_SOURCE_VERSION, STUDIO_SOURCE_RELEASE_NOTES} from '../studioReleaseVersions';
+import {STUDIO_PUBLISHED_VERSION, STUDIO_SOURCE_VERSION, STUDIO_SOURCE_RELEASE_NOTES, STUDIO_WEB_VERSION, STUDIO_ANDROID_RC_DOWNLOAD_URL} from '../studioReleaseVersions';
+import StudioReleaseStatus from '../components/StudioReleaseStatus';
 import styles from './index.module.css';
 
-const GOOGLE_PLAY_TEST_URL = 'https://play.google.com/apps/testing/org.openmanuscript.studio';
 
 const FEATURE_DOC_TARGETS: Record<number, string> = {
   0: '/docs/specifications/document-model',
@@ -21,10 +21,10 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
 
 const STUDIO_UPDATE = {
   en: {
-    developmentUpdate: '1 November 2026: mobile multi-document tabs, verified cloud packages, media recovery and stricter PDF checks have been merged into the development source—not announced as a new public download.',
+    developmentUpdate: "4 November 2026: Web Studio and the Android APK are available as 1.0.0-rc.1.",
     developmentUpdateLink: 'Read the development update',
-    buildStatus: 'Development build', buildStatusDetail: 'Prepared source version; public downloads remain on the last approved release.',
-    summary: 'Open Manuscript Studio 0.3.0-beta.12 includes native TLS and Tokio security updates, native plugin fixes and more reliable macOS installer creation. The portable OMI format remains 0.3.0.',
+    buildStatus: "Web and Android RC", buildStatusDetail: "Use RC1 in your browser or install its signed Android APK. Desktop download status is listed separately.",
+    summary: "Studio 1.0.0-rc.1 is available for web and Android APK. Desktop downloads remain 0.3.0-beta.13. OMI-SPEC-320@0.3.0 is unchanged.",
     multiDocument: 'Multi-document desktop editing and document outline',
     wordLike: 'Word-like manuscript-wide split, merge and selection',
     pdf: 'Structural PDF import with geometry-aware footnotes',
@@ -40,17 +40,17 @@ const STUDIO_UPDATE = {
     cloud: 'Planned federated OMI Cloud with portable institutional storage',
     institutional: 'Institutional profiles, central administration and Admin API',
     proofreading: 'Spelling, grammar, style, translation and provider-neutral agent integrations',
-    androidPlay: 'Google Play closed testing available for eligible testers',
-    androidInstall: 'Install Android beta from Google Play',
+    androidPlay: "Android RC available as an APK package; Google Play is a separate channel",
+    androidInstall: "Download Android RC (ZIP)",
     downloads: 'Studio downloads',
     ios: 'Validated iPhone/iPad simulator build and Files integration',
     uiLocales: 'selectable UI locales',
   },
   hu: {
-    developmentUpdate: '2026. november 1.: a mobilos többdokumentumos fülek, az ellenőrzött felhőmentés, a képek helyreállítása és a PDF-export ellenőrzése bekerült a fejlesztési forrásba. Ez még nem új nyilvános alkalmazáskiadás.',
+    developmentUpdate: "2026. november 4.: a webes Studio és az Android APK már 1.0.0-rc.1 kiadási jelöltként használható.",
     developmentUpdateLink: 'A fejlesztési beszámoló megnyitása',
-    buildStatus: 'Fejlesztési build', buildStatusDetail: 'Előkészített forrásváltozat; a nyilvános letöltések továbbra is a legutóbb jóváhagyott kiadást kínálják.',
-    summary: 'Az Open Manuscript Studio 0.3.0-beta.12 a natív alkalmazások TLS- és Tokio-biztonsági frissítéseit, bővítményjavításait és megbízhatóbb macOS-telepítőkészítést tartalmaz. A hordozható OMI-formátum változatlanul 0.3.0.',
+    buildStatus: "Webes és Android RC", buildStatusDetail: "Az RC1 böngészőben használható vagy aláírt Android APK-ból telepíthető. Az asztali letöltések állapota külön szerepel.",
+    summary: "A Studio 1.0.0-rc.1 weben és Android APK-ként elérhető. Az asztali letöltések verziója továbbra is 0.3.0-beta.13. Az OMI-SPEC-320@0.3.0 változatlan.",
     multiDocument: 'Többdokumentumos asztali szerkesztés és dokumentumvázlat',
     wordLike: 'Word-szerű, kézirat-szintű szétválasztás, egyesítés és kijelölés',
     pdf: 'Strukturált PDF-import geometria-alapú lábjegyzet-felismeréssel',
@@ -66,17 +66,17 @@ const STUDIO_UPDATE = {
     cloud: 'Tervezett föderált OMI Cloud hordozható intézményi tárhellyel',
     institutional: 'Intézményi profilok, központi adminisztráció és Admin API',
     proofreading: 'Helyesírás, nyelvhelyesség, stílus, fordítás és szolgáltatófüggetlen ügynökök',
-    androidPlay: 'A Google Play zárt tesztelése elérhető a jogosult tesztelők számára',
-    androidInstall: 'Android béta telepítése a Google Playről',
+    androidPlay: "Az Android RC APK-csomagként elérhető; a Google Play külön csatorna",
+    androidInstall: "Android RC letöltése (ZIP)",
     downloads: 'Studio letöltések',
     ios: 'Validált iPhone/iPad szimulátoros build és Files-integráció',
     uiLocales: 'választható felületi lokalizáció',
   },
   de: {
-    developmentUpdate: '1. November 2026: Mobile Registerkarten für mehrere Manuskripte, geprüfte Cloud-Pakete, Medienwiederherstellung und strengere PDF-Prüfungen sind im Entwicklungszweig integriert, jedoch noch keine neue öffentliche Download-Version.',
+    developmentUpdate: "4. November 2026: Web Studio und das Android-APK stehen als 1.0.0-rc.1 bereit.",
     developmentUpdateLink: 'Entwicklungsbericht lesen',
-    buildStatus: 'Entwicklungs-Build', buildStatusDetail: 'Vorbereiteter Quellstand; öffentliche Downloads bleiben bis zur Freigabe auf der letzten Veröffentlichung.',
-    summary: 'Open Manuscript Studio 0.3.0-beta.12 enthält TLS- und Tokio-Sicherheitsupdates für native Anwendungen, Plugin-Korrekturen und eine zuverlässigere Erstellung von macOS-Installern. Das portable OMI-Format bleibt bei 0.3.0.',
+    buildStatus: "Web- und Android-RC", buildStatusDetail: "RC1 im Browser nutzen oder das signierte Android-APK installieren. Der Desktop-Downloadstatus wird getrennt aufgeführt.",
+    summary: "Studio 1.0.0-rc.1 ist für Web und Android-APK verfügbar. Desktop-Downloads bleiben 0.3.0-beta.13. OMI-SPEC-320@0.3.0 bleibt unverändert.",
     multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
     wordLike: 'Word-ähnliches manuskriptweites Teilen, Zusammenführen und Auswählen',
     pdf: 'Strukturierter PDF-Import mit geometriebasierter Fußnotenerkennung',
@@ -92,8 +92,8 @@ const STUDIO_UPDATE = {
     cloud: 'Geplante föderierte OMI Cloud mit portabler institutioneller Speicherung',
     institutional: 'Institutionelle Profile, zentrale Administration und Admin API',
     proofreading: 'Rechtschreibung, Grammatik, Stil, Übersetzung und providerneutrale Agenten',
-    androidPlay: 'Der geschlossene Google-Play-Test ist für berechtigte Tester verfügbar',
-    androidInstall: 'Android-Beta über Google Play installieren',
+    androidPlay: "Android-RC als APK-Paket verfügbar; Google Play ist ein getrennter Kanal",
+    androidInstall: "Android-RC herunterladen (ZIP)",
     downloads: 'Studio-Downloads',
     ios: 'Validierter iPhone/iPad-Simulator-Build und Files-Integration',
     uiLocales: 'auswählbare UI-Lokalisierungen',
@@ -130,7 +130,7 @@ export default function Home() {
   useEffect(() => {
     setIsAndroid(/Android/i.test(navigator.userAgent));
   }, []);
-  const installHref = isAndroid ? GOOGLE_PLAY_TEST_URL : '/studio';
+  const installHref = isAndroid ? STUDIO_ANDROID_RC_DOWNLOAD_URL : '/studio';
   const installLabel = isAndroid ? studioUpdate.androidInstall : studioUpdate.downloads;
   const localizedUrl = i18n.currentLocale === 'en'
     ? 'https://openmanuscript.org/'
@@ -206,14 +206,15 @@ export default function Home() {
 
         <section className={styles.studio} aria-labelledby="current-development-status">
           <div className={styles.studioContent}>
-            <p className={styles.sectionKicker}>Open Manuscript Studio · {STUDIO_PUBLISHED_VERSION} public beta</p>
+            <p className={styles.sectionKicker}>Open Manuscript Studio · {STUDIO_SOURCE_VERSION}</p>
             <h2 id="current-development-status">{t.status}</h2>
+            <StudioReleaseStatus />
             <h3>{t.currentTitle}</h3>
             <p>{studioUpdate.summary}</p>
-            <p><strong>{studioUpdate.buildStatus}: <Link to={STUDIO_SOURCE_RELEASE_NOTES}>{STUDIO_SOURCE_VERSION}</Link>.</strong> {studioUpdate.buildStatusDetail}</p>
+            <p><strong>{studioUpdate.buildStatus}: <Link to={STUDIO_SOURCE_RELEASE_NOTES, STUDIO_WEB_VERSION, STUDIO_ANDROID_RC_DOWNLOAD_URL}>{STUDIO_SOURCE_VERSION}</Link>.</strong> {studioUpdate.buildStatusDetail}</p>
             <p>{current}</p>
             <p>{studioUpdate.developmentUpdate}{' '}
-              <Link to="/docs/studio/updates/2026-11-01-stabilization">{studioUpdate.developmentUpdateLink}</Link>
+              <Link to="/docs/studio/releases/1.0.0-rc.1">{studioUpdate.developmentUpdateLink}</Link>
             </p>
             <div className={styles.studioActions}>
               <Link className="button button--primary button--lg" to={installHref}>{installLabel}</Link>
@@ -224,8 +225,9 @@ export default function Home() {
           </div>
 
           <aside className={styles.studioFeatures} aria-label={t.status}>
-            <h3>{STUDIO_PUBLISHED_VERSION}</h3>
-            <p>{studioUpdate.buildStatus}: <Link to={STUDIO_SOURCE_RELEASE_NOTES}>{STUDIO_SOURCE_VERSION}</Link></p>
+            <h3>Web · Android APK: {STUDIO_WEB_VERSION}</h3>
+            <p>Windows · Linux · macOS: {STUDIO_PUBLISHED_VERSION}</p>
+            <p>{studioUpdate.buildStatus}: <Link to={STUDIO_SOURCE_RELEASE_NOTES, STUDIO_WEB_VERSION, STUDIO_ANDROID_RC_DOWNLOAD_URL}>{STUDIO_SOURCE_VERSION}</Link></p>
             <p>Web · Windows · Linux · macOS · Android · iOS/iPadOS</p>
             <p><strong>47</strong> selectable UI languages</p>
             <nav className={styles.contextLinks} aria-label={t.status}>

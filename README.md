@@ -12,10 +12,12 @@ OMI treats the scholarly manuscript — structure, metadata, contributors, citat
 
 **Open Manuscript Studio** is the OMI reference implementation.
 
-Current public release line: **`0.3.0-beta.12`**.
-Project state: **public beta / active stabilization and interoperability development**.
+Current **Web and Android APK release: `1.0.0-rc.1`**. Desktop public downloads: **`0.3.0-beta.13`**.
 
-The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. Studio 0.3.0-beta.12 packages native TLS and Tokio security updates, native plugin fixes and more reliable macOS DMG creation. The portable manuscript format remains `OMI-SPEC-320@0.3.0`. Published releases remain immutable and bound to their exact build commit; Google Play requires a separate signed release run. See the [release notes](docs/studio/releases/0.3.0-beta.12.md) for packaging identities and deployment steps. iOS public distribution still depends on signing, provisioning and device/TestFlight validation.
+Web Studio and the signed direct-install Android APK are RC1. [RC1 availability, download and changes](docs/studio/releases/1.0.0-rc.1.md). Linux native and macOS remain Preview; iOS/iPadOS Experimental. Google Play is a separate distribution channel.
+Project state: **Web/Android RC; desktop stabilization and interoperability development**.
+
+The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. Studio 0.3.0-beta.13 packages native TLS and Tokio security updates, native plugin fixes and more reliable macOS DMG creation. The portable manuscript format remains `OMI-SPEC-320@0.3.0`. Published releases remain immutable and bound to their exact build commit; Google Play requires a separate signed release run. See the [release notes](docs/studio/releases/0.3.0-beta.13.md) for packaging identities and deployment steps. iOS public distribution still depends on signing, provisioning and device/TestFlight validation.
 
 ### Latest development line
 

@@ -5,6 +5,8 @@ sidebar_label: Platformuafhængigt studie
 
 # Platformsuafhængig Studio-arkitektur
 
+**4. november 2026: De automatiske RC1-kontroller er bestået.** Kildekandidaten er `1.0.0-rc.1`; offentlige downloads forbliver `0.3.0-beta.13`. RC-udgivelsen kræver faktisk manuel accept. Linux og macOS: Preview; iOS/iPadOS: eksperimentel. [RC1-status og dokumentation](/docs/studio/releases/1.0.0-rc.1).
+
 Open Manuscript Studio er udviklet som et samlet akademisk forfattermiljø, der fungerer på tværs af web-, desktop- og mobilplatforme uden at opdele manuskriptmodellen eller implementeringen af arbejdsgangen.
 
 Projektet vedligeholder ikke separate applikationer til hvert operativsystem. Studio benytter én fælles applikationskerne (React/TypeScript) og én fælles manuskriptmodel (OMI), mens tynde platformspecifikke lag sørger for native funktioner, hvor det er nødvendigt.
@@ -16,7 +18,7 @@ Projektet vedligeholder ikke separate applikationer til hvert operativsystem. St
 | Web | **Driftsklar** | Hostet studie |
 | Windows | **I drift** | Tauri 2 EXE/MSI |
 | macOS | **Automatiseret build-mål** | DMG til Intel og Apple Silicon; sikkerhedsforanstaltningerne vedrørende signering/notarisering forbliver uændrede |
-| Linux | **Automatiseret build-mål** | AppImage og DEB |
+| Linux | **Preview for RC1** | AppImage/DEB; inherited Rust `glib 0.18.5` advisory #271 remains open |
 | Android | **Offentlig beta-version i drift** | Universel APK fra den fælles udgivelsesproces; pakning til app-butikkerne følger senere |
 | iOS / iPadOS | **Valideret native build-mål** | Kompilering til iPhone/iPad-simulatoren lykkes; distribution via TestFlight/App Store kræver signering via Apple Developer og endelig tilknytning til Universal Link |
 

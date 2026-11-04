@@ -5,6 +5,8 @@ sidebar_label: Plattformübergreifendes Studio
 
 # Plattformübergreifende Studio-Architektur
 
+**4. November 2026 — RC1-Nachweise erfolgreich.** Der Quellstand `1.0.0-rc.1` (`e1200268ad549c0a40ace8724715cd2405e9d03c`) bestand CI, CodeQL, PKP, Readiness, native Builds und [E02](https://github.com/open-manuscript-initiative/open-manuscript-studio/actions/runs/41745224810). Die native RC-Veröffentlichung benötigt noch die tatsächliche manuelle Abnahme. Öffentliche Downloads: `0.3.0-beta.13`; Linux nativ und macOS Preview, iOS/iPadOS experimentell. [RC1-Status](/docs/studio/releases/1.0.0-rc.1).
+
 Open Manuscript Studio ist als einheitliche wissenschaftliche Autorenumgebung konzipiert, die sowohl im Web als auch auf Desktop- und Mobilgeräten läuft, ohne das Manuskriptmodell oder die Workflow-Implementierung zu fragmentieren.
 
 Das Projekt unterhält keine separaten Anwendungen für jedes Betriebssystem. Studio nutzt einen gemeinsamen Anwendungskern (React/TypeScript) und ein gemeinsames Manuskriptmodell (OMI), während dünne plattformspezifische Schichten bei Bedarf native Funktionen bereitstellen.
@@ -16,7 +18,7 @@ Das Projekt unterhält keine separaten Anwendungen für jedes Betriebssystem. St
 | Web | **In Betrieb** | Hosted Studio |
 | Windows | **Betriebsbereit** | Tauri 2 EXE/MSI |
 | macOS | **Automatisiertes Build-Ziel** | DMG für Intel und Apple Silicon; die Absicherung der Signierung/Notarisierung bleibt bestehen |
-| Linux | **Automatisiertes Build-Ziel** | AppImage und DEB |
+| Linux | **Preview for RC1** | AppImage/DEB; inherited Rust `glib 0.18.5` advisory #271 remains open |
 | Android | **Öffentliche Beta-Version im Einsatz** | Universelle APK aus dem gemeinsamen Release-Workflow; store-orientierte Paketierung folgt später |
 | iOS / iPadOS | **Validiertes natives Build-Ziel** | Der Build für den iPhone-/iPad-Simulator ist erfolgreich; für die Verteilung über TestFlight und den App Store sind eine Apple-Entwickler-Signatur sowie die endgültige Zuordnung des Universal Links erforderlich |
 
