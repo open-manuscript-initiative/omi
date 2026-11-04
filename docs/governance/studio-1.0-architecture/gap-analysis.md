@@ -6,6 +6,13 @@ description: Evidence-based gap analysis between the audited Open Manuscript Stu
 
 # Current → 1.0 Gap Analysis
 
+## Publication rendition boundary — 2026-11-04
+
+Correct the earlier frame-layout drift diagnosis: separate editable publication text is not inherently duplicate source authority. Inspected gaps are missing starting-revision/rendition binding, flattening and repeat append during text import, and incomplete rich-content export mapping. Existing history, overflow guards and extension round trips do not close those gaps. Visible author name/ORCID does not identify a document revision.
+
+[Inspected source, decision and acceptance work](https://openmanuscript.org/docs/governance/studio-1.0-architecture/publication-renditions-2026-11-04/).
+
+
 
 
 ## Outbound security and acceptance checkpoint — 2026-11-02

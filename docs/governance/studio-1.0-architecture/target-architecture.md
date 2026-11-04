@@ -6,6 +6,13 @@ description: Proposed target architecture for stabilizing the working Open Manus
 
 # Open Manuscript Studio 1.0 Target Architecture
 
+## Publication rendition boundary — 2026-11-04
+
+The source manuscript, editable publication rendition and exported artifact have distinct authority. Typesetting is publication preparation, not source processing: independent frame stories are legitimate publication state. Preserve unrestricted author editing within existing permissions; source updates require explicit reconciliation rather than overwriting publication edits. Internal revision/digest lineage and semantic fidelity remain implementation work.
+
+[Inspected source, decision and acceptance work](https://openmanuscript.org/docs/governance/studio-1.0-architecture/publication-renditions-2026-11-04/).
+
+
 
 
 ## Outbound security and acceptance checkpoint — 2026-11-02

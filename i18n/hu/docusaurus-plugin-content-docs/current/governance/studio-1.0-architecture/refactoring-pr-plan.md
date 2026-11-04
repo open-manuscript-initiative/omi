@@ -6,6 +6,13 @@ description: Függőségtudatos, kis és visszagörgethető pull requestekre bon
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
+## Publikációs változat határa — 2026-11-04
+
+Az eredeti 54 feladat marad. B01/B03/B07 az alkalmazás/session/history bekötés; B05/B06 a forrás ContentCodec feladata, nem a szerkeszthető publikációs változat megszüntetése. C03–C05 a forrás–publikáció leképezés, változatlan buildbemenet és veszteségjelentés specifikálása/tesztelése. C15/E03 az adott tartalomhoz kötött lektoráltság, adatvédelem, kifejezett frissítés/konfliktus, recovery és teljesítmény. A dokumentáció nem implementálja ezeket, és nem enyhíti E02–E05 követelményeit.
+
+[Ellenőrzött forrás, döntés és elfogadási feladatok](https://openmanuscript.org/hu/docs/governance/studio-1.0-architecture/publication-renditions-2026-11-04/).
+
+
 
 
 ## Outbound védelem és elfogadási checkpoint — 2026-11-02

@@ -6,6 +6,13 @@ description: Dependency-aware plan of small, testable, reversible pull requests 
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
+## Publication rendition boundary — 2026-11-04
+
+Keep the original 54 units. B01/B03/B07 cover application/session/history integration; B05/B06 still address the source ContentCodec, not removal of editable publication renditions. C03–C05 specify and test source-to-rendition mapping, immutable build inputs and loss reporting. C15/E03 cover exact-content assurance, privacy, explicit refresh/conflicts, recovery and performance. Documentation does not implement those behaviors or relax E02–E05.
+
+[Inspected source, decision and acceptance work](https://openmanuscript.org/docs/governance/studio-1.0-architecture/publication-renditions-2026-11-04/).
+
+
 
 
 ## Outbound security and acceptance checkpoint — 2026-11-02

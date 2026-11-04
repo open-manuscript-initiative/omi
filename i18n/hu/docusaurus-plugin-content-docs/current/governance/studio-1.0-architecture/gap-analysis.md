@@ -6,6 +6,13 @@ description: A jelenlegi Open Manuscript Studio implementáció és az 1.0 céla
 
 # Current → 1.0 Gap Analysis
 
+## Publikációs változat határa — 2026-11-04
+
+A korábbi kerettördelési drift minősítése pontosítandó: az önállóan szerkeszthető publikációs szöveg nem önmagában kettős forrás-authority. A tényleges hiány a kiinduló revízió/publikációs változat kötése, az import szövegesítése és ismételt hozzáfűzése, valamint a hiányos gazdagtartalom-export. A meglévő history, túlcsordulási őr és kiterjesztés-round-trip nem zárja le ezeket. A látható név/ORCID nem azonosít dokumentumrevíziót.
+
+[Ellenőrzött forrás, döntés és elfogadási feladatok](https://openmanuscript.org/hu/docs/governance/studio-1.0-architecture/publication-renditions-2026-11-04/).
+
+
 
 
 ## Outbound védelem és elfogadási checkpoint — 2026-11-02

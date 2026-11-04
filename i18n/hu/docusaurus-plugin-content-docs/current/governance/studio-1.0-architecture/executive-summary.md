@@ -6,6 +6,13 @@ description: Az Open Manuscript Studio 1.0 célarchitektúrájának, fő kockáz
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
+## Publikációs változat határa — 2026-11-04
+
+A publikációs tördelés önállóan szerkeszthető további változat, nem forrásfeldolgozás. A külön keretszöveg megengedett; a korábbi kategorikus driftmegállapítás a hiányzó forráskötésre és nem bizonyított tartalomhűségre/lektoráltsági lefedettségre szűkül. A szerző minden részt szerkeszthet. Látható jelölésként elég a név és ORCID; a belső forrásrevízió/digest és publikációazonosító hordozza az eredetet, technikai azonosítók nyomtatása nélkül. Az RC- és lektoráltsági kapuk változatlanok.
+
+[Ellenőrzött forrás, döntés és elfogadási feladatok](https://openmanuscript.org/hu/docs/governance/studio-1.0-architecture/publication-renditions-2026-11-04/).
+
+
 
 
 ## Outbound védelem és elfogadási checkpoint — 2026-11-02
