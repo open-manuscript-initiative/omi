@@ -6,7 +6,19 @@ sidebar_label: Core Model Readiness
 
 # Core Model Readiness and Stabilization Order
 
-Core validation and identity/reference evidence updated **2026-11-04**; all-model source/Studio baselines remain dated **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/), [original machine-readable snapshot](/evidence/readiness-2026-10-31.json), [validation supplement](/evidence/core-validation-2026-11-04.json) and [combined evidence index](/evidence/core-identity-reference-2026-11-04.json).
+Core validation, identity/reference and export/privacy evidence updated **2026-11-04**; all-model source/Studio baselines remain dated **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/), [original machine-readable snapshot](/evidence/readiness-2026-10-31.json), [validation supplement](/evidence/core-validation-2026-11-04.json) and [current combined evidence index](/evidence/core-export-privacy-2026-11-04.json).
+
+## Third bundle: export credentials and confidential metadata — 2026-11-04
+
+Twelve Studio scenarios add partial observations for **REQ-PRI-009**, **REQ-MET-013** and **REQ-PRI-003**, with further preservation evidence for already-partial REQ-MET-018. Combined coverage is now **35 partial / 31 untested / 0 fully evidenced** requirements out of 66. The original validator-only scope remains 25 partial / 41 untested; requirements are counted once across roles.
+
+The [archived export/privacy report](/evidence/studio-export-privacy-2026-11-04.json) pins Studio [da5b530](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/da5b53085edfa2fee6b5a036ca9abc40a9642d16), from [PR #857](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/857), which was open at capture. The [current index](/evidence/core-export-privacy-2026-11-04.json) combines this with the prior identity/reference report and the locally executed validator; it does not certify deployment or independent interoperability.
+
+The cases exposed private-note disclosure in custom HTML/PDF-source/DOCX exports, credential fields in separately written `.omi` history, and common underscore/hyphen credential aliases bypassing checks. The candidate uses the existing public annotation projection for custom exports and refuses portable credentials across the complete source graph before container construction. The OMI reference validator now recognizes the same named field forms. Errors omit credential values, while scholarly prose and unrelated extension fields remain unchanged.
+
+Thirteen standard public output paths and the three custom paths are inspected. Full authoring backups retain private notes and history; public publication artifacts filter supported private identity and note assertions. Arbitrary secrets in prose/encoded/binary data, all extension audience policies, every export path and server-rendered PDF bytes remain outside this evidence. Every mapping remains partial.
+
+**Next bundle: metadata assertion states, provenance and verification boundaries.** No lifecycle promotion is requested.
 
 ## Second bundle: identity continuity and deletion — 2026-11-04
 
@@ -16,7 +28,7 @@ The [archived Studio report](/evidence/studio-identity-reference-2026-11-04.json
 
 The tests exposed a save/reopen failure after deleting a referenced figure and missing descendant deletion events. The candidate fixes remove affected active relationships atomically, leave visible unresolved-reference text in surviving prose, retain the original relation in history, record descendant deletion and reject reserved IDs before a store update, including before checkpoint. Strict portable-reference validation remains in force. Explicit revision restoration recovers the semantic objects and relationships.
 
-Full editing-path coverage, all specialized relationships, split/merge equivalence, native/browser acceptance and independent interoperability remain open. **Next bundle: exported credentials and confidential metadata.** No lifecycle promotion is requested.
+Full editing-path coverage, all specialized relationships, split/merge equivalence, native/browser acceptance and independent interoperability remain open. The export/privacy follow-up is recorded in the third bundle above. No lifecycle promotion is requested.
 
 ## First validation test bundle — 2026-11-04
 

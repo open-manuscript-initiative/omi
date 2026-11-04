@@ -1,0 +1,258 @@
+{
+  "format": "omi-studio-core-implementation-evidence",
+  "version": "0.1.0",
+  "suite": "studio-core-export-privacy-0.1.0",
+  "repository": "https://github.com/open-manuscript-initiative/open-manuscript-studio",
+  "sourceCommit": "da5b53085edfa2fee6b5a036ca9abc40a9642d16",
+  "sourceFiles": [
+    {
+      "path": "scripts/verify-core-export-privacy.ts",
+      "sha256": "e1393e157b5b30c897639a0f3618ad4925265a4e3a466487a0ab357513da6b30"
+    },
+    {
+      "path": "tests/coreExportPrivacyCases.ts",
+      "sha256": "c6de7dd882b2b054e8db8358216721bd7c96edcdbe0e00e776e7a3ce1a8e8139"
+    },
+    {
+      "path": "tests/core-export-privacy.test.ts",
+      "sha256": "0cb24dd6020366e99e2aca637739ef277a95fb067012852d03030af949c3aa26"
+    },
+    {
+      "path": "tests/testManuscriptFixture.ts",
+      "sha256": "526e8c07e11bb190873a577b3107af09226f3afd0c03cf1310c758933ddffe47"
+    },
+    {
+      "path": "src/services/omiPortableFormat.ts",
+      "sha256": "5f466c0bc11f8e6f0fa0b41aa1cba19dfdf565e712fc39f2df82fb2bd1c1b10d"
+    },
+    {
+      "path": "src/services/omiContainer.ts",
+      "sha256": "b805f248ba0b9da6c0a135fe8a317b7a26f35a72bebb8bd87a7b3657f115f3af"
+    },
+    {
+      "path": "src/services/exportOmi.ts",
+      "sha256": "8527e5c4a621d37dc3e3154a461172de81a9084c5fcf6ea5d095aacf0d47ea6d"
+    },
+    {
+      "path": "src/services/exportCustom.ts",
+      "sha256": "e5646acaddcf4bf98f711d17d2193d5c1da2c0de54915e6cdaa0ecc879cd054f"
+    },
+    {
+      "path": "src/services/exportHtml.ts",
+      "sha256": "8891748df0e9b3f2666bfc2c1918f495604144f372c7f8b55a29f30523f2c889"
+    },
+    {
+      "path": "src/services/exportJats.ts",
+      "sha256": "4f679279647a5a42c892351b028c64993480bdce2bf5a0c752027d64e9c82157"
+    },
+    {
+      "path": "src/services/exportPdf.ts",
+      "sha256": "a5a72dd6bea4fcad6675521d901000946c165c37eae440a4ea8093d20adfc683"
+    },
+    {
+      "path": "src/services/exportDocx.ts",
+      "sha256": "41854a07430d6b138a7b485fb6b23a9f513cb903571be78368d045cec4752467"
+    },
+    {
+      "path": "src/services/exportOdt.ts",
+      "sha256": "78e4f72360b0408608749f4996ae45fdb80911fd5f1d91796a98d1b16bb7b450"
+    },
+    {
+      "path": "src/services/exportIdml.ts",
+      "sha256": "0d897d84b9d159d246ed3e5f3a7668559317fecc44a280f54174f1cb6499f446"
+    },
+    {
+      "path": "src/services/exportEpub.ts",
+      "sha256": "353806a1ba800975a2d81839506709d1f46f31fa54b571011ec7c7fbfba0da04"
+    },
+    {
+      "path": "src/services/exportLatex.ts",
+      "sha256": "5b37941643caae28ed0ba724e7f157c654d715aaf97590f1a641c48b72c7a3ee"
+    },
+    {
+      "path": "src/services/exportMif.ts",
+      "sha256": "20f0b87e3b4683a695cb75a84f498cb9ad2aa5974aad02cce81e0b552c26889c"
+    },
+    {
+      "path": "src/services/exportSla.ts",
+      "sha256": "3f5dfc08ae165dc71fd038499b7f0619a182a05e220f6f9947d2aeb3126093c8"
+    },
+    {
+      "path": "src/services/exportXtg.ts",
+      "sha256": "afc7d209c26f24a54234e4c5b24f5e7e22e8d855c751f22cf01b95311b9c7a3c"
+    },
+    {
+      "path": "src/services/exportStandaloneHtml.ts",
+      "sha256": "1599e1cfc2466efc157f63f2ae6c132c65a30cb4c2b55c1e0667d9a0e0c75ba9"
+    },
+    {
+      "path": "src/services/exportPublisherHtmlPackage.ts",
+      "sha256": "1d41333d0693f5a540ace3f96549dbc4400327978bbc294b0e3cd2fc20a41b86"
+    },
+    {
+      "path": "src/model/publicationAnnotations.ts",
+      "sha256": "9de65f94a0191926216fa5a8b60cad97c3cb06460d0a81c0124ac88a4bd3fda8"
+    },
+    {
+      "path": "src/model/publicationRendering.ts",
+      "sha256": "a957cb894ba2c2124cac306bee4d52807050c50d6eb116378fbbfcdbfb640d20"
+    }
+  ],
+  "specifications": {
+    "OMI-SPEC-000": "0.2.0",
+    "OMI-SPEC-140": "0.2.0"
+  },
+  "environment": "v24.22.1/linux/x64",
+  "createdAt": "2026-11-04T20:22:42.949Z",
+  "results": [
+    {
+      "id": "portable-json-rejects-credential-fields",
+      "requirements": [
+        "REQ-PRI-009"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "portable-json-rejects-credential-aliases",
+      "requirements": [
+        "REQ-PRI-009"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "json-history-credentials-are-rejected",
+      "requirements": [
+        "REQ-PRI-009"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "container-history-credentials-are-rejected",
+      "requirements": [
+        "REQ-PRI-009"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "container-current-credentials-are-rejected",
+      "requirements": [
+        "REQ-PRI-009"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "scholarly-text-and-benign-field-names-survive",
+      "requirements": [
+        "REQ-PRI-009",
+        "REQ-MET-018"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "standard-public-artifacts-filter-confidential-metadata",
+      "requirements": [
+        "REQ-MET-013",
+        "REQ-PRI-003"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "custom-html-filters-private-notes-and-markers",
+      "requirements": [
+        "REQ-MET-013",
+        "REQ-PRI-003"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "custom-pdf-source-filters-private-notes",
+      "requirements": [
+        "REQ-MET-013",
+        "REQ-PRI-003"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "custom-docx-filters-private-notes",
+      "requirements": [
+        "REQ-MET-013",
+        "REQ-PRI-003"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "public-identity-policy-does-not-inherit-private-assertions",
+      "requirements": [
+        "REQ-MET-013",
+        "REQ-PRI-003"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "private-authoring-backup-is-distinct-from-public-output",
+      "requirements": [
+        "REQ-MET-013",
+        "REQ-PRI-003"
+      ],
+      "status": "pass"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-MET-013",
+      "status": "partial",
+      "cases": [
+        "standard-public-artifacts-filter-confidential-metadata",
+        "custom-html-filters-private-notes-and-markers",
+        "custom-pdf-source-filters-private-notes",
+        "custom-docx-filters-private-notes",
+        "public-identity-policy-does-not-inherit-private-assertions",
+        "private-authoring-backup-is-distinct-from-public-output"
+      ]
+    },
+    {
+      "id": "REQ-MET-018",
+      "status": "partial",
+      "cases": [
+        "scholarly-text-and-benign-field-names-survive"
+      ]
+    },
+    {
+      "id": "REQ-PRI-003",
+      "status": "partial",
+      "cases": [
+        "standard-public-artifacts-filter-confidential-metadata",
+        "custom-html-filters-private-notes-and-markers",
+        "custom-pdf-source-filters-private-notes",
+        "custom-docx-filters-private-notes",
+        "public-identity-policy-does-not-inherit-private-assertions",
+        "private-authoring-backup-is-distinct-from-public-output"
+      ]
+    },
+    {
+      "id": "REQ-PRI-009",
+      "status": "partial",
+      "cases": [
+        "portable-json-rejects-credential-fields",
+        "portable-json-rejects-credential-aliases",
+        "json-history-credentials-are-rejected",
+        "container-history-credentials-are-rejected",
+        "container-current-credentials-are-rejected",
+        "scholarly-text-and-benign-field-names-survive"
+      ]
+    }
+  ],
+  "approved": false,
+  "independent": false,
+  "coverage": "incomplete",
+  "outcome": "indeterminate",
+  "exclusions": [
+    "all-credential-encodings",
+    "opaque-string-and-binary-secrets",
+    "all-extension-audience-policies",
+    "server-side-pdf-bytes",
+    "browser-native-ui-acceptance",
+    "independent-interoperability",
+    "stable-conformance"
+  ]
+}

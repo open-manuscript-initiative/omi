@@ -5,13 +5,29 @@ import { inspectStudioCoreEvidence, verifyCoreImplementationEvidence } from '../
 
 test('combines executed validator evidence with explicit archived Studio observations', async () => {
   const report = await verifyCoreImplementationEvidence();
-  assert.deepEqual(report.counts, { requirements: 66, validatorPartial: 25, combinedPartial: 32, untested: 34, fullyEvidenced: 0 });
-  assert.equal(report.implementation.execution, 'archived-reference-implementation-run');
+  assert.deepEqual(report.counts, { requirements: 66, validatorPartial: 25, combinedPartial: 35, untested: 31, fullyEvidenced: 0 });
+  assert.equal(report.implementations.length, 2);
+  assert.ok(report.implementations.every(item => item.execution === 'archived-reference-implementation-run'));
   assert.equal(report.validator.execution, 'local');
-  assert.equal(report.implementation.cases, 12);
+  assert.ok(report.implementations.every(item => item.cases === 12));
   assert.equal(report.outcome, 'indeterminate');
   assert.equal(report.independent, false);
   assert.equal(report.approved, false);
+});
+
+test('export/privacy observations also require exact target revisions and conservative claims', async () => {
+  const evidence = JSON.parse(await readFile(new URL('../static/evidence/studio-export-privacy-2026-11-04.json', import.meta.url)));
+  const manifest = JSON.parse(await readFile(new URL('../static/examples/omi-core/0.1.0/manifest.json', import.meta.url)));
+  assert.deepEqual(inspectStudioCoreEvidence(evidence, manifest.requirements, evidence.sourceCommit), ['REQ-MET-013', 'REQ-MET-018', 'REQ-PRI-003', 'REQ-PRI-009']);
+  for (const mutate of [
+    value => { value.results[0].status = 'fail'; },
+    value => { value.specifications['OMI-SPEC-140'] = '0.1.0'; },
+    value => { value.independent = true; },
+    value => { value.suite = 'unrecognized-suite'; },
+  ]) {
+    const broken = structuredClone(evidence); mutate(broken);
+    assert.throws(() => inspectStudioCoreEvidence(broken, manifest.requirements, evidence.sourceCommit));
+  }
 });
 
 test('failed, duplicated, misversioned or overstated archived results cannot increase coverage', async () => {

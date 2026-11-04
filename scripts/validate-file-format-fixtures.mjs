@@ -582,10 +582,10 @@ function validateForbiddenSecrets(value, diagnostics, path = '') {
     return;
   }
 
-  const forbidden = /^(?:password|accessToken|refreshToken|sessionToken|clientSecret|privateKey)$/i;
+  const forbidden = /^(?:password|accessToken|refreshToken|session(?:Token|Id|Identifier|Cookie)|clientSecret|privateKey|apiKey|idToken|authorizationHeader)$/i;
   for (const [key, child] of Object.entries(value)) {
     const childPath = `${path}/${escapeJsonPointerToken(key)}`;
-    if (forbidden.test(key)) {
+    if (forbidden.test(key.replace(/[-_]/g, ''))) {
       diagnostics.push({
         code: 'FMT-FORBIDDEN-SECRET',
         severity: 'error',

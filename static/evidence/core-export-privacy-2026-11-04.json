@@ -1,0 +1,45 @@
+{
+  "format": "omi-combined-core-evidence-index",
+  "version": "0.2.0",
+  "reviewDate": "2026-11-04",
+  "previousIndex": "/evidence/core-identity-reference-2026-11-04.json",
+  "validatorManifestSha256": "5672c9afc12eeae9b65a715fe3d00b98db3f4d28cd56f895644538cbd675c99c",
+  "fileFormatValidatorSha256": "890849ebc12be203965f3fa6d29cde0894cc7b0221e4c255157766a302edc76c",
+  "studioEvidence": [
+    {
+      "path": "static/evidence/studio-identity-reference-2026-11-04.json",
+      "sha256": "14c3732417df98669fd3fc25ec6418b6f4c2e6092f0e651aec14e84f66853878",
+      "sourceCommit": "b9c80c198b920d26d15bf5275b4f1219eed9e1c3",
+      "pullRequest": "https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/856",
+      "mergedAtReview": false,
+      "suite": "studio-core-identity-reference-0.1.0"
+    },
+    {
+      "path": "static/evidence/studio-export-privacy-2026-11-04.json",
+      "sha256": "2874378ffa8dc6336d9d953eb060f304ebfbb5b0aec0096cb24a12bce95ac910",
+      "sourceCommit": "da5b53085edfa2fee6b5a036ca9abc40a9642d16",
+      "suite": "studio-core-export-privacy-0.1.0",
+      "pullRequest": "https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/857",
+      "mergedAtReview": false
+    }
+  ],
+  "counts": {
+    "requirements": 66,
+    "validatorPartial": 25,
+    "combinedPartial": 35,
+    "untested": 31,
+    "fullyEvidenced": 0
+  },
+  "newPartialRequirements": [
+    "REQ-MET-013",
+    "REQ-PRI-003",
+    "REQ-PRI-009"
+  ],
+  "scope": "Union of local core validator checks and two archived, commit-pinned Studio reference-implementation runs. No independent or deployed-release conformance claim.",
+  "approved": false,
+  "independent": false,
+  "lifecyclePromotions": [],
+  "nextBundle": [
+    "metadata-assertion-states-and-provenance"
+  ]
+}
