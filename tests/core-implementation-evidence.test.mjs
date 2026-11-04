@@ -5,8 +5,8 @@ import { inspectStudioCoreEvidence, verifyCoreImplementationEvidence } from '../
 
 test('combines executed validator evidence with explicit archived Studio observations', async () => {
   const report = await verifyCoreImplementationEvidence();
-  assert.deepEqual(report.counts, { requirements: 66, validatorPartial: 25, combinedPartial: 40, untested: 26, fullyEvidenced: 0 });
-  assert.equal(report.implementations.length, 3);
+  assert.deepEqual(report.counts, { requirements: 66, validatorPartial: 25, combinedPartial: 43, untested: 23, fullyEvidenced: 0 });
+  assert.equal(report.implementations.length, 4);
   assert.ok(report.implementations.every(item => item.execution === 'archived-reference-implementation-run'));
   assert.equal(report.validator.execution, 'local');
   assert.ok(report.implementations.every(item => item.cases === 12));
@@ -59,6 +59,24 @@ test('failed, duplicated, misversioned or overstated archived results cannot inc
   for (const mutate of mutations) {
     const broken = structuredClone(evidence);
     mutate(broken);
+    assert.throws(() => inspectStudioCoreEvidence(broken, manifest.requirements, evidence.sourceCommit));
+  }
+});
+
+
+test('localized conversion evidence cannot overstate mapping completeness or versions', async () => {
+  const evidence = JSON.parse(await readFile(new URL('../static/evidence/studio-localized-conversion-2026-11-04.json', import.meta.url)));
+  const manifest = JSON.parse(await readFile(new URL('../static/examples/omi-core/0.1.0/manifest.json', import.meta.url)));
+  assert.deepEqual(inspectStudioCoreEvidence(evidence, manifest.requirements, evidence.sourceCommit), [
+    'REQ-MET-011', 'REQ-MET-017', 'REQ-MET-018', 'REQ-PRI-008',
+  ]);
+  for (const mutate of [
+    value => { value.coverage = 'complete'; },
+    value => { value.requirements[0].status = 'complete'; },
+    value => { value.specifications['OMI-SPEC-140'] = '0.1.0'; },
+    value => { value.independent = true; },
+  ]) {
+    const broken = structuredClone(evidence); mutate(broken);
     assert.throws(() => inspectStudioCoreEvidence(broken, manifest.requirements, evidence.sourceCommit));
   }
 });

@@ -1,0 +1,266 @@
+{
+  "format": "omi-studio-core-implementation-evidence",
+  "version": "0.1.0",
+  "suite": "studio-core-localized-conversion-0.1.0",
+  "repository": "https://github.com/open-manuscript-initiative/open-manuscript-studio",
+  "sourceCommit": "f191c9787a47680c4d5e290c03d3861a96a6ba9d",
+  "sourceFiles": [
+    {
+      "path": "scripts/verify-core-localized-conversion.ts",
+      "sha256": "3c16d112e490c3788ee8437fb8dc6aa07ed4b7f6ab685ce1f8e065345782e64b"
+    },
+    {
+      "path": "tests/coreLocalizedConversionCases.ts",
+      "sha256": "6b92a84ae3959691b0bbf53a81e9e38cd38319fea4b96fe46e48a32c7f6ecc69"
+    },
+    {
+      "path": "tests/core-localized-conversion.test.ts",
+      "sha256": "3c3076e87af4255a4ead454f716e42db93b4a9853b4ae9ea47cc412609b6990d"
+    },
+    {
+      "path": "tests/testManuscriptFixture.ts",
+      "sha256": "526e8c07e11bb190873a577b3107af09226f3afd0c03cf1310c758933ddffe47"
+    },
+    {
+      "path": "src/model/scholarlyMetadata.ts",
+      "sha256": "481b7a65819d232d1eb764dd2c1c7159e92ac13721536b45bc6165edc55b27a7"
+    },
+    {
+      "path": "src/model/metadataConversion.ts",
+      "sha256": "b162e3d04fe53a098e90486c9436b3810823625931d055b993512c8f631ec8b0"
+    },
+    {
+      "path": "src/model/exchange.ts",
+      "sha256": "c7f7af3084bf31d3258fc64b7db3bd52c6bef61cca2fd9d166d3c4dac243013b"
+    },
+    {
+      "path": "src/model/publicationRendering.ts",
+      "sha256": "a957cb894ba2c2124cac306bee4d52807050c50d6eb116378fbbfcdbfb640d20"
+    },
+    {
+      "path": "src/model/publicationAnnotations.ts",
+      "sha256": "9de65f94a0191926216fa5a8b60cad97c3cb06460d0a81c0124ac88a4bd3fda8"
+    },
+    {
+      "path": "src/model/versioning.ts",
+      "sha256": "f82ef787898a17172ca72c15d15fdbb4468b7a5055c353e496faea5d68e55ead"
+    },
+    {
+      "path": "src/model/workingState.ts",
+      "sha256": "afdbc585313ad29ded8bb31a4ab2e8c46419ab35abc0982021936e0b79cbc275"
+    },
+    {
+      "path": "src/app/localizedMetadataActions.ts",
+      "sha256": "cd02c3cd356f6b915212ac17023e49f19669f30d156e1191045dc442a6fcd418"
+    },
+    {
+      "path": "src/app/useStudioStore.ts",
+      "sha256": "780d8fde6d4a1b569281be0e21618213fb182a70d1db136def1694ffeda89c83"
+    },
+    {
+      "path": "src/integrations/ojs/importOjsLaunchLocalized.ts",
+      "sha256": "68dca3941c8923118cc2ac0fb766fc6e3f9235ad0e880b26c84b71560bb49d50"
+    },
+    {
+      "path": "src/integrations/ojs/importOjsLaunch.ts",
+      "sha256": "33d852713ceea48930efa1c5bc383b24b1be28475b3572a58b32461eebd2de10"
+    },
+    {
+      "path": "src/services/exportDocx.ts",
+      "sha256": "51c48fa9c6e053b357425e5271cd0682b7774547419e8aff481bc53e66eeaea7"
+    },
+    {
+      "path": "src/services/exportOdt.ts",
+      "sha256": "1d59aa1299896dd6106e27207679b13bb18e12786c5a67337c91283cf3652672"
+    },
+    {
+      "path": "src/services/simpleZip.ts",
+      "sha256": "7da89f3b2e655a128498f3715858d483f4c561b4b830043ace5c92667f832e77"
+    },
+    {
+      "path": "src/services/exchangeSession.ts",
+      "sha256": "788c2fb660b8af1de98f09aed43c795e36293fc27cbbdeb665702b5227d6b1ed"
+    },
+    {
+      "path": "src/services/exchangeArtifactInspection.ts",
+      "sha256": "d0813c0fd6d43831b02848d4664159c5e439bc965127cec7a8ce1c9722312fd0"
+    },
+    {
+      "path": "src/services/omiPortableFormat.ts",
+      "sha256": "5f466c0bc11f8e6f0fa0b41aa1cba19dfdf565e712fc39f2df82fb2bd1c1b10d"
+    },
+    {
+      "path": "src/services/exportOmi.ts",
+      "sha256": "8527e5c4a621d37dc3e3154a461172de81a9084c5fcf6ea5d095aacf0d47ea6d"
+    }
+  ],
+  "specifications": {
+    "OMI-SPEC-000": "0.2.0",
+    "OMI-SPEC-140": "0.2.0"
+  },
+  "environment": "v24.22.1/linux/x64",
+  "createdAt": "2026-11-04T21:09:12.200Z",
+  "results": [
+    {
+      "id": "regional-and-script-language-tags-stay-distinct",
+      "requirements": [
+        "REQ-MET-011"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "localized-text-keeps-regional-unicode-values",
+      "requirements": [
+        "REQ-MET-011",
+        "REQ-MET-018"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "localized-keywords-retain-regional-associations",
+      "requirements": [
+        "REQ-MET-011"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "conflicting-locale-aliases-refuse-silent-overwrite",
+      "requirements": [
+        "REQ-MET-011",
+        "REQ-PRI-008"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "ojs-import-preserves-regional-abstracts-and-keywords",
+      "requirements": [
+        "REQ-MET-011",
+        "REQ-MET-017"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "ojs-alias-collision-never-returns-lossy-candidate",
+      "requirements": [
+        "REQ-MET-011",
+        "REQ-PRI-008"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "localized-edits-seed-legacy-primary-variants",
+      "requirements": [
+        "REQ-MET-011",
+        "REQ-MET-018"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "portable-backup-retains-all-localized-variants",
+      "requirements": [
+        "REQ-MET-011",
+        "REQ-MET-018"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "docx-export-discloses-omitted-language-variants",
+      "requirements": [
+        "REQ-MET-011",
+        "REQ-MET-017",
+        "REQ-PRI-008"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "odt-export-discloses-omitted-language-variants",
+      "requirements": [
+        "REQ-MET-011",
+        "REQ-MET-017",
+        "REQ-PRI-008"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "office-metadata-report-distinguishes-normalization-and-unknown-mapping",
+      "requirements": [
+        "REQ-MET-017",
+        "REQ-PRI-008"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "office-delivery-receipt-retains-typed-metadata-loss-observations",
+      "requirements": [
+        "REQ-MET-017",
+        "REQ-PRI-008"
+      ],
+      "status": "pass"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-MET-011",
+      "status": "partial",
+      "cases": [
+        "regional-and-script-language-tags-stay-distinct",
+        "localized-text-keeps-regional-unicode-values",
+        "localized-keywords-retain-regional-associations",
+        "conflicting-locale-aliases-refuse-silent-overwrite",
+        "ojs-import-preserves-regional-abstracts-and-keywords",
+        "ojs-alias-collision-never-returns-lossy-candidate",
+        "localized-edits-seed-legacy-primary-variants",
+        "portable-backup-retains-all-localized-variants",
+        "docx-export-discloses-omitted-language-variants",
+        "odt-export-discloses-omitted-language-variants"
+      ]
+    },
+    {
+      "id": "REQ-MET-017",
+      "status": "partial",
+      "cases": [
+        "ojs-import-preserves-regional-abstracts-and-keywords",
+        "docx-export-discloses-omitted-language-variants",
+        "odt-export-discloses-omitted-language-variants",
+        "office-metadata-report-distinguishes-normalization-and-unknown-mapping",
+        "office-delivery-receipt-retains-typed-metadata-loss-observations"
+      ]
+    },
+    {
+      "id": "REQ-MET-018",
+      "status": "partial",
+      "cases": [
+        "localized-text-keeps-regional-unicode-values",
+        "localized-edits-seed-legacy-primary-variants",
+        "portable-backup-retains-all-localized-variants"
+      ]
+    },
+    {
+      "id": "REQ-PRI-008",
+      "status": "partial",
+      "cases": [
+        "conflicting-locale-aliases-refuse-silent-overwrite",
+        "ojs-alias-collision-never-returns-lossy-candidate",
+        "docx-export-discloses-omitted-language-variants",
+        "odt-export-discloses-omitted-language-variants",
+        "office-metadata-report-distinguishes-normalization-and-unknown-mapping",
+        "office-delivery-receipt-retains-typed-metadata-loss-observations"
+      ]
+    }
+  ],
+  "approved": false,
+  "independent": false,
+  "coverage": "incomplete",
+  "outcome": "indeterminate",
+  "exclusions": [
+    "localized-title-model",
+    "all-metadata-profiles",
+    "all-import-export-adapters",
+    "html-to-text-import-normalization",
+    "complete-bcp47-and-alias-support",
+    "real-world-rights-and-publication-verification",
+    "all-server-authorization-paths",
+    "independent-interoperability",
+    "stable-conformance"
+  ]
+}
