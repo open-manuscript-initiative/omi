@@ -10,6 +10,33 @@ import { validateDocument, validateRawDocument } from '../scripts/validate-file-
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const fixtureRoot = join(root, 'static/examples/omi-spec-320/0.3.0');
 
+test('rejects operational credential aliases in current state and historical values without echoing secrets', async () => {
+  const base = JSON.parse(await readFile(join(fixtureRoot, 'valid-history-extension.omi.json'), 'utf8'));
+  for (const key of ['password', 'access_token', 'refresh-token', 'sessionId', 'session_identifier',
+    'SESSION-TOKEN', 'client_secret', 'private_key', 'api_key', 'id_token', 'authorization_header', 'session_cookie']) {
+    const document = structuredClone(base);
+    document.extensions = { 'urn:example:credentials': [{ [key]: 'SYNTHETIC_SECRET_NOT_IN_DIAGNOSTICS' }] };
+    const before = JSON.stringify(document);
+    const findings = validateDocument(document).filter(item => item.code === 'FMT-FORBIDDEN-SECRET');
+    assert.equal(findings.length, 1, key);
+    assert.equal(findings[0].requirement, 'REQ-FMT-020');
+    assert.ok(!JSON.stringify(findings).includes('SYNTHETIC_SECRET_NOT_IN_DIAGNOSTICS'));
+    assert.equal(JSON.stringify(document), before);
+  }
+  const historical = structuredClone(base);
+  historical.revisionHistory.revisions[0].extensions = { 'urn:example:old-account': { access_token: 'SYNTHETIC_OLD_SECRET' } };
+  assert.ok(validateDocument(historical).some(item => item.code === 'FMT-FORBIDDEN-SECRET' && item.instancePath.startsWith('/revisionHistory/')));
+});
+
+test('credential checks preserve scholarly text and non-credential extension properties', async () => {
+  const document = JSON.parse(await readFile(join(fixtureRoot, 'valid-minimal.omi.json'), 'utf8'));
+  document.extensions = { 'urn:example:research': {
+    text: 'A paper about access_token and passwords.', tokenCount: 10,
+    passwordPolicy: 'research topic', privateKeyAlgorithm: 'RSA',
+  } };
+  assert.deepEqual(validateDocument(document).filter(item => item.code === 'FMT-FORBIDDEN-SECRET'), []);
+});
+
 test('accepts valid UTF-8 JSON and preserves Unicode, ordering, and numeric values', () => {
   const source = Buffer.from('{"text":"árvíztűrő 😀","values":[true,null,-12.5]}', 'utf8');
   assert.deepEqual(parseUniqueJson(source), {

@@ -7,18 +7,22 @@ import { verifyCoreReview } from './validate-core-review.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
+const suites = {
+  'studio-core-identity-reference-0.1.0': ['OMI-SPEC-000', 'OMI-SPEC-100', 'OMI-SPEC-120'],
+  'studio-core-export-privacy-0.1.0': ['OMI-SPEC-000', 'OMI-SPEC-140'],
+};
 
 export function inspectStudioCoreEvidence(implementation, requirements, sourceCommit) {
   assert.equal(implementation.format, 'omi-studio-core-implementation-evidence');
   assert.equal(implementation.repository, 'https://github.com/open-manuscript-initiative/open-manuscript-studio');
-  assert.equal(implementation.suite, 'studio-core-identity-reference-0.1.0');
+  assert.ok(Object.hasOwn(suites, implementation.suite), 'Unknown implementation evidence suite');
   assert.match(implementation.sourceCommit, /^[a-f0-9]{40}$/);
   assert.equal(implementation.sourceCommit, sourceCommit);
   assert.equal(implementation.approved, false);
   assert.equal(implementation.independent, false);
   assert.equal(implementation.coverage, 'incomplete');
   assert.equal(implementation.outcome, 'indeterminate');
-  const versions = Object.fromEntries(['OMI-SPEC-000', 'OMI-SPEC-100', 'OMI-SPEC-120'].map(id => [id, requirements.find(item => item.specification === id)?.version]));
+  const versions = Object.fromEntries(suites[implementation.suite].map(id => [id, requirements.find(item => item.specification === id)?.version]));
   assert.deepEqual(implementation.specifications, versions);
   assert.equal(implementation.results.length, 12);
   assert.equal(new Set(implementation.results.map(item => item.id)).size, implementation.results.length);
@@ -45,21 +49,32 @@ export function inspectStudioCoreEvidence(implementation, requirements, sourceCo
 }
 
 export async function verifyCoreImplementationEvidence() {
-  // These cases execute locally; the Studio cases below are an explicitly archived run.
+  // Validator checks execute here; both Studio suites remain explicitly archived observations.
   const validator = await verifyCoreReview();
-  const index = JSON.parse(await readFile(join(root, 'static/evidence/core-identity-reference-2026-11-04.json'), 'utf8'));
-  const artifactPath = 'static/evidence/studio-identity-reference-2026-11-04.json';
-  assert.equal(index.studioEvidence.path, artifactPath);
-  const bytes = await readFile(join(root, artifactPath));
-  assert.equal(sha256(bytes), index.studioEvidence.sha256, 'Studio evidence integrity');
-  assert.equal(validator.suiteDigest, index.validatorManifestSha256, 'validator baseline integrity');
-  const implementation = JSON.parse(bytes);
-  const covered = inspectStudioCoreEvidence(implementation, validator.requirements, index.studioEvidence.sourceCommit);
+  const index = JSON.parse(await readFile(join(root, 'static/evidence/core-export-privacy-2026-11-04.json'), 'utf8'));
   assert.equal(index.format, 'omi-combined-core-evidence-index');
-  assert.deepEqual(index.newPartialRequirements, covered.filter(id => validator.requirements.find(item => item.id === id).status === 'untested'));
+  assert.equal(validator.suiteDigest, index.validatorManifestSha256, 'validator baseline integrity');
+  assert.equal(sha256(await readFile(join(root, 'scripts/validate-file-format-fixtures.mjs'))), index.fileFormatValidatorSha256);
+  assert.equal(index.studioEvidence.length, 2);
+  assert.equal(new Set(index.studioEvidence.map(item => item.suite)).size, 2);
+  const implementations = [], records = [], covered = new Set();
+  for (const entry of index.studioEvidence) {
+    assert.ok(/^static\/evidence\/studio-(?:identity-reference|export-privacy)-2026-11-04\.json$/.test(entry.path));
+    const bytes = await readFile(join(root, entry.path));
+    assert.equal(sha256(bytes), entry.sha256, 'Studio evidence integrity');
+    const implementation = JSON.parse(bytes);
+    assert.equal(implementation.suite, entry.suite);
+    for (const id of inspectStudioCoreEvidence(implementation, validator.requirements, entry.sourceCommit)) covered.add(id);
+    records.push(implementation);
+    implementations.push({ execution: 'archived-reference-implementation-run', suite: implementation.suite,
+      repository: implementation.repository, sourceCommit: implementation.sourceCommit,
+      artifactPath: entry.path, sha256: sha256(bytes), cases: implementation.results.length });
+  }
   const requirements = validator.requirements.map(item => ({ ...item,
-    status: covered.includes(item.id) ? 'partial' : item.status,
-    implementationCases: implementation.results.filter(result => result.requirements.includes(item.id)).map(result => result.id),
+    status: covered.has(item.id) ? 'partial' : item.status,
+    implementationCases: records.flatMap(implementation => implementation.results
+      .filter(result => result.requirements.includes(item.id))
+      .map(result => ({ suite: implementation.suite, caseId: result.id }))),
   }));
   const counts = { requirements: requirements.length,
     validatorPartial: validator.requirements.filter(item => item.status === 'partial').length,
@@ -67,16 +82,18 @@ export async function verifyCoreImplementationEvidence() {
     untested: requirements.filter(item => item.status === 'untested').length,
     fullyEvidenced: 0,
   };
+  const previous = records.find(item => item.suite === 'studio-core-identity-reference-0.1.0');
+  const oldCoverage = new Set(validator.requirements.filter(item => item.status === 'partial').map(item => item.id));
+  for (const item of previous.requirements) oldCoverage.add(item.id);
+  assert.deepEqual(index.newPartialRequirements, [...covered].filter(id => !oldCoverage.has(id)).sort());
   assert.deepEqual(index.counts, counts);
   assert.equal(index.approved, false);
   assert.equal(index.independent, false);
   assert.deepEqual(index.lifecyclePromotions, []);
-  return { format: 'omi-combined-core-evidence', version: '0.1.0', createdAt: new Date().toISOString(),
+  return { format: 'omi-combined-core-evidence', version: '0.2.0', createdAt: new Date().toISOString(),
     counts, requirements, validator: { execution: 'local', suiteVersion: validator.suiteVersion,
       suiteDigest: validator.suiteDigest, fixtures: validator.results.length, behaviors: validator.behavioralResults.length },
-    implementation: { execution: 'archived-reference-implementation-run', repository: implementation.repository,
-      sourceCommit: implementation.sourceCommit, artifactPath, sha256: sha256(bytes), cases: implementation.results.length },
-    approved: false, independent: false, coverage: 'incomplete', outcome: 'indeterminate',
+    implementations, approved: false, independent: false, coverage: 'incomplete', outcome: 'indeterminate',
   };
 }
 

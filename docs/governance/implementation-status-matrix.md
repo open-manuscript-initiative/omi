@@ -9,13 +9,14 @@ description: Version-pinned evidence inventory for all 24 OMI models, with core 
 
 ## Evidence baseline
 
-Version **0.8.0**, core validation and identity/reference evidence updated 2026-11-04. The 24-model source/Studio inventory below retains its 2026-10-31 baseline; the separate identity/reference run pins a newer candidate commit and does not re-audit the deployed Studio release. Informative evidence report; no lifecycle promotion. The registry and exact versioned normative text remain authoritative.
+Version **0.9.0**, core validation, identity/reference and export/privacy evidence updated 2026-11-04. The 24-model source/Studio inventory below retains its 2026-10-31 baseline; the separate Studio suites pin newer candidate commits and do not re-audit the deployed release. Informative evidence report; no lifecycle promotion. The registry and exact versioned normative text remain authoritative.
 
 - Specification baseline: [`b4e12ef`](https://github.com/open-manuscript-initiative/omi/commit/b4e12ef9ffdf53be34cd16bbcb45d9530123c120), plus the proposed core Draft revisions in this change.
 - Studio baseline: [`5a69669`](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/5a69669131dac56379bce50ce6ce300c9464a900).
 - [Machine-readable inventory with file hashes](/evidence/readiness-2026-10-31.json).
 - [2026-11-04 core validation supplement](/evidence/core-validation-2026-11-04.json), with current manifest/validator digests and bounded behavioral coverage.
 - [Combined core evidence index](/evidence/core-identity-reference-2026-11-04.json) and [archived Studio identity/reference report](/evidence/studio-identity-reference-2026-11-04.json). Studio candidate [b9c80c1](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/b9c80c198b920d26d15bf5275b4f1219eed9e1c3), proposed in [PR #856](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/856), supplies bounded editor/serializer observations rather than deployed-release or independent conformance evidence.
+- [Current combined index](/evidence/core-export-privacy-2026-11-04.json) and [archived Studio export/privacy report](/evidence/studio-export-privacy-2026-11-04.json). Candidate [da5b530](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/da5b53085edfa2fee6b5a036ca9abc40a9642d16), proposed in [PR #857](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/857), adds credential, supported audience-filtering and source-preservation observations. Its deployment and independent conformance are not established here.
 - [Studio PR #785](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/785) was open with successful executed checks at review time. Its new 190/340/350 profiles are **proposed**, not merged baseline evidence. This snapshot is historical, not a live PR-status widget.
 
 ## Interpretation
@@ -53,7 +54,7 @@ A listed file demonstrates related code or tests, not full requirement coverage.
 
 ## Core review evidence
 
-The 000/120/100/140 rewrites provide **66 requirement IDs**, **22 versioned fixtures**, a minimal structural schema and a bounded pure validator. The first 2026-11-04 supplement adds **12 validator behavioral cases**, giving validator-only coverage of **25 partial / 41 untested**. The second bundle adds **12 Studio identity/reference scenarios** mapped to seven more requirements. Combined role-scoped coverage is **32 partial / 34 untested / 0 complete**. This supersedes earlier aggregate counts while preserving the separate dated reports and validator-only manifest. No requirement is promoted to complete evidence merely because a case passes. [Detailed scope and exclusions](https://openmanuscript.org/docs/governance/core-model-readiness/).
+The 000/120/100/140 rewrites provide **66 requirement IDs**, **22 versioned fixtures**, a minimal structural schema and a bounded pure validator. The first 2026-11-04 supplement adds **12 validator behavioral cases**, giving validator-only coverage of **25 partial / 41 untested**. The second bundle adds **12 Studio identity/reference scenarios** mapped to seven more requirements; the third adds **12 export/privacy scenarios** and three more newly evidenced requirements. Combined role-scoped coverage is **35 partial / 31 untested / 0 complete**. This supersedes earlier aggregate counts while preserving the separate dated reports and validator-only manifest. No requirement is promoted to complete evidence merely because a case passes. [Detailed scope and exclusions](https://openmanuscript.org/docs/governance/core-model-readiness/).
 
 The Studio companion panel runs this separate experimental profile without changing existing validation-report versions or manuscript producer declarations. It is proposed support until merged and deployed.
 
@@ -69,6 +70,7 @@ Every stronger status still requires exact normative applicability, code/test ma
 
 | Version | Date | Change |
 |---|---|---|
+| 0.9.0 | 2026-11-04 | Added export/privacy observations and credential-alias regression checks; combined coverage 35 partial / 31 untested. Two Studio suites remain one reference implementation. No lifecycle promotion. |
 | 0.8.0 | 2026-11-04 | Added commit-pinned Studio identity/reference observations for seven more requirements; combined coverage 32 partial / 34 untested, with archived versus local execution explicit. No lifecycle promotion. |
 | 0.7.0 | 2026-11-04 | Added 12 requirement-mapped validation behavior cases; current core coverage is 25 partial / 41 untested. Retained dated Studio evidence; no lifecycle promotion. |
 | 0.6.0 | 2026-10-31 | Rebuilt all-model source/code inventory, corrected 0.3.0 runtime and version drift, added 66-requirement core review evidence and explicit open gates. No lifecycle promotion. |
