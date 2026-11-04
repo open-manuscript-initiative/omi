@@ -1,0 +1,252 @@
+{
+  "format": "omi-studio-core-implementation-evidence",
+  "version": "0.1.0",
+  "suite": "studio-core-identity-reference-0.1.0",
+  "repository": "https://github.com/open-manuscript-initiative/open-manuscript-studio",
+  "sourceCommit": "b9c80c198b920d26d15bf5275b4f1219eed9e1c3",
+  "sourceFiles": [
+    {
+      "path": "scripts/verify-core-identity-references.ts",
+      "sha256": "6ede70c78f9ec3981fefc038974e9d564ba44e2c20cf4ee839e7f58edfb4cb96"
+    },
+    {
+      "path": "tests/coreIdentityReferenceCases.ts",
+      "sha256": "629f2986bc198054c6bae23c6cbcc171221ea8cd571829386e40f819c44433dd"
+    },
+    {
+      "path": "tests/core-identity-reference.test.ts",
+      "sha256": "088fe5fc6e8aac3ddb702e0c60c522ffc9e55dfdf75e477f9b8e1f9ff585d7e1"
+    },
+    {
+      "path": "tests/testManuscriptFixture.ts",
+      "sha256": "526e8c07e11bb190873a577b3107af09226f3afd0c03cf1310c758933ddffe47"
+    },
+    {
+      "path": "src/app/useStudioStore.ts",
+      "sha256": "780d8fde6d4a1b569281be0e21618213fb182a70d1db136def1694ffeda89c83"
+    },
+    {
+      "path": "src/app/sectionActions.ts",
+      "sha256": "471022aa29064dbf67218744408b6e656ef751dac22c5b34a9548fe854bbbfe4"
+    },
+    {
+      "path": "src/app/visualBlockActions.ts",
+      "sha256": "53960fa6e2ea4fc89932b173f7dce7c82febd97e9f2962160576ffc9ae66e4e1"
+    },
+    {
+      "path": "src/model/crossReferences.ts",
+      "sha256": "2d98c9d24b40846035893219c339c37307ac5fc4bfb87b63773c0a5c966c2cee"
+    },
+    {
+      "path": "src/model/sectionStructure.ts",
+      "sha256": "00e0b68520c201b8d1c898a4f2ddc828cbf87eb5e7f938b332bb467715b3c23f"
+    },
+    {
+      "path": "src/model/tombstone.ts",
+      "sha256": "149296a7184345acb8fee0295c16bc9f0cf9c3bbb7190b74e8621fd0202f9b31"
+    },
+    {
+      "path": "src/model/versioning.ts",
+      "sha256": "f82ef787898a17172ca72c15d15fdbb4468b7a5055c353e496faea5d68e55ead"
+    },
+    {
+      "path": "src/model/workingState.ts",
+      "sha256": "afdbc585313ad29ded8bb31a4ab2e8c46419ab35abc0982021936e0b79cbc275"
+    },
+    {
+      "path": "src/types/omi.ts",
+      "sha256": "c5d26337c33655389fa21de8e12b8cc6edbcffb70ca85183fbd019d4e307dba7"
+    },
+    {
+      "path": "src/services/omiPortableFormat.ts",
+      "sha256": "ef7704c5039e6c80917d5d86dac1460f809da3519afc07c61db43d1a1b3c38a3"
+    },
+    {
+      "path": "src/services/manuscriptValidation.ts",
+      "sha256": "8253a73ace4948bf80ac6ea238f8679f2b4de151430c683816a905387bc33df8"
+    }
+  ],
+  "specifications": {
+    "OMI-SPEC-000": "0.2.0",
+    "OMI-SPEC-100": "0.2.0",
+    "OMI-SPEC-120": "0.3.0"
+  },
+  "environment": "v24.22.1/linux/x64",
+  "createdAt": "2026-11-04T19:51:53.156Z",
+  "results": [
+    {
+      "id": "text-edit-save-reopen",
+      "requirements": [
+        "REQ-OBJ-004",
+        "REQ-DOC-002"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "formatting-preserves-identity",
+      "requirements": [
+        "REQ-PRI-004",
+        "REQ-OBJ-004",
+        "REQ-DOC-002"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "rename-preserves-reference-targets",
+      "requirements": [
+        "REQ-OBJ-004",
+        "REQ-DOC-002"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "subtree-move-reading-order-round-trip",
+      "requirements": [
+        "REQ-OBJ-004",
+        "REQ-DOC-002",
+        "REQ-DOC-003"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "reparent-and-cycle-rejection",
+      "requirements": [
+        "REQ-OBJ-004",
+        "REQ-DOC-002",
+        "REQ-DOC-003"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "layout-preserves-content-and-identity",
+      "requirements": [
+        "REQ-PRI-004",
+        "REQ-OBJ-004"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "delete-target-atomically-removes-dangling-relation",
+      "requirements": [
+        "REQ-OBJ-009"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "unresolved-reference-reported-without-retargeting",
+      "requirements": [
+        "REQ-OBJ-008"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "deletion-history-and-explicit-restoration",
+      "requirements": [
+        "REQ-OBJ-009",
+        "REQ-OBJ-016"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "source-deletion-removes-reference-record",
+      "requirements": [
+        "REQ-OBJ-009"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "subtree-deletion-cleans-dependent-collections",
+      "requirements": [
+        "REQ-OBJ-009",
+        "REQ-OBJ-016"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "reject-deleted-identifier-before-state-change",
+      "requirements": [
+        "REQ-OBJ-016"
+      ],
+      "status": "pass"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-DOC-002",
+      "status": "partial",
+      "cases": [
+        "text-edit-save-reopen",
+        "formatting-preserves-identity",
+        "rename-preserves-reference-targets",
+        "subtree-move-reading-order-round-trip",
+        "reparent-and-cycle-rejection"
+      ]
+    },
+    {
+      "id": "REQ-DOC-003",
+      "status": "partial",
+      "cases": [
+        "subtree-move-reading-order-round-trip",
+        "reparent-and-cycle-rejection"
+      ]
+    },
+    {
+      "id": "REQ-OBJ-004",
+      "status": "partial",
+      "cases": [
+        "text-edit-save-reopen",
+        "formatting-preserves-identity",
+        "rename-preserves-reference-targets",
+        "subtree-move-reading-order-round-trip",
+        "reparent-and-cycle-rejection",
+        "layout-preserves-content-and-identity"
+      ]
+    },
+    {
+      "id": "REQ-OBJ-008",
+      "status": "partial",
+      "cases": [
+        "unresolved-reference-reported-without-retargeting"
+      ]
+    },
+    {
+      "id": "REQ-OBJ-009",
+      "status": "partial",
+      "cases": [
+        "delete-target-atomically-removes-dangling-relation",
+        "deletion-history-and-explicit-restoration",
+        "source-deletion-removes-reference-record",
+        "subtree-deletion-cleans-dependent-collections"
+      ]
+    },
+    {
+      "id": "REQ-OBJ-016",
+      "status": "partial",
+      "cases": [
+        "deletion-history-and-explicit-restoration",
+        "subtree-deletion-cleans-dependent-collections",
+        "reject-deleted-identifier-before-state-change"
+      ]
+    },
+    {
+      "id": "REQ-PRI-004",
+      "status": "partial",
+      "cases": [
+        "formatting-preserves-identity",
+        "layout-preserves-content-and-identity"
+      ]
+    }
+  ],
+  "approved": false,
+  "independent": false,
+  "coverage": "incomplete",
+  "outcome": "indeterminate",
+  "exclusions": [
+    "all-editing-paths",
+    "all-specialized-relationships",
+    "split-merge-equivalence",
+    "browser-native-ui-acceptance",
+    "independent-interoperability",
+    "stable-conformance"
+  ]
+}

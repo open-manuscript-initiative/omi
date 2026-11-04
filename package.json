@@ -23,7 +23,7 @@
     "test:file-format": "node --test tests/container-profile.test.mjs && node scripts/validate-file-format-requirement-coverage.mjs && node --test tests/file-format-conformance.test.mjs && node scripts/validate-file-format-fixtures.mjs",
     "test:release-metadata": "node scripts/validate-current-release-metadata.mjs",
     "test:react-runtime": "node scripts/validate-react-runtime.mjs",
-    "test:core-models": "node --test tests/core-review.test.mjs && node scripts/validate-core-review.mjs && node scripts/validate-readiness-inventory.mjs",
+    "test:core-models": "node --test tests/core-review.test.mjs && node scripts/validate-core-review.mjs && node scripts/validate-readiness-inventory.mjs && node --test tests/core-implementation-evidence.test.mjs && node scripts/validate-core-implementation-evidence.mjs",
     "test:roadmap": "node --test tests/implementation-roadmap.test.mjs && node scripts/validate-implementation-roadmap.mjs",
     "test:dependency-security": "node --test tests/dependency-security.test.mjs"
   },

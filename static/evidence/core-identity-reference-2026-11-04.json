@@ -1,0 +1,36 @@
+{
+  "format": "omi-combined-core-evidence-index",
+  "version": "0.1.0",
+  "reviewDate": "2026-11-04",
+  "validatorManifestSha256": "5672c9afc12eeae9b65a715fe3d00b98db3f4d28cd56f895644538cbd675c99c",
+  "studioEvidence": {
+    "path": "static/evidence/studio-identity-reference-2026-11-04.json",
+    "sha256": "14c3732417df98669fd3fc25ec6418b6f4c2e6092f0e651aec14e84f66853878",
+    "sourceCommit": "b9c80c198b920d26d15bf5275b4f1219eed9e1c3",
+    "pullRequest": "https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/856",
+    "mergedAtReview": false
+  },
+  "counts": {
+    "requirements": 66,
+    "validatorPartial": 25,
+    "combinedPartial": 32,
+    "untested": 34,
+    "fullyEvidenced": 0
+  },
+  "newPartialRequirements": [
+    "REQ-DOC-002",
+    "REQ-DOC-003",
+    "REQ-OBJ-004",
+    "REQ-OBJ-008",
+    "REQ-OBJ-009",
+    "REQ-OBJ-016",
+    "REQ-PRI-004"
+  ],
+  "scope": "Union of the live core snapshot validator checks and the archived, commit-pinned Studio reference implementation run. This is not deployed-release or independent conformance evidence.",
+  "approved": false,
+  "independent": false,
+  "lifecyclePromotions": [],
+  "nextBundle": [
+    "export-credentials-and-confidentiality"
+  ]
+}
