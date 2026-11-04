@@ -1,0 +1,270 @@
+{
+  "format": "omi-studio-core-implementation-evidence",
+  "version": "0.1.0",
+  "suite": "studio-core-metadata-0.1.0",
+  "repository": "https://github.com/open-manuscript-initiative/open-manuscript-studio",
+  "sourceCommit": "d49003c79d23d795862729910d5e16bc994d69a6",
+  "sourceFiles": [
+    {
+      "path": "scripts/verify-core-metadata.ts",
+      "sha256": "abcd6c1d07b9a6d5178e87ea135e84c74e7fc5654cda2e6cfdb37fb445455060"
+    },
+    {
+      "path": "tests/coreMetadataCases.ts",
+      "sha256": "f2fa3c42cb02fd907d3c41fe272f53fd6daedca9e6628ba0fd57d58d5a2c6960"
+    },
+    {
+      "path": "tests/core-metadata.test.ts",
+      "sha256": "ec079142f34104994e9984d2ed9514065d3226d90c910b29ce4a31e04c882668"
+    },
+    {
+      "path": "tests/testManuscriptFixture.ts",
+      "sha256": "526e8c07e11bb190873a577b3107af09226f3afd0c03cf1310c758933ddffe47"
+    },
+    {
+      "path": "src/model/identity.ts",
+      "sha256": "5c6ea43d3d00d62f34c3aebfdd8658e49fe3776915d21780f2c6d475e9845a7d"
+    },
+    {
+      "path": "src/model/scholarlyMetadata.ts",
+      "sha256": "b9cc358a10a5b40e5beb5410d35c59a2b6bfeb4e1fb1548c84ae60513a43ef59"
+    },
+    {
+      "path": "src/model/versioning.ts",
+      "sha256": "f82ef787898a17172ca72c15d15fdbb4468b7a5055c353e496faea5d68e55ead"
+    },
+    {
+      "path": "src/model/workingState.ts",
+      "sha256": "afdbc585313ad29ded8bb31a4ab2e8c46419ab35abc0982021936e0b79cbc275"
+    },
+    {
+      "path": "src/app/scholarlyMetadataActions.ts",
+      "sha256": "f421ba0426ec292a3e014be2cbaedbe4039937f8b53fc0c542c81ae6c319e390"
+    },
+    {
+      "path": "src/app/useStudioStore.ts",
+      "sha256": "780d8fde6d4a1b569281be0e21618213fb182a70d1db136def1694ffeda89c83"
+    },
+    {
+      "path": "src/components/RorAffiliationField.tsx",
+      "sha256": "b65b3ca5c75bafdd522b9147472c421b41f7574676bf1d742a3de5c0222eb62a"
+    },
+    {
+      "path": "src/services/rorLookup.ts",
+      "sha256": "2fa062e670f82d5bae917d4e5d20477642630196908c9becfcf7540d3915f509"
+    },
+    {
+      "path": "src/services/orcidLookup.ts",
+      "sha256": "3e8860aa98d6b250bb84ce9e1ff9d13d967c1790d3bdc2b242cab2dc95dfe100"
+    },
+    {
+      "path": "src/services/omiPortableFormat.ts",
+      "sha256": "5f466c0bc11f8e6f0fa0b41aa1cba19dfdf565e712fc39f2df82fb2bd1c1b10d"
+    },
+    {
+      "path": "src/services/exportOmi.ts",
+      "sha256": "8527e5c4a621d37dc3e3154a461172de81a9084c5fcf6ea5d095aacf0d47ea6d"
+    },
+    {
+      "path": "src/services/manuscriptValidation.ts",
+      "sha256": "8253a73ace4948bf80ac6ea238f8679f2b4de151430c683816a905387bc33df8"
+    }
+  ],
+  "specifications": {
+    "OMI-SPEC-000": "0.2.0",
+    "OMI-SPEC-120": "0.3.0",
+    "OMI-SPEC-140": "0.2.0"
+  },
+  "environment": "v24.22.1/linux/x64",
+  "createdAt": "2026-11-04T20:52:39.287Z",
+  "results": [
+    {
+      "id": "orcid-syntax-is-not-identity-verification",
+      "requirements": [
+        "REQ-MET-010",
+        "REQ-OBJ-014"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "ror-creation-does-not-invent-registry-source",
+      "requirements": [
+        "REQ-MET-010",
+        "REQ-MET-012",
+        "REQ-OBJ-014"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "typed-ror-edit-is-only-an-assertion",
+      "requirements": [
+        "REQ-MET-010",
+        "REQ-MET-012",
+        "REQ-OBJ-014"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "unchanged-orcid-retains-exact-evidence",
+      "requirements": [
+        "REQ-MET-005",
+        "REQ-MET-012",
+        "REQ-OBJ-014"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "changed-orcid-does-not-inherit-verification-or-become-public",
+      "requirements": [
+        "REQ-MET-005",
+        "REQ-MET-010",
+        "REQ-MET-012"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "unchanged-ror-retains-evidence-and-visibility",
+      "requirements": [
+        "REQ-MET-005",
+        "REQ-MET-012",
+        "REQ-OBJ-014"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "replacement-ror-is-not-verified-by-format",
+      "requirements": [
+        "REQ-MET-005",
+        "REQ-MET-010",
+        "REQ-MET-012"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "unrelated-person-edit-keeps-assertion-metadata",
+      "requirements": [
+        "REQ-MET-012",
+        "REQ-OBJ-014"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "assertion-and-visibility-states-survive-portable-round-trip",
+      "requirements": [
+        "REQ-MET-005",
+        "REQ-MET-012",
+        "REQ-OBJ-014"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "inferred-source-attribution-never-becomes-human-confirmed",
+      "requirements": [
+        "REQ-MET-005",
+        "REQ-MET-012",
+        "REQ-OBJ-014"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "metadata-edit-identifies-subject-property-and-value",
+      "requirements": [
+        "REQ-MET-001",
+        "REQ-MET-012"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "metadata-inspection-does-not-verify-or-rewrite-assertions",
+      "requirements": [
+        "REQ-MET-005",
+        "REQ-MET-012",
+        "REQ-MET-018"
+      ],
+      "status": "pass"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-MET-001",
+      "status": "partial",
+      "cases": [
+        "metadata-edit-identifies-subject-property-and-value"
+      ]
+    },
+    {
+      "id": "REQ-MET-005",
+      "status": "partial",
+      "cases": [
+        "unchanged-orcid-retains-exact-evidence",
+        "changed-orcid-does-not-inherit-verification-or-become-public",
+        "unchanged-ror-retains-evidence-and-visibility",
+        "replacement-ror-is-not-verified-by-format",
+        "assertion-and-visibility-states-survive-portable-round-trip",
+        "inferred-source-attribution-never-becomes-human-confirmed",
+        "metadata-inspection-does-not-verify-or-rewrite-assertions"
+      ]
+    },
+    {
+      "id": "REQ-MET-010",
+      "status": "partial",
+      "cases": [
+        "orcid-syntax-is-not-identity-verification",
+        "ror-creation-does-not-invent-registry-source",
+        "typed-ror-edit-is-only-an-assertion",
+        "changed-orcid-does-not-inherit-verification-or-become-public",
+        "replacement-ror-is-not-verified-by-format"
+      ]
+    },
+    {
+      "id": "REQ-MET-012",
+      "status": "partial",
+      "cases": [
+        "ror-creation-does-not-invent-registry-source",
+        "typed-ror-edit-is-only-an-assertion",
+        "unchanged-orcid-retains-exact-evidence",
+        "changed-orcid-does-not-inherit-verification-or-become-public",
+        "unchanged-ror-retains-evidence-and-visibility",
+        "replacement-ror-is-not-verified-by-format",
+        "unrelated-person-edit-keeps-assertion-metadata",
+        "assertion-and-visibility-states-survive-portable-round-trip",
+        "inferred-source-attribution-never-becomes-human-confirmed",
+        "metadata-edit-identifies-subject-property-and-value",
+        "metadata-inspection-does-not-verify-or-rewrite-assertions"
+      ]
+    },
+    {
+      "id": "REQ-MET-018",
+      "status": "partial",
+      "cases": [
+        "metadata-inspection-does-not-verify-or-rewrite-assertions"
+      ]
+    },
+    {
+      "id": "REQ-OBJ-014",
+      "status": "partial",
+      "cases": [
+        "orcid-syntax-is-not-identity-verification",
+        "ror-creation-does-not-invent-registry-source",
+        "typed-ror-edit-is-only-an-assertion",
+        "unchanged-orcid-retains-exact-evidence",
+        "unchanged-ror-retains-evidence-and-visibility",
+        "unrelated-person-edit-keeps-assertion-metadata",
+        "assertion-and-visibility-states-survive-portable-round-trip",
+        "inferred-source-attribution-never-becomes-human-confirmed"
+      ]
+    }
+  ],
+  "approved": false,
+  "independent": false,
+  "coverage": "incomplete",
+  "outcome": "indeterminate",
+  "exclusions": [
+    "all-metadata-profiles",
+    "real-world-identity-and-membership-verification",
+    "all-import-conversion-paths",
+    "all-server-authorization-paths",
+    "independent-interoperability",
+    "stable-conformance"
+  ]
+}

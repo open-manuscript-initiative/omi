@@ -6,7 +6,19 @@ sidebar_label: Core Model Readiness
 
 # Core Model Readiness and Stabilization Order
 
-Core validation, identity/reference and export/privacy evidence updated **2026-11-04**; all-model source/Studio baselines remain dated **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/), [original machine-readable snapshot](/evidence/readiness-2026-10-31.json), [validation supplement](/evidence/core-validation-2026-11-04.json) and [current combined evidence index](/evidence/core-export-privacy-2026-11-04.json).
+Core validation, identity/reference, export/privacy and metadata evidence updated **2026-11-04**; all-model source/Studio baselines remain dated **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/), [original machine-readable snapshot](/evidence/readiness-2026-10-31.json), [validation supplement](/evidence/core-validation-2026-11-04.json) and [current combined evidence index](/evidence/core-metadata-2026-11-04.json).
+
+## Fourth bundle: metadata assertion states and provenance — 2026-11-04
+
+Twelve Studio scenarios add partial observations for **REQ-MET-001**, **REQ-MET-005**, **REQ-MET-010**, **REQ-MET-012** and **REQ-OBJ-014**, with further preservation evidence for already-partial REQ-MET-018. Combined coverage is **40 partial / 26 untested / 0 fully evidenced** requirements out of 66; the validator-only scope remains 25 partial / 41 untested.
+
+The [archived metadata report](/evidence/studio-metadata-2026-11-04.json) binds its exact Studio source commit and file digests to [PR #858](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/858). The [current index](/evidence/core-metadata-2026-11-04.json) combines three separately pinned Studio runs with local validator checks. It records observations at those commits rather than certifying an integrated or deployed release. All three suites belong to one reference implementation.
+
+The cases exposed loss of existing ORCID assertion evidence and private visibility during contributor edits, fabricated registry provenance for typed ROR values, and replacement ROR values treated as verified from their syntax. The candidate preserves unchanged assertion IDs, status, timestamps, sources and visibility; replacement identifiers remain self-asserted without inherited verification, while explicit ROR lookup selection records registry provenance without claiming identity or membership verification. Metadata audit events now name the structural change, its subject, property and value instead of labeling it as an abstract edit.
+
+Assertions, visibility states and inferred source attribution survive checkpoint and portable save/reopen. Inspection does not verify claims or mutate evidence. Verified/rejected fixtures are synthetic preservation inputs, not independent real-world proof. Complete metadata profiles, external identity/membership verification, all import/conversion paths, server authorization and independent interoperability remain open. Every mapping remains partial.
+
+**Next bundle: localized metadata and explicit conversion loss.** No lifecycle promotion is requested.
 
 ## Third bundle: export credentials and confidential metadata — 2026-11-04
 
@@ -18,7 +30,7 @@ The cases exposed private-note disclosure in custom HTML/PDF-source/DOCX exports
 
 Thirteen standard public output paths and the three custom paths are inspected. Full authoring backups retain private notes and history; public publication artifacts filter supported private identity and note assertions. Arbitrary secrets in prose/encoded/binary data, all extension audience policies, every export path and server-rendered PDF bytes remain outside this evidence. Every mapping remains partial.
 
-**Next bundle: metadata assertion states, provenance and verification boundaries.** No lifecycle promotion is requested.
+The metadata follow-up is recorded in the fourth bundle above. No lifecycle promotion is requested.
 
 ## Second bundle: identity continuity and deletion — 2026-11-04
 

@@ -5,14 +5,30 @@ import { inspectStudioCoreEvidence, verifyCoreImplementationEvidence } from '../
 
 test('combines executed validator evidence with explicit archived Studio observations', async () => {
   const report = await verifyCoreImplementationEvidence();
-  assert.deepEqual(report.counts, { requirements: 66, validatorPartial: 25, combinedPartial: 35, untested: 31, fullyEvidenced: 0 });
-  assert.equal(report.implementations.length, 2);
+  assert.deepEqual(report.counts, { requirements: 66, validatorPartial: 25, combinedPartial: 40, untested: 26, fullyEvidenced: 0 });
+  assert.equal(report.implementations.length, 3);
   assert.ok(report.implementations.every(item => item.execution === 'archived-reference-implementation-run'));
   assert.equal(report.validator.execution, 'local');
   assert.ok(report.implementations.every(item => item.cases === 12));
   assert.equal(report.outcome, 'indeterminate');
   assert.equal(report.independent, false);
   assert.equal(report.approved, false);
+});
+
+test('metadata evidence preserves partial status and exact source/model bindings', async () => {
+  const evidence = JSON.parse(await readFile(new URL('../static/evidence/studio-metadata-2026-11-04.json', import.meta.url)));
+  const manifest = JSON.parse(await readFile(new URL('../static/examples/omi-core/0.1.0/manifest.json', import.meta.url)));
+  assert.deepEqual(inspectStudioCoreEvidence(evidence, manifest.requirements, evidence.sourceCommit), [
+    'REQ-MET-001', 'REQ-MET-005', 'REQ-MET-010', 'REQ-MET-012', 'REQ-MET-018', 'REQ-OBJ-014',
+  ]);
+  for (const mutate of [
+    value => { value.requirements[0].status = 'complete'; },
+    value => { value.specifications['OMI-SPEC-120'] = '0.2.0'; },
+    value => { value.results[0].status = 'fail'; },
+  ]) {
+    const broken = structuredClone(evidence); mutate(broken);
+    assert.throws(() => inspectStudioCoreEvidence(broken, manifest.requirements, evidence.sourceCommit));
+  }
 });
 
 test('export/privacy observations also require exact target revisions and conservative claims', async () => {
