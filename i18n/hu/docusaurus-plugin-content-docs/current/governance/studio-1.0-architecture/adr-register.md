@@ -6,6 +6,13 @@ description: A Studio 1.0 architektúra döntési nyilvántartása és a Phase A
 
 # OMI Studio 1.0 ADR Register
 
+## Publikációs változat határa — 2026-11-04
+
+Az ADR-032 pontosítja ADR-004/005/007/008/009/018/019/021 határát: a kanonikus forrás és az önállóan szerkeszthető publikációs változat együtt létezhet. A forrásrevízió és publikáció/build eredetkapcsolata belső adat; a név/ORCID látható szerzőjelölés, nem revízióazonosító, aláírás vagy lektoráltsági jogosultság. A módosított publikációs tartalom nem örökölhet lektoráltságot pusztán forráshivatkozásból. A hiányzó leképezést/bizonyítékot nem a szerzői szerkesztés zárolásával kell kezelni.
+
+[Ellenőrzött forrás, döntés és elfogadási feladatok](https://openmanuscript.org/hu/docs/governance/studio-1.0-architecture/publication-renditions-2026-11-04/).
+
+
 
 
 ## Outbound védelem és elfogadási checkpoint — 2026-11-02
@@ -93,6 +100,7 @@ ADR-012/015/016/017/019 pontosítása, a kevésbé konkrét történeti checkpoi
 | ADR-019 | Stable/preview capability policy | Accepted |
 | ADR-020 | Általános executable plugin runtime | Deferred |
 | ADR-021 | Webes publikációs minősítés és szerkesztői authority | Accepted; delivery contract Preview |
+| ADR-032 | Szerkeszthető publikációs változat és forráskövetés | Javasolt pontosítás; forráskötés és tartalomhűség implementációja még nyitott |
 
 ---
 

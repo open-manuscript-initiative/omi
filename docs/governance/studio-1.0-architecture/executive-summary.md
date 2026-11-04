@@ -6,6 +6,13 @@ description: Executive summary of the Open Manuscript Studio 1.0 target architec
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
+## Publication rendition boundary — 2026-11-04
+
+Publication layout is a downstream editable version, not source processing. Separate frame text is legitimate; the earlier categorical drift finding is narrowed to unbound source lineage and unproved semantic fidelity/assurance. The author may edit every part. Name and ORCID can provide visible credit; internal source revision/digest and rendition identity carry provenance without printing technical identifiers. Existing RC and review gates remain unchanged.
+
+[Inspected source, decision and acceptance work](https://openmanuscript.org/docs/governance/studio-1.0-architecture/publication-renditions-2026-11-04/).
+
+
 
 
 ## Outbound security and acceptance checkpoint — 2026-11-02

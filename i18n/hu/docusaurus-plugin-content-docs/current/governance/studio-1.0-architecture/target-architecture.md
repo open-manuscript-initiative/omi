@@ -6,6 +6,13 @@ description: Az Open Manuscript Studio 1.0 javasolt célarchitektúrája a műk�
 
 # OMI Studio 1.0 Target Architecture
 
+## Publikációs változat határa — 2026-11-04
+
+A forráskézirat, a szerkeszthető publikációs változat és az exportált artifact eltérő állapotért hiteles. A tördelés publikáció-előkészítés, nem forrásfeldolgozás: az önálló kerettörténet megengedett publikációs állapot. A szerző minden részt szerkeszthet a meglévő jogosultságokkal; a forrásfrissítés kifejezett egyeztetés, nem a publikációs szerkesztés felülírása. A belső revízió/digest-kötés és a teljes tartalomhűség még implementációs feladat.
+
+[Ellenőrzött forrás, döntés és elfogadási feladatok](https://openmanuscript.org/hu/docs/governance/studio-1.0-architecture/publication-renditions-2026-11-04/).
+
+
 
 
 ## Outbound védelem és elfogadási checkpoint — 2026-11-02

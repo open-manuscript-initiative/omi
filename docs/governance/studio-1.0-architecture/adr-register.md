@@ -6,6 +6,13 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 # OMI Studio 1.0 ADR Register
 
+## Publication rendition boundary — 2026-11-04
+
+ADR-032 clarifies ADR-004/005/007/008/009/018/019/021: the canonical source and a separately editable publication rendition can coexist. Record source revision and rendition/build lineage internally; name/ORCID is visible author credit, not a revision identifier, signature or review grant. Modified publication content cannot inherit assurance solely from a source reference. Missing mapping/evidence must not be addressed by locking author editing.
+
+[Inspected source, decision and acceptance work](https://openmanuscript.org/docs/governance/studio-1.0-architecture/publication-renditions-2026-11-04/).
+
+
 
 
 ## Outbound security and acceptance checkpoint — 2026-11-02
@@ -96,6 +103,7 @@ These refinements apply to ADR-012/015/016/017/019 and supersede less specific h
 | ADR-021 | Website publication assurance and editorial authority | Proposed; delivery remains Preview |
 | ADR-022 | Research module project and manuscript contribution boundary | Proposed; partial implementation in Studio PRs #630/#631 |
 | ADR-023 | External object source attribution at Studio import boundary | Proposed; staged import coverage in Studio PRs #632/#634–#637 |
+| ADR-032 | Editable publication rendition and source lineage | Proposed clarification; lineage/fidelity implementation pending |
 
 ---
 
