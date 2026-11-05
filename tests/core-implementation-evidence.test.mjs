@@ -5,8 +5,8 @@ import { inspectStudioCoreEvidence, verifyCoreImplementationEvidence } from '../
 
 test('combines executed validator evidence with explicit archived Studio observations', async () => {
   const report = await verifyCoreImplementationEvidence();
-  assert.deepEqual(report.counts, { requirements: 66, validatorPartial: 25, combinedPartial: 52, untested: 14, fullyEvidenced: 0 });
-  assert.equal(report.implementations.length, 7);
+  assert.deepEqual(report.counts, { requirements: 66, validatorPartial: 25, combinedPartial: 55, untested: 11, fullyEvidenced: 0 });
+  assert.equal(report.implementations.length, 8);
   assert.ok(report.implementations.every(item => item.execution === 'archived-reference-implementation-run'));
   assert.equal(report.validator.execution, 'local');
   assert.ok(report.implementations.every(item => item.cases === 12));
@@ -134,6 +134,26 @@ test('authority boundary evidence binds real server sources and discloses persis
     value => { value.sourceFiles[0].path = 'server/../private'; },
     value => { value.specifications['OMI-SPEC-140'] = '0.1.0'; },
     value => { value.requirements[0].status = 'complete'; },
+    value => { value.independent = true; },
+  ]) {
+    const broken = structuredClone(evidence); mutate(broken);
+    assert.throws(() => inspectStudioCoreEvidence(broken, manifest.requirements, evidence.sourceCommit));
+  }
+});
+
+
+test('relationship observations retain explicit source roles and partial fallback claims', async () => {
+  const evidence = JSON.parse(await readFile(new URL('../static/evidence/studio-relationships-2026-11-05.json', import.meta.url)));
+  const manifest = JSON.parse(await readFile(new URL('../static/examples/omi-core/0.1.0/manifest.json', import.meta.url)));
+  assert.deepEqual(inspectStudioCoreEvidence(evidence, manifest.requirements, evidence.sourceCommit), [
+    'REQ-DOC-015', 'REQ-OBJ-007', 'REQ-PRI-005', 'REQ-PRI-008',
+  ]);
+  assert.equal(evidence.observationProfile, 'studio-semantic-relationships-0.1');
+  assert.ok(evidence.sourceFiles.some(item => item.path === 'src/model/publicationSemanticLoss.ts'));
+  for (const mutate of [
+    value => { value.specifications['OMI-SPEC-100'] = '0.1.0'; },
+    value => { value.requirements[0].status = 'complete'; },
+    value => { value.results[0].status = 'fail'; },
     value => { value.independent = true; },
   ]) {
     const broken = structuredClone(evidence); mutate(broken);
