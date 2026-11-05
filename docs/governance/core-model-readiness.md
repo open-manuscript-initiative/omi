@@ -6,7 +6,21 @@ sidebar_label: Core Model Readiness
 
 # Core Model Readiness and Stabilization Order
 
-Core validation, identity/reference, export/privacy, metadata, localized conversion and extension evidence updated **2026-11-05**; all-model source/Studio baselines remain dated **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/), [original machine-readable snapshot](/evidence/readiness-2026-10-31.json), [validation supplement](/evidence/core-validation-2026-11-04.json) and [current combined evidence index](/evidence/core-extensions-2026-11-05.json).
+Core validation, identity/reference, export/privacy, metadata, localized conversion, extension and local authoring evidence updated **2026-11-05**; all-model source/Studio baselines remain dated **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/), [original machine-readable snapshot](/evidence/readiness-2026-10-31.json), [validation supplement](/evidence/core-validation-2026-11-04.json) and [current combined evidence index](/evidence/core-local-authoring-2026-11-05.json).
+
+## Seventh bundle: local authoring and editable source attribution — 2026-11-05
+
+Twelve Studio scenarios add partial observations for **REQ-DOC-010**, **REQ-DOC-011** and **REQ-PRI-007**. Combined coverage is **48 partial / 18 untested / 0 fully evidenced** requirements out of 66. Validator-only scope remains 25 partial / 41 untested.
+
+The [archived local authoring report](/evidence/studio-local-authoring-2026-11-05.json) pins Studio [8fffc2d](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/8fffc2dd0930c99e9b453495f303639041240722), proposed in [PR #861](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/861). The [current index](/evidence/core-local-authoring-2026-11-05.json) combines six separately pinned Studio runs and local validator cases. They remain observations of one reference implementation, not independent interoperability or deployed-release certification.
+
+Under the informative `studio-local-model-authoring-0.1` observation profile, cases clear the account session and deny Fetch, WebSocket, XMLHttpRequest and Node HTTP/HTTPS request/get entry points. Local creation, title/abstract/body edits, validation, document switching, checkpoint and portable save/reopen complete with no guarded network attempt. This covers the initialized model/store with local dependencies; offline app installation/bootstrap and every possible transport API are not established.
+
+Visible source notices and scholarly source metadata can be corrected or removed. Confirmed source links, origin annotations and document import self-attestation do not pin the first heading or ordinary body. Deleting attributed content cleans active links while retaining historical source evidence for explicit revision restoration. A real ProseMirror empty-heading transaction preserves following text.
+
+Two cases exposed silent edit/delete failures under embedded section/block trees. The candidate now traverses both accepted representations for text changes and targeted subtree removal, retaining structure, identities and the existing relationship cleanup. All twelve cases, the full 954-test run, production build, TypeScript and focused lint checks pass.
+
+Browser/native UI acceptance, actual device persistence/crash recovery, hosted authorization, rights clearance, all specialized relationship editors and independent conformance remain open. A visible notice edit does not authenticate or rewrite a separate source relationship. Every mapping stays partial. **Next bundle: identity and rights authorization boundaries.** No lifecycle promotion is requested.
 
 ## Sixth bundle: extension and vocabulary preservation — 2026-11-05
 
@@ -20,7 +34,7 @@ Extension properties do not replace core manuscript identity, title or sections.
 
 The selected core metadata review profile explicitly identifies authoring/exchange requirements: authoring permits empty titles, exchange rejects them, missing language is diagnosed and an invented mode is refused. This supplies bounded required-field evidence for REQ-MET-015, not full cardinality or controlled-vocabulary coverage. The twelve cases, full 942-test Studio run, production build and focused lint checks pass.
 
-Generic namespace/version validation, every profile/vocabulary, foreign semantic interpretation, external profile resolution, complete metadata constraints and independent interoperability remain open. Every mapping stays partial. **Next bundle: local authoring and editable source attribution.** No lifecycle promotion is requested.
+Generic namespace/version validation, every profile/vocabulary, foreign semantic interpretation, external profile resolution, complete metadata constraints and independent interoperability remain open. Every mapping stays partial. The local authoring/source editability follow-up is recorded in the seventh bundle above. No lifecycle promotion is requested.
 
 ## Fifth bundle: localized metadata and conversion loss — 2026-11-04
 
