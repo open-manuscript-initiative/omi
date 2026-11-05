@@ -1,0 +1,257 @@
+{
+  "format": "omi-studio-core-implementation-evidence",
+  "version": "0.1.0",
+  "suite": "studio-core-authority-0.1.0",
+  "repository": "https://github.com/open-manuscript-initiative/open-manuscript-studio",
+  "observationProfile": "studio-authority-boundaries-0.1",
+  "persistence": "in-memory-test-double; real service and policy modules",
+  "sourceCommit": "7438e813722c6139dd2e79db103db890630cdef8",
+  "sourceFiles": [
+    {
+      "path": "scripts/verify-core-authority.ts",
+      "sha256": "374b9efd21fe943bcea06605a37082b1c2f59c823b20fc836f9ac40acc4a6e68"
+    },
+    {
+      "path": "tests/coreAuthorityCases.ts",
+      "sha256": "f7f293e1040df7f31c116cd310678153757ccb90899639b80d893384f6fe3a70"
+    },
+    {
+      "path": "tests/core-authority.test.ts",
+      "sha256": "af38630ec71c907d3a5adcf40c5e85129d7cecbfafa2b3e102ef9da43032288c"
+    },
+    {
+      "path": "tests/testManuscriptFixture.ts",
+      "sha256": "526e8c07e11bb190873a577b3107af09226f3afd0c03cf1310c758933ddffe47"
+    },
+    {
+      "path": "tests/ts-extension-loader.mjs",
+      "sha256": "28fff7d65fd217a69fe9b5429cb1ac4a63615c8aebd52674327a07119c6684d9"
+    },
+    {
+      "path": "tests/register-ts-extension-loader.mjs",
+      "sha256": "0ae3b63328beb1abaca077e74d1ce411e6fe328c20414e2e7b160664f13bf6b0"
+    },
+    {
+      "path": "src/model/identity.ts",
+      "sha256": "5c6ea43d3d00d62f34c3aebfdd8658e49fe3776915d21780f2c6d475e9845a7d"
+    },
+    {
+      "path": "src/model/versioning.ts",
+      "sha256": "f82ef787898a17172ca72c15d15fdbb4468b7a5055c353e496faea5d68e55ead"
+    },
+    {
+      "path": "src/model/scholarlyMetadata.ts",
+      "sha256": "481b7a65819d232d1eb764dd2c1c7159e92ac13721536b45bc6165edc55b27a7"
+    },
+    {
+      "path": "src/app/useStudioStore.ts",
+      "sha256": "7824ae1cf6ef26e8e8da96809cf4062f0b3cbbc58b6d2e91cd8dc1f081f65de0"
+    },
+    {
+      "path": "src/store/authStore.ts",
+      "sha256": "eab5c22bd7911ff3e9d5fd07879b292dc2bb97ea7c07f44b4082686d0933e02f"
+    },
+    {
+      "path": "src/services/omiPortableFormat.ts",
+      "sha256": "5f466c0bc11f8e6f0fa0b41aa1cba19dfdf565e712fc39f2df82fb2bd1c1b10d"
+    },
+    {
+      "path": "src/services/exportOmi.ts",
+      "sha256": "8527e5c4a621d37dc3e3154a461172de81a9084c5fcf6ea5d095aacf0d47ea6d"
+    },
+    {
+      "path": "src/services/exportJats.ts",
+      "sha256": "4f679279647a5a42c892351b028c64993480bdce2bf5a0c752027d64e9c82157"
+    },
+    {
+      "path": "src/services/manuscriptValidation.ts",
+      "sha256": "8253a73ace4948bf80ac6ea238f8679f2b4de151430c683816a905387bc33df8"
+    },
+    {
+      "path": "server/src/services/collaborationPolicy.ts",
+      "sha256": "a014c00e039123511f3de7a2915c7a186ed9475a3855806afd86f92694389ce2"
+    },
+    {
+      "path": "server/src/services/collaborationTicketService.ts",
+      "sha256": "12c4f05d7f87717747faac02201af9d14cc7496baa8559712759acbacc7647cc"
+    },
+    {
+      "path": "server/src/services/verifiedFederatedIdentity.ts",
+      "sha256": "8a016ae0747283d838bb97f7b88c60ba859e550c05cf71831a0733a0531e8667"
+    }
+  ],
+  "specifications": {
+    "OMI-SPEC-000": "0.2.0",
+    "OMI-SPEC-140": "0.2.0"
+  },
+  "environment": "v24.22.1/linux/x64",
+  "createdAt": "2026-11-05T04:38:58.253Z",
+  "results": [
+    {
+      "id": "portable-contributor-orcid-and-affiliation-do-not-create-account-session",
+      "requirements": [
+        "REQ-PRI-006",
+        "REQ-MET-008"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "matching-contributor-account-id-and-verified-orcid-are-not-membership",
+      "requirements": [
+        "REQ-PRI-006",
+        "REQ-MET-008"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "open-license-and-portable-owner-claims-do-not-issue-service-ticket",
+      "requirements": [
+        "REQ-MET-009",
+        "REQ-PRI-006"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "viewer-membership-stays-read-only-despite-scholarly-editor-labels",
+      "requirements": [
+        "REQ-PRI-006",
+        "REQ-MET-008",
+        "REQ-MET-009"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "collaboration-roles-do-not-imply-editorial-approval-or-rights-clearance",
+      "requirements": [
+        "REQ-PRI-006",
+        "REQ-MET-009"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "account-and-document-scope-cannot-be-replaced-by-portable-attribution",
+      "requirements": [
+        "REQ-PRI-006",
+        "REQ-MET-008"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "revoked-membership-overrides-identity-and-license-assertions",
+      "requirements": [
+        "REQ-PRI-006",
+        "REQ-MET-008",
+        "REQ-MET-009"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "suspended-account-cannot-use-scholarly-orcid-to-issue-ticket",
+      "requirements": [
+        "REQ-PRI-006",
+        "REQ-MET-008"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "expired-ticket-cannot-be-renewed-by-copyright-or-affiliation-metadata",
+      "requirements": [
+        "REQ-MET-009",
+        "REQ-MET-008"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "missing-rights-do-not-become-public-domain-or-service-permission",
+      "requirements": [
+        "REQ-MET-009",
+        "REQ-PRI-013"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "inspection-does-not-invent-missing-provenance-or-verified-authorship",
+      "requirements": [
+        "REQ-PRI-013",
+        "REQ-MET-008",
+        "REQ-MET-009"
+      ],
+      "status": "pass"
+    },
+    {
+      "id": "federated-admin-prerequisite-does-not-trust-scholarly-or-unverified-claims",
+      "requirements": [
+        "REQ-MET-008",
+        "REQ-PRI-006"
+      ],
+      "status": "pass"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-MET-008",
+      "status": "partial",
+      "cases": [
+        "portable-contributor-orcid-and-affiliation-do-not-create-account-session",
+        "matching-contributor-account-id-and-verified-orcid-are-not-membership",
+        "viewer-membership-stays-read-only-despite-scholarly-editor-labels",
+        "account-and-document-scope-cannot-be-replaced-by-portable-attribution",
+        "revoked-membership-overrides-identity-and-license-assertions",
+        "suspended-account-cannot-use-scholarly-orcid-to-issue-ticket",
+        "expired-ticket-cannot-be-renewed-by-copyright-or-affiliation-metadata",
+        "inspection-does-not-invent-missing-provenance-or-verified-authorship",
+        "federated-admin-prerequisite-does-not-trust-scholarly-or-unverified-claims"
+      ]
+    },
+    {
+      "id": "REQ-MET-009",
+      "status": "partial",
+      "cases": [
+        "open-license-and-portable-owner-claims-do-not-issue-service-ticket",
+        "viewer-membership-stays-read-only-despite-scholarly-editor-labels",
+        "collaboration-roles-do-not-imply-editorial-approval-or-rights-clearance",
+        "revoked-membership-overrides-identity-and-license-assertions",
+        "expired-ticket-cannot-be-renewed-by-copyright-or-affiliation-metadata",
+        "missing-rights-do-not-become-public-domain-or-service-permission",
+        "inspection-does-not-invent-missing-provenance-or-verified-authorship"
+      ]
+    },
+    {
+      "id": "REQ-PRI-006",
+      "status": "partial",
+      "cases": [
+        "portable-contributor-orcid-and-affiliation-do-not-create-account-session",
+        "matching-contributor-account-id-and-verified-orcid-are-not-membership",
+        "open-license-and-portable-owner-claims-do-not-issue-service-ticket",
+        "viewer-membership-stays-read-only-despite-scholarly-editor-labels",
+        "collaboration-roles-do-not-imply-editorial-approval-or-rights-clearance",
+        "account-and-document-scope-cannot-be-replaced-by-portable-attribution",
+        "revoked-membership-overrides-identity-and-license-assertions",
+        "suspended-account-cannot-use-scholarly-orcid-to-issue-ticket",
+        "federated-admin-prerequisite-does-not-trust-scholarly-or-unverified-claims"
+      ]
+    },
+    {
+      "id": "REQ-PRI-013",
+      "status": "partial",
+      "cases": [
+        "missing-rights-do-not-become-public-domain-or-service-permission",
+        "inspection-does-not-invent-missing-provenance-or-verified-authorship"
+      ]
+    }
+  ],
+  "approved": false,
+  "independent": false,
+  "coverage": "incomplete",
+  "outcome": "indeterminate",
+  "exclusions": [
+    "live-database-and-network-route-acceptance",
+    "all-service-authorization-paths",
+    "sso-signature-and-real-world-identity-verification",
+    "complete-institution-admin-provisioning",
+    "legal-rights-clearance",
+    "browser-and-native-ui-acceptance",
+    "independent-interoperability",
+    "stable-conformance"
+  ]
+}
