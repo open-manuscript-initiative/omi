@@ -6,7 +6,19 @@ sidebar_label: Core Model Readiness
 
 # Core Model Readiness and Stabilization Order
 
-Core validation, identity/reference, export/privacy, metadata, localized conversion, extension, local authoring and authority-boundary evidence updated **2026-11-05**; all-model source/Studio baselines remain dated **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/), [original machine-readable snapshot](/evidence/readiness-2026-10-31.json), [validation supplement](/evidence/core-validation-2026-11-04.json) and [current combined evidence index](/evidence/core-authority-2026-11-05.json).
+Core validation, identity/reference, export/privacy, metadata, localized conversion, extension, local authoring, authority-boundary and semantic-relationship evidence updated **2026-11-05**; all-model source/Studio baselines remain dated **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/), [original machine-readable snapshot](/evidence/readiness-2026-10-31.json), [validation supplement](/evidence/core-validation-2026-11-04.json) and [current combined evidence index](/evidence/core-relationships-2026-11-05.json).
+
+## Ninth bundle: semantic relationships and fallback disclosure — 2026-11-05
+
+Twelve Studio scenarios add partial observations for **REQ-PRI-005**, **REQ-OBJ-007** and **REQ-DOC-015**, and extend already-partial REQ-PRI-008. Combined coverage is **55 partial / 11 untested / 0 fully evidenced** requirements out of 66. Validator-only scope remains 25 partial / 41 untested.
+
+The [archived relationship report](/evidence/studio-relationships-2026-11-05.json) pins Studio [3180972](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/3180972faa636bc72e43f647baa2eb47e37622d0), proposed in [PR #863](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/863). The [current index](/evidence/core-relationships-2026-11-05.json) combines eight separately pinned Studio runs with local validator cases. They remain observations of one reference implementation, without an integrated deployed-release or independent-conformance claim.
+
+Portable exchange retains explicit note, citation, cross-reference and source-attribution predicates and target roles. Visible superscripts/proximity do not invent relationships. JATS xrefs resolve to distinct note/reference targets and preserve a structured table; HTML carries note/bibliographic links and a table. DOCX retains native footnote/endnote references and bodies. IDML retains the tested anchored footnote and discloses its ordinary-text endnote fallback.
+
+Seven cases exposed missing loss disclosures. DOCX/IDML now report unsupported structured source, citation and cross-reference relationships. XTG/MIF/SLA/LaTeX disclose ordinary note-list and visual-object projections; EPUB discloses omitted public note bodies and flattened objects. Warnings reach the existing export receipt, which stays incomplete and non-lossless, without copying private note bodies or changing the portable source. No claim covers every role, malformed relationship or adapter.
+
+All twelve cases, the full 978-test Studio run, TypeScript, lint and production build pass. External-editor roundtrip/rendering, complete EPUB notes, every nested object role and browser/native acceptance remain open. Every mapping stays partial. **Next bundle: rendering and transport versus committed scholarly revisions.** No lifecycle promotion is requested.
 
 ## Eighth bundle: identity, rights and authorization boundaries — 2026-11-05
 
@@ -18,7 +30,7 @@ The informative `studio-authority-boundaries-0.1` scope executes the actual coll
 
 Missing rights remain absent in portable exchange and JATS output, without an invented licence or copyright holder. Inspection does not promote missing provenance or self-asserted authorship into verified facts. A federated administrator prerequisite helper rejects scholarly/unverified claims and unrelated verified email; the narrowly defined trusted matching-email evidence remains only a prerequisite, not an administrator grant or SSO signature check.
 
-The boundaries pass without a production-code change. All twelve cases, the full 966-test run, production build, TypeScript and focused lint checks pass. Live database/network-route enforcement, all service paths, complete institutional provisioning, legal rights clearance and independent interoperability remain open. Every mapping stays partial. **Next bundle: semantic relationships and non-equivalent fallback disclosure.** No lifecycle promotion is requested.
+The boundaries pass without a production-code change. All twelve cases, the full 966-test run, production build, TypeScript and focused lint checks pass. Live database/network-route enforcement, all service paths, complete institutional provisioning, legal rights clearance and independent interoperability remain open. Every mapping stays partial. The relationship/fallback follow-up is recorded in the ninth bundle above. No lifecycle promotion is requested.
 
 ## Seventh bundle: local authoring and editable source attribution — 2026-11-05
 
