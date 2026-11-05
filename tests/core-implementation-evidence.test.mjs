@@ -5,8 +5,8 @@ import { inspectStudioCoreEvidence, verifyCoreImplementationEvidence } from '../
 
 test('combines executed validator evidence with explicit archived Studio observations', async () => {
   const report = await verifyCoreImplementationEvidence();
-  assert.deepEqual(report.counts, { requirements: 66, validatorPartial: 25, combinedPartial: 43, untested: 23, fullyEvidenced: 0 });
-  assert.equal(report.implementations.length, 4);
+  assert.deepEqual(report.counts, { requirements: 66, validatorPartial: 25, combinedPartial: 45, untested: 21, fullyEvidenced: 0 });
+  assert.equal(report.implementations.length, 5);
   assert.ok(report.implementations.every(item => item.execution === 'archived-reference-implementation-run'));
   assert.equal(report.validator.execution, 'local');
   assert.ok(report.implementations.every(item => item.cases === 12));
@@ -74,6 +74,24 @@ test('localized conversion evidence cannot overstate mapping completeness or ver
     value => { value.coverage = 'complete'; },
     value => { value.requirements[0].status = 'complete'; },
     value => { value.specifications['OMI-SPEC-140'] = '0.1.0'; },
+    value => { value.independent = true; },
+  ]) {
+    const broken = structuredClone(evidence); mutate(broken);
+    assert.throws(() => inspectStudioCoreEvidence(broken, manifest.requirements, evidence.sourceCommit));
+  }
+});
+
+
+test('extension evidence keeps exact profiles and bounded preservation claims', async () => {
+  const evidence = JSON.parse(await readFile(new URL('../static/evidence/studio-extensions-2026-11-05.json', import.meta.url)));
+  const manifest = JSON.parse(await readFile(new URL('../static/examples/omi-core/0.1.0/manifest.json', import.meta.url)));
+  assert.deepEqual(inspectStudioCoreEvidence(evidence, manifest.requirements, evidence.sourceCommit), [
+    'REQ-DOC-014', 'REQ-MET-014', 'REQ-MET-015', 'REQ-MET-018', 'REQ-OBJ-013', 'REQ-PRI-008',
+  ]);
+  for (const mutate of [
+    value => { value.specifications['OMI-SPEC-100'] = '0.1.0'; },
+    value => { value.results[0].status = 'fail'; },
+    value => { value.requirements[0].status = 'complete'; },
     value => { value.independent = true; },
   ]) {
     const broken = structuredClone(evidence); mutate(broken);
