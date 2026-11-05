@@ -6,7 +6,21 @@ sidebar_label: Core Model Readiness
 
 # Core Model Readiness and Stabilization Order
 
-Core validation, identity/reference, export/privacy, metadata and localized conversion evidence updated **2026-11-04**; all-model source/Studio baselines remain dated **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/), [original machine-readable snapshot](/evidence/readiness-2026-10-31.json), [validation supplement](/evidence/core-validation-2026-11-04.json) and [current combined evidence index](/evidence/core-localized-conversion-2026-11-04.json).
+Core validation, identity/reference, export/privacy, metadata, localized conversion and extension evidence updated **2026-11-05**; all-model source/Studio baselines remain dated **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/), [original machine-readable snapshot](/evidence/readiness-2026-10-31.json), [validation supplement](/evidence/core-validation-2026-11-04.json) and [current combined evidence index](/evidence/core-extensions-2026-11-05.json).
+
+## Sixth bundle: extension and vocabulary preservation — 2026-11-05
+
+Twelve Studio scenarios add partial observations for **REQ-DOC-014** and **REQ-MET-015**, with further evidence for already-partial REQ-MET-014, REQ-OBJ-013, REQ-MET-018 and REQ-PRI-008. Combined coverage is **45 partial / 21 untested / 0 fully evidenced** requirements out of 66. Validator-only scope remains 25 partial / 41 untested.
+
+The [archived extension report](/evidence/studio-extensions-2026-11-05.json) pins Studio [70c559d](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/70c559d8d7213673f131505c655d56ace40b393d), proposed in [PR #860](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/860). The [current index](/evidence/core-extensions-2026-11-05.json) combines five separately pinned Studio runs with local validator cases. All five runs belong to one reference implementation; no independent or deployed-release conformance is inferred.
+
+Five import/disclosure regressions fail before the fixes. OJS import discarded foreign metadata fields, treated unknown Open Science members as localized text and shared retained objects with the launch source. The candidate normalizes only owned fields, retains foreign namespace/profile/version/vocabulary data opaquely, and detaches imported graphs. Known metadata edits, checkpoint history and portable save/reopen preserve the tested future terms, nested arrays, falsy values and embedded identities.
+
+Extension properties do not replace core manuscript identity, title or sections. A future translation profile survives portable exchange with explicitly incomplete inspection; an unsupported frame profile is refused without rewriting source. The recognized frame profile enforces its declared alignment vocabulary. DOCX/ODT now disclose omission of the extension graph through warnings and typed downloadable receipt observations without copying its values.
+
+The selected core metadata review profile explicitly identifies authoring/exchange requirements: authoring permits empty titles, exchange rejects them, missing language is diagnosed and an invented mode is refused. This supplies bounded required-field evidence for REQ-MET-015, not full cardinality or controlled-vocabulary coverage. The twelve cases, full 942-test Studio run, production build and focused lint checks pass.
+
+Generic namespace/version validation, every profile/vocabulary, foreign semantic interpretation, external profile resolution, complete metadata constraints and independent interoperability remain open. Every mapping stays partial. **Next bundle: local authoring and editable source attribution.** No lifecycle promotion is requested.
 
 ## Fifth bundle: localized metadata and conversion loss — 2026-11-04
 
@@ -20,7 +34,7 @@ Actual DOCX/ODT package XML confirms that secondary localized abstracts/keywords
 
 Seven import/edit cases fail on the preceding implementation and pass after the fixes. The twelve new cases, full Studio test run and production build pass; focused office/export/privacy checks also pass after the final report adjustment. Complete localized titles, all metadata profiles, every adapter, HTML-to-text correctness, full language-tag support and independent round trips remain open. Every mapping stays partial.
 
-**Next bundle: unknown extensions and vocabulary preservation.** No lifecycle promotion is requested.
+The extension/vocabulary follow-up is recorded in the sixth bundle above. No lifecycle promotion is requested.
 
 ## Fourth bundle: metadata assertion states and provenance — 2026-11-04
 
