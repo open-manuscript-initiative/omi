@@ -5,8 +5,8 @@ import { inspectStudioCoreEvidence, verifyCoreImplementationEvidence } from '../
 
 test('combines executed validator evidence with explicit archived Studio observations', async () => {
   const report = await verifyCoreImplementationEvidence();
-  assert.deepEqual(report.counts, { requirements: 66, validatorPartial: 25, combinedPartial: 45, untested: 21, fullyEvidenced: 0 });
-  assert.equal(report.implementations.length, 5);
+  assert.deepEqual(report.counts, { requirements: 66, validatorPartial: 25, combinedPartial: 48, untested: 18, fullyEvidenced: 0 });
+  assert.equal(report.implementations.length, 6);
   assert.ok(report.implementations.every(item => item.execution === 'archived-reference-implementation-run'));
   assert.equal(report.validator.execution, 'local');
   assert.ok(report.implementations.every(item => item.cases === 12));
@@ -92,6 +92,25 @@ test('extension evidence keeps exact profiles and bounded preservation claims', 
     value => { value.specifications['OMI-SPEC-100'] = '0.1.0'; },
     value => { value.results[0].status = 'fail'; },
     value => { value.requirements[0].status = 'complete'; },
+    value => { value.independent = true; },
+  ]) {
+    const broken = structuredClone(evidence); mutate(broken);
+    assert.throws(() => inspectStudioCoreEvidence(broken, manifest.requirements, evidence.sourceCommit));
+  }
+});
+
+
+test('local authoring evidence retains bounded editor claims and exact target versions', async () => {
+  const evidence = JSON.parse(await readFile(new URL('../static/evidence/studio-local-authoring-2026-11-05.json', import.meta.url)));
+  const manifest = JSON.parse(await readFile(new URL('../static/examples/omi-core/0.1.0/manifest.json', import.meta.url)));
+  assert.deepEqual(inspectStudioCoreEvidence(evidence, manifest.requirements, evidence.sourceCommit), [
+    'REQ-DOC-010', 'REQ-DOC-011', 'REQ-PRI-007',
+  ]);
+  assert.equal(evidence.observationProfile, 'studio-local-model-authoring-0.1');
+  for (const mutate of [
+    value => { value.specifications['OMI-SPEC-100'] = '0.1.0'; },
+    value => { value.requirements[0].status = 'complete'; },
+    value => { value.results[0].status = 'fail'; },
     value => { value.independent = true; },
   ]) {
     const broken = structuredClone(evidence); mutate(broken);
