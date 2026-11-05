@@ -14,6 +14,7 @@ const suites = {
   'studio-core-localized-conversion-0.1.0': ['OMI-SPEC-000', 'OMI-SPEC-140'],
   'studio-core-extensions-0.1.0': ['OMI-SPEC-000', 'OMI-SPEC-100', 'OMI-SPEC-120', 'OMI-SPEC-140'],
   'studio-core-local-authoring-0.1.0': ['OMI-SPEC-000', 'OMI-SPEC-100'],
+  'studio-core-authority-0.1.0': ['OMI-SPEC-000', 'OMI-SPEC-140'],
 };
 
 export function inspectStudioCoreEvidence(implementation, requirements, sourceCommit) {
@@ -46,7 +47,7 @@ export function inspectStudioCoreEvidence(implementation, requirements, sourceCo
   assert.ok(implementation.sourceFiles.length > 0);
   assert.equal(new Set(implementation.sourceFiles.map(item => item.path)).size, implementation.sourceFiles.length);
   for (const item of implementation.sourceFiles) {
-    assert.ok(/^(src|scripts|tests)\//.test(item.path) && !item.path.split('/').includes('..'));
+    assert.ok(/^(?:(?:src|scripts|tests)\/|server\/src\/)/.test(item.path) && !item.path.split('/').includes('..'));
     assert.match(item.sha256, /^[a-f0-9]{64}$/);
   }
   return covered;
@@ -55,7 +56,7 @@ export function inspectStudioCoreEvidence(implementation, requirements, sourceCo
 export async function verifyCoreImplementationEvidence() {
   // Validator checks execute here; Studio suites remain explicitly archived observations.
   const validator = await verifyCoreReview();
-  const index = JSON.parse(await readFile(join(root, 'static/evidence/core-local-authoring-2026-11-05.json'), 'utf8'));
+  const index = JSON.parse(await readFile(join(root, 'static/evidence/core-authority-2026-11-05.json'), 'utf8'));
   assert.equal(index.format, 'omi-combined-core-evidence-index');
   assert.equal(validator.suiteDigest, index.validatorManifestSha256, 'validator baseline integrity');
   assert.equal(sha256(await readFile(join(root, 'scripts/validate-file-format-fixtures.mjs'))), index.fileFormatValidatorSha256);
@@ -64,7 +65,7 @@ export async function verifyCoreImplementationEvidence() {
   assert.ok(Object.hasOwn(suites, index.newSuite));
   const implementations = [], records = [], covered = new Set();
   for (const entry of index.studioEvidence) {
-    assert.ok(/^static\/evidence\/studio-(?:(?:identity-reference|export-privacy|metadata|localized-conversion)-2026-11-04|(?:extensions|local-authoring)-2026-11-05)\.json$/.test(entry.path));
+    assert.ok(/^static\/evidence\/studio-(?:(?:identity-reference|export-privacy|metadata|localized-conversion)-2026-11-04|(?:extensions|local-authoring|authority)-2026-11-05)\.json$/.test(entry.path));
     const bytes = await readFile(join(root, entry.path));
     assert.equal(sha256(bytes), entry.sha256, 'Studio evidence integrity');
     const implementation = JSON.parse(bytes);
@@ -96,7 +97,7 @@ export async function verifyCoreImplementationEvidence() {
   assert.equal(index.approved, false);
   assert.equal(index.independent, false);
   assert.deepEqual(index.lifecyclePromotions, []);
-  return { format: 'omi-combined-core-evidence', version: '0.6.0', createdAt: new Date().toISOString(),
+  return { format: 'omi-combined-core-evidence', version: '0.7.0', createdAt: new Date().toISOString(),
     counts, requirements, validator: { execution: 'local', suiteVersion: validator.suiteVersion,
       suiteDigest: validator.suiteDigest, fixtures: validator.results.length, behaviors: validator.behavioralResults.length },
     implementations, approved: false, independent: false, coverage: 'incomplete', outcome: 'indeterminate',
