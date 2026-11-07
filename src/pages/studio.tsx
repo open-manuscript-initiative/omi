@@ -6,6 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {getPublicPageCopy} from '../i18n/publicPages';
 import {STUDIO_PUBLISHED_VERSION, STUDIO_SOURCE_VERSION, STUDIO_PUBLISHED_RELEASE_NOTES, STUDIO_SOURCE_RELEASE_NOTES, STUDIO_PUBLISHED_DOWNLOAD_BASE, STUDIO_WEB_VERSION, STUDIO_ANDROID_VERSION, STUDIO_ANDROID_RC_DOWNLOAD_URL} from '../studioReleaseVersions';
 import StudioReleaseStatus from '../components/StudioReleaseStatus';
+import PkpSupportStatus from '../components/PkpSupportStatus';
 import styles from './studio.module.css';
 
 const RELEASE_BASE = STUDIO_PUBLISHED_DOWNLOAD_BASE;
@@ -268,6 +269,10 @@ export default function StudioDownloads() {
             <Link className="button button--secondary button--lg" to="https://github.com/open-manuscript-initiative/open-manuscript-studio">{t.source}</Link>
           </div>
         </section>
+
+        <div className={styles.container} style={{padding: '0 1.5rem'}}>
+          <PkpSupportStatus />
+        </div>
 
         <section className={styles.section}>
           <div className={styles.container}>

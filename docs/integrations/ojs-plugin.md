@@ -109,3 +109,8 @@ The repository contains an explicit AI contribution disclosure for PKP-facing re
 ## PKP status
 
 The plugin is designed against PKP/OJS 3.5 APIs and is being prepared for PKP-facing review. Publication on the OMI website and availability as an installable release do **not** mean that the plugin has already been accepted into the official PKP Plugin Gallery. Official Gallery inclusion remains subject to PKP maintainer review and compatibility validation.
+
+
+## Release evidence policy — 2026-11-07
+
+OJS 3.5.0-4, 3.5.0-5 and 3.5.0-6 each require a version-specific automated E02 result and manual acceptance. The current receipt has 14 gates including `ojs-3.5.0-6`. Historical 13-gate receipts do not approve the expanded scope. Capability discovery and permissions still determine available actions. [Support and acceptance policy](https://openmanuscript.org/docs/governance/studio-1.0-architecture/pkp-support-2026-11-07/).

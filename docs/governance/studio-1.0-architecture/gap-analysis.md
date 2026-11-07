@@ -6,6 +6,13 @@ description: Evidence-based gap analysis between the audited Open Manuscript Stu
 
 # Current → 1.0 Gap Analysis
 
+## PKP support and release evidence — 2026-11-07
+
+OJS 3.5.0-4/-5/-6 are in the Stable acceptance scope; OMP 3.5.0-4/-5/-6 remain Preview. All six named E02 jobs/archives are mandatory regression evidence. Add `ojs-3.5.0-6` to the current v1 receipt (14 manual gates); preserve historical 13-gate receipts without treating them as approval for the expanded scope.
+
+The release-policy mismatch is reconciled; current-candidate CI and real manual acceptance remain required, not inferred from earlier green runs. [Current support decision](https://openmanuscript.org/docs/governance/studio-1.0-architecture/pkp-support-2026-11-07/).
+
+
 ## Publication rendition boundary — 2026-11-04
 
 Correct the earlier frame-layout drift diagnosis: separate editable publication text is not inherently duplicate source authority. Inspected gaps are missing starting-revision/rendition binding, flattening and repeat append during text import, and incomplete rich-content export mapping. Existing history, overflow guards and extension round trips do not close those gaps. Visible author name/ORCID does not identify a document revision.

@@ -6,6 +6,13 @@ description: Függőségtudatos, kis és visszagörgethető pull requestekre bon
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
+## PKP-támogatás és kiadási bizonyíték — 2026-11-07
+
+Az OJS 3.5.0-4/-5/-6 a Stable elfogadási körbe tartozik; az OMP 3.5.0-4/-5/-6 Preview marad. Mind a hat megnevezett E02-feladat/archívum kötelező regressziós bizonyíték. Az aktuális v1 receipt az `ojs-3.5.0-6` kapuval 14 kézi kaput követel; a történeti, 13 kapus receiptek változatlanul megmaradnak, és nem hagyják jóvá a kibővített kört.
+
+Ez a bizonyítékkör vonatkozik a C06–C09, D08 és E02–E05 egységekre. Az eredeti 54 egység és függőségi sorrend megmarad. [Aktuális támogatási döntés](https://openmanuscript.org/hu/docs/governance/studio-1.0-architecture/pkp-support-2026-11-07/).
+
+
 ## Publikációs változat határa — 2026-11-04
 
 Az eredeti 54 feladat marad. B01/B03/B07 az alkalmazás/session/history bekötés; B05/B06 a forrás ContentCodec feladata, nem a szerkeszthető publikációs változat megszüntetése. C03–C05 a forrás–publikáció leképezés, változatlan buildbemenet és veszteségjelentés specifikálása/tesztelése. C15/E03 az adott tartalomhoz kötött lektoráltság, adatvédelem, kifejezett frissítés/konfliktus, recovery és teljesítmény. A dokumentáció nem implementálja ezeket, és nem enyhíti E02–E05 követelményeit.

@@ -127,6 +127,7 @@ const sidebars = {
             {type: 'doc', id: 'governance/studio-1.0-architecture/refactoring-pr-plan', label: 'Refactoring and PR Plan'},
             {type: 'doc', id: 'governance/studio-1.0-architecture/implementation-review-2026-11-01', label: 'Implementation Review (Nov 2026)' },
             {type: 'doc', id: 'governance/studio-1.0-architecture/adr-register', label: 'ADR Register'},
+            {type: 'doc', id: 'governance/studio-1.0-architecture/pkp-support-2026-11-07', label: 'OJS/OMP Support and Acceptance'},
           ],
         },
         {type: 'doc', id: 'governance/implementation-status-matrix', label: 'Specification Implementation Matrix'},

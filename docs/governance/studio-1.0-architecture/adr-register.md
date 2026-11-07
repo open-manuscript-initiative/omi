@@ -6,6 +6,13 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 # OMI Studio 1.0 ADR Register
 
+## PKP support and release evidence — 2026-11-07
+
+OJS 3.5.0-4/-5/-6 are in the Stable acceptance scope; OMP 3.5.0-4/-5/-6 remain Preview. All six named E02 jobs/archives are mandatory regression evidence. Add `ojs-3.5.0-6` to the current v1 receipt (14 manual gates); preserve historical 13-gate receipts without treating them as approval for the expanded scope.
+
+Refines ADR-010 and ADR-019; [Studio ADR-033](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-033-pkp-support-and-release-evidence.md) records this proposed reconciliation, consequences and revisit conditions. [Current support decision](https://openmanuscript.org/docs/governance/studio-1.0-architecture/pkp-support-2026-11-07/).
+
+
 ## Publication rendition boundary — 2026-11-04
 
 ADR-032 clarifies ADR-004/005/007/008/009/018/019/021: the canonical source and a separately editable publication rendition can coexist. Record source revision and rendition/build lineage internally; name/ORCID is visible author credit, not a revision identifier, signature or review grant. Modified publication content cannot inherit assurance solely from a source reference. Missing mapping/evidence must not be addressed by locking author editing.
@@ -418,6 +425,8 @@ These refinements apply to ADR-012/015/016/017/019 and supersede less specific h
 **Image/readiness checkpoint (2026-10-10).** The main deploy currently publishes `latest` and a commit image after build/collaboration checks, while readiness is path-filtered. [Studio PR #655](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/655) runs readiness on every main commit and labels main images `beta` plus commit-addressed tags. An immutable tag alone does not earn RC approval. E02 still requires exact-commit aggregation of readiness, PKP, security and Stable-platform installer evidence before any 1.0/RC image promotion; existing `latest` installations need an explicit channel/pin migration.
 
 **Revisit when.** Every release is planned and whenever a capability completes its promotion corpus.
+
+**PKP scope refinement (2026-11-07).** The explicitly declared OJS/OMP -4/-5/-6 E02 regression jobs/archives are mandatory even for Preview OMP. OJS -6 adds a separate manual gate, bringing the v1 receipt to 14. This exception does not promote OMP or waive security, privacy or data-loss gates.
 
 ---
 

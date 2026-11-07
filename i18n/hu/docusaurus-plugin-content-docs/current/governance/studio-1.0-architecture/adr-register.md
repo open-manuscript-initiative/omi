@@ -6,6 +6,13 @@ description: A Studio 1.0 architektúra döntési nyilvántartása és a Phase A
 
 # OMI Studio 1.0 ADR Register
 
+## PKP-támogatás és kiadási bizonyíték — 2026-11-07
+
+Az OJS 3.5.0-4/-5/-6 a Stable elfogadási körbe tartozik; az OMP 3.5.0-4/-5/-6 Preview marad. Mind a hat megnevezett E02-feladat/archívum kötelező regressziós bizonyíték. Az aktuális v1 receipt az `ojs-3.5.0-6` kapuval 14 kézi kaput követel; a történeti, 13 kapus receiptek változatlanul megmaradnak, és nem hagyják jóvá a kibővített kört.
+
+Az ADR-010 és ADR-019 pontosítása; a [Studio ADR-033](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/architecture/adr-033-pkp-support-and-release-evidence.md) rögzíti a javasolt egyeztetést, következményeket és felülvizsgálati feltételeket. [Aktuális támogatási döntés](https://openmanuscript.org/hu/docs/governance/studio-1.0-architecture/pkp-support-2026-11-07/).
+
+
 ## Publikációs változat határa — 2026-11-04
 
 Az ADR-032 pontosítja ADR-004/005/007/008/009/018/019/021 határát: a kanonikus forrás és az önállóan szerkeszthető publikációs változat együtt létezhet. A forrásrevízió és publikáció/build eredetkapcsolata belső adat; a név/ORCID látható szerzőjelölés, nem revízióazonosító, aláírás vagy lektoráltsági jogosultság. A módosított publikációs tartalom nem örökölhet lektoráltságot pusztán forráshivatkozásból. A hiányzó leképezést/bizonyítékot nem a szerzői szerkesztés zárolásával kell kezelni.
@@ -407,6 +414,8 @@ ADR-012/015/016/017/019 pontosítása, a kevésbé konkrét történeti checkpoi
 **Következmények.** Runtime UI, dokumentáció és release metadata ugyanabból a manifestből készül. Promotion külön gate-et igényel; demotion stable 1.x-ben csak súlyos okkal.
 
 **Felülvizsgálati feltétel.** Minden release planningkor és amikor egy capability promotion corpusát teljesíti.
+
+**PKP-kör pontosítása (2026-11-07).** A kifejezetten előírt OJS/OMP -4/-5/-6 E02-regressziós feladatok/archívumok Preview OMP esetén is kötelezőek. Az OJS -6 külön kézi kaput kap, így a v1 receipt 14 kapus. Ez a kivétel nem emeli az OMP besorolását, és nem engedi el a biztonsági, adatvédelmi vagy adatvesztési kapukat.
 
 ---
 

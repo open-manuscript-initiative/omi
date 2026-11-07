@@ -6,6 +6,13 @@ description: Az Open Manuscript Studio 1.0 célarchitektúrájának, fő kockáz
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
+## PKP-támogatás és kiadási bizonyíték — 2026-11-07
+
+Az OJS 3.5.0-4/-5/-6 a Stable elfogadási körbe tartozik; az OMP 3.5.0-4/-5/-6 Preview marad. Mind a hat megnevezett E02-feladat/archívum kötelező regressziós bizonyíték. Az aktuális v1 receipt az `ojs-3.5.0-6` kapuval 14 kézi kaput követel; a történeti, 13 kapus receiptek változatlanul megmaradnak, és nem hagyják jóvá a kibővített kört.
+
+Az új kompatibilitási kör engedélyezése nem emeli az OMP-t Stable-re, és nem jelent RC-jóváhagyást vagy éles frissítést. [Aktuális támogatási döntés](https://openmanuscript.org/hu/docs/governance/studio-1.0-architecture/pkp-support-2026-11-07/).
+
+
 ## Publikációs változat határa — 2026-11-04
 
 A publikációs tördelés önállóan szerkeszthető további változat, nem forrásfeldolgozás. A külön keretszöveg megengedett; a korábbi kategorikus driftmegállapítás a hiányzó forráskötésre és nem bizonyított tartalomhűségre/lektoráltsági lefedettségre szűkül. A szerző minden részt szerkeszthet. Látható jelölésként elég a név és ORCID; a belső forrásrevízió/digest és publikációazonosító hordozza az eredetet, technikai azonosítók nyomtatása nélkül. Az RC- és lektoráltsági kapuk változatlanok.

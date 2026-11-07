@@ -6,6 +6,13 @@ description: Executive summary of the Open Manuscript Studio 1.0 target architec
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
+## PKP support and release evidence — 2026-11-07
+
+OJS 3.5.0-4/-5/-6 are in the Stable acceptance scope; OMP 3.5.0-4/-5/-6 remain Preview. All six named E02 jobs/archives are mandatory regression evidence. Add `ojs-3.5.0-6` to the current v1 receipt (14 manual gates); preserve historical 13-gate receipts without treating them as approval for the expanded scope.
+
+This enables the new compatibility scope without promoting OMP to Stable or approving an RC/deployed upgrade. [Current support decision](https://openmanuscript.org/docs/governance/studio-1.0-architecture/pkp-support-2026-11-07/).
+
+
 ## Publication rendition boundary — 2026-11-04
 
 Publication layout is a downstream editable version, not source processing. Separate frame text is legitimate; the earlier categorical drift finding is narrowed to unbound source lineage and unproved semantic fidelity/assurance. The author may edit every part. Name and ORCID can provide visible credit; internal source revision/digest and rendition identity carry provenance without printing technical identifiers. Existing RC and review gates remain unchanged.

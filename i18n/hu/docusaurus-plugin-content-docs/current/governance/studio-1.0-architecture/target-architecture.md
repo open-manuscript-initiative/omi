@@ -6,6 +6,13 @@ description: Az Open Manuscript Studio 1.0 javasolt célarchitektúrája a műk�
 
 # OMI Studio 1.0 Target Architecture
 
+## PKP-támogatás és kiadási bizonyíték — 2026-11-07
+
+Az OJS 3.5.0-4/-5/-6 a Stable elfogadási körbe tartozik; az OMP 3.5.0-4/-5/-6 Preview marad. Mind a hat megnevezett E02-feladat/archívum kötelező regressziós bizonyíték. Az aktuális v1 receipt az `ojs-3.5.0-6` kapuval 14 kézi kaput követel; a történeti, 13 kapus receiptek változatlanul megmaradnak, és nem hagyják jóvá a kibővített kört.
+
+A támogatási besorolás, a végrehajtható szerverképesség és a kiadási bizonyíték külön marad. A lektorálás és privát fájlok authority-je a PKP-é. [Aktuális támogatási döntés](https://openmanuscript.org/hu/docs/governance/studio-1.0-architecture/pkp-support-2026-11-07/).
+
+
 ## Publikációs változat határa — 2026-11-04
 
 A forráskézirat, a szerkeszthető publikációs változat és az exportált artifact eltérő állapotért hiteles. A tördelés publikáció-előkészítés, nem forrásfeldolgozás: az önálló kerettörténet megengedett publikációs állapot. A szerző minden részt szerkeszthet a meglévő jogosultságokkal; a forrásfrissítés kifejezett egyeztetés, nem a publikációs szerkesztés felülírása. A belső revízió/digest-kötés és a teljes tartalomhűség még implementációs feladat.
