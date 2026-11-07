@@ -8,6 +8,12 @@ slug: /integrations/omp-plugin
 
 The **OMI OMP Integration Plugin** connects Open Monograph Press (OMP) 3.5.x with Open Manuscript Studio through the OMI Integration API. OMP remains authoritative for press workflow, monograph submissions, review rounds, review assignments and private file storage; Studio communicates only through signed, application-level integration endpoints.
 
+## PKP 3.5.0-6 compatibility
+
+The compatibility matrix includes OMP **3.5.0-4, 3.5.0-5 and 3.5.0-6**. Each version has its own installation job; the selected PKP source version is checked before plugin loading. The Studio workflow suite also includes both new -6 targets, covering launch, protected files, anonymous review and writeback.
+
+OMP remains Preview in Studio. The -6 update includes API anonymity and access-control fixes, ORCID/ROR improvements and publication-version corrections. Read the [source review and test details](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/pkp-3.5.0-6-review.md). A matrix extension requires passing CI evidence and does not imply PKP certification or publish a new plugin archive.
+
 ## Current release
 
 **Stable release:** `v1.5.1`  

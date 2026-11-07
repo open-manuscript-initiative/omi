@@ -8,6 +8,12 @@ slug: /integrations/ojs-plugin
 
 The **OMI OJS Integration Plugin** connects Open Journal Systems (OJS) 3.5.x with Open Manuscript Studio through the OMI Integration API. OJS remains the authority for journal workflow, submission identity, review assignments and protected files; Studio does not read the OJS database or private file storage directly.
 
+## PKP 3.5.0-6 compatibility
+
+The compatibility matrix includes OJS **3.5.0-4, 3.5.0-5 and 3.5.0-6**. Each version has its own installation job; the selected PKP source version is checked before plugin loading. The Studio workflow suite also includes both new -6 targets, covering launch, protected files, anonymous review and writeback.
+
+OJS retains its Stable acceptance requirements. The -6 update includes API anonymity and access-control fixes, ORCID/ROR improvements and publication-version corrections. Read the [source review and test details](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/pkp-3.5.0-6-review.md). A matrix extension requires passing CI evidence and does not imply PKP certification or publish a new plugin archive.
+
 ## Current release
 
 **Stable release:** `v1.6.0`  
