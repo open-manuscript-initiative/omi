@@ -73,7 +73,7 @@ Cryptographic signing establishes provenance and integrity. It does not replace 
 
 ## Privacy
 
-The Open Manuscript Studio privacy policy is published at [Privacy Policy](./privacy-policy.md).
+The Open Manuscript Studio privacy policy is published at [Privacy Policy](/docs/governance/privacy-policy).
 
 The signing workflow processes release artifacts and the technical metadata necessary to establish build provenance and approve signing. OMI must not intentionally include user manuscript content, user credentials, production database contents, or other private application data in signing requests.
 
