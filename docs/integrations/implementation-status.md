@@ -22,6 +22,10 @@ This page separates **implemented product behaviour** from **protocol design** a
 | **Specification only** | The protocol/profile is documented, but the reference implementation does not yet provide the complete connector. |
 | **Planned** | Intended integration area without a complete implementation baseline. |
 
+## PKP compatibility — 2026-11-07
+
+OJS 3.5.0-4/-5/-6 are in the Studio Stable acceptance scope; OMP 3.5.0-4/-5/-6 remain Preview. All six declared E02 regression jobs/archives are mandatory. OJS -6 adds a separate manual gate (14 total); older receipts remain historical. Installed capabilities and permissions still control operations. [Current support and evidence policy](https://openmanuscript.org/docs/governance/studio-1.0-architecture/pkp-support-2026-11-07/).
+
 ## Current integration matrix
 
 | Integration | Current status | Implemented evidence / current scope | Remaining work |

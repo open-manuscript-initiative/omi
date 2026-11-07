@@ -145,3 +145,8 @@ Bei der Entwicklung des Plugins kam in den Bereichen Architektur, Implementierun
 ## PKP-Status
 
 Das Plugin wurde unter Berücksichtigung der aktuellen Arbeitsabläufe (OMP) und Repository-APIen (PKP 3.5) entwickelt; die Verfügbarkeit auf dieser Website stellt jedoch an sich **keine** offizielle Zulassung durch die PKP Plugin Gallery dar. Das Projekt unterscheidet ausdrücklich zwischen Implementierungskompatibilität, getesteter Interoperabilität und formaler PKP-Zulassung.
+
+
+## Freigabenachweise — 2026-11-07
+
+OMP 3.5.0-4, 3.5.0-5 und 3.5.0-6 bleiben Preview. Alle drei deklarierten E02-Regressionsjobs/Archive sind verpflichtend; daraus entsteht keine Stable-Zusage für OMP. Historische Protokolle mit 13 Prüfpunkten genehmigen den erweiterten Umfang nicht. Serverfähigkeiten und Berechtigungen bestimmen weiterhin die verfügbaren Aktionen. [Support und Abnahme](https://openmanuscript.org/de/docs/governance/studio-1.0-architecture/pkp-support-2026-11-07/).

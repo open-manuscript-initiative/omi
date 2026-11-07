@@ -6,6 +6,13 @@ description: Proposed target architecture for stabilizing the working Open Manus
 
 # Open Manuscript Studio 1.0 Target Architecture
 
+## PKP support and release evidence — 2026-11-07
+
+OJS 3.5.0-4/-5/-6 are in the Stable acceptance scope; OMP 3.5.0-4/-5/-6 remain Preview. All six named E02 jobs/archives are mandatory regression evidence. Add `ojs-3.5.0-6` to the current v1 receipt (14 manual gates); preserve historical 13-gate receipts without treating them as approval for the expanded scope.
+
+Support tier, executable server capability and release evidence remain separate. PKP keeps review/private-file authority. [Current support decision](https://openmanuscript.org/docs/governance/studio-1.0-architecture/pkp-support-2026-11-07/).
+
+
 ## Publication rendition boundary — 2026-11-04
 
 The source manuscript, editable publication rendition and exported artifact have distinct authority. Typesetting is publication preparation, not source processing: independent frame stories are legitimate publication state. Preserve unrestricted author editing within existing permissions; source updates require explicit reconciliation rather than overwriting publication edits. Internal revision/digest lineage and semantic fidelity remain implementation work.

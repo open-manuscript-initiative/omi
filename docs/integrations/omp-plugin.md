@@ -145,3 +145,8 @@ Development of the plugin has received substantial generative-AI assistance in a
 ## PKP status
 
 The plugin has been engineered against current OMP/PKP 3.5 workflow and repository APIs, but availability from this website does **not** itself constitute official PKP Plugin Gallery approval. The project distinguishes explicitly between implementation compatibility, tested interoperability and formal PKP acceptance.
+
+
+## Release evidence policy — 2026-11-07
+
+OMP 3.5.0-4, 3.5.0-5 and 3.5.0-6 remain Preview. All three declared automated E02 regression jobs/archives are mandatory; this does not create Stable OMP support or a Stable manual OMP gate. Historical 13-gate receipts do not approve the expanded scope. Capability discovery and permissions still determine available actions. [Support and acceptance policy](https://openmanuscript.org/docs/governance/studio-1.0-architecture/pkp-support-2026-11-07/).

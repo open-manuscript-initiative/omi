@@ -109,3 +109,8 @@ Das Repository enthält eine ausdrückliche Offenlegung des KI-Beitrags für die
 ## PKP-Status
 
 Das Plugin wurde gemäß den Vorgaben von PKP/OJSs 3.5 APIentwickelt und wird derzeit für die Überprüfung durch PKP vorbereitet. Die Veröffentlichung auf der Website OMI und die Verfügbarkeit als installierbare Version bedeuten **nicht**, dass das Plugin bereits in die offizielle PKP-Plugin-Galerie aufgenommen wurde. Die Aufnahme in die offizielle Galerie unterliegt weiterhin der Überprüfung durch die PKP-Betreuer und der Überprüfung der Kompatibilität.
+
+
+## Freigabenachweise — 2026-11-07
+
+OJS 3.5.0-4, 3.5.0-5 und 3.5.0-6 benötigen jeweils automatisierte E02-Nachweise und eine manuelle Abnahme. Das aktuelle Protokoll hat 14 Prüfpunkte einschließlich `ojs-3.5.0-6`. Historische Protokolle mit 13 Prüfpunkten genehmigen den erweiterten Umfang nicht. Serverfähigkeiten und Berechtigungen bestimmen weiterhin die verfügbaren Aktionen. [Support und Abnahme](https://openmanuscript.org/de/docs/governance/studio-1.0-architecture/pkp-support-2026-11-07/).

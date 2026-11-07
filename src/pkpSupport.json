@@ -1,0 +1,7 @@
+{
+  "updated": "2026-11-07",
+  "targets": [
+    {"platform": "OJS", "versions": ["3.5.0-4", "3.5.0-5", "3.5.0-6"], "tier": "Stable", "manualGates": ["ojs-3.5.0-4", "ojs-3.5.0-5", "ojs-3.5.0-6"]},
+    {"platform": "OMP", "versions": ["3.5.0-4", "3.5.0-5", "3.5.0-6"], "tier": "Preview", "manualGates": []}
+  ]
+}

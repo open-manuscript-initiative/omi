@@ -6,6 +6,13 @@ description: Dependency-aware plan of small, testable, reversible pull requests 
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
+## PKP support and release evidence — 2026-11-07
+
+OJS 3.5.0-4/-5/-6 are in the Stable acceptance scope; OMP 3.5.0-4/-5/-6 remain Preview. All six named E02 jobs/archives are mandatory regression evidence. Add `ojs-3.5.0-6` to the current v1 receipt (14 manual gates); preserve historical 13-gate receipts without treating them as approval for the expanded scope.
+
+Apply this evidence scope to C06–C09, D08 and E02–E05. Keep the original 54 units and dependency order. [Current support decision](https://openmanuscript.org/docs/governance/studio-1.0-architecture/pkp-support-2026-11-07/).
+
+
 ## Publication rendition boundary — 2026-11-04
 
 Keep the original 54 units. B01/B03/B07 cover application/session/history integration; B05/B06 still address the source ContentCodec, not removal of editable publication renditions. C03–C05 specify and test source-to-rendition mapping, immutable build inputs and loss reporting. C15/E03 cover exact-content assurance, privacy, explicit refresh/conflicts, recovery and performance. Documentation does not implement those behaviors or relax E02–E05.
