@@ -3,30 +3,95 @@ title: Privacy Policy
 sidebar_label: Privacy Policy
 ---
 
-# Privacy Policy
+# Privacy and server-specific notices
 
-Open Manuscript Studio is designed to keep manuscript processing under the user's control. Local manuscript editing and local file storage do not require manuscripts to be transferred to an external service.
+This page explains the Open Manuscript software. Each hosted Studio installation
+must provide its own complete privacy notice identifying its actual controller.
+The project name or software license does not identify the controller of every
+independent server. Open **Privacy and personal data** before registration or in
+Account on the selected Studio server; the public page is `/?privacy=1` and the
+public machine-readable endpoint is `/api/privacy` once the implementation is deployed.
 
-Network communication occurs when the user deliberately uses a network-backed feature, such as signing in to a Studio server, synchronizing or opening remote content, connecting an OJS/OMP installation, using ORCID or another configured identity provider, using a configured cloud-storage/integration provider, or requesting another online service offered by the installation.
+For the official Studio, use [the server privacy page](https://studio.openmanuscript.org/?privacy=1).
+If the server says information has not been supplied, request the notice from its
+operator before registering. Source documentation is not proof that a particular
+installation has completed its notice or operational duties.
 
-The Studio must not transmit manuscript content to unrelated third parties merely because the application is installed or opened. A network-backed feature may transmit the data technically required to provide that feature, and the operator of the connected service may have its own privacy policy and terms.
+## Data and network-backed features
 
-Official release and code-signing workflows process application binaries and technical build metadata. They must not contain user manuscripts, user credentials, production database contents, or other private user data.
+Local editing/storage can keep manuscripts on the user's device. Network-backed
+features such as server accounts, shared editing, OJS/OMP, Office, external sign-in,
+cloud storage, translation and research integrations may process personal data.
+The installation's notice must describe the actual enabled flows, controller,
+purposes/legal bases, data categories, recipients, retention criteria, applicable
+international transfer safeguards and how to exercise rights or complain.
 
-Open Manuscript Studio is open source. Users and administrators may inspect the source code and deployment configuration to determine which network services are enabled for a particular installation.
+Do not assume that intentionally connecting an external service waives data
+protection obligations. Each institution/operator must identify its role and
+relevant processor agreements and transfer arrangements. The software must not
+send manuscripts to unrelated services merely because it is installed/opened.
+Release/signing workflows must not contain manuscripts or production credentials.
 
-## Account deletion
+## Exercise your rights
 
-A signed-in user can permanently delete an Open Manuscript Studio account from the **Account → Delete account** section. The same process is available from the web Studio, so an installed mobile or desktop application is not required. Public instructions are available at [Account deletion](https://openmanuscript.org/account-deletion).
+Use the controller's monitored privacy contact in the selected server's notice,
+including if you cannot sign in. Depending on the applicable conditions, you can
+request access, rectification, erasure, restriction, objection and data portability.
+The normal response deadline is one calendar month; a justified extension requires
+notice and reasons within the original month. A mail link opens your mail client;
+it does not itself send a request or create a tracked case.
 
-Account deletion removes the live Identity account, password credential, e-mail address, personal profile data, linked sign-in identities, sessions, password-reset and invitation tokens, institution memberships, central-administration grants, stored integration credentials, cloud-connection metadata, cloud-backup index records, direct-submission records, and account-authored administrative audit events that could retain an account identifier or IP address.
+Where available, Account → Privacy offers an account-data JSON copy covering the
+profile and selected account/sign-in metadata. It contains no authentication
+secrets. It is not a full subject-access response or manuscript backup; contact the
+controller for additional personal data, shared records and applicable portability.
+No blanket consent checkbox replaces a purpose-specific lawful basis.
 
-Where a shared scholarly review or publication history must remain coherent, the Studio preserves only an anonymized participant record rather than deleting the shared scholarly history. The retained record is detached from the deleted account identity and may be kept indefinitely to preserve scholarly provenance and review integrity.
+## Account deletion and shared records
 
-Encrypted operational backups may retain a pre-deletion copy for no longer than 30 days as part of the hosted service's backup-rotation cycle. Deleted accounts are not restored from such backups for normal service use.
+[Account deletion instructions](https://openmanuscript.org/account-deletion) explain
+the existing self-service procedure. It removes live account credentials and
+profile records and clears account integration metadata. Shared review/publication
+history can retain a pseudonymized participant reference and identifiable content.
+Pseudonymized records remain personal data where re-identification is possible;
+changing a displayed name is not proof of irreversible anonymization.
 
-Copies already submitted to an OJS/OMP installation, or files stored in a third-party cloud account controlled by the user or another provider, are not deleted by deleting the OMI Studio account. Those copies are governed by the destination journal, publisher, institution, or cloud provider and must be managed there separately.
+The controller must assess remaining records, lawful grounds, retention and
+applicable erasure exceptions individually. Scholarly provenance alone does not
+authorize indefinite retention of all personal data. If the last-owner safeguard
+blocks self-service deletion, ask the controller for a verified handover or another
+erasure procedure; a request must not be left indefinitely unresolved.
 
-If the user is the last owner of an institution or the last central OMI owner, account deletion is blocked until ownership is transferred so that the organization cannot become administratively inaccessible.
+## Backups and external copies
 
-Questions about privacy for a specific hosted installation should be directed to that installation's operator. Security-sensitive issues in the Open Manuscript Initiative software should be reported according to the project's SECURITY.md policy.
+The operator must disclose and enforce the actual backup-retention period and
+restrict restoration. Previously published commitments, including a 30-day limit
+where promised, must be honoured until lawfully changed. This generic software
+page does not configure or extend a hosted installation's backup rotation.
+
+After restoring a backup, the operator must reapply valid deletions/restrictions
+and invalidate obsolete credentials before reopening normal service. Copies
+already submitted to OJS/OMP or stored at an external provider require that
+responsible destination's own process; deleting a Studio account does not remotely
+delete every external copy.
+
+## Cookies, security and operational responsibilities
+
+The installation must explain its cookies/device storage. Strictly necessary
+storage does not require consent merely because it is a cookie; optional tracking
+requires appropriate prior choice, refusal and withdrawal. No optional analytics
+is introduced by this privacy implementation.
+
+Operators must maintain proportionate security, tested recovery, retention,
+rights-request and breach-response procedures. The project security-reporting
+policy is not a substitute for the controller's statutory incident duties.
+See [the operator procedure and regulatory scope register](/docs/governance/server-privacy-operations)
+for controller setup, requests, deletion, processors, incidents, NIS2, CRA and
+accessibility. Actual organizational assessments and operator details remain
+necessary before a deployment can claim compliance.
+
+## Legal references
+
+- [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj).
+- [EDPB: individual rights](https://www.edpb.europa.eu/sme/be-compliant/respect-individuals-rights_en).
+- [EDPB: cookie questions](https://www.edpb.europa.eu/contact/frequently-asked-questions_en).

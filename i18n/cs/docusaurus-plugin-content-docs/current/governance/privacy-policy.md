@@ -5,6 +5,8 @@ sidebar_label: Zásady ochrany osobních údajů
 
 # Zásady ochrany osobních údajů
 
+Tato stránka popisuje software. Každý server musí uvést vlastního správce osobních údajů a vlastní informace o zpracování. Před registrací ověřte informace na vybraném serveru: `/?privacy=1` (po nasazení).
+
 Open Manuscript Studio je navržen tak, aby uživatel měl zpracování rukopisů plně pod kontrolou. Lokální úpravy rukopisů a lokální ukládání souborů nevyžadují přenos rukopisů do externí služby.
 
 K síťové komunikaci dochází, když uživatel záměrně využije funkci založenou na síti, jako je přihlášení k serveru Studio, synchronizace nebo otevření vzdáleného obsahu, připojení k instalaci služby OJS/OMP, použití služby ORCID nebo jiného nakonfigurovaného poskytovatele identit, použití nakonfigurovaného poskytovatele cloudového úložiště či integrace nebo vyžádání jiné online služby nabízené danou instalací.

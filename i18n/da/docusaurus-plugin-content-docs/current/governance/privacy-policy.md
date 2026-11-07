@@ -5,6 +5,8 @@ sidebar_label: Fortrolighedspolitik
 
 # Fortrolighedspolitik
 
+Denne side beskriver softwaren. Hver server skal angive sin egen dataansvarlige og egne oplysninger om behandling. Se privatlivsoplysningerne på den valgte server før registrering: `/?privacy=1` (efter idriftsættelse).
+
 Open Manuscript Studio er udviklet til at sikre, at brugeren har fuld kontrol over behandlingen af manuskripter. Lokal redigering af manuskripter og lokal filopbevaring betyder, at manuskripterne ikke behøver at blive overført til en ekstern tjeneste.
 
 Der opstår netværkskommunikation, når brugeren bevidst benytter en netværksbaseret funktion, f.eks. ved at logge ind på en Studio-server, synkronisere eller åbne fjernindhold, oprette forbindelse til en installation af OJS/OMP, benytte ORCID eller en anden konfigureret identitetsudbyder, benytte en konfigureret udbyder af cloud-lagring/integration eller anmode om en anden onlinetjeneste, der tilbydes af installationen.
