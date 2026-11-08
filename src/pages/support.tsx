@@ -182,7 +182,7 @@ export default function SupportPage() {
   const locale = i18n.currentLocale === 'hu' || i18n.currentLocale === 'de' ? i18n.currentLocale : 'en';
   const t = COPY[locale];
   const amount = (value: number) => new Intl.NumberFormat(locale, {
-    style: 'currency', currency: 'EUR', maximumFractionDigits: 0,
+    style: 'currency', currency: 'EUR', currencyDisplay: 'narrowSymbol', maximumFractionDigits: 0,
   }).format(value);
   const serviceAmount = (value: number) => new Intl.NumberFormat(locale, {
     style: 'currency', currency: 'HUF', maximumFractionDigits: 0,
