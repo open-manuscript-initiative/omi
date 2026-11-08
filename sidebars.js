@@ -23,6 +23,7 @@ const sidebars = {
       items: [
         {type: 'doc', id: 'foundations/core-principles', label: 'Core Principles'},
         {type: 'doc', id: 'foundations/cross-platform-studio', label: 'Cross-platform Studio'},
+        {type: 'doc', id: 'studio/server-directory', label: 'Automatic Server Directory'},
         {type: 'doc', id: 'foundations/studio-live-collaboration', label: 'Studio Live Collaboration'},
         {type: 'doc', id: 'studio/visual-tour', label: 'Studio Visual Tour'},
         {type: 'doc', id: 'studio/research-modules', label: 'Research Modules'},

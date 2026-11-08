@@ -64,8 +64,7 @@
   overflow-wrap: anywhere;
 }
 
-.online,
-.offline {
+.online {
   display: inline-flex;
   flex: none;
   align-items: center;
@@ -75,7 +74,6 @@
 }
 
 .online { color: #167345; }
-.offline { color: var(--ifm-color-emphasis-700); }
 
 .dot {
   width: 0.55rem;
