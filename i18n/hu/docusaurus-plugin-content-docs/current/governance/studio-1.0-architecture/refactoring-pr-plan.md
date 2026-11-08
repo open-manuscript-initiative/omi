@@ -6,6 +6,17 @@ description: Függőségtudatos, kis és visszagörgethető pull requestekre bon
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
+## Privacy/API határjavítás — 2026-11-08
+
+Az A09/A10 feladata az új privacy/fiókmásolat felületre is érvényes: additív v1 és közös legacy mount; szigorú Zod DTO-ból OpenAPI/kliens típus; szabványos olvasási hibák/korreláció; injektált repository port az alkalmazás és az identity Prisma között. A session-izoláció, szűk mezőválasztás, korlátok, opcionális szereposzlop kompatibilitása és a részlegesség jelzése maradjon meg.
+
+Ellenőrzés: `npm run test:privacy`, szerver/frontend build, opcionális munkaszerep login-/projection-regresszió és privacy böngészőtesztek. A meglévő CI-lépés tartalmazza a DTO/OpenAPI-egyezést, a két mount közös kvótáját/izolációját és a natív origin ellenőrzését. A pontos RC-commithoz kötött és kézi üzemeltetői gate-ek nem gyengülnek. API → web/natív kliens telepítési sorrend; nincs új migráció vagy szerkesztési korlát.
+
+Merge és CI előtt javaslat. Hiányzó adatkezelői tényeket nem lehet kitalált adatokkal helyettesíteni, a részleges fiókmásolat pedig nem teljes érintetti export.
+
+[Studio ADR-034](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/2f65195633542fe194c9dc37760fd47ecfb95a46/docs/architecture/adr-034-privacy-api-and-account-overview.md); [Studio PR #886](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/886).
+
+
 ## PKP-támogatás és kiadási bizonyíték — 2026-11-07
 
 Az OJS 3.5.0-4/-5/-6 a Stable elfogadási körbe tartozik; az OMP 3.5.0-4/-5/-6 Preview marad. Mind a hat megnevezett E02-feladat/archívum kötelező regressziós bizonyíték. Az aktuális v1 receipt az `ojs-3.5.0-6` kapuval 14 kézi kaput követel; a történeti, 13 kapus receiptek változatlanul megmaradnak, és nem hagyják jóvá a kibővített kört.

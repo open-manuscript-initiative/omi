@@ -6,6 +6,17 @@ description: Dependency-aware plan of small, testable, reversible pull requests 
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
+## Privacy/API boundary repair — 2026-11-08
+
+Apply A09/A10 to the new privacy/account-copy surface: introduce additive v1 and shared legacy mounts, derive OpenAPI/client types from strict Zod DTOs, standardize read errors/correlation, and inject a repository port between application export scope and identity Prisma. Preserve session admission, explicit selection, collection caps, optional-role migration compatibility and the partial-export disclosure.
+
+Required checks: `npm run test:privacy`, server/frontend builds, optional-role authentication/projection regression and privacy browser tests. The existing CI privacy step includes DTO/OpenAPI parity, alias quota/isolation/error coverage and native-origin checks; it does not create a weaker parallel release path. Keep exact-candidate and manual operator acceptance gates. Deploy API → web/native clients; compatibility paths stay until a reviewed removal policy. No new migration or authoring lock is needed.
+
+Companion source and this reconciliation remain proposed until merged and verified. Do not replace missing operator facts with invented data or call the partial account overview a complete rights export.
+
+[Studio ADR-034](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/2f65195633542fe194c9dc37760fd47ecfb95a46/docs/architecture/adr-034-privacy-api-and-account-overview.md); [Studio PR #886](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/886).
+
+
 ## PKP support and release evidence — 2026-11-07
 
 OJS 3.5.0-4/-5/-6 are in the Stable acceptance scope; OMP 3.5.0-4/-5/-6 remain Preview. All six named E02 jobs/archives are mandatory regression evidence. Add `ojs-3.5.0-6` to the current v1 receipt (14 manual gates); preserve historical 13-gate receipts without treating them as approval for the expanded scope.

@@ -6,6 +6,21 @@ description: Evidence-based gap analysis between the audited Open Manuscript Stu
 
 # Current → 1.0 Gap Analysis
 
+## Privacy/API boundary repair — 2026-11-08
+
+New unversioned privacy/account-copy routes and direct application→Prisma coupling were found in Studio `a829afba6eb6e9a68da34a9bc21d0315101c7536`; OMI `2491bc0f54b0a02cea6bcf5d1dcb98b969d7ac18` documented those URLs. Keep the features; apply targeted containment.
+
+| Boundary | Proposed repair | Required evidence |
+|---|---|---|
+| Public transport | Additive v1, common legacy handlers/quota, deprecation signals, strict DTO/OpenAPI/error schemas | Dual-mount isolation, errors, quota bypass negatives and generated-spec parity |
+| Identity persistence | Inject account-data repository; keep explicit selected fields and optional-role fallback in adapters | Secret rejection, truncation, absent account, DB failure and login/projection regression |
+| Authority and export scope | Operator-reviewed notice separate from identity/review authority; copy explicitly partial | Anonymous notice, private download, selected native origin; deployment/operator acceptance |
+
+`npm run test:privacy` remains mandatory CI evidence under the existing release gates. Mocked persistence is not production/PostgreSQL or legal acceptance. This repair is proposed until merged and verified; other 1.0 blockers remain open.
+
+[Studio ADR-034](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/2f65195633542fe194c9dc37760fd47ecfb95a46/docs/architecture/adr-034-privacy-api-and-account-overview.md); [Studio PR #886](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/886).
+
+
 ## PKP support and release evidence — 2026-11-07
 
 OJS 3.5.0-4/-5/-6 are in the Stable acceptance scope; OMP 3.5.0-4/-5/-6 remain Preview. All six named E02 jobs/archives are mandatory regression evidence. Add `ojs-3.5.0-6` to the current v1 receipt (14 manual gates); preserve historical 13-gate receipts without treating them as approval for the expanded scope.
