@@ -76,7 +76,7 @@ Published governance and architecture foundations include:
 - [OMI Specification Template](./specification-template.md);
 - [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/);
 - [Studio Implementation Status](./studio-implementation-status.md);
-- [Code Signing Policy](./code-signing-policy.md);
+- [Code Signing Policy](/docs/governance/code-signing-policy);
 - [Integration Implementation Status](../integrations/implementation-status.md).
 
 The documentation site also provides a canonical sidebar architecture, stable documentation routes, English/Hungarian/German site navigation and explicit separation between normative specification status and product implementation status.
