@@ -1,9 +1,11 @@
 // Agreed starting framework, 2026-11-08. Review against actual costs and capacity.
-// HUF reference amounts are not payment-provider tiers or a service contract.
+// EUR contribution references rounded from the former HUF amounts at 1 EUR = 363.90 HUF.
+// ECB reference rate, 2026-11-06: https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html
+// Service planning amounts remain in HUF. References are not provider tiers or contracts.
 export const supportModel = {
-  individualMonthlyHuf: [1000, 2500, 5000],
-  suggestedOneTimeHuf: [3000, 10000, 25000],
-  institutionalAnnualHuf: [120000, 240000, 600000],
+  individualMonthlyEur: [3, 7, 14],
+  suggestedOneTimeEur: [8, 28, 70],
+  institutionalAnnualEur: [330, 660, 1650],
   servicesHuf: [36000, 108000, 72000, 54000],
   additionalHourlyHuf: 18000,
   monthlyCareHuf: 65000,

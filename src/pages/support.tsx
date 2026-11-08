@@ -16,17 +16,17 @@ const COPY = {
     capacity: 'Costly shared services such as hosted storage, machine translation and OCR may have clearly stated capacity limits. These must preserve your ability to download and export your own manuscripts.',
     modelStatus: 'Starting framework adopted on 8 November 2026. We will review the amounts and scope against actual costs, available time and experience. Changes will be explained publicly and agreed service terms will be respected.',
     individualTitle: 'Individual support',
-    individualText: 'Choose an amount that suits you. These are suggested HUF reference amounts, not a fee for using Studio.',
+    individualText: 'Choose an amount that suits you. These are suggested EUR reference amounts, not a fee for using Studio.',
     tiers: ['Supporter', 'Regular supporter', 'Sustaining supporter'],
     tierDescriptions: ['Help keep the project running.', 'Help with maintenance and testing.', 'Help sustain long-term development.'],
     perMonth: 'per month',
     oneTime: 'Suggested one-time contributions',
     custom: 'Other amounts are welcome.',
-    paymentText: 'GitHub Sponsors is the project’s linked support channel. Check the recipient, available tiers, currency, recurrence and cancellation on GitHub before confirming. GitHub tiers are in USD; the HUF figures here are not a guaranteed conversion or a local card-payment checkout.',
+    paymentText: 'GitHub Sponsors is the project’s linked support channel. Check the recipient, available tiers, currency, recurrence and cancellation on GitHub before confirming. GitHub tiers are in USD; the EUR figures here are not a guaranteed conversion or a local card-payment checkout.',
     github: 'View OMI on GitHub Sponsors',
     institutionTitle: 'Institutional contributions',
     institutionText: 'Universities, libraries, journals and publishers can help fund shared maintenance through an annual contribution. We are starting with the institutional supporter framework; higher levels are planned for later expansion.',
-    institutionHeaders: ['Level', 'Annual HUF reference', 'Introduction'],
+    institutionHeaders: ['Level', 'Annual EUR reference', 'Introduction'],
     institutionTiers: ['Institutional supporter', 'Sustaining partner', 'Lead sustaining partner'],
     institutionStatus: ['Starting framework', 'Later phase', 'Later phase'],
     institutionTerms: 'A contribution supports the common project. It is not a per-user software licence and does not automatically include hosting, installation, support hours, on-call cover or a development deadline. Services require a separate agreement.',
@@ -72,17 +72,17 @@ const COPY = {
     capacity: 'A költséges központi szolgáltatásoknak, például a tárhelynek, a gépi fordításnak és az OCR-nek előre látható kapacitási kerete lehet. Ez nem akadályozhatja saját kézirataid letöltését és exportját.',
     modelStatus: '2026. november 8-án elfogadott induló keret. Az összegeket és a vállalásokat a tényleges költségek, a rendelkezésre álló idő és a tapasztalatok alapján felülvizsgáljuk. A változásokat nyilvánosan jelezzük, a megkötött szolgáltatási megállapodásokat tiszteletben tartjuk.',
     individualTitle: 'Egyéni támogatás',
-    individualText: 'Válassz számodra megfelelő összeget. Az alábbiak javasolt forintösszegek, nem a Studio használati díjai.',
+    individualText: 'Válassz számodra megfelelő összeget. Az alábbiak javasolt euróösszegek, nem a Studio használati díjai.',
     tiers: ['Támogató', 'Rendszeres támogató', 'Kiemelt támogató'],
     tierDescriptions: ['Hozzájárulás a folyamatos működéshez.', 'Hozzájárulás a karbantartáshoz és a teszteléshez.', 'Hozzájárulás a hosszú távú fejlesztéshez.'],
     perMonth: 'havonta',
     oneTime: 'Javasolt egyszeri támogatás',
     custom: 'Más összeggel is segíthetsz.',
-    paymentText: 'A projekt honlapjáról elérhető támogatási csatorna a GitHub Sponsors. Jóváhagyás előtt a GitHubon ellenőrizd a kedvezményezettet, az elérhető szinteket, a pénznemet, az ismétlődést és a lemondást. A GitHub szintjei USD-ben vannak megadva; az itteni forintösszegek nem jelentenek garantált átváltást vagy helyi bankkártyás fizetési felületet.',
+    paymentText: 'A projekt honlapjáról elérhető támogatási csatorna a GitHub Sponsors. Jóváhagyás előtt a GitHubon ellenőrizd a kedvezményezettet, az elérhető szinteket, a pénznemet, az ismétlődést és a lemondást. A GitHub szintjei USD-ben vannak megadva; az itteni euróösszegek nem jelentenek garantált átváltást vagy helyi bankkártyás fizetési felületet.',
     github: 'Az OMI megtekintése a GitHub Sponsorson',
     institutionTitle: 'Intézményi hozzájárulás',
     institutionText: 'Egyetemek, könyvtárak, folyóiratok és kiadók éves hozzájárulással segíthetik a közös karbantartást. Indulásként az intézményi támogatói keretre építünk; a magasabb szintek későbbi bővítésre készülnek.',
-    institutionHeaders: ['Szint', 'Éves irányadó összeg', 'Bevezetés'],
+    institutionHeaders: ['Szint', 'Éves irányadó összeg (EUR)', 'Bevezetés'],
     institutionTiers: ['Intézményi támogató', 'Fenntartó partner', 'Kiemelt fenntartó'],
     institutionStatus: ['Induló keret', 'Későbbi ütem', 'Későbbi ütem'],
     institutionTerms: 'A hozzájárulás a közös projektet támogatja. Nem felhasználónkénti licencdíj, és önmagában nem tartalmaz tárhelyet, telepítést, segítségnyújtási órakeretet, ügyeletet vagy fejlesztési határidőt. Ezekhez külön szolgáltatási megállapodás szükséges.',
@@ -128,17 +128,17 @@ const COPY = {
     capacity: 'Kostenintensive gemeinsame Dienste wie gehosteter Speicher, maschinelle Übersetzung und OCR können klar ausgewiesene Kapazitätsgrenzen haben. Das Herunterladen und Exportieren eigener Manuskripte muss dabei erhalten bleiben.',
     modelStatus: 'Am 8. November 2026 angenommener Ausgangsrahmen. Beträge und Leistungsumfang werden anhand tatsächlicher Kosten, verfügbarer Zeit und Erfahrungen überprüft. Änderungen werden öffentlich erläutert; vereinbarte Leistungsbedingungen bleiben maßgeblich.',
     individualTitle: 'Individuelle Unterstützung',
-    individualText: 'Wählen Sie einen passenden Betrag. Dies sind vorgeschlagene HUF-Richtwerte, keine Gebühr für die Nutzung von Studio.',
+    individualText: 'Wählen Sie einen passenden Betrag. Dies sind vorgeschlagene EUR-Richtwerte, keine Gebühr für die Nutzung von Studio.',
     tiers: ['Unterstützer', 'Regelmäßiger Unterstützer', 'Fördernder Unterstützer'],
     tierDescriptions: ['Beitrag zum laufenden Betrieb.', 'Beitrag zu Wartung und Tests.', 'Beitrag zur langfristigen Entwicklung.'],
     perMonth: 'pro Monat',
     oneTime: 'Vorgeschlagene einmalige Beiträge',
     custom: 'Andere Beträge sind ebenfalls willkommen.',
-    paymentText: 'GitHub Sponsors ist der auf der Projektwebsite verlinkte Unterstützungskanal. Prüfen Sie dort vor der Bestätigung Empfänger, verfügbare Stufen, Währung, Wiederholung und Kündigung. GitHub-Stufen sind in USD angegeben; die HUF-Beträge hier sind keine garantierte Umrechnung und keine lokale Kartenzahlungsseite.',
+    paymentText: 'GitHub Sponsors ist der auf der Projektwebsite verlinkte Unterstützungskanal. Prüfen Sie dort vor der Bestätigung Empfänger, verfügbare Stufen, Währung, Wiederholung und Kündigung. GitHub-Stufen sind in USD angegeben; die EUR-Beträge hier sind keine garantierte Umrechnung und keine lokale Kartenzahlungsseite.',
     github: 'OMI auf GitHub Sponsors ansehen',
     institutionTitle: 'Institutionelle Beiträge',
     institutionText: 'Universitäten, Bibliotheken, Zeitschriften und Verlage können die gemeinsame Wartung durch jährliche Beiträge fördern. Wir beginnen mit dem Rahmen für institutionelle Unterstützer; höhere Stufen sind für eine spätere Erweiterung vorgesehen.',
-    institutionHeaders: ['Stufe', 'Jährlicher HUF-Richtwert', 'Einführung'],
+    institutionHeaders: ['Stufe', 'Jährlicher EUR-Richtwert', 'Einführung'],
     institutionTiers: ['Institutioneller Unterstützer', 'Förderpartner', 'Hauptförderpartner'],
     institutionStatus: ['Ausgangsrahmen', 'Spätere Phase', 'Spätere Phase'],
     institutionTerms: 'Ein Beitrag unterstützt das gemeinsame Projekt. Er ist keine Softwarelizenz pro Nutzer und umfasst nicht automatisch Hosting, Installation, Supportstunden, Bereitschaft oder einen Entwicklungstermin. Leistungen erfordern eine gesonderte Vereinbarung.',
@@ -182,6 +182,9 @@ export default function SupportPage() {
   const locale = i18n.currentLocale === 'hu' || i18n.currentLocale === 'de' ? i18n.currentLocale : 'en';
   const t = COPY[locale];
   const amount = (value: number) => new Intl.NumberFormat(locale, {
+    style: 'currency', currency: 'EUR', currencyDisplay: 'narrowSymbol', maximumFractionDigits: 0,
+  }).format(value);
+  const serviceAmount = (value: number) => new Intl.NumberFormat(locale, {
     style: 'currency', currency: 'HUF', maximumFractionDigits: 0,
   }).format(value);
   const contactUrl = 'https://github.com/open-manuscript-initiative';
@@ -211,7 +214,7 @@ export default function SupportPage() {
             <h2 id="individual-support">{t.individualTitle}</h2>
             <p>{t.individualText}</p>
             <div className={styles.grid}>
-              {supportModel.individualMonthlyHuf.map((value, index) => (
+              {supportModel.individualMonthlyEur.map((value, index) => (
                 <article className="card" key={value}>
                   <div className="card__body">
                     <h3>{t.tiers[index]}</h3>
@@ -223,7 +226,7 @@ export default function SupportPage() {
               ))}
             </div>
             <p className="margin-top--md"><strong>{t.oneTime}:</strong>{' '}
-              {supportModel.suggestedOneTimeHuf.map(amount).join(' / ')}. {t.custom}
+              {supportModel.suggestedOneTimeEur.map(amount).join(' / ')}. {t.custom}
             </p>
             <p>{t.paymentText}</p>
             <div className={styles.actions}>
@@ -237,7 +240,7 @@ export default function SupportPage() {
             <div className={styles.tableScroll} role="region" aria-labelledby="institutional-support" tabIndex={0}>
               <table className={styles.table}>
                 <thead><tr>{t.institutionHeaders.map(label => <th scope="col" key={label}>{label}</th>)}</tr></thead>
-                <tbody>{supportModel.institutionalAnnualHuf.map((value, index) => (
+                <tbody>{supportModel.institutionalAnnualEur.map((value, index) => (
                   <tr key={value}>
                     <th scope="row">{t.institutionTiers[index]}</th>
                     <td className={styles.money}>{amount(value)}</td>
@@ -258,13 +261,13 @@ export default function SupportPage() {
                 <caption>{t.servicePricing}</caption>
                 <thead><tr>{t.serviceHeaders.map(label => <th scope="col" key={label}>{label}</th>)}</tr></thead>
                 <tbody>{t.services.map(([name, scope], index) => (
-                  <tr key={name}><th scope="row">{name}</th><td>{scope}</td><td className={styles.money}>{amount(supportModel.servicesHuf[index])}</td></tr>
+                  <tr key={name}><th scope="row">{name}</th><td>{scope}</td><td className={styles.money}>{serviceAmount(supportModel.servicesHuf[index])}</td></tr>
                 ))}</tbody>
               </table>
             </div>
-            <p><strong>{t.hourly}:</strong> {amount(supportModel.additionalHourlyHuf)} {t.perHour}.</p>
+            <p><strong>{t.hourly}:</strong> {serviceAmount(supportModel.additionalHourlyHuf)} {t.perHour}.</p>
             <h3>{t.monthly}</h3>
-            <p className={styles.amount}>{amount(supportModel.monthlyCareHuf)} <span className={styles.muted}>{t.perMonth}</span></p>
+            <p className={styles.amount}>{serviceAmount(supportModel.monthlyCareHuf)} <span className={styles.muted}>{t.perMonth}</span></p>
             <p>{t.monthlyTerms}</p>
             <p>{t.pilot}</p>
             <div className={styles.actions}><a className="button button--secondary" href={contactUrl}>{t.serviceButton}</a></div>

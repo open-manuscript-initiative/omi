@@ -8,7 +8,7 @@ description: Das OMI-Ausgangsmodell für freiwillige Unterstützung, institution
 
 **Am 8. November 2026 angenommener Ausgangsrahmen.** Das Modell wird anhand tatsächlicher Kosten, verfügbarer Kapazität und praktischer Erfahrungen überprüft. Änderungen werden öffentlich erläutert; vereinbarte Leistungsbedingungen bleiben maßgeblich.
 
-Vorgeschlagene HUF-Beträge, Rechenbeispiele für Leistungen und der verlinkte Unterstützungskanal stehen auf [OMI unterstützen](/support/). Richtwerte richten weder Zahlungsstufen beim Anbieter noch sofort bestellbare Leistungen ein.
+Vorgeschlagene EUR-Beiträge, HUF-Rechenbeispiele für Leistungen und der verlinkte Unterstützungskanal stehen auf [OMI unterstützen](/support/). Richtwerte richten weder Zahlungsstufen beim Anbieter noch sofort bestellbare Leistungen ein.
 
 ## Was kostenlos bleibt
 
@@ -37,7 +37,7 @@ Der erste Pilotbetrieb ist auf zwei Institutionen begrenzt. Eine Erweiterung hä
 
 ## Zahlung
 
-Die Unterstützungsseite verweist auf die bereits verlinkte GitHub-Sponsors-Adresse des Projekts. Vor einer Zahlung sind dort verfügbare Stufen, Empfänger, Währung, Wiederholung und Kündigung zu prüfen. GitHub-Stufen sind in USD angegeben; die vorgeschlagenen HUF-Beträge sind Richtwerte und keine garantierte Umrechnung. Diese Website erfasst keine Kartendaten und startet keine Zahlungen.
+Die Unterstützungsseite verweist auf die bereits verlinkte GitHub-Sponsors-Adresse des Projekts. Vor einer Zahlung sind dort verfügbare Stufen, Empfänger, Währung, Wiederholung und Kündigung zu prüfen. GitHub-Stufen sind in USD angegeben; die vorgeschlagenen EUR-Beträge sind Richtwerte und keine garantierte Umrechnung. Diese Website erfasst keine Kartendaten und startet keine Zahlungen.
 
 Vor weiteren Zahlungswegen müssen Empfänger und Anbieter identifiziert, Abrechnung und steuerliche Einordnung geklärt sowie Zahlung, Kündigung und Erstattung geprüft werden. Institutionelle Beiträge und beauftragte Leistungen benötigen getrennte Bedingungen und geeignete Belege. Das Wort „Unterstützung“ begründet allein keine Steuerbefreiung.
 

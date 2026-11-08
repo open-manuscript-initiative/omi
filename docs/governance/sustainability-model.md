@@ -8,7 +8,7 @@ description: OMI's starting model for voluntary support, institutional contribut
 
 **Starting framework adopted on 8 November 2026.** The model will evolve with actual costs, available capacity and practical experience. Changes will be explained publicly and agreed service terms will be respected.
 
-See [Support OMI](/support/) for the suggested HUF amounts, service planning examples and linked support channel. Reference amounts do not create payment-provider tiers or an immediately purchasable service.
+See [Support OMI](/support/) for the suggested EUR contribution amounts, HUF service planning examples and linked support channel. Reference amounts do not create payment-provider tiers or an immediately purchasable service.
 
 ## What stays free
 
@@ -37,7 +37,7 @@ The initial pilot is limited to two institutions. Expansion depends on actual wo
 
 ## Payments
 
-The support page links to the project's existing GitHub Sponsors destination. Available tiers, recipient, currency, recurrence and cancellation must be checked at that destination before confirming a payment. GitHub tiers are in USD; the suggested HUF figures are reference amounts, not a guaranteed currency conversion. This website does not collect card details or start payments.
+The support page links to the project's existing GitHub Sponsors destination. Available tiers, recipient, currency, recurrence and cancellation must be checked at that destination before confirming a payment. GitHub tiers are in USD; the suggested EUR figures are reference amounts, not a guaranteed currency conversion. This website does not collect card details or start payments.
 
 Before activating further payment methods, identify the recipient and provider, clarify accounting and applicable tax treatment, and test payment, cancellation and refund handling. Institutional contributions and commissioned services must have distinct terms and appropriate records. The word “support” alone does not establish a tax exemption.
 
