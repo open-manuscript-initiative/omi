@@ -8,6 +8,7 @@ const messages = {
   en: {
     title: 'Web and Android RC available',
     status: 'Use the web release candidate in your browser or install the Android RC from its signed APK package.',
+    windows: 'Windows Store packaging succeeded on 8 November. Store validation, Microsoft signing and device acceptance are pending.',
     downloads: 'Desktop downloads',
     support: 'RC scope: Linux desktop and macOS Preview; iOS/iPadOS Experimental. The inherited Linux GLib advisory remains open.',
     notes: 'RC status and changes', evidence: 'Verified build evidence',
@@ -15,6 +16,7 @@ const messages = {
   hu: {
     title: 'Elérhető a webes és az Android RC',
     status: 'A webes kiadási jelölt böngészőben használható, az Android RC az aláírt APK-csomagból telepíthető.',
+    windows: 'A Windows Store-csomagkészítés november 8-án sikerült. A Store-ellenőrzés, a Microsoft-aláírás és az eszközpróba még hátravan.',
     downloads: 'Asztali letöltések',
     support: 'RC-támogatás: Linux asztali és macOS Preview; iOS/iPadOS kísérleti. A Linux örökölt GLib-figyelmeztetése továbbra is nyitott.',
     notes: 'RC-állapot és változások', evidence: 'Ellenőrzési eredmények',
@@ -22,6 +24,7 @@ const messages = {
   de: {
     title: 'Web- und Android-RC verfügbar',
     status: 'Der Web-Release-Kandidat ist im Browser nutzbar. Der Android-RC lässt sich aus dem signierten APK-Paket installieren.',
+    windows: 'Die Windows-Store-Paketierung war am 8. November erfolgreich. Store-Validierung, Microsoft-Signierung und Geräteabnahme stehen noch aus.',
     downloads: 'Desktop-Downloads',
     support: 'RC-Umfang: Linux-Desktop und macOS Preview; iOS/iPadOS experimentell. Die geerbte Linux-GLib-Warnung bleibt offen.',
     notes: 'RC-Status und Änderungen', evidence: 'Prüfnachweise',
@@ -36,6 +39,7 @@ export default function StudioReleaseStatus() {
       <p><strong>{copy.title}</strong></p>
       <p>Web: <strong>{STUDIO_WEB_VERSION}</strong>{' · '}Android APK: <strong>{STUDIO_ANDROID_VERSION}</strong></p>
       <p>{copy.status}</p>
+      <p>{copy.windows}</p>
       <p>{copy.downloads}: <strong>{STUDIO_PUBLISHED_VERSION}</strong>. {copy.support}</p>
       <p><Link to={STUDIO_SOURCE_RELEASE_NOTES}>{copy.notes}</Link>{' · '}
         <Link to={STUDIO_RC_EVIDENCE_URL}>{copy.evidence}</Link></p>

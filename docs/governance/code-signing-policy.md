@@ -5,90 +5,55 @@ sidebar_label: Code Signing Policy
 
 # Code Signing Policy
 
-## Scope
+Updated 8 November 2026. Applies to official Open Manuscript Studio binaries,
+built from the MIT-licensed `open-manuscript-initiative/open-manuscript-studio`
+repository.
 
-This policy applies to official binary releases of **Open Manuscript Studio**, the open-source reference implementation of the Open Manuscript Initiative (OMI).
+## Windows distribution channels
 
-Open Manuscript Studio source code is publicly developed in the `open-manuscript-initiative/open-manuscript-studio` GitHub repository and is distributed under the MIT License.
+| Channel | Current policy and status |
+| --- | --- |
+| Microsoft Store MSIX | Selected path. GitHub builds an unsigned candidate; Microsoft signs during publication after certification. Packaging succeeded on 8 November; Store version validation, certification and device/update acceptance are pending. |
+| Direct EXE/MSI | Existing Tauri installers remain a separate channel. No active public-trust signing integration is established; the Store does not sign these files. |
+| Local development | Test certificates are restricted to explicitly trusted test environments and do not establish public release trust. |
 
-## Purpose
+The owner reports that the earlier SignPath Foundation application was declined.
+SignPath is not an active signing provider; no SignPath sponsorship or certificate
+is claimed. The Store-only workflow requires neither Azure nor private signing
+credentials. See [RC status and verified build](../studio/releases/1.0.0-rc.1.md).
 
-Code signing provides verifiable provenance and integrity for official desktop releases. It allows users and operating systems to verify that a distributed installer was produced through the project's approved release process and has not been modified after signing.
+## Provenance and release approval
 
-The initial signing scope is the official Windows desktop distribution, including the NSIS `.exe` installer and WiX `.msi` package produced by the Tauri release workflow.
+1. Use official public source and GitHub-hosted approved build workflows.
+2. Bind exact source revision, package identity/version, build run and SHA-256.
+3. Submit the reviewed candidate through the approved distribution channel;
+   any deliberate rebuild or repackaging requires new byte identity and review.
+4. Verify signing authority, signature integrity and actual install/update/data
+   preservation before claiming signed distribution.
+5. Keep signing credentials and service secrets out of Git, logs and binaries.
+   Limit CI/release access and use MFA.
+6. Obtain explicit release-owner approval; a green build is not certification
+   or an approved stable release. Preserve Store-managed update behavior for
+   Store-installed packages.
 
-## SignPath Foundation
+MSIX archive digests, package hashes and Microsoft signatures are distinct
+evidence. The separate Store artifact does not silently replace the existing
+seven-file RC receipt or its 14 manual acceptance gates.
 
-The Open Manuscript Initiative intends to use the SignPath Foundation open-source code-signing service for eligible official releases.
+The designated maintainer, reviewer and release approver is
+[`vargaijanos`](https://github.com/vargaijanos). Roles may overlap in this small
+project, but release approval remains explicit. Suspend signing/publication if
+credentials or provenance are suspected compromised; investigate, revoke/rotate
+affected credentials and identify affected releases before resuming.
 
-**Free code signing provided by SignPath.io, certificate by SignPath Foundation.**
+## Privacy and reports
 
-Code signing is not active until the project has been accepted by SignPath Foundation and the signing configuration has been integrated into the official release workflow. Until then, Windows packages may be unsigned and Windows may display an unknown-publisher or reputation warning.
+Microsoft and GitHub process account/build/submission metadata under their own
+terms. Manuscript content, user credentials, database contents and server secrets
+must never be included in signing or Store submission artifacts. Database/server
+operation remains outside this signing boundary.
+See [Privacy Policy](./privacy-policy.md).
+Report security issues privately to the maintainers.
 
-## Trusted build and release provenance
-
-Official signed binaries must be traceable to public source code and an approved release workflow.
-
-For SignPath-signed releases:
-
-1. source code must originate from the official Open Manuscript Studio GitHub repository;
-2. release artifacts must be built by the project's approved GitHub Actions workflow using GitHub-hosted runners where required by the signing service;
-3. signing must operate on artifacts produced by that trusted build rather than on locally supplied replacement binaries;
-4. the signed artifact must correspond to the source revision and release identified by the public GitHub release;
-5. signing credentials, project identifiers, and service secrets must not be committed to the repository;
-6. official signed release artifacts must not be modified after signing.
-
-## Project roles and members
-
-The current designated signing roles are:
-
-- **Authors / Committers:** Open Manuscript Initiative maintainers with write access to the official repositories. Current designated maintainer: [`vargaijanos`](https://github.com/vargaijanos).
-- **Reviewers:** Open Manuscript Initiative maintainers who review pull requests and changes affecting release generation, packaging, security-sensitive configuration, and code-signing workflows. Current designated reviewer: [`vargaijanos`](https://github.com/vargaijanos).
-- **Approvers:** maintainers trusted to authorize production signing requests and official signed releases. Current designated signing approver: [`vargaijanos`](https://github.com/vargaijanos).
-
-A person may hold more than one role when necessary for a small open-source project. Production signing nevertheless remains an explicit release action and is not an implicit consequence of arbitrary source changes.
-
-## Authentication and access control
-
-Maintainers with access to GitHub release administration or SignPath signing functions must use multi-factor authentication (MFA). Access must be limited to the minimum privileges necessary for the assigned role and removed when no longer required.
-
-Signing-service credentials and tokens must be stored using the secret-management facilities of the trusted CI/CD environment. They must never be embedded in application source code, workflow logs, release assets, or documentation.
-
-## Signing approval
-
-Every production release signing request requires manual approval in accordance with the SignPath Foundation requirements applicable to the project. Signing approval must be associated with an identifiable release artifact and source revision.
-
-A release must not be represented as signed by the project unless its signature can be successfully validated against the expected certificate chain.
-
-## Verification
-
-Users and distributors are encouraged to verify signed Windows packages before installation. A valid signed package should:
-
-- contain a valid Authenticode signature;
-- have an intact signature after download;
-- identify the certificate holder used by the approved SignPath Foundation signing configuration; and
-- correspond to an official Open Manuscript Studio release published by the Open Manuscript Initiative.
-
-Cryptographic signing establishes provenance and integrity. It does not replace source review, vulnerability management, malware scanning, dependency review, or other software-security controls.
-
-## Privacy
-
-The Open Manuscript Studio privacy policy is published at [Privacy Policy](/docs/governance/privacy-policy).
-
-The signing workflow processes release artifacts and the technical metadata necessary to establish build provenance and approve signing. OMI must not intentionally include user manuscript content, user credentials, production database contents, or other private application data in signing requests.
-
-Network communication by the application occurs only when a user deliberately uses a network-backed feature or when an installation is configured to provide such a service. Connected identity, publishing, storage, or integration providers may have their own privacy policies and terms.
-
-The project's use of SignPath is also subject to the privacy and service terms published by SignPath and SignPath Foundation.
-
-## Database and server-side services
-
-The OMI Studio server-side PostgreSQL integration is separate from desktop code signing. Database credentials and production data are outside the code-signing artifact boundary and must never be included in desktop release artifacts or signing requests.
-
-## Security reports
-
-Security issues affecting Open Manuscript Studio, its build process, or release provenance should be reported privately to the Open Manuscript Initiative maintainers rather than disclosed first in a public issue when exploitation could put users at risk.
-
-## Policy changes
-
-Material changes to the signing provider, certificate ownership, trusted build system, production signing policy, role assignments, or approval model must be documented here before the changed process is presented as the official OMI release-signing process.
+Material changes to provider, certificate ownership, trusted build, access or
+approval must be reviewed and documented before production use.
