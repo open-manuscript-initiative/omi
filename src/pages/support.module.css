@@ -1,0 +1,57 @@
+.content {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+}
+
+.amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.actions a {
+  max-width: 100%;
+  white-space: normal;
+}
+
+.tableScroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.tableScroll:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 3px;
+}
+
+.table {
+  display: table;
+  width: 100%;
+}
+
+.table caption {
+  text-align: start;
+  margin-bottom: 0.75rem;
+}
+
+.money {
+  text-align: end;
+  white-space: nowrap;
+}
+
+.muted {
+  color: var(--ifm-color-content-secondary);
+}

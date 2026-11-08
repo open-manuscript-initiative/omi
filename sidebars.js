@@ -106,6 +106,8 @@ const sidebars = {
       link: {type: 'generated-index', title: 'Governance', description: 'Policies governing the authority, roadmap, maturity, versioning, authorship, identity, maintenance, and release security of OMI specifications and reference implementations.', slug: '/category/governance'},
       items: [
         {type: 'doc', id: 'governance/charter', label: 'Charter'},
+        {type: 'doc', id: 'governance/funding-and-partnerships'},
+        {type: 'doc', id: 'governance/sustainability-model'},
         {type: 'doc', id: 'governance/roadmap-to-omi-1.0', label: 'Roadmap to OMI 1.0'},
         {type: 'doc', id: 'governance/studio-implementation-status', label: 'Studio Implementation Status'},
         {type: 'doc', id: 'governance/studio-omi-spec-240-implementation-profile', label: 'Studio OMI-SPEC-240 Profile'},
