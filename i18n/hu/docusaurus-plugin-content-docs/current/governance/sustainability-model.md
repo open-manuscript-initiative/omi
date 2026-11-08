@@ -8,7 +8,7 @@ description: Az OMI induló modellje az önkéntes támogatásokhoz, az intézm�
 
 **2026. november 8-án elfogadott induló keret.** A modell a tényleges költségek, a rendelkezésre álló kapacitás és a gyakorlati tapasztalatok alapján változhat. A változásokat nyilvánosan jelezzük, a megkötött szolgáltatási megállapodásokat tiszteletben tartjuk.
 
-A javasolt forintösszegek, a szolgáltatási számítási példák és a kapcsolt támogatási csatorna [az OMI támogatási oldalán](/support/) találhatók. Az irányadó összegek önmagukban nem hoznak létre fizetési szolgáltatói szinteket vagy azonnal megvásárolható szolgáltatást.
+A javasolt euróban megadott támogatási összegek, a forintban megadott szolgáltatási számítási példák és a kapcsolt támogatási csatorna [az OMI támogatási oldalán](/support/) találhatók. Az irányadó összegek önmagukban nem hoznak létre fizetési szolgáltatói szinteket vagy azonnal megvásárolható szolgáltatást.
 
 ## Mi marad ingyenes?
 
@@ -37,7 +37,7 @@ Az induló pilot legfeljebb két intézményt fogad. A bővítés a tényleges t
 
 ## Fizetés
 
-A támogatási oldal a projekt korábban is használt GitHub Sponsors-címére hivatkozik. Fizetés előtt ott kell ellenőrizni az elérhető szinteket, a kedvezményezettet, a pénznemet, az ismétlődést és a lemondást. A GitHub szintjei USD-ben szerepelnek; a javasolt forintösszegek irányadó értékek, nem garantált átváltások. Ez a honlap nem gyűjt bankkártyaadatot és nem indít fizetést.
+A támogatási oldal a projekt korábban is használt GitHub Sponsors-címére hivatkozik. Fizetés előtt ott kell ellenőrizni az elérhető szinteket, a kedvezményezettet, a pénznemet, az ismétlődést és a lemondást. A GitHub szintjei USD-ben szerepelnek; a javasolt euróösszegek irányadó értékek, nem garantált átváltások. Ez a honlap nem gyűjt bankkártyaadatot és nem indít fizetést.
 
 További fizetési módok bekapcsolása előtt azonosítani kell a fogadó felet és a szolgáltatót, tisztázni az elszámolást és az adózási besorolást, majd kipróbálni a fizetést, a lemondást és a visszatérítést. Az intézményi hozzájárulásnak és a megrendelt szolgáltatásnak külön feltétele és megfelelő bizonylata legyen. A támogatás szó önmagában nem jelent adómentességet.
 
