@@ -6,6 +6,15 @@ description: Az Open Manuscript Studio 1.0 célarchitektúrájának, fő kockáz
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
+## Privacy/API határjavítás — 2026-11-08
+
+A javasolt javítás megtartja az üzemeltetői tájékoztatót és a részleges fiókmásolatot, de az új klienscontract az `/api/v1/privacy` és `/api/v1/account/data` címre kerül. A régi útvonalak azonos handlert és közös kvótát használnak. A szigorú Zod-séma adja az ellenőrzött OpenAPI-t és a kliens típusait; az alkalmazásszolgáltatás a repository porton át olvas identity-adatot. A másolat nem teljes érintetti válasz vagy kéziratmentés.
+
+Az adatkezelő tényeit a kiválasztott szerver üzemeltetője adja meg; ez nem identity-, szerkesztői vagy lektorálási jogosultság. A meglévő identity/API/privacy és pontos RC-commithoz kötött release gate-ek érvényben maradnak. Előbb API, utána kliens; nincs új OMI-mező, migráció vagy szerkesztési korlát. A javítás merge és CI előtt javaslat; az éles és jogi elfogadás külön lépés.
+
+[Studio ADR-034](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/2f65195633542fe194c9dc37760fd47ecfb95a46/docs/architecture/adr-034-privacy-api-and-account-overview.md); [Studio PR #886](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/886).
+
+
 ## PKP-támogatás és kiadási bizonyíték — 2026-11-07
 
 Az OJS 3.5.0-4/-5/-6 a Stable elfogadási körbe tartozik; az OMP 3.5.0-4/-5/-6 Preview marad. Mind a hat megnevezett E02-feladat/archívum kötelező regressziós bizonyíték. Az aktuális v1 receipt az `ojs-3.5.0-6` kapuval 14 kézi kaput követel; a történeti, 13 kapus receiptek változatlanul megmaradnak, és nem hagyják jóvá a kibővített kört.

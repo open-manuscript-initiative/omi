@@ -30,7 +30,7 @@ mentéseit, és nem jelent jogi megfelelőségi tanúsítást.
    `OMI_PRIVACY_CONFIG_PATH=/etc/omi/privacy-notice.json`.
    A `server` könyvtárból futtassa: `npm run privacy:check`.
 8. A szokásos telepítési eljárással történő aktiválás után ellenőrizze a
-   `/?privacy=1` oldalt, az `/api/privacy` választ, a regisztrációs és Fiók felületet,
+   `/?privacy=1` oldalt, az `/api/v1/privacy` választ, a regisztrációs és Fiók felületet,
    valamint a kiválasztott szervert az Android/asztali kliensben.
 
 Az ellenőrzés a fájl szerkezetét vizsgálja, nem a jogalap helyességét. Hiányzó
@@ -114,3 +114,12 @@ kötelezettséget az adott működés alapján kell vizsgálni.
 
 A részletes forrásokat és teendőket az angol üzemeltetési útmutató tartalmazza.
 Jogszabály: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj).
+
+## Privacy API kompatibilitás — 2026-11-08
+
+Az új kliens a v1 címeket használja; az `/api/privacy` és `/api/account/data`
+közös handlert és kvótát használó legacy cím marad, deprecation jelzéssel. Előbb
+a javított API-t, utána a klienseket telepítse. Az `omi-account-overview/1`
+részleges másolat, nem teljes hozzáférési/hordozhatósági válasz. Az ADR-034
+és az architektúra-baseline rögzíti a sémát, hibákat és repository-határt.
+Merge/CI előtt ez javaslat; az üzemeltetői elfogadás külön követelmény.

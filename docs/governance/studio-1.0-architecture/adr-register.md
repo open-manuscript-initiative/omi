@@ -6,6 +6,15 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 # OMI Studio 1.0 ADR Register
 
+## Privacy/API boundary repair — 2026-11-08
+
+ADR-034 refines ADR-012/015/016/017/019: additive v1 privacy/account-copy contracts, shared legacy facades/quota, strict Zod-generated OpenAPI and client types, application/repository separation, standard errors/correlation and selected-origin native transport. The identity database stays account/authentication authority. Operator controller facts neither certify compliance nor grant identity/editorial/review authority; the overview remains explicitly partial.
+
+Reject a breaking URL rename, separate legacy policies, complete-user serialization and a full-rights-export claim. Keep mandatory privacy/API evidence under existing exact-candidate release gates. Revisit on export-scope/schema expansion, shared/review data disclosure, new identity authority or legacy removal. Status: proposed repair pending companion merge/CI and separate deployment acceptance.
+
+[Studio ADR-034](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/2f65195633542fe194c9dc37760fd47ecfb95a46/docs/architecture/adr-034-privacy-api-and-account-overview.md); [Studio PR #886](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/886).
+
+
 ## PKP support and release evidence — 2026-11-07
 
 OJS 3.5.0-4/-5/-6 are in the Stable acceptance scope; OMP 3.5.0-4/-5/-6 remain Preview. All six named E02 jobs/archives are mandatory regression evidence. Add `ojs-3.5.0-6` to the current v1 receipt (14 manual gates); preserve historical 13-gate receipts without treating them as approval for the expanded scope.
@@ -111,6 +120,7 @@ These refinements apply to ADR-012/015/016/017/019 and supersede less specific h
 | ADR-022 | Research module project and manuscript contribution boundary | Proposed; partial implementation in Studio PRs #630/#631 |
 | ADR-023 | External object source attribution at Studio import boundary | Proposed; staged import coverage in Studio PRs #632/#634–#637 |
 | ADR-032 | Editable publication rendition and source lineage | Proposed clarification; lineage/fidelity implementation pending |
+| ADR-034 | Privacy API and partial account overview | Proposed repair; companion merge/CI and deployment acceptance pending |
 
 ---
 

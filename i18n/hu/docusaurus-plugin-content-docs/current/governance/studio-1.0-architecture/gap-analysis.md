@@ -6,6 +6,21 @@ description: A jelenlegi Open Manuscript Studio implementáció és az 1.0 céla
 
 # Current → 1.0 Gap Analysis
 
+## Privacy/API határjavítás — 2026-11-08
+
+A Studio `a829afba6eb6e9a68da34a9bc21d0315101c7536` új, verzió nélküli privacy/fiókmásolat API-t és közvetlen application→Prisma kapcsolatot vezetett be; az OMI `2491bc0f54b0a02cea6bcf5d1dcb98b969d7ac18` ezeket dokumentálta. Célzott javítás szükséges.
+
+| Határ | Javasolt javítás | Kötelező bizonyíték |
+|---|---|---|
+| API | Additív v1, közös legacy handler/kvóta, Zod/OpenAPI/hibacontract | Két mount, izoláció, hibák, kvóta megkerülésének tiltása, sémaegyezés |
+| Identity | Injektált repository port, szűk mezőválasztás, opcionális szereposzlop fallback | Titokkizárás, korlátozás, hiányzó fiók/DB-hiba, loginregresszió |
+| Authority/export | Üzemeltetői tájékoztató elkülönítése; kifejezetten részleges másolat | Anonim notice, privát letöltés, natív szerverválasztás, éles elfogadás |
+
+A `npm run test:privacy` a meglévő kötelező CI/release gate része. A mockolt persistence nem PostgreSQL-, éles vagy jogi elfogadás. Merge és ellenőrzés előtt ez javasolt javítás; az egyéb 1.0 blokkolók megmaradnak.
+
+[Studio ADR-034](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/2f65195633542fe194c9dc37760fd47ecfb95a46/docs/architecture/adr-034-privacy-api-and-account-overview.md); [Studio PR #886](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/886).
+
+
 ## PKP-támogatás és kiadási bizonyíték — 2026-11-07
 
 Az OJS 3.5.0-4/-5/-6 a Stable elfogadási körbe tartozik; az OMP 3.5.0-4/-5/-6 Preview marad. Mind a hat megnevezett E02-feladat/archívum kötelező regressziós bizonyíték. Az aktuális v1 receipt az `ojs-3.5.0-6` kapuval 14 kézi kaput követel; a történeti, 13 kapus receiptek változatlanul megmaradnak, és nem hagyják jóvá a kibővített kört.

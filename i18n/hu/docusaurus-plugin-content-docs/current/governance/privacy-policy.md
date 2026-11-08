@@ -10,7 +10,7 @@ Stúdió-szervernek a saját adatkezelőjét és tényleges adatkezelését kell
 A projekt neve és a nyílt forráskódú licenc nem azonosítja valamennyi szerver
 adatkezelőjét. A regisztráció előtt és a Fiók felületén az **Adatvédelem és
 személyes adatok** részben érhető el a szerver tájékoztatása. A nyilvános oldal
-címe `/?privacy=1`, az API-végpont `/api/privacy`, a fejlesztés telepítése után.
+címe `/?privacy=1`, az API-végpont `/api/v1/privacy`, a fejlesztés telepítése után.
 
 A hivatalos Stúdió [adatvédelmi oldalát itt nyithatja meg](https://studio.openmanuscript.org/?privacy=1).
 Ha a szerver jelzi, hogy az üzemeltető még nem adta meg az adatokat, a regisztráció

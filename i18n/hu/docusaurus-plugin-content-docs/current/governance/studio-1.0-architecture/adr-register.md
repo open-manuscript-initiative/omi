@@ -6,6 +6,15 @@ description: A Studio 1.0 architektúra döntési nyilvántartása és a Phase A
 
 # OMI Studio 1.0 ADR Register
 
+## Privacy/API határjavítás — 2026-11-08
+
+Az ADR-034 az ADR-012/015/016/017/019 pontosítása: additív v1 privacy/fiókmásolat contract, közös legacy handler/kvóta, szigorú Zod-ból OpenAPI és kliens típus, application/repository határ, szabványos hibák/korreláció és natív kiválasztott-origin transport. Az identity adatbázis authority-ja változatlan. Az üzemeltető adatkezelői tényei nem megfelelőségi tanúsítások és nem identity-/szerkesztői-/bírálói grantok. A másolat kifejezetten részleges.
+
+Elvetett alternatíva: törő URL-átnevezés, eltérő legacy policy, teljes User szerializálása és teljes érintetti export állítása. A meglévő pontos RC-commithoz kötött API/privacy gate-ek maradnak. Újravizsgálat: export-/sémabővítés, közös/bírálati adat, új identity authority vagy legacy eltávolítás. Státusz: javasolt javítás, merge/CI és külön éles elfogadás szükséges.
+
+[Studio ADR-034](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/2f65195633542fe194c9dc37760fd47ecfb95a46/docs/architecture/adr-034-privacy-api-and-account-overview.md); [Studio PR #886](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/886).
+
+
 ## PKP-támogatás és kiadási bizonyíték — 2026-11-07
 
 Az OJS 3.5.0-4/-5/-6 a Stable elfogadási körbe tartozik; az OMP 3.5.0-4/-5/-6 Preview marad. Mind a hat megnevezett E02-feladat/archívum kötelező regressziós bizonyíték. Az aktuális v1 receipt az `ojs-3.5.0-6` kapuval 14 kézi kaput követel; a történeti, 13 kapus receiptek változatlanul megmaradnak, és nem hagyják jóvá a kibővített kört.
@@ -108,6 +117,7 @@ ADR-012/015/016/017/019 pontosítása, a kevésbé konkrét történeti checkpoi
 | ADR-020 | Általános executable plugin runtime | Deferred |
 | ADR-021 | Webes publikációs minősítés és szerkesztői authority | Accepted; delivery contract Preview |
 | ADR-032 | Szerkeszthető publikációs változat és forráskövetés | Javasolt pontosítás; forráskötés és tartalomhűség implementációja még nyitott |
+| ADR-034 | Privacy API és részleges fiókáttekintés | Javasolt javítás; merge/CI és éles elfogadás szükséges |
 
 ---
 

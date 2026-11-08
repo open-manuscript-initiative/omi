@@ -6,6 +6,15 @@ description: Executive summary of the Open Manuscript Studio 1.0 target architec
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
+## Privacy/API boundary repair — 2026-11-08
+
+The proposed privacy/account-copy repair keeps useful operator notices and downloads while restoring additive `/api/v1/privacy` and `/api/v1/account/data`. Legacy routes are shared-handler facades with deprecation signals and one shared quota. Strict Zod DTOs generate the checked OpenAPI contract; an injected application service owns scope/serialization and identity repository adapters own Prisma. The copy remains explicitly partial, never a complete rights response or manuscript backup.
+
+The selected server operator owns reviewed controller facts; this does not confer account, editorial or review authority. Existing identity/API/privacy CI and exact-candidate release gates still apply. Deploy API before clients; no OMI change, new migration or authoring restriction is introduced. Source repair is proposed until the companion PR merges and passes CI; deployment and legal acceptance remain separate.
+
+[Studio ADR-034](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/2f65195633542fe194c9dc37760fd47ecfb95a46/docs/architecture/adr-034-privacy-api-and-account-overview.md); [Studio PR #886](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/886).
+
+
 ## PKP support and release evidence — 2026-11-07
 
 OJS 3.5.0-4/-5/-6 are in the Stable acceptance scope; OMP 3.5.0-4/-5/-6 remain Preview. All six named E02 jobs/archives are mandatory regression evidence. Add `ojs-3.5.0-6` to the current v1 receipt (14 manual gates); preserve historical 13-gate receipts without treating them as approval for the expanded scope.

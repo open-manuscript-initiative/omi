@@ -10,7 +10,7 @@ must provide its own complete privacy notice identifying its actual controller.
 The project name or software license does not identify the controller of every
 independent server. Open **Privacy and personal data** before registration or in
 Account on the selected Studio server; the public page is `/?privacy=1` and the
-public machine-readable endpoint is `/api/privacy` once the implementation is deployed.
+public machine-readable endpoint is `/api/v1/privacy` once the implementation is deployed.
 
 For the official Studio, use [the server privacy page](https://studio.openmanuscript.org/?privacy=1).
 If the server says information has not been supplied, request the notice from its

@@ -6,6 +6,17 @@ description: Az Open Manuscript Studio 1.0 javasolt célarchitektúrája a műk�
 
 # OMI Studio 1.0 Target Architecture
 
+## Privacy/API határjavítás — 2026-11-08
+
+ADR-012/015/016/017/019 pontosítása: új klienscontract az `/api/v1/privacy` és `/api/v1/account/data`. A régi címek ugyanazt a handlert, session-szabályt és közös exportkvótát használják; Deprecation fejléc, utódlink és csak rögzített útvonalnevet tartalmazó használati esemény segíti az átállást. Eltávolítási határidőt ez a javítás nem határoz meg.
+
+A szigorú Zod válasz-/hibasémából származik az ellenőrzött OpenAPI és a kliens típusa. Az alkalmazásszolgáltatás felel a részleges exportért, a dátumokért, az 1000 soros korlátért és az `incompleteSections` jelzésért; a repository adapter kezeli a Prismát és az opcionális munkaszerep-oszlop kompatibilitását. A fiókot kizárólag a session választja ki. Titkok és közös kézirat-/bírálati adatok nem kerülnek ki. A HTTP-réteg kezeli a no-store/nosniff fejléceket, a korrelációs azonosítót és a 401/404/429/500/503 hiba-envelope-okat. Az olvasó GET-hez nem kell írási idempotenciakulcs. A natív letöltés platformtransportot használ; a publikus tájékoztató credential nélkül érhető el.
+
+Az üzemeltető adatkezelői állítása elkülönül az identity-, szerkesztői és lektorálási authority-tól. A részleges fiókáttekintés nem teljes hozzáférési vagy hordozhatósági válasz. API-t a kliensek előtt kell telepíteni. Nincs OMI/container-változás, új migráció, szerkesztési zár vagy release-gate felmentés.
+
+[Studio ADR-034](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/2f65195633542fe194c9dc37760fd47ecfb95a46/docs/architecture/adr-034-privacy-api-and-account-overview.md); [Studio PR #886](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/886).
+
+
 ## PKP-támogatás és kiadási bizonyíték — 2026-11-07
 
 Az OJS 3.5.0-4/-5/-6 a Stable elfogadási körbe tartozik; az OMP 3.5.0-4/-5/-6 Preview marad. Mind a hat megnevezett E02-feladat/archívum kötelező regressziós bizonyíték. Az aktuális v1 receipt az `ojs-3.5.0-6` kapuval 14 kézi kaput követel; a történeti, 13 kapus receiptek változatlanul megmaradnak, és nem hagyják jóvá a kibővített kört.

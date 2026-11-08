@@ -6,6 +6,17 @@ description: Proposed target architecture for stabilizing the working Open Manus
 
 # Open Manuscript Studio 1.0 Target Architecture
 
+## Privacy/API boundary repair — 2026-11-08
+
+Refines ADR-012/015/016/017/019. New clients use `/api/v1/privacy` and `/api/v1/account/data`; the original `/api/privacy` and `/api/account/data` delegate to identical handlers, session policy and a shared export limiter. Legacy responses carry `Deprecation` and a successor link; content-free events name only the fixed route. No removal date is asserted.
+
+The Zod privacy/account-overview/error schemas generate the checked OpenAPI 3.1 document and client types. Application scope/serialization/strict validation depend on a repository port; identity adapters select fields and preserve optional-role missing-column compatibility. Account selection comes only from the authenticated session. Dates, 1000-row collection caps and `incompleteSections` are explicit; secrets and shared manuscript/review data stay out. Read-only GETs require no write idempotency key. HTTP owns no-store/nosniff, request correlation and standard 401/404/429/500/503 errors. Native account downloads use the platform transport; public notices carry no credentials.
+
+The server operator's reviewed controller facts are legal/operational assertions, separate from identity, editorial and review authorities. A partial overview is not a full access/portability response. Deploy API before clients. The repair adds no OMI/container change, migration or editing restriction; existing exact-candidate identity/API/privacy gates remain.
+
+[Studio ADR-034](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/2f65195633542fe194c9dc37760fd47ecfb95a46/docs/architecture/adr-034-privacy-api-and-account-overview.md); [Studio PR #886](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/886).
+
+
 ## PKP support and release evidence — 2026-11-07
 
 OJS 3.5.0-4/-5/-6 are in the Stable acceptance scope; OMP 3.5.0-4/-5/-6 remain Preview. All six named E02 jobs/archives are mandatory regression evidence. Add `ojs-3.5.0-6` to the current v1 receipt (14 manual gates); preserve historical 13-gate receipts without treating them as approval for the expanded scope.
