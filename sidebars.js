@@ -142,6 +142,7 @@ const sidebars = {
         {type: 'doc', id: 'governance/code-signing-policy', label: 'Code Signing Policy'},
         {type: 'doc', id: 'governance/privacy-policy', label: 'Privacy Policy'},
         {type: 'doc', id: 'governance/server-privacy-operations', label: 'Server Privacy Operations'},
+        {type: 'doc', id: 'governance/website-automatic-deployment', label: 'OMI Website Automatic Deployment'},
         {type: 'doc', id: 'governance/external-references', label: 'External References'},
         {type: 'doc', id: 'governance/style-guide', label: 'Specification Style Guide'},
         {type: 'doc', id: 'governance/specification-template', label: 'Specification Template'},
