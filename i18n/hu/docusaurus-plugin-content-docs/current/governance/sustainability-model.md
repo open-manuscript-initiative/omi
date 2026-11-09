@@ -8,7 +8,7 @@ description: Az OMI induló modellje az önkéntes támogatásokhoz, az intézm�
 
 **2026. november 8-án elfogadott induló keret.** A modell a tényleges költségek, a rendelkezésre álló kapacitás és a gyakorlati tapasztalatok alapján változhat. A változásokat nyilvánosan jelezzük, a megkötött szolgáltatási megállapodásokat tiszteletben tartjuk.
 
-A javasolt euróban megadott támogatási összegek, a forintban megadott szolgáltatási számítási példák és a kapcsolt támogatási csatorna [az OMI támogatási oldalán](/support/) találhatók. Az irányadó összegek önmagukban nem hoznak létre fizetési szolgáltatói szinteket vagy azonnal megvásárolható szolgáltatást.
+A javasolt eurós önkéntes hozzájárulások, az intézményi telepítés és az éves üzemeltetési támogatás eurós díjtervezete, valamint a kapcsolt támogatási csatorna [az OMI támogatási oldalán](/support/) található. Az irányadó összegek önmagukban nem hoznak létre fizetési szolgáltatói szinteket vagy azonnal megvásárolható szolgáltatást.
 
 ## Mi marad ingyenes?
 
@@ -27,13 +27,39 @@ A költséges központi tárhelynek, gépi fordításnak, OCR-nek és hasonló s
 
 Indulásként három javasolt havi egyéni szintre, tetszőleges egyszeri támogatásra és egy éves intézményi támogatói keretre építünk. A támogatási oldalon szereplő magasabb intézményi szintek későbbi bővítésre készülnek. Az éves hozzájárulás nem felhasználónkénti licencdíj és nem segítségnyújtási óracsomag.
 
-## Szolgáltatások és kapacitás
+## Ingyenes szoftver és választható professzionális telepítés
 
-A szolgáltatási példák belső tervezési óradíjból, becsült munkaidőből és feltételezett infrastruktúraköltségből indulnak ki. **Áfa nélküli tervezési összegek**, nem végleges fogyasztói árak. Az írásos ajánlat tartalmazza a szolgáltatót, az alkalmazandó áfát vagy mentességet, a végösszeget, a pontos feladatot, a kizárásokat és a teljesítés rendjét.
+**A Studio használata és az OMI szerverprogram önálló telepítése továbbra is ingyenes.** Az intézmények licencdíj, előfizetés és kötelező telepítési szolgáltatás nélkül telepíthetik, konfigurálhatják, frissíthetik és üzemeltethetik saját szerverüket. A nyílt forráskódú licenc és a közzétett terjesztési feltételek érvényesek; nincs felhasználónkénti vagy szerverenkénti használati díj. A publikus telepítési dokumentáció és a szoftverfrissítés fizetés nélkül hozzáférhető.
 
-A havi gondozási példa két óra közös karbantartási és segítségnyújtási kerettel, valamint feltételezett infrastruktúra- és mentési költséggel számol. További munka előzetes egyeztetéssel végezhető. A tárhely, a fizetős API-k, a licencek, a migráció és az egyedi fejlesztés külön felmérés tárgya. Az intézmény saját szerverén és az OMI által kezelt tárhelyen egyaránt egyértelműen rögzíteni kell a felelősségeket.
+A központi OMI-szolgáltatás ingyenes alaphozzáféréséhez közzétett méltányos használati, tárhely- vagy számítási korlátok kapcsolódhatnak; ez nem jelent korlátlan tárhelyet, rendelkezésre állást vagy személyes támogatást. A kéziratok hordozhatóságát, letöltését és exportálását biztosítani kell.
 
-Az induló pilot legfeljebb két intézményt fogad. A bővítés a tényleges terheléstől és a szolgáltatás működőképességétől függ. Szerződéses gondozáshoz ellenőrzött telepítés, frissítés, dokumentummegőrzés, mentés, valamint kompatibilis alkalmazás- és adatállapot visszaállítása szükséges. A megállapodás rögzítse az adatkezelést, a megszüntetést és az adatkiadást. Az induló modell nem tartalmaz korlátlan tárhelyet, korlátlan segítségnyújtást, 24 órás ügyeletet vagy automatikus rendelkezésre állási garanciát.
+Az intézmény **professzionális szervertelepítést** is megrendelhet: a díj a szakmai munkát ellentételezi, nem a szerver használati jogát. Indikatív, egyszeri, eurós nettó összegek:
+
+| Telepítési szolgáltatás | Irányadó egyszeri díj | Jellemző tartalom |
+| --- | ---: | --- |
+| Alap intézményi telepítés | 690 € | Előkészített környezet, telepítés, alapbeállítások és átadás |
+| Standard telepítés OJS/OMP-integrációval | 1 490 € | Alaptelepítés és egy meglévő OJS- vagy OMP-rendszer felmérése, kapcsolódásának beállítása |
+| Komplex intézményi telepítés | 2 990 €-tól | Többrendszeres architektúra, hitelesítési és integrációs igények, egyedi átadás felmérés után |
+
+A táblázat nem jelent azonnal megrendelhető csomagokat. A terjedelem és az ár írásos ajánlattal válik véglegessé. A tárhely, infrastruktúra, külső API-k, harmadik fél fizetős licencei, migráció, utazás és egyedi fejlesztés csak akkor részei az árnak, ha erről kifejezetten megállapodtak.
+
+## Választható éves üzemeltetési támogatás
+
+A saját szerver használatához **nem kötelező** üzemeltetési szerződést kötni. Igény esetén a szoftvertől függetlenül, pontosan meghatározott támogatás rendelhető:
+
+| Támogatási szint | Irányadó éves díj |
+| --- | ---: |
+| Alapszintű technikai támogatás | 390 € |
+| Intézményi üzemeltetési támogatás | 990 € |
+| Kiemelt támogatás, megállapodás szerinti válaszidővel | 1 990 €-tól |
+
+A díj szolgáltatási szintet jelöl, nem korlátlan munkaórát. A szerződés rögzítse az érintett rendszereket, órakeretet, válaszcélokat, szolgáltatási időszakot, változtatások jóváhagyását, a biztonsági mentések és a védelem felelőseit, az incidensek kezelését és a kizárásokat. Az önkéntes **intézményi hozzájárulás** a közös projektet támogatja, és nem foglalja magában ezeket a szolgáltatásokat.
+
+Az OMI szerverfrissítései és biztonsági javításai minden telepítéshez ingyenesen elérhetők. A szerverek összehangolt automatikus frissítése csak intézményi felügyelettel, engedélyezéssel, kompatibilitási ellenőrzéssel, karbantartási ablakkal, mentéssel és visszaállítási lehetőséggel működhet; központi szolgáltatás nem kényszeríthet ki észrevétlen éles változtatást.
+
+Az induló szolgáltatási pilot legfeljebb két intézményre terjed ki; a bővítés a mért munkaidőtől és a tesztelt működéstől függ. Szerződéses gondozás csak ellenőrzött telepítéssel, kompatibilis alkalmazás- és adatállapot visszaállításával, dokumentált adatkezeléssel és kilépési/adatkiadási eljárással vállalható. Az intézményi és a szolgáltató által kezelt tárhely felelősségei eltérhetnek. Korlátlan tárhely, 24 órás ügyelet vagy automatikus rendelkezésre állási garancia nem része az alapmodellnek.
+
+Az összegek **áfa nélküli, nem kötelező erejű tervezési példák**. Az írásos ajánlat nevezi meg a szolgáltató jogalanyt, a megfelelő adóterhet vagy mentességet, a teljes összeget, a tartalmat, a kizárásokat és a teljesítés feltételeit. A 2026. november 9-i pontosítás a korábbi, forintos, külön feladatra, óradíjra és havi gondozásra vonatkozó példák helyébe lép; azok nem egyidejű ajánlatok.
 
 ## Fizetés
 
