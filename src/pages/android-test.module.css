@@ -1,0 +1,9 @@
+.container {max-width: 880px; margin: 0 auto; padding: 3rem 1.5rem 4rem;}
+.header {margin-bottom: 2rem;}
+.kicker {color: var(--ifm-color-primary); font-size: .85rem; letter-spacing: .06em; font-weight: 700; text-transform: uppercase;}
+.lead {font-size: 1.2rem; line-height: 1.6; color: var(--ifm-color-emphasis-700);}
+.notice {border-left: 3px solid var(--ifm-color-emphasis-500); padding: 1rem 1.25rem; margin-bottom: 2.5rem; background: var(--ifm-color-emphasis-100);}
+.steps {padding-left: 1.5rem; line-height: 1.85; margin: 1.5rem 0 2rem;}
+.steps li {padding-left: .3rem; margin-bottom: .85rem;}
+.section {margin-top: 2.5rem; border-top: 1px solid var(--ifm-color-emphasis-300); padding-top: 1.5rem;}
+.privacy {margin-top: 2rem; font-size: .9rem; color: var(--ifm-color-emphasis-700);}
