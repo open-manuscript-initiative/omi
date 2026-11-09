@@ -91,6 +91,10 @@ jobs:
           printf '%s\n' "$OMI_SITE_SSH_KNOWN_HOSTS" > "$hosts"
           chmod 600 "$key" "$hosts"
           ssh-keygen -y -f "$key" >/dev/null
+          # SHA256 fingerprint is public-key metadata, not private-key material.
+          # Compare this with the fingerprint of the server's authorized key.
+          echo "GitHub deployment key public fingerprint:"
+          ssh-keygen -lf "$key"
           ssh-keygen -F "$OMI_SITE_SSH_HOST" -f "$hosts" >/dev/null || {
             echo "::error::SSH host key not pinned for the configured host." >&2
             exit 1
