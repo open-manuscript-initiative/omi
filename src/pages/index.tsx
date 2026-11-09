@@ -106,6 +106,12 @@ const SUPPORT_LABELS = {
   de: 'OMI unterstützen',
 } as const;
 
+const DEPLOYMENT_MESSAGE = {
+  en: 'Studio and self-hosting remain free. Institutions may separately commission professional deployment and operational support.',
+  hu: 'A Studio és az önálló szervertelepítés ingyenes. Az intézmények külön rendelhetnek professzionális telepítést és üzemeltetési támogatást.',
+  de: 'Studio und Eigeninstallation bleiben kostenlos. Einrichtungen können professionelle Installation und Betriebsbetreuung gesondert beauftragen.',
+} as const;
+
 function getStudioUpdate(locale: string) {
   if (locale === 'hu' || locale === 'de') return STUDIO_UPDATE[locale];
   return STUDIO_UPDATE.en;
@@ -125,6 +131,8 @@ export default function Home() {
   const t = getPublicPageCopy(i18n.currentLocale).home;
   const studioUpdate = getStudioUpdate(i18n.currentLocale);
   const supportLabel = getSupportLabel(i18n.currentLocale);
+  const deploymentMessage = i18n.currentLocale === 'hu' || i18n.currentLocale === 'de'
+    ? DEPLOYMENT_MESSAGE[i18n.currentLocale] : DEPLOYMENT_MESSAGE.en;
   const current = currentBetaCopy(t.current);
   const [isAndroid, setIsAndroid] = useState(false);
   useEffect(() => {
@@ -175,6 +183,7 @@ export default function Home() {
           <p className={styles.kicker}>{t.kicker}</p>
           <p className={styles.tagline}>{t.tagline}</p>
           <p className={styles.heroDescription}>{t.description}</p>
+          <p>{deploymentMessage} <Link to="/support">{supportLabel}</Link></p>
           <div className={styles.buttons}>
             <Link className="button button--primary button--lg" to="/studio">{t.studio}</Link>
             <Link className="button button--secondary button--lg" to="/docs/vision">{t.vision}</Link>
