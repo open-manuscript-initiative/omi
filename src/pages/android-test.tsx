@@ -20,6 +20,9 @@ const copy = {
     sendingLabel: 'Sending…',
     sentLabel: 'If a confirmation is required for this address, check your inbox, open the link and confirm on the next page. Google Play access is not granted yet.',
     errorLabel: 'Registration is temporarily unavailable. Please try again later.',
+    disabledLabel: 'Applications are not yet enabled on the Studio server. If you are already authorised, you can still use the Google Play test link below.',
+    mailErrorLabel: 'The confirmation e-mail could not be sent. Please try again later.',
+    rateErrorLabel: 'Too many requests. Please retry later.',
     stepTitle: 'How to participate',
     steps: [
       'Enter the e-mail address of the Google Account used by Google Play, then confirm your request through the e-mail link.',
@@ -48,6 +51,9 @@ const copy = {
     sendingLabel: 'Küldés…',
     sentLabel: 'Ha ehhez a címhez megerősítés szükséges, ellenőrizd az e-mailjeidet, és hagyd jóvá a jelentkezést a kapott hivatkozáson. A Google Play-hozzáférés még nem aktív.',
     errorLabel: 'A jelentkezés jelenleg nem elérhető. Kérjük, próbáld meg később.',
+    disabledLabel: 'A jelentkezések fogadása még nincs engedélyezve a Studio szerverén. Ha már jogosult vagy, az alábbi Google Play teszthivatkozást továbbra is használhatod.',
+    mailErrorLabel: 'A megerősítő e-mailt nem sikerült elküldeni. Kérjük, próbáld meg később.',
+    rateErrorLabel: 'Túl sok jelentkezési kísérlet történt. Kérjük, próbáld meg később.',
     stepTitle: 'A csatlakozás menete',
     steps: [
       'A fenti űrlapon add meg az Android-eszközödön használt Google Play-fiók e-mail-címét, majd erősítsd meg a levélben kapott hivatkozással.',
@@ -76,6 +82,9 @@ const copy = {
     sendingLabel: 'Wird gesendet…',
     sentLabel: 'Falls für diese Adresse eine Bestätigung erforderlich ist, öffne bitte die Bestätigungs-E-Mail. Der Google-Play-Zugang ist noch nicht freigeschaltet.',
     errorLabel: 'Die Anmeldung ist derzeit nicht verfügbar. Bitte versuche es später erneut.',
+    disabledLabel: 'Anmeldungen sind auf dem Studio-Server noch nicht freigeschaltet. Falls dein Konto bereits berechtigt ist, kannst du weiterhin den Google-Play-Testlink unten verwenden.',
+    mailErrorLabel: 'Die Bestätigungs-E-Mail konnte nicht gesendet werden. Bitte versuche es später erneut.',
+    rateErrorLabel: 'Zu viele Anfragen. Bitte versuche es später erneut.',
     stepTitle: 'So nimmst du teil',
     steps: [
       'Trage oben die E-Mail-Adresse deines Google-Play-Kontos ein und bestätige die Anfrage über den E-Mail-Link.',
@@ -102,7 +111,7 @@ export default function AndroidTest(): React.ReactElement {
   const [consent, setConsent] = React.useState(false);
   const [website, setWebsite] = React.useState('');
   const [submitting, setSubmitting] = React.useState(false);
-  const [status, setStatus] = React.useState<'idle' | 'success' | 'error'>('idle');
+  const [status, setStatus] = React.useState<'idle' | 'success' | 'error' | 'disabled' | 'mail' | 'rate'>('idle');
 
   async function submitSignup(event: React.FormEvent<HTMLFormElement>): Promise<void> {
     event.preventDefault();
@@ -117,7 +126,31 @@ export default function AndroidTest(): React.ReactElement {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({email: email.trim(), consent, language, website}),
       });
-      if (!result.ok) throw new Error('Signup unavailable');
+      if (!result.ok) {
+        // Keep the central sign-up feature disabled until the operator has
+        // applied the migration, reviewed privacy and enabled mail delivery.
+        // Do not misrepresent a disabled feature as a temporary mail failure.
+        let code = '';
+        try {
+          const payload: unknown = await result.json();
+          if (payload && typeof payload === 'object' && 'error' in payload) {
+            const error = (payload as {error?: {code?: unknown}}).error;
+            if (typeof error?.code === 'string') code = error.code;
+          }
+        } catch {
+          // A non-JSON reverse-proxy error is treated as a connection failure.
+        }
+        if (result.status === 503 && code === 'SIGNUP_NOT_AVAILABLE') {
+          setStatus('disabled');
+        } else if (result.status === 503 && code === 'MAIL_UNAVAILABLE') {
+          setStatus('mail');
+        } else if (result.status === 429) {
+          setStatus('rate');
+        } else {
+          setStatus('error');
+        }
+        return;
+      }
       setStatus('success');
       setEmail('');
       setConsent(false);
@@ -156,7 +189,7 @@ export default function AndroidTest(): React.ReactElement {
               {submitting ? t.sendingLabel : t.submitLabel}
             </button>
             <p role="status" aria-live="polite">
-              {status === 'success' ? t.sentLabel : status === 'error' ? t.errorLabel : ''}
+              {status === 'success' ? t.sentLabel : status === 'disabled' ? t.disabledLabel : status === 'mail' ? t.mailErrorLabel : status === 'rate' ? t.rateErrorLabel : status === 'error' ? t.errorLabel : ''}
             </p>
           </form>
         </section>
