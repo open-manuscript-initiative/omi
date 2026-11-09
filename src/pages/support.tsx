@@ -9,12 +9,12 @@ import styles from './support.module.css';
 const COPY = {
   en: {
     title: 'Support Open Manuscript Initiative',
-    description: 'Free scholarly authoring, sustained by voluntary contributions and clearly scoped services.',
-    intro: 'Open Manuscript Studio is free and open source. Maintaining the editor, security updates, cross-platform releases and shared infrastructure takes continuing work. If OMI helps you, an optional contribution can help sustain it.',
+    description: 'Free scholarly software and self-hosting, supported by voluntary contributions and optional professional institutional services.',
+    intro: 'Open Manuscript Studio and independently installed OMI server software are free and open source. Voluntary contributions sustain the public project; organizations may separately commission professional deployment and operational support. No payment is required to use the software.',
     freeTitle: 'The editor remains free',
-    freeText: 'Writing, opening and saving your manuscripts, core import and export, open formats and self-hosting remain free. A contribution is not required to use the editor and does not change how your manuscripts are handled. Security and data-loss fixes are addressed regardless of support.',
+    freeText: 'Writing, opening, saving, importing and exporting your manuscripts, open formats and independent self-hosting remain free. You may install and update the server yourself without per-user or per-server licence fees. Contributions and paid services do not affect the treatment of manuscripts or access to security and data-loss fixes.',
     capacity: 'Costly shared services such as hosted storage, machine translation and OCR may have clearly stated capacity limits. These must preserve your ability to download and export your own manuscripts.',
-    modelStatus: 'Starting framework adopted on 8 November 2026. We will review the amounts and scope against actual costs, available time and experience. Changes will be explained publicly and agreed service terms will be respected.',
+    modelStatus: 'Starting framework adopted on 8 November 2026; deployment and service examples clarified on 9 November. EUR amounts are non-binding planning references, reviewed against actual costs and capacity. Existing signed service terms remain in force.',
     individualTitle: 'Individual support',
     individualText: 'Choose an amount that suits you. These are suggested EUR reference amounts, not a fee for using Studio.',
     tiers: ['Supporter', 'Regular supporter', 'Sustaining supporter'],
@@ -31,22 +31,25 @@ const COPY = {
     institutionStatus: ['Starting framework', 'Later phase', 'Later phase'],
     institutionTerms: 'A contribution supports the common project. It is not a per-user software licence and does not automatically include hosting, installation, support hours, on-call cover or a development deadline. Services require a separate agreement.',
     institutionButton: 'Discuss institutional support',
-    servicesTitle: 'Services by agreement',
-    servicesText: 'We are preparing a limited institutional pilot for deployment, OJS/OMP connection, training and maintenance. Scope, capacity and delivery are agreed before work starts.',
-    serviceHeaders: ['Service', 'Planning scope', 'HUF reference'],
+    freeDeploymentTitle: 'Install it yourself — free',
+    freeDeploymentText: 'The server software, public installation instructions and software updates are available without an installation charge or support subscription. Paid professional installation is a choice, not a licence condition. The central shared service may apply published fair-use and capacity limits.',
+    servicesTitle: 'Optional professional institutional deployment',
+    servicesText: 'An institution can commission verified installation and handover instead of deploying the server itself. The fee covers expert work, not permission to run OMI. The pilot is initially limited to two institutions.',
+    serviceHeaders: ['Service', 'Typical scope', 'One-time EUR reference (excl. VAT)'],
     services: [
-      ['Introduction assessment', 'Goals, environment and connections; 2 hours'],
-      ['Basic deployment', 'One prepared environment, configuration and handover; 6 hours'],
-      ['OJS or OMP connection', 'Assessment and trial of one existing installation; 4 hours'],
-      ['Online training', '2-hour session and 1 hour of preparation'],
+      ['Basic institutional deployment', 'Prepared environment, installation, baseline configuration and handover'],
+      ['Standard deployment with OJS/OMP integration', 'Basic deployment plus an assessed connection to an existing OJS or OMP installation'],
+      ['Complex institutional deployment', 'Multi-system architecture, identity and integration planning, tailored handover after scoping'],
     ],
-    servicePricing: 'These are planning amounts excluding VAT, not final consumer prices or an instant order. A written quote will identify the provider, applicable VAT or exemption, final amount and exact scope. Hosting, paid APIs, licences, migration and bespoke development are assessed separately.',
-    hourly: 'Additional professional work, by prior agreement',
-    perHour: 'per hour',
-    monthly: 'Illustrative monthly care starting point',
-    monthlyTerms: 'The monthly example includes two hours of combined maintenance and assistance, with assumed infrastructure and backup costs. Actual costs determine the quote. No unlimited storage, unlimited assistance, 24-hour cover or automatic availability guarantee is included.',
-    pilot: 'The initial pilot is limited to two institutions. Contracted service begins only with verified deployment, updates, backups and restoration, and an agreed data-handling and exit process.',
-    serviceButton: 'Discuss a service pilot',
+    fromPrefix: 'From',
+    fromSuffix: '',
+    servicePricing: 'Illustrative non-binding starting fees, not a checkout or immediately orderable packages. A written offer identifies the legal provider, applicable VAT or exemption, final amount, service scope and exclusions. Hosting, infrastructure, external APIs, third-party licences, migration and bespoke development are separate unless agreed.',
+    careTitle: 'Optional annual operational support',
+    careText: 'Self-hosted servers need no paid care contract. Institutions may commission a defined level of maintenance and assistance separately from voluntary institutional contributions.',
+    careHeaders: ['Care level', 'Annual EUR reference (excl. VAT)'],
+    carePlans: ['Basic technical support', 'Institutional operational support', 'Priority support with agreed response arrangements'],
+    carePricing: 'An agreement defines response objectives, supported systems, hours, security and backup responsibilities, change approvals, incident handling and exit/data-return conditions. Unlimited labour, storage, 24/7 cover and uptime guarantees are not included by default. Software and security updates remain free for all servers; coordinated automation must respect institutional consent, testing, backup and rollback.',
+    serviceButton: 'Discuss institutional deployment or care',
     fundsTitle: 'What contributions sustain',
     funds: [
       ['Infrastructure and releases', 'Hosting, storage, backups, monitoring, build infrastructure, signing and platform maintenance.'],
@@ -65,12 +68,12 @@ const COPY = {
   },
   hu: {
     title: 'Az Open Manuscript Initiative támogatása',
-    description: 'Ingyenes kéziratszerkesztés, önkéntes támogatással és pontosan meghatározott szolgáltatásokkal fenntartva.',
-    intro: 'Az Open Manuscript Studio ingyenesen használható, nyílt forráskódú kéziratszerkesztő. A szerkesztő, a biztonsági frissítések, a többplatformos kiadások és a közösségi infrastruktúra fenntartása folyamatos munkát igényel. Ha hasznosnak találod az OMI-t, önkéntes hozzájárulással segítheted a folytatását.',
+    description: 'Ingyenes tudományos szoftver és öntelepítés, önkéntes hozzájárulásokkal és választható intézményi szolgáltatásokkal.',
+    intro: 'Az Open Manuscript Studio és az önállóan telepíthető OMI-szerverprogram ingyenes, nyílt forráskódú. Az önkéntes támogatás a közös projektet segíti; az intézmények külön megrendelhetnek professzionális telepítést és üzemeltetési segítséget. A szoftver használatának nem feltétele a fizetés.',
     freeTitle: 'A szerkesztő ingyenes marad',
-    freeText: 'A kéziratok írása, megnyitása és mentése, az alapvető import és export, a nyílt formátumok és a saját szerverre telepíthető szoftver ingyenes marad. A támogatás nem feltétele a használatnak, és nem befolyásolja a kézirataid kezelését. A biztonsági és adatvesztési hibákat a támogatástól függetlenül kezeljük.',
+    freeText: 'A kéziratok írása, megnyitása, mentése, importja és exportja, a nyílt formátumok és az önálló szerverüzemeltetés ingyenes marad. A szerver saját hatáskörben, felhasználónkénti vagy szerverenkénti licencdíj nélkül telepíthető és frissíthető. A támogatás és a fizetős szolgáltatás nem befolyásolja a kéziratok kezelését vagy a biztonsági és adatvesztési javításokhoz való hozzáférést.',
     capacity: 'A költséges központi szolgáltatásoknak, például a tárhelynek, a gépi fordításnak és az OCR-nek előre látható kapacitási kerete lehet. Ez nem akadályozhatja saját kézirataid letöltését és exportját.',
-    modelStatus: '2026. november 8-án elfogadott induló keret. Az összegeket és a vállalásokat a tényleges költségek, a rendelkezésre álló idő és a tapasztalatok alapján felülvizsgáljuk. A változásokat nyilvánosan jelezzük, a megkötött szolgáltatási megállapodásokat tiszteletben tartjuk.',
+    modelStatus: 'A 2026. november 8-án elfogadott induló keret telepítési és szolgáltatási díjtervezete 2026. november 9-én pontosult. Az euróösszegek nem kötelező erejű, felülvizsgálandó tervezési értékek; a már megkötött megállapodások feltételei változatlanok.',
     individualTitle: 'Egyéni támogatás',
     individualText: 'Válassz számodra megfelelő összeget. Az alábbiak javasolt euróösszegek, nem a Studio használati díjai.',
     tiers: ['Támogató', 'Rendszeres támogató', 'Kiemelt támogató'],
@@ -87,22 +90,25 @@ const COPY = {
     institutionStatus: ['Induló keret', 'Későbbi ütem', 'Későbbi ütem'],
     institutionTerms: 'A hozzájárulás a közös projektet támogatja. Nem felhasználónkénti licencdíj, és önmagában nem tartalmaz tárhelyet, telepítést, segítségnyújtási órakeretet, ügyeletet vagy fejlesztési határidőt. Ezekhez külön szolgáltatási megállapodás szükséges.',
     institutionButton: 'Intézményi hozzájárulás egyeztetése',
-    servicesTitle: 'Szolgáltatások külön megállapodással',
-    servicesText: 'Korlátozott intézményi pilotot készítünk elő telepítéshez, OJS/OMP-kapcsolódáshoz, oktatáshoz és karbantartáshoz. A feladatot, a kapacitást és a teljesítést a munka kezdete előtt egyeztetjük.',
-    serviceHeaders: ['Szolgáltatás', 'Tervezési keret', 'Irányadó összeg'],
+    freeDeploymentTitle: 'Önálló szervertelepítés – ingyenes',
+    freeDeploymentText: 'A szerverprogram, a nyilvános telepítési útmutató és a frissítések telepítési díj és támogatási előfizetés nélkül használhatók. A professzionális telepítés választható szolgáltatás, nem licencfeltétel. A központi közös szolgáltatáshoz közzétett méltányos használati és kapacitási korlátok kapcsolódhatnak.',
+    servicesTitle: 'Választható professzionális intézményi telepítés',
+    servicesText: 'Az intézmény a saját telepítés helyett ellenőrzött beüzemelést és átadást rendelhet meg. A díj a szakmai munkát ellentételezi, nem a szerver használati jogát. Az induló pilot legfeljebb két intézményre terjed ki.',
+    serviceHeaders: ['Szolgáltatás', 'Jellemző feladat', 'Egyszeri irányadó díj (EUR, nettó)'],
     services: [
-      ['Bevezetési felmérés', 'Célok, környezet és kapcsolatok áttekintése; 2 óra'],
-      ['Alaptelepítés', 'Egy előkészített környezet, beállítás és átadás; 6 óra'],
-      ['OJS- vagy OMP-kapcsolódás', 'Egy meglévő telepítés felmérése és próbája; 4 óra'],
-      ['Online oktatás', '2 óra foglalkozás és 1 óra felkészülés'],
+      ['Alap intézményi telepítés', 'Előkészített környezet, telepítés, alapbeállítás és átadás'],
+      ['Standard telepítés OJS/OMP-integrációval', 'Alaptelepítés és egy meglévő OJS- vagy OMP-rendszer felmért összekapcsolása'],
+      ['Komplex intézményi telepítés', 'Többrendszeres architektúra, hitelesítési és integrációs tervezés, egyedi átadás'],
     ],
-    servicePricing: 'Az összegek áfa nélküli tervezési értékek, nem végleges fogyasztói árak vagy azonnal megrendelhető csomagok. Az írásos ajánlat tartalmazza a szolgáltatót, az alkalmazandó áfát vagy mentességet, a végösszeget és a pontos feladatot. A tárhely, a fizetős API-k, a licencek, a migráció és az egyedi fejlesztés külön felmérés tárgya.',
-    hourly: 'További szakmai munka, előzetes egyeztetéssel',
-    perHour: 'óránként',
-    monthly: 'Havi gondozás számítási kiindulópontja',
-    monthlyTerms: 'A havi példa két óra közös karbantartási és segítségnyújtási kerettel, valamint feltételezett infrastruktúra- és mentési költséggel számol. Az ajánlat a tényleges költségekre épül. Nem tartalmaz korlátlan tárhelyet, korlátlan segítségnyújtást, 24 órás ügyeletet vagy automatikus rendelkezésre állási garanciát.',
-    pilot: 'Az induló pilot legfeljebb két intézményt fogad. Szerződéses szolgáltatás ellenőrzött telepítés, frissítés, mentés és visszaállítás, valamint egyeztetett adatkezelési és kilépési folyamat mellett indulhat.',
-    serviceButton: 'Szolgáltatási pilot egyeztetése',
+    fromPrefix: '',
+    fromSuffix: '-tól',
+    servicePricing: 'Nem kötelező erejű, irányadó kezdő díjak, nem azonnal megvásárolható csomagok. Az írásos ajánlat nevezi meg a szolgáltatót, az alkalmazandó áfát vagy mentességet, a végösszeget, a pontos tartalmat és a kizárásokat. A tárhely, az infrastruktúra, a külső API-k, a harmadik fél licencei, a migráció és az egyedi fejlesztés külön tétel, ha nem állapodnak meg másképp.',
+    careTitle: 'Választható éves üzemeltetési támogatás',
+    careText: 'A saját szerver működtetéséhez nem szükséges fizetős gondozási szerződés. Az intézmény az önkéntes intézményi hozzájárulástól elkülönítve, meghatározott üzemeltetési és segítségnyújtási szolgáltatást rendelhet meg.',
+    careHeaders: ['Támogatási szint', 'Irányadó éves díj (EUR, nettó)'],
+    carePlans: ['Alapszintű technikai támogatás', 'Intézményi üzemeltetési támogatás', 'Kiemelt támogatás, megállapodás szerinti válaszidővel'],
+    carePricing: 'A szerződés rögzíti a válaszidőcélokat, az érintett rendszereket, az órakeretet, a biztonsági és mentési felelősségeket, a módosítások jóváhagyását, az incidenskezelést, valamint az adatkiadást és a kilépést. Korlátlan munkaidő, tárhely, 24 órás ügyelet és rendelkezésre állási garancia nincs automatikusan. A frissítések minden szerveren ingyenesek; az összehangolt automatikus frissítés intézményi engedélyezést, ellenőrzést, mentést és visszaállítást igényel.',
+    serviceButton: 'Intézményi telepítés vagy gondozás egyeztetése',
     fundsTitle: 'Mire fordítjuk a hozzájárulásokat?',
     funds: [
       ['Infrastruktúra és kiadások', 'Tárhely, adattárolás, mentés, felügyelet, build-infrastruktúra, aláírás és platformkarbantartás.'],
@@ -121,12 +127,12 @@ const COPY = {
   },
   de: {
     title: 'Open Manuscript Initiative unterstützen',
-    description: 'Kostenloses wissenschaftliches Schreiben, getragen von freiwilligen Beiträgen und klar vereinbarten Leistungen.',
-    intro: 'Open Manuscript Studio ist kostenlos und quelloffen. Die Pflege des Editors, Sicherheitsupdates, plattformübergreifende Veröffentlichungen und die gemeinsame Infrastruktur erfordern laufende Arbeit. Wenn OMI Ihnen hilft, können Sie die Fortführung freiwillig unterstützen.',
+    description: 'Kostenlose wissenschaftliche Software und Eigeninstallation mit freiwilligen Beiträgen und optionalen institutionellen Dienstleistungen.',
+    intro: 'Open Manuscript Studio und die eigenständig installierbare OMI-Serversoftware sind kostenlos und quelloffen. Freiwillige Beiträge erhalten das gemeinschaftliche Projekt; Einrichtungen können professionelle Installation und Betriebsbetreuung gesondert beauftragen. Die Softwarenutzung setzt keine Zahlung voraus.',
     freeTitle: 'Der Editor bleibt kostenlos',
-    freeText: 'Schreiben, Öffnen und Speichern eigener Manuskripte, grundlegender Import und Export, offene Formate und der Betrieb auf dem eigenen Server bleiben kostenlos. Eine Unterstützung ist keine Nutzungsvoraussetzung und beeinflusst die Behandlung Ihrer Manuskripte nicht. Sicherheits- und Datenverlustfehler werden unabhängig von Beiträgen bearbeitet.',
+    freeText: 'Schreiben, Öffnen, Speichern, Import und Export eigener Manuskripte, offene Formate und eigenständiger Serverbetrieb bleiben kostenlos. Sie können die Serversoftware ohne Lizenzgebühr pro Nutzer oder Server selbst installieren und aktualisieren. Beiträge und Dienstleistungen beeinflussen weder Manuskriptbehandlung noch Sicherheits- und Datenverlustkorrekturen.',
     capacity: 'Kostenintensive gemeinsame Dienste wie gehosteter Speicher, maschinelle Übersetzung und OCR können klar ausgewiesene Kapazitätsgrenzen haben. Das Herunterladen und Exportieren eigener Manuskripte muss dabei erhalten bleiben.',
-    modelStatus: 'Am 8. November 2026 angenommener Ausgangsrahmen. Beträge und Leistungsumfang werden anhand tatsächlicher Kosten, verfügbarer Zeit und Erfahrungen überprüft. Änderungen werden öffentlich erläutert; vereinbarte Leistungsbedingungen bleiben maßgeblich.',
+    modelStatus: 'Ausgangsrahmen vom 8. November 2026; Installations- und Leistungsbeispiele am 9. November präzisiert. Die EUR-Beträge sind unverbindliche Planungswerte, die anhand tatsächlicher Kosten und Kapazität geprüft werden. Bestehende Servicevereinbarungen bleiben maßgeblich.',
     individualTitle: 'Individuelle Unterstützung',
     individualText: 'Wählen Sie einen passenden Betrag. Dies sind vorgeschlagene EUR-Richtwerte, keine Gebühr für die Nutzung von Studio.',
     tiers: ['Unterstützer', 'Regelmäßiger Unterstützer', 'Fördernder Unterstützer'],
@@ -143,22 +149,25 @@ const COPY = {
     institutionStatus: ['Ausgangsrahmen', 'Spätere Phase', 'Spätere Phase'],
     institutionTerms: 'Ein Beitrag unterstützt das gemeinsame Projekt. Er ist keine Softwarelizenz pro Nutzer und umfasst nicht automatisch Hosting, Installation, Supportstunden, Bereitschaft oder einen Entwicklungstermin. Leistungen erfordern eine gesonderte Vereinbarung.',
     institutionButton: 'Institutionelle Unterstützung besprechen',
-    servicesTitle: 'Leistungen nach Vereinbarung',
-    servicesText: 'Wir bereiten einen begrenzten institutionellen Pilotbetrieb für Installation, OJS/OMP-Anbindung, Schulung und Wartung vor. Umfang, Kapazität und Durchführung werden vor Arbeitsbeginn vereinbart.',
-    serviceHeaders: ['Leistung', 'Planungsumfang', 'HUF-Richtwert'],
+    freeDeploymentTitle: 'Eigeninstallation des Servers – kostenlos',
+    freeDeploymentText: 'Serversoftware, öffentliche Installationsanleitung und Updates sind ohne Installationsgebühr oder Supportabonnement verfügbar. Professionelle Installation ist eine Wahl und keine Lizenzbedingung. Für den zentralen gemeinsamen Dienst können veröffentlichte Fair-Use- und Kapazitätsgrenzen gelten.',
+    servicesTitle: 'Optionale professionelle Installation für Einrichtungen',
+    servicesText: 'Statt einer Eigeninstallation kann eine Einrichtung eine geprüfte Bereitstellung und Übergabe beauftragen. Die Vergütung gilt der fachlichen Leistung, nicht dem Betriebsrecht. Der Pilot ist zunächst auf zwei Einrichtungen begrenzt.',
+    serviceHeaders: ['Leistung', 'Typischer Umfang', 'Einmaliger EUR-Richtwert (ohne USt.)'],
     services: [
-      ['Einführungsanalyse', 'Ziele, Umgebung und Anbindungen; 2 Stunden'],
-      ['Grundinstallation', 'Eine vorbereitete Umgebung, Einrichtung und Übergabe; 6 Stunden'],
-      ['OJS- oder OMP-Anbindung', 'Analyse und Erprobung einer vorhandenen Installation; 4 Stunden'],
-      ['Online-Schulung', '2 Stunden Schulung und 1 Stunde Vorbereitung'],
+      ['Institutionelle Grundinstallation', 'Vorbereitete Umgebung, Installation, Basiskonfiguration und Übergabe'],
+      ['Standardinstallation mit OJS/OMP-Anbindung', 'Grundinstallation sowie geprüfte Anbindung einer vorhandenen OJS- oder OMP-Instanz'],
+      ['Komplexe institutionelle Installation', 'Mehrsystemarchitektur, Authentifizierungs- und Integrationsplanung, individuelle Übergabe'],
     ],
-    servicePricing: 'Die Beträge sind Planungswerte ohne Umsatzsteuer, keine endgültigen Verbraucherpreise oder sofort bestellbaren Pakete. Ein schriftliches Angebot nennt Anbieter, geltende Umsatzsteuer oder Befreiung, Endbetrag und genauen Umfang. Hosting, kostenpflichtige APIs, Lizenzen, Migration und individuelle Entwicklung werden gesondert bewertet.',
-    hourly: 'Weitere fachliche Arbeit nach vorheriger Vereinbarung',
-    perHour: 'pro Stunde',
-    monthly: 'Rechenbeispiel für monatliche Betreuung',
-    monthlyTerms: 'Das Monatsbeispiel enthält zwei Stunden für Wartung und Unterstützung sowie angenommene Infrastruktur- und Sicherungskosten. Das Angebot richtet sich nach den tatsächlichen Kosten. Unbegrenzter Speicher, unbegrenzte Unterstützung, 24-Stunden-Bereitschaft oder automatische Verfügbarkeitsgarantien sind nicht enthalten.',
-    pilot: 'Der erste Pilotbetrieb ist auf zwei Institutionen begrenzt. Vertragliche Betreuung beginnt erst mit geprüfter Installation, Aktualisierung, Sicherung und Wiederherstellung sowie vereinbarten Verfahren für Datenverarbeitung und Beendigung.',
-    serviceButton: 'Dienstleistungspilot besprechen',
+    fromPrefix: 'Ab',
+    fromSuffix: '',
+    servicePricing: 'Unverbindliche Planungsbeträge, keine sofort bestellbaren Pakete. Ein schriftliches Angebot benennt den rechtlichen Anbieter, Umsatzsteuer oder Befreiung, Gesamtpreis, Umfang und Ausschlüsse. Hosting, Infrastruktur, externe APIs, Fremdlizenzen, Migration und individuelle Entwicklung werden bei fehlender Vereinbarung separat berechnet.',
+    careTitle: 'Optionale jährliche Betriebsbetreuung',
+    careText: 'Eigenbetrieb erfordert keinen kostenpflichtigen Wartungsvertrag. Einrichtungen können eine genau vereinbarte Betreuung unabhängig von freiwilligen institutionellen Förderbeiträgen beauftragen.',
+    careHeaders: ['Betreuungsstufe', 'Jährlicher EUR-Richtwert (ohne USt.)'],
+    carePlans: ['Technischer Basissupport', 'Institutionelle Betriebsbetreuung', 'Vorrangiger Support mit vereinbarten Reaktionszielen'],
+    carePricing: 'Der Vertrag regelt Reaktionsziele, betreute Systeme, Stundenrahmen, Zuständigkeiten für Sicherheit und Backups, Änderungsfreigaben, Störungsbehandlung sowie Ausstieg und Datenrückgabe. Unbegrenzte Arbeit, Speicher, 24-Stunden-Dienst und Verfügbarkeitsgarantie sind nicht automatisch enthalten. Softwareupdates bleiben für alle Server kostenlos; koordinierte automatische Updates erfordern Zustimmung, Prüfungen, Backups und Rollback.',
+    serviceButton: 'Institutionelle Installation oder Betreuung besprechen',
     fundsTitle: 'Was die Beiträge ermöglichen',
     funds: [
       ['Infrastruktur und Veröffentlichungen', 'Hosting, Speicher, Sicherungen, Überwachung, Build-Infrastruktur, Signierung und Plattformpflege.'],
@@ -183,9 +192,6 @@ export default function SupportPage() {
   const t = COPY[locale];
   const amount = (value: number) => new Intl.NumberFormat(locale, {
     style: 'currency', currency: 'EUR', currencyDisplay: 'narrowSymbol', maximumFractionDigits: 0,
-  }).format(value);
-  const serviceAmount = (value: number) => new Intl.NumberFormat(locale, {
-    style: 'currency', currency: 'HUF', maximumFractionDigits: 0,
   }).format(value);
   const contactUrl = 'https://github.com/open-manuscript-initiative';
 
@@ -253,6 +259,11 @@ export default function SupportPage() {
             <div className={styles.actions}><a className="button button--secondary" href={contactUrl}>{t.institutionButton}</a></div>
           </section>
 
+          <section className="margin-bottom--xl" aria-labelledby="free-deployment">
+            <h2 id="free-deployment">{t.freeDeploymentTitle}</h2>
+            <p>{t.freeDeploymentText}</p>
+          </section>
+
           <section className="margin-bottom--xl" aria-labelledby="services">
             <h2 id="services">{t.servicesTitle}</h2>
             <p>{t.servicesText}</p>
@@ -261,15 +272,30 @@ export default function SupportPage() {
                 <caption>{t.servicePricing}</caption>
                 <thead><tr>{t.serviceHeaders.map(label => <th scope="col" key={label}>{label}</th>)}</tr></thead>
                 <tbody>{t.services.map(([name, scope], index) => (
-                  <tr key={name}><th scope="row">{name}</th><td>{scope}</td><td className={styles.money}>{serviceAmount(supportModel.servicesHuf[index])}</td></tr>
+                  <tr key={name}>
+                    <th scope="row">{name}</th><td>{scope}</td>
+                    <td className={styles.money}>{index === 2 ? `${t.fromPrefix ? t.fromPrefix + ' ' : ''}${amount(supportModel.deploymentEur[index])}${t.fromSuffix}` : amount(supportModel.deploymentEur[index])}</td>
+                  </tr>
                 ))}</tbody>
               </table>
             </div>
-            <p><strong>{t.hourly}:</strong> {serviceAmount(supportModel.additionalHourlyHuf)} {t.perHour}.</p>
-            <h3>{t.monthly}</h3>
-            <p className={styles.amount}>{serviceAmount(supportModel.monthlyCareHuf)} <span className={styles.muted}>{t.perMonth}</span></p>
-            <p>{t.monthlyTerms}</p>
-            <p>{t.pilot}</p>
+          </section>
+
+          <section className="margin-bottom--xl" aria-labelledby="annual-care">
+            <h2 id="annual-care">{t.careTitle}</h2>
+            <p>{t.careText}</p>
+            <div className={styles.tableScroll} role="region" aria-labelledby="annual-care" tabIndex={0}>
+              <table className={styles.table}>
+                <caption>{t.carePricing}</caption>
+                <thead><tr>{t.careHeaders.map(label => <th scope="col" key={label}>{label}</th>)}</tr></thead>
+                <tbody>{t.carePlans.map((name, index) => (
+                  <tr key={name}>
+                    <th scope="row">{name}</th>
+                    <td className={styles.money}>{index === 2 ? `${t.fromPrefix ? t.fromPrefix + ' ' : ''}${amount(supportModel.annualCareEur[index])}${t.fromSuffix}` : amount(supportModel.annualCareEur[index])}</td>
+                  </tr>
+                ))}</tbody>
+              </table>
+            </div>
             <div className={styles.actions}><a className="button button--secondary" href={contactUrl}>{t.serviceButton}</a></div>
           </section>
 
