@@ -4,9 +4,9 @@
 set -euo pipefail
 umask 077
 
-sha="\${1:-}"
-run_id="\${2:-}"
-expected_checksum="\${3:-}"
+sha="${1:-}"
+run_id="${2:-}"
+expected_checksum="${3:-}"
 [[ "$sha" =~ ^[0-9a-f]{40}$ && "$run_id" =~ ^[0-9]+$ &&
    "$expected_checksum" =~ ^[0-9a-f]{64}$ ]] || {
   echo 'Invalid deployment commit, run ID or SHA-256 checksum.' >&2; exit 2;
@@ -14,8 +14,8 @@ expected_checksum="\${3:-}"
 [[ "$EUID" -ne 0 ]] || { echo 'Refusing to deploy the public site as root.' >&2; exit 1; }
 
 target='/var/www/vhosts/openmanuscript.org/httpdocs'
-if [[ "\${OMI_SITE_DEPLOY_TEST_MODE:-}" == 1 ]]; then
-  [[ -n "\${OMI_SITE_DEPLOY_TEST_TARGET:-}" ]] || exit 2
+if [[ "${OMI_SITE_DEPLOY_TEST_MODE:-}" == 1 ]]; then
+  [[ -n "${OMI_SITE_DEPLOY_TEST_TARGET:-}" ]] || exit 2
   target="$OMI_SITE_DEPLOY_TEST_TARGET"
 fi
 [[ -d "$target" && -w "$target" && ! -L "$target" ]] || {
@@ -39,7 +39,7 @@ actual_checksum="$(sha256sum "$artifact" | cut -d' ' -f1)"
 }
 
 release="$work/$run_id-$sha"
-backup="$backups/release-$run_id-\${sha:0:12}"
+backup="$backups/release-$run_id-${sha:0:12}"
 [[ ! -e "$release" && ! -e "$backup" ]] || {
   echo 'A staging or backup directory already exists for this release.' >&2; exit 1;
 }
@@ -64,6 +64,7 @@ rollback() {
     fi
   fi
   rm -rf -- "$release"
+  [[ ! -f "$release.manifest" ]] || rm -f -- "$release.manifest"
   if [[ "$result" -eq 0 ]]; then
     rm -f -- "$artifact"
   fi
@@ -134,7 +135,7 @@ if [[ -s "$manifest" ]]; then
       # A defensive check prevents deleting through a symlinked parent.
       parent="$stale"
       while [[ "$parent" == */* ]]; do
-        parent="\${parent%/*}"
+        parent="${parent%/*}"
         [[ ! -L "$target/$parent" ]] || {
           echo 'Symlinked ancestor in former managed path.' >&2; exit 1;
         }
@@ -146,8 +147,8 @@ fi
 [[ -s "$target/index.html" && -s "$target/hu/index.html" ]] || {
   echo 'Published site verification failed.' >&2; exit 1;
 }
-if [[ "\${OMI_SITE_DEPLOY_TEST_MODE:-}" == 1 ]]; then
-  [[ "\${OMI_SITE_DEPLOY_TEST_FAIL:-0}" != 1 ]] || {
+if [[ "${OMI_SITE_DEPLOY_TEST_MODE:-}" == 1 ]]; then
+  [[ "${OMI_SITE_DEPLOY_TEST_FAIL:-0}" != 1 ]] || {
     echo 'Injected test failure after publishing.' >&2; exit 1;
   }
 else
