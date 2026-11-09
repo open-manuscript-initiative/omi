@@ -16,3 +16,46 @@
 .consent input {flex-shrink:0; margin-top:.35rem;}
 .form button {align-self:flex-start;}
 .honeypot {position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
+
+/* Keep narrow phones and browser zoom from producing horizontal page scroll.
+   Long translated strings, links, inputs and buttons must stay inside the viewport. */
+.container {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+.container > *,
+.section,
+.header,
+.notice,
+.lead,
+.privacy,
+.steps,
+.steps li {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.form {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.form input[type='email'] {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.form button,
+.container :global(.button) {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  .container { padding: 1.75rem 1rem 3rem; }
+  .form { padding: 1rem; }
+  .container :global(.button) { width: 100%; }
+}
