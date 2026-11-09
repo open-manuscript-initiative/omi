@@ -54,7 +54,9 @@ rollback() {
   trap - EXIT
   if [[ "$result" -ne 0 && "$published" -eq 1 && "$snapshot_complete" -eq 1 ]]; then
     echo 'Website deployment failed: restoring the previous Plesk document root.' >&2
-    if ! rsync -a --delete "$backup/web/" "$target/"; then
+    # Use checksums on rollback as well: equal-sized HTML with matching
+    # timestamps must not survive a restore after a failed publish.
+    if ! rsync -a --checksum --delete "$backup/web/" "$target/"; then
       echo "CRITICAL: restore failed; retained snapshot at $backup" >&2
     fi
     if [[ -f "$backup/previous-manifest.txt" ]]; then
