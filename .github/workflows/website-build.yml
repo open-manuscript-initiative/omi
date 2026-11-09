@@ -44,6 +44,14 @@ jobs:
         run: |
           bash -n scripts/deploy-website-artifact.sh
           node --test tests/site-production-deploy.test.mjs
+      - name: Stamp the exact published commit for origin/CDN verification
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/omi-releases
+          printf '%s\n' "$GITHUB_SHA" > "build/omi-releases/${GITHUB_SHA}.txt"
+
       - name: Upload verified Docusaurus site
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/upload-artifact@v4
