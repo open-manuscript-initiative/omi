@@ -45,7 +45,7 @@ jobs:
           bash -n scripts/deploy-website-artifact.sh
           node --test tests/site-production-deploy.test.mjs
       - name: Stamp the exact published commit for origin/CDN verification
-        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         shell: bash
         run: |
           set -euo pipefail
@@ -53,7 +53,7 @@ jobs:
           printf '%s\n' "$GITHUB_SHA" > "build/omi-releases/${GITHUB_SHA}.txt"
 
       - name: Upload verified Docusaurus site
-        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-artifact@v4
         with:
           name: omi-website-${{ github.sha }}
@@ -61,10 +61,65 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+  ssh_preflight:
+    name: Verify Plesk SSH access (no deployment)
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check pinned host identity and read-only remote prerequisites
+        shell: bash
+        env:
+          OMI_SITE_SSH_HOST: ${{ secrets.OMI_SITE_SSH_HOST }}
+          OMI_SITE_SSH_USER: ${{ secrets.OMI_SITE_SSH_USER }}
+          OMI_SITE_SSH_PRIVATE_KEY: ${{ secrets.OMI_SITE_SSH_PRIVATE_KEY }}
+          OMI_SITE_SSH_KNOWN_HOSTS: ${{ secrets.OMI_SITE_SSH_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          for required in OMI_SITE_SSH_HOST OMI_SITE_SSH_USER OMI_SITE_SSH_PRIVATE_KEY OMI_SITE_SSH_KNOWN_HOSTS; do
+            if [[ -z "${!required}" ]]; then
+              echo "::error::Required GitHub Actions secret $required is missing." >&2
+              exit 1
+            fi
+          done
+          [[ "$OMI_SITE_SSH_HOST" =~ ^[A-Za-z0-9.-]+$ ]] || exit 1
+          [[ "$OMI_SITE_SSH_USER" =~ ^[A-Za-z_][A-Za-z0-9_.-]*$ ]] || exit 1
+          umask 077
+          key="$RUNNER_TEMP/omi-site-preflight-key"
+          hosts="$RUNNER_TEMP/omi-site-preflight-hosts"
+          trap 'rm -f "$key" "$hosts"' EXIT
+          printf '%s\n' "$OMI_SITE_SSH_PRIVATE_KEY" > "$key"
+          printf '%s\n' "$OMI_SITE_SSH_KNOWN_HOSTS" > "$hosts"
+          chmod 600 "$key" "$hosts"
+          ssh-keygen -y -f "$key" >/dev/null
+          ssh-keygen -F "$OMI_SITE_SSH_HOST" -f "$hosts" >/dev/null || {
+            echo "::error::SSH host key not pinned for the configured host." >&2
+            exit 1
+          }
+          ssh -i "$key" -p 22 \
+            -o BatchMode=yes -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes -o UserKnownHostsFile="$hosts" \
+            -o ConnectTimeout=20 \
+            "$OMI_SITE_SSH_USER@$OMI_SITE_SSH_HOST" \
+            bash -se -- "$OMI_SITE_SSH_USER" <<'REMOTE'
+          set -euo pipefail
+          expected_user="$1"
+          [[ "$(id -un)" == "$expected_user" ]] || { echo "Unexpected SSH account"; exit 1; }
+          [[ "$(id -u)" != 0 ]] || { echo "Refusing root deployment"; exit 1; }
+          root=/var/www/vhosts/openmanuscript.org/httpdocs
+          [[ -d "$root" && -w "$root" && ! -L "$root" ]] || {
+            echo "Website document root is missing, read-only or a symlink"; exit 1;
+          }
+          [[ -w "$HOME" ]] || { echo "Home directory is not writable"; exit 1; }
+          for command_name in rsync flock tar curl sha256sum; do
+            command -v "$command_name" >/dev/null || { echo "Missing tool: $command_name"; exit 1; }
+          done
+          echo "SSH preflight passed; website files were not modified."
+          REMOTE
+
   deploy:
     name: Publish OMI website to Plesk
     needs: build
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: read
