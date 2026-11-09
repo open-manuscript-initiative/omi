@@ -17,11 +17,11 @@ const copy = {
     consentLabel: 'I agree that this e-mail address will be used to contact me about the OMI Android closed test and to prepare the tester list.',
     submitLabel: 'Send confirmation e-mail',
     sendingLabel: 'Sending…',
-    sentLabel: 'Request received. Check your e-mail, then follow the confirmation link and confirm on the next page. Google Play access is not granted yet.',
+    sentLabel: 'If a confirmation is required for this address, check your inbox, open the link and confirm on the next page. Google Play access is not granted yet.',
     errorLabel: 'Registration is temporarily unavailable. Please try again later.',
     stepTitle: 'How to participate',
     steps: [
-      'Use the Google Account that will be signed in to Google Play on your Android device.',
+      'Enter the e-mail address of the Google Account used by Google Play, then confirm your request through the e-mail link.',
       'Your account must first be included in the test’s Play Console e-mail list or the authorised Google Group. The opt-in link does not itself grant access.',
       'After your account is authorised, open the Google Play link and select Become a tester. Then follow the installation link.',
       'Use the private Google Play feedback channel or the project issue tracker to report bugs. Never publish documents or account details in public reports.',
@@ -31,7 +31,7 @@ const copy = {
     access: 'If Google Play reports that the account is ineligible, the test organiser must first add that Google Account to the closed test (or arrange membership in the linked Google Group). The public registration link alone cannot do this.',
     scopeTitle: 'What to test',
     scope: 'Document import/open/save, offline and device-local files, cloud connections, editing, footnotes, export, layout, and Android navigation. Do not submit confidential manuscripts to a public bug report.',
-    privacy: 'We collect only the Google Account e-mail address submitted with consent. An e-mail confirmation is required. Unconfirmed requests expire after seven days; verified applications are kept for up to 180 days or until the test ends. Each confirmation message includes a withdrawal link. The operator must separately remove any already granted access in Google Play.',
+    privacy: 'We collect only the Google Account e-mail address submitted with consent for the Android test and the Google Play tester list. An e-mail confirmation is required. Unconfirmed requests expire after seven days; verified applications are kept for up to 180 days or until the test ends. Each confirmation message includes a withdrawal link. The operator must separately remove any already granted access in Google Play.',
     back: 'Return to Studio downloads',
   },
   hu: {
@@ -43,11 +43,11 @@ const copy = {
     consentLabel: 'Hozzájárulok, hogy ezt az e-mail-címet az OMI Android zárt tesztelésével kapcsolatos értesítésre és a tesztelői lista előkészítésére használják.',
     submitLabel: 'Megerősítő e-mail küldése',
     sendingLabel: 'Küldés…',
-    sentLabel: 'A jelentkezési kérelmet fogadtuk. Ellenőrizd az e-mailjeidet, nyisd meg a megerősítő hivatkozást, és ott hagyd jóvá a jelentkezést! A Google Play-hozzáférés még nem aktív.',
+    sentLabel: 'Ha ehhez a címhez megerősítés szükséges, ellenőrizd az e-mailjeidet, és hagyd jóvá a jelentkezést a kapott hivatkozáson. A Google Play-hozzáférés még nem aktív.',
     errorLabel: 'A jelentkezés jelenleg nem elérhető. Kérjük, próbáld meg később.',
     stepTitle: 'A csatlakozás menete',
     steps: [
-      'Azt a Google-fiókot használd, amellyel az Android-eszközödön a Google Playbe bejelentkezel.',
+      'A fenti űrlapon add meg az Android-eszközödön használt Google Play-fiók e-mail-címét, majd erősítsd meg a levélben kapott hivatkozással.',
       'A fióknak előbb szerepelnie kell a Play Console tesztelői listáján vagy az engedélyezett Google-csoportban. A tesztelési hivatkozás önmagában nem ad jogosultságot.',
       'Ha már jogosult vagy, nyisd meg az alábbi Google Play hivatkozást, válaszd a „Tesztelővé válás” lehetőséget, majd telepítsd az alkalmazást.',
       'Visszajelzést a Google Play privát tesztelői felületén vagy a projekt hibakövetőjében küldhetsz. Nyilvános hibajegybe ne tölts fel személyes adatot vagy bizalmas kéziratot.',
@@ -57,7 +57,7 @@ const copy = {
     access: 'Ha a Google Play szerint nem vehetsz részt a tesztben, az üzemeltetőnek előbb fel kell vennie a Google-fiókodat a zárt tesztelői listára, vagy biztosítania kell a teszteléshez rendelt Google-csoport tagságát. A nyilvános hivatkozás ezt önmagában nem intézi el.',
     scopeTitle: 'Javasolt tesztelési területek',
     scope: 'Dokumentumimport és -megnyitás, helyi és offline fájlműveletek, felhőkapcsolatok, szerkesztés, lábjegyzetek, export, tördelés és Android-navigáció. Bizalmas kéziratot ne csatolj nyilvános hibajegyhez.',
-    privacy: 'A hozzájárulással megadott Google-fiókos e-mail-címet gyűjtjük, más személyes adatot nem kérünk. Az e-mailes megerősítés kötelező. A meg nem erősített jelentkezéseket 7 nap, a megerősítetteket legfeljebb 180 nap után vagy a teszt végén töröljük. A megerősítő levél visszavonási hivatkozást is tartalmaz. A már megadott Google Play-jogosultságot az üzemeltető külön vonja vissza.',
+    privacy: 'A hozzájárulással megadott Google-fiókos e-mail-címet a zárt teszt és a Google Play tesztelői listájának összeállítása céljából gyűjtjük, más személyes adatot nem kérünk. Az e-mailes megerősítés kötelező. A meg nem erősített jelentkezéseket 7 nap, a megerősítetteket legfeljebb 180 nap után vagy a teszt végén töröljük. A megerősítő levél visszavonási hivatkozást is tartalmaz. A már megadott Google Play-jogosultságot az üzemeltető külön vonja vissza.',
     back: 'Vissza a Studio letöltéseihez',
   },
   de: {
@@ -69,11 +69,11 @@ const copy = {
     consentLabel: 'Ich stimme zu, dass diese E-Mail-Adresse zur Kontaktaufnahme bezüglich des geschlossenen OMI-Android-Tests und zur Vorbereitung der Testerliste verwendet wird.',
     submitLabel: 'Bestätigungs-E-Mail senden',
     sendingLabel: 'Wird gesendet…',
-    sentLabel: 'Anfrage erhalten. Bitte öffne die Bestätigungs-E-Mail und bestätige die Anmeldung auf der Folgeseite. Der Google-Play-Zugang ist noch nicht freigeschaltet.',
+    sentLabel: 'Falls für diese Adresse eine Bestätigung erforderlich ist, öffne bitte die Bestätigungs-E-Mail. Der Google-Play-Zugang ist noch nicht freigeschaltet.',
     errorLabel: 'Die Anmeldung ist derzeit nicht verfügbar. Bitte versuche es später erneut.',
     stepTitle: 'So nimmst du teil',
     steps: [
-      'Verwende das Google-Konto, mit dem du auf deinem Android-Gerät bei Google Play angemeldet bist.',
+      'Trage oben die E-Mail-Adresse deines Google-Play-Kontos ein und bestätige die Anfrage über den E-Mail-Link.',
       'Dein Konto muss zuvor in der Play-Console-Testerliste oder der zugelassenen Google-Gruppe stehen. Der Link allein gewährt keinen Zugang.',
       'Wenn du berechtigt bist, öffne den Google-Play-Link, wähle die Teilnahme am Test und installiere anschließend die App.',
       'Melde Fehler über das private Feedback bei Google Play oder den Projekt-Issue-Tracker. Keine vertraulichen Manuskripte oder Kontodaten öffentlich teilen.',
@@ -83,7 +83,7 @@ const copy = {
     access: 'Wenn Google Play dein Konto ablehnt, muss die Testleitung es zunächst für den geschlossenen Test freischalten oder der zugeordneten Google-Gruppe hinzufügen. Der öffentliche Testlink allein reicht nicht aus.',
     scopeTitle: 'Was getestet werden soll',
     scope: 'Dokumentimport, Öffnen und Speichern, lokale und Offline-Dateien, Cloud-Verbindungen, Bearbeitung, Fußnoten, Export, Layout und Android-Navigation. Keine vertraulichen Manuskripte in öffentliche Fehlermeldungen aufnehmen.',
-    privacy: 'Wir erfassen nur die mit Einwilligung angegebene Google-Konto-E-Mail-Adresse. Eine E-Mail-Bestätigung ist erforderlich. Unbestätigte Anfragen werden nach sieben Tagen, bestätigte nach spätestens 180 Tagen oder zum Testende gelöscht. Die Bestätigungs-E-Mail enthält einen Widerrufslink. Bereits erteilte Google-Play-Berechtigungen muss die Testleitung separat entziehen.',
+    privacy: 'Wir erfassen nur die mit Einwilligung angegebene Google-Konto-E-Mail-Adresse zur Vorbereitung der Google-Play-Testerliste. Eine E-Mail-Bestätigung ist erforderlich. Unbestätigte Anfragen werden nach sieben Tagen, bestätigte nach spätestens 180 Tagen oder zum Testende gelöscht. Die Bestätigungs-E-Mail enthält einen Widerrufslink. Bereits erteilte Google-Play-Berechtigungen muss die Testleitung separat entziehen.',
     back: 'Zurück zu den Studio-Downloads',
   },
 } as const;
@@ -170,7 +170,7 @@ export default function AndroidTest(): React.ReactElement {
           <h2 id="join-scope">{t.scopeTitle}</h2>
           <p>{t.scope}</p>
         </section>
-        <p className={styles.privacy}>{t.privacy}</p>
+        <p className={styles.privacy}>{t.privacy} {' '}<Link to="https://studio.openmanuscript.org/?privacy=1">Privacy / Adatvédelem / Datenschutz</Link></p>
         <p><Link to="/studio/">{t.back}</Link></p>
       </main>
     </Layout>
