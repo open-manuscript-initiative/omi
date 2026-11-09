@@ -178,6 +178,7 @@ export default function Home() {
           <div className={styles.buttons}>
             <Link className="button button--primary button--lg" to="/studio">{t.studio}</Link>
             <Link className="button button--secondary button--lg" to="/docs/vision">{t.vision}</Link>
+            <Link className="button button--secondary button--lg" to="/android-test/">{i18n.currentLocale === 'hu' ? 'Android zárt tesztelés' : i18n.currentLocale === 'de' ? 'Android-Testanmeldung' : 'Android closed test'}</Link>
           </div>
         </section>
 

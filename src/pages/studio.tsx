@@ -13,7 +13,6 @@ const RELEASE_BASE = STUDIO_PUBLISHED_DOWNLOAD_BASE;
 const SERVER_API_PACKAGE_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/pkgs/container/open-manuscript-studio-api';
 const SERVER_WEB_PACKAGE_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/pkgs/container/open-manuscript-studio-web';
 const SERVER_DEPLOYMENT_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/tree/main/deployment';
-const GOOGLE_PLAY_TEST_URL = 'https://play.google.com/apps/testing/org.openmanuscript.studio';
 const downloads = {
   windowsExe: `${RELEASE_BASE}/Open-Manuscript-Studio-Windows-x64-Setup.exe`,
   windowsMsi: `${RELEASE_BASE}/Open-Manuscript-Studio-Windows-x64.msi`,
@@ -82,7 +81,7 @@ const CURRENT_UPDATE = {
     nativeAppsTitle: 'Native applications and platform builds',
     nativeAppsDescription: "Web and Android APK use 1.0.0-rc.1. The Android RC package is a ZIP from the verified GitHub build; sign-in may be required. Extract the ZIP and install its APK. Desktop download buttons select the existing 0.3.0-beta.13 release.",
     androidPlayDescription: "The Android RC is distributed directly as an APK package. The Google Play testing channel is separate; its installation link does not identify an RC build.",
-    androidPlayAction: "Google Play testing channel",
+    androidPlayAction: "Join the Android closed test",
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validated native iPhone/iPad simulator target using the same Studio core. Public TestFlight/App Store installation is not yet available because Apple signing/provisioning and the final Universal Link association are still required.',
     iosAction: 'iOS/iPadOS implementation details',
@@ -149,7 +148,7 @@ const CURRENT_UPDATE = {
     nativeAppsTitle: 'Natív alkalmazások és platformbuildek',
     nativeAppsDescription: "A webes és az Android APK-változat verziója 1.0.0-rc.1. Az Android RC ZIP-csomagja az ellenőrzött GitHub-buildből tölthető le; ehhez bejelentkezés szükséges lehet. Csomagold ki a ZIP-et, majd telepítsd a benne található APK-t. Az asztali gombok a meglévő 0.3.0-beta.13 kiadásra mutatnak.",
     androidPlayDescription: "Az Android RC közvetlen APK-csomagból telepíthető. A Google Play tesztelési csatornája külön útvonal; az ottani telepítési link önmagában nem azonosít RC-buildet.",
-    androidPlayAction: "Google Play tesztelési csatorna",
+    androidPlayAction: "Feliratkozás az Android zárt tesztelésére",
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validált natív iPhone/iPad szimulátoros célverzió ugyanazzal a Studio-maggal. Nyilvános TestFlight/App Store telepítés még nincs, mert ehhez Apple aláírás/provisioning és a végleges Universal Link társítás szükséges.',
     iosAction: 'iOS/iPadOS megvalósítás részletei',
@@ -211,7 +210,7 @@ const CURRENT_UPDATE = {
     nativeAppsTitle: 'Native Anwendungen und Plattform-Builds',
     nativeAppsDescription: "Web und Android-APK verwenden 1.0.0-rc.1. Das Android-RC-Paket wird als ZIP aus dem geprüften GitHub-Build angeboten; eine Anmeldung kann erforderlich sein. ZIP entpacken und die enthaltene APK installieren. Desktop-Downloads verwenden das bestehende Release 0.3.0-beta.13.",
     androidPlayDescription: "Der Android-RC wird direkt als APK-Paket bereitgestellt. Der Google-Play-Testkanal ist getrennt; sein Installationslink identifiziert keinen RC-Build.",
-    androidPlayAction: "Google-Play-Testkanal",
+    androidPlayAction: "Für den Android-Test anmelden",
     iosTitle: 'iOS / iPadOS',
     iosDescription: 'Validiertes natives iPhone/iPad-Simulatorziel mit demselben Studio-Kern. Eine öffentliche TestFlight/App-Store-Installation ist noch nicht verfügbar, da Apple-Signierung/Provisioning und die endgültige Universal-Link-Zuordnung erforderlich sind.',
     iosAction: 'Details zur iOS/iPadOS-Implementierung',
@@ -328,7 +327,7 @@ export default function StudioDownloads() {
               </DownloadCard>
               <DownloadCard title={`${t.android ?? 'Android'} · ${STUDIO_ANDROID_VERSION}`} description={t.androidText ?? 'Installable universal APK for Android devices.'}>
                 <DownloadButton href={STUDIO_ANDROID_RC_DOWNLOAD_URL}>{update.androidRcAction}</DownloadButton>
-                <DownloadButton href={GOOGLE_PLAY_TEST_URL} secondary>{update.androidPlayAction}</DownloadButton>
+                <Link className="button button--secondary" to="/android-test/">{update.androidPlayAction}</Link>
                 <DownloadButton href={downloads.android} secondary>{t.apk ?? 'Download Android APK'} · {STUDIO_PUBLISHED_VERSION}</DownloadButton>
                 <p>{update.androidPlayDescription}</p>
               </DownloadCard>

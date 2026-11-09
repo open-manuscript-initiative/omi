@@ -71,6 +71,7 @@ const config = {
         items: [
           {type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Project'},
           {to: '/studio', label: 'Studio', position: 'left'},
+          {to: '/android-test', label: 'Android Test', position: 'left'},
           {to: '/servers', label: 'Servers', position: 'left'},
           {to: '/docs/contribute', label: 'Contribute', position: 'left'},
           {to: '/docs/governance/funding-and-partnerships', label: 'Funding & Partnerships', position: 'left'},
