@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { execFileSync, spawnSync } from 'node:child_process';
-import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, statSync, utimesSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { test } from 'node:test';
@@ -19,6 +19,9 @@ function fixture(t) {
   mkdirSync(target);
   mkdirSync(join(target, '.well-known'), { recursive: true });
   writeFileSync(join(target, 'index.html'), 'Old public site');
+  // Reproduce rsync's size+mtime quick-check false negative (same-size HTML).
+  const equalTimestamp = new Date('2020-01-01T00:00:00.000Z');
+  utimesSync(join(target, 'index.html'), equalTimestamp, equalTimestamp);
   writeFileSync(join(target, '.htaccess'), 'Plesk configuration');
   writeFileSync(join(target, '.well-known', 'acme.txt'), 'ACME data');
   writeFileSync(join(target, 'custom.html'), 'Unmanaged file');
@@ -38,6 +41,8 @@ function packageSite(f, id, files = {}) {
   mkdirSync(join(site, 'hu'), { recursive: true });
   mkdirSync(join(site, 'de'), { recursive: true });
   writeFileSync(join(site, 'index.html'), 'New English ' + id);
+  const equalTimestamp = new Date('2020-01-01T00:00:00.000Z');
+  utimesSync(join(site, 'index.html'), equalTimestamp, equalTimestamp);
   writeFileSync(join(site, 'hu', 'index.html'), 'Új magyar ' + id);
   writeFileSync(join(site, 'de', 'index.html'), 'Neues Deutsch ' + id);
   mkdirSync(join(site, 'omi-releases'), { recursive: true });
@@ -67,6 +72,8 @@ test('publish verified site without erasing untracked Plesk and ACME files', (t)
   const p = packageSite(f, '100', { 'old-managed.html': 'old generated page' });
   const result = deploy(f, p);
   assert.equal(result.status, 0, result.stderr || result.stdout);
+  assert.equal(statSync(join(f.target, 'index.html')).size, 'Old public site'.length,
+    'This regression intentionally compares identical file sizes');
   assert.equal(readFileSync(join(f.target, 'index.html'), 'utf8'), 'New English 100');
   assert.equal(readFileSync(join(f.target, 'omi-releases', commit + '.txt'), 'utf8').trim(), commit);
   assert.equal(readFileSync(join(f.target, 'custom.html'), 'utf8'), 'Unmanaged file');
