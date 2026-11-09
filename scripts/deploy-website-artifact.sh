@@ -124,7 +124,9 @@ snapshot_complete=1
 # No --delete here: never erase untracked Plesk files, custom pages or
 # .well-known ACME material. Remove *only* former CI-managed files below.
 published=1
-rsync -a --no-owner --no-group --chmod=D755,F644 \
+# Check content rather than only matching file size and second-resolution mtime.
+# Newly generated Docusaurus HTML can have equal lengths and timestamps.
+rsync -a --checksum --no-owner --no-group --chmod=D755,F644 \
   --exclude='/.well-known/***' --exclude='/.htaccess' \
   --exclude='/.user.ini' --exclude='/cgi-bin/***' \
   --exclude='/plesk-stat/***' \
