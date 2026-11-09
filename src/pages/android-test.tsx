@@ -6,6 +6,7 @@ import styles from './android-test.module.css';
 
 const SIGNUP_URL = 'https://studio.openmanuscript.org/api/public/android-test/signups';
 const PLAY_OPT_IN = 'https://play.google.com/apps/testing/org.openmanuscript.studio';
+const PLAY_STORE = 'https://play.google.com/store/apps/details?id=org.openmanuscript.studio';
 
 const copy = {
   en: {
@@ -26,7 +27,9 @@ const copy = {
       'After your account is authorised, open the Google Play link and select Become a tester. Then follow the installation link.',
       'Use the private Google Play feedback channel or the project issue tracker to report bugs. Never publish documents or account details in public reports.',
     ],
-    action: 'Open Google Play tester enrolment',
+    action: 'Accept Google Play test invitation',
+    storeAction: 'Open app in Google Play (after acceptance)',
+    storeHint: 'If the store reports that the application is unavailable, check that Google Play uses the same authorised account and that you accepted the test invitation.' ,
     accessTitle: 'No access yet?',
     access: 'If Google Play reports that the account is ineligible, the test organiser must first add that Google Account to the closed test (or arrange membership in the linked Google Group). The public registration link alone cannot do this.',
     scopeTitle: 'What to test',
@@ -52,7 +55,9 @@ const copy = {
       'Ha már jogosult vagy, nyisd meg az alábbi Google Play hivatkozást, válaszd a „Tesztelővé válás” lehetőséget, majd telepítsd az alkalmazást.',
       'Visszajelzést a Google Play privát tesztelői felületén vagy a projekt hibakövetőjében küldhetsz. Nyilvános hibajegybe ne tölts fel személyes adatot vagy bizalmas kéziratot.',
     ],
-    action: 'Google Play tesztelői feliratkozás megnyitása',
+    action: 'Google Play tesztmeghívó elfogadása',
+    storeAction: 'Alkalmazás megnyitása a Play Áruházban (elfogadás után)',
+    storeHint: 'Ha az alkalmazás nem érhető el, ellenőrizd, hogy a Play Áruházban a jogosult Google-fiók van-e kiválasztva, és hogy elfogadtad-e a tesztmeghívást.',
     accessTitle: 'Még nem vagy jogosult?',
     access: 'Ha a Google Play szerint nem vehetsz részt a tesztben, az üzemeltetőnek előbb fel kell vennie a Google-fiókodat a zárt tesztelői listára, vagy biztosítania kell a teszteléshez rendelt Google-csoport tagságát. A nyilvános hivatkozás ezt önmagában nem intézi el.',
     scopeTitle: 'Javasolt tesztelési területek',
@@ -78,7 +83,9 @@ const copy = {
       'Wenn du berechtigt bist, öffne den Google-Play-Link, wähle die Teilnahme am Test und installiere anschließend die App.',
       'Melde Fehler über das private Feedback bei Google Play oder den Projekt-Issue-Tracker. Keine vertraulichen Manuskripte oder Kontodaten öffentlich teilen.',
     ],
-    action: 'Google-Play-Testanmeldung öffnen',
+    action: 'Google-Play-Testeinladung annehmen',
+    storeAction: 'App bei Google Play öffnen (nach Annahme)',
+    storeHint: 'Falls die App nicht verfügbar ist, überprüfe das freigeschaltete Google-Konto und die angenommene Testeinladung.',
     accessTitle: 'Noch kein Zugang?',
     access: 'Wenn Google Play dein Konto ablehnt, muss die Testleitung es zunächst für den geschlossenen Test freischalten oder der zugeordneten Google-Gruppe hinzufügen. Der öffentliche Testlink allein reicht nicht aus.',
     scopeTitle: 'Was getestet werden soll',
@@ -161,6 +168,8 @@ export default function AndroidTest(): React.ReactElement {
               {t.action}
             </Link>
           </p>
+          <p><Link to={PLAY_STORE}>{t.storeAction}</Link></p>
+          <p>{t.storeHint}</p>
         </section>
         <section className={styles.section} aria-labelledby="join-access">
           <h2 id="join-access">{t.accessTitle}</h2>
