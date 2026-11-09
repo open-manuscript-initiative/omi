@@ -40,6 +40,8 @@ function packageSite(f, id, files = {}) {
   writeFileSync(join(site, 'index.html'), 'New English ' + id);
   writeFileSync(join(site, 'hu', 'index.html'), 'Új magyar ' + id);
   writeFileSync(join(site, 'de', 'index.html'), 'Neues Deutsch ' + id);
+  mkdirSync(join(site, 'omi-releases'), { recursive: true });
+  writeFileSync(join(site, 'omi-releases', commit + '.txt'), commit + '\n');
   for (const [path, contents] of Object.entries(files)) {
     mkdirSync(dirname(join(site, path)), { recursive: true });
     writeFileSync(join(site, path), contents);
@@ -66,6 +68,7 @@ test('publish verified site without erasing untracked Plesk and ACME files', (t)
   const result = deploy(f, p);
   assert.equal(result.status, 0, result.stderr || result.stdout);
   assert.equal(readFileSync(join(f.target, 'index.html'), 'utf8'), 'New English 100');
+  assert.equal(readFileSync(join(f.target, 'omi-releases', commit + '.txt'), 'utf8').trim(), commit);
   assert.equal(readFileSync(join(f.target, 'custom.html'), 'utf8'), 'Unmanaged file');
   assert.equal(readFileSync(join(f.target, '.htaccess'), 'utf8'), 'Plesk configuration');
   assert.equal(readFileSync(join(f.target, '.well-known', 'acme.txt'), 'utf8'), 'ACME data');
