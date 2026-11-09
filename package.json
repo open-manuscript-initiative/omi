@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "npm run test:dependency-security && npm run test:i18n && npm run test:release-metadata && npm run test:react-runtime && npm run test:file-format && npm run test:core-models && npm run test:roadmap && npm run test:pkp-support && docusaurus build",
+    "build": "npm run test:dependency-security && npm run test:i18n && npm run test:release-metadata && npm run test:react-runtime && npm run test:file-format && npm run test:core-models && npm run test:roadmap && npm run test:pkp-support && npm run test:sustainability && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -27,7 +27,8 @@
     "test:roadmap": "node --test tests/implementation-roadmap.test.mjs && node scripts/validate-implementation-roadmap.mjs",
     "test:dependency-security": "node --test tests/dependency-security.test.mjs",
     "test:pkp-support": "node --test tests/pkp-support.test.mjs",
-    "test:server-directory": "node --experimental-strip-types --test tests/server-directory.test.mjs"
+    "test:server-directory": "node --experimental-strip-types --test tests/server-directory.test.mjs",
+    "test:sustainability": "node --test tests/sustainability-model.test.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.2",
