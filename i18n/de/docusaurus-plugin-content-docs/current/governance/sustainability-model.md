@@ -8,7 +8,7 @@ description: Das OMI-Ausgangsmodell für freiwillige Unterstützung, institution
 
 **Am 8. November 2026 angenommener Ausgangsrahmen.** Das Modell wird anhand tatsächlicher Kosten, verfügbarer Kapazität und praktischer Erfahrungen überprüft. Änderungen werden öffentlich erläutert; vereinbarte Leistungsbedingungen bleiben maßgeblich.
 
-Vorgeschlagene EUR-Beiträge, HUF-Rechenbeispiele für Leistungen und der verlinkte Unterstützungskanal stehen auf [OMI unterstützen](/support/). Richtwerte richten weder Zahlungsstufen beim Anbieter noch sofort bestellbare Leistungen ein.
+Vorgeschlagene freiwillige EUR-Beiträge, unverbindliche EUR-Beispiele für institutionelle Installationen und jährliche Betriebsbetreuung sowie der verlinkte Unterstützungskanal stehen auf [OMI unterstützen](/support/). Richtwerte richten weder Zahlungsstufen beim Anbieter noch sofort bestellbare Leistungen ein.
 
 ## Was kostenlos bleibt
 
@@ -27,13 +27,39 @@ Kostenintensive gemeinsame Dienste wie Speicher, maschinelle Übersetzung und OC
 
 Der Einstieg umfasst drei vorgeschlagene monatliche Unterstützungsstufen, freiwillige Einmalbeiträge und einen jährlichen Rahmen für institutionelle Unterstützer. Die höheren institutionellen Stufen auf der Unterstützungsseite sind für eine spätere Erweiterung vorgesehen. Ein Jahresbeitrag ist weder eine Lizenz pro Nutzer noch ein Paket mit Supportstunden.
 
-## Leistungen und Kapazität
+## Kostenlose Software und optionale professionelle Installation
 
-Die Leistungsbeispiele beruhen auf einem internen Planungsstundensatz, geschätzter Arbeitszeit und angenommenen Infrastrukturkosten. Es sind **Planungsbeträge ohne Umsatzsteuer**, keine endgültigen Verbraucherpreise. Ein schriftliches Angebot nennt Anbieter, geltende Umsatzsteuer oder Befreiung, Endbetrag, genauen Umfang, Ausschlüsse und Durchführung.
+**Studio und die eigenständige Installation der OMI-Serversoftware bleiben kostenlos.** Einrichtungen können eigene Server ohne Lizenzgebühr, Abonnement oder verpflichtenden Installationsauftrag bereitstellen, konfigurieren, aktualisieren und betreiben. Maßgeblich sind die Open-Source-Lizenz und die veröffentlichten Verteilungsbedingungen. Es gibt keine Nutzungsgebühr pro Nutzer oder Server. Öffentliche Installationsanleitungen und Softwareupdates sind kostenlos verfügbar.
 
-Das Monatsbeispiel umfasst zwei Stunden für Wartung und Unterstützung sowie angenommene Infrastruktur- und Sicherungskosten. Zusätzliche Arbeit bedarf vorheriger Vereinbarung. Hosting, kostenpflichtige APIs, Lizenzen, Migration und individuelle Entwicklung werden gesondert bewertet. Die Zuständigkeiten für institutionseigenes Hosting und OMI-betreutes Hosting müssen eindeutig festgelegt werden.
+Für den kostenlosen Zugang zum zentralen OMI-Dienst können veröffentlichte Fair-Use-, Speicher- oder Rechenkapazitätsgrenzen gelten; er beinhaltet keinen unbegrenzten Speicher, keine Verfügbarkeitsgarantie und keinen individuellen Support. Portabilität, Download und Export eigener Manuskripte müssen gewährleistet bleiben.
 
-Der erste Pilotbetrieb ist auf zwei Institutionen begrenzt. Eine Erweiterung hängt von tatsächlichem Aufwand und Betriebsbereitschaft ab. Vertragliche Betreuung erfordert geprüfte Installation, Aktualisierung, Dokumentenerhaltung, Sicherungen und Wiederherstellung eines kompatiblen Anwendungs- und Datenstands. Vereinbarungen regeln Datenverarbeitung, Beendigung und Datenrückgabe. Unbegrenzter Speicher, unbegrenzte Unterstützung, 24-Stunden-Bereitschaft und automatische Verfügbarkeitsgarantien gehören nicht zum Ausgangsmodell.
+Einrichtungen können stattdessen eine **professionelle Installation** beauftragen. Vergütet wird die fachliche Leistung, nicht das Recht zum Serverbetrieb. Unverbindliche einmalige EUR-Planungsbeträge ohne Umsatzsteuer:
+
+| Installationsleistung | Einmaliger Richtwert | Typischer Umfang |
+| --- | ---: | --- |
+| Grundinstallation für Einrichtungen | 690 € | Vorbereitete Umgebung, Installation, Basiskonfiguration und Übergabe |
+| Standardinstallation mit OJS/OMP-Anbindung | 1.490 € | Grundinstallation sowie Prüfung und Anbindung einer vorhandenen OJS- oder OMP-Instanz |
+| Komplexe institutionelle Installation | Ab 2.990 € | Mehrsystemarchitektur, Authentifizierungs- und Integrationsbedarf sowie individuelle Übergabe nach Prüfung |
+
+Diese Beispiele sind keine unmittelbar buchbaren Pakete. Leistungsumfang und Preis bedürfen eines schriftlichen Angebots. Hosting, Infrastruktur, externe APIs, kostenpflichtige Fremdlizenzen, Migration, Reisen und individuelle Entwicklung sind nur bei ausdrücklicher Vereinbarung enthalten.
+
+## Optionale jährliche Betriebsbetreuung
+
+**Ein Wartungsvertrag ist für den Eigenbetrieb nicht erforderlich.** Auf Wunsch kann die Einrichtung klar begrenzte Unterstützung unabhängig von der Software bestellen:
+
+| Betreuungsstufe | Jährlicher Richtwert |
+| --- | ---: |
+| Technischer Basissupport | 390 € |
+| Institutionelle Betriebsbetreuung | 990 € |
+| Vorrangiger Support mit vereinbarten Reaktionszielen | Ab 1.990 € |
+
+Die Richtwerte bezeichnen Leistungsstufen, nicht unbegrenzte Arbeitszeit. Ein Vertrag regelt betroffene Systeme, Stundenrahmen, Reaktionsziele, Servicezeiten, Änderungsfreigaben, Zuständigkeiten für Sicherheit und Sicherungen, Eskalation und Ausschlüsse. Ein freiwilliger jährlicher **institutioneller Förderbeitrag** finanziert das gemeinsame Projekt, enthält aber keine dieser Leistungen.
+
+OMI-Serverupdates und Sicherheitskorrekturen bleiben für alle Installationen kostenlos zugänglich. Eine koordinierte automatische Aktualisierung muss institutionelle Zustimmung und Kontrolle, Kompatibilitätsprüfungen, Wartungsfenster, Backups und Rollback berücksichtigen; der Zentraldienst darf produktive Fremdinstallationen nicht unbemerkt ändern.
+
+Der anfängliche Servicepilot ist auf zwei Einrichtungen begrenzt. Eine Erweiterung hängt von gemessenem Aufwand und überprüfter Leistungsfähigkeit ab. Vertragliche Betreuung setzt geprüfte Installation und Wiederherstellung kompatibler Anwendungs- und Datenstände sowie dokumentierten Datenschutz, Ausstieg und Datenrückgabe voraus. Eigen- und Fremdhosting erfordern getrennte Verantwortlichkeiten. Unbegrenzter Speicher, Rund-um-die-Uhr-Dienst und automatische Verfügbarkeitsgarantien werden nicht zugesagt.
+
+Alle Preise sind **unverbindliche Planungsbeispiele ohne Umsatzsteuer**. Ein schriftliches Angebot benennt den rechtlichen Anbieter, geltende Steuern oder Befreiung, Gesamtbetrag, Umfang, Ausschlüsse und Durchführung. Die Klarstellung vom 9. November 2026 ersetzt die bisherigen HUF-Beispiele für Einzelleistungen, Stundensätze und monatliche Betreuung; es handelt sich nicht um gleichzeitig verfügbare Angebote.
 
 ## Zahlung
 

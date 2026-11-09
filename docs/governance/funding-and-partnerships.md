@@ -6,7 +6,7 @@ description: Partnership and funding framework for the Open Manuscript Initiativ
 
 # Funding & Partnerships
 
-> **Sustaining the free Studio:** the [sustainability and services model](/docs/governance/sustainability-model), adopted on 8 November 2026, separates voluntary contributions from commissioned services and provides a reviewable starting framework. See [Support OMI](/support/) for suggested amounts and the linked support channel.
+> **Sustaining the free Studio:** the [sustainability and services model](/docs/governance/sustainability-model), adopted on 8 November 2026 and clarified on 9 November, keeps Studio and self-hosted server software free while separating voluntary contributions from optional, paid deployment and operational support and provides a reviewable starting framework. See [Support OMI](/support/) for suggested amounts and the linked support channel.
 
 The Open Manuscript Initiative (OMI) is an open-source effort to build interoperable scholarly authoring and publishing infrastructure. OMI welcomes cooperation with universities, research institutes, libraries, scholarly societies, journals, publishers, infrastructure providers, public bodies, funders and open-source communities.
 

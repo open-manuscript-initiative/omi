@@ -8,7 +8,7 @@ description: OMI's starting model for voluntary support, institutional contribut
 
 **Starting framework adopted on 8 November 2026.** The model will evolve with actual costs, available capacity and practical experience. Changes will be explained publicly and agreed service terms will be respected.
 
-See [Support OMI](/support/) for the suggested EUR contribution amounts, HUF service planning examples and linked support channel. Reference amounts do not create payment-provider tiers or an immediately purchasable service.
+See [Support OMI](/support/) for voluntary EUR contribution suggestions, illustrative EUR institutional deployment and annual care fees, and the linked contribution channel. These figures are planning references, not a checkout or a binding offer. Reference amounts do not create payment-provider tiers or an immediately purchasable service.
 
 ## What stays free
 
@@ -27,13 +27,39 @@ Costly shared storage, machine translation, OCR and similar services may have tr
 
 Start with three suggested monthly individual levels, optional one-time support and one annual institutional supporter framework. The higher institutional levels shown on the support page are for later expansion. An annual contribution is not a per-user licence or a bundle of support hours.
 
-## Services and capacity
+## Free software, optional professional deployment
 
-The service examples use an internal planning rate, estimated hours and assumed infrastructure costs. They are **planning amounts excluding VAT**, not final consumer prices. A written quote must state the provider, applicable VAT or exemption, final amount, exact scope, exclusions and delivery arrangements.
+**Using Studio and independently installing the OMI server software remains free.** Institutions may deploy, configure, update and operate their own servers without buying a licence, subscribing to OMI or purchasing an installation service. The open-source licence and published distribution terms apply; there is no per-user or per-server licensing charge. Public installation documentation and software updates are available without payment.
 
-The monthly care example combines two hours of maintenance and assistance with assumed infrastructure and backup costs. Extra work needs prior agreement. Hosting, paid APIs, licences, migration and custom development are assessed separately. Institution-owned hosting and OMI-managed hosting must have clearly allocated responsibilities.
+Free access to the shared central OMI service may be subject to published fair-use, storage or computational capacity limits; it does not imply unlimited hosted storage, uptime or support. Manuscript portability, download and export must be preserved.
 
-The initial pilot is limited to two institutions. Expansion depends on actual workload and service readiness. Contracted care requires verified deployment, updates, preservation of documents, backups and restoration of a compatible application and data state. Agreements must cover data handling, termination and data return. Unlimited storage, unlimited support, 24-hour cover and automatic availability guarantees are not part of the starting model.
+An institution may instead commission **professional deployment**, which pays for work—not permission to run the server. Indicative one-time fees in EUR (excluding applicable VAT) are:
+
+| Deployment service | Indicative one-time fee | Typical scope |
+| --- | ---: | --- |
+| Basic institutional deployment | €690 | Prepared environment, installation, baseline configuration, handover |
+| Standard deployment with OJS/OMP integration | €1,490 | Basic deployment plus assessment and connection of an existing OJS or OMP instance |
+| Complex institutional deployment | From €2,990 | Multi-system architecture, authentication/integration requirements and tailored handover after scoping |
+
+These examples are not automatically purchasable packages. Scope and price must be confirmed in a written quotation. Hosting, infrastructure, external APIs, paid third-party licences, migration, travel and bespoke development are excluded unless explicitly included.
+
+## Optional annual operational support
+
+Professional care is **not required** to run a self-hosted OMI server. Where requested, the institution may purchase bounded support independently from the software:
+
+| Care level | Indicative annual fee |
+| --- | ---: |
+| Basic technical support | €390 |
+| Institutional operational support | €990 |
+| Priority support with agreed response arrangements | From €1,990 |
+
+The fees indicate service levels rather than unlimited labour. An agreement must state covered systems and hours, response targets, service windows, change approvals, responsibilities for security and backups, incident escalation and exclusions. An annual institutional **contribution** is a voluntary donation to the common project and does **not** include any of these operational services.
+
+OMI server updates and security fixes remain available to all installations. Any automated fleet update mechanism must respect institutional opt-in, administrative control, compatibility checks, maintenance windows, backups and rollback; a central service must not silently force a production deployment change.
+
+The starting service pilot is limited to two institutions, with expansion based on measured workload and tested delivery. Contracted care requires verified deployment and restoration of a compatible application and data state, and documented data handling, exit and data return. Institution-owned and managed hosting have different responsibilities. There is no implied unlimited storage, 24/7 coverage or availability SLA.
+
+Prices are **non-binding planning examples excluding VAT**. A written offer identifies the legal service provider, applicable taxes or exemption, total price, scope, exclusions and performance conditions. The 9 November 2026 clarification supersedes earlier HUF-based individual task, hourly and monthly care examples; those examples are not simultaneous offers.
 
 ## Payments
 
