@@ -84,6 +84,10 @@ tar -xzf "$artifact" --no-same-owner --no-same-permissions -C "$release"
    -s "$release/de/index.html" ]] || {
   echo 'Docusaurus artifact is missing expected EN/HU/DE entry points.' >&2; exit 1;
 }
+[[ -s "$release/omi-releases/$sha.txt" &&
+   "$(cat "$release/omi-releases/$sha.txt")" == "$sha" ]] || {
+  echo 'The build artifact is missing its exact commit identity marker.' >&2; exit 1;
+}
 if find "$release" -type l -print -quit | grep -q .; then
   echo 'Symlinks are not allowed in the published site artifact.' >&2; exit 1;
 fi
@@ -153,6 +157,12 @@ if [[ "${OMI_SITE_DEPLOY_TEST_MODE:-}" == 1 ]]; then
   }
 else
   curl -fsSL --max-time 30 --retry 2 'https://openmanuscript.org/hu/' -o /dev/null
+  # A unique per-commit URL avoids mistaking a cached older page for the
+  # just-published release. Fail and restore the snapshot if it is not live.
+  verified="$(curl -fsSL --max-time 30 --retry 3 --retry-delay 2     "https://openmanuscript.org/omi-releases/$sha.txt?run=$run_id")"
+  [[ "$verified" == "$sha" ]] || {
+    echo 'Public OMI site did not serve the deployed commit marker.' >&2; exit 1;
+  }
 fi
 
 mv "$new_manifest" "$manifest"
