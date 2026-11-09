@@ -39,6 +39,11 @@ jobs:
 
       - name: Verify daily server directory
         run: npm run test:server-directory
+
+      - name: Verify safe production deployment and rollback
+        run: |
+          bash -n scripts/deploy-website-artifact.sh
+          node --test tests/site-production-deploy.test.mjs
       - name: Upload verified Docusaurus site
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/upload-artifact@v4
