@@ -25,6 +25,8 @@ keywords:
 
 # Open Manuscript Studio — Current Implementation Status
 
+**Microsoft Store distribution update — 10 November 2026:** Microsoft notified the publisher that the Open Manuscript Studio submission was processed and available in the Store, with up to two hours for customer visibility. The IARC questionnaire ratings are also reported live. The specific Store product link, signed-package verification, actual Windows Store install/update and data preservation remain pending. Direct Windows EXE/MSI downloads are a separate unsigned channel; stable 1.0 has not been approved. See [Code Signing Policy](/docs/governance/code-signing-policy) and [RC status](/docs/studio/releases/1.0.0-rc.1).
+
 **4 November 2026 — Web and Android RC available.** Web Studio and the direct-install Android APK use `1.0.0-rc.1`. [Open Web Studio](https://studio.openmanuscript.org) or [download the Android RC package](https://github.com/open-manuscript-initiative/open-manuscript-studio/actions/runs/41741830930/artifacts/13282507414). Desktop downloads remain `0.3.0-beta.13`; Linux native and macOS are Preview, iOS/iPadOS Experimental. See [RC1 availability and changes](/docs/studio/releases/1.0.0-rc.1).
 
 ## Snapshot
