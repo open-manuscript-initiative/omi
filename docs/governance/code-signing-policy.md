@@ -5,7 +5,7 @@ sidebar_label: Code Signing Policy
 
 # Code Signing Policy
 
-Updated 8 November 2026. Applies to official Open Manuscript Studio binaries,
+Updated 10 November 2026. Applies to official Open Manuscript Studio binaries,
 built from the MIT-licensed `open-manuscript-initiative/open-manuscript-studio`
 repository.
 
@@ -13,9 +13,11 @@ repository.
 
 | Channel | Current policy and status |
 | --- | --- |
-| Microsoft Store MSIX | Selected path. GitHub builds an unsigned candidate; Microsoft signs during publication after certification. Packaging succeeded on 8 November; Store version validation, certification and device/update acceptance are pending. |
+| Microsoft Store MSIX | The publisher received a Microsoft notification on 10 November 2026 that its submission had been processed and the app was available in Microsoft Store (customer visibility may take up to two hours). GitHub produced the unsigned submission candidate; Store-managed signing applies to certified distribution. The exact published package signature and real-device installation/update acceptance have **not** yet been independently recorded. |
 | Direct EXE/MSI | Existing Tauri installers remain a separate channel. No active public-trust signing integration is established; the Store does not sign these files. |
 | Local development | Test certificates are restricted to explicitly trusted test environments and do not establish public release trust. |
+
+The publisher also received an **IARC live-rating notice** on 10 November about a questionnaire submitted on 9 November 2026. The screenshots do not show the age-category outcome; no numerical or regional age rating is asserted here. A canonical public Microsoft Store product URL has not yet been verified, so a product-specific download link is intentionally withheld.
 
 The owner reports that the earlier SignPath Foundation application was declined.
 SignPath is not an active signing provider; no SignPath sponsorship or certificate
