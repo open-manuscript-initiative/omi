@@ -8,7 +8,7 @@ const messages = {
   en: {
     title: 'Web and Android RC available',
     status: 'Use the web release candidate in your browser or install the Android RC from its signed APK package.',
-    windows: 'On 10 November Microsoft notified the publisher that Open Manuscript Studio was processed and available in Microsoft Store; visibility can take up to two hours. Independent installation, signature and update checks are still pending. Direct EXE/MSI downloads remain a separate, unsigned channel.',
+    windows: 'On 10 November the publisher confirmed the Microsoft Store listing on a Windows PC: its product page shows an Open button and PEGI 3. App launch, signature and update checks are still pending. Direct EXE/MSI downloads remain a separate, unsigned channel.',
     downloads: 'Desktop downloads',
     support: 'RC scope: Linux desktop and macOS Preview; iOS/iPadOS Experimental. The inherited Linux GLib advisory remains open.',
     notes: 'RC status and changes', evidence: 'Verified build evidence',
@@ -16,7 +16,7 @@ const messages = {
   hu: {
     title: 'Elérhető a webes és az Android RC',
     status: 'A webes kiadási jelölt böngészőben használható, az Android RC az aláírt APK-csomagból telepíthető.',
-    windows: 'November 10-én a Microsoft visszaigazolta, hogy feldolgozta az Open Manuscript Studio beküldését, és elérhetővé tette a Microsoft Store-ban; a megjelenés akár két órát is igénybe vehet. Az aláírás, telepítés és frissítés független ellenőrzése hátravan. A közvetlen EXE/MSI külön, aláíratlan csatorna.',
+    windows: 'November 10-én a Windows Microsoft Store felületén már megjelent az Open Manuscript Studio, a képernyőképen „Megnyitás” gombbal és PEGI 3 besorolással. Az alkalmazás indításának, aláírásának és frissítésének ellenőrzése még hátravan. A közvetlen EXE/MSI külön, aláíratlan csatorna.',
     downloads: 'Asztali letöltések',
     support: 'RC-támogatás: Linux asztali és macOS Preview; iOS/iPadOS kísérleti. A Linux örökölt GLib-figyelmeztetése továbbra is nyitott.',
     notes: 'RC-állapot és változások', evidence: 'Ellenőrzési eredmények',
@@ -24,7 +24,7 @@ const messages = {
   de: {
     title: 'Web- und Android-RC verfügbar',
     status: 'Der Web-Release-Kandidat ist im Browser nutzbar. Der Android-RC lässt sich aus dem signierten APK-Paket installieren.',
-    windows: 'Am 10. November bestätigte Microsoft dem Herausgeber die Verarbeitung und Store-Verfügbarkeit der App; die Sichtbarkeit kann bis zu zwei Stunden dauern. Unabhängige Prüfungen von Signatur, Installation und Updates stehen noch aus. Direkte EXE/MSI-Downloads bleiben ein separater, unsignierter Kanal.',
+    windows: 'Am 10. November bestätigte der Herausgeber die Microsoft-Store-Produktseite auf einem Windows-PC: Sie zeigt „Öffnen“ und PEGI 3. App-Start, Signatur und Updates sind noch zu prüfen. Direkte EXE/MSI-Downloads bleiben ein separater, unsignierter Kanal.',
     downloads: 'Desktop-Downloads',
     support: 'RC-Umfang: Linux-Desktop und macOS Preview; iOS/iPadOS experimentell. Die geerbte Linux-GLib-Warnung bleibt offen.',
     notes: 'RC-Status und Änderungen', evidence: 'Prüfnachweise',
