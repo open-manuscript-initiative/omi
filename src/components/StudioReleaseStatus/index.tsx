@@ -8,7 +8,7 @@ const messages = {
   en: {
     title: 'Web and Android RC available',
     status: 'Use the web release candidate in your browser or install the Android RC from its signed APK package.',
-    windows: 'On 10 November the publisher confirmed the Microsoft Store listing on a Windows PC: its product page shows an Open button and PEGI 3. The publisher also confirmed successful app launch and sign-in. Opening, editing, saving and reopening a local .omi manuscript also succeeded. Signature and Store-update checks remain pending. Direct EXE/MSI downloads remain a separate, unsigned channel.',
+    windows: 'On 10 November the publisher confirmed the Microsoft Store listing on a Windows PC: its product page shows an Open button and PEGI 3. The publisher also confirmed successful app launch and sign-in. Opening, editing, saving and reopening a local .omi manuscript also succeeded. Partner Center lists the Store MSIX as version 1.0.0.0 (x64, Windows 10 19041+). Signature and Store-update checks remain pending. Direct EXE/MSI downloads remain a separate, unsigned channel.',
     downloads: 'Desktop downloads',
     support: 'RC scope: Linux desktop and macOS Preview; iOS/iPadOS Experimental. The inherited Linux GLib advisory remains open.',
     notes: 'RC status and changes', evidence: 'Verified build evidence',
@@ -16,7 +16,7 @@ const messages = {
   hu: {
     title: 'Elérhető a webes és az Android RC',
     status: 'A webes kiadási jelölt böngészőben használható, az Android RC az aláírt APK-csomagból telepíthető.',
-    windows: 'November 10-én a Windows Microsoft Store felületén már megjelent az Open Manuscript Studio, a képernyőképen „Megnyitás” gombbal és PEGI 3 besorolással. A kiadó az alkalmazás sikeres elindulását és a bejelentkezést is megerősítette. A helyi .omi kézirat megnyitása, szerkesztése, mentése és újbóli megnyitása szintén sikerült. Az aláírás és a Store-frissítés ellenőrzése még hátravan. A közvetlen EXE/MSI külön, aláíratlan csatorna.',
+    windows: 'November 10-én a Windows Microsoft Store felületén már megjelent az Open Manuscript Studio, a képernyőképen „Megnyitás” gombbal és PEGI 3 besorolással. A kiadó az alkalmazás sikeres elindulását és a bejelentkezést is megerősítette. A helyi .omi kézirat megnyitása, szerkesztése, mentése és újbóli megnyitása szintén sikerült. A Partner Center szerinti Store MSIX-verzió 1.0.0.0 (x64, Windows 10 19041 vagy újabb). Az aláírás és a Store-frissítés ellenőrzése még hátravan. A közvetlen EXE/MSI külön, aláíratlan csatorna.',
     downloads: 'Asztali letöltések',
     support: 'RC-támogatás: Linux asztali és macOS Preview; iOS/iPadOS kísérleti. A Linux örökölt GLib-figyelmeztetése továbbra is nyitott.',
     notes: 'RC-állapot és változások', evidence: 'Ellenőrzési eredmények',
@@ -24,7 +24,7 @@ const messages = {
   de: {
     title: 'Web- und Android-RC verfügbar',
     status: 'Der Web-Release-Kandidat ist im Browser nutzbar. Der Android-RC lässt sich aus dem signierten APK-Paket installieren.',
-    windows: 'Am 10. November bestätigte der Herausgeber die Microsoft-Store-Produktseite auf einem Windows-PC: Sie zeigt „Öffnen“ und PEGI 3. Der Herausgeber bestätigte auch einen erfolgreichen App-Start und eine funktionierende Anmeldung. Auch das Öffnen, Bearbeiten, Speichern und erneute Öffnen einer lokalen .omi-Datei war erfolgreich. Signatur und Store-Updates bleiben zu prüfen. Direkte EXE/MSI-Downloads bleiben ein separater, unsignierter Kanal.',
+    windows: 'Am 10. November bestätigte der Herausgeber die Microsoft-Store-Produktseite auf einem Windows-PC: Sie zeigt „Öffnen“ und PEGI 3. Der Herausgeber bestätigte auch einen erfolgreichen App-Start und eine funktionierende Anmeldung. Auch das Öffnen, Bearbeiten, Speichern und erneute Öffnen einer lokalen .omi-Datei war erfolgreich. Laut Partner Center hat das Store-MSIX die Version 1.0.0.0 (x64, Windows 10 ab Build 19041). Signatur und Store-Updates bleiben zu prüfen. Direkte EXE/MSI-Downloads bleiben ein separater, unsignierter Kanal.',
     downloads: 'Desktop-Downloads',
     support: 'RC-Umfang: Linux-Desktop und macOS Preview; iOS/iPadOS experimentell. Die geerbte Linux-GLib-Warnung bleibt offen.',
     notes: 'RC-Status und Änderungen', evidence: 'Prüfnachweise',
