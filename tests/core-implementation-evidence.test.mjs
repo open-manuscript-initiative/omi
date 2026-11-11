@@ -5,11 +5,11 @@ import { inspectStudioCoreEvidence, verifyCoreImplementationEvidence } from '../
 
 test('combines executed validator evidence with explicit archived Studio observations', async () => {
   const report = await verifyCoreImplementationEvidence();
-  assert.deepEqual(report.counts, { requirements: 66, validatorPartial: 25, combinedPartial: 55, untested: 11, fullyEvidenced: 0 });
-  assert.equal(report.implementations.length, 8);
+  assert.deepEqual(report.counts, { requirements: 66, validatorPartial: 25, combinedPartial: 66, untested: 0, fullyEvidenced: 0 });
+  assert.equal(report.implementations.length, 9);
   assert.ok(report.implementations.every(item => item.execution === 'archived-reference-implementation-run'));
   assert.equal(report.validator.execution, 'local');
-  assert.ok(report.implementations.every(item => item.cases === 12));
+  assert.ok(report.implementations.every(item => item.cases === (item.suite === 'studio-core-remaining-0.1.0' ? 22 : 12)));
   assert.equal(report.outcome, 'indeterminate');
   assert.equal(report.independent, false);
   assert.equal(report.approved, false);
@@ -155,6 +155,30 @@ test('relationship observations retain explicit source roles and partial fallbac
     value => { value.requirements[0].status = 'complete'; },
     value => { value.results[0].status = 'fail'; },
     value => { value.independent = true; },
+  ]) {
+    const broken = structuredClone(evidence); mutate(broken);
+    assert.throws(() => inspectStudioCoreEvidence(broken, manifest.requirements, evidence.sourceCommit));
+  }
+});
+
+test('remaining-core observations bind all eleven targets without turning partial evidence into certification', async () => {
+  const evidence = JSON.parse(await readFile(new URL('../static/evidence/studio-remaining-2026-11-11.json', import.meta.url)));
+  const manifest = JSON.parse(await readFile(new URL('../static/examples/omi-core/0.1.0/manifest.json', import.meta.url)));
+  const expected = ['REQ-DOC-001', 'REQ-DOC-009', 'REQ-DOC-016', 'REQ-OBJ-010', 'REQ-OBJ-011',
+    'REQ-PRI-001', 'REQ-PRI-002', 'REQ-PRI-010', 'REQ-PRI-011', 'REQ-PRI-012', 'REQ-PRI-014'];
+  assert.deepEqual(inspectStudioCoreEvidence(evidence, manifest.requirements, evidence.sourceCommit), expected);
+  assert.equal(evidence.results.length, 22);
+  assert.ok(evidence.sourceFiles.some(item => item.path === 'package-lock.json'));
+  for (const mutate of [
+    value => { value.results[0].status = 'fail'; },
+    value => { value.results[1].id = value.results[0].id; },
+    value => { value.results.pop(); },
+    value => { value.specifications['OMI-SPEC-100'] = '0.1.0'; },
+    value => { value.requirements[0].status = 'complete'; },
+    value => { value.independent = true; },
+    value => { value.sourceFiles[0].path = '../outside'; },
+    value => { value.observationProfile = 'all-environments-certified'; },
+    value => { value.exclusions = []; },
   ]) {
     const broken = structuredClone(evidence); mutate(broken);
     assert.throws(() => inspectStudioCoreEvidence(broken, manifest.requirements, evidence.sourceCommit));

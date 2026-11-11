@@ -6,7 +6,21 @@ sidebar_label: Core Model Readiness
 
 # Core Model Readiness and Stabilization Order
 
-Core validation, identity/reference, export/privacy, metadata, localized conversion, extension, local authoring, authority-boundary and semantic-relationship evidence updated **2026-11-05**; all-model source/Studio baselines remain dated **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/), [original machine-readable snapshot](/evidence/readiness-2026-10-31.json), [validation supplement](/evidence/core-validation-2026-11-04.json) and [current combined evidence index](/evidence/core-relationships-2026-11-05.json).
+Core validation, identity/reference, export/privacy, metadata, localized conversion, extension, local authoring, authority-boundary and semantic-relationship and remaining-core evidence updated **2026-11-11**; all-model source/Studio baselines remain dated **2026-10-31**. This is an implementation/evidence work programme, not a lifecycle-promotion decision. [All-model inventory](https://openmanuscript.org/docs/governance/implementation-status-matrix/), [original machine-readable snapshot](/evidence/readiness-2026-10-31.json), [validation supplement](/evidence/core-validation-2026-11-04.json) and [current combined evidence index](/evidence/core-remaining-2026-11-11.json).
+
+## Tenth bundle: the eleven remaining core requirements — 2026-11-11
+
+Twenty-two executed Studio cases add bounded observations for **REQ-PRI-001**, **REQ-PRI-002**, **REQ-PRI-010**, **REQ-PRI-011**, **REQ-PRI-012**, **REQ-PRI-014**, **REQ-OBJ-010**, **REQ-OBJ-011**, **REQ-DOC-001**, **REQ-DOC-009** and **REQ-DOC-016**. Combined coverage is now **66 partial / 0 untested / 0 fully evidenced**, within the same 66-requirement subset of four core Drafts. This is not complete normative coverage, a 100% completion percentage, or a readiness claim for all 24 specifications. Validator-only scope remains 25 partial / 41 untested.
+
+The [archived 22-case report](/evidence/studio-remaining-2026-11-11.json) pins Studio [3a85ebf](https://github.com/open-manuscript-initiative/open-manuscript-studio/commit/3a85ebffe2a47828cc1b509c5e3250fee2150a8e), proposed in [PR #900](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/900). The [new combined index](/evidence/core-remaining-2026-11-11.json) includes nine separately pinned Studio runs and the existing validator observations. Historical bundle counts below retain their original date and scope.
+
+The suite executes the real model/store, a separate local Node inspection, conservative claim gates, portable root/profile rejection, explicit shallow-history migration, actual HTML/JATS/XTG output, pagination, the production collaboration-document initializer and in-memory Yjs update/awareness handling. Machine-translation proposals leave the source unchanged. Explicit acceptance records provider provenance and the human actor while retaining draft/unassessed translation status. Synthetic translation responses and a synchronous checkpoint port are disclosed.
+
+Two split/merge regressions exposed missing explicit identity maps. The paragraph actions now retain a versioned Studio-owned source/result mapping in detached change-event extensions. Real checkpoints and portable history preserve the map, prior snapshots and the surviving ID. Other continuous-editor and replacement paths remain unassessed.
+
+The full Studio `npm test` invocation passes **1,035 checks across 24 runner invocations**, with no failures or skips. The 22 new cases are included in that total. Production build, focused lint and the model import-boundary gate pass. The evidence runner rejects dirty attested source and records exact source hashes and runtime. Website verification re-executes the validator and checks the archived Studio report; it does not rerun Studio locally.
+
+Independent implementations, authenticated live collaboration/UI acceptance, all AI/editorial authority policies, all adapters and screen-reader testing, all historical migration paths, and integrated deployed-release evidence remain open. The shared standalone validator is not independent implementation evidence. Every mapping remains **partial**, and all specifications remain **Draft**.
 
 ## Ninth bundle: semantic relationships and fallback disclosure — 2026-11-05
 
