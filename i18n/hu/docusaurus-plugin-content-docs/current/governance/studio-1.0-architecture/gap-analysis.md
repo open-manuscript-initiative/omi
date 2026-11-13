@@ -6,6 +6,15 @@ description: A jelenlegi Open Manuscript Studio implementáció és az 1.0 céla
 
 # Current → 1.0 Gap Analysis
 
+## Szövegdobozok és kutatási forráskövetés — 2026-11-13
+
+A Studio saját sémaeltérését és verziózatlan szövegdoboz-tartalmát központi Draft definíció, független sémából generált profilvalidátor, rögzített forrás és közös minta rendezi. A diagramok forráskövetési hiányát pontos előnézet/jóváhagyás, forrás/bibliográfia/származási kapcsolat és belső sajátmunkanyilatkozat kezeli. A teljes ContentCodec, exporthűség és valós kiadási elfogadás ettől még nem kész.
+
+Állapot: javasolt összehangolt javítás; a merge/CI és a telepítési elfogadás külön lépés. Nem jár adatbázis-migrációval, új konténergenerációval vagy lektorálási jogosultsággal.
+
+[Profil, döntés és elfogadási követelmények (angol)](https://openmanuscript.org/docs/governance/studio-1.0-architecture/text-box-and-research-provenance-2026-11-13/).
+
+
 ## Privacy/API határjavítás — 2026-11-08
 
 A Studio `a829afba6eb6e9a68da34a9bc21d0315101c7536` új, verzió nélküli privacy/fiókmásolat API-t és közvetlen application→Prisma kapcsolatot vezetett be; az OMI `2491bc0f54b0a02cea6bcf5d1dcb98b969d7ac18` ezeket dokumentálta. Célzott javítás szükséges.

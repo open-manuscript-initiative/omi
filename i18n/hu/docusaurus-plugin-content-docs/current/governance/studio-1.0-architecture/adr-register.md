@@ -6,6 +6,15 @@ description: A Studio 1.0 architektúra döntési nyilvántartása és a Phase A
 
 # OMI Studio 1.0 ADR Register
 
+## Szövegdobozok és kutatási forráskövetés — 2026-11-13
+
+Az ADR-035 pontosítja az ADR-001/002/004/008/018/019/022/023 döntéseit: központi Draft sémabájtok eredete, külön verziózott kísérleti szövegdobozprofil, régi/jövőbeli adatok megtartása kifejezett szerkesztési konverzióval, valamint ellenőrzött diagramátadás külső forrással vagy sajátmunkanyilatkozattal. Elutasított: eltérő séma, átnevezett editor-JSON, automatikus gráfpublikálás és általános szerkesztési zárolás. Új profil, szinkronizáció vagy hatósági bizonyíték esetén felülvizsgálandó.
+
+Állapot: javasolt összehangolt javítás; a merge/CI és a telepítési elfogadás külön lépés. Nem jár adatbázis-migrációval, új konténergenerációval vagy lektorálási jogosultsággal.
+
+[Profil, döntés és elfogadási követelmények (angol)](https://openmanuscript.org/docs/governance/studio-1.0-architecture/text-box-and-research-provenance-2026-11-13/).
+
+
 ## Privacy/API határjavítás — 2026-11-08
 
 Az ADR-034 az ADR-012/015/016/017/019 pontosítása: additív v1 privacy/fiókmásolat contract, közös legacy handler/kvóta, szigorú Zod-ból OpenAPI és kliens típus, application/repository határ, szabványos hibák/korreláció és natív kiválasztott-origin transport. Az identity adatbázis authority-ja változatlan. Az üzemeltető adatkezelői tényei nem megfelelőségi tanúsítások és nem identity-/szerkesztői-/bírálói grantok. A másolat kifejezetten részleges.

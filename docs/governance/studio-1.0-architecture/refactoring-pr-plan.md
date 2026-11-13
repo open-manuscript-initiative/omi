@@ -6,6 +6,15 @@ description: Dependency-aware plan of small, testable, reversible pull requests 
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
+## Text-box and research provenance — 2026-11-13
+
+A02–A06/B06: reconcile canonical Draft schema, pin bytes/checksums, generate profile validation and verify legacy/future recovery plus DOCX/JSON/container round-trips. C11/ADR-022/023: use reviewed snapshot contribution with atomic provenance/history and privacy filtering. Keep the existing OMI-SPEC-320 exact-candidate gate mandatory; coordinate OMI and Studio changes before rollout.
+
+Status: proposed coordinated repair; merge/CI and deployment acceptance remain separate. No database migration, container-generation change or new review authority.
+
+[Profile, decision and acceptance scope](https://openmanuscript.org/docs/governance/studio-1.0-architecture/text-box-and-research-provenance-2026-11-13/).
+
+
 ## Privacy/API boundary repair — 2026-11-08
 
 Apply A09/A10 to the new privacy/account-copy surface: introduce additive v1 and shared legacy mounts, derive OpenAPI/client types from strict Zod DTOs, standardize read errors/correlation, and inject a repository port between application export scope and identity Prisma. Preserve session admission, explicit selection, collection caps, optional-role migration compatibility and the partial-export disclosure.

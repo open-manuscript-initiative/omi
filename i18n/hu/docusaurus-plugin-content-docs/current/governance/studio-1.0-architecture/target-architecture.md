@@ -6,6 +6,15 @@ description: Az Open Manuscript Studio 1.0 javasolt célarchitektúrája a műk�
 
 # OMI Studio 1.0 Target Architecture
 
+## Szövegdobozok és kutatási forráskövetés — 2026-11-13
+
+A grafikus szövegdobozok sémájának tulajdonosa a központi OMI Draft séma. A Studio változtathatatlan upstream commithez és checksumhoz köti a sémát és a mintát; az új tartalmak külön, kísérleti 0.1 bekezdés/futam profilt kapnak. A régi és ismeretlen tartalom visszaállítható marad, a szerzői szerkesztés általános tiltása nélkül. A modul munkaterülete csak kifejezetten ellenőrzött pillanatképet és forrásadatot ad át egyetlen kéziratmódosításban.
+
+Állapot: javasolt összehangolt javítás; a merge/CI és a telepítési elfogadás külön lépés. Nem jár adatbázis-migrációval, új konténergenerációval vagy lektorálási jogosultsággal.
+
+[Profil, döntés és elfogadási követelmények (angol)](https://openmanuscript.org/docs/governance/studio-1.0-architecture/text-box-and-research-provenance-2026-11-13/).
+
+
 ## Privacy/API határjavítás — 2026-11-08
 
 ADR-012/015/016/017/019 pontosítása: új klienscontract az `/api/v1/privacy` és `/api/v1/account/data`. A régi címek ugyanazt a handlert, session-szabályt és közös exportkvótát használják; Deprecation fejléc, utódlink és csak rögzített útvonalnevet tartalmazó használati esemény segíti az átállást. Eltávolítási határidőt ez a javítás nem határoz meg.

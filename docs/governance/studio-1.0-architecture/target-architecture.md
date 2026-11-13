@@ -6,6 +6,15 @@ description: Proposed target architecture for stabilizing the working Open Manus
 
 # Open Manuscript Studio 1.0 Target Architecture
 
+## Text-box and research provenance — 2026-11-13
+
+The canonical OMI Draft schema owns graphical text boxes. Studio pins immutable upstream schema/fixture bytes; a separate experimental 0.1 paragraph/run profile replaces new unversioned editor-JSON writes. Legacy and unknown content remain recoverable without locking author editing. Module workspaces contribute only explicitly reviewed snapshots and source metadata through one staged manuscript change.
+
+Status: proposed coordinated repair; merge/CI and deployment acceptance remain separate. No database migration, container-generation change or new review authority.
+
+[Profile, decision and acceptance scope](https://openmanuscript.org/docs/governance/studio-1.0-architecture/text-box-and-research-provenance-2026-11-13/).
+
+
 ## Privacy/API boundary repair — 2026-11-08
 
 Refines ADR-012/015/016/017/019. New clients use `/api/v1/privacy` and `/api/v1/account/data`; the original `/api/privacy` and `/api/account/data` delegate to identical handlers, session policy and a shared export limiter. Legacy responses carry `Deprecation` and a successor link; content-free events name only the fixed route. No removal date is asserted.

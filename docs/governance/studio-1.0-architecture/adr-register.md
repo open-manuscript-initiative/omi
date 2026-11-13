@@ -6,6 +6,15 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 # OMI Studio 1.0 ADR Register
 
+## Text-box and research provenance — 2026-11-13
+
+ADR-035 refines ADR-001/002/004/008/018/019/022/023: canonical Draft byte provenance, separately versioned experimental text-box content, retained legacy/future payloads with explicit supported edits, and reviewed graph contribution with external-source or own-work assertions. Reject divergent schemas, relabelled editor JSON, implicit graph publication and general author-editing locks. Revisit on profile/codec vocabulary, source synchronization or authority-bearing evidence changes.
+
+Status: proposed coordinated repair; merge/CI and deployment acceptance remain separate. No database migration, container-generation change or new review authority.
+
+[Profile, decision and acceptance scope](https://openmanuscript.org/docs/governance/studio-1.0-architecture/text-box-and-research-provenance-2026-11-13/).
+
+
 ## Privacy/API boundary repair — 2026-11-08
 
 ADR-034 refines ADR-012/015/016/017/019: additive v1 privacy/account-copy contracts, shared legacy facades/quota, strict Zod-generated OpenAPI and client types, application/repository separation, standard errors/correlation and selected-origin native transport. The identity database stays account/authentication authority. Operator controller facts neither certify compliance nor grant identity/editorial/review authority; the overview remains explicitly partial.

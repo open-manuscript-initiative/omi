@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://openmanuscript.org/schemas/omi-manuscript-0.3.schema.json",
   "title": "Open Manuscript Initiative manuscript file format 0.3",
-  "description": "Normative structural schema for OMI-SPEC-320@0.3.0, including semantic source-attribution references.",
+  "description": "Normative structural schema for OMI-SPEC-320@0.3.0 including semantic source-attribution relationships.",
   "$comment": "Status: Draft. Unknown members are permitted for forward-compatible preservation and require semantic unknown-field handling.",
   "type": "object",
   "required": [
@@ -418,6 +418,46 @@
         },
         "extensions": {
           "$ref": "#/$defs/extensions"
+        },
+        "visual": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string"
+            },
+            "textBoxes": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/textBox"
+              }
+            },
+            "textBox": {
+              "$ref": "#/$defs/textBox"
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "text-box"
+                  }
+                },
+                "required": [
+                  "kind"
+                ]
+              },
+              "then": {
+                "required": [
+                  "textBox"
+                ],
+                "properties": {
+                  "textBox": true
+                }
+              }
+            }
+          ],
+          "additionalProperties": true
         }
       },
       "additionalProperties": true
@@ -749,6 +789,79 @@
         },
         "modifiedAt": {
           "$ref": "#/$defs/timestamp"
+        },
+        "extensions": {
+          "$ref": "#/$defs/extensions"
+        }
+      },
+      "additionalProperties": true
+    },
+    "textBox": {
+      "type": "object",
+      "description": "Semantic rich text with graphical coordinates in CSS pixels.",
+      "required": [
+        "id",
+        "content",
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/identifier"
+        },
+        "content": {
+          "type": "string"
+        },
+        "x": {
+          "type": "number",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "y": {
+          "type": "number",
+          "minimum": -100000,
+          "maximum": 100000
+        },
+        "width": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "height": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "rotation": {
+          "type": "number"
+        },
+        "background": {
+          "type": "string",
+          "pattern": "^(?:#[0-9A-Fa-f]{6}|transparent)$"
+        },
+        "padding": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1000
+          }
+        },
+        "verticalAlign": {
+          "enum": [
+            "top",
+            "center",
+            "bottom"
+          ]
+        },
+        "contentProfile": {
+          "type": "string",
+          "format": "uri",
+          "description": "Explicit experimental content profile. Absence is the legacy unprofiled Studio import representation; unknown profiles remain opaque."
         },
         "extensions": {
           "$ref": "#/$defs/extensions"
