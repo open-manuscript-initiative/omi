@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import { readFile } from 'node:fs/promises';
+import Ajv2020 from 'ajv/dist/2020.js';
+import addFormats from 'ajv-formats';
+const json = async path => JSON.parse(await readFile(new URL(path, import.meta.url), 'utf8'));
+test('canonical graphical text definitions and independent profile accept the shared golden and future fields', async () => {
+  const ajv = new Ajv2020({ strict: true }); addFormats(ajv);
+  const core = await json('../static/schemas/omi-manuscript-0.3.schema.json');
+  const profile = await json('../static/schemas/text-box-content-0.1.schema.json');
+  const golden = await json('../static/examples/text-box-content/0.1.json');
+  const validate = ajv.compile(profile);
+  assert.ok(validate(golden), JSON.stringify(validate.errors));
+  assert.ok(validate({ ...golden, future: { keep: 'verbatim' } }));
+  for (const patch of [{ version: '0.2.0' }, { paragraphs: null }, { paragraphs: [{ ...golden.paragraphs[0], lineHeight: 0 }] }]) assert.equal(validate({ ...golden, ...patch }), false);
+  ajv.addSchema(core);
+  const box = ajv.compile({ $ref: core.$id + '#/$defs/textBox' });
+  const value = { id: 'text-box-golden', content: JSON.stringify(golden), contentProfile: 'https://openmanuscript.org/profiles/text-box-content/0.1', x: 0, y: 0, width: 240, height: 90 };
+  assert.ok(box(value), JSON.stringify(box.errors));
+  assert.ok(box({ ...value, content: 'old plain text', contentProfile: undefined }));
+  assert.ok(box({ ...value, contentProfile: 'https://example.org/future-profile', content: '{ "unknown": true }' }));
+  assert.equal(box({ ...value, width: -1 }), false);
+});

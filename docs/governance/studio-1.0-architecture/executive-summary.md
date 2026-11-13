@@ -6,6 +6,15 @@ description: Executive summary of the Open Manuscript Studio 1.0 target architec
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
+## Text-box and research provenance — 2026-11-13
+
+The graphical-text and research-diagram additions need a coordinated contract repair. Canonical Draft schemas and an independent experimental text-box profile retain editability and recovery; reviewed graph snapshots carry visible/structured external provenance or a private author-declared own-work marker. This is not a stable-format promotion, review certification or completed release acceptance.
+
+Status: proposed coordinated repair; merge/CI and deployment acceptance remain separate. No database migration, container-generation change or new review authority.
+
+[Profile, decision and acceptance scope](https://openmanuscript.org/docs/governance/studio-1.0-architecture/text-box-and-research-provenance-2026-11-13/).
+
+
 ## Privacy/API boundary repair — 2026-11-08
 
 The proposed privacy/account-copy repair keeps useful operator notices and downloads while restoring additive `/api/v1/privacy` and `/api/v1/account/data`. Legacy routes are shared-handler facades with deprecation signals and one shared quota. Strict Zod DTOs generate the checked OpenAPI contract; an injected application service owns scope/serialization and identity repository adapters own Prisma. The copy remains explicitly partial, never a complete rights response or manuscript backup.

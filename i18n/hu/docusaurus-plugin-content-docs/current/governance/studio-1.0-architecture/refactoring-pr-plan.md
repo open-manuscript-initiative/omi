@@ -6,6 +6,15 @@ description: Függőségtudatos, kis és visszagörgethető pull requestekre bon
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
+## Szövegdobozok és kutatási forráskövetés — 2026-11-13
+
+A02–A06/B06: központi Draft sémaegyeztetés, commit/checksum rögzítés, generált profilvalidálás, régi/jövőbeli tartalom megőrzése és DOCX/JSON/konténer körbejárási tesztek. C11/ADR-022/023: ellenőrzött pillanatkép atomikus forráskövetéssel, előzményekkel és privátadat-szűréssel. A kötelező OMI-SPEC-320 bizonyíték továbbra is a pontos kiadásjelölthöz tartozik; az OMI és Studio módosítását össze kell hangolni.
+
+Állapot: javasolt összehangolt javítás; a merge/CI és a telepítési elfogadás külön lépés. Nem jár adatbázis-migrációval, új konténergenerációval vagy lektorálási jogosultsággal.
+
+[Profil, döntés és elfogadási követelmények (angol)](https://openmanuscript.org/docs/governance/studio-1.0-architecture/text-box-and-research-provenance-2026-11-13/).
+
+
 ## Privacy/API határjavítás — 2026-11-08
 
 Az A09/A10 feladata az új privacy/fiókmásolat felületre is érvényes: additív v1 és közös legacy mount; szigorú Zod DTO-ból OpenAPI/kliens típus; szabványos olvasási hibák/korreláció; injektált repository port az alkalmazás és az identity Prisma között. A session-izoláció, szűk mezőválasztás, korlátok, opcionális szereposzlop kompatibilitása és a részlegesség jelzése maradjon meg.

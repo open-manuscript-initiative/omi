@@ -6,6 +6,15 @@ description: Evidence-based gap analysis between the audited Open Manuscript Stu
 
 # Current → 1.0 Gap Analysis
 
+## Text-box and research provenance — 2026-11-13
+
+Close the Studio-only schema divergence and unversioned text-box payload gap through canonical Draft definitions, an independent schema-generated profile validator, immutable source pin and shared golden. Close diagram provenance bypass through exact preview/confirmation, source/bibliography/derivation lifecycle and internal own-work declarations. This does not close full ContentCodec, export-fidelity or real release-acceptance gaps.
+
+Status: proposed coordinated repair; merge/CI and deployment acceptance remain separate. No database migration, container-generation change or new review authority.
+
+[Profile, decision and acceptance scope](https://openmanuscript.org/docs/governance/studio-1.0-architecture/text-box-and-research-provenance-2026-11-13/).
+
+
 ## Privacy/API boundary repair — 2026-11-08
 
 New unversioned privacy/account-copy routes and direct application→Prisma coupling were found in Studio `a829afba6eb6e9a68da34a9bc21d0315101c7536`; OMI `2491bc0f54b0a02cea6bcf5d1dcb98b969d7ac18` documented those URLs. Keep the features; apply targeted containment.

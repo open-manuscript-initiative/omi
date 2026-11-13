@@ -6,6 +6,15 @@ description: Az Open Manuscript Studio 1.0 célarchitektúrájának, fő kockáz
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
+## Szövegdobozok és kutatási forráskövetés — 2026-11-13
+
+A grafikus szövegdoboz és a kutatási diagram összehangolt szerződésjavítást igényel. A központi Draft sémák és a külön kísérleti szövegdobozprofil megtartja a szerkeszthetőséget és visszaállíthatóságot; a jóváhagyott gráfpillanatkép látható/strukturált külső forrást vagy belső szerzői sajátmunkanyilatkozatot hordoz. Ez nem stabil formátumpromóció, lektorálási tanúsítás vagy teljes kiadási elfogadás.
+
+Állapot: javasolt összehangolt javítás; a merge/CI és a telepítési elfogadás külön lépés. Nem jár adatbázis-migrációval, új konténergenerációval vagy lektorálási jogosultsággal.
+
+[Profil, döntés és elfogadási követelmények (angol)](https://openmanuscript.org/docs/governance/studio-1.0-architecture/text-box-and-research-provenance-2026-11-13/).
+
+
 ## Privacy/API határjavítás — 2026-11-08
 
 A javasolt javítás megtartja az üzemeltetői tájékoztatót és a részleges fiókmásolatot, de az új klienscontract az `/api/v1/privacy` és `/api/v1/account/data` címre kerül. A régi útvonalak azonos handlert és közös kvótát használnak. A szigorú Zod-séma adja az ellenőrzött OpenAPI-t és a kliens típusait; az alkalmazásszolgáltatás a repository porton át olvas identity-adatot. A másolat nem teljes érintetti válasz vagy kéziratmentés.
