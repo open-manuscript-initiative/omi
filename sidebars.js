@@ -81,6 +81,7 @@ const sidebars = {
         {type: 'doc', id: 'specifications/container-architecture', label: 'Container Architecture'},
         {type: 'doc', id: 'specifications/import-export-model', label: 'Import and Export Model'},
         {type: 'doc', id: 'specifications/capability-conformance-model', label: 'Capability and Conformance Model'},
+        {type: 'doc', id: 'specifications/research-project-model', label: 'Research Project Model'},
       ],
     },
     {
