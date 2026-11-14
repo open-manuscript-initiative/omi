@@ -6,10 +6,17 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const inventory = JSON.parse(await readFile(join(root, 'static/evidence/readiness-2026-10-31.json'), 'utf8'));
 const registry = await readFile(join(root, 'docs/governance/specification-registry.md'), 'utf8');
 const rows = [...registry.matchAll(/^\| `(OMI-SPEC-\d+)` \| ([^|]+) \| Active \| Draft \| ([^|]+) \| `([^`]+)` \|/gm)];
-if (rows.length !== 24 || inventory.models.length !== rows.length || new Set(inventory.models.map(item => item.id)).size !== rows.length) throw new Error('Missing or duplicate readiness models.');
-for (const [, id, , version, path] of rows) {
-  const item = inventory.models.find(item => item.id === id);
-  if (!item || item.version !== version.trim() || item.canonicalPath !== path || item.status !== 'Draft' || item.promotion !== 'not-requested') throw new Error(`Registry/inventory drift: ${id}`);
+const registryIds = rows.map(([, id]) => id);
+const snapshotIds = inventory.models.map(item => item.id);
+if (inventory.models.length !== 24 || new Set(snapshotIds).size !== snapshotIds.length
+  || new Set(registryIds).size !== registryIds.length) throw new Error('Missing or duplicate readiness models.');
+// This inventory is an immutable 2026-10-31 snapshot. New Draft models may be
+// registered later and must not be backfilled into that dated evidence file.
+for (const item of inventory.models) {
+  const row = rows.find(([, id]) => id === item.id);
+  if (!row) throw new Error(`Snapshot model is missing from the current registry: ${item.id}`);
+  const [, id, , version, path] = row;
+  if (item.version !== version.trim() || item.canonicalPath !== path || item.status !== 'Draft' || item.promotion !== 'not-requested') throw new Error(`Registry/inventory drift: ${id}`);
   const text = await readFile(join(root, path), 'utf8');
   const sourceVersion = /\| Version \| `?([0-9.]+)`? \|/.exec(text)?.[1]
     ?? /\*\*Version:\*\*\s*([0-9.]+)/.exec(text)?.[1]
@@ -38,5 +45,5 @@ if (supplement.baselineInventory !== '/evidence/readiness-2026-10-31.json'
   || JSON.stringify(supplement.newPartialRequirements) !== JSON.stringify(newPartial)
   || summary.approved !== false || summary.outcome !== 'indeterminate'
   || supplement.independent !== false || supplement.lifecyclePromotions.length !== 0) throw new Error('Invalid behavioral evidence supplement or unauthorized promotion.');
-console.log(`Readiness inventory: all ${rows.length} source/registry versions and pinned evidence records are consistent; no lifecycle promotions.`);
+console.log(`Readiness inventory: all ${inventory.models.length} dated snapshot models reconcile with the current registry; ${rows.length - inventory.models.length} later registry models are outside this snapshot; no lifecycle promotions.`);
 console.log(`Core validation supplement: ${summary.behaviors} behavioral cases; ${summary.partial} partial and ${summary.untested} untested requirements.`);

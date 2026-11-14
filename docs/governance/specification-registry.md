@@ -161,6 +161,7 @@ Development ended before the specification became Stable. The identifier remains
 | `OMI-SPEC-330` | Container Architecture | Active | Draft | 0.1.0 | `docs/specifications/container-architecture.md` |
 | `OMI-SPEC-340` | Import and Export Model | Active | Draft | 0.1.0 | `docs/specifications/import-export-model.md` |
 | `OMI-SPEC-350` | Capability and Conformance Model | Active | Draft | 0.1.0 | `docs/specifications/capability-conformance-model.md` |
+| `OMI-SPEC-360` | Research Project Model | Active | Draft | 0.1.0 | `docs/specifications/research-project-model.md` |
 
 ## 7. Dependency registry
 
@@ -192,6 +193,7 @@ The dependency list records direct normative dependencies expected for the canon
 | `OMI-SPEC-330` | `OMI-SPEC-320` |
 | `OMI-SPEC-340` | `OMI-SPEC-100`, `OMI-SPEC-140`, `OMI-SPEC-180`, `OMI-SPEC-220`, `OMI-SPEC-320` |
 | `OMI-SPEC-350` | `OMI-SPEC-000`, `OMI-SPEC-320`, `OMI-SPEC-340` |
+| `OMI-SPEC-360` | `OMI-SPEC-120`, `OMI-SPEC-140`, `OMI-SPEC-160`, `OMI-SPEC-180`, `OMI-SPEC-320`, `OMI-SPEC-330` |
 
 Dependencies MUST NOT be inferred solely from this table when implementing a particular released version. The exact versioned specification and suite manifest govern released conformance.
 
