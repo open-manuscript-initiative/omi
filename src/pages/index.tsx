@@ -6,7 +6,7 @@ import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import {getPublicPageCopy} from '../i18n/publicPages';
-import {STUDIO_PUBLISHED_VERSION, STUDIO_SOURCE_VERSION, STUDIO_SOURCE_RELEASE_NOTES, STUDIO_WEB_VERSION, STUDIO_ANDROID_RC_DOWNLOAD_URL} from '../studioReleaseVersions';
+import {STUDIO_PUBLISHED_VERSION, STUDIO_SOURCE_VERSION, STUDIO_SOURCE_RELEASE_NOTES, STUDIO_WEB_VERSION, STUDIO_ANDROID_RC_DOWNLOAD_URL, STUDIO_WINDOWS_STORE_VERSION} from '../studioReleaseVersions';
 import StudioReleaseStatus from '../components/StudioReleaseStatus';
 import styles from './index.module.css';
 
@@ -24,7 +24,7 @@ const STUDIO_UPDATE = {
     developmentUpdate: "4 November 2026: Web Studio and the Android APK are available as 1.0.0-rc.1.",
     developmentUpdateLink: 'Read the development update',
     buildStatus: "Web and Android RC", buildStatusDetail: "Use RC1 in your browser or install its signed Android APK. Desktop download status is listed separately.",
-    summary: "Studio 1.0.0-rc.1 is available for web and Android APK. Desktop downloads remain 0.3.0-beta.13. OMI-SPEC-320@0.3.0 is unchanged.",
+    summary: "Studio 1.0.0-rc.1 is available for web and Android APK. Windows Store uses 1.0.0.0; direct desktop installers remain 0.3.0-beta.13. OMI-SPEC-320@0.3.0 is unchanged.",
     multiDocument: 'Multi-document desktop editing and document outline',
     wordLike: 'Word-like manuscript-wide split, merge and selection',
     pdf: 'Structural PDF import with geometry-aware footnotes',
@@ -50,7 +50,7 @@ const STUDIO_UPDATE = {
     developmentUpdate: "2026. november 4.: a webes Studio és az Android APK már 1.0.0-rc.1 kiadási jelöltként használható.",
     developmentUpdateLink: 'A fejlesztési beszámoló megnyitása',
     buildStatus: "Webes és Android RC", buildStatusDetail: "Az RC1 böngészőben használható vagy aláírt Android APK-ból telepíthető. Az asztali letöltések állapota külön szerepel.",
-    summary: "A Studio 1.0.0-rc.1 weben és Android APK-ként elérhető. Az asztali letöltések verziója továbbra is 0.3.0-beta.13. Az OMI-SPEC-320@0.3.0 változatlan.",
+    summary: "A Studio 1.0.0-rc.1 weben és Android APK-ként elérhető. A Windows Store-os kiadás 1.0.0.0, a közvetlen asztali telepítők 0.3.0-beta.13 verziójúak. Az OMI-SPEC-320@0.3.0 változatlan.",
     multiDocument: 'Többdokumentumos asztali szerkesztés és dokumentumvázlat',
     wordLike: 'Word-szerű, kézirat-szintű szétválasztás, egyesítés és kijelölés',
     pdf: 'Strukturált PDF-import geometria-alapú lábjegyzet-felismeréssel',
@@ -76,7 +76,7 @@ const STUDIO_UPDATE = {
     developmentUpdate: "4. November 2026: Web Studio und das Android-APK stehen als 1.0.0-rc.1 bereit.",
     developmentUpdateLink: 'Entwicklungsbericht lesen',
     buildStatus: "Web- und Android-RC", buildStatusDetail: "RC1 im Browser nutzen oder das signierte Android-APK installieren. Der Desktop-Downloadstatus wird getrennt aufgeführt.",
-    summary: "Studio 1.0.0-rc.1 ist für Web und Android-APK verfügbar. Desktop-Downloads bleiben 0.3.0-beta.13. OMI-SPEC-320@0.3.0 bleibt unverändert.",
+    summary: "Studio 1.0.0-rc.1 ist für Web und Android-APK verfügbar. Windows im Microsoft Store verwendet 1.0.0.0; direkte Desktop-Installer bleiben 0.3.0-beta.13. OMI-SPEC-320@0.3.0 bleibt unverändert.",
     multiDocument: 'Mehrdokument-Bearbeitung und Dokumentgliederung auf dem Desktop',
     wordLike: 'Word-ähnliches manuskriptweites Teilen, Zusammenführen und Auswählen',
     pdf: 'Strukturierter PDF-Import mit geometriebasierter Fußnotenerkennung',
@@ -236,7 +236,8 @@ export default function Home() {
 
           <aside className={styles.studioFeatures} aria-label={t.status}>
             <h3>Web · Android APK: {STUDIO_WEB_VERSION}</h3>
-            <p>Windows · Linux · macOS: {STUDIO_PUBLISHED_VERSION}</p>
+            <p>Windows (Microsoft Store): {STUDIO_WINDOWS_STORE_VERSION}</p>
+            <p>Windows EXE/MSI · Linux · macOS (direct): {STUDIO_PUBLISHED_VERSION}</p>
             <p>{studioUpdate.buildStatus}: <Link to={STUDIO_SOURCE_RELEASE_NOTES, STUDIO_WEB_VERSION, STUDIO_ANDROID_RC_DOWNLOAD_URL}>{STUDIO_SOURCE_VERSION}</Link></p>
             <p>Web · Windows · Linux · macOS · Android · iOS/iPadOS</p>
             <p><strong>47</strong> selectable UI languages</p>
@@ -262,7 +263,7 @@ export default function Home() {
             <p>◐ {studioUpdate.androidPlay}</p>
             <p>✓ iOS/iPadOS simulator build</p>
             <p>◐ TestFlight/App Store — Apple Developer signing required</p>
-            <p>◐ Windows code signing — SignPath application pending</p>
+            <p>✓ Windows Microsoft Store distribution available; direct EXE/MSI installers remain unsigned</p>
             <p>◐ macOS notarization</p>
           </aside>
         </section>

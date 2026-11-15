@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import {getPublicPageCopy} from '../i18n/publicPages';
-import {STUDIO_PUBLISHED_VERSION, STUDIO_SOURCE_VERSION, STUDIO_PUBLISHED_RELEASE_NOTES, STUDIO_SOURCE_RELEASE_NOTES, STUDIO_PUBLISHED_DOWNLOAD_BASE, STUDIO_WEB_VERSION, STUDIO_ANDROID_VERSION, STUDIO_ANDROID_RC_DOWNLOAD_URL} from '../studioReleaseVersions';
+import {STUDIO_PUBLISHED_VERSION, STUDIO_SOURCE_VERSION, STUDIO_PUBLISHED_RELEASE_NOTES, STUDIO_SOURCE_RELEASE_NOTES, STUDIO_PUBLISHED_DOWNLOAD_BASE, STUDIO_WEB_VERSION, STUDIO_ANDROID_VERSION, STUDIO_ANDROID_RC_DOWNLOAD_URL, STUDIO_WINDOWS_STORE_VERSION, STUDIO_WINDOWS_STORE_SEARCH_URL} from '../studioReleaseVersions';
 import StudioReleaseStatus from '../components/StudioReleaseStatus';
 import PkpSupportStatus from '../components/PkpSupportStatus';
 import styles from './studio.module.css';
@@ -35,7 +35,7 @@ const CAPABILITY_DOC_TARGETS: Record<number, string> = {
 const CURRENT_UPDATE = {
   en: {
     title: "Open Manuscript Studio — Web and Android RC",
-    lead: "Web Studio and the Android APK are available as 1.0.0-rc.1, with unified frame/page layout and responsive long-document editing. Desktop downloads remain 0.3.0-beta.13.",
+    lead: "Web Studio and the Android APK are available as 1.0.0-rc.1, with unified frame/page layout and responsive long-document editing. Windows Store is 1.0.0.0; direct desktop installers remain 0.3.0-beta.13.",
     items: [
       ['Native dependency security updates', 'Packages rustls-webpki 0.103.16 and Tokio 1.53.3 with regression gates for the affected versions. The wasm32-only root-certificate dependency is also updated.'],
       ['Reliable macOS DMG packaging', 'Transient hdiutil resource contention retries only installer packaging, without repeating application compilation.'],
@@ -79,7 +79,12 @@ const CURRENT_UPDATE = {
       ['Publishing-system workflows', 'OJS and OMP 3.5 author, editor and double-anonymous reviewer workflows are operational when configured. Native end-to-end tests verify assignment-scoped files, review forms, corrections, separated feedback and signed writeback, while the standalone author flow now also supports direct submission from Studio.'],
     ],
     nativeAppsTitle: 'Native applications and platform builds',
-    nativeAppsDescription: "Web and Android APK use 1.0.0-rc.1. The Android RC package is a ZIP from the verified GitHub build; sign-in may be required. Extract the ZIP and install its APK. Desktop download buttons select the existing 0.3.0-beta.13 release.",
+    windowsStoreDescription: 'Microsoft Store MSIX (x64, Windows 10 build 19041+); distinct from direct EXE/MSI installers.',
+    windowsStoreAction: 'Search Microsoft Store',
+    windowsStoreHint: 'Opens a Store search, not a verified product-specific URL.',
+    directWindowsTitle: 'Direct EXE/MSI installers',
+    directWindowsNotice: 'Separate 0.3.0-beta.13 installers; not Microsoft Store signed.',
+    nativeAppsDescription: "Web and Android APK use 1.0.0-rc.1. The Android RC package is a ZIP from the verified GitHub build; sign-in may be required. Extract the ZIP and install its APK. Windows Store version: 1.0.0.0. Direct Windows EXE/MSI, Linux and macOS downloads remain on the separate 0.3.0-beta.13 release.",
     androidPlayDescription: "The Android RC is distributed directly as an APK package. The Google Play testing channel is separate; its installation link does not identify an RC build.",
     androidPlayAction: "Join the Android closed test",
     iosTitle: 'iOS / iPadOS',
@@ -97,12 +102,12 @@ const CURRENT_UPDATE = {
     androidRcAction: "Download Android RC (ZIP)",
     betaTitle: "Desktop packages",
     buildTitle: "Web and Android RC", buildDescription: "1.0.0-rc.1 is available in the hosted web Studio and as an Android APK. Desktop release acceptance remains separate.", buildNotes: "RC1 changes, evidence and support scope",
-    betaText: "Desktop downloads use Open Manuscript Studio 0.3.0-beta.13. Web and Android APK use 1.0.0-rc.1. The portable manuscript format remains OMI-SPEC-320@0.3.0.",
+    betaText: "Windows Store uses 1.0.0.0; direct Windows EXE/MSI, Linux and macOS downloads remain 0.3.0-beta.13. Web and Android APK use 1.0.0-rc.1. The portable manuscript format remains OMI-SPEC-320@0.3.0.",
     maturity: "Web and Android APK are RC. Linux native and macOS remain Preview; iOS/iPadOS is Experimental. Specification maturity is unchanged.",
   },
   hu: {
     title: "Open Manuscript Studio – webes és Android RC",
-    lead: "A webes Studio és az Android APK már 1.0.0-rc.1 kiadási jelöltként használható, egységes keret- és oldaltördeléssel, gyors hosszúkézirat-kezeléssel. Az asztali letöltések verziója továbbra is 0.3.0-beta.13.",
+    lead: "A webes Studio és az Android APK már 1.0.0-rc.1 kiadási jelöltként használható, egységes keret- és oldaltördeléssel, gyors hosszúkézirat-kezeléssel. A Windows Microsoft Store-os verziója 1.0.0.0; a közvetlen asztali telepítők verziója továbbra is 0.3.0-beta.13.",
     items: [
       ['Natív függőségek biztonsági frissítése', 'A rustls-webpki 0.103.16 és a Tokio 1.53.3 javításait a sérülékeny verziók visszakerülését tiltó tesztek kísérik. A csak wasm32-célon használt gyökértanúsítvány-csomag is frissül.'],
       ['Megbízhatóbb macOS DMG-csomagolás', 'Átmeneti hdiutil-erőforrásfoglaltságnál csak a telepítőcsomag készítése ismétlődik, az alkalmazás újrafordítása nélkül.'],
@@ -146,7 +151,12 @@ const CURRENT_UPDATE = {
       ['Publikációs rendszerkapcsolatok', 'A konfigurált OJS és OMP 3.5 szerzői, szerkesztői és kettős vak lektori munkafolyamatok működnek. Natív végponttól végpontig tartó tesztek ellenőrzik a hozzárendelt fájlokat, lektori űrlapokat, javításokat, elkülönített visszajelzéseket és az aláírt visszaírást; az önálló szerzői folyamat pedig már közvetlen Studio-beküldést is támogat.'],
     ],
     nativeAppsTitle: 'Natív alkalmazások és platformbuildek',
-    nativeAppsDescription: "A webes és az Android APK-változat verziója 1.0.0-rc.1. Az Android RC ZIP-csomagja az ellenőrzött GitHub-buildből tölthető le; ehhez bejelentkezés szükséges lehet. Csomagold ki a ZIP-et, majd telepítsd a benne található APK-t. Az asztali gombok a meglévő 0.3.0-beta.13 kiadásra mutatnak.",
+    windowsStoreDescription: 'Microsoft Store-os MSIX (x64, Windows 10 19041-es buildtől); nem azonos a közvetlen EXE/MSI-telepítőkkel.',
+    windowsStoreAction: 'Keresés a Microsoft Store-ban',
+    windowsStoreHint: 'A Store keresője nyílik meg, nem közvetlen, ellenőrzött terméklink.',
+    directWindowsTitle: 'Közvetlen EXE/MSI-telepítők',
+    directWindowsNotice: 'Különálló 0.3.0-beta.13 verziójú, nem Microsoft Store-aláírású telepítők.',
+    nativeAppsDescription: "A webes és az Android APK-változat verziója 1.0.0-rc.1. Az Android RC ZIP-csomagja az ellenőrzött GitHub-buildből tölthető le; ehhez bejelentkezés szükséges lehet. Csomagold ki a ZIP-et, majd telepítsd a benne található APK-t. A Windows Microsoft Store-os verziója 1.0.0.0; a közvetlen Windows EXE/MSI-, Linux- és macOS-letöltések továbbra is a különálló 0.3.0-beta.13 kiadásra mutatnak.",
     androidPlayDescription: "Az Android RC közvetlen APK-csomagból telepíthető. A Google Play tesztelési csatornája külön útvonal; az ottani telepítési link önmagában nem azonosít RC-buildet.",
     androidPlayAction: "Feliratkozás az Android zárt tesztelésére",
     iosTitle: 'iOS / iPadOS',
@@ -164,12 +174,12 @@ const CURRENT_UPDATE = {
     androidRcAction: "Android RC letöltése (ZIP)",
     betaTitle: "Asztali csomagok",
     buildTitle: "Webes és Android RC", buildDescription: "Az 1.0.0-rc.1 a webes Stúdióban és Android APK-ként használható. Az asztali kiadások elfogadása külön folyamat.", buildNotes: "RC1-változások, bizonyítékok és támogatási kör",
-    betaText: "Az asztali letöltések verziója Open Manuscript Studio 0.3.0-beta.13. A webes és az Android APK-változat már 1.0.0-rc.1. A hordozható kéziratformátum változatlanul OMI-SPEC-320@0.3.0.",
+    betaText: "Windows Microsoft Store: 1.0.0.0; közvetlen Windows EXE/MSI-, Linux- és macOS-letöltések: 0.3.0-beta.13. A webes és az Android APK-változat már 1.0.0-rc.1. A hordozható kéziratformátum változatlanul OMI-SPEC-320@0.3.0.",
     maturity: "A webes és az Android APK-változat RC. A natív Linux és a macOS Preview, az iOS/iPadOS kísérleti. A specifikációk érettsége változatlan.",
   },
   de: {
     title: "Open Manuscript Studio — Web- und Android-RC",
-    lead: "Web Studio und das Android-APK stehen als 1.0.0-rc.1 bereit, mit vereinheitlichtem Rahmen-/Seitenlayout und reaktionsschneller Bearbeitung langer Manuskripte. Desktop-Downloads bleiben bei 0.3.0-beta.13.",
+    lead: "Web Studio und das Android-APK stehen als 1.0.0-rc.1 bereit, mit vereinheitlichtem Rahmen-/Seitenlayout und reaktionsschneller Bearbeitung langer Manuskripte. Windows im Microsoft Store ist 1.0.0.0; direkte Desktop-Installer bleiben bei 0.3.0-beta.13.",
     items: [
       ['Sicherheitsupdates nativer Abhängigkeiten', 'Enthält rustls-webpki 0.103.16 und Tokio 1.53.3 mit Regressionstests gegen betroffene Versionen. Auch die nur für wasm32 verwendete Stammzertifikat-Abhängigkeit wird aktualisiert.'],
       ['Zuverlässigere macOS-DMG-Paketierung', 'Bei vorübergehender hdiutil-Ressourcenbelegung wird nur die Installer-Paketierung wiederholt, ohne die Anwendung erneut zu kompilieren.'],
@@ -208,7 +218,12 @@ const CURRENT_UPDATE = {
       ['Publikationssystem-Workflows', 'Konfigurierte OJS- und OMP-3.5-Workflows für Autoren, Redakteure und doppelt anonyme Gutachter sind funktionsfähig. Native End-to-End-Tests prüfen zugewiesene Dateien, Begutachtungsformulare, Korrekturen, getrenntes Feedback und signierte Rückschreibung; der eigenständige Autorenfluss unterstützt nun auch direkte Studio-Einreichungen.'],
     ],
     nativeAppsTitle: 'Native Anwendungen und Plattform-Builds',
-    nativeAppsDescription: "Web und Android-APK verwenden 1.0.0-rc.1. Das Android-RC-Paket wird als ZIP aus dem geprüften GitHub-Build angeboten; eine Anmeldung kann erforderlich sein. ZIP entpacken und die enthaltene APK installieren. Desktop-Downloads verwenden das bestehende Release 0.3.0-beta.13.",
+    windowsStoreDescription: 'Microsoft Store MSIX (x64, Windows 10 ab Build 19041); getrennt von direkten EXE/MSI-Installern.',
+    windowsStoreAction: 'Im Microsoft Store suchen',
+    windowsStoreHint: 'Öffnet die Store-Suche, keinen verifizierten direkten Produktlink.',
+    directWindowsTitle: 'Direkte EXE/MSI-Installer',
+    directWindowsNotice: 'Separate 0.3.0-beta.13-Installer ohne Microsoft-Store-Signierung.',
+    nativeAppsDescription: "Web und Android-APK verwenden 1.0.0-rc.1. Das Android-RC-Paket wird als ZIP aus dem geprüften GitHub-Build angeboten; eine Anmeldung kann erforderlich sein. ZIP entpacken und die enthaltene APK installieren. Die Microsoft-Store-Version für Windows ist 1.0.0.0; direkte Windows-EXE/MSI-, Linux- und macOS-Downloads bleiben beim getrennten Release 0.3.0-beta.13.",
     androidPlayDescription: "Der Android-RC wird direkt als APK-Paket bereitgestellt. Der Google-Play-Testkanal ist getrennt; sein Installationslink identifiziert keinen RC-Build.",
     androidPlayAction: "Für den Android-Test anmelden",
     iosTitle: 'iOS / iPadOS',
@@ -226,7 +241,7 @@ const CURRENT_UPDATE = {
     androidRcAction: "Android-RC herunterladen (ZIP)",
     betaTitle: "Desktop-Pakete",
     buildTitle: "Web- und Android-RC", buildDescription: "1.0.0-rc.1 ist im gehosteten Web Studio und als Android-APK verfügbar. Die Desktop-Abnahme erfolgt getrennt.", buildNotes: "RC1-Änderungen, Nachweise und Supportumfang",
-    betaText: "Desktop-Downloads verwenden Open Manuscript Studio 0.3.0-beta.13. Web und Android-APK verwenden 1.0.0-rc.1. Das portable Manuskriptformat bleibt OMI-SPEC-320@0.3.0.",
+    betaText: "Windows im Microsoft Store: 1.0.0.0; direkte Windows-EXE/MSI-, Linux- und macOS-Downloads: 0.3.0-beta.13. Web und Android-APK verwenden 1.0.0-rc.1. Das portable Manuskriptformat bleibt OMI-SPEC-320@0.3.0.",
     maturity: "Web und Android-APK sind RC. Linux nativ und macOS bleiben Preview; iOS/iPadOS ist experimentell. Der Reifegrad der Spezifikationen bleibt unverändert.",
   },
 } as const;
@@ -320,10 +335,15 @@ export default function StudioDownloads() {
             <h2>{update.nativeAppsTitle}</h2>
             <p className={styles.sectionLead}>{update.nativeAppsDescription}</p>
             <div className={styles.grid}>
-              <DownloadCard title={`${t.windows} · ${STUDIO_PUBLISHED_VERSION}`} description={t.windowsText}>
+              <DownloadCard title={`${t.windows} · ${STUDIO_WINDOWS_STORE_VERSION} · Microsoft Store`} description={update.windowsStoreDescription}>
+                <Link className="button button--primary" to={STUDIO_WINDOWS_STORE_SEARCH_URL}>{update.windowsStoreAction}</Link>
+                <p>{update.windowsStoreHint}</p>
+                <p><Link to="/docs/governance/code-signing-policy">Code signing policy</Link></p>
+              </DownloadCard>
+              <DownloadCard title={`${t.windows} · ${STUDIO_PUBLISHED_VERSION} · ${update.directWindowsTitle}`} description={t.windowsText}>
                 <DownloadButton href={downloads.windowsExe}>{t.setup}</DownloadButton>
                 <DownloadButton href={downloads.windowsMsi} secondary>{t.msi}</DownloadButton>
-                <p><Link to="/docs/governance/code-signing-policy">Code signing policy</Link></p>
+                <p>{update.directWindowsNotice}</p>
               </DownloadCard>
               <DownloadCard title={`${t.android ?? 'Android'} · ${STUDIO_ANDROID_VERSION}`} description={t.androidText ?? 'Installable universal APK for Android devices.'}>
                 <DownloadButton href={STUDIO_ANDROID_RC_DOWNLOAD_URL}>{update.androidRcAction}</DownloadButton>
