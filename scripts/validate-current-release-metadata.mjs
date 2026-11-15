@@ -3,6 +3,7 @@ import { readFile } from 'node:fs/promises';
 const expected = {
   studio: '0.3.0-beta.13',
   stagedStudio: '1.0.0-rc.1',
+  windowsStore: '1.0.0.0',
   ojs: 'v1.6.0',
   omp: 'v1.5.1',
   iosMarketing: '0.3.0',
@@ -112,6 +113,10 @@ const required = [
   ['README.md', expected.stagedStudio],
   ['src/studioReleaseVersions.ts', 'e1200268ad549c0a40ace8724715cd2405e9d03c'],
   ['src/studioReleaseVersions.ts', '41745224810'],
+  ['src/studioReleaseVersions.ts', `STUDIO_WINDOWS_STORE_VERSION = '${expected.windowsStore}'`],
+  ['src/pages/studio.tsx', 'STUDIO_WINDOWS_STORE_SEARCH_URL'],
+  ['src/pages/studio.tsx', 'directWindowsTitle'],
+  ['src/pages/index.tsx', 'STUDIO_WINDOWS_STORE_VERSION'],
   ['src/studioReleaseVersions.ts', `STUDIO_WEB_VERSION = '${expected.stagedStudio}'`],
   ['src/studioReleaseVersions.ts', `STUDIO_ANDROID_VERSION = '${expected.stagedStudio}'`],
   ['src/studioReleaseVersions.ts', '/actions/runs/41741830930/artifacts/13282507414'],
