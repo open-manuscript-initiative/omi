@@ -24,11 +24,11 @@ keywords:
 | Document type | Normative draft; examples and implementation notes informative |
 | Normative language | English |
 | Editors | OMI maintainers |
-| Last updated | 2026-11-14 |
+| Last updated | 2026-11-15 |
 | Replaces | None |
 | Replaced by | None |
 | Depends on | OMI-SPEC-120, OMI-SPEC-140, OMI-SPEC-160, OMI-SPEC-180, OMI-SPEC-320, OMI-SPEC-330 |
-| Used by | None; proposed for future Studio and module implementations |
+| Used by | Proposed Studio genealogy/network inline-project adapter; no Stable conformance claim |
 | Schemas | [Draft envelope schema](/schemas/research-project-0.1.schema.json) |
 | Profiles | Research Project Core (proposed) |
 | Implementation status | Proposed canonical inline-JSON adapter and project-scoped local cache; direct cloud transfer remains unimplemented |
