@@ -6,6 +6,15 @@ description: Evidence-based gap analysis between the audited Open Manuscript Stu
 
 # Current → 1.0 Gap Analysis
 
+## Research-project contract reconciliation — 2026-11-15
+
+Reconcile the prototype org.omi.research-project/1 writer with the canonical omi-research-project/0.1.0 schema. Cover source-preserving legacy conversion, unknown-resource retention, open-versus-add identity, project-scoped cache reload/undo, and failed-write binding safety. Direct cloud transfer, provider integrity/conflict receipts, archive resolution and public projection remain open gaps.
+
+Status: proposed coordinated repair pending companion merges/CI; deployment and provider acceptance remain separate. No manuscript/container generation change or database migration.
+
+[Contract, compatibility and current implementation](https://openmanuscript.org/docs/specifications/research-project-model/#20-implementation-status).
+
+
 ## Text-box and research provenance — 2026-11-13
 
 Close the Studio-only schema divergence and unversioned text-box payload gap through canonical Draft definitions, an independent schema-generated profile validator, immutable source pin and shared golden. Close diagram provenance bypass through exact preview/confirmation, source/bibliography/derivation lifecycle and internal own-work declarations. This does not close full ContentCodec, export-fidelity or real release-acceptance gaps.

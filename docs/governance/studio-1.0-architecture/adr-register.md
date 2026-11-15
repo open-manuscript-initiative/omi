@@ -6,6 +6,15 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 # OMI Studio 1.0 ADR Register
 
+## Research-project contract reconciliation — 2026-11-15
+
+ADR-036 (accepted target) refines ADR-022 with portable project ownership and future direct storage. The bounded inline-JSON repair aligns the actual envelope, preserves unsupported data and original prototype input, and separates project opening from graph import. Local cache success is never provider confirmation. Revisit for new resource types, archive members, direct-provider transfer, concurrent updates or public projections; retain ADR-008 loss/migration and ADR-019 evidence requirements.
+
+Status: proposed coordinated repair pending companion merges/CI; deployment and provider acceptance remain separate. No manuscript/container generation change or database migration.
+
+[Contract, compatibility and current implementation](https://openmanuscript.org/docs/specifications/research-project-model/#20-implementation-status).
+
+
 ## Text-box and research provenance — 2026-11-13
 
 ADR-035 refines ADR-001/002/004/008/018/019/022/023: canonical Draft byte provenance, separately versioned experimental text-box content, retained legacy/future payloads with explicit supported edits, and reviewed graph contribution with external-source or own-work assertions. Reject divergent schemas, relabelled editor JSON, implicit graph publication and general author-editing locks. Revisit on profile/codec vocabulary, source synchronization or authority-bearing evidence changes.

@@ -6,6 +6,15 @@ description: A jelenlegi Open Manuscript Studio implementáció és az 1.0 céla
 
 # Current → 1.0 Gap Analysis
 
+## Kutatásiprojekt-szerződés egyeztetése — 2026-11-15
+
+A prototípus org.omi.research-project/1 íróját a központi omi-research-project/0.1.0 sémával kell egyeztetni. Követelmény az eredeti forrás megőrzése, ismeretlen erőforrások megtartása, a megnyitás/hozzáadás azonossági különbsége, a projektcache visszanyitása/visszavonása és a hibás írás utáni kötésbiztonság. A közvetlen felhőátvitel, providerintegritás és konfliktuskezelés, archívumfeloldás és nyilvános projekció továbbra is nyitott.
+
+Állapot: javasolt összehangolt javítás, a kapcsolódó merge/CI még szükséges; a telepítési és providerelfogadás külön lépés. Nem változtatja a kézirat/konténer generációját, és nem igényel adatbázis-migrációt.
+
+[Szerződés, kompatibilitás és jelenlegi megvalósítás (angol)](https://openmanuscript.org/docs/specifications/research-project-model/#20-implementation-status).
+
+
 ## Szövegdobozok és kutatási forráskövetés — 2026-11-13
 
 A Studio saját sémaeltérését és verziózatlan szövegdoboz-tartalmát központi Draft definíció, független sémából generált profilvalidátor, rögzített forrás és közös minta rendezi. A diagramok forráskövetési hiányát pontos előnézet/jóváhagyás, forrás/bibliográfia/származási kapcsolat és belső sajátmunkanyilatkozat kezeli. A teljes ContentCodec, exporthűség és valós kiadási elfogadás ettől még nem kész.

@@ -6,6 +6,15 @@ description: Az Open Manuscript Studio 1.0 javasolt célarchitektúrája a műk�
 
 # OMI Studio 1.0 Target Architecture
 
+## Kutatásiprojekt-szerződés egyeztetése — 2026-11-15
+
+Az ADR-036 pontosítja az ADR-022-t: a moduladatok tulajdonosa a kutatási projekt; a fiók/munkatér csak a projektazonosítóhoz kötött helyi gyorsítótárat választja ki. A csereformátum az OMI-SPEC-360 Draft 0.1.0 beágyazott gráfadapterrel. A megnyitás megőrzi az azonosítót, időbélyegeket és ismeretlen beágyazott erőforrásokat; a rekordhozzáadás a célprojekt azonosítóját tartja meg. A felhő authority csak igazolt tárolóadapter beállítása után érvényes, nem a jelenlegi helyi/kézi mentés állítása.
+
+Állapot: javasolt összehangolt javítás, a kapcsolódó merge/CI még szükséges; a telepítési és providerelfogadás külön lépés. Nem változtatja a kézirat/konténer generációját, és nem igényel adatbázis-migrációt.
+
+[Szerződés, kompatibilitás és jelenlegi megvalósítás (angol)](https://openmanuscript.org/docs/specifications/research-project-model/#20-implementation-status).
+
+
 ## Szövegdobozok és kutatási forráskövetés — 2026-11-13
 
 A grafikus szövegdobozok sémájának tulajdonosa a központi OMI Draft séma. A Studio változtathatatlan upstream commithez és checksumhoz köti a sémát és a mintát; az új tartalmak külön, kísérleti 0.1 bekezdés/futam profilt kapnak. A régi és ismeretlen tartalom visszaállítható marad, a szerzői szerkesztés általános tiltása nélkül. A modul munkaterülete csak kifejezetten ellenőrzött pillanatképet és forrásadatot ad át egyetlen kéziratmódosításban.

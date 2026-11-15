@@ -6,6 +6,15 @@ description: Függőségtudatos, kis és visszagörgethető pull requestekre bon
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
+## Kutatásiprojekt-szerződés egyeztetése — 2026-11-15
+
+A02/A04/A06/B06 és ADR-008/022/036: központi projekt-envelope/séma/minta rögzítése, natív CSP mellett működő generált validálás, független JSON-fogyasztás és régi formátumok veszteséget jelző migrációja. Előbb projektalapú cache és kifejezett megnyitás/hozzáadás, utána külön bizonyítékkal a közvetlen tárolóadapter, konfliktuskezelés és ellenőrzött nyilvános projekció. Nem engedélyez stabil promóciót vagy kiadási kapu elhagyását.
+
+Állapot: javasolt összehangolt javítás, a kapcsolódó merge/CI még szükséges; a telepítési és providerelfogadás külön lépés. Nem változtatja a kézirat/konténer generációját, és nem igényel adatbázis-migrációt.
+
+[Szerződés, kompatibilitás és jelenlegi megvalósítás (angol)](https://openmanuscript.org/docs/specifications/research-project-model/#20-implementation-status).
+
+
 ## Szövegdobozok és kutatási forráskövetés — 2026-11-13
 
 A02–A06/B06: központi Draft sémaegyeztetés, commit/checksum rögzítés, generált profilvalidálás, régi/jövőbeli tartalom megőrzése és DOCX/JSON/konténer körbejárási tesztek. C11/ADR-022/023: ellenőrzött pillanatkép atomikus forráskövetéssel, előzményekkel és privátadat-szűréssel. A kötelező OMI-SPEC-320 bizonyíték továbbra is a pontos kiadásjelölthöz tartozik; az OMI és Studio módosítását össze kell hangolni.

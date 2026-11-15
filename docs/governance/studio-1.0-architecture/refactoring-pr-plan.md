@@ -6,6 +6,15 @@ description: Dependency-aware plan of small, testable, reversible pull requests 
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
+## Research-project contract reconciliation — 2026-11-15
+
+Extend A02/A04/A06/B06 and ADR-008/022/036 work: pin the canonical project envelope/schema/golden, generate native-CSP-safe validation, and test independent JSON consumption plus legacy migration and metadata retention. First implement project cache ownership and explicit open/add operations; only then add direct-transfer/provider conflict adapters and reviewed public projection with separate capability evidence. No Stable promotion or existing release-gate waiver.
+
+Status: proposed coordinated repair pending companion merges/CI; deployment and provider acceptance remain separate. No manuscript/container generation change or database migration.
+
+[Contract, compatibility and current implementation](https://openmanuscript.org/docs/specifications/research-project-model/#20-implementation-status).
+
+
 ## Text-box and research provenance — 2026-11-13
 
 A02–A06/B06: reconcile canonical Draft schema, pin bytes/checksums, generate profile validation and verify legacy/future recovery plus DOCX/JSON/container round-trips. C11/ADR-022/023: use reviewed snapshot contribution with atomic provenance/history and privacy filtering. Keep the existing OMI-SPEC-320 exact-candidate gate mandatory; coordinate OMI and Studio changes before rollout.
