@@ -24,14 +24,14 @@ keywords:
 | Document type | Normative draft; examples and implementation notes informative |
 | Normative language | English |
 | Editors | OMI maintainers |
-| Last updated | 2026-11-14 |
+| Last updated | 2026-11-15 |
 | Replaces | None |
 | Replaced by | None |
 | Depends on | OMI-SPEC-120, OMI-SPEC-140, OMI-SPEC-160, OMI-SPEC-180, OMI-SPEC-320, OMI-SPEC-330 |
-| Used by | None; proposed for future Studio and module implementations |
-| Schemas | Not yet published |
+| Used by | Proposed Studio genealogy/network inline-project adapter; no Stable conformance claim |
+| Schemas | [Draft envelope schema](/schemas/research-project-0.1.schema.json) |
 | Profiles | Research Project Core (proposed) |
-| Implementation status | Studio genealogy/network prototype is currently local-only; see implementation status below |
+| Implementation status | Proposed canonical inline-JSON adapter and project-scoped local cache; direct cloud transfer remains unimplemented |
 | Issue tracker | OMI specification issues |
 
 ## 1. Abstract
@@ -145,7 +145,7 @@ A project envelope MUST identify:
 - `projectId`: a stable, globally unique identifier;
 - `title`: a human-readable project title;
 - `createdAt` and `updatedAt`: valid timestamps;
-- `resources`: a collection of project-resource descriptors.
+- `resources`: a nonempty collection of project-resource descriptors.
 
 The envelope MAY include description, language, keywords, contributors,
 references to OMI manuscripts, project-level provenance, declared profiles,
@@ -155,8 +155,10 @@ version history, and namespaced extensions.
 
 Each resource descriptor MUST identify a unique `resourceId`, a namespaced
 `resourceType`, a resource `schemaVersion`, a media type, and exactly one of an
-inline value or a safe relative package path. A path MUST NOT be absolute,
+`inline` JSON value or a safe relative `path`. A path MUST NOT be absolute,
 contain a parent-directory segment, or resolve outside the package root.
+
+Resource IDs MUST be unique within the project. The Draft envelope schema bounds a single package to 1,000 resource descriptors; consumers MUST publish any narrower supported subset.
 
 Each external package member MUST declare its byte size and SHA-256 digest.
 Importers MUST verify the digest and size before exposing the resource as
@@ -323,16 +325,50 @@ actual digest.
 
 ## 20. Implementation status
 
-The Studio family-tree and relationship-network modules currently share a
-user/workspace-scoped IndexedDB record and provide JSON import/export. This does
-not yet implement a portable research-project envelope, direct provider
-transfers, conflict detection, or static website publication. The initial
-implementation target is a project resource for the genealogy graph; provider
-compatibility and migration evidence remain outstanding.
+The coordinated Studio repair writes the canonical `omi-research-project` /
+`0.1.0` envelope and supports one inline `org.omi.genealogy` resource with
+`schemaVersion: "omi-research-graph/1"`, plus opaque inline resources retained
+without interpretation. It preserves unknown envelope and descriptor members,
+resource IDs, project identity and `createdAt` across supported graph edits.
+The independent [golden example](/examples/research-project/0.1.json) is shared
+with Studio and checked against the canonical schema. Validators are generated
+at build time and the exact canonical schema/fixture bytes are commit/checksum-pinned.
+
+The supported single-JSON consumer rejects unresolved `path` members, ambiguous
+or unsupported graph resources and unsupported envelope versions before changing
+the active project. The original selected file remains available for recovery.
+Limits are 64 MiB UTF-8 per file/output, 1,000 descriptors, JSON depth 64 and
+1,000,000 values, in addition to graph node/edge/import quotas. This subset is
+not full container, storage-adapter or publication conformance.
+
+**Open as project** preserves the imported identity and all supported/opaque
+inline resources. **Add to this project** copies only graph records into the
+destination identity and leaves other source resources in the source file.
+The distinction is previewed and confirmed. Existing project caches remain
+separately keyed and opening/editing can be undone. The original legacy
+user/workspace record is never overwritten during reading or first cache migration.
+A local binding selects a project-ID-scoped cache; a serialized successful package
+write precedes changing that binding. Cache status is local only.
+
+Bare graph JSON and the released prototype `org.omi.research-project`, numeric
+version `1`, are migration inputs, never canonical output. The prototype's
+`id/schema/data` graph and `projectId/title` are converted at explicit acceptance;
+exact prototype input is retained in the namespaced
+`https://openmanuscript.org/extensions/research-project-migration/1` extension.
+The original file is not overwritten. Oversized/unsupported conversions fail
+without replacing the active project. Do not interpret the prototype as a second
+version of this Draft's envelope.
+
+Files are transferred manually using browser downloads/uploads or native
+OS-provider locations. Direct cloud OAuth/transfer, ETag conflict handling,
+provider-confirmed integrity receipts and searchable public publication remain
+unimplemented. A successful local cache write or download is not evidence of a
+provider save. The accepted ADR-036 cloud authority applies only after a durable
+location and the required adapter evidence have been configured.
 
 ## 21. Unresolved issues
 
-- Canonical JSON Schema and container-member profile.
+- Archive/container-member profile and independent cross-implementation acceptance beyond the inline golden.
 - Whether project history is inline, append-only, or represented by provider
   revisions.
 - Portable representation and identity for project contributors and linked

@@ -6,6 +6,15 @@ description: Az Open Manuscript Studio 1.0 célarchitektúrájának, fő kockáz
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
+## Kutatásiprojekt-szerződés egyeztetése — 2026-11-15
+
+A kutatásiprojekt-formátum eltérését egyetlen központi Draft envelope, kompatibilitási migráció és közös séma/minta teszt rendezi. A projektazonosító és az ismeretlen adatok megmaradnak szerkesztéskor, helyi visszanyitáskor és visszavonáskor. Ez az ADR-036 helyi/kézi átviteli részmegvalósítása; a közvetlen felhőszinkronizáció, konfliktusigazolás és kereshető publikálás továbbra is terv.
+
+Állapot: javasolt összehangolt javítás, a kapcsolódó merge/CI még szükséges; a telepítési és providerelfogadás külön lépés. Nem változtatja a kézirat/konténer generációját, és nem igényel adatbázis-migrációt.
+
+[Szerződés, kompatibilitás és jelenlegi megvalósítás (angol)](https://openmanuscript.org/docs/specifications/research-project-model/#20-implementation-status).
+
+
 ## Szövegdobozok és kutatási forráskövetés — 2026-11-13
 
 A grafikus szövegdoboz és a kutatási diagram összehangolt szerződésjavítást igényel. A központi Draft sémák és a külön kísérleti szövegdobozprofil megtartja a szerkeszthetőséget és visszaállíthatóságot; a jóváhagyott gráfpillanatkép látható/strukturált külső forrást vagy belső szerzői sajátmunkanyilatkozatot hordoz. Ez nem stabil formátumpromóció, lektorálási tanúsítás vagy teljes kiadási elfogadás.

@@ -6,6 +6,15 @@ description: A Studio 1.0 architektúra döntési nyilvántartása és a Phase A
 
 # OMI Studio 1.0 ADR Register
 
+## Kutatásiprojekt-szerződés egyeztetése — 2026-11-15
+
+Az ADR-036 elfogadott célarchitektúrája az ADR-022-t hordozható projekttulajdonlással és tervezett közvetlen tárolással pontosítja. A korlátozott beágyazott JSON-javítás egyezteti a tényleges formátumot, megtartja az ismeretlen adatokat és az eredeti prototípusforrást, és elválasztja a projektmegnyitást a gráfimporttól. A helyi cache nem felhőmentési igazolás. Új erőforrás, archívum, providerátvitel, párhuzamos módosítás vagy publikálás esetén felülvizsgálandó; az ADR-008/019 bizonyítékai megmaradnak.
+
+Állapot: javasolt összehangolt javítás, a kapcsolódó merge/CI még szükséges; a telepítési és providerelfogadás külön lépés. Nem változtatja a kézirat/konténer generációját, és nem igényel adatbázis-migrációt.
+
+[Szerződés, kompatibilitás és jelenlegi megvalósítás (angol)](https://openmanuscript.org/docs/specifications/research-project-model/#20-implementation-status).
+
+
 ## Szövegdobozok és kutatási forráskövetés — 2026-11-13
 
 Az ADR-035 pontosítja az ADR-001/002/004/008/018/019/022/023 döntéseit: központi Draft sémabájtok eredete, külön verziózott kísérleti szövegdobozprofil, régi/jövőbeli adatok megtartása kifejezett szerkesztési konverzióval, valamint ellenőrzött diagramátadás külső forrással vagy sajátmunkanyilatkozattal. Elutasított: eltérő séma, átnevezett editor-JSON, automatikus gráfpublikálás és általános szerkesztési zárolás. Új profil, szinkronizáció vagy hatósági bizonyíték esetén felülvizsgálandó.

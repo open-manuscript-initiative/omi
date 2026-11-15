@@ -6,6 +6,15 @@ description: Executive summary of the Open Manuscript Studio 1.0 target architec
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
+## Research-project contract reconciliation — 2026-11-15
+
+The research-project format drift is repaired through one canonical Draft envelope, compatibility migration and independent schema/golden tests. Project identity and opaque data survive graph edits, local reload and undo. This is a bounded local/manual-transfer slice of ADR-036; direct cloud synchronization, conflict receipts and searchable publication are still planned capabilities.
+
+Status: proposed coordinated repair pending companion merges/CI; deployment and provider acceptance remain separate. No manuscript/container generation change or database migration.
+
+[Contract, compatibility and current implementation](https://openmanuscript.org/docs/specifications/research-project-model/#20-implementation-status).
+
+
 ## Text-box and research provenance — 2026-11-13
 
 The graphical-text and research-diagram additions need a coordinated contract repair. Canonical Draft schemas and an independent experimental text-box profile retain editability and recovery; reviewed graph snapshots carry visible/structured external provenance or a private author-declared own-work marker. This is not a stable-format promotion, review certification or completed release acceptance.

@@ -6,6 +6,15 @@ description: Proposed target architecture for stabilizing the working Open Manus
 
 # Open Manuscript Studio 1.0 Target Architecture
 
+## Research-project contract reconciliation — 2026-11-15
+
+ADR-036 refines ADR-022: the research project owns module resources; the account/workspace only selects a project-ID-scoped local cache. Canonical interchange is OMI-SPEC-360 Draft 0.1.0 with an inline graph adapter. Opening a project preserves its identity, timestamps and opaque inline resources; adding graph records preserves the destination identity. Cloud authority is conditional on a configured, evidenced storage adapter, not a claim about current local/manual saves.
+
+Status: proposed coordinated repair pending companion merges/CI; deployment and provider acceptance remain separate. No manuscript/container generation change or database migration.
+
+[Contract, compatibility and current implementation](https://openmanuscript.org/docs/specifications/research-project-model/#20-implementation-status).
+
+
 ## Text-box and research provenance — 2026-11-13
 
 The canonical OMI Draft schema owns graphical text boxes. Studio pins immutable upstream schema/fixture bytes; a separate experimental 0.1 paragraph/run profile replaces new unversioned editor-JSON writes. Legacy and unknown content remain recoverable without locking author editing. Module workspaces contribute only explicitly reviewed snapshots and source metadata through one staged manuscript change.
