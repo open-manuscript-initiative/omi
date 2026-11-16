@@ -149,6 +149,32 @@ and the systemd templates in `deployment/systemd/`.
 Do not claim that automated purging runs on a live server until its
 operator confirms the enabled timer.
 
+### Central OMI Studio: observed operational activation (16 November 2026)
+
+**For the official central service only:** on 16 November 2026, the
+operator provided production terminal evidence that
+`omi-privacy-cleanup.service` completed a **manual `--apply` run**
+successfully at **12:20:49 UTC**. The report had
+`candidates: 0`, `removed: 0` and `remaining: 0` in all
+four technical-audit categories, with `backlog: false`;
+expired authentication credentials were also processed.
+
+The daily `omi-privacy-cleanup.timer` was verified
+**`enabled` and `active`** and showed the next run at
+**17 November 2026, 03:24:13 UTC (04:24:13 CET)**.
+The screenshot showed `LAST=-`: the first **unattended**
+timer execution had **not yet occurred** at the verification
+time. Do not describe it as already completed.
+
+The [restricted-scope public operational evidence record](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/server/privacy-retention-production-activation-2026-11-16.md)
+distinguishes the confirmed manual run and schedule from
+pending post-activation checks. The source is operator-supplied
+screenshots, **not** independent SSH access or a tested DB restore.
+Backup restore verification, active controller notice wording and
+subsequent successful unattended runs still require follow-up.
+Institutional and third-party deployments are independent and do
+not inherit central server retention settings.
+
 ## 5. Personal-data breach procedure
 
 Assign an incident owner, deputy and monitored security/privacy contacts. Detect,
