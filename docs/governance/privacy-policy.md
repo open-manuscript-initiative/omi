@@ -19,6 +19,51 @@ If the server says information has not been supplied, request the notice from it
 operator before registering. Source documentation is not proof that a particular
 installation has completed its notice or operational duties.
 
+## Technical security and integration audit retention
+
+Studio keeps application-level audit events **in its databases**, independently of
+systemd journald or Plesk web-log rotation. The software provides default purge
+thresholds of **90 days** for integration operations (including DeepL/AI
+input/output SHA-256 digests) and research-module operations, and **180 days**
+for central/institutional administrator actions and collaboration access/role
+changes. These records can include account identifiers, metadata, IP addresses
+and hashes; hashing does not necessarily make them anonymous. The processing
+purposes are security and misuse investigation, technical troubleshooting and
+access accountability. These periods are design defaults requiring controller
+review, not GDPR-imposed periods.
+
+Deletion is **not automatic merely because the code exists**: the operator
+must run the reviewed cleanup as a scheduled task and check successful execution.
+The official Studio and each institutional operator must publish the retention
+they actually apply, its legal basis, backup handling and any justified exceptions.
+The task does not delete scientific publication, editorial or peer-review evidence;
+those categories require separate policies.
+
+## External identity providers (ORCID, Google and Microsoft)
+
+External sign-in is optional and only applies if enabled on the selected Studio
+server. ORCID uses the OpenID Connect `openid` scope to verify an ORCID iD;
+an optional name can be returned. Google and Microsoft use
+`openid profile email` and may return a provider-specific identifier/issuer,
+name, email and verification claim. An e-mail address is not necessarily verified:
+the Studio checks available verification evidence and does not automatically
+grant institutional privileges based on an external e-mail address. OpenID
+authentication can also use an institution-managed identity provider.
+
+Studio saves the necessary linked identity (provider, issuer, subject),
+a display name when supplied and limited e-mail/verification metadata.
+One-time authorization tokens are exchanged server-side; external passwords
+are not received or stored by Studio's login implementation. The provider
+may process authentication and technical metadata under its own policy;
+the Studio server's controller remains responsible for the collection,
+use, security and applicable international-transfer safeguards of data it
+receives. No blanket disclaimer can waive that responsibility. See
+[ORCID privacy](https://info.orcid.org/privacy-policy/),
+[Google privacy](https://policies.google.com/privacy) and
+[Microsoft privacy](https://www.microsoft.com/en-us/privacy/privacystatement).
+The operator must disclose which providers are enabled and provide an
+appropriate contact for rights requests.
+
 ## Data and network-backed features
 
 Local editing/storage can keep manuscripts on the user's device. Network-backed
