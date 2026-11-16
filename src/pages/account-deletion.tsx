@@ -15,7 +15,7 @@ const COPY = {
     steps: [
       'Open the web Studio and sign in to the account you want to delete.',
       'Open Account and find the Delete account section.',
-      'Review the deletion and retention information, then type the account e-mail address to confirm.',
+      'Read the detailed deletion, retained manuscript and external-copy information, acknowledge it using the checkbox, then type your account e-mail address to confirm.',
       'Choose Permanently delete account. The live account is removed immediately and all active sessions are invalidated.',
     ],
     openStudio: 'Open Studio account settings',
@@ -25,6 +25,7 @@ const COPY = {
       'Linked sign-in identities, sessions, password-reset and invitation tokens.',
       'Institution memberships and central-administration grants associated with the account.',
       'Stored integration credentials, cloud-connection metadata, cloud-backup index records and local direct-submission records.',
+      'Private server-side working documents, personal reference records and account-only module or recognition records; export documents you want to keep before deleting.',
       'Administrative audit events authored by the deleted account that could retain an account identifier or IP address.',
     ],
     retainedTitle: 'Data that may be retained',
@@ -40,6 +41,7 @@ const COPY = {
     help: 'Use the project support page to request assistance. The operator may need to verify account ownership before acting on a deletion request.',
     support: 'Contact support',
     privacy: 'Privacy Policy',
+    terms: 'Account erasure and scholarly records',
   },
   hu: {
     title: 'Open Manuscript Studio-fiók törlése',
@@ -49,7 +51,7 @@ const COPY = {
     steps: [
       'Nyisd meg a webes Stúdiót, és jelentkezz be a törölni kívánt fiókba.',
       'Nyisd meg a Fiók felületet, majd keresd meg a Fiók törlése részt.',
-      'Olvasd át a törlési és adatmegőrzési tájékoztatót, majd megerősítésként írd be a fiók e-mail-címét.',
+      'Olvasd át a törlés előtti részletes tájékoztatást a megmaradó közös kéziratokról és külső példányokról is, jelöld be a tudomásulvételi négyzetet, majd írd be a fiók e-mail-címét.',
       'Válaszd a Fiók végleges törlése lehetőséget. Az aktív fiók azonnal megszűnik, és minden aktív munkamenet érvénytelenné válik.',
     ],
     openStudio: 'Studio-fiók beállításainak megnyitása',
@@ -59,6 +61,7 @@ const COPY = {
       'Kapcsolt bejelentkezési identitások, munkamenetek, jelszó-visszaállítási és meghívási tokenek.',
       'A fiókhoz tartozó intézményi tagságok és központi adminisztrációs jogosultságok.',
       'Tárolt integrációs hitelesítő adatok, felhőkapcsolati metaadatok, felhőmentési indexrekordok és a közvetlen beküldések helyi nyilvántartása.',
+      'A szerveres magándokumentumok, személyes hivatkozásrekordok és a fiókhoz tartozó egyes modul- és felismerési nyilvántartások. A megtartani kívánt munkákat törlés előtt exportáld.',
       'A törölt fiók által létrehozott olyan adminisztrációs auditbejegyzések, amelyek fiókazonosítót vagy IP-címet őrizhetnének.',
     ],
     retainedTitle: 'Esetlegesen megőrzött adatok',
@@ -74,6 +77,7 @@ const COPY = {
     help: 'Kérj segítséget a projekt támogatási oldalán. A fióktörlési kérelem teljesítése előtt az üzemeltetőnek ellenőriznie kellhet, hogy valóban te rendelkezel a fiókkal.',
     support: 'Kapcsolat és támogatás',
     privacy: 'Adatvédelmi tájékoztató',
+    terms: 'Fióktörlés és tudományos közreműködések',
   },
   de: {
     title: 'Open-Manuscript-Studio-Konto löschen',
@@ -83,7 +87,7 @@ const COPY = {
     steps: [
       'Öffnen Sie Studio im Web und melden Sie sich bei dem Konto an, das Sie löschen möchten.',
       'Öffnen Sie Konto und suchen Sie den Abschnitt Konto löschen.',
-      'Lesen Sie die Hinweise zu Löschung und Aufbewahrung und geben Sie zur Bestätigung die E-Mail-Adresse des Kontos ein.',
+      'Lesen Sie vor der Löschung die Hinweise zu Daten, gemeinsamen Manuskripten und externen Kopien, bestätigen Sie dies mit dem Kontrollkästchen und geben Sie dann die E-Mail-Adresse des Kontos ein.',
       'Wählen Sie Konto endgültig löschen. Das aktive Konto wird sofort entfernt und alle aktiven Sitzungen werden ungültig.',
     ],
     openStudio: 'Studio-Kontoeinstellungen öffnen',
@@ -93,6 +97,7 @@ const COPY = {
       'Verknüpfte Anmeldeidentitäten, Sitzungen sowie Passwort-Reset- und Einladungstokens.',
       'Institutionelle Mitgliedschaften und zentrale Administrationsrechte des Kontos.',
       'Gespeicherte Integrationszugänge, Cloud-Verbindungsmetadaten, Cloud-Backup-Indexeinträge und lokale Datensätze direkter Einreichungen.',
+      'Private serverseitige Dokumente, persönliche Referenzdatensätze sowie kontobezogene Modul- und Erkennungsdatensätze; benötigte Arbeiten vorher exportieren.',
       'Vom gelöschten Konto erzeugte Admin-Audit-Ereignisse, die eine Konto-ID oder IP-Adresse enthalten könnten.',
     ],
     retainedTitle: 'Daten, die aufbewahrt werden können',
@@ -108,6 +113,7 @@ const COPY = {
     help: 'Nutzen Sie die Support-Seite des Projekts. Vor einer Löschung muss der Betreiber gegebenenfalls prüfen, ob Sie tatsächlich über das Konto verfügen.',
     support: 'Support kontaktieren',
     privacy: 'Datenschutzerklärung',
+    terms: 'Kontolöschung und wissenschaftliche Beiträge',
   },
 } as const;
 
@@ -167,6 +173,7 @@ export default function AccountDeletionPage() {
           <div className={styles.links}>
             <Link to="/support">{t.support}</Link>
             <Link to="/docs/governance/privacy-policy">{t.privacy}</Link>
+            <Link to="/docs/governance/account-erasure-and-scholarly-records">{t.terms}</Link>
           </div>
         </section>
       </main>
