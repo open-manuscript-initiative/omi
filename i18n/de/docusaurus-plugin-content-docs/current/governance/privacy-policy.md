@@ -18,6 +18,45 @@ Für das offizielle Studio finden Sie [die Serverhinweise hier](https://studio.o
 Fehlen Betreiberangaben, fordern Sie vor der Registrierung die Hinweise an.
 Quellcode und Projektdokumentation belegen keine vollständige Betriebs-Compliance.
 
+## Aufbewahrung technischer Integrations- und Auditprotokolle
+
+Anwendungsprotokolle liegen in der **Datenbank**; die Rotation von
+systemd- oder Plesk-Webprotokollen löscht diese nicht. Die Software unterstützt
+standardmäßige Löschgrenzen von **90 Tagen** für Integrationsvorgänge
+(einschließlich DeepL-/KI-Ein- und Ausgabefingerabdrücken) sowie Modulaktionen
+und **180 Tagen** für Administrator- und Berechtigungsänderungen sowie
+Zusammenarbeitszugriffe. Benutzerkennungen, IP-Adressen, Metadaten und Hashes
+können personenbezogene Daten sein. Zwecke sind technische Fehleranalyse,
+Missbrauchs-/Sicherheitsuntersuchungen und Zugriffsprüfung. Dies sind
+Entwurfswerte, keine allgemeingültigen gesetzlich vorgeschriebenen Fristen.
+
+Die Löschung erfolgt **nur bei aktivierter und überprüfter Wartungsplanung**.
+Der Betreiber des ausgewählten Servers muss tatsächliche Aufbewahrung,
+Rechtsgrundlage, Backups und begründete Ausnahmen veröffentlichen. Wissenschaftliche
+Publikations-, redaktionelle Entscheidungs- und Begutachtungsnachweise werden
+von der generischen Wartung nicht gelöscht und benötigen eigene Regeln.
+
+## Externe Identitätsanbieter (ORCID, Google, Microsoft)
+
+Externe Anmeldung ist optional und muss vom jeweiligen Server aktiviert sein.
+ORCID verwendet den Bereich `openid` zur Verifikation der ORCID iD und kann
+gegebenenfalls einen Namen liefern. Google und Microsoft verwenden
+`openid profile email`; übertragen werden können Anbieter-ID, Aussteller,
+Name, E-Mail und ein Verifikationsmerkmal. Die E-Mail-Adresse ist nicht in
+allen Fällen bestätigt und begründet keine automatische institutionelle
+Berechtigung. Institutionelle OpenID-Anbieter können zusätzlich aktiviert werden.
+
+Studio speichert die verknüpfte Identität (Anbieter, Aussteller, Kennung),
+gegebenenfalls Anzeigenamen sowie begrenzte E-Mail- und Verifikationsmetadaten.
+Die Authentifizierungscodes werden serverseitig ausgetauscht; das Passwort
+des externen Kontos erhält Studio nicht. Externe Anbieter verarbeiten Daten
+in ihren eigenen Systemen nach ihren Datenschutzregeln; **der Verantwortliche
+des Studio-Servers bleibt für dessen eigene Verarbeitung verantwortlich**,
+einschließlich erforderlicher Übermittlungsgarantien. Hinweise:
+[ORCID](https://info.orcid.org/privacy-policy/),
+[Google](https://policies.google.com/privacy),
+[Microsoft](https://www.microsoft.com/en-us/privacy/privacystatement).
+
 ## Verarbeitung und Rechte
 
 Lokale Bearbeitung und Speicherung können Manuskripte auf dem Gerät halten.
