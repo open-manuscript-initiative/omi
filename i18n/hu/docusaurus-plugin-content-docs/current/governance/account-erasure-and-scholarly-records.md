@@ -29,6 +29,8 @@ A végleges törlés jóváhagyása előtt a Stúdió ismerteti:
 4. Hogy a megtartani kívánt munkákat előzetesen exportálni kell, a fiókhoz való hozzáférés pedig megszűnik.
 5. Hogy a megmaradó személyes adatokról külön adatvédelmi kérelmet lehet benyújtani.
 
+A törlés előtt a felhasználó lementheti a részleges fiókadatok JSON-másolatát. Később egy **új** fiókba a támogatott személyes profilmezők importálhatók belőle. Ez nem támasztja fel a törölt fiókot, és nem állítja vissza annak korábbi azonosítóját, ORCID-hitelesítését, munkameneteit, jelszavait, intézményi vagy szerkesztői jogosultságait, szerzőtársi hozzáféréseit, tulajdonjogát vagy kéziratait. A kéziratokat külön kell exportálni, a közös munkához adott esetben új meghívás szükséges. A JSON-másolat személyes adatokat tartalmaz, ezért bizalmasan kell tárolni.
+
 A végleges műveletet csak a tájékoztató kifejezett tudomásulvétele után lehessen végrehajtani. **Ez nem általános adatkezelési hozzájárulás, és nem jelenti a GDPR szerinti jogokról való lemondást.**
 
 ## 3. Tudományos eredetkövetés és adatminimalizálás
