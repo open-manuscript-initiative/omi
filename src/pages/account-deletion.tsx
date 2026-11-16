@@ -5,6 +5,7 @@ import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import styles from './account-deletion.module.css';
+import {OMI_OFFICIAL_CONTACT_EMAIL, OMI_OFFICIAL_CONTACT_MAILTO} from '../model/officialContact';
 
 const COPY = {
   en: {
@@ -182,6 +183,7 @@ export default function AccountDeletionPage() {
           <p>{t.help}</p>
           <div className={styles.links}>
             <Link to="/support">{t.support}</Link>
+            <a href={OMI_OFFICIAL_CONTACT_MAILTO}>{OMI_OFFICIAL_CONTACT_EMAIL}</a>
             <Link to="/docs/governance/privacy-policy">{t.privacy}</Link>
             <Link to="/docs/governance/account-erasure-and-scholarly-records">{t.terms}</Link>
           </div>
