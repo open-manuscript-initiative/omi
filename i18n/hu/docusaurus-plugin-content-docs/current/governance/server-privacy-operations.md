@@ -97,6 +97,30 @@ Ehhez minimális, hozzáférés-védett és határidővel törlendő nyilvántar
 A próbát szintetikus fiókkal végezze. Külső OJS/OMP- és felhőpéldányokat a megfelelő
 adatkezelő eljárásában kell rendezni.
 
+### A központi OMI Stúdió üzemeltetésének igazolt állapota (2026. november 16.)
+
+**Csak a központi Stúdióra vonatkozik:** az üzemeltető által bemutatott
+terminálnapló szerint az `omi-privacy-cleanup.service` **2026. november
+16-án 12:20:49 UTC-kor (13:20:49 CET-kor) sikeresen lefutott
+`--apply` módban**. Mind a négy technikai auditkategóriában
+0 volt a lejárt és törölt rekordok száma, az eredmény
+`backlog: false` volt; a lejárt hitelesítési rekordok takarítása is
+megtörtént.
+
+A napi `omi-privacy-cleanup.timer` **`enabled`** és
+**`active`** állapotát az üzemeltető ellenőrizte. A következő
+tervezett futás **2026. november 17., 03:24:13 UTC
+(04:24:13 CET)**. A `LAST=-` mező alapján az **első
+felügyelet nélküli időzített futás még nem történt meg**
+az ellenőrzés időpontjában.
+
+Részletes [üzemeltetési jegyzőkönyv](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/server/privacy-retention-production-activation-2026-11-16.md).
+A megállapítások a felhasználó terminálképein alapulnak;
+az adatbázismentések önálló visszaállítási próbája és a
+szerver adatkezelői tájékoztatójának végső egyeztetése nem
+igazolt. Más intézményi telepítésekre a központi
+szerver beállítása **nem terjed ki automatikusan**.
+
 ## Adatvédelmi incidens
 
 Legyen kijelölt felelős és helyettes. Minden személyesadat-incidenst dokumentálni
