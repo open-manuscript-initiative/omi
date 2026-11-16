@@ -49,6 +49,10 @@ No blanket consent checkbox replaces a purpose-specific lawful basis.
 
 ## Account deletion and shared records
 
+Before final account deletion, the Studio presents an explicit review of deleted account and private working data, potentially retained co-authored manuscripts and review history, external copies, and restoration limits. The user must acknowledge that notice as well as confirm their email. This acknowledgement does **not** waive erasure or objection rights.
+
+For the proposed service-terms wording, purpose-by-purpose lawful-basis matrix and case-by-case assessment of Articles 6(1)(f) and 17(3)(d), read [Account deletion and scholarly records](/docs/governance/account-erasure-and-scholarly-records).
+
 [Account deletion instructions](https://openmanuscript.org/account-deletion) explain
 the existing self-service procedure. It removes live account credentials and
 profile records and clears account integration metadata. Shared review/publication
