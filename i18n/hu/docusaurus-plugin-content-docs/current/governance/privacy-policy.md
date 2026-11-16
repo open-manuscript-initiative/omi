@@ -49,6 +49,10 @@ adatkörökért és az alkalmazandó adathordozhatóságért forduljon az adatke
 
 ## Törlés és megmaradó adatok
 
+A Stúdió a végleges fióktörlés előtt részletesen bemutatja a törlendő fiók- és magánadatokat, a lehetségesen megmaradó közös kéziratokat és bírálatokat, a külső példányokat és a mentések szabályait. A tájékoztató tudomásulvételét a felhasználónak külön meg kell erősítenie az e-mail-címes jóváhagyás mellett. Ez **nem** lemondás a törléshez vagy tiltakozáshoz való jogról.
+
+Az adatkezelési célok és jogalapok elkülönítését, valamint a GDPR 6. cikk (1) f) és 17. cikk (3) d) egyedi alkalmazását a [Fióktörlés és tudományos közreműködések](/docs/governance/account-erasure-and-scholarly-records) című javasolt ÁSZF-rész ismerteti.
+
 A [fióktörlési útmutató](https://openmanuscript.org/account-deletion) ismerteti az
 önkiszolgáló folyamatot. A közös tudományos történetben álnevesített résztvevői
 hivatkozás és azonosításra alkalmas tartalom maradhat. Az álnevesítés nem jelent
