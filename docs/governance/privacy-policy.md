@@ -12,6 +12,8 @@ independent server. Open **Privacy and personal data** before registration or in
 Account on the selected Studio server; the public page is `/?privacy=1` and the
 public machine-readable endpoint is `/api/v1/privacy` once the implementation is deployed.
 
+**Official OMI project contact:** [contact@openmanuscript.org](mailto:contact@openmanuscript.org). This replaces personal webmail addresses for project communications and initial privacy enquiries. For a statutory data-subject request, the controller named in the selected server's published notice remains responsible; independently hosted servers may have their own contact addresses.
+
 For the official Studio, use [the server privacy page](https://studio.openmanuscript.org/?privacy=1).
 If the server says information has not been supplied, request the notice from its
 operator before registering. Source documentation is not proof that a particular
