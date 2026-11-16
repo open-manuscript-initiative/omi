@@ -103,6 +103,7 @@ const config = {
             {label: 'External References', to: '/docs/governance/external-references'},
             {label: 'Code signing policy', to: '/docs/governance/code-signing-policy'},
             {label: 'Privacy policy', to: '/docs/governance/privacy-policy'},
+            {label: 'Official contact', href: 'mailto:contact@openmanuscript.org'},
             {label: 'MIT License', href: 'https://github.com/open-manuscript-initiative/omi/blob/main/LICENSE'},
           ]},
         ],
@@ -111,6 +112,7 @@ const config = {
             <span>Open Manuscript Initiative</span>
             <span>Write naturally. Structure once. Publish everywhere.</span>
             <span>Open standards for scholarly publishing.</span>
+            <a href="mailto:contact@openmanuscript.org">contact@openmanuscript.org</a>
             <span>© ${new Date().getFullYear()} Open Manuscript Initiative Contributors.</span>
             <span>Built with Docusaurus.</span>
             <a class="omi-xerj-badge" href="https://hub.xerj.org/contributors/vargaijanos" target="_blank" rel="noopener noreferrer" aria-label="OMI Studio source code selected for the XERJ Corpus Hub — contributor profile">
