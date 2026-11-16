@@ -12,6 +12,8 @@ adatkezelőjét. A regisztráció előtt és a Fiók felületén az **Adatvédel
 személyes adatok** részben érhető el a szerver tájékoztatása. A nyilvános oldal
 címe `/?privacy=1`, az API-végpont `/api/v1/privacy`, a fejlesztés telepítése után.
 
+**Az OMI hivatalos projektkapcsolati e-mail-címe:** [contact@openmanuscript.org](mailto:contact@openmanuscript.org). A projektkommunikációhoz és az elsődleges adatvédelmi megkeresésekhez ez a cím használandó a személyes Gmail-címek helyett. A GDPR szerinti kérelmekért a kiválasztott szerver tájékoztatójában megnevezett adatkezelő felel; a független intézményi szervereknek saját kapcsolattartójuk lehet.
+
 A hivatalos Stúdió [adatvédelmi oldalát itt nyithatja meg](https://studio.openmanuscript.org/?privacy=1).
 Ha a szerver jelzi, hogy az üzemeltető még nem adta meg az adatokat, a regisztráció
 előtt kérje a tájékoztatót. A forráskód vagy ez az oldal önmagában nem igazolja az
