@@ -101,4 +101,4 @@ This page describes OMI's general partnership readiness; it is not a claim of el
 
 ## Contact
 
-Institutions interested in research cooperation, pilot deployment, sponsorship or consortium participation can contact the Open Manuscript Initiative through the contact channels published on this website. For community and financial support options, see [Support OMI](/support/).
+Institutions interested in research cooperation, pilot deployment, sponsorship or consortium participation can contact the Open Manuscript Initiative at **[contact@openmanuscript.org](mailto:contact@openmanuscript.org)**. For community and financial support options, see [Support OMI](/support/).
