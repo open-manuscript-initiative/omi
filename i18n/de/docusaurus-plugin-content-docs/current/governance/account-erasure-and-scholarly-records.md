@@ -29,6 +29,8 @@ Die Anwendung informiert den Nutzer, bevor er die unwiderrufliche Löschung best
 4. Dass benötigte Arbeiten vorher exportiert werden müssen und der Kontozugang endet.
 5. Wie eine gesonderte Prüfung verbleibender personenbezogener Daten und die Geltendmachung von Löschung, Einschränkung oder Widerspruch möglich ist.
 
+Vor der Löschung kann der Nutzer eine partielle JSON-Kopie seiner Kontodaten speichern. Nach Einrichtung eines **neuen** Kontos lassen sich daraus unterstützte persönliche Profilfelder importieren. Dadurch werden weder das gelöschte Konto noch seine alte Identität, ORCID-Verifizierung, Sitzungen, Zugangsdaten, institutionellen und redaktionellen Rechte, Mitautoren-Zugriffe, Besitzrechte oder Manuskripte wiederhergestellt. Manuskripte sind gesondert zu exportieren; gegebenenfalls sind neue Einladungen erforderlich. Die Sicherungsdatei enthält personenbezogene Daten und muss vertraulich aufbewahrt werden.
+
 Die Bestätigung erfordert eine ausdrückliche Kenntnisnahme dieser Informationen. **Dies ist weder eine pauschale Einwilligung in unbefristete Speicherung noch ein Verzicht auf Datenschutzrechte.**
 
 ## Datenminimierung und wissenschaftliche Nachvollziehbarkeit
