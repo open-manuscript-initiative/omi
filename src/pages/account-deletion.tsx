@@ -35,6 +35,8 @@ const COPY = {
     ],
     externalTitle: 'Data held by other services',
     external: 'Copies already submitted to OJS/OMP, or files stored in a cloud account controlled by you or another provider, are not deleted by deleting the OMI Studio account. Those copies are governed by the destination journal, publisher or cloud provider and must be removed there separately when applicable.',
+    restoreTitle: "Saving and restoring your profile",
+    restore: "Before deleting your account, use the account-data JSON download in Studio. This is a partial profile and sign-in metadata export, not a manuscript backup. After registering a new account, sign in and use Account → Privacy → Restore personal profile to import supported profile fields (name, affiliation, biography, country, website, time zone and personal workflow preference). The deleted account itself, previous identity and email verification, linked ORCID verification, passwords, passkeys, institution/editorial permissions, former manuscript access and shared-document ownership cannot be restored by importing the file. Reconnect services and arrange fresh invitations separately. Export manuscripts separately before deletion.",
     ownershipTitle: 'Ownership safeguards',
     ownership: 'The last-owner safeguard may block self-service deletion. Ask the server controller for a verified ownership transfer or another erasure procedure; a request must not remain indefinitely unresolved.',
     helpTitle: 'If you cannot sign in',
@@ -71,6 +73,8 @@ const COPY = {
     ],
     externalTitle: 'Más szolgáltatásoknál tárolt adatok',
     external: 'Az OJS/OMP-rendszerbe már beküldött példányokat, illetve a saját vagy más szolgáltató által kezelt felhőfiókban tárolt fájlokat az OMI Studio-fiók törlése nem törli. Ezekre a célfolyóirat, kiadó vagy felhőszolgáltató szabályai vonatkoznak, és szükség esetén ott kell külön kérni vagy elvégezni a törlést.',
+    restoreTitle: "A profil mentése és későbbi visszatöltése",
+    restore: "A fiók törlése előtt a Stúdióban töltsd le a fiókadatok JSON-másolatát. Ez csak a profil és a bejelentkezés kiválasztott adatait tartalmazza, nem kéziratmentés. Új fiók regisztrálása és bejelentkezés után a Fiók → Adatvédelem → Személyes profil visszatöltése pontban importálhatod a támogatott mezőket (név, intézmény, bemutatkozás, ország, honlap, időzóna, munkaszerep-beállítás). A törölt fiók, a régi azonosító és e-mail-hitelesítés, az ORCID-kapcsolat igazolása, jelszavak, belépési kulcsok, intézményi és szerkesztői jogosultságok, a korábbi kézirathozzáférés és a közös dokumentum tulajdonjoga nem állítható vissza a fájlból. A kapcsolatokat újra létre kell hozni, a közös dokumentumokhoz új meghívásra lehet szükség. A kéziratokat törlés előtt külön exportáld.",
     ownershipTitle: 'Tulajdonosi védelem',
     ownership: 'Az utolsó tulajdonos önkiszolgáló törlését biztonsági szabály akadályozhatja. Ilyenkor kérjen ellenőrzött szerepátadást vagy más törlési eljárást a szerver adatkezelőjétől; a kérelem nem maradhat határozatlan ideig elintézetlen.',
     helpTitle: 'Ha nem tudsz bejelentkezni',
@@ -107,6 +111,8 @@ const COPY = {
     ],
     externalTitle: 'Daten bei anderen Diensten',
     external: 'Bereits an OJS/OMP übermittelte Kopien oder Dateien in einem von Ihnen oder einem anderen Anbieter kontrollierten Cloud-Konto werden durch das Löschen des OMI-Studio-Kontos nicht entfernt. Für diese Kopien gelten die Regeln der Zielzeitschrift, des Verlags oder Cloud-Anbieters.',
+    restoreTitle: "Profil sichern und später wiederherstellen",
+    restore: "Laden Sie vor der Kontolöschung die JSON-Kopie der Kontodaten aus Studio herunter. Sie enthält ausgewählte Profil- und Anmeldemetadaten, aber keine Manuskriptsicherung. Nach Registrierung und Anmeldung mit einem neuen Konto können Sie unter Konto → Datenschutz → Persönliches Profil wiederherstellen unterstützte Felder importieren (Name, Zugehörigkeit, Biografie, Land, Website, Zeitzone, Arbeitsrollenpräferenz). Das gelöschte Konto selbst, alte Identität und E-Mail-Verifizierung, bestätigte ORCID-Verknüpfung, Passwörter, Passkeys, institutionelle/redaktionelle Rechte, früherer Manuskriptzugriff und Eigentum an gemeinsamen Dokumenten werden nicht aus der Datei wiederhergestellt. Verbindungen und Einladungen müssen getrennt erneuert werden. Manuskripte vorher separat exportieren.",
     ownershipTitle: 'Schutz von Eigentümerrollen',
     ownership: 'Beim letzten Eigentümer kann die Selbstbedienung gesperrt sein. Beantragen Sie beim Serververantwortlichen eine geprüfte Übergabe oder ein anderes Löschverfahren; der Antrag darf nicht unbegrenzt offen bleiben.',
     helpTitle: 'Wenn Sie sich nicht anmelden können',
@@ -162,6 +168,10 @@ export default function AccountDeletionPage() {
           <p>{t.external}</p>
         </section>
 
+        <section className={styles.section}>
+          <h2>{t.restoreTitle}</h2>
+          <p>{t.restore}</p>
+        </section>
         <section className={styles.section}>
           <h2>{t.ownershipTitle}</h2>
           <p>{t.ownership}</p>
