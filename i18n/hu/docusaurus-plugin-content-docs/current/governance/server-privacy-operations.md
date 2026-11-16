@@ -71,11 +71,25 @@ megőrzési idő/kritérium, törlés/anonimizálás, jogszerű zárolás és el
 A mentések minden példányát és szolgáltatóját vegye számba. A korábban vállalt,
 például 30 napos korlátot jogszerű módosításáig teljesíteni kell.
 
-A `server` könyvtárban a `npm run privacy:cleanup` csak előnézetet ad a lejárt
-hitelesítési rekordok darabszámáról. Ellenőrzés után
-`npm run privacy:cleanup -- --apply` törli a lejárt munkameneteket, meghívókat,
-jelszó-visszaállítási tokeneket, passkey-kihívásokat és OAuth-állapotokat.
-Nem töröl kéziratot, élő fiókot vagy auditnaplót. Ütemezést a fejlesztés nem telepít.
+Az alkalmazásszintű auditnaplók az adatbázisban vannak, így a systemd/Plesk
+naplórotációja ezeket nem törli. A technikai auditok szoftveres törlési
+alapértéke **90 nap** az integrációs és kutatásimodul-műveleteknél,
+**180 nap** a központi/intézményi adminisztráció és az együttműködési
+hozzáférés, szerepkörváltozások esetében. Ez nem jogszabályi általános
+időtartam: az adatkezelőnek meg kell indokolnia a célt, jogalapot,
+megőrzést és a jogilag szükséges külön bizonyítékok kezelését.
+A kéziratok, bírálatok, szerkesztői döntések és önálló fordítási
+változatok nem esnek e technikai takarítás alá.
+
+A `server` könyvtárban a `npm run privacy:cleanup` csak előnézetet
+készít a lejárt hitelesítési és auditrekordokról, személyes azonosítókat
+nem ír ki. Az ellenőrzött
+`npm run privacy:cleanup -- --apply` kötegekben törli a
+lejárt hitelesítési adatokat és a megadott auditrekordokat.
+Az új migráció és a napi systemd timer üzemeltetői elfogadása,
+kézi telepítése és ellenőrzése szükséges; a forráskódmódosítás
+**önmagában nem indít automatikus éles törlést**.
+A minták a Stúdió `deployment/systemd/` könyvtárában találhatók.
 
 Mentés visszaállításakor az éles forgalom megnyitása előtt újra kell érvényesíteni
 az időközbeni törléseket és korlátozásokat, és érvényteleníteni az elavult belépéseket.
