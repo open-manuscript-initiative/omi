@@ -19,7 +19,7 @@ The Open Manuscript Initiative (OMI) takes security seriously.
 
 If you discover a potential security vulnerability, **please do not report it through public GitHub issues**.
 
-Instead, contact the project maintainers privately with as much information as possible, including:
+Instead, email the project maintainers privately at **[contact@openmanuscript.org](mailto:contact@openmanuscript.org)** with as much information as possible, including:
 
 - a description of the vulnerability;
 - steps to reproduce it;

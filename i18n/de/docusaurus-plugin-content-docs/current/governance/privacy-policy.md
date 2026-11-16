@@ -10,11 +10,52 @@ ihren tatsächlichen Verantwortlichen und ihre eigene Datenverarbeitung benennen
 Projektname und Open-Source-Lizenz bestimmen nicht den Verantwortlichen aller
 unabhängigen Server. Öffnen Sie vor der Registrierung oder unter Konto den Bereich
 **Datenschutz und personenbezogene Daten**. Nach Bereitstellung der Implementierung
-ist die öffentliche Seite unter `/?privacy=1`, die API unter `/api/privacy` erreichbar.
+ist die öffentliche Seite unter `/?privacy=1`, die API unter `/api/v1/privacy` erreichbar.
+
+**Offizielle OMI-Projektkontaktadresse:** [contact@openmanuscript.org](mailto:contact@openmanuscript.org). Diese Adresse ersetzt persönliche Webmail-Adressen für Projektkommunikation und erste Datenschutzanfragen. Für die Bearbeitung formeller Datenschutzanträge ist der in den Hinweisen des gewählten Servers genannte Verantwortliche zuständig; unabhängige institutionelle Server können eigene Kontakte haben.
 
 Für das offizielle Studio finden Sie [die Serverhinweise hier](https://studio.openmanuscript.org/?privacy=1).
 Fehlen Betreiberangaben, fordern Sie vor der Registrierung die Hinweise an.
 Quellcode und Projektdokumentation belegen keine vollständige Betriebs-Compliance.
+
+## Aufbewahrung technischer Integrations- und Auditprotokolle
+
+Anwendungsprotokolle liegen in der **Datenbank**; die Rotation von
+systemd- oder Plesk-Webprotokollen löscht diese nicht. Die Software unterstützt
+standardmäßige Löschgrenzen von **90 Tagen** für Integrationsvorgänge
+(einschließlich DeepL-/KI-Ein- und Ausgabefingerabdrücken) sowie Modulaktionen
+und **180 Tagen** für Administrator- und Berechtigungsänderungen sowie
+Zusammenarbeitszugriffe. Benutzerkennungen, IP-Adressen, Metadaten und Hashes
+können personenbezogene Daten sein. Zwecke sind technische Fehleranalyse,
+Missbrauchs-/Sicherheitsuntersuchungen und Zugriffsprüfung. Dies sind
+Entwurfswerte, keine allgemeingültigen gesetzlich vorgeschriebenen Fristen.
+
+Die Löschung erfolgt **nur bei aktivierter und überprüfter Wartungsplanung**.
+Der Betreiber des ausgewählten Servers muss tatsächliche Aufbewahrung,
+Rechtsgrundlage, Backups und begründete Ausnahmen veröffentlichen. Wissenschaftliche
+Publikations-, redaktionelle Entscheidungs- und Begutachtungsnachweise werden
+von der generischen Wartung nicht gelöscht und benötigen eigene Regeln.
+
+## Externe Identitätsanbieter (ORCID, Google, Microsoft)
+
+Externe Anmeldung ist optional und muss vom jeweiligen Server aktiviert sein.
+ORCID verwendet den Bereich `openid` zur Verifikation der ORCID iD und kann
+gegebenenfalls einen Namen liefern. Google und Microsoft verwenden
+`openid profile email`; übertragen werden können Anbieter-ID, Aussteller,
+Name, E-Mail und ein Verifikationsmerkmal. Die E-Mail-Adresse ist nicht in
+allen Fällen bestätigt und begründet keine automatische institutionelle
+Berechtigung. Institutionelle OpenID-Anbieter können zusätzlich aktiviert werden.
+
+Studio speichert die verknüpfte Identität (Anbieter, Aussteller, Kennung),
+gegebenenfalls Anzeigenamen sowie begrenzte E-Mail- und Verifikationsmetadaten.
+Die Authentifizierungscodes werden serverseitig ausgetauscht; das Passwort
+des externen Kontos erhält Studio nicht. Externe Anbieter verarbeiten Daten
+in ihren eigenen Systemen nach ihren Datenschutzregeln; **der Verantwortliche
+des Studio-Servers bleibt für dessen eigene Verarbeitung verantwortlich**,
+einschließlich erforderlicher Übermittlungsgarantien. Hinweise:
+[ORCID](https://info.orcid.org/privacy-policy/),
+[Google](https://policies.google.com/privacy),
+[Microsoft](https://www.microsoft.com/en-us/privacy/privacystatement).
 
 ## Verarbeitung und Rechte
 
@@ -42,6 +83,10 @@ Auskunft noch eine Manuskriptsicherung. Fordern Sie weitere Daten und anwendbare
 keine zweckbezogene Rechtsgrundlage.
 
 ## Löschung, gemeinsame Datensätze und Sicherungen
+
+Vor der endgültigen Kontolöschung zeigt Studio eine ausführliche Übersicht über zu löschende Konto- und Privatdaten, gegebenenfalls erhaltene gemeinsame Manuskripte und Gutachten, externe Kopien und Sicherungen. Die Kenntnisnahme wird zusätzlich zur E-Mail-Bestätigung ausdrücklich bestätigt; dies ist **kein** Verzicht auf Löschungs- oder Widerspruchsrechte.
+
+Die gesonderten Verarbeitungszwecke, Rechtsgrundlagen und die eng auszulegenden Ausnahmen nach Art. 6 Abs. 1 Buchst. f bzw. Art. 17 Abs. 3 Buchst. d sind im Entwurf [Kontolöschung und wissenschaftliche Beiträge](/docs/governance/account-erasure-and-scholarly-records) erläutert.
 
 Die [Löschanleitung](https://openmanuscript.org/account-deletion) beschreibt die
 Selbstbedienung. Gemeinsame wissenschaftliche Historie kann pseudonymisierte

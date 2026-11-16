@@ -122,14 +122,32 @@ processor propagation and evidence of an executed job. Include access/auth logs,
 review history, invitations, OAuth states, exports, support cases, audit events and
 backups. No universal statutory log-retention period is assumed.
 
-From `server`, `npm run privacy:cleanup` is **dry-run** and prints only counts of
-expired authentication records. After reviewing counts and recovery needs,
-`npm run privacy:cleanup -- --apply` deletes only expired sessions, invitations,
-password reset tokens, passkey challenges and OAuth states in the Identity and
-legacy Studio stores. It never removes live accounts, manuscripts or audit history.
-Arrange an operator-reviewed timer/cron only after acceptance; this PR installs none.
-Failures may leave partial progress and a later rerun is safe. Review other data
-classes separately rather than treating this utility as full retention automation.
+The Studio implements **technical audit retention defaults**, independent of
+systemd/Plesk log rotation: 90 days for integration operation digests
+(`integration_audit_events`) and module operation logs
+(`studio_module_audit_events`); 180 days for central/institutional administrator
+events (`admin_audit_events`) and collaboration access/role changes
+(`collaboration_audit_events`). These are proposed project defaults, not a
+universal statutory deadline. Each controller must record its rationale,
+lawful basis, access controls and any justified preservation of incident or
+legal evidence. The generic cleanup excludes manuscripts, review/editorial
+evidence and user-authored translation variants; handle these categories
+through separate retention decisions.
+
+From `server`, `npm run privacy:cleanup` remains **dry-run** and reports
+expired authentication records and technical audit candidates, thresholds
+and counts without user identifiers or digests. After review,
+`npm run privacy:cleanup -- --apply` removes expired authentication records
+and the specified aged technical audit classes in bounded batches.
+Failures may leave partial progress; the task can safely be rerun and
+reports any backlog. The code does not install a scheduler: the operator
+must run a migration, test the dry-run and restore procedure, review legal
+preservation duties, then explicitly enable the provided systemd
+service/timer examples. Regular execution must be monitored.
+See the [Studio operator guide](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/server/privacy-and-legal-operations.md)
+and the systemd templates in `deployment/systemd/`.
+Do not claim that automated purging runs on a live server until its
+operator confirms the enabled timer.
 
 ## 5. Personal-data breach procedure
 

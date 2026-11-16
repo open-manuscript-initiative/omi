@@ -12,10 +12,57 @@ adatkezelőjét. A regisztráció előtt és a Fiók felületén az **Adatvédel
 személyes adatok** részben érhető el a szerver tájékoztatása. A nyilvános oldal
 címe `/?privacy=1`, az API-végpont `/api/v1/privacy`, a fejlesztés telepítése után.
 
+**Az OMI hivatalos projektkapcsolati e-mail-címe:** [contact@openmanuscript.org](mailto:contact@openmanuscript.org). A projektkommunikációhoz és az elsődleges adatvédelmi megkeresésekhez ez a cím használandó a személyes Gmail-címek helyett. A GDPR szerinti kérelmekért a kiválasztott szerver tájékoztatójában megnevezett adatkezelő felel; a független intézményi szervereknek saját kapcsolattartójuk lehet.
+
 A hivatalos Stúdió [adatvédelmi oldalát itt nyithatja meg](https://studio.openmanuscript.org/?privacy=1).
 Ha a szerver jelzi, hogy az üzemeltető még nem adta meg az adatokat, a regisztráció
 előtt kérje a tájékoztatót. A forráskód vagy ez az oldal önmagában nem igazolja az
 adott üzemeltetés jogi megfelelését.
+
+## Technikai és integrációs auditnaplók megőrzése
+
+A Stúdió az alkalmazásszintű auditnaplókat **az adatbázisban** tárolja, ezért
+ezeket sem a systemd, sem a Plesk webes naplóinak rotációja nem törli.
+A szoftver alapértelmezett törlési küszöbe **90 nap** az integrációs
+műveletekre (például DeepL/AI bemeneti és kimeneti SHA-256-lenyomatok), valamint
+a kutatási modulok műveleteire; a központi és intézményi jogosultsági,
+adminisztrátori és együttműködési szerepkörváltozások naplóira **180 nap**.
+Az adatok tartalmazhatnak felhasználói azonosítót, IP-címet, műveleti metaadatot
+és lenyomatot, így nem tekinthetők automatikusan anonimnak. A cél a technikai
+hibák és visszaélések vizsgálata, a hozzáférések és jogosultságok ellenőrzése.
+Az időtartam projektjavaslat, nem jogszabályban előírt általános határidő.
+
+A törlés csak akkor **automatikus**, ha a szerver üzemeltetője az időzített
+takarítást ténylegesen aktiválta és ellenőrzi. A kiválasztott szerver
+adatkezelője köteles közzétenni az alkalmazott időtartamot, a jogalapot,
+a mentések kezelését és az indokolt kivételeket. A tudományos
+publikálás, lektorálás és szerkesztői döntések eredetkövetési adatai
+nem tartoznak e rutinszerű törlésbe; rájuk külön megőrzési rend szükséges.
+
+## Külső azonosítószolgáltatók (ORCID, Google, Microsoft)
+
+A külső belépés választható, és csak az adott szerveren engedélyezett
+szolgáltatóknál jelenik meg. Az ORCID a `openid` jogosultsággal az
+ORCID iD hitelességét igazolja, és esetleg nevet is visszaadhat.
+A Google és a Microsoft belépése `openid profile email` körrel
+működik; a szolgáltató azonosítóját és kibocsátóját, továbbá nevet,
+e-mail-címet és az e-mail-hitelesítés jelzését adhatja át.
+Az e-mail nem minden esetben hitelesített, ezért önmagában
+nem jogosít intézményi vagy szerkesztői hozzáférésre.
+Intézményi OpenID-szolgáltatók is bekapcsolhatók.
+
+A Stúdió az összekapcsolt azonosítót (szolgáltató, kibocsátó, azonosító),
+az elérhető megjelenítési nevet és a szükséges e-mail-/ellenőrzési
+metaadatokat tárolja. A belépési kódok cseréje szerveroldalon történik,
+a külső szolgáltató jelszava nem kerül a Stúdióhoz.
+A külső szolgáltatók saját adatvédelmi szabályzatuk szerint kezelik
+az ottani adatokat, **de ez nem mentesíti a Stúdió adatkezelőjét** a hozzá
+érkező és általa felhasznált személyes adatok jogszerű kezeléséért.
+Tájékoztatók: [ORCID](https://info.orcid.org/privacy-policy/),
+[Google](https://policies.google.com/privacy),
+[Microsoft](https://www.microsoft.com/en-us/privacy/privacystatement).
+Az adatkezelőnek a ténylegesen bekapcsolt szolgáltatókat és szükséges
+adattovábbítási garanciákat külön meg kell neveznie.
 
 ## Adatok és külső szolgáltatások
 
@@ -48,6 +95,10 @@ adatkörökért és az alkalmazandó adathordozhatóságért forduljon az adatke
 Általános hozzájárulási jelölőnégyzet nem helyettesíti a célonként megfelelő jogalapot.
 
 ## Törlés és megmaradó adatok
+
+A Stúdió a végleges fióktörlés előtt részletesen bemutatja a törlendő fiók- és magánadatokat, a lehetségesen megmaradó közös kéziratokat és bírálatokat, a külső példányokat és a mentések szabályait. A tájékoztató tudomásulvételét a felhasználónak külön meg kell erősítenie az e-mail-címes jóváhagyás mellett. Ez **nem** lemondás a törléshez vagy tiltakozáshoz való jogról.
+
+Az adatkezelési célok és jogalapok elkülönítését, valamint a GDPR 6. cikk (1) f) és 17. cikk (3) d) egyedi alkalmazását a [Fióktörlés és tudományos közreműködések](/docs/governance/account-erasure-and-scholarly-records) című javasolt ÁSZF-rész ismerteti.
 
 A [fióktörlési útmutató](https://openmanuscript.org/account-deletion) ismerteti az
 önkiszolgáló folyamatot. A közös tudományos történetben álnevesített résztvevői

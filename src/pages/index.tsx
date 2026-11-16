@@ -6,6 +6,7 @@ import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import {getPublicPageCopy} from '../i18n/publicPages';
+import {OMI_OFFICIAL_CONTACT_EMAIL} from '../model/officialContact';
 import {STUDIO_PUBLISHED_VERSION, STUDIO_SOURCE_VERSION, STUDIO_SOURCE_RELEASE_NOTES, STUDIO_WEB_VERSION, STUDIO_ANDROID_RC_DOWNLOAD_URL, STUDIO_WINDOWS_STORE_VERSION} from '../studioReleaseVersions';
 import StudioReleaseStatus from '../components/StudioReleaseStatus';
 import styles from './index.module.css';
@@ -151,6 +152,7 @@ export default function Home() {
         '@id': 'https://openmanuscript.org/#organization',
         name: 'Open Manuscript Initiative',
         url: 'https://openmanuscript.org/',
+        email: OMI_OFFICIAL_CONTACT_EMAIL,
         logo: 'https://openmanuscript.org/android-chrome-512x512.png',
         sameAs: [
           'https://github.com/open-manuscript-initiative',
