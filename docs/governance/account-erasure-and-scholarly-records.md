@@ -31,6 +31,8 @@ The account interface must first explain, in the user's supported language:
 4. That the person should export work they need and will lose account access.
 5. How to request a separate review of remaining personal data, rectification, restriction, objection or erasure.
 
+Before deletion, the user may save the existing partial account-data JSON copy. After creating a **new** account, supported personal profile fields can be imported from that saved file. This does not revive the deleted account, restore its historical identity, ORCID verification, sessions, credentials, institutional/editorial permissions, co-author access, ownership or manuscript content. Separate manuscript exports and fresh invitations are required where applicable. The exported JSON includes personal information; store it privately.
+
 Require explicit acknowledgement of this information before enabling the final irreversible action. Confirmation is **not** blanket consent to indefinite retention or a waiver of GDPR rights.
 
 ## 3. Retention and identity minimization
