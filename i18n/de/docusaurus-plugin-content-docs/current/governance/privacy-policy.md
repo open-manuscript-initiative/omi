@@ -43,6 +43,10 @@ keine zweckbezogene Rechtsgrundlage.
 
 ## Löschung, gemeinsame Datensätze und Sicherungen
 
+Vor der endgültigen Kontolöschung zeigt Studio eine ausführliche Übersicht über zu löschende Konto- und Privatdaten, gegebenenfalls erhaltene gemeinsame Manuskripte und Gutachten, externe Kopien und Sicherungen. Die Kenntnisnahme wird zusätzlich zur E-Mail-Bestätigung ausdrücklich bestätigt; dies ist **kein** Verzicht auf Löschungs- oder Widerspruchsrechte.
+
+Die gesonderten Verarbeitungszwecke, Rechtsgrundlagen und die eng auszulegenden Ausnahmen nach Art. 6 Abs. 1 Buchst. f bzw. Art. 17 Abs. 3 Buchst. d sind im Entwurf [Kontolöschung und wissenschaftliche Beiträge](/docs/governance/account-erasure-and-scholarly-records) erläutert.
+
 Die [Löschanleitung](https://openmanuscript.org/account-deletion) beschreibt die
 Selbstbedienung. Gemeinsame wissenschaftliche Historie kann pseudonymisierte
 Teilnehmerverweise und identifizierbare Inhalte behalten. Pseudonymisierung ist
