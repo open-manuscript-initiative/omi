@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {supportModel} from '../model/supportModel';
+import {OMI_OFFICIAL_CONTACT_EMAIL, OMI_OFFICIAL_CONTACT_MAILTO} from '../model/officialContact';
 import styles from './support.module.css';
 
 const COPY = {
@@ -64,7 +65,7 @@ const COPY = {
     partnershipText: 'OMI also welcomes research cooperation, infrastructure contributions, evaluation and funded consortia. These complement community support and separately commissioned services.',
     partnershipButton: 'Funding & Partnerships',
     grantButton: 'Grant Readiness Pack',
-    contact: 'Contact the project through the Open Manuscript Initiative GitHub organization to discuss institutional contributions or service scope. This page does not collect card details or start a recurring payment.',
+    contact: 'For institutional contributions, privacy questions and service enquiries, use the official OMI mailbox. This page does not collect card details or start a recurring payment.',
   },
   hu: {
     title: 'Az Open Manuscript Initiative támogatása',
@@ -123,7 +124,7 @@ const COPY = {
     partnershipText: 'Kutatási együttműködés, infrastruktúra-hozzájárulás, értékelés és pályázati konzorcium is kapcsolódhat az OMI-hoz. Ezek kiegészítik a közösségi támogatást és a külön megrendelt szolgáltatásokat.',
     partnershipButton: 'Finanszírozás és partnerségek',
     grantButton: 'Pályázati előkészítő csomag',
-    contact: 'Intézményi hozzájárulás vagy szolgáltatási feladat egyeztetéséhez keresd a projektet az Open Manuscript Initiative GitHub-szervezetén keresztül. Ez az oldal nem gyűjt bankkártyaadatot és nem indít ismétlődő fizetést.',
+    contact: 'Intézményi hozzájárulás, adatvédelmi vagy szolgáltatási ügy esetén az OMI hivatalos e-mail-címén keresheted a projektet. Ez az oldal nem gyűjt bankkártyaadatot és nem indít ismétlődő fizetést.',
   },
   de: {
     title: 'Open Manuscript Initiative unterstützen',
@@ -182,7 +183,7 @@ const COPY = {
     partnershipText: 'OMI begrüßt auch Forschungskooperationen, Infrastrukturbeiträge, Evaluierungen und geförderte Konsortien. Sie ergänzen die gemeinschaftliche Unterstützung und gesondert beauftragte Leistungen.',
     partnershipButton: 'Finanzierung und Partnerschaften',
     grantButton: 'Grant Readiness Pack',
-    contact: 'Besprechen Sie institutionelle Beiträge oder Leistungsumfang mit dem Projekt über die GitHub-Organisation der Open Manuscript Initiative. Diese Seite erfasst keine Kartendaten und startet keine wiederkehrende Zahlung.',
+    contact: 'Für institutionelle Beiträge, Datenschutzfragen und Dienstleistungen kontaktieren Sie das Projekt über die offizielle OMI-E-Mail-Adresse. Diese Seite erfasst keine Kartendaten und startet keine wiederkehrende Zahlung.',
   },
 } as const;
 
@@ -193,7 +194,7 @@ export default function SupportPage() {
   const amount = (value: number) => new Intl.NumberFormat(locale, {
     style: 'currency', currency: 'EUR', currencyDisplay: 'narrowSymbol', maximumFractionDigits: 0,
   }).format(value);
-  const contactUrl = 'https://github.com/open-manuscript-initiative';
+  const contactUrl = OMI_OFFICIAL_CONTACT_MAILTO;
 
   return (
     <Layout title={t.title} description={t.description}>
@@ -323,7 +324,7 @@ export default function SupportPage() {
               </div>
             </div>
           </section>
-          <p className={styles.muted}>{t.contact}</p>
+          <p className={styles.muted}>{t.contact} <a href={contactUrl}>{OMI_OFFICIAL_CONTACT_EMAIL}</a></p>
         </div>
       </main>
     </Layout>
