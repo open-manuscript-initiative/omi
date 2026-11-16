@@ -19,6 +19,51 @@ Ha a szerver jelzi, hogy az üzemeltető még nem adta meg az adatokat, a regisz
 előtt kérje a tájékoztatót. A forráskód vagy ez az oldal önmagában nem igazolja az
 adott üzemeltetés jogi megfelelését.
 
+## Technikai és integrációs auditnaplók megőrzése
+
+A Stúdió az alkalmazásszintű auditnaplókat **az adatbázisban** tárolja, ezért
+ezeket sem a systemd, sem a Plesk webes naplóinak rotációja nem törli.
+A szoftver alapértelmezett törlési küszöbe **90 nap** az integrációs
+műveletekre (például DeepL/AI bemeneti és kimeneti SHA-256-lenyomatok), valamint
+a kutatási modulok műveleteire; a központi és intézményi jogosultsági,
+adminisztrátori és együttműködési szerepkörváltozások naplóira **180 nap**.
+Az adatok tartalmazhatnak felhasználói azonosítót, IP-címet, műveleti metaadatot
+és lenyomatot, így nem tekinthetők automatikusan anonimnak. A cél a technikai
+hibák és visszaélések vizsgálata, a hozzáférések és jogosultságok ellenőrzése.
+Az időtartam projektjavaslat, nem jogszabályban előírt általános határidő.
+
+A törlés csak akkor **automatikus**, ha a szerver üzemeltetője az időzített
+takarítást ténylegesen aktiválta és ellenőrzi. A kiválasztott szerver
+adatkezelője köteles közzétenni az alkalmazott időtartamot, a jogalapot,
+a mentések kezelését és az indokolt kivételeket. A tudományos
+publikálás, lektorálás és szerkesztői döntések eredetkövetési adatai
+nem tartoznak e rutinszerű törlésbe; rájuk külön megőrzési rend szükséges.
+
+## Külső azonosítószolgáltatók (ORCID, Google, Microsoft)
+
+A külső belépés választható, és csak az adott szerveren engedélyezett
+szolgáltatóknál jelenik meg. Az ORCID a `openid` jogosultsággal az
+ORCID iD hitelességét igazolja, és esetleg nevet is visszaadhat.
+A Google és a Microsoft belépése `openid profile email` körrel
+működik; a szolgáltató azonosítóját és kibocsátóját, továbbá nevet,
+e-mail-címet és az e-mail-hitelesítés jelzését adhatja át.
+Az e-mail nem minden esetben hitelesített, ezért önmagában
+nem jogosít intézményi vagy szerkesztői hozzáférésre.
+Intézményi OpenID-szolgáltatók is bekapcsolhatók.
+
+A Stúdió az összekapcsolt azonosítót (szolgáltató, kibocsátó, azonosító),
+az elérhető megjelenítési nevet és a szükséges e-mail-/ellenőrzési
+metaadatokat tárolja. A belépési kódok cseréje szerveroldalon történik,
+a külső szolgáltató jelszava nem kerül a Stúdióhoz.
+A külső szolgáltatók saját adatvédelmi szabályzatuk szerint kezelik
+az ottani adatokat, **de ez nem mentesíti a Stúdió adatkezelőjét** a hozzá
+érkező és általa felhasznált személyes adatok jogszerű kezeléséért.
+Tájékoztatók: [ORCID](https://info.orcid.org/privacy-policy/),
+[Google](https://policies.google.com/privacy),
+[Microsoft](https://www.microsoft.com/en-us/privacy/privacystatement).
+Az adatkezelőnek a ténylegesen bekapcsolt szolgáltatókat és szükséges
+adattovábbítási garanciákat külön meg kell neveznie.
+
 ## Adatok és külső szolgáltatások
 
 A helyi szerkesztés és mentés a kéziratot a felhasználó eszközén tarthatja.
