@@ -10,7 +10,9 @@ ihren tatsächlichen Verantwortlichen und ihre eigene Datenverarbeitung benennen
 Projektname und Open-Source-Lizenz bestimmen nicht den Verantwortlichen aller
 unabhängigen Server. Öffnen Sie vor der Registrierung oder unter Konto den Bereich
 **Datenschutz und personenbezogene Daten**. Nach Bereitstellung der Implementierung
-ist die öffentliche Seite unter `/?privacy=1`, die API unter `/api/privacy` erreichbar.
+ist die öffentliche Seite unter `/?privacy=1`, die API unter `/api/v1/privacy` erreichbar.
+
+**Offizielle OMI-Projektkontaktadresse:** [contact@openmanuscript.org](mailto:contact@openmanuscript.org). Diese Adresse ersetzt persönliche Webmail-Adressen für Projektkommunikation und erste Datenschutzanfragen. Für die Bearbeitung formeller Datenschutzanträge ist der in den Hinweisen des gewählten Servers genannte Verantwortliche zuständig; unabhängige institutionelle Server können eigene Kontakte haben.
 
 Für das offizielle Studio finden Sie [die Serverhinweise hier](https://studio.openmanuscript.org/?privacy=1).
 Fehlen Betreiberangaben, fordern Sie vor der Registrierung die Hinweise an.
