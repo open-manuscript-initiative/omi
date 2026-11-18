@@ -6,6 +6,19 @@ description: Proposed architecture decision record register for the Studio 1.0 s
 
 # OMI Studio 1.0 ADR Register
 
+## Editorial production and connector reconciliation — 2026-11-18
+
+Keep the new native copyediting/proof workflow and external OJS authority. Canonical production and connection editorial APIs use additive `/api/v1` mounts; old paths share the same handlers with deprecation links. Zod request/response DTOs generate checked OpenAPI and client types. A semantic production repository port keeps row locks, CAS, immutable files, source acceptance and the existing atomic delivery/outbox claim in the persistence adapter.
+
+Native READY is an exact-source/exact-artifact delivery gate, not scientific acceptance or an editing lock. Authors may edit every document part; changed proofs need renewed approval. OJS workflow/metadata are versioned profile extensions behind `omi-publishing-editorial/1` capability discovery and native authorization. Current OMP explicitly reports these new operations unsupported; existing OMP flows remain. No complete connector freeze, new external review assurance, automatic metadata replay or distributed transaction is claimed.
+
+Status: proposed coordinated repair pending merge/CI. Keep the existing reviewed production-table migration; this repair adds none. Production/OJS deployment and real workflow acceptance are separate from repository tests. New tests strengthen the existing gates, not a gate waiver. Existing OJS exact-candidate manual gates must include the new workflows and exact plugin/package identities; the six PKP E02 jobs and current receipt requirements remain mandatory. OJS 1.8.3 package/native-install checks do not by themselves certify live workflow operation.
+
+[Studio ADR-037](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/7e79e002d1d06c46fef60e40c1dd09017d946d82/docs/architecture/adr-037-editorial-production-and-connector-contract.md) records contract, alternatives, rollback and revisit triggers. Refines ADR-005/006/009/010/014/015/017/019/021/032/033. Proposed implementation: [Studio PR #932](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/932).
+
+ADR-037 is the proposed implementation decision refining the listed ADRs. Revisit for a persisted production-model change, OMP parity, remote metadata replay, new proof types, external assurance or capability promotion.
+
+
 ## Research-project contract reconciliation — 2026-11-15
 
 ADR-036 (accepted target) refines ADR-022 with portable project ownership and future direct storage. The bounded inline-JSON repair aligns the actual envelope, preserves unsupported data and original prototype input, and separates project opening from graph import. Local cache success is never provider confirmation. Revisit for new resource types, archive members, direct-provider transfer, concurrent updates or public projections; retain ADR-008 loss/migration and ADR-019 evidence requirements.

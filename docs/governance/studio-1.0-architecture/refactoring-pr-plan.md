@@ -6,6 +6,19 @@ description: Dependency-aware plan of small, testable, reversible pull requests 
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
+## Editorial production and connector reconciliation — 2026-11-18
+
+Keep the new native copyediting/proof workflow and external OJS authority. Canonical production and connection editorial APIs use additive `/api/v1` mounts; old paths share the same handlers with deprecation links. Zod request/response DTOs generate checked OpenAPI and client types. A semantic production repository port keeps row locks, CAS, immutable files, source acceptance and the existing atomic delivery/outbox claim in the persistence adapter.
+
+Native READY is an exact-source/exact-artifact delivery gate, not scientific acceptance or an editing lock. Authors may edit every document part; changed proofs need renewed approval. OJS workflow/metadata are versioned profile extensions behind `omi-publishing-editorial/1` capability discovery and native authorization. Current OMP explicitly reports these new operations unsupported; existing OMP flows remain. No complete connector freeze, new external review assurance, automatic metadata replay or distributed transaction is claimed.
+
+Status: proposed coordinated repair pending merge/CI. Keep the existing reviewed production-table migration; this repair adds none. Production/OJS deployment and real workflow acceptance are separate from repository tests. New tests strengthen the existing gates, not a gate waiver. Existing OJS exact-candidate manual gates must include the new workflows and exact plugin/package identities; the six PKP E02 jobs and current receipt requirements remain mandatory. OJS 1.8.3 package/native-install checks do not by themselves certify live workflow operation.
+
+[Studio ADR-037](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/7e79e002d1d06c46fef60e40c1dd09017d946d82/docs/architecture/adr-037-editorial-production-and-connector-contract.md) records contract, alternatives, rollback and revisit triggers. Refines ADR-005/006/009/010/014/015/017/019/021/032/033. Proposed implementation: [Studio PR #932](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/932).
+
+Implement this bounded repair under B/C API-persistence work, then run existing E02 and native production acceptance before promotion. Future OMP parity and metadata outbox each require their own adapter, negative/concurrency tests and real provider evidence.
+
+
 ## Research-project contract reconciliation — 2026-11-15
 
 Extend A02/A04/A06/B06 and ADR-008/022/036 work: pin the canonical project envelope/schema/golden, generate native-CSP-safe validation, and test independent JSON consumption plus legacy migration and metadata retention. First implement project cache ownership and explicit open/add operations; only then add direct-transfer/provider conflict adapters and reviewed public projection with separate capability evidence. No Stable promotion or existing release-gate waiver.
