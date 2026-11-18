@@ -6,6 +6,15 @@ description: Dependency-aware plan of small, testable, reversible pull requests 
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
+## Live publication editor → OJS — 2026-11-18
+
+Extend C03–C06 using the existing renderers and OJS artifact adapter. Characterize exact style/output binding and stale source/style/server denial; preserve partial receipts with no automatic replay. Run existing publication-artifact unit and desktop/mobile browser gates, then E02/E03 real-provider acceptance. No new receipt version or gate waiver.
+
+Select HTML and/or one PDF mode, preview, then explicitly confirm. Native Production inspection and the existing workflow token are required. A changed local source/style/server invalidates the prepared group. Each native file transfer remains atomic independently; confirmed earlier files survive later failure. Reinspect before retrying, without automatic replay or publication. Existing schema/container/build/connector versions and database migrations remain unchanged.
+
+Maintainer-approved direction; proposed implementation pending companion merge/CI, with deployment acceptance separate. [Studio ADR-038](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/426247b82fd5f3f25167aa020f4b655f155dae6a/docs/architecture/adr-038-live-publication-ojs-handoff.md). [Studio PR #933](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/933).
+
+
 ## Editorial production and connector reconciliation — 2026-11-18
 
 Keep the new native copyediting/proof workflow and external OJS authority. Canonical production and connection editorial APIs use additive `/api/v1` mounts; old paths share the same handlers with deprecation links. Zod request/response DTOs generate checked OpenAPI and client types. A semantic production repository port keeps row locks, CAS, immutable files, source acceptance and the existing atomic delivery/outbox claim in the persistence adapter.

@@ -6,6 +6,15 @@ description: Az Open Manuscript Studio 1.0 célarchitektúrájának, fő kockáz
 
 # Open Manuscript Studio 1.0 — Executive Summary
 
+## Élő kiadványszerkesztő → OJS — 2026-11-18
+
+A kiválasztott HTML/PDF a Stúdióban tördelhető és nem publikált OJS Production cikkhez átadható, külső asztali tördelőprogram nélkül. A szerző szabadon szerkeszthet. Módosult tartalom/stílus új elkészítést kíván; a végső közzétételi döntés az OJS-é. Ez megvalósított munkafolyamat-javaslat, nem igazolt szolgáltatói elfogadás vagy 1.0-érettségi állítás.
+
+HTML és/vagy egy PDF-változat választható, előnézettel és külön megerősítéssel. Natív Production-célellenőrzés és meglévő workflow-token kötelező. A helyi kézirat/stílus/szerver változása érvényteleníti az elkészített csoportot. A natív átadás fájlonként atomi; a korábbi sikeres fájl későbbi hiba esetén megmarad. Újrapróbálás előtt új ellenőrzés szükséges; automatikus újraküldés és közzététel nincs. A schema/container/build/connector verziók és az adatbázis-migrációk változatlanok.
+
+Fenntartó által jóváhagyott irány; javasolt implementáció, companion merge/CI és külön éles elfogadás után érvényes. [Studio ADR-038](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/426247b82fd5f3f25167aa020f4b655f155dae6a/docs/architecture/adr-038-live-publication-ojs-handoff.md). [Studio PR #933](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/933).
+
+
 ## Szerkesztőségi gyártás és connector-egyeztetés — 2026-11-18
 
 A natív kézirat-előkészítési és korrektúrafolyamat megmarad, az OJS saját folyamatának authority-je továbbra is az OJS. A production- és connector-API-k kanonikus útvonala additív `/api/v1`; a régi útvonalak ugyanazon kezelők kompatibilitási facade-jai, deprecation-hivatkozással. A Zod kérés/válasz DTO-kból ellenőrzött OpenAPI és kliens-típusok származnak. A szemantikus production repository port mögötti adapter kezeli a zárolást, CAS-t, változatlan fájlokat, forráselfogadást és a kézbesítés/outbox meglévő atomi igénylését.

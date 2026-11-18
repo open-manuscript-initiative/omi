@@ -6,6 +6,15 @@ description: Függőségtudatos, kis és visszagörgethető pull requestekre bon
 
 # OMI Studio 1.0 Refactoring and PR Plan
 
+## Élő kiadványszerkesztő → OJS — 2026-11-18
+
+A C03–C06 munka a meglévő renderelőkkel és OJS artifact-adapterrel bővül. Igazolni kell a stílus/kimenet kötést és az elavult kézirat/stílus/szerver elutasítását; részleges receipt megmarad, automatikus újraküldés nincs. Meglévő publication-artifact és asztali/mobil böngészős kapuk, majd E02/E03 valós szolgáltatói elfogadás következik. Nincs új receipt-verzió vagy kapufelmentés.
+
+HTML és/vagy egy PDF-változat választható, előnézettel és külön megerősítéssel. Natív Production-célellenőrzés és meglévő workflow-token kötelező. A helyi kézirat/stílus/szerver változása érvényteleníti az elkészített csoportot. A natív átadás fájlonként atomi; a korábbi sikeres fájl későbbi hiba esetén megmarad. Újrapróbálás előtt új ellenőrzés szükséges; automatikus újraküldés és közzététel nincs. A schema/container/build/connector verziók és az adatbázis-migrációk változatlanok.
+
+Fenntartó által jóváhagyott irány; javasolt implementáció, companion merge/CI és külön éles elfogadás után érvényes. [Studio ADR-038](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/426247b82fd5f3f25167aa020f4b655f155dae6a/docs/architecture/adr-038-live-publication-ojs-handoff.md). [Studio PR #933](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/933).
+
+
 ## Szerkesztőségi gyártás és connector-egyeztetés — 2026-11-18
 
 A natív kézirat-előkészítési és korrektúrafolyamat megmarad, az OJS saját folyamatának authority-je továbbra is az OJS. A production- és connector-API-k kanonikus útvonala additív `/api/v1`; a régi útvonalak ugyanazon kezelők kompatibilitási facade-jai, deprecation-hivatkozással. A Zod kérés/válasz DTO-kból ellenőrzött OpenAPI és kliens-típusok származnak. A szemantikus production repository port mögötti adapter kezeli a zárolást, CAS-t, változatlan fájlokat, forráselfogadást és a kézbesítés/outbox meglévő atomi igénylését.
