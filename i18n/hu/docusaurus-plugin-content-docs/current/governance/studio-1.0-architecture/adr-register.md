@@ -6,6 +6,19 @@ description: A Studio 1.0 architektúra döntési nyilvántartása és a Phase A
 
 # OMI Studio 1.0 ADR Register
 
+## Szerkesztőségi gyártás és connector-egyeztetés — 2026-11-18
+
+A natív kézirat-előkészítési és korrektúrafolyamat megmarad, az OJS saját folyamatának authority-je továbbra is az OJS. A production- és connector-API-k kanonikus útvonala additív `/api/v1`; a régi útvonalak ugyanazon kezelők kompatibilitási facade-jai, deprecation-hivatkozással. A Zod kérés/válasz DTO-kból ellenőrzött OpenAPI és kliens-típusok származnak. A szemantikus production repository port mögötti adapter kezeli a zárolást, CAS-t, változatlan fájlokat, forráselfogadást és a kézbesítés/outbox meglévő atomi igénylését.
+
+A natív READY pontos forráshoz és artifacthoz kötött kézbesítési kapu; nem tudományos elfogadás és nem szerkesztési zárolás. A szerző minden dokumentumrészt szerkeszthet; a módosult proof új jóváhagyást igényel. Az OJS workflow/metaadat verziózott profilkiterjesztés, közös `omi-publishing-editorial/1` képességleírás és natív jogosultság-ellenőrzés mögött. Az OMP az új műveleteket kifejezetten nem támogatottként jelzi, korábbi funkciói megmaradnak. Ez nem teljes connector-freeze, külső lektorálási tanúsítvány, automatikus metaadat-újrapróbálás vagy elosztott tranzakció.
+
+Állapot: javasolt összehangolt javítás, merge/CI után érvényes. A meglévő, felülvizsgált production-táblamigráció megmarad; ez a javítás nem ad új migrációt. Az élesítés és valós munkafolyamat-elfogadás külön bizonyíték. Az új tesztek erősítik a kapukat. Az OJS meglévő exact-candidate kézi kapuinak az új folyamatokat és a pontos plugin/csomag azonosságát is igazolniuk kell; mind a hat PKP E02 feladat és a jelenlegi receipt-követelmények kötelezőek. Az OJS 1.8.3 csomag/native-install ellenőrzése önmagában nem igazol éles szerkesztőségi működést.
+
+A [Studio ADR-037](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/7e79e002d1d06c46fef60e40c1dd09017d946d82/docs/architecture/adr-037-editorial-production-and-connector-contract.md) rögzíti a szerződést, alternatívákat, visszaállítást és felülvizsgálati feltételeket. Pontosítja az ADR-005/006/009/010/014/015/017/019/021/032/033 döntéseket. A javítás: [Studio PR #932](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/932).
+
+Az ADR-037 a felsorolt ADR-eket pontosító javasolt implementációs döntés. Új persistence-modell, OMP-paritás, távoli metaadat-újrapróbálás, proof-formátum, assurance-authority vagy capability-promóció esetén felülvizsgálandó.
+
+
 ## Kutatásiprojekt-szerződés egyeztetése — 2026-11-15
 
 Az ADR-036 elfogadott célarchitektúrája az ADR-022-t hordozható projekttulajdonlással és tervezett közvetlen tárolással pontosítja. A korlátozott beágyazott JSON-javítás egyezteti a tényleges formátumot, megtartja az ismeretlen adatokat és az eredeti prototípusforrást, és elválasztja a projektmegnyitást a gráfimporttól. A helyi cache nem felhőmentési igazolás. Új erőforrás, archívum, providerátvitel, párhuzamos módosítás vagy publikálás esetén felülvizsgálandó; az ADR-008/019 bizonyítékai megmaradnak.

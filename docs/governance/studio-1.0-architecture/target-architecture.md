@@ -6,6 +6,19 @@ description: Proposed target architecture for stabilizing the working Open Manus
 
 # Open Manuscript Studio 1.0 Target Architecture
 
+## Editorial production and connector reconciliation — 2026-11-18
+
+Keep the new native copyediting/proof workflow and external OJS authority. Canonical production and connection editorial APIs use additive `/api/v1` mounts; old paths share the same handlers with deprecation links. Zod request/response DTOs generate checked OpenAPI and client types. A semantic production repository port keeps row locks, CAS, immutable files, source acceptance and the existing atomic delivery/outbox claim in the persistence adapter.
+
+Native READY is an exact-source/exact-artifact delivery gate, not scientific acceptance or an editing lock. Authors may edit every document part; changed proofs need renewed approval. OJS workflow/metadata are versioned profile extensions behind `omi-publishing-editorial/1` capability discovery and native authorization. Current OMP explicitly reports these new operations unsupported; existing OMP flows remain. No complete connector freeze, new external review assurance, automatic metadata replay or distributed transaction is claimed.
+
+Status: proposed coordinated repair pending merge/CI. Keep the existing reviewed production-table migration; this repair adds none. Production/OJS deployment and real workflow acceptance are separate from repository tests. New tests strengthen the existing gates, not a gate waiver. Existing OJS exact-candidate manual gates must include the new workflows and exact plugin/package identities; the six PKP E02 jobs and current receipt requirements remain mandatory. OJS 1.8.3 package/native-install checks do not by themselves certify live workflow operation.
+
+[Studio ADR-037](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/7e79e002d1d06c46fef60e40c1dd09017d946d82/docs/architecture/adr-037-editorial-production-and-connector-contract.md) records contract, alternatives, rollback and revisit triggers. Refines ADR-005/006/009/010/014/015/017/019/021/032/033. Proposed implementation: [Studio PR #932](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/932).
+
+Production services own policy; HTTP owns transport; repository and native connector adapters own persistence and protocol mapping. Preserve authoring freedom and external editorial authority.
+
+
 ## Research-project contract reconciliation — 2026-11-15
 
 ADR-036 refines ADR-022: the research project owns module resources; the account/workspace only selects a project-ID-scoped local cache. Canonical interchange is OMI-SPEC-360 Draft 0.1.0 with an inline graph adapter. Opening a project preserves its identity, timestamps and opaque inline resources; adding graph records preserves the destination identity. Cloud authority is conditional on a configured, evidenced storage adapter, not a claim about current local/manual saves.
