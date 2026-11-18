@@ -6,6 +6,15 @@ description: Proposed target architecture for stabilizing the working Open Manus
 
 # Open Manuscript Studio 1.0 Target Architecture
 
+## Live publication editor → OJS — 2026-11-18
+
+Live publication rendering accepts an explicit immutable style/publisher snapshot. The existing profile publicationStyle digest and artifact/renderer-input hashes bind the chosen HTML/PDF outputs to the committed manuscript. The application facade prepares the selected files before any remote write; OJS retains stage/role/publication authority.
+
+Select HTML and/or one PDF mode, preview, then explicitly confirm. Native Production inspection and the existing workflow token are required. A changed local source/style/server invalidates the prepared group. Each native file transfer remains atomic independently; confirmed earlier files survive later failure. Reinspect before retrying, without automatic replay or publication. Existing schema/container/build/connector versions and database migrations remain unchanged.
+
+Maintainer-approved direction; proposed implementation pending companion merge/CI, with deployment acceptance separate. [Studio ADR-038](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/426247b82fd5f3f25167aa020f4b655f155dae6a/docs/architecture/adr-038-live-publication-ojs-handoff.md). [Studio PR #933](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/933).
+
+
 ## Editorial production and connector reconciliation — 2026-11-18
 
 Keep the new native copyediting/proof workflow and external OJS authority. Canonical production and connection editorial APIs use additive `/api/v1` mounts; old paths share the same handlers with deprecation links. Zod request/response DTOs generate checked OpenAPI and client types. A semantic production repository port keeps row locks, CAS, immutable files, source acceptance and the existing atomic delivery/outbox claim in the persistence adapter.
