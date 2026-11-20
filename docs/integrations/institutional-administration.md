@@ -161,4 +161,4 @@ The administration architecture follows these rules:
 
 The same Studio client code can operate against personal or institutional deployments. Deployment mode selects server-managed external-service credentials and the institutional administration surface; it does not change the OMI manuscript model or document portability.
 
-See [Studio deployment modes](./studio-deployment-modes.md) for credential routing and deployment-level configuration, and [Studio implementation status](../governance/studio-implementation-status.md) for the current reference-implementation maturity snapshot.
+See [Studio deployment modes](./studio-deployment-modes.md) for credential routing and deployment-level configuration, and [Studio implementation status](/docs/governance/studio-implementation-status) for the current reference-implementation maturity snapshot.

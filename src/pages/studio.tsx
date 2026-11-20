@@ -6,6 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {getPublicPageCopy} from '../i18n/publicPages';
 import {STUDIO_PUBLISHED_VERSION, STUDIO_SOURCE_VERSION, STUDIO_PUBLISHED_RELEASE_NOTES, STUDIO_SOURCE_RELEASE_NOTES, STUDIO_PUBLISHED_DOWNLOAD_BASE, STUDIO_WEB_VERSION, STUDIO_ANDROID_VERSION, STUDIO_ANDROID_RC_DOWNLOAD_URL, STUDIO_WINDOWS_STORE_VERSION, STUDIO_WINDOWS_STORE_SEARCH_URL} from '../studioReleaseVersions';
 import StudioReleaseStatus from '../components/StudioReleaseStatus';
+import RecentStudioDevelopments from '../components/RecentStudioDevelopments';
 import PkpSupportStatus from '../components/PkpSupportStatus';
 import styles from './studio.module.css';
 
@@ -35,7 +36,7 @@ const CAPABILITY_DOC_TARGETS: Record<number, string> = {
 const CURRENT_UPDATE = {
   en: {
     title: "Open Manuscript Studio — Web and Android RC",
-    lead: "Web Studio and the Android APK are available as 1.0.0-rc.1, with unified frame/page layout and responsive long-document editing. Windows Store is 1.0.0.0; direct desktop installers remain 0.3.0-beta.13.",
+    lead: "Web Studio and the Android APK are available as 1.0.0-rc.2, with unified frame/page layout and responsive long-document editing. Last confirmed Windows Store version: 1.0.0.0; direct desktop installers remain 0.3.0-beta.13.",
     items: [
       ['Native dependency security updates', 'Packages rustls-webpki 0.103.16 and Tokio 1.53.3 with regression gates for the affected versions. The wasm32-only root-certificate dependency is also updated.'],
       ['Reliable macOS DMG packaging', 'Transient hdiutil resource contention retries only installer packaging, without repeating application compilation.'],
@@ -72,7 +73,7 @@ const CURRENT_UPDATE = {
       ['Federated sign-in', 'Google, Microsoft and configurable institutional OpenID Connect providers use Authorization Code + PKCE, state/nonce checks and issuer/audience validation. Existing accounts require explicit identity linking rather than e-mail auto-linking.'],
       ['Device-aware storage', 'Installed clients distinguish trusted personal devices from shared/foreign devices. Own devices can use native local/system storage; shared devices prefer profile cloud connections and do not retain local working paths.'],
       ['Android-native file workflow', 'Android uses the system Documents / Storage Access Framework picker for opening, saving, Save As and portable OMI backup/export destinations instead of broad shared-storage permissions.'],
-      ['Android RC and Google Play distribution', 'The signed direct-install Android APK is 1.0.0-rc.1. Google Play remains a separate distribution channel with its own build and update process.'],
+      ['Android RC and Google Play distribution', 'The signed direct-install Android APK is 1.0.0-rc.2. Google Play remains a separate distribution channel with its own build and update process.'],
       ['iOS and iPadOS native target', 'The shared Tauri client generates and compiles as an Apple Silicon iPhone/iPad simulator app. Files/UIDocumentPicker storage, mobile export delivery and native authentication handoff are implemented; TestFlight/App Store distribution still requires Apple Developer signing, provisioning and Universal Link association.'],
       ['Institutional and central administration', 'Personal and institutional profiles are separated. Institution MEMBER/ADMIN/OWNER roles, administrator sign-in, OMI central administration, scoped institution Admin API credentials and append-only admin audit events are implemented without granting manuscript access.'],
       ['Verified scholarly identity', 'ORCID linking is integrated with cryptographic author signing: immutable committed revisions can be bound to verified ORCID identity and portable WebAuthn/issuer verification evidence.'],
@@ -84,7 +85,7 @@ const CURRENT_UPDATE = {
     windowsStoreHint: 'Opens a Store search, not a verified product-specific URL.',
     directWindowsTitle: 'Direct EXE/MSI installers',
     directWindowsNotice: 'Separate 0.3.0-beta.13 installers; not Microsoft Store signed.',
-    nativeAppsDescription: "Web and Android APK use 1.0.0-rc.1. The Android RC package is a ZIP from the verified GitHub build; sign-in may be required. Extract the ZIP and install its APK. Windows Store version: 1.0.0.0. Direct Windows EXE/MSI, Linux and macOS downloads remain on the separate 0.3.0-beta.13 release.",
+    nativeAppsDescription: "Web and Android APK use 1.0.0-rc.2. The Android RC package is a ZIP from the verified GitHub build; sign-in may be required. Extract the ZIP and install its APK. Last confirmed Windows Store version: 1.0.0.0. Direct Windows EXE/MSI, Linux and macOS downloads remain on the separate 0.3.0-beta.13 release.",
     androidPlayDescription: "The Android RC is distributed directly as an APK package. The Google Play testing channel is separate; its installation link does not identify an RC build.",
     androidPlayAction: "Join the Android closed test",
     iosTitle: 'iOS / iPadOS',
@@ -101,13 +102,13 @@ const CURRENT_UPDATE = {
     releaseNotes: 'Release notes',
     androidRcAction: "Download Android RC (ZIP)",
     betaTitle: "Desktop packages",
-    buildTitle: "Web and Android RC", buildDescription: "1.0.0-rc.1 is available in the hosted web Studio and as an Android APK. Desktop release acceptance remains separate.", buildNotes: "RC1 changes, evidence and support scope",
-    betaText: "Windows Store uses 1.0.0.0; direct Windows EXE/MSI, Linux and macOS downloads remain 0.3.0-beta.13. Web and Android APK use 1.0.0-rc.1. The portable manuscript format remains OMI-SPEC-320@0.3.0.",
+    buildTitle: "Web and Android RC", buildDescription: "1.0.0-rc.2 is available in the hosted web Studio and as an Android APK. Desktop release acceptance remains separate.", buildNotes: "RC2 changes, evidence and support scope",
+    betaText: "Last confirmed Windows Store version: 1.0.0.0; direct Windows EXE/MSI, Linux and macOS downloads remain 0.3.0-beta.13. Web and Android APK use 1.0.0-rc.2. The portable manuscript format remains OMI-SPEC-320@0.3.0.",
     maturity: "Web and Android APK are RC. Linux native and macOS remain Preview; iOS/iPadOS is Experimental. Specification maturity is unchanged.",
   },
   hu: {
     title: "Open Manuscript Studio – webes és Android RC",
-    lead: "A webes Studio és az Android APK már 1.0.0-rc.1 kiadási jelöltként használható, egységes keret- és oldaltördeléssel, gyors hosszúkézirat-kezeléssel. A Windows Microsoft Store-os verziója 1.0.0.0; a közvetlen asztali telepítők verziója továbbra is 0.3.0-beta.13.",
+    lead: "A webes Studio és az Android APK már 1.0.0-rc.2 kiadási jelöltként használható, egységes keret- és oldaltördeléssel, gyors hosszúkézirat-kezeléssel. Az utoljára igazolt Windows Microsoft Store-os verzió 1.0.0.0; a közvetlen asztali telepítők verziója továbbra is 0.3.0-beta.13.",
     items: [
       ['Natív függőségek biztonsági frissítése', 'A rustls-webpki 0.103.16 és a Tokio 1.53.3 javításait a sérülékeny verziók visszakerülését tiltó tesztek kísérik. A csak wasm32-célon használt gyökértanúsítvány-csomag is frissül.'],
       ['Megbízhatóbb macOS DMG-csomagolás', 'Átmeneti hdiutil-erőforrásfoglaltságnál csak a telepítőcsomag készítése ismétlődik, az alkalmazás újrafordítása nélkül.'],
@@ -144,7 +145,7 @@ const CURRENT_UPDATE = {
       ['Federált bejelentkezés', 'Google, Microsoft és konfigurálható intézményi OpenID Connect szolgáltatók Authorization Code + PKCE, state/nonce és issuer/audience ellenőrzést használnak. Meglévő fiókhoz külső identitás csak kifejezett összekapcsolással rendelhető.'],
       ['Eszköztudatos tárhelykezelés', 'A telepített kliensek megkülönböztetik a saját és a megosztott/idegen eszközt. Saját eszközön használható a natív helyi vagy rendszerszintű tárhely; megosztott eszközön a profilhoz kötött felhőkapcsolat az elsődleges, és a helyi munkafájl útvonala nem marad meg.'],
       ['Android natív fájlmunkafolyamat', 'Androidon a rendszer Dokumentumok / Storage Access Framework választója kezeli a megnyitást, mentést, más helyre mentést és az OMI biztonsági mentések/exportok célját, általános tárhely-hozzáférés nélkül.'],
-      ['Android RC és Google Play terjesztés', 'Az aláírt, közvetlenül telepíthető Android APK már 1.0.0-rc.1. A Google Play külön terjesztési csatorna, saját build- és frissítési folyamattal.'],
+      ['Android RC és Google Play terjesztés', 'Az aláírt, közvetlenül telepíthető Android APK már 1.0.0-rc.2. A Google Play külön terjesztési csatorna, saját build- és frissítési folyamattal.'],
       ['iOS és iPadOS natív célverzió', 'A közös Tauri kliens már Apple Silicon iPhone/iPad szimulátoros alkalmazásként is generálható és sikeresen fordul. Elkészült a Files/UIDocumentPicker tárhelykezelés, a mobil export és a natív hitelesítési visszatérés; a TestFlight/App Store terjesztéshez még Apple Developer aláírás, provisioning és Universal Link társítás szükséges.'],
       ['Intézményi és központi adminisztráció', 'A személyes és intézményi profilok különváltak. Elkészült az intézményi MEMBER/ADMIN/OWNER modell, az adminisztrátori belépés, az OMI központi adminisztráció, a scope-olt intézményi Admin API és az adminisztrációs auditnapló — kéziratokhoz való automatikus hozzáférés nélkül.'],
       ['Hitelesített tudományos identitás', 'Az ORCID-kapcsolás bekerült a kriptográfiai szerzői aláírásba: változtathatatlan, szerveren rögzített revízió köthető ellenőrzött ORCID-identitáshoz és hordozható WebAuthn/issuer ellenőrzési bizonyítékhoz.'],
@@ -156,7 +157,7 @@ const CURRENT_UPDATE = {
     windowsStoreHint: 'A Store keresője nyílik meg, nem közvetlen, ellenőrzött terméklink.',
     directWindowsTitle: 'Közvetlen EXE/MSI-telepítők',
     directWindowsNotice: 'Különálló 0.3.0-beta.13 verziójú, nem Microsoft Store-aláírású telepítők.',
-    nativeAppsDescription: "A webes és az Android APK-változat verziója 1.0.0-rc.1. Az Android RC ZIP-csomagja az ellenőrzött GitHub-buildből tölthető le; ehhez bejelentkezés szükséges lehet. Csomagold ki a ZIP-et, majd telepítsd a benne található APK-t. A Windows Microsoft Store-os verziója 1.0.0.0; a közvetlen Windows EXE/MSI-, Linux- és macOS-letöltések továbbra is a különálló 0.3.0-beta.13 kiadásra mutatnak.",
+    nativeAppsDescription: "A webes és az Android APK-változat verziója 1.0.0-rc.2. Az Android RC ZIP-csomagja az ellenőrzött GitHub-buildből tölthető le; ehhez bejelentkezés szükséges lehet. Csomagold ki a ZIP-et, majd telepítsd a benne található APK-t. Az utoljára igazolt Windows Microsoft Store-os verzió 1.0.0.0; a közvetlen Windows EXE/MSI-, Linux- és macOS-letöltések továbbra is a különálló 0.3.0-beta.13 kiadásra mutatnak.",
     androidPlayDescription: "Az Android RC közvetlen APK-csomagból telepíthető. A Google Play tesztelési csatornája külön útvonal; az ottani telepítési link önmagában nem azonosít RC-buildet.",
     androidPlayAction: "Feliratkozás az Android zárt tesztelésére",
     iosTitle: 'iOS / iPadOS',
@@ -173,13 +174,13 @@ const CURRENT_UPDATE = {
     releaseNotes: 'Kiadási megjegyzések',
     androidRcAction: "Android RC letöltése (ZIP)",
     betaTitle: "Asztali csomagok",
-    buildTitle: "Webes és Android RC", buildDescription: "Az 1.0.0-rc.1 a webes Stúdióban és Android APK-ként használható. Az asztali kiadások elfogadása külön folyamat.", buildNotes: "RC1-változások, bizonyítékok és támogatási kör",
-    betaText: "Windows Microsoft Store: 1.0.0.0; közvetlen Windows EXE/MSI-, Linux- és macOS-letöltések: 0.3.0-beta.13. A webes és az Android APK-változat már 1.0.0-rc.1. A hordozható kéziratformátum változatlanul OMI-SPEC-320@0.3.0.",
+    buildTitle: "Webes és Android RC", buildDescription: "Az 1.0.0-rc.2 a webes Stúdióban és Android APK-ként használható. Az asztali kiadások elfogadása külön folyamat.", buildNotes: "RC2-változások, bizonyítékok és támogatási kör",
+    betaText: "Utoljára igazolt Windows Microsoft Store: 1.0.0.0; közvetlen Windows EXE/MSI-, Linux- és macOS-letöltések: 0.3.0-beta.13. A webes és az Android APK-változat már 1.0.0-rc.2. A hordozható kéziratformátum változatlanul OMI-SPEC-320@0.3.0.",
     maturity: "A webes és az Android APK-változat RC. A natív Linux és a macOS Preview, az iOS/iPadOS kísérleti. A specifikációk érettsége változatlan.",
   },
   de: {
     title: "Open Manuscript Studio — Web- und Android-RC",
-    lead: "Web Studio und das Android-APK stehen als 1.0.0-rc.1 bereit, mit vereinheitlichtem Rahmen-/Seitenlayout und reaktionsschneller Bearbeitung langer Manuskripte. Windows im Microsoft Store ist 1.0.0.0; direkte Desktop-Installer bleiben bei 0.3.0-beta.13.",
+    lead: "Web Studio und das Android-APK stehen als 1.0.0-rc.2 bereit, mit vereinheitlichtem Rahmen-/Seitenlayout und reaktionsschneller Bearbeitung langer Manuskripte. Zuletzt bestätigte Windows-Store-Version: 1.0.0.0; direkte Desktop-Installer bleiben bei 0.3.0-beta.13.",
     items: [
       ['Sicherheitsupdates nativer Abhängigkeiten', 'Enthält rustls-webpki 0.103.16 und Tokio 1.53.3 mit Regressionstests gegen betroffene Versionen. Auch die nur für wasm32 verwendete Stammzertifikat-Abhängigkeit wird aktualisiert.'],
       ['Zuverlässigere macOS-DMG-Paketierung', 'Bei vorübergehender hdiutil-Ressourcenbelegung wird nur die Installer-Paketierung wiederholt, ohne die Anwendung erneut zu kompilieren.'],
@@ -223,7 +224,7 @@ const CURRENT_UPDATE = {
     windowsStoreHint: 'Öffnet die Store-Suche, keinen verifizierten direkten Produktlink.',
     directWindowsTitle: 'Direkte EXE/MSI-Installer',
     directWindowsNotice: 'Separate 0.3.0-beta.13-Installer ohne Microsoft-Store-Signierung.',
-    nativeAppsDescription: "Web und Android-APK verwenden 1.0.0-rc.1. Das Android-RC-Paket wird als ZIP aus dem geprüften GitHub-Build angeboten; eine Anmeldung kann erforderlich sein. ZIP entpacken und die enthaltene APK installieren. Die Microsoft-Store-Version für Windows ist 1.0.0.0; direkte Windows-EXE/MSI-, Linux- und macOS-Downloads bleiben beim getrennten Release 0.3.0-beta.13.",
+    nativeAppsDescription: "Web und Android-APK verwenden 1.0.0-rc.2. Das Android-RC-Paket wird als ZIP aus dem geprüften GitHub-Build angeboten; eine Anmeldung kann erforderlich sein. ZIP entpacken und die enthaltene APK installieren. Die zuletzt bestätigte Microsoft-Store-Version für Windows ist 1.0.0.0; direkte Windows-EXE/MSI-, Linux- und macOS-Downloads bleiben beim getrennten Release 0.3.0-beta.13.",
     androidPlayDescription: "Der Android-RC wird direkt als APK-Paket bereitgestellt. Der Google-Play-Testkanal ist getrennt; sein Installationslink identifiziert keinen RC-Build.",
     androidPlayAction: "Für den Android-Test anmelden",
     iosTitle: 'iOS / iPadOS',
@@ -240,16 +241,16 @@ const CURRENT_UPDATE = {
     releaseNotes: 'Versionshinweise',
     androidRcAction: "Android-RC herunterladen (ZIP)",
     betaTitle: "Desktop-Pakete",
-    buildTitle: "Web- und Android-RC", buildDescription: "1.0.0-rc.1 ist im gehosteten Web Studio und als Android-APK verfügbar. Die Desktop-Abnahme erfolgt getrennt.", buildNotes: "RC1-Änderungen, Nachweise und Supportumfang",
-    betaText: "Windows im Microsoft Store: 1.0.0.0; direkte Windows-EXE/MSI-, Linux- und macOS-Downloads: 0.3.0-beta.13. Web und Android-APK verwenden 1.0.0-rc.1. Das portable Manuskriptformat bleibt OMI-SPEC-320@0.3.0.",
+    buildTitle: "Web- und Android-RC", buildDescription: "1.0.0-rc.2 ist im gehosteten Web Studio und als Android-APK verfügbar. Die Desktop-Abnahme erfolgt getrennt.", buildNotes: "RC2-Änderungen, Nachweise und Supportumfang",
+    betaText: "Zuletzt bestätigte Windows-Store-Version: 1.0.0.0; direkte Windows-EXE/MSI-, Linux- und macOS-Downloads: 0.3.0-beta.13. Web und Android-APK verwenden 1.0.0-rc.2. Das portable Manuskriptformat bleibt OMI-SPEC-320@0.3.0.",
     maturity: "Web und Android-APK sind RC. Linux nativ und macOS bleiben Preview; iOS/iPadOS ist experimentell. Der Reifegrad der Spezifikationen bleibt unverändert.",
   },
 } as const;
 
 const DEVELOPMENT_UPDATE_LABELS = {
-  en: '1 November 2026 development update: mobile multi-document tabs, verified cloud backups, media recovery and PDF export checks (not a new public release)',
-  hu: '2026. november 1-jei fejlesztési frissítés: mobilos dokumentumfülek, ellenőrzött felhőmentés, képek helyreállítása és PDF-export (még nem új kiadás)',
-  de: 'Entwicklungsupdate vom 1. November 2026: mobile Dokument-Tabs, Cloud-Prüfung, Medienwiederherstellung und PDF-Export (keine neue öffentliche Version)',
+  en: '20 November 2026: publication templates, complete cover sheets, editable notes, research projects and OJS production',
+  hu: '2026. november 20.: kiadványsablonok, teljes borítók, szerkeszthető jegyzetek, kutatási projektek és OJS-publikálás',
+  de: '20. November 2026: Publikationsvorlagen, Umschlagbogen, bearbeitbare Anmerkungen, Forschungsprojekte und OJS-Produktion',
 } as const;
 
 function developmentUpdateLabel(locale: string) {
@@ -284,6 +285,8 @@ export default function StudioDownloads() {
           </div>
         </section>
 
+        <RecentStudioDevelopments />
+
         <div className={styles.container} style={{padding: '0 1.5rem'}}>
           <PkpSupportStatus />
         </div>
@@ -309,7 +312,7 @@ export default function StudioDownloads() {
             </div>
             <p className={styles.sectionLead}>{update.maturity}</p>
             <p className={styles.sectionLead}>
-              <Link to="/docs/studio/updates/2026-11-01-stabilization">{developmentUpdateLabel(i18n.currentLocale)}</Link>
+              <Link to="/docs/studio/updates/2026-11-20">{developmentUpdateLabel(i18n.currentLocale)}</Link>
             </p>
           </div>
         </section>
@@ -335,7 +338,7 @@ export default function StudioDownloads() {
             <h2>{update.nativeAppsTitle}</h2>
             <p className={styles.sectionLead}>{update.nativeAppsDescription}</p>
             <div className={styles.grid}>
-              <DownloadCard title={`${t.windows} · ${STUDIO_WINDOWS_STORE_VERSION} · Microsoft Store`} description={update.windowsStoreDescription}>
+              <DownloadCard title={`${t.windows} · Microsoft Store`} description={update.windowsStoreDescription}>
                 <Link className="button button--primary" to={STUDIO_WINDOWS_STORE_SEARCH_URL}>{update.windowsStoreAction}</Link>
                 <p>{update.windowsStoreHint}</p>
                 <p><Link to="/docs/governance/code-signing-policy">Code signing policy</Link></p>

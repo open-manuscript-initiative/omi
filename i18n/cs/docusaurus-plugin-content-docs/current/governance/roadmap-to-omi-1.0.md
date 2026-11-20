@@ -6,7 +6,7 @@ description: Aktuální program, dokončené základy, pokrok v referenční imp
 
 # Plán vývoje pro verzi 1.0 programu „OMI“ 1.0
 
-**4. listopadu 2026: automatické kontroly RC1 uspěly.** Zdrojový kandidát je `1.0.0-rc.1`, veřejné stahování zůstává `0.3.0-beta.13`. Zveřejnění RC vyžaduje skutečné ruční přijetí. Linux a macOS: Preview; iOS/iPadOS: experimentální. [Stav RC1 a důkazy](/docs/studio/releases/1.0.0-rc.1).
+**20. listopadu 2026 — RC2:** Web Studio a podepsaný kandidát Android APK používají `1.0.0-rc.2`. Trvalé desktopové soubory zůstávají `0.3.0-beta.13`. Linux/macOS: Preview; iOS/iPadOS: experimentální. [Aktuální verze a důkazy](/docs/studio/releases/1.0.0-rc.2).
 
 ## Vytvoření otevřeného standardu pro vědecké publikování
 
@@ -21,7 +21,7 @@ description: Aktuální program, dokončené základy, pokrok v referenční imp
 | Poslední aktualizace | 5. září 2026 |
 | Plánovací horizont | OMI 1.0 |
 | Autoritativní zdroj identifikátorů | [OMI Specification Registry](./specification-registry.md) |
-| Základní požadavky na implementaci produktu | [Studio Implementation Status](./studio-implementation-status.md) |
+| Základní požadavky na implementaci produktu | [Studio Implementation Status](/docs/governance/studio-implementation-status) |
 | Výchozí stav implementace integrace | [Integration Implementation Status](../integrations/implementation-status.md) |
 
 ## 1. Účel
@@ -51,7 +51,7 @@ Program se již výrazně posunul za počáteční fázi auditu dokumentace. Byl
 | Základní sémantické modely | **Ve vývoji** | Modely identity/přispěvatelů a verzování/změn mají k dispozici podstatné důkazy o referenční implementaci; validace, překlad a spolupráce zůstávají na úrovni specifikace neúplné. |
 | Referenční implementace | **Veřejná beta verze (`0.3.0-beta.13`)** | K dispozici jsou strukturované úpravy, vícejazyčné uživatelské rozhraní a nápověda, účty podporované serverem, vzájemné hodnocení, nativní integrace s OJS/OMP, importy a exporty, profily vydavatelů, vyhledávání, verze pro stolní počítače a mobilní zařízení a proces aktualizace. |
 | Recenze | **Provozní implementace** | Byly implementovány základy dvojitě slepé recenze, pracovní prostory recenzentů, řídicí panel pro recenze editorů a zpracování externě přidělených recenzí. Soulad s formální specifikací zůstává předmětem budoucí práce. |
-| Integrace s OJS | **Závisí na provozu a konfiguraci** | Plugin verze v1.6.0 a pracovní postup ve Studiu umožňují spuštění s podpisem autora/editora/recenzenta, přenos souborů v omezeném rozsahu, nativní formuláře pro recenze, opravy, oddělenou zpětnou vazbu a zápis s podpisem; nativní ověření E2E podle normy „OJS“ 3.5 je v pořádku. Úplné pokrytí profilu a shoda s normou zatím nejsou kompletní. |
+| Integrace s OJS | **Závisí na provozu a konfiguraci** | Plugin verze v1.8.7 a pracovní postup ve Studiu umožňují spuštění s podpisem autora/editora/recenzenta, přenos souborů v omezeném rozsahu, nativní formuláře pro recenze, opravy, oddělenou zpětnou vazbu a zápis s podpisem; nativní ověření E2E podle normy „OJS“ 3.5 je v pořádku. Úplné pokrytí profilu a shoda s normou zatím nejsou kompletní. |
 | Integrace s OMP | **Závisí na provozu / konfiguraci** | Plugin verze 1.5.1 a pracovní postup ve Studiu umožňují spouštění s podpisem autora/redaktora/recenzenta, přiřazování monografií/publikací/studií, přístup k recenzím pouze pro přiřazené studie, nativní formuláře, opravy, oddělenou zpětnou vazbu a zpětné zapsání s podpisem; nativní OMP 3.5 E2E ověření je v pořádku. |
 | Integrace identit | **Závisí na konfiguraci** | ORCID OAuth existuje infrastruktura pro nasazení a ROR/bibliographic existují základy pro identitu. Konfigurace v produkčním prostředí je specifická pro dané nasazení. |
 | Integrační platforma | **Základní implementace hotová** | K dispozici je katalog integrací, registr poskytovatelů, režimy ověřování poskytovatelů a šablony pro konfiguraci DeepL. Realizace překladů pomocí DeepL zatím není dokončena. |
@@ -75,7 +75,7 @@ Mezi zveřejněné základy správy a architektury patří:
 - [Documentation Architecture](./documentation-architecture.md);
 - [OMI Specification Template](./specification-template.md);
 - [OMI Implementation Status Matrix](./implementation-status-matrix.md);
-- [Studio Implementation Status](./studio-implementation-status.md);
+- [Studio Implementation Status](/docs/governance/studio-implementation-status);
 - [Code Signing Policy](./code-signing-policy.md);
 - [Integration Implementation Status](../integrations/implementation-status.md).
 
@@ -346,6 +346,6 @@ Verze 1.0 vyžaduje minimálně:
 
 ## 11. Zásady pro udržování stavu
 
-Tento plán by měl být aktualizován v případě změny programových priorit nebo kritérií pro vydání. Rychle se měnící podrobnosti o produktu by měly být aktualizovány především na stránkách [Studio Implementation Status](./studio-implementation-status.md) a [Integration Implementation Status](../integrations/implementation-status.md) a následně zohledněny i zde, pokud mají podstatný dopad na program OMI 1.0.
+Tento plán by měl být aktualizován v případě změny programových priorit nebo kritérií pro vydání. Rychle se měnící podrobnosti o produktu by měly být aktualizovány především na stránkách [Studio Implementation Status](/docs/governance/studio-implementation-status) a [Integration Implementation Status](../integrations/implementation-status.md) a následně zohledněny i zde, pokud mají podstatný dopad na program OMI 1.0.
 
 Toto rozlišení je záměrné: plán vývoje popisuje, jakým směrem se standard ubírá, zatímco aktuální zprávy o stavu popisují, co současná referenční implementace skutečně dokáže.

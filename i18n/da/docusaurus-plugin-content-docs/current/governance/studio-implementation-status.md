@@ -25,7 +25,7 @@ keywords:
 
 # Open Manuscript Studio — Nuværende status for implementeringen
 
-**4. november 2026: De automatiske RC1-kontroller er bestået.** Kildekandidaten er `1.0.0-rc.1`; offentlige downloads forbliver `0.3.0-beta.13`. RC-udgivelsen kræver faktisk manuel accept. Linux og macOS: Preview; iOS/iPadOS: eksperimentel. [RC1-status og dokumentation](/docs/studio/releases/1.0.0-rc.1).
+**20. november 2026 — RC2:** Web Studio og den signerede Android APK-kandidat bruger `1.0.0-rc.2`. Permanente desktopdownloads forbliver `0.3.0-beta.13`. Linux/macOS: Preview; iOS/iPadOS: eksperimentel. [Aktuelle versioner og dokumentation](/docs/studio/releases/1.0.0-rc.2).
 
 ## Øjebliksbillede
 

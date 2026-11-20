@@ -5,7 +5,7 @@ sidebar_label: Plattformübergreifendes Studio
 
 # Plattformübergreifende Studio-Architektur
 
-**4. November 2026 — RC1-Nachweise erfolgreich.** Der Quellstand `1.0.0-rc.1` (`e1200268ad549c0a40ace8724715cd2405e9d03c`) bestand CI, CodeQL, PKP, Readiness, native Builds und [E02](https://github.com/open-manuscript-initiative/open-manuscript-studio/actions/runs/41745224810). Die native RC-Veröffentlichung benötigt noch die tatsächliche manuelle Abnahme. Öffentliche Downloads: `0.3.0-beta.13`; Linux nativ und macOS Preview, iOS/iPadOS experimentell. [RC1-Status](/docs/studio/releases/1.0.0-rc.1).
+**20. November 2026 — RC2-Stand:** Web Studio und der signierte Android-APK-Kandidat verwenden `1.0.0-rc.2`. CI/CD einschließlich Web-Bereitstellung, CodeQL und native Builds sind für den [dokumentierten Quellstand erfolgreich](/docs/studio/releases/1.0.0-rc.2). Dauerhafte Desktop-Downloads bleiben `0.3.0-beta.13`. Linux/macOS: Preview; iOS/iPadOS: Experimental. Frühere RC1-Nachweise bleiben historisch und bestätigen keine RC2-Geräteabnahme.
 
 Open Manuscript Studio ist als einheitliche wissenschaftliche Autorenumgebung konzipiert, die sowohl im Web als auch auf Desktop- und Mobilgeräten läuft, ohne das Manuskriptmodell oder die Workflow-Implementierung zu fragmentieren.
 
@@ -18,7 +18,7 @@ Das Projekt unterhält keine separaten Anwendungen für jedes Betriebssystem. St
 | Web | **In Betrieb** | Hosted Studio |
 | Windows | **Betriebsbereit** | Tauri 2 EXE/MSI |
 | macOS | **Automatisiertes Build-Ziel** | DMG für Intel und Apple Silicon; die Absicherung der Signierung/Notarisierung bleibt bestehen |
-| Linux | **Preview for RC1** | AppImage/DEB; inherited Rust `glib 0.18.5` advisory #271 remains open |
+| Linux | **Preview for RC2** | AppImage/DEB; inherited Rust `glib 0.18.5` advisory #271 remains open |
 | Android | **Öffentliche Beta-Version im Einsatz** | Universelle APK aus dem gemeinsamen Release-Workflow; store-orientierte Paketierung folgt später |
 | iOS / iPadOS | **Validiertes natives Build-Ziel** | Der Build für den iPhone-/iPad-Simulator ist erfolgreich; für die Verteilung über TestFlight und den App Store sind eine Apple-Entwickler-Signatur sowie die endgültige Zuordnung des Universal Links erforderlich |
 
@@ -203,4 +203,4 @@ In dieser Architektur ist **die wissenschaftliche Handschrift von Grund auf port
 
 Die Bereitstellung für Web und Windows ist ein operativer Bestandteil von Studio, Android ist ein öffentliches Alpha-Ziel, Linux/macOS sind automatisierte native Build-Ziele, und iOS/iPadOS ist nun ein validiertes natives Simulator-Build-Ziel auf derselben Tauri-2-Architektur. Der gemeinsame Client umfasst neben dem Browser-Workflow auch die Arbeit mit mehreren Dokumenten auf dem Desktop, geräteabhängigen nativen Speicher, die Verarbeitung von Android Documents/SAF, die Verarbeitung von Apple Files/UIDocumentPicker, geräteübergreifende Kontoidentität sowie föderierte Authentifizierung. Die öffentliche Verteilung für iOS/iPadOS unterliegt weiterhin den Vorgaben von Apple hinsichtlich Entwickler-Signierung, Provisionierung, Zuordnung von Universal Links sowie der Validierung durch TestFlight und den App Store.
 
-Aktuelle Details zur Implementierung finden Sie unter [Studio Implementation Status](../governance/studio-implementation-status.md), [Open Manuscript Studio on iOS and iPadOS](./ios-ipados-studio.md), [Integration Implementation Status](../integrations/implementation-status.md) und [Institutional and Central Administration](../integrations/institutional-administration.md).
+Aktuelle Details zur Implementierung finden Sie unter [Studio Implementation Status](/docs/governance/studio-implementation-status), [Open Manuscript Studio on iOS and iPadOS](./ios-ipados-studio.md), [Integration Implementation Status](../integrations/implementation-status.md) und [Institutional and Central Administration](../integrations/institutional-administration.md).

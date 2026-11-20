@@ -5,7 +5,7 @@ sidebar_label: Мултиплатформена среда за разработ
 
 # Мултиплатформена архитектура на Studio
 
-**4 ноември 2026 г. — Web и Android RC са налични.** Web Studio и Android APK са `1.0.0-rc.1`; пакетите за настолен компютър остават `0.3.0-beta.13`. Linux и macOS: Preview; iOS/iPadOS: експериментални. [RC1 и изтегляне](/docs/studio/releases/1.0.0-rc.1).
+**20 ноември 2026 г. — RC2:** Web Studio и подписаният Android APK кандидат са `1.0.0-rc.2`. Постоянните настолни изтегляния остават `0.3.0-beta.13`. Linux/macOS: Preview; iOS/iPadOS: експериментални. [Текущи версии и доказателства](/docs/studio/releases/1.0.0-rc.2).
 
 Open Manuscript Studio е проектирана като единна научна среда за създаване на съдържание, която работи в уеб, на настолни компютри и на мобилни устройства, без да се раздробява моделът на ръкописа или реализацията на работния процес.
 
@@ -18,7 +18,7 @@ Open Manuscript Studio е проектирана като единна науч�
 | Уеб | **Оперативно** | Хоствано студио |
 | Windows | **Работеща** | Tauri 2 EXE/MSI |
 | macOS | **Автоматизирана цел за компилиране** | DMG за Intel и Apple Silicon; мерките за сигурност при подписване/нотариализиране остават в сила |
-| Linux | **Preview for RC1** | AppImage/DEB; inherited Rust `glib 0.18.5` advisory #271 remains open |
+| Linux | **Preview for RC2** | AppImage/DEB; inherited Rust `glib 0.18.5` advisory #271 remains open |
 | Android | **Работеща публична бета версия** | Универсален APK файл от работния процес за споделяне на версии; опаковане, съобразено с магазините, ще бъде добавено по-късно |
 | iOS / iPadOS | **Потвърдена цел за създаване на нативна версия** | Създаването на версия за симулатора на iPhone/iPad е успешно; разпространението чрез TestFlight/App Store изисква подписване от Apple Developer и окончателно свързване с Universal Link |
 
@@ -197,4 +197,4 @@ Hosted Studio използва стандартни изтегляния чре�
 
 Доставката за уеб и Windows е оперативна част от Studio, Android е публична бета-цел, Linux/macOS са автоматизирани цели за нативни компилации, а iOS/iPadOS вече е валидирана цел за нативни компилации в симулатор на същата архитектура Tauri 2. Споделеният клиент включва работа с множество документи на десктопа, нативно съхранение, съобразено с устройството, обработка на Android Documents/SAF, обработка на Apple Files/UIDocumentPicker, идентичност на акаунта на различни устройства и федеративна автентификация, в допълнение към работния поток в браузъра. Публичното разпространение за iOS/iPadOS остава ограничено от изискванията на Apple Developer за подписване, провижиране, асоцииране на Universal Link и валидиране чрез TestFlight/App Store.
 
-За актуални подробности относно реализацията вижте [Studio Implementation Status](../governance/studio-implementation-status.md), [Open Manuscript Studio on iOS and iPadOS](./ios-ipados-studio.md), [Integration Implementation Status](../integrations/implementation-status.md) и [Institutional and Central Administration](../integrations/institutional-administration.md).
+За актуални подробности относно реализацията вижте [Studio Implementation Status](/docs/governance/studio-implementation-status), [Open Manuscript Studio on iOS and iPadOS](./ios-ipados-studio.md), [Integration Implementation Status](../integrations/implementation-status.md) и [Institutional and Central Administration](../integrations/institutional-administration.md).

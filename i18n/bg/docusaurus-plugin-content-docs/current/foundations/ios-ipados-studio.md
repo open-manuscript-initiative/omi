@@ -18,7 +18,7 @@ keywords:
 
 # Open Manuscript Studio в iOS и iPadOS
 
-**4 ноември 2026 г. — Web и Android RC са налични.** Web Studio и Android APK са `1.0.0-rc.1`; пакетите за настолен компютър остават `0.3.0-beta.13`. Linux и macOS: Preview; iOS/iPadOS: експериментални. [RC1 и изтегляне](/docs/studio/releases/1.0.0-rc.1).
+**20 ноември 2026 г. — RC2:** Web Studio и подписаният Android APK кандидат са `1.0.0-rc.2`. Постоянните настолни изтегляния остават `0.3.0-beta.13`. Linux/macOS: Preview; iOS/iPadOS: експериментални. [Текущи версии и доказателства](/docs/studio/releases/1.0.0-rc.2).
 
 Open Manuscript Studio използва същия приложен ядро React/TypeScript, модела за ръкописи OMI и архитектурата на родната оболочка Tauri 2 на iPhone и iPad, както и на останалите поддържани платформи. Поради това версията за iOS/iPadOS не представлява отделен разклонен продукт и не въвежда формат на ръкописите, специфичен за Apple.
 
@@ -45,8 +45,8 @@ Open Manuscript Studio използва същия приложен ядро Rea
 | Идентификатор на пакета | `org.openmanuscript.studio` |
 | Минимални изисквания за платформата | iOS/iPadOS 14.0 |
 | Кратка версия в App Store | `1.0.0` |
-| Номер на версията в App Store | `26` |
-| Линия за разработка на студио | `1.0.0-rc.1` |
+| Номер на версията в App Store | `27` |
+| Линия за разработка на студио | `1.0.0-rc.2` |
 
 Кратката версия/номерацията на сборките на Apple представлява метаданни за пакета. Тя не променя версията на схемата „OMI“ и не създава отделна линия за съвместимост на iOS-документите.
 
@@ -207,4 +207,4 @@ IOS_MOBILE_PROVISION
 
 Поддръжката на iOS/iPadOS не променя договорните условия на документа „OMI“. Ръкописът, създаден на iPhone или iPad, е предназначен да остане съвместим с уеб, Windows, Linux, macOS и Android клиенти, като използва същия модел „OMI“ и поддържаните контейнери за обмен.
 
-За по-обща информация относно архитектурата вижте [Cross-platform Studio Architecture](./cross-platform-studio.md). За актуална информация за продукта вижте [Studio Implementation Status](../governance/studio-implementation-status.md).
+За по-обща информация относно архитектурата вижте [Cross-platform Studio Architecture](./cross-platform-studio.md). За актуална информация за продукта вижте [Studio Implementation Status](/docs/governance/studio-implementation-status).

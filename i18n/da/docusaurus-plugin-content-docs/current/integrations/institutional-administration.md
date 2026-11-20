@@ -161,4 +161,4 @@ Administrationsarkitekturen følger disse regler:
 
 Den samme Studio-klientkode kan anvendes i både personlige og institutionelle installationer. Installationsmodusen vælger de serveradministrerede legitimationsoplysninger til eksterne tjenester samt den institutionelle administrationsgrænseflade; den ændrer ikke manuskriptmodellen »OMI« eller dokumenternes overførbarhed.
 
-Se [Studio deployment modes](./studio-deployment-modes.md) for information om routing af legitimationsoplysninger og konfiguration på implementeringsniveau, og [Studio implementation status](../governance/studio-implementation-status.md) for det aktuelle øjebliksbillede af modenheden i referenceimplementeringen.
+Se [Studio deployment modes](./studio-deployment-modes.md) for information om routing af legitimationsoplysninger og konfiguration på implementeringsniveau, og [Studio implementation status](/docs/governance/studio-implementation-status) for det aktuelle øjebliksbillede af modenheden i referenceimplementeringen.

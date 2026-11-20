@@ -18,7 +18,7 @@ keywords:
 
 # Open Manuscript Studio på iOS og iPadOS
 
-**4. november 2026: De automatiske RC1-kontroller er bestået.** Kildekandidaten er `1.0.0-rc.1`; offentlige downloads forbliver `0.3.0-beta.13`. RC-udgivelsen kræver faktisk manuel accept. Linux og macOS: Preview; iOS/iPadOS: eksperimentel. [RC1-status og dokumentation](/docs/studio/releases/1.0.0-rc.1).
+**20. november 2026 — RC2:** Web Studio og den signerede Android APK-kandidat bruger `1.0.0-rc.2`. Permanente desktopdownloads forbliver `0.3.0-beta.13`. Linux/macOS: Preview; iOS/iPadOS: eksperimentel. [Aktuelle versioner og dokumentation](/docs/studio/releases/1.0.0-rc.2).
 
 Open Manuscript Studio bruger den samme applikationskerne fra React/TypeScript, manuskriptmodellen fra OMI og den indbyggede Tauri 2-shell-arkitektur på iPhone og iPad som på de øvrige understøttede platforme. iOS/iPadOS-versionen er derfor ikke en separat produktgren og indfører ikke et Apple-specifikt manuskriptformat.
 
@@ -45,8 +45,8 @@ Den nuværende offentlige Studio-udgivelsesserie er `0.3.0-beta.13`. Metadataene
 | Bundle-identifikator | `org.openmanuscript.studio` |
 | Minimumskrav til platform | iOS/iPadOS 14.0 |
 | Kort version i App Store | `1.0.0` |
-| App Store-buildnummer | `26` |
-| Studio-udviklingsserie | `1.0.0-rc.1` |
+| App Store-buildnummer | `27` |
+| Studio-udviklingsserie | `1.0.0-rc.2` |
 
 Apples korte version/build-nummerering er metadata om pakken. Det ændrer ikke versionen af skemaet »OMI« og opretter heller ikke en separat linje for iOS-dokumentkompatibilitet.
 
@@ -207,4 +207,4 @@ Disse krav bør ikke betegnes som manglende Studio-arkitektur. De udgør det res
 
 Understøttelsen af iOS/iPadOS ændrer ikke dokumentkontrakten »OMI«. Et manuskript, der oprettes på en iPhone eller iPad, skal fortsat kunne overføres til web-, Windows-, Linux-, macOS- og Android-klienter ved hjælp af den samme »OMI«-model og de understøttede udvekslingsformater.
 
-For en mere detaljeret beskrivelse af arkitekturen, se [Cross-platform Studio Architecture](./cross-platform-studio.md). For det aktuelle produktoversigt, se [Studio Implementation Status](../governance/studio-implementation-status.md).
+For en mere detaljeret beskrivelse af arkitekturen, se [Cross-platform Studio Architecture](./cross-platform-studio.md). For det aktuelle produktoversigt, se [Studio Implementation Status](/docs/governance/studio-implementation-status).

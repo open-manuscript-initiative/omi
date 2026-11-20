@@ -25,14 +25,14 @@ keywords:
 
 # Open Manuscript Studio — Aktuální stav implementace
 
-**4. listopadu 2026: automatické kontroly RC1 uspěly.** Zdrojový kandidát je `1.0.0-rc.1`, veřejné stahování zůstává `0.3.0-beta.13`. Zveřejnění RC vyžaduje skutečné ruční přijetí. Linux a macOS: Preview; iOS/iPadOS: experimentální. [Stav RC1 a důkazy](/docs/studio/releases/1.0.0-rc.1).
+**20. listopadu 2026 — RC2:** Web Studio a podepsaný kandidát Android APK používají `1.0.0-rc.2`. Trvalé desktopové soubory zůstávají `0.3.0-beta.13`. Linux/macOS: Preview; iOS/iPadOS: experimentální. [Aktuální verze a důkazy](/docs/studio/releases/1.0.0-rc.2).
 
 ## Snímek
 
 | Pole | Hodnota |
 |---|---|
-| Stav | **RC1 — automatické kontroly úspěšné** |
-| Datum snímku | **4. listopadu 2026** |
+| Stav | **RC2 — automatické kontroly úspěšné** |
+| Datum snímku | **20. listopadu 2026** |
 | Aktuální řada produktů | `0.3.0-beta.13` |
 | Referenční implementace | Open Manuscript Studio |
 | Repozitář zdrojového kódu | `open-manuscript-initiative/open-manuscript-studio` |

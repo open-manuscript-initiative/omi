@@ -102,4 +102,4 @@ Studio вече използва три явни контекста за съх�
 
 Статусите на тази страница описват **Open Manuscript Studio имплементацията на продукта**. Те не удостоверяват съответствие на конектора с OMI. Формалното съответствие изисква изисквания с версии, тестови набори и рамката за способности/съответствие.
 
-За информация относно статуса на нивото на спецификациите вижте [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md). За по-общата продуктова линия на Studio вижте [Studio Implementation Status](../governance/studio-implementation-status.md).
+За информация относно статуса на нивото на спецификациите вижте [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md). За по-общата продуктова линия на Studio вижте [Studio Implementation Status](/docs/governance/studio-implementation-status).

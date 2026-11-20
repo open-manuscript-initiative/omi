@@ -6,7 +6,17 @@ slug: /integrations/ojs-plugin
 
 # OMI OJS Integrations-Plugin
 
+**Aktualisiert am 20. November 2026:** [RC2-Versionen und Nachweise](/docs/studio/releases/1.0.0-rc.2). Neue Anleitungen: [Vorlagen, Umschlagbogen und OJS Production](/docs/studio/publication-editor), [Anmerkungen](/docs/studio/notes-and-formatting), [Stammbäume/Forschungsprojekte](/docs/studio/research-projects).
+
 Das **OMI-OJS-Integrations-Plugin** verbindet Open Journal Systems (OJS) 3.5.x mit Open Manuscript Studio über die OMI-Integration API. OJS bleibt die zentrale Instanz für den Zeitschriften-Workflow, die Identität der eingereichten Beiträge, die Zuweisung von Gutachtern und geschützte Dateien; Studio greift nicht direkt auf die Datenbank von OJS oder den privaten Dateispeicher zu.
+
+## Neu in der Integrationslinie 1.8
+
+- Nativen Workflow-Status lesen und ausgewählte Titel-, Untertitel-, Abstract- und Schlagwortfelder sprachweise vergleichen. Lizenz/Copyright ausdrücklich importieren; Mitwirkendenidentität, DOI und Publikationszuordnung bleiben unter OJS-Kontrolle.
+- Verlags-HTML und/oder eine PDF-Variante in Studio vorbereiten, die genauen Dateien prüfen und an eine vorhandene unveröffentlichte OJS-Production-Publikation mit nativen Rechten und Belegen übertragen. Dies veröffentlicht den Artikel nicht.
+- Version 1.8.7 repariert portables OJS-Klassenladen und prüft natives HTTP-Verhalten vor dem Release. Das Paket ist nicht an eine einzelne Domain gebunden; jede Installation benötigt eigene gültige Konfiguration und Zugangsdaten.
+
+Siehe [Publikationseditor](/docs/studio/publication-editor). Studio-Frontend/API und OJS-Plugin entsprechend der benötigten Funktion aktualisieren; das getrennt versionierte OMP-Plugin übernimmt keine OJS-Funktionen automatisch.
 
 ## Kompatibilität mit PKP 3.5.0-6
 
@@ -16,15 +26,15 @@ Die Abnahmeanforderungen für die stabile OJS-Unterstützung gelten weiterhin. D
 
 ## Aktuelle Version
 
-**Stabile Version:** `v1.6.0`  
+**Stabile Version:** `v1.8.7`
 **Zielplattform:** OJS 3.5.x  
 **Lizenz:** GNU GPL v3.0
 
 ### Herunterladen
 
-- **[Download OJS plugin v1.6.0 — ZIP](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.6.0/studioIntegration-ojs-3.5-v1.6.0.zip)**
-- **[Download OJS plugin v1.6.0 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.6.0/studioIntegration-ojs-3.5-v1.6.0.tar.gz)**
-- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.6.0/SHA256SUMS.txt)
+- **[Download OJS plugin v1.8.7 — ZIP](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.8.7/studioIntegration-ojs-3.5-v1.8.7.zip)**
+- **[Download OJS plugin v1.8.7 — TAR.GZ](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.8.7/studioIntegration-ojs-3.5-v1.8.7.tar.gz)**
+- [SHA-256 checksums](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/download/v1.8.7/SHA256SUMS.txt)
 - [Latest GitHub release](https://github.com/open-manuscript-initiative/omi-ojs-plugin/releases/latest)
 
 Das Release-Archiv enthält das Plugin im Verzeichnis „`studioIntegration/`“, wie es von den Installationsabläufen für PKP-Plugins erwartet wird.

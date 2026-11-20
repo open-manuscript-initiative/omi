@@ -7,7 +7,11 @@ slug: /studio/research-modules
 
 # Forschungsmodule in Open Manuscript Studio
 
+**Aktualisiert am 20. November 2026:** [RC2-Versionen und Nachweise](/docs/studio/releases/1.0.0-rc.2). Neue Anleitungen: [Vorlagen, Umschlagbogen und OJS Production](/docs/studio/publication-editor), [Anmerkungen](/docs/studio/notes-and-formatting), [Stammbäume/Forschungsprojekte](/docs/studio/research-projects).
+
 Die optionalen Forschungsmodule von Studio bieten spezialisierte Arbeitsbereiche für Aufgaben, die über die Manuskriptbearbeitung hinausgehen. Unter **Research → Modules** sehen Sie die für die Installation freigegebenen Module und können die benötigten Module für den aktuellen Arbeitsbereich aktivieren. Die Installationsadministration verwaltet die Liste verfügbarer Module.
+
+Stammbäume und Beziehungsnetzwerke teilen ein bearbeitbares portables Projekt mit GEDCOM/GEXF/GraphML-Import. Der optionale Cloud-Dateiadapter synchronisiert eine ausgewählte Datei bei geöffnetem Modul, mit Konfliktentscheidung. Siehe [Forschungsprojekte](/docs/studio/research-projects); dies ist eine Ausnahme zu den unten beschriebenen lokalen Voreinstellungen.
 
 ## Verfügbare Module
 

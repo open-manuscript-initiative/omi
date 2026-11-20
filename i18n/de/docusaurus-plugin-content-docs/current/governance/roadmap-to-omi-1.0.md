@@ -6,7 +6,9 @@ description: Aktuelles Programm, abgeschlossene Grundlagen, Fortschritt bei der 
 
 # Roadmap für „OMI“ 1.0
 
-**4. November 2026 — RC1-Nachweise erfolgreich.** Der Quellstand `1.0.0-rc.1` (`e1200268ad549c0a40ace8724715cd2405e9d03c`) bestand CI, CodeQL, PKP, Readiness, native Builds und [E02](https://github.com/open-manuscript-initiative/open-manuscript-studio/actions/runs/41745224810). Die native RC-Veröffentlichung benötigt noch die tatsächliche manuelle Abnahme. Öffentliche Downloads: `0.3.0-beta.13`; Linux nativ und macOS Preview, iOS/iPadOS experimentell. [RC1-Status](/docs/studio/releases/1.0.0-rc.1).
+**Aktualisiert am 20. November 2026:** [RC2-Versionen und Nachweise](/docs/studio/releases/1.0.0-rc.2). Neue Anleitungen: [Vorlagen, Umschlagbogen und OJS Production](/docs/studio/publication-editor), [Anmerkungen](/docs/studio/notes-and-formatting), [Stammbäume/Forschungsprojekte](/docs/studio/research-projects).
+
+**20. November 2026 — RC2-Stand:** Web Studio und der signierte Android-APK-Kandidat verwenden `1.0.0-rc.2`. CI/CD einschließlich Web-Bereitstellung, CodeQL und native Builds sind für den [dokumentierten Quellstand erfolgreich](/docs/studio/releases/1.0.0-rc.2). Dauerhafte Desktop-Downloads bleiben `0.3.0-beta.13`. Linux/macOS: Preview; iOS/iPadOS: Experimental. Frühere RC1-Nachweise bleiben historisch und bestätigen keine RC2-Geräteabnahme.
 
 ## Entwicklung eines offenen Standards für wissenschaftliches Publizieren
 
@@ -21,7 +23,7 @@ description: Aktuelles Programm, abgeschlossene Grundlagen, Fortschritt bei der 
 | Zuletzt aktualisiert | 05.09.2026 |
 | Planungshorizont | OMI 1.0 |
 | Quelle der verbindlichen Kennung | [OMI Specification Registry](./specification-registry.md) |
-| Grundlage für die Produktimplementierung | [Studio Implementation Status](./studio-implementation-status.md) |
+| Grundlage für die Produktimplementierung | [Studio Implementation Status](/docs/governance/studio-implementation-status) |
 | Basis für die Umsetzung der Integration | [Integration Implementation Status](../integrations/implementation-status.md) |
 
 ## 1. Zweck
@@ -49,12 +51,12 @@ Das Programm hat die anfängliche Phase der Dokumentationsprüfung bereits weit 
 | Synchronisierung von Website und Produkt | **Aktiv und gepflegt** | Auf der öffentlichen Studio-Seite und im datierten Studio-Statusbericht werden nun die implementierten Produktfunktionen getrennt von der normativen Konformität erfasst. |
 | Migration von Identifikatoren | **Für aktive Spezifikationen abgeschlossen** | Aktive Spezifikationen verwenden die kanonische Zuweisungsarchitektur „`OMI-SPEC-*`“. |
 | Zentrale semantische Modelle | **In Arbeit** | Für die Modelle zu Identität/Mitwirkenden sowie Versionierung/Änderungen liegen umfangreiche Belege in Form von Referenzimplementierungen vor; die Modelle zu Validierung, Übersetzung und Zusammenarbeit sind auf Spezifikationsebene noch unvollständig. |
-| Referenzimplementierung | **Öffentliche Beta-Version (`0.3.0-beta.13`)** | Strukturierte Bearbeitung, mehrsprachige Benutzeroberfläche/Hilfe, servergestützte Konten, Peer-Review, native Integration von OJS/OMP, Import-/Exportfunktionen, Verlagsprofile, Suchfunktion, Desktop-/Mobilversionen und Update-Ablauf sind vorhanden. |
+| Referenzimplementierung | **Web/Android RC2 (`1.0.0-rc.2`); dauerhafte Desktop-Downloads `0.3.0-beta.13`** | Strukturierte Bearbeitung, mehrsprachige Benutzeroberfläche/Hilfe, servergestützte Konten, Peer-Review, native Integration von OJS/OMP, Import-/Exportfunktionen, Verlagsprofile, Suchfunktion, Desktop-/Mobilversionen und Update-Ablauf sind vorhanden. |
 | Peer-Review | **Operative Umsetzung** | Die Grundlagen für das Doppelblind-Review-Verfahren, die Arbeitsbereiche für Gutachter, das Review-Dashboard für Redakteure sowie die Abwicklung extern zugewiesener Gutachten sind implementiert. Die Konformität mit der formalen Spezifikation muss noch umgesetzt werden. |
-| OJS-Integration | **Betriebs- und konfigurationsabhängig** | Das Plugin v1.6.0 und der Studio-Workflow bieten einen signierten Start für Autoren, Redakteure und Prüfer, eine bereichsbezogene Dateiübertragung, native Prüfformulare, Korrekturen, getrenntes Feedback und signiertes Zurückschreiben; die native End-to-End-Verifizierung gemäß „OJS“ 3.5 ist erfolgreich. Die vollständige Profilabdeckung und Konformität sind noch unvollständig. |
+| OJS-Integration | **Betriebs- und konfigurationsabhängig** | Das Plugin v1.8.7 und der Studio-Workflow bieten einen signierten Start für Autoren, Redakteure und Prüfer, eine bereichsbezogene Dateiübertragung, native Prüfformulare, Korrekturen, getrenntes Feedback und signiertes Zurückschreiben; die native End-to-End-Verifizierung gemäß „OJS“ 3.5 ist erfolgreich. Die vollständige Profilabdeckung und Konformität sind noch unvollständig. |
 | OMP-Integration | **Betriebs- bzw. konfigurationsabhängig** | Das Plugin v1.5.1 und der Studio-Workflow bieten einen signierten Start für Autoren, Redakteure und Gutachter, die Zuordnung von Monografien, Publikationen und Studien, den Zugriff auf Gutachten ausschließlich für zugewiesene Studien, native Formulare, Korrekturen, getrenntes Feedback und signierte Rückmeldungen; die native E2E-Verifizierung von „OMP“ 3.5 ist erfolgreich. |
 | Identitätsintegrationen | **Konfigurationsabhängig** | ORCID OAuth Es gibt Bereitstellungsinfrastrukturen und ROR/bibliografische Identitätsgrundlagen. Die Produktionskonfiguration ist bereitstellungsspezifisch. |
-| Integrationsplattform | **Grundlage umgesetzt** | Der Integrationskatalog, das Anbieterregister, die Authentifizierungsmodi für Anbieter und das Konfigurationsgerüst für DeepL sind vorhanden. Die Ausführung von DeepL-Übersetzungen ist noch nicht vollständig umgesetzt. |
+| Integrationsplattform | **Grundlage umgesetzt** | Der Integrationskatalog, das Anbieterregister, die Authentifizierungsmodi für Anbieter und das Konfigurationsgerüst für DeepL sind vorhanden. Strukturierte DeepL-Übersetzung und Übersetzungsvorschläge sind bei konfiguriertem Dienst implementiert. |
 | Mehrsprachiger Produktsupport | **Operative Umsetzung** | Studio bietet 47 unterstützte Sprachen für die Benutzeroberfläche mit lokalisierten Hilfetexten und geprüften Übersetzungs-Overlays. Normative Spezifikationen bleiben weiterhin auf Englisch. |
 | Import/Export | **Wesentliche Funktionen** | DOCX Import- und umfangreiche Exportfunktionen werden unterstützt, darunter JATS, HTML, EPUB, PDF, IDML, XPress Tags, FrameMaker MIF, Scribus SLA sowie LaTeX-orientierte Ausgabemöglichkeiten. |
 | Desktop-Distribution | **Betriebsbereite Beta-Version** | Windows-, Linux- und macOS-Pakete werden automatisch erstellt; der Ablauf für Benachrichtigungen über Updates und die Installation auf dem Desktop ist implementiert. Die Arbeiten zur Codesignierung dauern noch an. |
@@ -75,7 +77,7 @@ Zu den veröffentlichten Grundlagen für Governance und Architektur gehören:
 - [Documentation Architecture](./documentation-architecture.md);
 - [OMI Specification Template](./specification-template.md);
 - [OMI Implementation Status Matrix](https://openmanuscript.org/docs/governance/implementation-status-matrix/);
-- [Studio Implementation Status](./studio-implementation-status.md);
+- [Studio Implementation Status](/docs/governance/studio-implementation-status);
 - [Code Signing Policy](./code-signing-policy.md);
 - [Integration Implementation Status](../integrations/implementation-status.md).
 
@@ -346,6 +348,6 @@ Für eine Version 1.0 sind mindestens folgende Voraussetzungen erforderlich:
 
 ## 11. Richtlinie zur Statuspflege
 
-Diese Roadmap sollte aktualisiert werden, wenn sich die Programmschwerpunkte oder die Veröffentlichungskriterien ändern. Sich schnell ändernde Produktdetails sollten in erster Linie unter [Studio Implementation Status](./studio-implementation-status.md) und [Integration Implementation Status](../integrations/implementation-status.md) aktualisiert und erst dann hier übernommen werden, wenn sie wesentliche Auswirkungen auf das Programm „OMI 1.0“ haben.
+Diese Roadmap sollte aktualisiert werden, wenn sich die Programmschwerpunkte oder die Veröffentlichungskriterien ändern. Sich schnell ändernde Produktdetails sollten in erster Linie unter [Studio Implementation Status](/docs/governance/studio-implementation-status) und [Integration Implementation Status](../integrations/implementation-status.md) aktualisiert und erst dann hier übernommen werden, wenn sie wesentliche Auswirkungen auf das Programm „OMI 1.0“ haben.
 
 Diese Unterscheidung ist beabsichtigt: Die Roadmap beschreibt, in welche Richtung sich der Standard entwickelt, während die datierten Statusberichte beschreiben, was die aktuelle Referenzimplementierung tatsächlich leisten kann.

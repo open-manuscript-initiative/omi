@@ -2,16 +2,16 @@ import { readFile } from 'node:fs/promises';
 
 const expected = {
   studio: '0.3.0-beta.13',
-  stagedStudio: '1.0.0-rc.1',
+  stagedStudio: '1.0.0-rc.2',
   windowsStore: '1.0.0.0',
-  ojs: 'v1.6.0',
+  ojs: 'v1.8.7',
   omp: 'v1.5.1',
   iosMarketing: '0.3.0',
   iosBuild: '25',
   windowsMsi: '0.3.0.13',
   androidFloor: '1212',
   iosSourceMarketing: '1.0.0',
-  iosSourceBuild: '26',
+  iosSourceBuild: '27',
 };
 
 const releaseNotesFiles = [
@@ -111,15 +111,15 @@ for (const [path, content] of contents) {
 const required = [
   ['README.md', expected.studio],
   ['README.md', expected.stagedStudio],
-  ['src/studioReleaseVersions.ts', 'e1200268ad549c0a40ace8724715cd2405e9d03c'],
-  ['src/studioReleaseVersions.ts', '41745224810'],
+  ['src/studioReleaseVersions.ts', '0a0ed53e4e61033b370de8280cfe1d5d4794bded'],
+  ['src/studioReleaseVersions.ts', '44704657227'],
   ['src/studioReleaseVersions.ts', `STUDIO_WINDOWS_STORE_VERSION = '${expected.windowsStore}'`],
   ['src/pages/studio.tsx', 'STUDIO_WINDOWS_STORE_SEARCH_URL'],
   ['src/pages/studio.tsx', 'directWindowsTitle'],
   ['src/pages/index.tsx', 'STUDIO_WINDOWS_STORE_VERSION'],
   ['src/studioReleaseVersions.ts', `STUDIO_WEB_VERSION = '${expected.stagedStudio}'`],
   ['src/studioReleaseVersions.ts', `STUDIO_ANDROID_VERSION = '${expected.stagedStudio}'`],
-  ['src/studioReleaseVersions.ts', '/actions/runs/41741830930/artifacts/13282507414'],
+  ['src/studioReleaseVersions.ts', '/actions/runs/44704656922/artifacts/14615141484'],
   ['src/pages/studio.tsx', 'href={STUDIO_ANDROID_RC_DOWNLOAD_URL}'],
   ['src/pages/index.tsx', 'isAndroid ? STUDIO_ANDROID_RC_DOWNLOAD_URL'],
   ['src/pages/studio.tsx', 'STUDIO_PUBLISHED_DOWNLOAD_BASE'],
@@ -182,6 +182,26 @@ for (const locale of ['bg', 'cs', 'da', 'de']) {
   if (!contents.get(statusPath)?.includes('Yjs')) {
     failures.push(`${statusPath}: expected live-collaboration feature status`);
   }
+}
+
+for (const locale of ['en', 'hu', 'de']) {
+  const root = locale === 'en' ? 'docs' : `i18n/${locale}/docusaurus-plugin-content-docs/current`;
+  for (const guide of ['publication-editor', 'notes-and-formatting', 'research-projects', 'updates/2026-11-20']) {
+    const path = `${root}/studio/${guide}.md`;
+    const content = await readFile(path, 'utf8');
+    if (!content.includes('/docs/studio/')) failures.push(`${path}: missing related usage guidance`);
+  }
+  const path = `${root}/studio/releases/${expected.stagedStudio}.md`;
+  const content = await readFile(path, 'utf8');
+  for (const marker of [expected.stagedStudio, expected.studio, '1.0.1.0', expected.ojs, expected.omp,
+    '0a0ed53e4e61033b370de8280cfe1d5d4794bded', '44704657119', '14615141484']) {
+    if (!content.includes(marker)) failures.push(`${path}: missing channel/build marker ${marker}`);
+  }
+}
+for (const path of ['src/pages/index.tsx', 'src/pages/studio.tsx']) {
+  if (!contents.get(path).includes('<RecentStudioDevelopments />')) failures.push(`${path}: missing current capability summary`);
+  if (/to=\{STUDIO_SOURCE_RELEASE_NOTES,/.test(contents.get(path))) failures.push(`${path}: release notes link uses a comma expression`);
+  if (contents.get(path).includes('1.0.0-rc.1')) failures.push(`${path}: stale active candidate version`);
 }
 
 if (failures.length) {

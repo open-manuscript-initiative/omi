@@ -5,7 +5,7 @@ sidebar_label: Cross-platform Studio
 
 # Cross-platform Studio Architecture
 
-**4 November 2026 — Web and Android RC available.** Web Studio and the direct-install Android APK use `1.0.0-rc.1`. [Open Web Studio](https://studio.openmanuscript.org) or [download the Android RC package](https://github.com/open-manuscript-initiative/open-manuscript-studio/actions/runs/41741830930/artifacts/13282507414). Desktop downloads remain `0.3.0-beta.13`; Linux native and macOS are Preview, iOS/iPadOS Experimental. See [RC1 availability and changes](/docs/studio/releases/1.0.0-rc.1).
+**20 November 2026 — Web and Android RC2 available.** Web Studio and the direct-install Android APK use `1.0.0-rc.2`. [Open Web Studio](https://studio.openmanuscript.org) or [download the Android RC package](https://github.com/open-manuscript-initiative/open-manuscript-studio/actions/runs/44704656922/artifacts/14615141484). Desktop downloads remain `0.3.0-beta.13`; Linux native and macOS are Preview, iOS/iPadOS Experimental. See [RC2 availability and changes](/docs/studio/releases/1.0.0-rc.2).
 
 Open Manuscript Studio is designed as a single scholarly authoring environment that runs across web, desktop and mobile targets without fragmenting the manuscript model or workflow implementation.
 
@@ -15,11 +15,11 @@ The project does not maintain unrelated applications for each operating system. 
 
 | Platform | Current status | Delivery direction |
 |---|---|---|
-| Web | **RC `1.0.0-rc.1`** | Hosted Studio |
+| Web | **RC `1.0.0-rc.2`** | Hosted Studio |
 | Windows | **Operational** | Tauri 2 EXE/MSI |
 | macOS | **Automated build target** | Intel and Apple Silicon DMG; signing/notarization hardening remains |
-| Linux | **Preview for RC1** | AppImage/DEB; inherited Rust `glib 0.18.5` advisory #271 remains open |
-| Android | **RC `1.0.0-rc.1`** | Signed direct-install APK package; Google Play is a separate channel |
+| Linux | **Preview for RC2** | AppImage/DEB; inherited Rust `glib 0.18.5` advisory #271 remains open |
+| Android | **RC `1.0.0-rc.2`** | Signed direct-install APK package; Google Play is a separate channel |
 | iOS / iPadOS | **Validated native build target** | iPhone/iPad simulator build succeeds; TestFlight/App Store distribution requires Apple Developer signing and final Universal Link association |
 
 Android is no longer only an architectural or development target. A public universal APK is generated from the shared Tauri 2 code line and uses the same account, document, review, integration and export logic as the other clients, with mobile-specific responsive presentation and Android-native Documents/Storage Access Framework file handling.
@@ -205,4 +205,4 @@ In this architecture, **the scholarly manuscript is portable by design, and the 
 
 Web and Windows delivery are operational parts of Studio, Android is a public beta target, Linux/macOS are automated native build targets, and iOS/iPadOS is now a validated native simulator build target on the same Tauri 2 architecture. The shared client includes multi-document desktop work, device-aware native storage, Android Documents/SAF handling, Apple Files/UIDocumentPicker handling, cross-device account identity and federated authentication in addition to the browser workflow. Public iOS/iPadOS distribution remains gated by Apple Developer signing, provisioning, Universal Link association and TestFlight/App Store validation.
 
-For current implementation details, see [Studio Implementation Status](../governance/studio-implementation-status.md), [Open Manuscript Studio on iOS and iPadOS](./ios-ipados-studio.md), [Integration Implementation Status](../integrations/implementation-status.md) and [Institutional and Central Administration](../integrations/institutional-administration.md).
+For current implementation details, see [Studio Implementation Status](/docs/governance/studio-implementation-status), [Open Manuscript Studio on iOS and iPadOS](./ios-ipados-studio.md), [Integration Implementation Status](../integrations/implementation-status.md) and [Institutional and Central Administration](../integrations/institutional-administration.md).

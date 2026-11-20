@@ -6,7 +6,7 @@ description: Aktuelt program, færdiggjorte grundlag, fremskridt med referenceim
 
 # Køreplan for »OMI« 1.0
 
-**4. november 2026: De automatiske RC1-kontroller er bestået.** Kildekandidaten er `1.0.0-rc.1`; offentlige downloads forbliver `0.3.0-beta.13`. RC-udgivelsen kræver faktisk manuel accept. Linux og macOS: Preview; iOS/iPadOS: eksperimentel. [RC1-status og dokumentation](/docs/studio/releases/1.0.0-rc.1).
+**20. november 2026 — RC2:** Web Studio og den signerede Android APK-kandidat bruger `1.0.0-rc.2`. Permanente desktopdownloads forbliver `0.3.0-beta.13`. Linux/macOS: Preview; iOS/iPadOS: eksperimentel. [Aktuelle versioner og dokumentation](/docs/studio/releases/1.0.0-rc.2).
 
 ## Udvikling af en åben standard for videnskabelig publicering
 
@@ -21,7 +21,7 @@ description: Aktuelt program, færdiggjorte grundlag, fremskridt med referenceim
 | Senest opdateret | 5. september 2026 |
 | Planlægningshorisont | OMI 1.0 |
 | Kilde til autoritative identifikatorer | [OMI Specification Registry](./specification-registry.md) |
-| Grundlag for produktimplementering | [Studio Implementation Status](./studio-implementation-status.md) |
+| Grundlag for produktimplementering | [Studio Implementation Status](/docs/governance/studio-implementation-status) |
 | Retningslinjer for implementering af integration | [Integration Implementation Status](../integrations/implementation-status.md) |
 
 ## 1. Formål
@@ -51,7 +51,7 @@ Programmet er kommet langt videre end den indledende fase med dokumentationsgenn
 | Centrale semantiske modeller | **Under udarbejdelse** | Der foreligger omfattende dokumentation for referenceimplementeringer af modellerne for identitet/bidragydere og versionering/ændringer; validering, oversættelse og samarbejde er endnu ikke fuldt udarbejdet på specifikationsniveau. |
 | Referenceimplementering | **Offentlig betaversion (`0.3.0-beta.13`)** | Struktureret redigering, flersproget brugergrænseflade og hjælp, serverbaserede konti, peer review, indbygget integration med OJS/OMP, import/eksport, udgiverprofiler, søgning, versioner til desktop og mobil samt opdateringsproces er til stede. |
 | Peer review | **Operationel implementering** | Grundlaget for dobbeltblind bedømmelse, bedømmeres arbejdsmiljøer, redaktørens bedømmelsesoversigt og håndtering af eksternt tildelte bedømmelser er implementeret. Overholdelse af den formelle specifikation er stadig et fremtidigt arbejde. |
-| OJS-integration | **Drifts- og konfigurationsafhængig** | Plugin-versionen v1.6.0 og Studio-arbejdsgangen muliggør signeret opstart for forfatter/redaktør/korrekturlæser, filoverførsel inden for afgrænsede rammer, indbyggede korrekturformularer, rettelser, adskilt feedback og signeret tilbageskrivning; den indbyggede E2E-verifikation i henhold til »OJS« 3.5 viser grønt. Den fulde profildækning og overensstemmelse er stadig ufuldstændig. |
+| OJS-integration | **Drifts- og konfigurationsafhængig** | Plugin-versionen v1.8.7 og Studio-arbejdsgangen muliggør signeret opstart for forfatter/redaktør/korrekturlæser, filoverførsel inden for afgrænsede rammer, indbyggede korrekturformularer, rettelser, adskilt feedback og signeret tilbageskrivning; den indbyggede E2E-verifikation i henhold til »OJS« 3.5 viser grønt. Den fulde profildækning og overensstemmelse er stadig ufuldstændig. |
 | Integration med OMP | **Driftsmæssigt / konfigurationsafhængigt** | Plugin v1.5.1 og Studio-arbejdsgangen muliggør signeret opstart for forfatter/redaktør/korrekturlæser, tilknytning af monografier/publikationer/undersøgelser, adgang til korrekturlæsning udelukkende for tildelte undersøgelser, indbyggede formularer, rettelser, adskilt feedback og signeret tilbagemelding; indbygget OMP 3.5 E2E-verifikation er grøn. |
 | Identitetsintegrationer | **Konfigurationsafhængige** | ORCID OAuth der findes infrastruktur til implementering samt ROR/bibliografiske identitetsgrundlag. Produktionskonfigurationen er implementeringsspecifik. |
 | Integrationsplatform | **Grundlaget er implementeret** | Integrationskatalog, udbyderregister, autentificeringsmetoder for udbydere og rammeværk til DeepL-konfiguration er på plads. Selve udførelsen af DeepL-oversættelser er endnu ikke færdig. |
@@ -75,7 +75,7 @@ De offentliggjorte grundlæggende principper for styring og arkitektur omfatter:
 - [Documentation Architecture](./documentation-architecture.md);
 - [OMI Specification Template](./specification-template.md);
 - [OMI Implementation Status Matrix](./implementation-status-matrix.md);
-- [Studio Implementation Status](./studio-implementation-status.md);
+- [Studio Implementation Status](/docs/governance/studio-implementation-status);
 - [Code Signing Policy](./code-signing-policy.md);
 - [Integration Implementation Status](../integrations/implementation-status.md).
 
@@ -346,6 +346,6 @@ En version 1.0 kræver som minimum:
 
 ## 11. Politik for vedligeholdelse af status
 
-Denne køreplan bør opdateres, når programmets prioriteter eller udgivelseskriterier ændres. Oplysninger om produkter, der ændrer sig hurtigt, bør primært opdateres på [Studio Implementation Status](./studio-implementation-status.md) og [Integration Implementation Status](../integrations/implementation-status.md) og derefter medtages her, når de har væsentlig indflydelse på OMI 1.0-programmet.
+Denne køreplan bør opdateres, når programmets prioriteter eller udgivelseskriterier ændres. Oplysninger om produkter, der ændrer sig hurtigt, bør primært opdateres på [Studio Implementation Status](/docs/governance/studio-implementation-status) og [Integration Implementation Status](../integrations/implementation-status.md) og derefter medtages her, når de har væsentlig indflydelse på OMI 1.0-programmet.
 
 Denne opdeling er bevidst: Køreplanen beskriver, i hvilken retning standarden udvikler sig, mens de daterede statusrapporter beskriver, hvad den nuværende referenceimplementering rent faktisk kan.

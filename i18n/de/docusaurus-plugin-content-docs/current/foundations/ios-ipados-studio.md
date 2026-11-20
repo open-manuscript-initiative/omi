@@ -18,7 +18,7 @@ keywords:
 
 # Open Manuscript Studio unter iOS und iPadOS
 
-**4. November 2026 — RC1-Nachweise erfolgreich.** Der Quellstand `1.0.0-rc.1` (`e1200268ad549c0a40ace8724715cd2405e9d03c`) bestand CI, CodeQL, PKP, Readiness, native Builds und [E02](https://github.com/open-manuscript-initiative/open-manuscript-studio/actions/runs/41745224810). Die native RC-Veröffentlichung benötigt noch die tatsächliche manuelle Abnahme. Öffentliche Downloads: `0.3.0-beta.13`; Linux nativ und macOS Preview, iOS/iPadOS experimentell. [RC1-Status](/docs/studio/releases/1.0.0-rc.1).
+**20. November 2026 — RC2-Stand:** Web Studio und der signierte Android-APK-Kandidat verwenden `1.0.0-rc.2`. CI/CD einschließlich Web-Bereitstellung, CodeQL und native Builds sind für den [dokumentierten Quellstand erfolgreich](/docs/studio/releases/1.0.0-rc.2). Dauerhafte Desktop-Downloads bleiben `0.3.0-beta.13`. Linux/macOS: Preview; iOS/iPadOS: Experimental. Frühere RC1-Nachweise bleiben historisch und bestätigen keine RC2-Geräteabnahme.
 
 Open Manuscript Studio nutzt auf dem iPhone und iPad denselben Anwendungskern „React“ / „TypeScript“, dasselbe Manuskriptmodell „OMI“ und dieselbe native Shell-Architektur „Tauri 2“ wie auf den anderen unterstützten Plattformen. Die iOS/iPadOS-Version ist daher kein separater Produktzweig und führt kein Apple-spezifisches Manuskriptformat ein.
 
@@ -45,8 +45,8 @@ Die aktuelle öffentliche Studio-Release-Reihe lautet „`0.3.0-beta.13`“. Die
 | Bundle-ID | `org.openmanuscript.studio` |
 | Mindestanforderungen an die Plattform | iOS/iPadOS 14.0 |
 | Kurzbeschreibung im App Store | `1.0.0` |
-| App Store-Build-Nummer | `26` |
-| Studio-Entwicklungsreihe | `1.0.0-rc.1` |
+| App Store-Build-Nummer | `27` |
+| Studio-Entwicklungsreihe | `1.0.0-rc.2` |
 
 Die Apple-Kurzbezeichnung bzw. die Build-Nummerierung ist eine Metadatenangabe zur Paketierung. Sie ändert weder die Schemaversion von „OMI“ noch führt sie zu einer separaten Kompatibilitätsreihe für iOS-Dokumente.
 
@@ -207,4 +207,4 @@ Diese Anforderungen sollten nicht als fehlende Studio-Architektur bezeichnet wer
 
 Die Unterstützung von iOS/iPadOS hat keine Auswirkungen auf den Dokumentenvertrag „OMI“. Ein auf einem iPhone oder iPad erstelltes Manuskript soll weiterhin auf Web-, Windows-, Linux-, macOS- und Android-Clients übertragbar sein, wobei dasselbe „OMI“-Modell und die unterstützten Austauschcontainer verwendet werden.
 
-Informationen zur Gesamtarchitektur finden Sie unter [Cross-platform Studio Architecture](./cross-platform-studio.md). Den aktuellen Produkt-Snapshot finden Sie unter [Studio Implementation Status](../governance/studio-implementation-status.md).
+Informationen zur Gesamtarchitektur finden Sie unter [Cross-platform Studio Architecture](./cross-platform-studio.md). Den aktuellen Produkt-Snapshot finden Sie unter [Studio Implementation Status](/docs/governance/studio-implementation-status).

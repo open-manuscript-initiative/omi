@@ -5,7 +5,7 @@ sidebar_label: Multiplatformní Studio
 
 # Multiplatformní architektura studia
 
-**4. listopadu 2026: automatické kontroly RC1 uspěly.** Zdrojový kandidát je `1.0.0-rc.1`, veřejné stahování zůstává `0.3.0-beta.13`. Zveřejnění RC vyžaduje skutečné ruční přijetí. Linux a macOS: Preview; iOS/iPadOS: experimentální. [Stav RC1 a důkazy](/docs/studio/releases/1.0.0-rc.1).
+**20. listopadu 2026 — RC2:** Web Studio a podepsaný kandidát Android APK používají `1.0.0-rc.2`. Trvalé desktopové soubory zůstávají `0.3.0-beta.13`. Linux/macOS: Preview; iOS/iPadOS: experimentální. [Aktuální verze a důkazy](/docs/studio/releases/1.0.0-rc.2).
 
 Open Manuscript Studio je koncipován jako jednotné akademické autorské prostředí, které funguje na webu, na stolních počítačích i na mobilních zařízeních, aniž by docházelo k roztříštění modelu rukopisu nebo implementace pracovního postupu.
 
@@ -18,7 +18,7 @@ Projekt neudržuje pro každý operační systém samostatné aplikace. Studio v
 | Web | **Provozní** | Hostované studio |
 | Windows | **Funkční** | Tauri 2 EXE/MSI |
 | macOS | **Cíl automatizované kompilace** | DMG pro Intel a Apple Silicon; zabezpečení podepisování a notářského ověřování zůstává zachováno |
-| Linux | **Preview for RC1** | AppImage/DEB; inherited Rust `glib 0.18.5` advisory #271 remains open |
+| Linux | **Preview for RC2** | AppImage/DEB; inherited Rust `glib 0.18.5` advisory #271 remains open |
 | Android | **Funkční veřejná beta verze** | Univerzální soubor APK vytvořený v rámci sdíleného procesu vydávání; balení určené pro obchody bude následovat |
 | iOS / iPadOS | **Ověřený cíl sestavení nativní aplikace** | Sestavení pro simulátor iPhone/iPad proběhlo úspěšně; distribuce prostřednictvím TestFlightu a App Store vyžaduje podepsání vývojářským certifikátem Apple a finální přiřazení univerzálního odkazu |
 
@@ -197,4 +197,4 @@ V této architektuře je **vědecký rukopis ze své podstaty přenositelný a a
 
 Webové a Windows verze jsou funkčními součástmi Studia, Android je veřejnou alfa verzí, Linux a macOS jsou automatizovanými cíli pro nativní sestavení a iOS/iPadOS je nyní ověřeným cílem pro nativní sestavení v simulátoru na stejné architektuře Tauri 2. Sdílený klient zahrnuje práci s více dokumenty na ploše, nativní úložiště s podporou zařízení, práci s Android Documents/SAF, práci s Apple Files/UIDocumentPicker, identitu účtu napříč zařízeními a federované ověřování, a to vše navíc k pracovnímu postupu v prohlížeči. Veřejná distribuce pro iOS/iPadOS zůstává omezena podpisem Apple Developer, provisioningem, přiřazením Universal Link a validací v rámci TestFlight/App Store.
 
-Aktuální podrobnosti o implementaci najdete na stránkách [Studio Implementation Status](../governance/studio-implementation-status.md), [Open Manuscript Studio on iOS and iPadOS](./ios-ipados-studio.md), [Integration Implementation Status](../integrations/implementation-status.md) a [Institutional and Central Administration](../integrations/institutional-administration.md).
+Aktuální podrobnosti o implementaci najdete na stránkách [Studio Implementation Status](/docs/governance/studio-implementation-status), [Open Manuscript Studio on iOS and iPadOS](./ios-ipados-studio.md), [Integration Implementation Status](../integrations/implementation-status.md) a [Institutional and Central Administration](../integrations/institutional-administration.md).
