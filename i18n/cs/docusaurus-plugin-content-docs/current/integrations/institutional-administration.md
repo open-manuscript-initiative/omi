@@ -161,4 +161,4 @@ Architektura správy se řídí následujícími pravidly:
 
 Stejný klientský kód Studio lze používat jak v osobních, tak v institucionálních nasazeních. Režim nasazení určuje přihlašovací údaje pro externí služby spravované serverem a institucionální administrační rozhraní; nemění však model rukopisu „OMI“ ani přenositelnost dokumentů.
 
-Informace o směrování přihlašovacích údajů a konfiguraci na úrovni nasazení najdete na adrese [Studio deployment modes](./studio-deployment-modes.md) a aktuální přehled o stavu zralosti referenční implementace na adrese [Studio implementation status](../governance/studio-implementation-status.md).
+Informace o směrování přihlašovacích údajů a konfiguraci na úrovni nasazení najdete na adrese [Studio deployment modes](./studio-deployment-modes.md) a aktuální přehled o stavu zralosti referenční implementace na adrese [Studio implementation status](/docs/governance/studio-implementation-status).

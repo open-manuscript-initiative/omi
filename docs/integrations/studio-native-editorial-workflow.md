@@ -6,6 +6,8 @@ description: Submission, peer review, author revision, editorial decision and pu
 
 # Studio-native Editorial Workflow
 
+**Updated 20 November 2026:** [RC2 versions and build evidence](/docs/studio/releases/1.0.0-rc.2). See the new guides for [publication templates, cover sheets and OJS Production](/docs/studio/publication-editor), [editable notes](/docs/studio/notes-and-formatting) and [family trees/research projects](/docs/studio/research-projects).
+
 Open Manuscript Studio can manage the complete editorial workflow for a **DNS-verified journal or press that does not use OJS or OMP**.
 
 > **Operational beta in Studio 0.3.0-beta.13.** The complete submission → review → author revision → editorial decision → publication path is implemented and is being hardened for the Studio 1.0 line. OJS/OMP integrations keep their existing authority boundary.

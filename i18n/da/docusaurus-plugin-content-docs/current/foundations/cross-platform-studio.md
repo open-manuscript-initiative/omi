@@ -5,7 +5,7 @@ sidebar_label: Platformuafhængigt studie
 
 # Platformsuafhængig Studio-arkitektur
 
-**4. november 2026: De automatiske RC1-kontroller er bestået.** Kildekandidaten er `1.0.0-rc.1`; offentlige downloads forbliver `0.3.0-beta.13`. RC-udgivelsen kræver faktisk manuel accept. Linux og macOS: Preview; iOS/iPadOS: eksperimentel. [RC1-status og dokumentation](/docs/studio/releases/1.0.0-rc.1).
+**20. november 2026 — RC2:** Web Studio og den signerede Android APK-kandidat bruger `1.0.0-rc.2`. Permanente desktopdownloads forbliver `0.3.0-beta.13`. Linux/macOS: Preview; iOS/iPadOS: eksperimentel. [Aktuelle versioner og dokumentation](/docs/studio/releases/1.0.0-rc.2).
 
 Open Manuscript Studio er udviklet som et samlet akademisk forfattermiljø, der fungerer på tværs af web-, desktop- og mobilplatforme uden at opdele manuskriptmodellen eller implementeringen af arbejdsgangen.
 
@@ -18,7 +18,7 @@ Projektet vedligeholder ikke separate applikationer til hvert operativsystem. St
 | Web | **Driftsklar** | Hostet studie |
 | Windows | **I drift** | Tauri 2 EXE/MSI |
 | macOS | **Automatiseret build-mål** | DMG til Intel og Apple Silicon; sikkerhedsforanstaltningerne vedrørende signering/notarisering forbliver uændrede |
-| Linux | **Preview for RC1** | AppImage/DEB; inherited Rust `glib 0.18.5` advisory #271 remains open |
+| Linux | **Preview for RC2** | AppImage/DEB; inherited Rust `glib 0.18.5` advisory #271 remains open |
 | Android | **Offentlig beta-version i drift** | Universel APK fra den fælles udgivelsesproces; pakning til app-butikkerne følger senere |
 | iOS / iPadOS | **Valideret native build-mål** | Kompilering til iPhone/iPad-simulatoren lykkes; distribution via TestFlight/App Store kræver signering via Apple Developer og endelig tilknytning til Universal Link |
 
@@ -197,4 +197,4 @@ I denne arkitektur er **det videnskabelige manuskript bevidst udformet, så det 
 
 Web- og Windows-udgivelser er operationelle dele af Studio, Android er et offentligt alfa-mål, Linux/macOS er automatiserede native build-mål, og iOS/iPadOS er nu et valideret native simulator-build-mål på den samme Tauri 2-arkitektur. Den fælles klient omfatter arbejdet med flere dokumenter på skrivebordet, enhedsbevidst native lagring, håndtering af Android Documents/SAF, håndtering af Apple Files/UIDocumentPicker, kontoidentitet på tværs af enheder og fødereret autentificering ud over browser-workflowet. Offentlig distribution til iOS/iPadOS er fortsat afhængig af Apple Developer-signering, provisionering, tilknytning til Universal Links samt validering via TestFlight og App Store.
 
-For aktuelle oplysninger om implementeringen henvises til [Studio Implementation Status](../governance/studio-implementation-status.md), [Open Manuscript Studio on iOS and iPadOS](./ios-ipados-studio.md), [Integration Implementation Status](../integrations/implementation-status.md) og [Institutional and Central Administration](../integrations/institutional-administration.md).
+For aktuelle oplysninger om implementeringen henvises til [Studio Implementation Status](/docs/governance/studio-implementation-status), [Open Manuscript Studio on iOS and iPadOS](./ios-ipados-studio.md), [Integration Implementation Status](../integrations/implementation-status.md) og [Institutional and Central Administration](../integrations/institutional-administration.md).

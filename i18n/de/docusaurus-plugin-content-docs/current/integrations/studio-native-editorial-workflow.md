@@ -6,6 +6,8 @@ description: Einreichung, Begutachtung, Überarbeitung, redaktionelle Entscheidu
 
 # Studio-nativer redaktioneller Workflow
 
+**Aktualisiert am 20. November 2026:** [RC2-Versionen und Nachweise](/docs/studio/releases/1.0.0-rc.2). Neue Anleitungen: [Vorlagen, Umschlagbogen und OJS Production](/docs/studio/publication-editor), [Anmerkungen](/docs/studio/notes-and-formatting), [Stammbäume/Forschungsprojekte](/docs/studio/research-projects).
+
 Open Manuscript Studio kann den vollständigen redaktionellen Workflow für eine **DNS-verifizierte Zeitschrift oder einen Verlag ohne OJS/OMP** verwalten.
 
 > **Preview-Status.** Der Workflow wird für die Studio-1.0-Linie gehärtet. Die Autoritätsgrenze der OJS/OMP-Integrationen bleibt unverändert.

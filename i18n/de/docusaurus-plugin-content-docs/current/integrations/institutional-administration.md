@@ -161,4 +161,4 @@ Die Verwaltungsarchitektur folgt diesen Regeln:
 
 Derselbe Studio-Client-Code kann sowohl in privaten als auch in institutionellen Bereitstellungen eingesetzt werden. Der Bereitstellungsmodus legt fest, dass vom Server verwaltete Anmeldedaten für externe Dienste sowie die institutionelle Verwaltungsoberfläche verwendet werden; er hat jedoch keinen Einfluss auf das „OMI“-Manuskriptmodell oder die Dokumentportabilität.
 
-Informationen zur Weiterleitung von Anmeldeinformationen und zur Konfiguration auf Bereitstellungsebene finden Sie unter [Studio deployment modes](./studio-deployment-modes.md), und unter [Studio implementation status](../governance/studio-implementation-status.md) finden Sie den aktuellen Überblick über den Reifegrad der Referenzimplementierung.
+Informationen zur Weiterleitung von Anmeldeinformationen und zur Konfiguration auf Bereitstellungsebene finden Sie unter [Studio deployment modes](./studio-deployment-modes.md), und unter [Studio implementation status](/docs/governance/studio-implementation-status) finden Sie den aktuellen Überblick über den Reifegrad der Referenzimplementierung.

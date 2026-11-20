@@ -6,6 +6,8 @@ description: Beküldés, lektorálás, szerzői javítás, szerkesztői döntés
 
 # Studio-native szerkesztőségi munkafolyamat
 
+**Frissítve: 2026. november 20.** [RC2-verziók és buildadatok](/docs/studio/releases/1.0.0-rc.2). Új útmutatók: [kiadványsablonok, borítóívek és OJS Production](/docs/studio/publication-editor), [szerkeszthető jegyzetek](/docs/studio/notes-and-formatting), [családfák és kutatási projektek](/docs/studio/research-projects).
+
 Az Open Manuscript Studio a teljes szerkesztőségi folyamatot kezelheti olyan **DNS-hitelesített folyóirat vagy kiadó** számára, amely nem használ OJS vagy OMP rendszert.
 
 > **Preview állapot.** A workflow a Studio 1.0 fejlesztési ágában stabilizálás alatt áll. Az OJS/OMP-integrációk autoritási határa nem változik.

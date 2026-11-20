@@ -2,32 +2,36 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {STUDIO_WEB_VERSION, STUDIO_ANDROID_VERSION, STUDIO_PUBLISHED_VERSION, STUDIO_SOURCE_RELEASE_NOTES,
-  STUDIO_RC_EVIDENCE_URL} from '../../studioReleaseVersions';
+  STUDIO_RC_EVIDENCE_URL, STUDIO_WINDOWS_STORE_VERSION, STUDIO_WINDOWS_PACKAGE_VERSION,
+  STUDIO_SNAPSHOT_DATE} from '../../studioReleaseVersions';
 
 const messages = {
   en: {
     title: 'Web and Android RC available',
-    status: 'Use the web release candidate in your browser or install the Android RC from its signed APK package.',
-    windows: 'On 10 November the publisher confirmed the Microsoft Store listing on a Windows PC: its product page shows an Open button and PEGI 3. The publisher also confirmed successful app launch and sign-in. Opening, editing, saving and reopening a local .omi manuscript also succeeded. Partner Center lists the Store MSIX as version 1.0.0.0 (x64, Windows 10 19041+). Signature and Store-update checks remain pending. Direct EXE/MSI downloads remain a separate, unsigned channel.',
-    downloads: 'Direct desktop installers',
-    support: 'RC scope: Linux desktop and macOS Preview; iOS/iPadOS Experimental. The inherited Linux GLib advisory remains open.',
-    notes: 'RC status and changes', evidence: 'Verified build evidence',
+    status: 'RC2 includes the November publication, notes, research-project and OJS improvements. The Android candidate is a signed APK inside an Actions ZIP; GitHub sign-in may be required and the archive expires on 18 February 2027.',
+    windows: 'Windows package', store: 'Last confirmed Store version (10 November)',
+    windowsNote: 'The prepared MSI/Store MSIX identity is separate from the confirmed Store rollout. Check the Store for the version currently offered.',
+    downloads: 'Permanent direct desktop release',
+    support: 'RC2 desktop candidates have also built successfully; see the channel table in the release notes. Linux desktop and macOS remain Preview; iOS/iPadOS Experimental.',
+    notes: 'RC2 versions, downloads and changes', evidence: 'Build checks',
   },
   hu: {
     title: 'Elérhető a webes és az Android RC',
-    status: 'A webes kiadási jelölt böngészőben használható, az Android RC az aláírt APK-csomagból telepíthető.',
-    windows: 'November 10-én a Windows Microsoft Store felületén már megjelent az Open Manuscript Studio, a képernyőképen „Megnyitás” gombbal és PEGI 3 besorolással. A kiadó az alkalmazás sikeres elindulását és a bejelentkezést is megerősítette. A helyi .omi kézirat megnyitása, szerkesztése, mentése és újbóli megnyitása szintén sikerült. A Partner Center szerinti Store MSIX-verzió 1.0.0.0 (x64, Windows 10 19041 vagy újabb). Az aláírás és a Store-frissítés ellenőrzése még hátravan. A közvetlen EXE/MSI külön, aláíratlan csatorna.',
-    downloads: 'Közvetlen asztali telepítők',
-    support: 'RC-támogatás: Linux asztali és macOS Preview; iOS/iPadOS kísérleti. A Linux örökölt GLib-figyelmeztetése továbbra is nyitott.',
-    notes: 'RC-állapot és változások', evidence: 'Ellenőrzési eredmények',
+    status: 'Az RC2 tartalmazza a novemberi kiadványszerkesztési, jegyzet-, kutatásiprojekt- és OJS-fejlesztéseket. Az Android-jelölt aláírt APK az Actions ZIP-csomagjában; GitHub-bejelentkezés szükséges lehet, a csomag 2027. február 18-án lejár.',
+    windows: 'Windows-csomag', store: 'Utoljára igazolt Store-verzió (november 10.)',
+    windowsNote: 'Az előkészített MSI/Store MSIX-verzió különbözik az igazolt áruházi terjesztéstől. Az aktuálisan kínált verziót a Store mutatja.',
+    downloads: 'Állandó közvetlen asztali kiadás',
+    support: 'Az RC2 asztali jelöltjei is sikeresen elkészültek; részletek a kiadási csatornák táblázatában. A natív Linux és macOS Preview, az iOS/iPadOS kísérleti.',
+    notes: 'RC2-verziók, letöltések és változások', evidence: 'Buildellenőrzések',
   },
   de: {
     title: 'Web- und Android-RC verfügbar',
-    status: 'Der Web-Release-Kandidat ist im Browser nutzbar. Der Android-RC lässt sich aus dem signierten APK-Paket installieren.',
-    windows: 'Am 10. November bestätigte der Herausgeber die Microsoft-Store-Produktseite auf einem Windows-PC: Sie zeigt „Öffnen“ und PEGI 3. Der Herausgeber bestätigte auch einen erfolgreichen App-Start und eine funktionierende Anmeldung. Auch das Öffnen, Bearbeiten, Speichern und erneute Öffnen einer lokalen .omi-Datei war erfolgreich. Laut Partner Center hat das Store-MSIX die Version 1.0.0.0 (x64, Windows 10 ab Build 19041). Signatur und Store-Updates bleiben zu prüfen. Direkte EXE/MSI-Downloads bleiben ein separater, unsignierter Kanal.',
-    downloads: 'Direkte Desktop-Installer',
-    support: 'RC-Umfang: Linux-Desktop und macOS Preview; iOS/iPadOS experimentell. Die geerbte Linux-GLib-Warnung bleibt offen.',
-    notes: 'RC-Status und Änderungen', evidence: 'Prüfnachweise',
+    status: 'RC2 enthält die November-Neuerungen für Satz, Anmerkungen, Forschungsprojekte und OJS. Der Android-Kandidat ist eine signierte APK im Actions-ZIP; GitHub-Anmeldung kann nötig sein. Das Archiv läuft am 18. Februar 2027 ab.',
+    windows: 'Windows-Paket', store: 'Zuletzt bestätigte Store-Version (10. November)',
+    windowsNote: 'Die vorbereitete MSI-/Store-MSIX-Identität bestätigt keinen aktuellen Store-Rollout. Die derzeit angebotene Version steht im Store.',
+    downloads: 'Dauerhaftes direktes Desktop-Release',
+    support: 'Auch RC2-Desktop-Kandidaten wurden erfolgreich gebaut; siehe Kanaltabelle in den Release-Notizen. Linux-Desktop und macOS bleiben Preview; iOS/iPadOS Experimental.',
+    notes: 'RC2-Versionen, Downloads und Änderungen', evidence: 'Build-Prüfungen',
   },
 } as const;
 
@@ -36,10 +40,10 @@ export default function StudioReleaseStatus() {
   const copy = messages[i18n.currentLocale as keyof typeof messages] ?? messages.en;
   return (
     <aside className="alert alert--info margin-vert--md" aria-label={copy.title}>
-      <p><strong>{copy.title}</strong></p>
+      <p><strong>{copy.title}</strong>{' · '}<time dateTime={STUDIO_SNAPSHOT_DATE}>{STUDIO_SNAPSHOT_DATE}</time></p>
       <p>Web: <strong>{STUDIO_WEB_VERSION}</strong>{' · '}Android APK: <strong>{STUDIO_ANDROID_VERSION}</strong></p>
       <p>{copy.status}</p>
-      <p>{copy.windows}</p>
+      <p>{copy.windows}: <strong>{STUDIO_WINDOWS_PACKAGE_VERSION}</strong>{' · '}{copy.store}: <strong>{STUDIO_WINDOWS_STORE_VERSION}</strong>. {copy.windowsNote}</p>
       <p>{copy.downloads}: <strong>{STUDIO_PUBLISHED_VERSION}</strong>. {copy.support}</p>
       <p><Link to={STUDIO_SOURCE_RELEASE_NOTES}>{copy.notes}</Link>{' · '}
         <Link to={STUDIO_RC_EVIDENCE_URL}>{copy.evidence}</Link></p>

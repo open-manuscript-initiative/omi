@@ -18,6 +18,8 @@ keywords:
 
 # Publication Styles and Publisher Profiles
 
+**Updated 20 November 2026:** [RC2 versions and build evidence](/docs/studio/releases/1.0.0-rc.2). See the new guides for [publication templates, cover sheets and OJS Production](/docs/studio/publication-editor), [editable notes](/docs/studio/notes-and-formatting) and [family trees/research projects](/docs/studio/research-projects).
+
 Open Manuscript Studio now separates three concerns that are often mixed together in conventional authoring systems:
 
 1. **manuscript semantics** — the scholarly content and its structure;

@@ -25,7 +25,9 @@ keywords:
 
 # Open Manuscript Studio — Aktueller Stand der Umsetzung
 
-**4. November 2026 — RC1-Nachweise erfolgreich.** Der Quellstand `1.0.0-rc.1` (`e1200268ad549c0a40ace8724715cd2405e9d03c`) bestand CI, CodeQL, PKP, Readiness, native Builds und [E02](https://github.com/open-manuscript-initiative/open-manuscript-studio/actions/runs/41745224810). Die native RC-Veröffentlichung benötigt noch die tatsächliche manuelle Abnahme. Öffentliche Downloads: `0.3.0-beta.13`; Linux nativ und macOS Preview, iOS/iPadOS experimentell. [RC1-Status](/docs/studio/releases/1.0.0-rc.1).
+**Aktualisiert am 20. November 2026:** [RC2-Versionen und Nachweise](/docs/studio/releases/1.0.0-rc.2). Neue Anleitungen: [Vorlagen, Umschlagbogen und OJS Production](/docs/studio/publication-editor), [Anmerkungen](/docs/studio/notes-and-formatting), [Stammbäume/Forschungsprojekte](/docs/studio/research-projects).
+
+**20. November 2026 — RC2-Stand:** Web Studio und der signierte Android-APK-Kandidat verwenden `1.0.0-rc.2`. CI/CD einschließlich Web-Bereitstellung, CodeQL und native Builds sind für den [dokumentierten Quellstand erfolgreich](/docs/studio/releases/1.0.0-rc.2). Dauerhafte Desktop-Downloads bleiben `0.3.0-beta.13`. Linux/macOS: Preview; iOS/iPadOS: Experimental. Frühere RC1-Nachweise bleiben historisch und bestätigen keine RC2-Geräteabnahme.
 
 ## Momentaufnahme
 
@@ -34,7 +36,7 @@ keywords:
 | Status | **Web and Android RC; desktop beta/Preview** |
 | Erfassungsdatum | **04.11.2026** |
 | Dokumentierte öffentliche Beta | `0.3.0-beta.13` |
-| Vorbereiteter Entwicklungsstand | `1.0.0-rc.1` (E02 erfolgreich; native Freigabe ausstehend) |
+| Vorbereiteter Entwicklungsstand | `1.0.0-rc.2` (Web bereitgestellt; native Abnahme separat) |
 | Referenzimplementierung | Open Manuscript Studio |
 | Quell-Repository | `open-manuscript-initiative/open-manuscript-studio` |
 | Web-Ziel | Moderne Browser |

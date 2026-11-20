@@ -161,4 +161,4 @@ PATCH /api/institution-admin/v1/members/:membershipId/role
 
 Един и същ клиентски код на Studio може да работи както в лични, така и в институционални среди. Режимът на разгръщане избира управляваните от сървъра идентификационни данни за външни услуги и интерфейса за институционално администриране; той не променя модела на ръкописа „OMI“ нито преносимостта на документите.
 
-Вижте [Studio deployment modes](./studio-deployment-modes.md) за маршрутизиране на удостоверенията и конфигурация на ниво разгръщане, както и [Studio implementation status](../governance/studio-implementation-status.md) за актуалната снимка на зрелостта на референтната реализация.
+Вижте [Studio deployment modes](./studio-deployment-modes.md) за маршрутизиране на удостоверенията и конфигурация на ниво разгръщане, както и [Studio implementation status](/docs/governance/studio-implementation-status) за актуалната снимка на зрелостта на референтната реализация.

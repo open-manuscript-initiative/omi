@@ -12,16 +12,26 @@ OMI treats the scholarly manuscript — structure, metadata, contributors, citat
 
 **Open Manuscript Studio** is the OMI reference implementation.
 
-Current **Web and Android APK release: `1.0.0-rc.1`**. Desktop public downloads: **`0.3.0-beta.13`**.
+Current **Web and Android APK release: `1.0.0-rc.2`**. Desktop public downloads: **`0.3.0-beta.13`**.
 
-Web Studio and the signed direct-install Android APK are RC1. [RC1 availability, download and changes](docs/studio/releases/1.0.0-rc.1.md). Linux native and macOS remain Preview; iOS/iPadOS Experimental. Google Play is a separate distribution channel.
+Web Studio and the signed direct-install Android APK are RC2. [RC2 availability, download and changes](docs/studio/releases/1.0.0-rc.2.md). Linux native and macOS remain Preview; iOS/iPadOS Experimental. Google Play is a separate distribution channel.
 Project state: **Web/Android RC; desktop stabilization and interoperability development**.
 
 The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. Studio 0.3.0-beta.13 packages native TLS and Tokio security updates, native plugin fixes and more reliable macOS DMG creation. The portable manuscript format remains `OMI-SPEC-320@0.3.0`. Published releases remain immutable and bound to their exact build commit; Google Play requires a separate signed release run. See the [release notes](docs/studio/releases/0.3.0-beta.13.md) for packaging identities and deployment steps. iOS public distribution still depends on signing, provisioning and device/TestFlight validation.
 
+### November 2026 capabilities
+
+- Publication editor with reusable volume/journal templates, complete cover sheets, title matter, rich text/graphic frames and automatic paper-based spine calculation.
+- Combined ISBN/eISBN, print ISSN/eISSN, DOI and other publication identifiers.
+- Directly editable formatted notes, shared header formatting, inline/marginal/numbered note output and an optional starred funding note.
+- Family-tree and relationship-network modules, GEDCOM/GEXF/GraphML import, portable research projects and file-provider cloud synchronization with conflict decisions.
+- Revision-bound native copyediting/proofs; selected multilingual OJS metadata reconciliation and publisher-styled HTML/PDF transfer to OJS Production.
+
+See the [20 November update](docs/studio/updates/2026-11-20.md), [publication guide](docs/studio/publication-editor.md), [notes guide](docs/studio/notes-and-formatting.md) and [research-project guide](docs/studio/research-projects.md). These are implemented source capabilities with the documented deployment and workflow prerequisites.
+
 ### Latest development line
 
-The September 2026 development line makes editing and publication substantially more direct without flattening OMI structure:
+The November 2026 development line makes editing and publication substantially more direct without flattening OMI structure:
 
 - manuscript-wide editing order across section boundaries;
 - paragraph split with Enter and compatible paragraph merge with Backspace/Delete;

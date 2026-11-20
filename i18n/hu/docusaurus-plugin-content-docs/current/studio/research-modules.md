@@ -7,7 +7,11 @@ slug: /studio/research-modules
 
 # Kutatási modulok az Open Manuscript Stúdióban
 
+**Frissítve: 2026. november 20.** [RC2-verziók és buildadatok](/docs/studio/releases/1.0.0-rc.2). Új útmutatók: [kiadványsablonok, borítóívek és OJS Production](/docs/studio/publication-editor), [szerkeszthető jegyzetek](/docs/studio/notes-and-formatting), [családfák és kutatási projektek](/docs/studio/research-projects).
+
 A Stúdió opcionális kutatási moduljai olyan feladatokhoz kínálnak munkafelületet, amelyekhez a kéziratszerkesztésen túlmutató eszközök szükségesek. A **Kutatás → Modulok** menüben láthatók a telepítésen engedélyezett modulok; ezek közül kapcsolhatja be az adott munkatérhez szükségeseket. Az elérhető modulok listáját a telepítés rendszergazdája kezeli.
+
+A családfa és kapcsolati háló közös, szerkeszthető és hordozható projektet használ GEDCOM/GEXF/GraphML-importtal. Választható felhőfájl-kapcsolatuk a megnyitott modulban szinkronizál, ütközésnél felhasználói döntéssel. Lásd a [kutatási projektek útmutatóját](/docs/studio/research-projects); ez eltér az alább leírt általános helyi tárolástól.
 
 ## Elérhető modulok
 

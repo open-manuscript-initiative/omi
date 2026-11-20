@@ -18,7 +18,7 @@ keywords:
 
 # Open Manuscript Studio v systémech iOS a iPadOS
 
-**4. listopadu 2026: automatické kontroly RC1 uspěly.** Zdrojový kandidát je `1.0.0-rc.1`, veřejné stahování zůstává `0.3.0-beta.13`. Zveřejnění RC vyžaduje skutečné ruční přijetí. Linux a macOS: Preview; iOS/iPadOS: experimentální. [Stav RC1 a důkazy](/docs/studio/releases/1.0.0-rc.1).
+**20. listopadu 2026 — RC2:** Web Studio a podepsaný kandidát Android APK používají `1.0.0-rc.2`. Trvalé desktopové soubory zůstávají `0.3.0-beta.13`. Linux/macOS: Preview; iOS/iPadOS: experimentální. [Aktuální verze a důkazy](/docs/studio/releases/1.0.0-rc.2).
 
 Open Manuscript Studio využívá stejné jádro aplikace React/TypeScript, model rukopisů OMI a nativní architekturu prostředí Tauri 2 na zařízeních iPhone a iPad, stejně jako na ostatních podporovaných platformách. Verze pro iOS/iPadOS tedy není samostatnou odnoží produktu a nezavádí žádný formát rukopisů specifický pro Apple.
 
@@ -45,8 +45,8 @@ Současná veřejná řada verzí ve Studiu je `0.3.0-beta.13`. Metadata balíč
 | Identifikátor balíčku | `org.openmanuscript.studio` |
 | Minimální požadavky na platformu | iOS/iPadOS 14.0 |
 | Zkrácená verze v App Store | `1.0.0` |
-| Číslo sestavení v App Store | `26` |
-| Řada produktů Studio | `1.0.0-rc.1` |
+| Číslo sestavení v App Store | `27` |
+| Řada produktů Studio | `1.0.0-rc.2` |
 
 Zkrácené označení verzí/číslování sestavení společnosti Apple představuje metadata balíčku. Nemění verzi schématu OMI ani nevytváří samostatnou řadu dokumentů o kompatibilitě s iOS.
 
@@ -207,4 +207,4 @@ Tyto požadavky by neměly být označovány za chybějící architekturu Studio
 
 Podpora iOS/iPadOS nemění smluvní podmínky dokumentu „OMI“. Rukopis vytvořený na zařízení iPhone nebo iPad by měl zůstat přenositelný do webových, Windows, Linux, macOS a Android klientů, kteří používají stejný model „OMI“ a podporované výměnné kontejnery.
 
-Informace o celkové architektuře najdete na adrese [Cross-platform Studio Architecture](./cross-platform-studio.md). Aktuální přehled produktů najdete na adrese [Studio Implementation Status](../governance/studio-implementation-status.md).
+Informace o celkové architektuře najdete na adrese [Cross-platform Studio Architecture](./cross-platform-studio.md). Aktuální přehled produktů najdete na adrese [Studio Implementation Status](/docs/governance/studio-implementation-status).

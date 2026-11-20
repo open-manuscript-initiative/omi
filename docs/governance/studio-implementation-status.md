@@ -25,17 +25,19 @@ keywords:
 
 # Open Manuscript Studio — Current Implementation Status
 
-**Microsoft Store distribution update — 10 November 2026:** Microsoft notified the publisher that the Open Manuscript Studio submission was processed and available in the Store, with up to two hours for customer visibility. The IARC questionnaire ratings are also reported live. The specific Store product link, signed-package verification, actual Windows Store install/update and data preservation remain pending. Direct Windows EXE/MSI downloads are a separate unsigned channel; stable 1.0 has not been approved. See [Code Signing Policy](/docs/governance/code-signing-policy) and [RC status](/docs/studio/releases/1.0.0-rc.1).
+**Updated 20 November 2026:** [RC2 versions and build evidence](/docs/studio/releases/1.0.0-rc.2). See the new guides for [publication templates, cover sheets and OJS Production](/docs/studio/publication-editor), [editable notes](/docs/studio/notes-and-formatting) and [family trees/research projects](/docs/studio/research-projects).
 
-**4 November 2026 — Web and Android RC available.** Web Studio and the direct-install Android APK use `1.0.0-rc.1`. [Open Web Studio](https://studio.openmanuscript.org) or [download the Android RC package](https://github.com/open-manuscript-initiative/open-manuscript-studio/actions/runs/41741830930/artifacts/13282507414). Desktop downloads remain `0.3.0-beta.13`; Linux native and macOS are Preview, iOS/iPadOS Experimental. See [RC1 availability and changes](/docs/studio/releases/1.0.0-rc.1).
+**Windows channels, checked 20 November 2026:** RC2 prepares MSI/Store MSIX version **1.0.1.0**. The last operator-confirmed Store version is **1.0.0.0** (10 November), when launch, sign-in and local .omi open/edit/save/reopen were confirmed. This update does not verify a newer Store rollout or signed Store-update behavior. Permanent direct EXE/MSI downloads remain the separate beta.13 channel. See [current channel details](/docs/studio/releases/1.0.0-rc.2).
+
+**20 November 2026 — Web and Android RC2 available.** Web Studio and the direct-install Android APK use `1.0.0-rc.2`. [Open Web Studio](https://studio.openmanuscript.org) or [download the Android RC package](https://github.com/open-manuscript-initiative/open-manuscript-studio/actions/runs/44704656922/artifacts/14615141484). Desktop downloads remain `0.3.0-beta.13`; Linux native and macOS are Preview, iOS/iPadOS Experimental. See [RC2 availability and changes](/docs/studio/releases/1.0.0-rc.2).
 
 ## Snapshot
 
 | Field | Value |
 |---|---|
 | Status | **Web and Android RC; desktop beta/Preview** |
-| Snapshot date | **2026-11-04** |
-| Staged development source candidate | `1.0.0-rc.1` (Web and Android RC; desktop acceptance separate) |
+| Snapshot date | **2026-11-20** |
+| Staged development source candidate | `1.0.0-rc.2` (Web and Android RC; desktop acceptance separate) |
 | Last documented public beta | `0.3.0-beta.13` |
 | Reference implementation | Open Manuscript Studio |
 | Source repository | `open-manuscript-initiative/open-manuscript-studio` |
@@ -44,7 +46,20 @@ keywords:
 | Mobile targets | Android public universal APK; iOS/iPadOS validated native simulator target, with TestFlight/App Store distribution pending Apple Developer signing |
 | Web deployment | `studio.openmanuscript.org` |
 
-Web Studio and the Android APK are **`1.0.0-rc.1`**. Desktop public downloads remain **`0.3.0-beta.13`**. See [RC availability and installation](/docs/studio/releases/1.0.0-rc.1) and [desktop beta.13 notes](/docs/studio/releases/0.3.0-beta.13). The portable manuscript format remains `OMI-SPEC-320@0.3.0`.
+Web Studio and the Android APK are **`1.0.0-rc.2`**. Desktop public downloads remain **`0.3.0-beta.13`**. See [RC availability and installation](/docs/studio/releases/1.0.0-rc.2) and [desktop beta.13 notes](/docs/studio/releases/0.3.0-beta.13). The portable manuscript format remains `OMI-SPEC-320@0.3.0`.
+
+## Implemented November developments
+
+| Area | Current behavior |
+| --- | --- |
+| Publication | Dedicated publication editor; reusable volume/journal templates; combined ISBN/ISSN/DOI; complete outside/inside cover sheets, rich frames and automatic spine calculation |
+| Notes | Direct rich-text editing, shared pinnable header tools, preserved Word/ODT/OJS formatting and publication note treatments |
+| Research | Family trees and networks, GEDCOM/GEXF/GraphML, portable project files and explicit cloud-file conflict handling |
+| Editorial production | Native copyediting, revision-bound proofs and approvals (Preview); OJS retains native stage authority |
+| OJS | Plugin v1.8.7; selected multilingual metadata reconciliation and prepared publisher-styled HTML/PDF transfer to an unpublished Production article |
+| Interface and privacy | Consistent desktop/mobile/Android task tiles; informed deletion of private versus shared scholarly data |
+
+See [20 November changes and usage guides](/docs/studio/updates/2026-11-20). Automated source/build evidence and permanent release availability are recorded separately.
 
 ## Recent source changes (1 November 2026; not a new release)
 
@@ -212,7 +227,7 @@ The current OJS and OMP integrations are bidirectional for review work: Studio c
 
 ## Release and distribution
 
-`1.0.0-rc.1` is available for Web and the direct Android APK. Desktop packages remain on `0.3.0-beta.13`. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Desktop downloads are pinned to their published tag; the Android RC link selects its exact build artifact, while published release assets remain immutable. The application version is independent of the portable OMI manuscript format, which remains `OMI-SPEC-320@0.3.0`.
+`1.0.0-rc.2` is available for Web and the direct Android APK. Desktop packages remain on `0.3.0-beta.13`. GitHub Actions produces release artifacts from the shared source tree for Windows, Linux, macOS and Android. Desktop downloads are pinned to their published tag; the Android RC link selects its exact build artifact, while published release assets remain immutable. The application version is independent of the portable OMI manuscript format, which remains `OMI-SPEC-320@0.3.0`.
 
 iOS/iPadOS currently has a successful CI simulator build rather than a public IPA. The Apple distribution path is prepared but deliberately separated from simulator validation: public/device builds require the real Apple Development Team ID, distribution certificate, provisioning profile and final `apple-app-site-association` configuration before TestFlight/App Store publication can be claimed.
 

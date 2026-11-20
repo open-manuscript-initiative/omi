@@ -102,4 +102,4 @@ Se [Institutional and Central Administration](./institutional-administration.md)
 
 Statusangivelserne på denne side beskriver **Open Manuscript Studio-produktimplementeringen**. De tildeler ikke en connector overensstemmelse med OMI. Formel overensstemmelse kræver versionerede krav, testopsætninger og rammen for kapacitet/overensstemmelse.
 
-For oplysninger om status på specifikationsniveau henvises til [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md). For den bredere produktbaseline for Studio henvises til [Studio Implementation Status](../governance/studio-implementation-status.md).
+For oplysninger om status på specifikationsniveau henvises til [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md). For den bredere produktbaseline for Studio henvises til [Studio Implementation Status](/docs/governance/studio-implementation-status).

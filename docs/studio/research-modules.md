@@ -7,7 +7,11 @@ slug: /studio/research-modules
 
 # Research modules in Open Manuscript Studio
 
+**Updated 20 November 2026:** [RC2 versions and build evidence](/docs/studio/releases/1.0.0-rc.2). See the new guides for [publication templates, cover sheets and OJS Production](/docs/studio/publication-editor), [editable notes](/docs/studio/notes-and-formatting) and [family trees/research projects](/docs/studio/research-projects).
+
 Studio's optional research modules provide focused workspaces for tasks that benefit from tools beyond manuscript editing. Open **Research → Modules** to see the modules enabled for the installation, then activate the ones needed in the current workspace. An installation administrator controls the available-module allow-list.
+
+Family trees and relationship networks now share an editable, portable project with GEDCOM/GEXF/GraphML import. Their optional cloud-file adapter synchronizes a selected file while the module is open, with conflict decisions. See [research projects](/docs/studio/research-projects); this is an exception to the browser-local defaults described below.
 
 ## Available modules
 

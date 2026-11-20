@@ -17,6 +17,8 @@ keywords:
 
 # Bearbeitung von Manuskripten im Word-Format
 
+**Aktualisiert am 20. November 2026:** [RC2-Versionen und Nachweise](/docs/studio/releases/1.0.0-rc.2). Neue Anleitungen: [Vorlagen, Umschlagbogen und OJS Production](/docs/studio/publication-editor), [Anmerkungen](/docs/studio/notes-and-formatting), [Stammbäume/Forschungsprojekte](/docs/studio/research-projects).
+
 Open Manuscript Studio bewegt sich in Richtung des Interaktionsmodells, das man von einem herkömmlichen Textverarbeitungsprogramm erwartet, behält dabei jedoch die zugrunde liegende explizite Dokumentstruktur „OMI“ bei. Die zentrale Regel ist einfach: **Der Benutzer bearbeitet ein zusammenhängendes Manuskript; OMI Abschnitt- und Blockgrenzen dürfen keine künstlichen Bearbeitungsbarrieren darstellen**.
 
 Das bedeutet nicht, dass das Manuskript zu unstrukturiertem Rich Text vereinfacht wird. Bearbeitungsvorgänge werden in explizite strukturelle Änderungen im „OMI“ übersetzt, sodass semantische Abschnitte, Blöcke, Anmerkungen, Zitate, Querverweise, Versionshistorie und stabile Identitäten auch nach einem Vorgang weiterhin verfügbar bleiben.

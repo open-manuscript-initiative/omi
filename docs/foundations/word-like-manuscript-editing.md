@@ -17,6 +17,8 @@ keywords:
 
 # Word-like Manuscript Editing
 
+**Updated 20 November 2026:** [RC2 versions and build evidence](/docs/studio/releases/1.0.0-rc.2). See the new guides for [publication templates, cover sheets and OJS Production](/docs/studio/publication-editor), [editable notes](/docs/studio/notes-and-formatting) and [family trees/research projects](/docs/studio/research-projects).
+
 Open Manuscript Studio is moving toward the interaction model expected from a conventional word processor while retaining the explicit OMI document structure underneath. The central rule is simple: **the user edits one continuous manuscript; OMI section and block boundaries must not become artificial editing barriers**.
 
 This does not mean flattening the manuscript into unstructured rich text. Editing operations are translated into explicit OMI structural changes so semantic sections, blocks, notes, citations, cross-references, version history, and stable identities remain available after an operation.

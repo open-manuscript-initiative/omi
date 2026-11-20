@@ -102,4 +102,4 @@ Model správy najdete na adrese [Institutional and Central Administration](./ins
 
 Stavy uvedené na této stránce popisují **Open Manuscript Studio implementaci produktu**. Nepřisuzují konektoru shodu s normou OMI. Formální shoda vyžaduje specifikace požadavků s uvedením verzí, testovací sestavy a rámec schopností a shody.
 
-Informace o stavu na úrovni specifikací najdete na stránce [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md). Širší přehled o základních verzích produktů Studio najdete na stránce [Studio Implementation Status](../governance/studio-implementation-status.md).
+Informace o stavu na úrovni specifikací najdete na stránce [OMI Implementation Status Matrix](../governance/implementation-status-matrix.md). Širší přehled o základních verzích produktů Studio najdete na stránce [Studio Implementation Status](/docs/governance/studio-implementation-status).
