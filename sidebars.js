@@ -30,6 +30,7 @@ const sidebars = {
         {type: 'doc', id: 'studio/manuscript-translation', label: 'Manuscript Translation'},
         {type: 'doc', id: 'studio/manuscript-validation', label: 'Manuscript Validation'},
         {type: 'doc', id: 'studio/updates/2026-11-01-stabilization', label: 'Studio Development Update (Nov 2026)'},
+        {type: 'doc', id: 'studio/releases/1.0.0-rc.3', label: 'Studio RC3 Source Candidate'},
         {type: 'doc', id: 'studio/releases/1.0.0-rc.2', label: 'Studio RC2 Status'},
         {type: 'doc', id: 'studio/updates/2026-11-23', label: 'Studio Update (23 Nov 2026)'},
         {type: 'doc', id: 'studio/updates/2026-11-20', label: 'Studio Update (20 Nov 2026)'},
