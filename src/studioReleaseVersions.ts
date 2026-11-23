@@ -20,4 +20,7 @@ export const STUDIO_ANDROID_RC_DOWNLOAD_URL = 'https://github.com/open-manuscrip
 
 /** Prepared Windows package identity; Store rollout remains independently verified. */
 export const STUDIO_WINDOWS_PACKAGE_VERSION = '1.0.1.0';
-export const STUDIO_SNAPSHOT_DATE = '2026-11-20';
+/** Date when website source/status was checked; not a binary release date. */
+export const STUDIO_SNAPSHOT_DATE = '2026-11-23';
+/** Merged source-code change, not yet a published 1.0 installer. */
+export const STUDIO_OFFICE_SEPARATION_PR_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/971';

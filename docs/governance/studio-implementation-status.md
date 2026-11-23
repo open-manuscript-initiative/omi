@@ -25,7 +25,9 @@ keywords:
 
 # Open Manuscript Studio — Current Implementation Status
 
-**Updated 20 November 2026:** [RC2 versions and build evidence](/docs/studio/releases/1.0.0-rc.2). See the new guides for [publication templates, cover sheets and OJS Production](/docs/studio/publication-editor), [editable notes](/docs/studio/notes-and-formatting) and [family trees/research projects](/docs/studio/research-projects).
+**Updated 23 November 2026:** The [EuroOffice separation](/docs/studio/office-separation) was merged into Studio source on 23 November (PR #971). It removes the embedded Office UI and Office-specific API mounts; standalone EuroOffice has its own service lifecycle. Native DOCX import/export and scholarly authoring remain in Studio. This source change is not confirmation of a new signed binary or a completed production deployment.
+
+**RC2 status documented 20 November 2026:** [RC2 versions and build evidence](/docs/studio/releases/1.0.0-rc.2). See the new guides for [publication templates, cover sheets and OJS Production](/docs/studio/publication-editor), [editable notes](/docs/studio/notes-and-formatting) and [family trees/research projects](/docs/studio/research-projects).
 
 **Windows channels, checked 20 November 2026:** RC2 prepares MSI/Store MSIX version **1.0.1.0**. The last operator-confirmed Store version is **1.0.0.0** (10 November), when launch, sign-in and local .omi open/edit/save/reopen were confirmed. This update does not verify a newer Store rollout or signed Store-update behavior. Permanent direct EXE/MSI downloads remain the separate beta.13 channel. See [current channel details](/docs/studio/releases/1.0.0-rc.2).
 
@@ -36,7 +38,7 @@ keywords:
 | Field | Value |
 |---|---|
 | Status | **Web and Android RC; desktop beta/Preview** |
-| Snapshot date | **2026-11-20** |
+| Snapshot date | **2026-11-23** |
 | Staged development source candidate | `1.0.0-rc.2` (Web and Android RC; desktop acceptance separate) |
 | Last documented public beta | `0.3.0-beta.13` |
 | Reference implementation | Open Manuscript Studio |
@@ -58,8 +60,9 @@ Web Studio and the Android APK are **`1.0.0-rc.2`**. Desktop public downloads re
 | Editorial production | Native copyediting, revision-bound proofs and approvals (Preview); OJS retains native stage authority |
 | OJS | Plugin v1.8.7; selected multilingual metadata reconciliation and prepared publisher-styled HTML/PDF transfer to an unpublished Production article |
 | Interface and privacy | Consistent desktop/mobile/Android task tiles; informed deletion of private versus shared scholarly data |
+| Office boundary | Embedded EuroOffice editor removed from the Studio source; independent Office service; native DOCX import/export unchanged (new release deployment pending) |
 
-See [20 November changes and usage guides](/docs/studio/updates/2026-11-20). Automated source/build evidence and permanent release availability are recorded separately.
+See [23 November separation and release identity](/docs/studio/updates/2026-11-23) and [20 November changes](/docs/studio/updates/2026-11-20). Source/build evidence and permanent release availability are recorded separately.
 
 ## Recent source changes (1 November 2026; not a new release)
 
@@ -77,6 +80,8 @@ Read the [1 November development update](/docs/studio/updates/2026-11-01-stabili
 - **0.3.0-beta.10 — print pagination:** measures manuscript blocks and footnotes in short, cancellable animation-frame batches to keep the live publication editor responsive. No server migration or OMI format change is required. See the [beta.10 release notes](/docs/studio/releases/0.3.0-beta.10).
 - **0.3.0-beta.9 — Linux and localization:** improves Linux deep-link error handling and includes Dutch and Polish interface and research-module translations. No server migration or OMI format change is required. See the [beta.9 release notes](/docs/studio/releases/0.3.0-beta.9).
 - **0.3.0-beta.8 — DOCX import:** prevents a document title from appearing twice when it is repeated as the first numbered heading, including in large-document imports. No server migration or OMI format change is required. See the [beta.8 release notes](/docs/studio/releases/0.3.0-beta.8).
+
+The following older beta items describe **historical release behavior**; the former embedded EuroOffice interface was removed from current Studio source on 23 November 2026.
 
 ## Changes in 0.3.0-beta.7
 

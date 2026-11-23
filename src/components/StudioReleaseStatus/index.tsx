@@ -3,7 +3,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {STUDIO_WEB_VERSION, STUDIO_ANDROID_VERSION, STUDIO_PUBLISHED_VERSION, STUDIO_SOURCE_RELEASE_NOTES,
   STUDIO_RC_EVIDENCE_URL, STUDIO_WINDOWS_STORE_VERSION, STUDIO_WINDOWS_PACKAGE_VERSION,
-  STUDIO_SNAPSHOT_DATE} from '../../studioReleaseVersions';
+  STUDIO_SNAPSHOT_DATE, STUDIO_OFFICE_SEPARATION_PR_URL} from '../../studioReleaseVersions';
 
 const messages = {
   en: {
@@ -14,6 +14,8 @@ const messages = {
     downloads: 'Permanent direct desktop release',
     support: 'RC2 desktop candidates have also built successfully; see the channel table in the release notes. Linux desktop and macOS remain Preview; iOS/iPadOS Experimental.',
     notes: 'RC2 versions, downloads and changes', evidence: 'Build checks',
+    office: 'Source update, 23 November: embedded EuroOffice editing was removed from Studio. EuroOffice now runs separately; Studio DOCX import/export is unchanged. This is not a new downloadable release.',
+    officeDetails: 'Separation and rollout',
   },
   hu: {
     title: 'Elérhető a webes és az Android RC',
@@ -23,6 +25,8 @@ const messages = {
     downloads: 'Állandó közvetlen asztali kiadás',
     support: 'Az RC2 asztali jelöltjei is sikeresen elkészültek; részletek a kiadási csatornák táblázatában. A natív Linux és macOS Preview, az iOS/iPadOS kísérleti.',
     notes: 'RC2-verziók, letöltések és változások', evidence: 'Buildellenőrzések',
+    office: 'Forráskódfrissítés, november 23.: megszűnt az EuroOffice közvetlen beágyazása a Stúdióba. Az EuroOffice önálló szolgáltatás, a Stúdió DOCX-importja és -exportja változatlan. Ez még nem új letölthető kiadás.',
+    officeDetails: 'Szétválasztás és bevezetés',
   },
   de: {
     title: 'Web- und Android-RC verfügbar',
@@ -32,6 +36,8 @@ const messages = {
     downloads: 'Dauerhaftes direktes Desktop-Release',
     support: 'Auch RC2-Desktop-Kandidaten wurden erfolgreich gebaut; siehe Kanaltabelle in den Release-Notizen. Linux-Desktop und macOS bleiben Preview; iOS/iPadOS Experimental.',
     notes: 'RC2-Versionen, Downloads und Änderungen', evidence: 'Build-Prüfungen',
+    office: 'Quellcodeänderung vom 23. November: Der integrierte EuroOffice-Editor wurde aus Studio entfernt. EuroOffice läuft eigenständig; DOCX-Import und -Export in Studio bleiben erhalten. Dies ist noch kein neues Download-Release.',
+    officeDetails: 'Trennung und Bereitstellung',
   },
 } as const;
 
@@ -45,6 +51,7 @@ export default function StudioReleaseStatus() {
       <p>{copy.status}</p>
       <p>{copy.windows}: <strong>{STUDIO_WINDOWS_PACKAGE_VERSION}</strong>{' · '}{copy.store}: <strong>{STUDIO_WINDOWS_STORE_VERSION}</strong>. {copy.windowsNote}</p>
       <p>{copy.downloads}: <strong>{STUDIO_PUBLISHED_VERSION}</strong>. {copy.support}</p>
+      <p>{copy.office}{' '}<Link to="/docs/studio/updates/2026-11-23">{copy.officeDetails}</Link>{' · '}<Link to={STUDIO_OFFICE_SEPARATION_PR_URL}>PR #971</Link></p>
       <p><Link to={STUDIO_SOURCE_RELEASE_NOTES}>{copy.notes}</Link>{' · '}
         <Link to={STUDIO_RC_EVIDENCE_URL}>{copy.evidence}</Link></p>
     </aside>

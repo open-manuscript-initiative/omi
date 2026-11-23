@@ -4,9 +4,14 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const copy = {
   "en": [
-    "Studio development update — 20 November 2026",
-    "Implemented November improvements in the RC2 development line. The hosted web deployment is current; permanent desktop release assets and Store distribution have separate version identities.",
+    "Studio development update — 23 November 2026",
+    "The scholarly publishing features remain central. On 23 November, the embedded general-purpose EuroOffice editor was removed from Studio source. A new signed release is not implied; web, Store and direct downloads have separate version identities.",
     [
+      [
+        "Office editing is an independent service",
+        "The embedded EuroOffice editor and Studio API coupling have been removed. DOCX import/export remains available in Studio; a separate Office service is operated and updated independently.",
+        "updates/2026-11-23"
+      ],
       [
         "Publication editor and templates",
         "Volumes and journal issues, combined identifiers, reusable format snapshots, complete cover sheets, editable text/graphic frames, mm/pica/point units and paper-based spine calculation.",
@@ -30,9 +35,14 @@ const copy = {
     ]
   ],
   "hu": [
-    "Stúdió-fejlesztések — 2026. november 20.",
-    "A novemberi fejlesztések az RC2 fejlesztési vonalban elkészültek, a webes telepítés friss. Az állandó asztali kiadások és az áruházi terjesztés külön verzióazonosságot használnak.",
+    "Stúdió-fejlesztések — 2026. november 23.",
+    "A tudományos szerkesztés és publikálás marad a Stúdió központi feladata. November 23-án kikerült a forráskódból a beágyazott EuroOffice; ettől még nem jelent meg új telepítő. A webes, áruházi és közvetlen letöltések verziói eltérhetnek.",
     [
+      [
+        "EuroOffice: különálló szolgáltatás",
+        "Megszűnt az EuroOffice beágyazása és API-kapcsolata a Stúdióban. A DOCX-import és -export megmarad; az általános Office-szerkesztő külön üzemel és frissül.",
+        "updates/2026-11-23"
+      ],
       [
         "Kiadványszerkesztő és sablonok",
         "Kötetek és folyóiratszámok, együttes azonosítók, újrafelhasználható formátumok, teljes borítóívek, szöveg- és képkeretek, mm/pica/pont és papíralapú gerincszámítás.",
@@ -56,9 +66,14 @@ const copy = {
     ]
   ],
   "de": [
-    "Studio-Entwicklungsupdate — 20. November 2026",
-    "Die November-Funktionen sind in der RC2-Entwicklungslinie implementiert und im aktuellen Web-Deployment enthalten. Dauerhafte Desktop-Release-Dateien und Store-Verteilung haben eigene Versionsidentitäten.",
+    "Studio-Entwicklungsupdate — 23. November 2026",
+    "Wissenschaftliches Schreiben und Publizieren bleiben das Kernziel von Studio. Am 23. November wurde der eingebettete EuroOffice-Editor aus dem Quellcode entfernt, ohne damit ein neues Installationspaket zu veröffentlichen. Web-, Store- und Direktdownloads haben eigene Versionsstände.",
     [
+      [
+        "EuroOffice als eigenständiger Dienst",
+        "Der eingebettete EuroOffice-Editor und seine Studio-API-Anbindung wurden entfernt. DOCX-Import und -Export bleiben erhalten; Office wird unabhängig betrieben und aktualisiert.",
+        "updates/2026-11-23"
+      ],
       [
         "Publikationseditor und Vorlagen",
         "Bände und Zeitschriftenhefte, kombinierte Kennungen, wiederverwendbare Formate, ganze Umschlagbogen, Text-/Bildrahmen, mm/Pica/Punkt und papierbasierte Rückenberechnung.",
@@ -94,6 +109,6 @@ export default function RecentStudioDevelopments() {
         <h3><Link to={'/docs/studio/' + slug}>{heading}</Link></h3>
         <p>{description}</p>
       </article>)}</div>
-    <Link to="/docs/studio/updates/2026-11-20">{title}</Link>
+    <Link to="/docs/studio/updates/2026-11-23">{title}</Link>
   </section>;
 }

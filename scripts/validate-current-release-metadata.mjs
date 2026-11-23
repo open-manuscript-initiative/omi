@@ -30,6 +30,13 @@ const currentFacingFiles = [
   ...stagedReleaseNotesFiles,
   'src/studioReleaseVersions.ts',
   'src/components/StudioReleaseStatus/index.tsx',
+  'src/components/RecentStudioDevelopments/index.tsx',
+  'docs/studio/office-separation.md',
+  'docs/studio/updates/2026-11-23.md',
+  ...['hu', 'de'].flatMap((locale) => [
+    `i18n/${locale}/docusaurus-plugin-content-docs/current/studio/office-separation.md`,
+    `i18n/${locale}/docusaurus-plugin-content-docs/current/studio/updates/2026-11-23.md`,
+  ]),
   ...releaseNotesFiles,
   'README.md',
   'src/pages/index.tsx',
@@ -113,6 +120,12 @@ const required = [
   ['README.md', expected.stagedStudio],
   ['src/studioReleaseVersions.ts', '0a0ed53e4e61033b370de8280cfe1d5d4794bded'],
   ['src/studioReleaseVersions.ts', '44704657227'],
+  ['src/studioReleaseVersions.ts', "STUDIO_SNAPSHOT_DATE = '2026-11-23'"],
+  ['src/studioReleaseVersions.ts', 'STUDIO_OFFICE_SEPARATION_PR_URL'],
+  ['src/components/StudioReleaseStatus/index.tsx', 'STUDIO_OFFICE_SEPARATION_PR_URL'],
+  ['src/components/RecentStudioDevelopments/index.tsx', '/docs/studio/updates/2026-11-23'],
+  ['src/pages/index.tsx', '/docs/studio/updates/2026-11-23'],
+  ['src/pages/studio.tsx', '/docs/studio/updates/2026-11-23'],
   ['src/studioReleaseVersions.ts', `STUDIO_WINDOWS_STORE_VERSION = '${expected.windowsStore}'`],
   ['src/pages/studio.tsx', 'STUDIO_WINDOWS_STORE_SEARCH_URL'],
   ['src/pages/studio.tsx', 'directWindowsTitle'],
@@ -156,6 +169,16 @@ for (const [path, value] of required) {
   }
 }
 
+for (const locale of ['en', 'hu', 'de']) {
+  const root = locale === 'en' ? 'docs' : `i18n/${locale}/docusaurus-plugin-content-docs/current`;
+  for (const doc of ['studio/office-separation.md', 'studio/updates/2026-11-23.md']) {
+    const path = `${root}/${doc}`;
+    const content = contents.get(path);
+    for (const marker of [expected.studio, expected.stagedStudio, expected.windowsStore, expected.ojs, expected.omp, '971']) {
+      if (!content?.includes(marker)) failures.push(`${path}: missing current channel or separation marker ${marker}`);
+    }
+  }
+}
 for (const path of stagedReleaseNotesFiles) {
   if (!contents.get(path)?.includes(expected.stagedStudio)) {
     failures.push(`${path}: expected staged Studio version ${expected.stagedStudio}`);
