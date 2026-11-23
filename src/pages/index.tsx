@@ -226,7 +226,7 @@ export default function Home() {
             <StudioReleaseStatus />
             <h3>{t.currentTitle}</h3>
             <p>{studioUpdate.summary}</p>
-            <p><strong>{studioUpdate.buildStatus}: <Link to={STUDIO_SOURCE_RELEASE_NOTES}>{STUDIO_SOURCE_VERSION}</Link>.</strong> {studioUpdate.buildStatusDetail}</p>
+            <p><strong>{studioUpdate.buildStatus}: {STUDIO_WEB_VERSION}.</strong> {studioUpdate.buildStatusDetail} <Link to={STUDIO_SOURCE_RELEASE_NOTES}>{STUDIO_SOURCE_VERSION} (source candidate)</Link></p>
             <p>{current}</p>
             <p>{studioUpdate.developmentUpdate}{' '}
               <Link to="/docs/studio/updates/2026-11-23">{studioUpdate.developmentUpdateLink}</Link>
@@ -243,7 +243,7 @@ export default function Home() {
             <h3>Web · Android APK: {STUDIO_WEB_VERSION}</h3>
             <p>Windows (Microsoft Store): {STUDIO_WINDOWS_STORE_VERSION}</p>
             <p>Windows EXE/MSI · Linux · macOS (direct): {STUDIO_PUBLISHED_VERSION}</p>
-            <p>{studioUpdate.buildStatus}: <Link to={STUDIO_SOURCE_RELEASE_NOTES}>{STUDIO_SOURCE_VERSION}</Link></p>
+            <p>{studioUpdate.buildStatus}: {STUDIO_WEB_VERSION} · <Link to={STUDIO_SOURCE_RELEASE_NOTES}>{STUDIO_SOURCE_VERSION} (source candidate)</Link></p>
             <p>Web · Windows · Linux · macOS · Android · iOS/iPadOS</p>
             <p><strong>47</strong> selectable UI languages</p>
             <nav className={styles.contextLinks} aria-label={t.status}>

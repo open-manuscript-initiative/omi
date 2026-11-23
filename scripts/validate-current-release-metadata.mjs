@@ -3,6 +3,8 @@ import { readFile } from 'node:fs/promises';
 const expected = {
   studio: '0.3.0-beta.13',
   stagedStudio: '1.0.0-rc.2',
+  sourceStudio: '1.0.0-rc.3',
+  windowsPrepared: '1.0.2.0',
   windowsStore: '1.0.0.0',
   ojs: 'v1.8.7',
   omp: 'v1.5.1',
@@ -28,6 +30,9 @@ const stagedReleaseNotesFiles = [
 
 const currentFacingFiles = [
   ...stagedReleaseNotesFiles,
+  ...['en', 'hu', 'de'].map(locale => locale === 'en'
+    ? `docs/studio/releases/${expected.sourceStudio}.md`
+    : `i18n/${locale}/docusaurus-plugin-content-docs/current/studio/releases/${expected.sourceStudio}.md`),
   'src/studioReleaseVersions.ts',
   'src/components/StudioReleaseStatus/index.tsx',
   'src/components/RecentStudioDevelopments/index.tsx',
@@ -141,7 +146,8 @@ const required = [
   ['src/components/StudioReleaseStatus/index.tsx', 'Preview'],
   ['src/components/StudioReleaseStatus/index.tsx', 'Web and Android RC available'],
   ['src/studioReleaseVersions.ts', `STUDIO_PUBLISHED_VERSION = '${expected.studio}'`],
-  ['src/studioReleaseVersions.ts', `STUDIO_SOURCE_VERSION = '${expected.stagedStudio}'`],
+  ['src/studioReleaseVersions.ts', `STUDIO_SOURCE_VERSION = '${expected.sourceStudio}'`],
+  ['src/studioReleaseVersions.ts', `STUDIO_WINDOWS_PACKAGE_VERSION = '${expected.windowsPrepared}'`],
   ['src/pages/index.tsx', 'STUDIO_SOURCE_VERSION'],
   ['src/pages/studio.tsx', 'STUDIO_SOURCE_VERSION'],
   ['src/pages/index.tsx', 'STUDIO_PUBLISHED_VERSION'],
@@ -177,6 +183,14 @@ for (const locale of ['en', 'hu', 'de']) {
     for (const marker of [expected.studio, expected.stagedStudio, expected.windowsStore, expected.ojs, expected.omp, '971']) {
       if (!content?.includes(marker)) failures.push(`${path}: missing current channel or separation marker ${marker}`);
     }
+  }
+}
+for (const locale of ['en','hu','de']) {
+  const root = locale === 'en' ? 'docs' : `i18n/${locale}/docusaurus-plugin-content-docs/current`;
+  const file = `${root}/studio/releases/${expected.sourceStudio}.md`;
+  const body = contents.get(file);
+  for (const marker of [expected.sourceStudio, expected.stagedStudio, expected.studio, expected.windowsPrepared, expected.windowsStore, expected.ojs, expected.omp, '971', '972']) {
+    if (!body?.includes(marker)) failures.push(`${file}: missing RC3 provenance marker ${marker}`);
   }
 }
 for (const path of stagedReleaseNotesFiles) {

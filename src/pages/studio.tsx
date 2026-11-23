@@ -278,7 +278,7 @@ export default function StudioDownloads() {
           <h1>Open Manuscript Studio</h1>
           <StudioReleaseStatus />
           <p className={styles.lead}>{t.lead}</p>
-          <p><strong>{update.buildTitle}: <Link to={STUDIO_SOURCE_RELEASE_NOTES}>{STUDIO_SOURCE_VERSION}</Link>.</strong> {update.buildDescription}</p>
+          <p><strong>{update.buildTitle}: {STUDIO_WEB_VERSION}.</strong> {update.buildDescription} <Link to={STUDIO_SOURCE_RELEASE_NOTES}>{STUDIO_SOURCE_VERSION} (source candidate)</Link></p>
           <div className={styles.actions}>
             <Link className="button button--primary button--lg" to="https://studio.openmanuscript.org">{t.browserButton}</Link>
             <Link className="button button--secondary button--lg" to="https://github.com/open-manuscript-initiative/open-manuscript-studio">{t.source}</Link>
