@@ -41,8 +41,8 @@ const CURRENT_UPDATE = {
       ['Native dependency security updates', 'Packages rustls-webpki 0.103.16 and Tokio 1.53.3 with regression gates for the affected versions. The wasm32-only root-certificate dependency is also updated.'],
       ['Reliable macOS DMG packaging', 'Transient hdiutil resource contention retries only installer packaging, without repeating application compilation.'],
       ['Responsive long-document print layout', 'Pagination measures manuscript blocks and footnotes in short, cancellable animation-frame chunks, keeping the live publication editor responsive during long documents.'],
-      ['Android and EuroOffice viewport', 'System-navigation insets, a persistent editor host and compact floating controls keep the embedded editor within the usable screen.'],
-      ['EuroOffice documents and recovery', 'Standalone documents retain recoverable save snapshots. Revision-bound final saves and duplicate callback handling protect newer document revisions.'],
+      ['Scholarly Studio, separate Office service', 'The embedded EuroOffice editor and its Studio API coupling were removed from the source on 23 November 2026. Studio keeps native DOCX import/export; no new signed release is implied.'],
+      ['Explicit Office document exchange', 'EuroOffice is independently deployed and updated. For general Office editing, use the separate service; bring DOCX content into Studio through explicit import. No embedded Office session remains.'],
       ['Transkribus recognition and model picker', 'Browse public models by name, language or creator. Recognize a single page image after explicit credit consent, then review the text and source rights before insertion. Unknown paid requests are not resubmitted automatically.'],
       ['ODT interchange — Preview', 'Import and export supported text, tables, notes and images with archive validation and explicit warnings for source relationships that ODT cannot retain. Keep OMI for the complete source graph and history.'],
       ['Translations and compact settings', 'PO-backed labels and production research-module loading are updated. Desktop settings and language choices use compact wrapping layouts.'],
@@ -113,8 +113,8 @@ const CURRENT_UPDATE = {
       ['Natív függőségek biztonsági frissítése', 'A rustls-webpki 0.103.16 és a Tokio 1.53.3 javításait a sérülékeny verziók visszakerülését tiltó tesztek kísérik. A csak wasm32-célon használt gyökértanúsítvány-csomag is frissül.'],
       ['Megbízhatóbb macOS DMG-csomagolás', 'Átmeneti hdiutil-erőforrásfoglaltságnál csak a telepítőcsomag készítése ismétlődik, az alkalmazás újrafordítása nélkül.'],
       ['Reszponzív tördelés hosszú dokumentumokhoz', 'A lapozás rövid, megszakítható képkockánkénti lépésekben méri a kéziratblokkokat és lábjegyzeteket, így a hosszú dokumentumok tördelése közben is használható marad az élő kiadványszerkesztő.'],
-      ['Android és EuroOffice megjelenítés', 'A rendszer navigációs sávjának figyelembevétele, az állandó szerkesztőkeret és a kompakt lebegő vezérlők a használható képernyőterületen tartják a beágyazott szerkesztőt.'],
-      ['EuroOffice-dokumentumok és helyreállítás', 'Az önálló dokumentumok helyreállítható mentési pillanatképeket őriznek. A revízióhoz kötött végleges mentés és az ismételt visszahívások kezelése védi az újabb dokumentumváltozatot.'],
+      ['Tudományos Stúdió, önálló Office', '2026. november 23-án kikerült a beágyazott EuroOffice és annak API-kapcsolata a forráskódból. A natív DOCX-import és -export megmarad; új aláírt kiadás ettől még nem keletkezett.'],
+      ['Tudatos Office-dokumentumcsere', 'Az EuroOffice külön üzemeltethető és frissíthető. Általános irodai szerkesztéshez a külső szolgáltatást kell használni; a DOCX a Stúdió saját importján át vehető át. Beágyazott Office-munkamenet nincs.'],
       ['Transkribus-felismerés és modellválasztó', 'A nyilvános modellek név, nyelv vagy készítő szerint kereshetők. Egy oldalkép felismerése kifejezett kreditjóváhagyás után indul; a szöveg és a forrásjogok beszúrás előtt ellenőrizhetők. Bizonytalan kimenetelű fizetős kérés nem indul újra automatikusan.'],
       ['ODT-adatcsere — előzetes funkció', 'A támogatott szövegek, táblázatok, jegyzetek és képek importja/exportja archívumellenőrzéssel és az elvesző forráskapcsolatok jelzésével működik. A teljes forrásgráf és előzmény megőrzéséhez az OMI-fájlt tartsa meg.'],
       ['Fordítások és tömörebb beállítások', 'Frissültek a PO-alapú feliratok és a kutatási modulok éles fordításbetöltése. Az asztali beállítások és nyelvválasztók kompakt, több sorba tördelődő elrendezést kapnak.'],
@@ -185,8 +185,8 @@ const CURRENT_UPDATE = {
       ['Sicherheitsupdates nativer Abhängigkeiten', 'Enthält rustls-webpki 0.103.16 und Tokio 1.53.3 mit Regressionstests gegen betroffene Versionen. Auch die nur für wasm32 verwendete Stammzertifikat-Abhängigkeit wird aktualisiert.'],
       ['Zuverlässigere macOS-DMG-Paketierung', 'Bei vorübergehender hdiutil-Ressourcenbelegung wird nur die Installer-Paketierung wiederholt, ohne die Anwendung erneut zu kompilieren.'],
       ['Responsives Drucklayout für lange Dokumente', 'Die Paginierung misst Manuskriptblöcke und Fußnoten in kurzen, abbrechbaren Animationsbildschritten, damit der Live-Publikationseditor auch bei langen Dokumenten bedienbar bleibt.'],
-      ['Android- und EuroOffice-Ansicht', 'Abstände zur Systemnavigation, ein beständiger Editorbereich und kompakte schwebende Bedienelemente halten den eingebetteten Editor im nutzbaren Bildschirmbereich.'],
-      ['EuroOffice-Dokumente und Wiederherstellung', 'Eigenständige Dokumente bewahren wiederherstellbare Speicherversionen. Revisionsgebundene endgültige Speicherung und die Behandlung doppelter Rückmeldungen schützen neuere Dokumentversionen.'],
+      ['Wissenschaftliches Studio und eigener Office-Dienst', 'Am 23. November 2026 wurden der eingebettete EuroOffice-Editor und seine API-Kopplung aus dem Studio-Quellcode entfernt. Der native DOCX-Import/-Export bleibt; ein neues signiertes Release ist damit nicht automatisch erschienen.'],
+      ['Expliziter Office-Dokumentenaustausch', 'EuroOffice wird unabhängig bereitgestellt und aktualisiert. Für allgemeine Office-Arbeiten dient der separate Dienst; DOCX-Inhalte gelangen über den bewussten Studio-Import hinein. Eingebettete Office-Sitzungen entfallen.'],
       ['Transkribus-Erkennung und Modellauswahl', 'Öffentliche Modelle lassen sich nach Name, Sprache oder Ersteller durchsuchen. Nach ausdrücklicher Zustimmung zum Kreditverbrauch wird ein einzelnes Seitenbild erkannt. Text und Quellenrechte werden vor dem Einfügen geprüft. Bezahlte Anfragen mit unklarem Ausgang werden nicht automatisch wiederholt.'],
       ['ODT-Austausch — Vorschau', 'Unterstützte Texte, Tabellen, Anmerkungen und Bilder werden mit Archivprüfung und ausdrücklichen Warnungen bei nicht erhaltenen Quellenbeziehungen importiert und exportiert. OMI bewahrt weiterhin den vollständigen Quellengraphen und Verlauf.'],
       ['Übersetzungen und kompakte Einstellungen', 'PO-basierte Beschriftungen und das Laden von Forschungsmodulübersetzungen sind aktualisiert. Desktop-Einstellungen und Sprachauswahl nutzen kompakte umbrechende Anordnungen.'],
@@ -248,9 +248,9 @@ const CURRENT_UPDATE = {
 } as const;
 
 const DEVELOPMENT_UPDATE_LABELS = {
-  en: '20 November 2026: publication templates, complete cover sheets, editable notes, research projects and OJS production',
-  hu: '2026. november 20.: kiadványsablonok, teljes borítók, szerkeszthető jegyzetek, kutatási projektek és OJS-publikálás',
-  de: '20. November 2026: Publikationsvorlagen, Umschlagbogen, bearbeitbare Anmerkungen, Forschungsprojekte und OJS-Produktion',
+  en: '23 November 2026: separate EuroOffice service, scholarly Studio, and independently verified release channels',
+  hu: '2026. november 23.: önálló EuroOffice, tudományos Stúdió és külön ellenőrzött kiadási csatornák',
+  de: '23. November 2026: EuroOffice als separater Dienst, wissenschaftliches Studio und unabhängig geprüfte Releases',
 } as const;
 
 function developmentUpdateLabel(locale: string) {
@@ -312,7 +312,7 @@ export default function StudioDownloads() {
             </div>
             <p className={styles.sectionLead}>{update.maturity}</p>
             <p className={styles.sectionLead}>
-              <Link to="/docs/studio/updates/2026-11-20">{developmentUpdateLabel(i18n.currentLocale)}</Link>
+              <Link to="/docs/studio/updates/2026-11-23">{developmentUpdateLabel(i18n.currentLocale)}</Link>
             </p>
           </div>
         </section>
