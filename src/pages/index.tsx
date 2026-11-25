@@ -23,7 +23,7 @@ const FEATURE_DOC_TARGETS: Record<number, string> = {
 
 const STUDIO_UPDATE = {
   en: {
-    developmentUpdate: "23 November 2026: embedded EuroOffice editing removed from Studio source; release downloads retain their independently verified versions.",
+    developmentUpdate: "The merged source now includes expanded Word interoperability, direct note insertion, formatted note previews and adaptive memory management. RC4 version preparation is under review; distribution channels remain independently verified.",
     developmentUpdateLink: 'Read the development update',
     buildStatus: "Web and Android RC", buildStatusDetail: "Use RC2 in your browser or install its signed Android APK. Desktop download status is listed separately.",
     summary: "Studio 1.0.0-rc.2 is available for web and Android APK. Last confirmed Windows Store version: 1.0.0.0; direct desktop installers remain 0.3.0-beta.13. OMI-SPEC-320@0.3.0 is unchanged.",
@@ -49,7 +49,7 @@ const STUDIO_UPDATE = {
     uiLocales: 'selectable UI locales',
   },
   hu: {
-    developmentUpdate: "2026. november 23.: kikerült a Stúdió forráskódjából az EuroOffice beágyazása; a letölthető kiadások verziói ettől nem változtak.",
+    developmentUpdate: "A beolvasztott forráskód kibővített Word-kompatibilitást, közvetlen jegyzetbeszúrást, formázott jegyzet-előnézetet és adaptív memóriakezelést tartalmaz. Az RC4 verzió előkészítése ellenőrzés alatt áll; a terjesztési csatornák külön igazolandók.",
     developmentUpdateLink: 'A fejlesztési beszámoló megnyitása',
     buildStatus: "Webes és Android RC", buildStatusDetail: "Az RC2 böngészőben használható vagy aláírt Android APK-ból telepíthető. Az asztali letöltések állapota külön szerepel.",
     summary: "A Studio 1.0.0-rc.2 weben és Android APK-ként elérhető. Az utoljára igazolt Windows Store-os kiadás 1.0.0.0, a közvetlen asztali telepítők 0.3.0-beta.13 verziójúak. Az OMI-SPEC-320@0.3.0 változatlan.",
@@ -75,7 +75,7 @@ const STUDIO_UPDATE = {
     uiLocales: 'választható felületi lokalizáció',
   },
   de: {
-    developmentUpdate: "23. November 2026: Der eingebettete EuroOffice-Editor wurde aus Studio entfernt; die bestätigten Download-Versionen bleiben unverändert.",
+    developmentUpdate: "Der integrierte Quellcode enthält erweiterte Word-Interoperabilität, direktes Einfügen von Anmerkungen, formatierte Vorschauen und adaptive Speicherverwaltung. Die RC4-Versionsvorbereitung wird geprüft; Vertriebskanäle werden getrennt verifiziert.",
     developmentUpdateLink: 'Entwicklungsbericht lesen',
     buildStatus: "Web- und Android-RC", buildStatusDetail: "RC2 im Browser nutzen oder das signierte Android-APK installieren. Der Desktop-Downloadstatus wird getrennt aufgeführt.",
     summary: "Studio 1.0.0-rc.2 ist für Web und Android-APK verfügbar. Zuletzt bestätigte Windows-Store-Version: 1.0.0.0; direkte Desktop-Installer bleiben 0.3.0-beta.13. OMI-SPEC-320@0.3.0 bleibt unverändert.",
@@ -229,7 +229,7 @@ export default function Home() {
             <p><strong>{studioUpdate.buildStatus}: {STUDIO_WEB_VERSION}.</strong> {studioUpdate.buildStatusDetail} <Link to={STUDIO_SOURCE_RELEASE_NOTES}>{STUDIO_SOURCE_VERSION} (source candidate)</Link></p>
             <p>{current}</p>
             <p>{studioUpdate.developmentUpdate}{' '}
-              <Link to="/docs/studio/updates/2026-11-23">{studioUpdate.developmentUpdateLink}</Link>
+              <Link to="/docs/studio/updates/2026-11-25">{studioUpdate.developmentUpdateLink}</Link>
             </p>
             <div className={styles.studioActions}>
               <Link className="button button--primary button--lg" to={installHref}>{installLabel}</Link>

@@ -41,3 +41,9 @@ A Stúdió saját, hitelesített kiadványainál a szöveggondozás, tördelés,
 Részletek: [borítószerkesztés](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/publication-covers-title-pages.md), [sablonok](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/publication-templates.md), [OJS-átadás](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/ojs-live-publication.md).
 
 Kapcsolódó útmutatók: [jegyzetek és formázás](/docs/studio/notes-and-formatting), [kutatási projektek](/docs/studio/research-projects).
+
+## November 25-i interoperabilitási fejlesztés
+
+A támogatott Word-képgeometria és képkivágás, a natív OMML-képletek, szemantikus REF mezők és lektorálási annotációk regressziós ellenőrzése bővült. Import és export után ellenőrizze a tördelést és a lektorálási adatokat; teljes Word-azonosságot nem állítunk. A kiadványszerkesztő a szerzői munkatérrel közös adaptív szövegprojekciós gyorsítótárat használ.
+
+[Adaptív memóriakezelés](/docs/studio/performance-and-memory).

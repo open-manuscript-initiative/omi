@@ -25,6 +25,8 @@ keywords:
 
 # Open Manuscript Studio — Current Implementation Status
 
+**Updated 25 November 2026:** Merged formatting, Word interoperability, note insertion and preview, and adaptive editor memory are described in the [25 November update](/docs/studio/updates/2026-11-25). [RC4 preparation](/docs/studio/releases/1.0.0-rc.4) is separate from verified deployment.
+
 **Updated 23 November 2026:** The [EuroOffice separation](/docs/studio/office-separation) was merged into Studio source on 23 November (PR #971). It removes the embedded Office UI and Office-specific API mounts; standalone EuroOffice has its own service lifecycle. Native DOCX import/export and scholarly authoring remain in Studio. This source change is not confirmation of a new signed binary or a completed production deployment.
 
 **RC2 status documented 20 November 2026:** [RC2 versions and build evidence](/docs/studio/releases/1.0.0-rc.2). See the new guides for [publication templates, cover sheets and OJS Production](/docs/studio/publication-editor), [editable notes](/docs/studio/notes-and-formatting) and [family trees/research projects](/docs/studio/research-projects).

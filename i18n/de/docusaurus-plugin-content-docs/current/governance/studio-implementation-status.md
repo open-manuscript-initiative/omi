@@ -25,6 +25,8 @@ keywords:
 
 # Open Manuscript Studio — Aktueller Stand der Umsetzung
 
+**Aktualisiert am 25. November 2026:** Integrierte Formatierungs-, Word-Interoperabilitäts-, Anmerkungs- und Speicherverbesserungen sind im [Update vom 25. November](/docs/studio/updates/2026-11-25) beschrieben. Die [RC4-Vorbereitung](/docs/studio/releases/1.0.0-rc.4) ist von der bestätigten Bereitstellung zu unterscheiden.
+
 **Aktualisiert am 20. November 2026:** [RC2-Versionen und Nachweise](/docs/studio/releases/1.0.0-rc.2). Neue Anleitungen: [Vorlagen, Umschlagbogen und OJS Production](/docs/studio/publication-editor), [Anmerkungen](/docs/studio/notes-and-formatting), [Stammbäume/Forschungsprojekte](/docs/studio/research-projects).
 
 **20. November 2026 — RC2-Stand:** Web Studio und der signierte Android-APK-Kandidat verwenden `1.0.0-rc.2`. CI/CD einschließlich Web-Bereitstellung, CodeQL und native Builds sind für den [dokumentierten Quellstand erfolgreich](/docs/studio/releases/1.0.0-rc.2). Dauerhafte Desktop-Downloads bleiben `0.3.0-beta.13`. Linux/macOS: Preview; iOS/iPadOS: Experimental. Frühere RC1-Nachweise bleiben historisch und bestätigen keine RC2-Geräteabnahme.

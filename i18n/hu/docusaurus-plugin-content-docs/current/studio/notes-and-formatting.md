@@ -21,3 +21,9 @@ A kiadványstílus szabályozhatja a számozott láb- és végjegyzetet, illetve
 A szemantikus finanszírozási mezőből a kiadványstílus választható **csillagos finanszírozási jegyzetet** állíthat elő. Akkor kapcsold be, ha az adatnak a kiadvány elején is meg kell jelennie. A csillag elkülönül a rendes jegyzetszámozástól, amely 1-gyel kezdődik. Ellenőrizd a választott export támogatását és a végső PDF-et.
 
 Lásd a [kiadványszerkesztő útmutatóját](/docs/studio/publication-editor) és a [friss fejlesztési összefoglalót](/docs/studio/updates/2026-11-20).
+
+## Jegyzetbeszúrás és előnézet (november 25.)
+
+Használja a szerkesztő eszköztárának állandó jegyzetbeszúró ikonját. Kijelölés esetén a jegyzet a szöveghez kapcsolható, kijelölés nélkül a kurzornál illeszthető be. Az egérmutató vagy a billentyűzetfókusz a formázott jegyzettartalmat jeleníti meg; kattintással szerkeszthető. A fejlesztés a beolvasztott forráskódban található, a telepített alkalmazások frissítést igényelnek.
+
+[Stúdió-fejlesztések — 2026. november 25.](/docs/studio/updates/2026-11-25).

@@ -21,3 +21,9 @@ Publikationsstile steuern nummerierte Fuß-/Endnoten sowie Inline- und Randanmer
 Optional erzeugt der Publikationsstil aus den semantischen Förderangaben eine **Förderanmerkung mit Stern** am Anfang. Der Stern ist von der regulären, bei 1 beginnenden Nummerierung getrennt. Prüfen Sie die Unterstützung im jeweiligen Export und das endgültige PDF.
 
 Siehe [Publikationseditor](/docs/studio/publication-editor) und [aktuelles Entwicklungsupdate](/docs/studio/updates/2026-11-20).
+
+## Anmerkungen einfügen und ansehen (25. November)
+
+Die ständig verfügbare Aktion in der Editor-Werkzeugleiste fügt Anmerkungen am Cursor oder an ausgewähltem Text ein. Mauszeiger oder Tastaturfokus zeigen den formatierten Inhalt, ein Klick öffnet die Bearbeitung. Die Änderungen sind im integrierten Quellcode enthalten; installierte Clients benötigen aktualisierte Builds.
+
+[Studio-Entwicklungsupdate — 25. November 2026](/docs/studio/updates/2026-11-25).

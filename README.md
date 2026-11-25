@@ -19,6 +19,10 @@ Project state: **Web/Android RC; desktop stabilization and interoperability deve
 
 The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. Studio 0.3.0-beta.13 packages native TLS and Tokio security updates, native plugin fixes and more reliable macOS DMG creation. The portable manuscript format remains `OMI-SPEC-320@0.3.0`. Published releases remain immutable and bound to their exact build commit; Google Play requires a separate signed release run. See the [release notes](docs/studio/releases/0.3.0-beta.13.md) for packaging identities and deployment steps. iOS public distribution still depends on signing, provisioning and device/TestFlight validation.
 
+### 25 November development update
+
+Merged Studio changes include expanded native Word exchange, persistent note insertion and formatted previews, and adaptive editor caching. [RC4 preparation](docs/studio/releases/1.0.0-rc.4.md) is separate from the verified release channels above. See [the update](docs/studio/updates/2026-11-25.md) and [memory guide](docs/studio/performance-and-memory.md).
+
 ### November 2026 capabilities
 
 - Publication editor with reusable volume/journal templates, complete cover sheets, title matter, rich text/graphic frames and automatic paper-based spine calculation.

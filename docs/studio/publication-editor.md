@@ -41,3 +41,9 @@ For Studio-native verified venues, copyediting, layout, proof correction and fin
 See [source usage documentation](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/publication-covers-title-pages.md), [template details](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/publication-templates.md) and [OJS transfer](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/ojs-live-publication.md).
 
 See also: [notes and formatting](/docs/studio/notes-and-formatting) and [research projects](/docs/studio/research-projects).
+
+## November 25 interoperability update
+
+Supported Word picture geometry/cropping, native equations (OMML), semantic REF fields and review annotations have expanded regression coverage. Verify imported and exported layouts and review data rather than assuming complete Word fidelity. The publication editor shares the adaptive text-projection cache with the authoring workspace.
+
+[Adaptive memory management](/docs/studio/performance-and-memory).
