@@ -41,3 +41,9 @@ Für verifizierte Studio-eigene Publikationsorte sind Lektorat, Satz, Korrekturf
 Details: [Umschlag](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/publication-covers-title-pages.md), [Vorlagen](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/publication-templates.md), [OJS-Übergabe](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/ojs-live-publication.md).
 
 Weitere Anleitungen: [Anmerkungen und Formatierung](/docs/studio/notes-and-formatting), [Forschungsprojekte](/docs/studio/research-projects).
+
+## Interoperabilitätsupdate vom 25. November
+
+Die Regressionstests für unterstützte Word-Bildgeometrie und Zuschnitt, native OMML-Formeln, semantische REF-Felder und Review-Anmerkungen wurden erweitert. Layout und Review-Daten nach Import und Export prüfen; vollständige Word-Treue wird nicht behauptet. Der Publikationseditor nutzt den adaptiven Textprojektionscache gemeinsam mit dem Autorenarbeitsbereich.
+
+[Adaptive Speicherverwaltung](/docs/studio/performance-and-memory).

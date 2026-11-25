@@ -107,6 +107,14 @@ for (const path of currentFacingFiles) {
 }
 
 const failures = [];
+for (const locale of ['en', 'hu', 'de']) {
+  const root = locale === 'en' ? 'docs' : `i18n/${locale}/docusaurus-plugin-content-docs/current`;
+  for (const [doc, markers] of [['studio/releases/1.0.0-rc.4.md', ['1.0.0-rc.4', '1044', '1600', 'OMI-SPEC-320@0.3.0']], ['studio/updates/2026-11-25.md', ['1040', '1041', '1043']], ['studio/performance-and-memory.md', ['MiB', '256', '1043']]]) {
+    const content = await readFile(`${root}/${doc}`, 'utf8');
+    for (const marker of markers) if (!content.includes(marker)) failures.push(`${root}/${doc}: missing ${marker}`);
+  }
+}
+if (!contents.get('src/studioReleaseVersions.ts').includes("STUDIO_NEXT_SOURCE_VERSION = '1.0.0-rc.4'")) failures.push('Missing next source candidate metadata');
 for (const [path, content] of contents) {
   for (const version of staleProductVersions) {
     if (content.includes(version)) {
@@ -125,12 +133,12 @@ const required = [
   ['README.md', expected.stagedStudio],
   ['src/studioReleaseVersions.ts', '0a0ed53e4e61033b370de8280cfe1d5d4794bded'],
   ['src/studioReleaseVersions.ts', '44704657227'],
-  ['src/studioReleaseVersions.ts', "STUDIO_SNAPSHOT_DATE = '2026-11-23'"],
+  ['src/studioReleaseVersions.ts', "STUDIO_SNAPSHOT_DATE = '2026-11-25'"],
   ['src/studioReleaseVersions.ts', 'STUDIO_OFFICE_SEPARATION_PR_URL'],
   ['src/components/StudioReleaseStatus/index.tsx', 'STUDIO_OFFICE_SEPARATION_PR_URL'],
-  ['src/components/RecentStudioDevelopments/index.tsx', '/docs/studio/updates/2026-11-23'],
-  ['src/pages/index.tsx', '/docs/studio/updates/2026-11-23'],
-  ['src/pages/studio.tsx', '/docs/studio/updates/2026-11-23'],
+  ['src/components/RecentStudioDevelopments/index.tsx', '/docs/studio/updates/2026-11-25'],
+  ['src/pages/index.tsx', '/docs/studio/updates/2026-11-25'],
+  ['src/pages/studio.tsx', '/docs/studio/updates/2026-11-25'],
   ['src/studioReleaseVersions.ts', `STUDIO_WINDOWS_STORE_VERSION = '${expected.windowsStore}'`],
   ['src/pages/studio.tsx', 'STUDIO_WINDOWS_STORE_SEARCH_URL'],
   ['src/pages/studio.tsx', 'directWindowsTitle'],

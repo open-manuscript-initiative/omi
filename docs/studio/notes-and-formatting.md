@@ -21,3 +21,9 @@ Publication styles can control numbered footnotes/endnotes and inline or margina
 An optional starred funding note can be generated from the semantic funding metadata by the publication style. Enable it when that information should appear at the beginning; the star is separate from ordinary numbered notes, which start at 1. Review each export's supported presentation and the final PDF.
 
 See the [publication guide](/docs/studio/publication-editor) and [current implementation update](/docs/studio/updates/2026-11-20).
+
+## Note insertion and preview (25 November)
+
+Use the persistent note-insertion action in the editor toolbar. With a selection, a note can be attached to text; without one, insert at the caret. Hover or keyboard-focus the anchor to see formatted note content, and click to edit. These changes are in the merged source; installed clients require updated builds.
+
+[Studio development update — 25 November 2026](/docs/studio/updates/2026-11-25).

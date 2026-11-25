@@ -6,6 +6,8 @@ sidebar_label: "A Stúdió aktuális állapota"
 
 # Open Manuscript Studio — aktuális megvalósítási állapot
 
+**Frissítve: 2026. november 25.** A beolvasztott formázási, Word-kompatibilitási, jegyzetbeszúrási és előnézeti, valamint adaptív memóriakezelési fejlesztéseket a [november 25-i beszámoló](/docs/studio/updates/2026-11-25) ismerteti. Az [RC4 előkészítése](/docs/studio/releases/1.0.0-rc.4) külön kezelendő az igazolt telepítéstől.
+
 **Frissítve: 2026. november 20.** A webes Stúdió és az aláírt Android APK-jelölt verziója **1.0.0-rc.2**. A mai forráshoz tartozó CI/CD, CodeQL, Readiness, PKP-integráció és natív build sikeres; a webes éles telepítés befejeződött. [Pontos forrás, futások és letöltések](/docs/studio/releases/1.0.0-rc.2).
 
 | Terület | Aktuális állapot |

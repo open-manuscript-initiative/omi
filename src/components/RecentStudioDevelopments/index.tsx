@@ -4,9 +4,12 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const copy = {
   "en": [
-    "Studio development update — 23 November 2026",
-    "The scholarly publishing features remain central. On 23 November, the embedded general-purpose EuroOffice editor was removed from Studio source. A new signed release is not implied; web, Store and direct downloads have separate version identities.",
+    "Studio development update — 25 November 2026",
+    "The merged source now includes expanded Word interoperability, direct note insertion, formatted note previews and adaptive memory management. RC4 version preparation is under review; distribution channels remain independently verified.",
     [
+      ["Adaptive memory management","A shared, bounded derived-cache budget, three performance modes, diagnostics and background cache clearing. Android samples available system RAM; actual device and WebView memory measurements remain pending.","performance-and-memory"],
+      ["Direct note insertion and formatted previews","Insert a note at the cursor or attach it to a selection from the persistent toolbar action. Hover or focus a note anchor to read its formatted contents; click to edit.","notes-and-formatting"],
+      ["Expanded Word interoperability","Native DrawingML picture geometry and crops, OMML equations, semantic REF fields, private Word comments and reversible review changes, and consistent content-language tags. Verify complex documents after exchange.","updates/2026-11-25"],
       [
         "Office editing is an independent service",
         "The embedded EuroOffice editor and Studio API coupling have been removed. DOCX import/export remains available in Studio; a separate Office service is operated and updated independently.",
@@ -35,9 +38,12 @@ const copy = {
     ]
   ],
   "hu": [
-    "Stúdió-fejlesztések — 2026. november 23.",
-    "A tudományos szerkesztés és publikálás marad a Stúdió központi feladata. November 23-án kikerült a forráskódból a beágyazott EuroOffice; ettől még nem jelent meg új telepítő. A webes, áruházi és közvetlen letöltések verziói eltérhetnek.",
+    "Stúdió-fejlesztések — 2026. november 25.",
+    "A beolvasztott forráskód kibővített Word-kompatibilitást, közvetlen jegyzetbeszúrást, formázott jegyzet-előnézetet és adaptív memóriakezelést tartalmaz. Az RC4 verzió előkészítése ellenőrzés alatt áll; a terjesztési csatornák külön igazolandók.",
     [
+      ["Adaptív memóriakezelés","Közös, korlátozott származtatott gyorsítótár, három teljesítményüzemmód, diagnosztika és háttérbe kerüléskor ürítés. Androidon a rendszer elérhető RAM-ja is mérhető; a tényleges eszköz- és WebView-mérések még hátravannak.","performance-and-memory"],
+      ["Közvetlen jegyzetbeszúrás és formázott előnézet","Az állandó eszköztárikon a kurzornál vagy kijelölt szöveghez szúr be jegyzetet. A hivatkozás fölé vitt egér vagy billentyűzetfókusz megjeleníti a formázott tartalmat; kattintással szerkeszthető.","notes-and-formatting"],
+      ["Bővített Word-kompatibilitás","Natív DrawingML képgeometria és vágás, OMML képletek, szemantikus REF mezők, privát Word-megjegyzések és visszafordítható változtatások, egységes tartalmi nyelvkódok. Az összetett dokumentumok eredményét ellenőrizni kell.","updates/2026-11-25"],
       [
         "EuroOffice: különálló szolgáltatás",
         "Megszűnt az EuroOffice beágyazása és API-kapcsolata a Stúdióban. A DOCX-import és -export megmarad; az általános Office-szerkesztő külön üzemel és frissül.",
@@ -66,9 +72,12 @@ const copy = {
     ]
   ],
   "de": [
-    "Studio-Entwicklungsupdate — 23. November 2026",
-    "Wissenschaftliches Schreiben und Publizieren bleiben das Kernziel von Studio. Am 23. November wurde der eingebettete EuroOffice-Editor aus dem Quellcode entfernt, ohne damit ein neues Installationspaket zu veröffentlichen. Web-, Store- und Direktdownloads haben eigene Versionsstände.",
+    "Studio-Entwicklungsupdate — 25. November 2026",
+    "Der integrierte Quellcode enthält erweiterte Word-Interoperabilität, direktes Einfügen von Anmerkungen, formatierte Vorschauen und adaptive Speicherverwaltung. Die RC4-Versionsvorbereitung wird geprüft; Vertriebskanäle werden getrennt verifiziert.",
     [
+      ["Adaptive Speicherverwaltung","Gemeinsames begrenztes Cache-Budget, drei Leistungsmodi, Diagnose und Cache-Leerung im Hintergrund. Android ermittelt verfügbaren Systemspeicher; Geräte- und WebView-Messungen stehen aus.","performance-and-memory"],
+      ["Direkte Anmerkungen und formatierte Vorschau","Anmerkungen über die dauerhaft verfügbare Werkzeugleistenaktion am Cursor oder an ausgewähltem Text einfügen. Mauszeiger oder Tastaturfokus zeigen formatierte Inhalte; Klick öffnet die Bearbeitung.","notes-and-formatting"],
+      ["Erweiterte Word-Interoperabilität","Native DrawingML-Bildgeometrie und Zuschnitt, OMML-Formeln, semantische REF-Felder, private Word-Kommentare und reversible Änderungen sowie konsistente Inhaltssprachcodes. Komplexe Dokumente nach dem Austausch prüfen.","updates/2026-11-25"],
       [
         "EuroOffice als eigenständiger Dienst",
         "Der eingebettete EuroOffice-Editor und seine Studio-API-Anbindung wurden entfernt. DOCX-Import und -Export bleiben erhalten; Office wird unabhängig betrieben und aktualisiert.",
@@ -109,6 +118,6 @@ export default function RecentStudioDevelopments() {
         <h3><Link to={'/docs/studio/' + slug}>{heading}</Link></h3>
         <p>{description}</p>
       </article>)}</div>
-    <Link to="/docs/studio/updates/2026-11-23">{title}</Link>
+    <Link to="/docs/studio/updates/2026-11-25">{title}</Link>
   </section>;
 }

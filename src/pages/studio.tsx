@@ -248,9 +248,9 @@ const CURRENT_UPDATE = {
 } as const;
 
 const DEVELOPMENT_UPDATE_LABELS = {
-  en: '23 November 2026: separate EuroOffice service, scholarly Studio, and independently verified release channels',
-  hu: '2026. november 23.: önálló EuroOffice, tudományos Stúdió és külön ellenőrzött kiadási csatornák',
-  de: '23. November 2026: EuroOffice als separater Dienst, wissenschaftliches Studio und unabhängig geprüfte Releases',
+  en: 'Studio development update — 25 November 2026',
+  hu: 'Stúdió-fejlesztések — 2026. november 25.',
+  de: 'Studio-Entwicklungsupdate — 25. November 2026',
 } as const;
 
 function developmentUpdateLabel(locale: string) {
@@ -312,7 +312,7 @@ export default function StudioDownloads() {
             </div>
             <p className={styles.sectionLead}>{update.maturity}</p>
             <p className={styles.sectionLead}>
-              <Link to="/docs/studio/updates/2026-11-23">{developmentUpdateLabel(i18n.currentLocale)}</Link>
+              <Link to="/docs/studio/updates/2026-11-25">{developmentUpdateLabel(i18n.currentLocale)}</Link>
             </p>
           </div>
         </section>

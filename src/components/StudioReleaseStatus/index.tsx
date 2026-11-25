@@ -3,10 +3,11 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {STUDIO_WEB_VERSION, STUDIO_ANDROID_VERSION, STUDIO_PUBLISHED_VERSION, STUDIO_SOURCE_RELEASE_NOTES,
   STUDIO_RC_EVIDENCE_URL, STUDIO_WINDOWS_STORE_VERSION, STUDIO_WINDOWS_PACKAGE_VERSION,
-  STUDIO_SNAPSHOT_DATE, STUDIO_OFFICE_SEPARATION_PR_URL} from '../../studioReleaseVersions';
+  STUDIO_SNAPSHOT_DATE, STUDIO_OFFICE_SEPARATION_PR_URL, STUDIO_NEXT_SOURCE_VERSION, STUDIO_NEXT_SOURCE_RELEASE_NOTES, STUDIO_NEXT_SOURCE_PR_URL} from '../../studioReleaseVersions';
 
 const messages = {
   en: {
+    next: "RC4 candidate preparation (PR #1044); not a verified public release.",
     title: 'Web and Android RC available',
     status: 'RC2 includes the November publication, notes, research-project and OJS improvements. The Android candidate is a signed APK inside an Actions ZIP; GitHub sign-in may be required and the archive expires on 18 February 2027.',
     windows: 'Windows package', store: 'Last confirmed Store version (10 November)',
@@ -18,6 +19,7 @@ const messages = {
     officeDetails: 'Separation and rollout',
   },
   hu: {
+    next: "RC4 verzió előkészítése (#1044 PR); nem igazolt nyilvános kiadás.",
     title: 'Elérhető a webes és az Android RC',
     status: 'Az RC2 tartalmazza a novemberi kiadványszerkesztési, jegyzet-, kutatásiprojekt- és OJS-fejlesztéseket. Az Android-jelölt aláírt APK az Actions ZIP-csomagjában; GitHub-bejelentkezés szükséges lehet, a csomag 2027. február 18-án lejár.',
     windows: 'Windows-csomag', store: 'Utoljára igazolt Store-verzió (november 10.)',
@@ -29,6 +31,7 @@ const messages = {
     officeDetails: 'Szétválasztás és bevezetés',
   },
   de: {
+    next: "RC4-Vorbereitung (PR #1044); kein bestätigtes öffentliches Release.",
     title: 'Web- und Android-RC verfügbar',
     status: 'RC2 enthält die November-Neuerungen für Satz, Anmerkungen, Forschungsprojekte und OJS. Der Android-Kandidat ist eine signierte APK im Actions-ZIP; GitHub-Anmeldung kann nötig sein. Das Archiv läuft am 18. Februar 2027 ab.',
     windows: 'Windows-Paket', store: 'Zuletzt bestätigte Store-Version (10. November)',
@@ -51,6 +54,7 @@ export default function StudioReleaseStatus() {
       <p>{copy.status}</p>
       <p>{copy.windows}: <strong>{STUDIO_WINDOWS_PACKAGE_VERSION}</strong>{' · '}{copy.store}: <strong>{STUDIO_WINDOWS_STORE_VERSION}</strong>. {copy.windowsNote}</p>
       <p>{copy.downloads}: <strong>{STUDIO_PUBLISHED_VERSION}</strong>. {copy.support}</p>
+      <p><Link to={STUDIO_NEXT_SOURCE_RELEASE_NOTES}>{STUDIO_NEXT_SOURCE_VERSION}</Link>{' · '}{copy.next}{' '}<Link to={STUDIO_NEXT_SOURCE_PR_URL}>PR #1044</Link></p>
       <p>{copy.office}{' '}<Link to="/docs/studio/updates/2026-11-23">{copy.officeDetails}</Link>{' · '}<Link to={STUDIO_OFFICE_SEPARATION_PR_URL}>PR #971</Link></p>
       <p><Link to={STUDIO_SOURCE_RELEASE_NOTES}>{copy.notes}</Link>{' · '}
         <Link to={STUDIO_RC_EVIDENCE_URL}>{copy.evidence}</Link></p>
