@@ -30,6 +30,45 @@ Text- und Bildrahmen lassen sich verschieben, skalieren, drehen, formen, füllen
 
 Aktivierte Umschlagseiten werden als ganze Bogen in HTML/PDF ausgegeben, die Titelei im Beschnittformat. Prüfen Sie PDF und Schriftverfügbarkeit vor dem Druck.
 
+## Dynamische Datenfelder (Shortcodes) in der Titelei
+
+Die Funktion wird in [Studio-PR #1091](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1091) und [OJS-Plugin-PR #53](https://github.com/open-manuscript-initiative/omi-ojs-plugin/pull/53) vorbereitet. Nutzung nach Integration beider Änderungen und Bereitstellung kompatibler Studio- und Plugin-Versionen.
+
+Öffnen Sie **Publizieren → Publikationseditor → Umschlag und Titelei**. Wählen Sie eine Seite oder einen Textrahmen, setzen Sie den Cursor und wählen Sie **Datenfeld einfügen**. Codes können auch direkt eingegeben werden; die Formatierung innerhalb eines Codes muss einheitlich bleiben. Aktivieren Sie die **Datenfeldvorschau**, deaktivieren Sie sie zum Bearbeiten der Codes.
+
+| Shortcode | Inhalt |
+| --- | --- |
+| `[omi:imprint]` | Impressum: Kolophon oder Verlag/Adresse/Kontakt, Copyright und verfügbare Kennungen |
+| `[omi:editorial-board]` | Öffentliche native Redaktion nach Rollen |
+| `[omi:authors]` | Autoren der Publikation |
+| `[omi:contents]` | Inhaltsverzeichnis: Autoren und Beitragstitel |
+| `[omi:journal]` | Zeitschrift oder Reihe |
+| `[omi:publisher]` | Verlag |
+| `[omi:address]` | Postanschrift oder Verlagsort |
+| `[omi:contact]` | Kontaktname |
+| `[omi:title]` | Publikationstitel |
+| `[omi:volume]` | Jahrgang oder Band |
+| `[omi:number]` | Heftnummer |
+| `[omi:year]` | Erscheinungsjahr |
+| `[omi:issn]` | Druck-ISSN |
+| `[omi:eissn]` | Elektronische ISSN |
+| `[omi:isbn]` | ISBN |
+| `[omi:doi]` | DOI |
+
+```text
+IMPRESSUM
+[omi:imprint]
+
+Redaktion
+[omi:editorial-board]
+
+[omi:journal] [omi:volume]/[omi:number] ([omi:year])
+```
+
+Speichern Sie das Layout als Publikationsvorlage. Anders als die bisherigen beim Anwenden aufgelösten Platzhalter mit doppelten geschweiften Klammern bleiben diese Codes im gespeicherten Text und verwenden die aktuellen Dokumentdaten in Vorschau und HTML/PDF. Impressum und native Redaktion stammen aus einem importierten OJS-Schnappschuss. Öffnen Sie eine bereits importierte Ausgabe erneut aus OJS und wählen Sie **Impressum und Redaktion aktualisieren**; Artikeltext und Layout bleiben erhalten. Eigene Impressums- und Masthead-Plugins können einen Adapter erfordern. Private Konto-E-Mail-Adressen werden nicht ausgegeben.
+
+Fehlende oder unbekannte Daten bleiben als Codes sichtbar und erzeugen Exportdiagnosen. Das Inhaltsverzeichnis enthält Autoren und Titel, keine Seitenzahlen. Prüfen Sie das fertige PDF, insbesondere Rahmenüberlauf. Die Auflösung in IDML, DOCX und ODT ist nicht bestätigt. Alle Felder sind auch in der Studio-Hilfe und der lokalen Titelei-Hilfe beschrieben.
+
 ## Satzdateien an OJS übertragen
 
 Erforderlich sind eine vorhandene unveröffentlichte Einreichung in **OJS Production**, persönliche redaktionelle Zugangsdaten und ein aktuelles OJS-Plugin; zuletzt dokumentiert ist **1.8.7**. Ziel prüfen, HTML und/oder eine PDF-Variante wählen, alle Ausgaben vorbereiten und ansehen. Anschließend genaue Dateien und Ziel bestätigen.
