@@ -7,39 +7,39 @@ import {STUDIO_WEB_VERSION, STUDIO_ANDROID_VERSION, STUDIO_PUBLISHED_VERSION, ST
 
 const messages = {
   en: {
-    next: "RC4 candidate preparation (PR #1044); not a verified public release.",
+    next: "RC5 candidate preparation (PR #1089); not a verified public release.",
     title: 'Web and Android RC available',
     status: 'RC2 includes the November publication, notes, research-project and OJS improvements. The Android candidate is a signed APK inside an Actions ZIP; GitHub sign-in may be required and the archive expires on 18 February 2027.',
     windows: 'Windows package', store: 'Last confirmed Store version (10 November)',
-    windowsNote: 'This is the RC3 source package identity, not a signed or published Store version. Check the Store for the version currently offered.',
+    windowsNote: 'This is the RC4 source package identity, not a signed or published Store version. Check the Store for the version currently offered.',
     downloads: 'Permanent direct desktop release',
     support: 'RC2 desktop candidates have also built successfully; see the channel table in the release notes. Linux desktop and macOS remain Preview; iOS/iPadOS Experimental.',
-    notes: 'RC3 source candidate and release requirements', evidence: 'Previous RC2 build checks',
-    office: 'The RC3 source candidate includes the EuroOffice separation and Studio DOCX import/export. Web/Android RC2, published desktop beta.13 and Store channels remain independently verified until RC3 packages are accepted.',
+    notes: 'RC4 source candidate and release requirements', evidence: 'Previous RC2 build checks',
+    office: 'The RC4 source candidate includes the EuroOffice separation and Studio DOCX import/export. Web/Android RC2, published desktop beta.13 and Store channels remain independently verified until RC4 packages are accepted.',
     officeDetails: 'Separation and rollout',
   },
   hu: {
-    next: "RC4 verzió előkészítése (#1044 PR); nem igazolt nyilvános kiadás.",
+    next: "RC5 verzió előkészítése (#1089 PR); nem igazolt nyilvános kiadás.",
     title: 'Elérhető a webes és az Android RC',
     status: 'Az RC2 tartalmazza a novemberi kiadványszerkesztési, jegyzet-, kutatásiprojekt- és OJS-fejlesztéseket. Az Android-jelölt aláírt APK az Actions ZIP-csomagjában; GitHub-bejelentkezés szükséges lehet, a csomag 2027. február 18-án lejár.',
     windows: 'Windows-csomag', store: 'Utoljára igazolt Store-verzió (november 10.)',
-    windowsNote: 'Ez az RC3 forráskódjának előkészített csomagazonosítója, nem igazoltan kiadott vagy aláírt Store-verzió. A ténylegesen elérhető verziót a Store mutatja.',
+    windowsNote: 'Ez az RC4 forráskódjának előkészített csomagazonosítója, nem igazoltan kiadott vagy aláírt Store-verzió. A ténylegesen elérhető verziót a Store mutatja.',
     downloads: 'Állandó közvetlen asztali kiadás',
     support: 'Az RC2 asztali jelöltjei is sikeresen elkészültek; részletek a kiadási csatornák táblázatában. A natív Linux és macOS Preview, az iOS/iPadOS kísérleti.',
-    notes: 'RC3 forráskódjelölt és kiadási feltételek', evidence: 'Korábbi RC2-buildellenőrzések',
-    office: 'Az RC3 forráskódjelölt tartalmazza az EuroOffice szétválasztását, a Stúdió saját DOCX-importja és -exportja megmarad. A webes/Android RC2, az asztali beta.13 és a Store-csatorna változatlanul külön ellenőrzendő.',
+    notes: 'RC4 forráskódjelölt és kiadási feltételek', evidence: 'Korábbi RC2-buildellenőrzések',
+    office: 'Az RC4 forráskódjelölt tartalmazza az EuroOffice szétválasztását, a Stúdió saját DOCX-importja és -exportja megmarad. A webes/Android RC2, az asztali beta.13 és a Store-csatorna változatlanul külön ellenőrzendő.',
     officeDetails: 'Szétválasztás és bevezetés',
   },
   de: {
-    next: "RC4-Vorbereitung (PR #1044); kein bestätigtes öffentliches Release.",
+    next: "RC5-Vorbereitung (PR #1089); kein bestätigtes öffentliches Release.",
     title: 'Web- und Android-RC verfügbar',
     status: 'RC2 enthält die November-Neuerungen für Satz, Anmerkungen, Forschungsprojekte und OJS. Der Android-Kandidat ist eine signierte APK im Actions-ZIP; GitHub-Anmeldung kann nötig sein. Das Archiv läuft am 18. Februar 2027 ab.',
     windows: 'Windows-Paket', store: 'Zuletzt bestätigte Store-Version (10. November)',
-    windowsNote: 'Dies ist die vorbereitete RC3-Paketidentität, keine bestätigte signierte Store-Version. Das Store-Angebot ist gesondert zu prüfen.',
+    windowsNote: 'Dies ist die vorbereitete RC4-Paketidentität, keine bestätigte signierte Store-Version. Das Store-Angebot ist gesondert zu prüfen.',
     downloads: 'Dauerhaftes direktes Desktop-Release',
     support: 'Auch RC2-Desktop-Kandidaten wurden erfolgreich gebaut; siehe Kanaltabelle in den Release-Notizen. Linux-Desktop und macOS bleiben Preview; iOS/iPadOS Experimental.',
-    notes: 'RC3-Quellcodekandidat und Freigabevoraussetzungen', evidence: 'Frühere RC2-Build-Prüfungen',
-    office: 'Der RC3-Quellcodekandidat enthält die Trennung von EuroOffice; DOCX-Import/-Export in Studio bleibt erhalten. Web/Android RC2, Desktop beta.13 und Store werden bis zur Abnahme der RC3-Pakete unabhängig verifiziert.',
+    notes: 'RC4-Quellcodekandidat und Freigabevoraussetzungen', evidence: 'Frühere RC2-Build-Prüfungen',
+    office: 'Der RC4-Quellcodekandidat enthält die Trennung von EuroOffice; DOCX-Import/-Export in Studio bleibt erhalten. Web/Android RC2, Desktop beta.13 und Store werden bis zur Abnahme der RC4-Pakete unabhängig verifiziert.',
     officeDetails: 'Trennung und Bereitstellung',
   },
 } as const;
@@ -54,7 +54,7 @@ export default function StudioReleaseStatus() {
       <p>{copy.status}</p>
       <p>{copy.windows}: <strong>{STUDIO_WINDOWS_PACKAGE_VERSION}</strong>{' · '}{copy.store}: <strong>{STUDIO_WINDOWS_STORE_VERSION}</strong>. {copy.windowsNote}</p>
       <p>{copy.downloads}: <strong>{STUDIO_PUBLISHED_VERSION}</strong>. {copy.support}</p>
-      <p><Link to={STUDIO_NEXT_SOURCE_RELEASE_NOTES}>{STUDIO_NEXT_SOURCE_VERSION}</Link>{' · '}{copy.next}{' '}<Link to={STUDIO_NEXT_SOURCE_PR_URL}>PR #1044</Link></p>
+      <p><Link to={STUDIO_NEXT_SOURCE_RELEASE_NOTES}>{STUDIO_NEXT_SOURCE_VERSION}</Link>{' · '}{copy.next}{' '}<Link to={STUDIO_NEXT_SOURCE_PR_URL}>PR #1089</Link></p>
       <p>{copy.office}{' '}<Link to="/docs/studio/updates/2026-11-23">{copy.officeDetails}</Link>{' · '}<Link to={STUDIO_OFFICE_SEPARATION_PR_URL}>PR #971</Link></p>
       <p><Link to={STUDIO_SOURCE_RELEASE_NOTES}>{copy.notes}</Link>{' · '}
         <Link to={STUDIO_RC_EVIDENCE_URL}>{copy.evidence}</Link></p>

@@ -1,3 +1,7 @@
+## [2026-11-26] — OJS issue workflow and RC5 preparation
+
+- Document merged complete planned-issue import, per-article export and reviewed printed page writeback; link Studio RC5 and OJS plugin 1.9.1 preparation without promoting unverified downloads.
+
 # Changelog
 
 All notable changes to this project will be documented in this file.

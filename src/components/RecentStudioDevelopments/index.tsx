@@ -5,7 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 const copy = {
   "en": [
     "Studio development update — 25 November 2026",
-    "The merged source now includes expanded Word interoperability, direct note insertion, formatted note previews and adaptive memory management. RC4 version preparation is under review; distribution channels remain independently verified.",
+    "The merged source now includes expanded Word interoperability, direct note insertion, formatted note previews and adaptive memory management. Complete planned OJS issue import and reviewed article export/writeback are now merged. RC5 and OJS plugin 1.9.1 preparation are under review; distribution and live acceptance remain separate.",
     [
       ["Adaptive memory management","A shared, bounded derived-cache budget, three performance modes, diagnostics and background cache clearing. Android samples available system RAM; actual device and WebView memory measurements remain pending.","performance-and-memory"],
       ["Direct note insertion and formatted previews","Insert a note at the cursor or attach it to a selection from the persistent toolbar action. Hover or focus a note anchor to read its formatted contents; click to edit.","notes-and-formatting"],
@@ -39,7 +39,7 @@ const copy = {
   ],
   "hu": [
     "Stúdió-fejlesztések — 2026. november 25.",
-    "A beolvasztott forráskód kibővített Word-kompatibilitást, közvetlen jegyzetbeszúrást, formázott jegyzet-előnézetet és adaptív memóriakezelést tartalmaz. Az RC4 verzió előkészítése ellenőrzés alatt áll; a terjesztési csatornák külön igazolandók.",
+    "A beolvasztott forráskód kibővített Word-kompatibilitást, közvetlen jegyzetbeszúrást, formázott jegyzet-előnézetet és adaptív memóriakezelést tartalmaz. A teljes tervezett OJS-lapszám importja és az ellenőrzött tanulmányexport/visszaírás is beolvadt. Az RC5 és az OJS-plugin 1.9.1 előkészítése folyamatban van; a terjesztés és az éles próba külön igazolandó.",
     [
       ["Adaptív memóriakezelés","Közös, korlátozott származtatott gyorsítótár, három teljesítményüzemmód, diagnosztika és háttérbe kerüléskor ürítés. Androidon a rendszer elérhető RAM-ja is mérhető; a tényleges eszköz- és WebView-mérések még hátravannak.","performance-and-memory"],
       ["Közvetlen jegyzetbeszúrás és formázott előnézet","Az állandó eszköztárikon a kurzornál vagy kijelölt szöveghez szúr be jegyzetet. A hivatkozás fölé vitt egér vagy billentyűzetfókusz megjeleníti a formázott tartalmat; kattintással szerkeszthető.","notes-and-formatting"],
@@ -73,7 +73,7 @@ const copy = {
   ],
   "de": [
     "Studio-Entwicklungsupdate — 25. November 2026",
-    "Der integrierte Quellcode enthält erweiterte Word-Interoperabilität, direktes Einfügen von Anmerkungen, formatierte Vorschauen und adaptive Speicherverwaltung. Die RC4-Versionsvorbereitung wird geprüft; Vertriebskanäle werden getrennt verifiziert.",
+    "Der integrierte Quellcode enthält erweiterte Word-Interoperabilität, direktes Einfügen von Anmerkungen, formatierte Vorschauen und adaptive Speicherverwaltung. Der vollständige Import geplanter OJS-Ausgaben und die geprüfte Artikelübertragung sind integriert. RC5 und OJS-Plugin 1.9.1 sind in Vorbereitung; Vertrieb und Praxisabnahme bleiben getrennt.",
     [
       ["Adaptive Speicherverwaltung","Gemeinsames begrenztes Cache-Budget, drei Leistungsmodi, Diagnose und Cache-Leerung im Hintergrund. Android ermittelt verfügbaren Systemspeicher; Geräte- und WebView-Messungen stehen aus.","performance-and-memory"],
       ["Direkte Anmerkungen und formatierte Vorschau","Anmerkungen über die dauerhaft verfügbare Werkzeugleistenaktion am Cursor oder an ausgewähltem Text einfügen. Mauszeiger oder Tastaturfokus zeigen formatierte Inhalte; Klick öffnet die Bearbeitung.","notes-and-formatting"],

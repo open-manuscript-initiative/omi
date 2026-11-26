@@ -3,8 +3,8 @@ import { readFile } from 'node:fs/promises';
 const expected = {
   studio: '0.3.0-beta.13',
   stagedStudio: '1.0.0-rc.2',
-  sourceStudio: '1.0.0-rc.3',
-  windowsPrepared: '1.0.2.0',
+  sourceStudio: '1.0.0-rc.4',
+  windowsPrepared: '1.0.3.0',
   windowsStore: '1.0.0.0',
   ojs: 'v1.8.7',
   omp: 'v1.5.1',
@@ -109,12 +109,12 @@ for (const path of currentFacingFiles) {
 const failures = [];
 for (const locale of ['en', 'hu', 'de']) {
   const root = locale === 'en' ? 'docs' : `i18n/${locale}/docusaurus-plugin-content-docs/current`;
-  for (const [doc, markers] of [['studio/releases/1.0.0-rc.4.md', ['1.0.0-rc.4', '1044', '1600', 'OMI-SPEC-320@0.3.0']], ['studio/updates/2026-11-25.md', ['1040', '1041', '1043']], ['studio/performance-and-memory.md', ['MiB', '256', '1043']]]) {
+  for (const [doc, markers] of [['studio/releases/1.0.0-rc.5.md', ['1.0.0-rc.5', '1089', '1088', '1.9.1', '2000', 'OMI-SPEC-320@0.3.0']], ['studio/releases/1.0.0-rc.4.md', ['1.0.0-rc.4', '1044', '1600', 'OMI-SPEC-320@0.3.0']], ['studio/updates/2026-11-25.md', ['1040', '1041', '1043']], ['studio/performance-and-memory.md', ['MiB', '256', '1043']]]) {
     const content = await readFile(`${root}/${doc}`, 'utf8');
     for (const marker of markers) if (!content.includes(marker)) failures.push(`${root}/${doc}: missing ${marker}`);
   }
 }
-if (!contents.get('src/studioReleaseVersions.ts').includes("STUDIO_NEXT_SOURCE_VERSION = '1.0.0-rc.4'")) failures.push('Missing next source candidate metadata');
+if (!contents.get('src/studioReleaseVersions.ts').includes("STUDIO_NEXT_SOURCE_VERSION = '1.0.0-rc.5'")) failures.push('Missing next source candidate metadata');
 for (const [path, content] of contents) {
   for (const version of staleProductVersions) {
     if (content.includes(version)) {
@@ -133,7 +133,7 @@ const required = [
   ['README.md', expected.stagedStudio],
   ['src/studioReleaseVersions.ts', '0a0ed53e4e61033b370de8280cfe1d5d4794bded'],
   ['src/studioReleaseVersions.ts', '44704657227'],
-  ['src/studioReleaseVersions.ts', "STUDIO_SNAPSHOT_DATE = '2026-11-25'"],
+  ['src/studioReleaseVersions.ts', "STUDIO_SNAPSHOT_DATE = '2026-11-26'"],
   ['src/studioReleaseVersions.ts', 'STUDIO_OFFICE_SEPARATION_PR_URL'],
   ['src/components/StudioReleaseStatus/index.tsx', 'STUDIO_OFFICE_SEPARATION_PR_URL'],
   ['src/components/RecentStudioDevelopments/index.tsx', '/docs/studio/updates/2026-11-25'],
@@ -197,8 +197,8 @@ for (const locale of ['en','hu','de']) {
   const root = locale === 'en' ? 'docs' : `i18n/${locale}/docusaurus-plugin-content-docs/current`;
   const file = `${root}/studio/releases/${expected.sourceStudio}.md`;
   const body = contents.get(file);
-  for (const marker of [expected.sourceStudio, expected.stagedStudio, expected.studio, expected.windowsPrepared, expected.windowsStore, expected.ojs, expected.omp, '971', '972']) {
-    if (!body?.includes(marker)) failures.push(`${file}: missing RC3 provenance marker ${marker}`);
+  for (const marker of [expected.sourceStudio, expected.stagedStudio, expected.studio, expected.windowsPrepared, expected.windowsStore, expected.ojs, expected.omp, '1044']) {
+    if (!body?.includes(marker)) failures.push(`${file}: missing RC4 provenance marker ${marker}`);
   }
 }
 for (const path of stagedReleaseNotesFiles) {
