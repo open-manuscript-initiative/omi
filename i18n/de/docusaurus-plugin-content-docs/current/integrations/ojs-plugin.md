@@ -124,3 +124,7 @@ Das Plugin wurde gemäß den Vorgaben von PKP/OJSs 3.5 APIentwickelt und wird de
 ## Freigabenachweise — 2026-11-07
 
 OJS 3.5.0-4, 3.5.0-5 und 3.5.0-6 benötigen jeweils automatisierte E02-Nachweise und eine manuelle Abnahme. Das aktuelle Protokoll hat 14 Prüfpunkte einschließlich `ojs-3.5.0-6`. Historische Protokolle mit 13 Prüfpunkten genehmigen den erweiterten Umfang nicht. Serverfähigkeiten und Berechtigungen bestimmen weiterhin die verfügbaren Aktionen. [Support und Abnahme](https://openmanuscript.org/de/docs/governance/studio-1.0-architecture/pkp-support-2026-11-07/).
+
+## Geplante Ausgaben — Vorbereitung 1.9.1
+
+Der integrierte Quellcode unterstützt den Import vollständiger geplanter Ausgaben, ausgabengebundene Dateiübertragung, Artikel-DOI und geprüfte Rückschreibung gedruckter Seitenzahlen. [Plugin 1.9.1](https://github.com/open-manuscript-initiative/omi-ojs-plugin/pull/50) ist noch kein bestätigter Download. Siehe [RC5-Bereitstellung](/docs/studio/releases/1.0.0-rc.5). Praxisabnahme steht aus; keine automatische Veröffentlichung.

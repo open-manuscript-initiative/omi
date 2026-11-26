@@ -3,7 +3,7 @@
  * Promote STUDIO_PUBLISHED_VERSION only when release approval and immutable assets exist.
  */
 export const STUDIO_PUBLISHED_VERSION = '0.3.0-beta.13';
-export const STUDIO_SOURCE_VERSION = '1.0.0-rc.3';
+export const STUDIO_SOURCE_VERSION = '1.0.0-rc.4';
 export const STUDIO_WEB_VERSION = '1.0.0-rc.2';
 export const STUDIO_ANDROID_VERSION = '1.0.0-rc.2';
 /** Store MSIX version, independent of the public direct desktop installers. */
@@ -19,13 +19,13 @@ export const STUDIO_RC_BUILD_URL = 'https://github.com/open-manuscript-initiativ
 export const STUDIO_ANDROID_RC_DOWNLOAD_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/actions/runs/44704656922/artifacts/14615141484';
 
 /** Prepared Windows package identity; Store rollout remains independently verified. */
-export const STUDIO_WINDOWS_PACKAGE_VERSION = '1.0.2.0';
+export const STUDIO_WINDOWS_PACKAGE_VERSION = '1.0.3.0';
 /** Date when website source/status was checked; not a binary release date. */
-export const STUDIO_SNAPSHOT_DATE = '2026-11-25';
+export const STUDIO_SNAPSHOT_DATE = '2026-11-26';
 /** Merged source-code change, not yet a published 1.0 installer. */
 export const STUDIO_OFFICE_SEPARATION_PR_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/971';
 
 /** Version preparation PR; not a published or merged source version until independently verified. */
-export const STUDIO_NEXT_SOURCE_VERSION = '1.0.0-rc.4';
+export const STUDIO_NEXT_SOURCE_VERSION = '1.0.0-rc.5';
 export const STUDIO_NEXT_SOURCE_RELEASE_NOTES = `/docs/studio/releases/${STUDIO_NEXT_SOURCE_VERSION}`;
-export const STUDIO_NEXT_SOURCE_PR_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1044';
+export const STUDIO_NEXT_SOURCE_PR_URL = 'https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1089';

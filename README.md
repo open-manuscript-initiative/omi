@@ -21,7 +21,7 @@ The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. 
 
 ### 25 November development update
 
-Merged Studio changes include expanded native Word exchange, persistent note insertion and formatted previews, and adaptive editor caching. [RC4 preparation](docs/studio/releases/1.0.0-rc.4.md) is separate from the verified release channels above. See [the update](docs/studio/updates/2026-11-25.md) and [memory guide](docs/studio/performance-and-memory.md).
+Merged Studio changes include expanded native Word exchange, persistent note insertion and formatted previews, and adaptive editor caching. [RC4 source](docs/studio/releases/1.0.0-rc.4.md) is merged; [RC5 preparation](docs/studio/releases/1.0.0-rc.5.md) and OJS plugin 1.9.1 are under review. Complete planned issue import and publication workflow (#1088) is merged; distribution remains independently verified. See [the update](docs/studio/updates/2026-11-25.md) and [memory guide](docs/studio/performance-and-memory.md).
 
 ### November 2026 capabilities
 

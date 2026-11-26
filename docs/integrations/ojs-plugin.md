@@ -124,3 +124,7 @@ The plugin is designed against PKP/OJS 3.5 APIs and is being prepared for PKP-fa
 ## Release evidence policy — 2026-11-07
 
 OJS 3.5.0-4, 3.5.0-5 and 3.5.0-6 each require a version-specific automated E02 result and manual acceptance. The current receipt has 14 gates including `ojs-3.5.0-6`. Historical 13-gate receipts do not approve the expanded scope. Capability discovery and permissions still determine available actions. [Support and acceptance policy](https://openmanuscript.org/docs/governance/studio-1.0-architecture/pkp-support-2026-11-07/).
+
+## Planned issues — 1.9.1 preparation
+
+Merged source supports manager-scoped complete planned issue import, exact-target publication artifact transfer, article DOI metadata and reviewed printed page writeback. [Plugin 1.9.1 preparation](https://github.com/open-manuscript-initiative/omi-ojs-plugin/pull/50) is not a verified downloadable release. See [RC5 rollout](/docs/studio/releases/1.0.0-rc.5). Live editorial acceptance is pending; no automatic publication.
