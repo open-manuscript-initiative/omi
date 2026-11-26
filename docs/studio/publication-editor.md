@@ -90,3 +90,7 @@ See also: [notes and formatting](/docs/studio/notes-and-formatting) and [researc
 Supported Word picture geometry/cropping, native equations (OMML), semantic REF fields and review annotations have expanded regression coverage. Verify imported and exported layouts and review data rather than assuming complete Word fidelity. The publication editor shares the adaptive text-projection cache with the authoring workspace.
 
 [Adaptive memory management](/docs/studio/performance-and-memory).
+
+### Study and page fields in running headers
+
+In **Page styles and section headers**, use `[omi:article-doi]`, `[omi:article-title]`, `[omi:short-article-title]`, `[omi:article-authors]` and `[omi:page-number]`. These fields refer to the current study and printed body-page counter, not the issue DOI or old imported pagination. Use a new page for each study to avoid ambiguous shared-page headers. Continuous HTML has no running page furniture. Review the final paginated PDF; these fields are not cover fields or a new footer editor.

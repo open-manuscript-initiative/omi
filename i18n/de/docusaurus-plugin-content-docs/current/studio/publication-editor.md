@@ -90,3 +90,7 @@ Weitere Anleitungen: [Anmerkungen und Formatierung](/docs/studio/notes-and-forma
 Die Regressionstests für unterstützte Word-Bildgeometrie und Zuschnitt, native OMML-Formeln, semantische REF-Felder und Review-Anmerkungen wurden erweitert. Layout und Review-Daten nach Import und Export prüfen; vollständige Word-Treue wird nicht behauptet. Der Publikationseditor nutzt den adaptiven Textprojektionscache gemeinsam mit dem Autorenarbeitsbereich.
 
 [Adaptive Speicherverwaltung](/docs/studio/performance-and-memory).
+
+### Beitrags- und seitenabhängige Kolumnentitel
+
+Unter **Seitenstile und Abschnittskolumnentitel** stehen `[omi:article-doi]`, `[omi:article-title]`, `[omi:short-article-title]`, `[omi:article-authors]` und `[omi:page-number]` zur Verfügung. Die Felder beziehen sich auf den aktuellen Beitrag und die gedruckte Seitenzahl des Inhalts, nicht auf die Heft-DOI oder alte importierte Seitenbereiche. Für eindeutige Kolumnentitel Beiträge auf neuen Seiten beginnen. Fortlaufendes HTML enthält keine physischen Kolumnentitel. Das endgültige PDF prüfen; dies sind keine Umschlagfelder oder neuen Fußzeilenfunktionen.

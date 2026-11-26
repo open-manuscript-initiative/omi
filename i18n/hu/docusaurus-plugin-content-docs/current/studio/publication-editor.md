@@ -90,3 +90,7 @@ Kapcsolódó útmutatók: [jegyzetek és formázás](/docs/studio/notes-and-form
 A támogatott Word-képgeometria és képkivágás, a natív OMML-képletek, szemantikus REF mezők és lektorálási annotációk regressziós ellenőrzése bővült. Import és export után ellenőrizze a tördelést és a lektorálási adatokat; teljes Word-azonosságot nem állítunk. A kiadványszerkesztő a szerzői munkatérrel közös adaptív szövegprojekciós gyorsítótárat használ.
 
 [Adaptív memóriakezelés](/docs/studio/performance-and-memory).
+
+### Tanulmány- és oldalfüggő élőfejek
+
+Az **Oldalstílusok és szakaszfejlécek** mezőiben használható a `[omi:article-doi]` (tanulmány DOI-ja), `[omi:article-title]` (címe), `[omi:short-article-title]` (rövid címe), `[omi:article-authors]` (szerzői) és `[omi:page-number]` (nyomtatott oldalszám). A mezők a tanulmányhoz és a belív aktuális oldalszámához kötődnek, nem a lapszám DOI-jához vagy az importált régi oldaltartományhoz. Egyértelmű élőfejhez kezdje a tanulmányokat új oldalon. A folyamatos HTML-ben nincs fizikai élőfej. A végleges PDF ellenőrzendő; ezek nem borítómezők és nem új láblécszerkesztő-funkciók.
