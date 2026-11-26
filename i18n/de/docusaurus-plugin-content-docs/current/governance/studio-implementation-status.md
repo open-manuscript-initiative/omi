@@ -208,3 +208,11 @@ Konfigurationsabhängige Integrationen müssen für die Beta-Version nicht allge
 - Garantien für die Kompatibilität der Versionsstufen für unterstützte Import-/Exportziele festlegen.
 
 Das Vorhandensein einer Funktion in diesem Implementierungs-Snapshot darf nicht als formale Konformität mit einer Spezifikation unter OMI ausgelegt werden, es sei denn, eine entsprechende Konformitätsklasse und entsprechende Nachweise werden separat veröffentlicht.
+
+## Aktueller Quellstand – 27. November 2026
+
+RC5 ist integriert: vollständiger Import geplanter OJS-Ausgaben, beitragsbezogene Autorenbearbeitung, mehrsprachige Titelei-Felder und beitragsabhängige Kolumnentitel. Studio #1090 und #1091 sowie OJS #52 und #53 sind integriert. OJS main enthält 1.9.2.0; ein früheres Archiv derselben Version kann vor #53 erstellt worden sein. Paketprovenienz und Praxisabnahme prüfen.
+
+Zuletzt bestätigte Referenzen: Web/Android 1.0.0-rc.2, Desktop 0.3.0-beta.13, Store 1.0.0.0; historische OJS v1.8.7 und OMP v1.5.1. Keine neu geprüften Live-Versionen.
+
+[Studio #1091](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1091) · [OJS #53](https://github.com/open-manuscript-initiative/omi-ojs-plugin/pull/53) · [RC5 #1089](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1089) · [Update](/docs/studio/updates/2026-11-27)

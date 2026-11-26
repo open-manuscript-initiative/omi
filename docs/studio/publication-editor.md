@@ -32,7 +32,10 @@ Enabled cover faces export as complete sheets in HTML/PDF. Title matter uses the
 
 ## Dynamic metadata fields (shortcodes)
 
-This functionality is prepared in [Studio PR #1091](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1091) and [OJS connector PR #53](https://github.com/open-manuscript-initiative/omi-ojs-plugin/pull/53). Use after both changes are integrated and a compatible connector and Studio build have been deployed.
+Both PRs are merged. Use compatible deployed Studio and connector builds; live acceptance is pending.
+
+[Studio #1091](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1091) · [OJS #53](https://github.com/open-manuscript-initiative/omi-ojs-plugin/pull/53) · [RC5 #1089](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1089) · [Update](/docs/studio/updates/2026-11-27)
+
 
 Open **Publishing → Publication editor → Covers and title pages**. Select a page or text frame, position the cursor, and choose **Insert metadata field**. You may also type a shortcode directly. Keep each token in one text run with uniform formatting. Enable **Preview metadata fields** to display values and disable it to edit the source tokens.
 

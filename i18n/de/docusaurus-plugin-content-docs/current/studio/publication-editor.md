@@ -32,7 +32,10 @@ Aktivierte Umschlagseiten werden als ganze Bogen in HTML/PDF ausgegeben, die Tit
 
 ## Dynamische Datenfelder (Shortcodes) in der Titelei
 
-Die Funktion wird in [Studio-PR #1091](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1091) und [OJS-Plugin-PR #53](https://github.com/open-manuscript-initiative/omi-ojs-plugin/pull/53) vorbereitet. Nutzung nach Integration beider Änderungen und Bereitstellung kompatibler Studio- und Plugin-Versionen.
+Beide PRs sind integriert. Kompatible bereitgestellte Studio- und Plugin-Versionen erforderlich; Praxisabnahme steht aus.
+
+[Studio #1091](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1091) · [OJS #53](https://github.com/open-manuscript-initiative/omi-ojs-plugin/pull/53) · [RC5 #1089](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1089) · [Update](/docs/studio/updates/2026-11-27)
+
 
 Öffnen Sie **Publizieren → Publikationseditor → Umschlag und Titelei**. Wählen Sie eine Seite oder einen Textrahmen, setzen Sie den Cursor und wählen Sie **Datenfeld einfügen**. Codes können auch direkt eingegeben werden; die Formatierung innerhalb eines Codes muss einheitlich bleiben. Aktivieren Sie die **Datenfeldvorschau**, deaktivieren Sie sie zum Bearbeiten der Codes.
 

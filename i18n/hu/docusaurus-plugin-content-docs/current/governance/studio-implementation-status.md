@@ -34,3 +34,11 @@ A Yjs-alapú élő közös szerkesztés elfogadott meghívás után, szerverolda
 A sikeres CI és a build nem helyettesíti a készülékes elfogadást, nyomdai próbát vagy áruházi terjesztés ellenőrzését. A stabil 1.0 jóváhagyása és a specifikációk érettsége külön kérdés; az új funkciók nem emelik automatikusan magasabb szintre a Draft modelleket.
 
 Lásd a [november 20-i összefoglalót](/docs/studio/updates/2026-11-20) és a [megfelelőségi állapotmátrixot](/docs/governance/implementation-status-matrix).
+
+## Aktuális forrásállapot – 2026. november 27.
+
+Az RC5 beolvadt: teljes tervezett OJS-lapszám importja, tanulmányonkénti szerzőkezelés, többnyelvű címnegyed-shortcode-ok és tanulmányfüggő futó fejlécek. A Stúdió #1090 és #1091, illetve az OJS-plugin #52 és #53 beolvadt. Az OJS main ág verziója 1.9.2.0; az ugyanilyen verziószámú korábbi csomagból a #53 hiányozhat. A csomag eredete és az éles munkafolyamat ellenőrzendő.
+
+Utoljára igazolt hivatkozások: web/Android 1.0.0-rc.2, asztali 0.3.0-beta.13, Store 1.0.0.0; korábbi OJS v1.8.7 és OMP v1.5.1. Nem most ellenőrzött éles verziók.
+
+[Studio #1091](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1091) · [OJS #53](https://github.com/open-manuscript-initiative/omi-ojs-plugin/pull/53) · [RC5 #1089](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1089) · [Update](/docs/studio/updates/2026-11-27)

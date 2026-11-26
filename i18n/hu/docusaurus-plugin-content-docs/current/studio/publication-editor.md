@@ -32,7 +32,10 @@ A bekapcsolt borítóoldalak teljes ívként kerülnek a HTML/PDF-be, a címnegy
 
 ## Dinamikus adatmezők (shortcode-ok) a címnegyedben
 
-A funkció a [Stúdió #1091-es PR-jében](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1091) és az [OJS-plugin #53-as PR-jében](https://github.com/open-manuscript-initiative/omi-ojs-plugin/pull/53) készült elő. A két módosítás beolvadása és a kompatibilis plugin, illetve Stúdió telepítése után használható.
+Mindkét PR beolvadt. Kompatibilis Stúdió- és plugin-build telepítése szükséges; az éles ellenőrzés hátravan.
+
+[Studio #1091](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1091) · [OJS #53](https://github.com/open-manuscript-initiative/omi-ojs-plugin/pull/53) · [RC5 #1089](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1089) · [Update](/docs/studio/updates/2026-11-27)
+
 
 Nyissa meg: **Publikálás → Kiadványszerkesztő → Borítók és címnegyed**. Válasszon oldalt vagy szövegkeretet, helyezze el a kurzort, majd válassza az **Adatmező beszúrása** menüt. A kód kézzel is beírható; egy kódon belül ne váltson formázást. Az **Adatmezők előnézete** a behelyettesített adatokat mutatja; kikapcsolásával a kódok szerkeszthetők.
 

@@ -281,3 +281,11 @@ Configuration-dependent integrations do not need to be universally available for
 - establish release-level compatibility guarantees for supported import/export targets.
 
 The presence of a feature in this implementation snapshot must not be interpreted as formal conformance with an OMI specification unless a corresponding conformance class and evidence are published separately.
+
+## Current source status — 27 November 2026
+
+RC5 is merged, including complete planned OJS issue import, study-specific author editing, multilingual title-matter shortcodes and study-aware running headers. Studio #1090 and #1091, OJS #52 and #53 are merged. OJS main declares 1.9.2.0; an earlier package at the same version may predate #53. Check archive provenance and live editorial acceptance.
+
+Last verified references: web/Android 1.0.0-rc.2, desktop 0.3.0-beta.13, Store 1.0.0.0; historical OJS v1.8.7 and OMP v1.5.1. Not newly verified live versions.
+
+[Studio #1091](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1091) · [OJS #53](https://github.com/open-manuscript-initiative/omi-ojs-plugin/pull/53) · [RC5 #1089](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1089) · [Update](/docs/studio/updates/2026-11-27)
