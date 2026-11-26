@@ -30,6 +30,49 @@ Text- und Bildrahmen lassen sich verschieben, skalieren, drehen, formen, füllen
 
 Aktivierte Umschlagseiten werden als ganze Bogen in HTML/PDF ausgegeben, die Titelei im Beschnittformat. Prüfen Sie PDF und Schriftverfügbarkeit vor dem Druck.
 
+## Dynamische Datenfelder (Shortcodes) in der Titelei
+
+Die Funktion wird in [Studio-PR #1091](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1091) und [OJS-Plugin-PR #53](https://github.com/open-manuscript-initiative/omi-ojs-plugin/pull/53) vorbereitet. Nutzung nach Integration beider Änderungen und Bereitstellung kompatibler Studio- und Plugin-Versionen.
+
+Öffnen Sie **Publizieren → Publikationseditor → Umschlag und Titelei**. Wählen Sie eine Seite oder einen Textrahmen, setzen Sie den Cursor und wählen Sie **Datenfeld einfügen**. Codes können auch direkt eingegeben werden; die Formatierung innerhalb eines Codes muss einheitlich bleiben. Aktivieren Sie die **Datenfeldvorschau**, deaktivieren Sie sie zum Bearbeiten der Codes.
+
+| Shortcode | Inhalt |
+| --- | --- |
+| `[omi:imprint]` | Impressum: Kolophon oder Verlag/Adresse/Kontakt, Copyright und verfügbare Kennungen |
+| `[omi:editorial-board]` | Öffentliche native Redaktion nach Rollen |
+| `[omi:authors]` | Autoren der Publikation |
+| `[omi:contents]` | Inhaltsverzeichnis: Autoren und Beitragstitel |
+| `[omi:journal]` | Zeitschrift oder Reihe |
+| `[omi:publisher]` | Verlag |
+| `[omi:address]` | Postanschrift oder Verlagsort |
+| `[omi:contact]` | Kontaktname |
+| `[omi:title]` | Publikationstitel |
+| `[omi:volume]` | Jahrgang oder Band |
+| `[omi:number]` | Heftnummer |
+| `[omi:year]` | Erscheinungsjahr |
+| `[omi:issn]` | Druck-ISSN |
+| `[omi:eissn]` | Elektronische ISSN |
+| `[omi:isbn]` | ISBN |
+| `[omi:doi]` | DOI |
+
+```text
+IMPRESSUM
+[omi:imprint]
+
+Redaktion
+[omi:editorial-board]
+
+[omi:journal] [omi:volume]/[omi:number] ([omi:year])
+```
+
+Speichern Sie das Layout als Publikationsvorlage. Anders als die bisherigen beim Anwenden aufgelösten Platzhalter mit doppelten geschweiften Klammern bleiben diese Codes im gespeicherten Text und verwenden die aktuellen Dokumentdaten in Vorschau und HTML/PDF. Impressum und native Redaktion stammen aus einem importierten OJS-Schnappschuss. Öffnen Sie eine bereits importierte Ausgabe erneut aus OJS und wählen Sie **Impressum und Redaktion aktualisieren**; Artikeltext und Layout bleiben erhalten. Eigene Impressums- und Masthead-Plugins können einen Adapter erfordern. Private Konto-E-Mail-Adressen werden nicht ausgegeben.
+
+Fehlende oder unbekannte Daten bleiben als Codes sichtbar und erzeugen Exportdiagnosen. Das Inhaltsverzeichnis enthält Autoren und Titel, keine Seitenzahlen. Prüfen Sie das fertige PDF, insbesondere Rahmenüberlauf. Die Auflösung in IDML, DOCX und ODT ist nicht bestätigt. Alle Felder sind auch in der Studio-Hilfe und der lokalen Titelei-Hilfe beschrieben.
+
+### Mehrsprachige Titelei
+
+Die Datenfeldsprache ist unabhängig von der Oberflächensprache. Verwenden Sie `[omi:journal:hu]`, `[omi:journal:en]`, `[omi:editorial-board:hu]` und `[omi:editorial-board:en]` auch auf derselben Seite. Ein explizites Suffix überschreibt die Rahmensprache, sonst gilt die Dokumentensprache. Regionale OJS-Sprachschlüssel wie `hu_HU` und `en_US` werden erkannt. Fehlende Übersetzungen werden nicht automatisch erzeugt oder durch andere Sprachen ersetzt; in OJS ergänzen und den Schnappschuss aktualisieren. Sprachunabhängige Kennungen und erfasste Autorennamen bleiben gemeinsam; öffentliche Namensvarianten der Redaktion werden verwendet, sofern vorhanden. OJS-Daten und endgültiges PDF redaktionell prüfen.
+
 ## Satzdateien an OJS übertragen
 
 Erforderlich sind eine vorhandene unveröffentlichte Einreichung in **OJS Production**, persönliche redaktionelle Zugangsdaten und ein aktuelles OJS-Plugin; zuletzt dokumentiert ist **1.8.7**. Ziel prüfen, HTML und/oder eine PDF-Variante wählen, alle Ausgaben vorbereiten und ansehen. Anschließend genaue Dateien und Ziel bestätigen.
@@ -47,3 +90,7 @@ Weitere Anleitungen: [Anmerkungen und Formatierung](/docs/studio/notes-and-forma
 Die Regressionstests für unterstützte Word-Bildgeometrie und Zuschnitt, native OMML-Formeln, semantische REF-Felder und Review-Anmerkungen wurden erweitert. Layout und Review-Daten nach Import und Export prüfen; vollständige Word-Treue wird nicht behauptet. Der Publikationseditor nutzt den adaptiven Textprojektionscache gemeinsam mit dem Autorenarbeitsbereich.
 
 [Adaptive Speicherverwaltung](/docs/studio/performance-and-memory).
+
+### Beitrags- und seitenabhängige Kolumnentitel
+
+Unter **Seitenstile und Abschnittskolumnentitel** stehen `[omi:article-doi]`, `[omi:article-title]`, `[omi:short-article-title]`, `[omi:article-authors]` und `[omi:page-number]` zur Verfügung. Die Felder beziehen sich auf den aktuellen Beitrag und die gedruckte Seitenzahl des Inhalts, nicht auf die Heft-DOI oder alte importierte Seitenbereiche. Für eindeutige Kolumnentitel Beiträge auf neuen Seiten beginnen. Fortlaufendes HTML enthält keine physischen Kolumnentitel. Das endgültige PDF prüfen; dies sind keine Umschlagfelder oder neuen Fußzeilenfunktionen.
