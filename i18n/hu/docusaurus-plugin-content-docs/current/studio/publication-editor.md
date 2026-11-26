@@ -69,6 +69,10 @@ Mentse a formátumot kiadványsablonként. A korábbi, alkalmazáskor feloldód�
 
 Hiányzó vagy ismeretlen adatnál a kód látható marad, és exportálási hibajelzés keletkezik. A tartalomjegyzék szerzőket és címeket tartalmaz, oldalszámokat még nem. Ellenőrizze a végleges PDF-et, különösen a szövegkeretek túlcsordulását. Az IDML, DOCX és ODT shortcode-feloldása még nem igazolt. A teljes lista a Stúdió Súgójában és a címnegyedszerkesztő helyi súgójában is elérhető.
 
+### Többnyelvű címnegyed
+
+Az adatmező nyelve a kezelőfelület nyelvétől függetlenül választható. Ugyanazon az oldalon használható a `[omi:journal:hu]`, `[omi:journal:en]`, `[omi:editorial-board:hu]` és `[omi:editorial-board:en]`. A nyelvi utótag elsőbbséget élvez a szövegkeret nyelvével szemben, ennek hiányában a dokumentum nyelve érvényes. A `hu_HU` és `en_US` OJS-jelölések is felismerhetők. A hiányzó nyelvi mezőket a rendszer nem fordítja le automatikusan és nem helyettesíti más nyelvű adattal; töltse ki az OJS-ben, majd frissítse az importált pillanatképet. Az azonosítók és a szerzők rögzített nevei közösek; a szerkesztőségi nyilvános névváltozatok használhatók, ha rendelkezésre állnak. Ellenőrizze az OJS-adatokat és a végleges PDF-et.
+
 ## Tördelt fájlok átadása az OJS-nek
 
 Meglévő, még nem publikált, **OJS Production** szakaszban lévő beküldéshez személyes szerkesztői hozzáférés és megfelelő OJS-bővítmény szükséges; a legutóbbi dokumentált kiadás **1.8.7**. Ellenőrizd a célt, válassz HTML-t és/vagy egy PDF-változatot, készítsd elő a kiválasztott kimeneteket és nézd át őket. Ezután erősítsd meg a pontos fájlokat és célt.

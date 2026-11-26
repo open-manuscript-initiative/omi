@@ -69,6 +69,10 @@ Save the layout as a publication template. Unlike the older double-brace placeho
 
 Missing or unknown values remain visible as tokens and produce export diagnostics. Contents lists authors and titles, not page numbers. Review the final PDF, particularly text-frame overflow. Shortcode expansion in IDML, DOCX and ODT is not established. The complete field list is also available in the Studio Help and the local cover editor help.
 
+### Multilingual title matter
+
+Choose the metadata field language separately from the interface language, or type `[omi:journal:hu]`, `[omi:journal:en]`, `[omi:editorial-board:hu]` and `[omi:editorial-board:en]`. Both languages can appear on the same page. Explicit suffixes override the text frame's language, which otherwise overrides the document language. Regional OJS keys such as `hu_HU` and `en_US` match their language variants. Missing localized fields are not silently translated or replaced by unrelated languages; complete them in OJS and refresh the snapshot. Language-independent identifiers and recorded author names remain unchanged. Editorial public name variants are used if supplied. OJS source data and the final PDF require editorial review.
+
 ## Transfer typeset files to OJS
 
 Use an existing, unpublished submission in **OJS Production**, a personal editorial credential and a current OJS Integration plugin (latest documented release: **1.8.7**). Inspect the target, select HTML and/or one PDF mode, prepare all selected outputs and review them. Confirm the exact files and destination before transfer.

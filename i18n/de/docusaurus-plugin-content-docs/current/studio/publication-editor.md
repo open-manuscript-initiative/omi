@@ -69,6 +69,10 @@ Speichern Sie das Layout als Publikationsvorlage. Anders als die bisherigen beim
 
 Fehlende oder unbekannte Daten bleiben als Codes sichtbar und erzeugen Exportdiagnosen. Das Inhaltsverzeichnis enthält Autoren und Titel, keine Seitenzahlen. Prüfen Sie das fertige PDF, insbesondere Rahmenüberlauf. Die Auflösung in IDML, DOCX und ODT ist nicht bestätigt. Alle Felder sind auch in der Studio-Hilfe und der lokalen Titelei-Hilfe beschrieben.
 
+### Mehrsprachige Titelei
+
+Die Datenfeldsprache ist unabhängig von der Oberflächensprache. Verwenden Sie `[omi:journal:hu]`, `[omi:journal:en]`, `[omi:editorial-board:hu]` und `[omi:editorial-board:en]` auch auf derselben Seite. Ein explizites Suffix überschreibt die Rahmensprache, sonst gilt die Dokumentensprache. Regionale OJS-Sprachschlüssel wie `hu_HU` und `en_US` werden erkannt. Fehlende Übersetzungen werden nicht automatisch erzeugt oder durch andere Sprachen ersetzt; in OJS ergänzen und den Schnappschuss aktualisieren. Sprachunabhängige Kennungen und erfasste Autorennamen bleiben gemeinsam; öffentliche Namensvarianten der Redaktion werden verwendet, sofern vorhanden. OJS-Daten und endgültiges PDF redaktionell prüfen.
+
 ## Satzdateien an OJS übertragen
 
 Erforderlich sind eine vorhandene unveröffentlichte Einreichung in **OJS Production**, persönliche redaktionelle Zugangsdaten und ein aktuelles OJS-Plugin; zuletzt dokumentiert ist **1.8.7**. Ziel prüfen, HTML und/oder eine PDF-Variante wählen, alle Ausgaben vorbereiten und ansehen. Anschließend genaue Dateien und Ziel bestätigen.
