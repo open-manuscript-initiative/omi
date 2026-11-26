@@ -19,9 +19,9 @@ Project state: **Web/Android RC; desktop stabilization and interoperability deve
 
 The shared codebase targets Web, Windows, Linux, macOS, Android and iOS/iPadOS. Studio 0.3.0-beta.13 packages native TLS and Tokio security updates, native plugin fixes and more reliable macOS DMG creation. The portable manuscript format remains `OMI-SPEC-320@0.3.0`. Published releases remain immutable and bound to their exact build commit; Google Play requires a separate signed release run. See the [release notes](docs/studio/releases/0.3.0-beta.13.md) for packaging identities and deployment steps. iOS public distribution still depends on signing, provisioning and device/TestFlight validation.
 
-### 25 November development update
+### 27 November development update
 
-Merged Studio changes include expanded native Word exchange, persistent note insertion and formatted previews, and adaptive editor caching. [RC4 source](docs/studio/releases/1.0.0-rc.4.md) is merged; [RC5 preparation](docs/studio/releases/1.0.0-rc.5.md) and OJS plugin 1.9.1 are under review. Complete planned issue import and publication workflow (#1088) is merged; distribution remains independently verified. See [the update](docs/studio/updates/2026-11-25.md) and [memory guide](docs/studio/performance-and-memory.md).
+RC5 is merged in the Studio source. Complete planned OJS issue import, per-study author editing, multilingual title-matter fields and study-aware running headers are integrated. OJS plugin source 1.9.2.0 includes the compact OMI launcher and subsequent native imprint/masthead changes. Public distribution and live acceptance remain separate. See [the update](docs/studio/updates/2026-11-27.md), [RC5](docs/studio/releases/1.0.0-rc.5.md) and [memory guide](docs/studio/performance-and-memory.md).
 
 ### November 2026 capabilities
 
