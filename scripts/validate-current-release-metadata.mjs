@@ -3,8 +3,8 @@ import { readFile } from 'node:fs/promises';
 const expected = {
   studio: '0.3.0-beta.13',
   stagedStudio: '1.0.0-rc.2',
-  sourceStudio: '1.0.0-rc.4',
-  windowsPrepared: '1.0.3.0',
+  sourceStudio: '1.0.0-rc.5',
+  windowsPrepared: '1.0.4.0',
   windowsStore: '1.0.0.0',
   ojs: 'v1.8.7',
   omp: 'v1.5.1',
@@ -133,12 +133,12 @@ const required = [
   ['README.md', expected.stagedStudio],
   ['src/studioReleaseVersions.ts', '0a0ed53e4e61033b370de8280cfe1d5d4794bded'],
   ['src/studioReleaseVersions.ts', '44704657227'],
-  ['src/studioReleaseVersions.ts', "STUDIO_SNAPSHOT_DATE = '2026-11-26'"],
+  ['src/studioReleaseVersions.ts', "STUDIO_SNAPSHOT_DATE = '2026-11-27'"],
   ['src/studioReleaseVersions.ts', 'STUDIO_OFFICE_SEPARATION_PR_URL'],
   ['src/components/StudioReleaseStatus/index.tsx', 'STUDIO_OFFICE_SEPARATION_PR_URL'],
-  ['src/components/RecentStudioDevelopments/index.tsx', '/docs/studio/updates/2026-11-25'],
-  ['src/pages/index.tsx', '/docs/studio/updates/2026-11-25'],
-  ['src/pages/studio.tsx', '/docs/studio/updates/2026-11-25'],
+  ['src/components/RecentStudioDevelopments/index.tsx', '/docs/studio/updates/2026-11-27'],
+  ['src/pages/index.tsx', '/docs/studio/updates/2026-11-27'],
+  ['src/pages/studio.tsx', '/docs/studio/updates/2026-11-27'],
   ['src/studioReleaseVersions.ts', `STUDIO_WINDOWS_STORE_VERSION = '${expected.windowsStore}'`],
   ['src/pages/studio.tsx', 'STUDIO_WINDOWS_STORE_SEARCH_URL'],
   ['src/pages/studio.tsx', 'directWindowsTitle'],
@@ -152,7 +152,7 @@ const required = [
   ['src/pages/index.tsx', '<StudioReleaseStatus />'],
   ['src/pages/studio.tsx', '<StudioReleaseStatus />'],
   ['src/components/StudioReleaseStatus/index.tsx', 'Preview'],
-  ['src/components/StudioReleaseStatus/index.tsx', 'Web and Android RC available'],
+  ['src/components/StudioReleaseStatus/index.tsx', 'Last verified Web and Android RC'],
   ['src/studioReleaseVersions.ts', `STUDIO_PUBLISHED_VERSION = '${expected.studio}'`],
   ['src/studioReleaseVersions.ts', `STUDIO_SOURCE_VERSION = '${expected.sourceStudio}'`],
   ['src/studioReleaseVersions.ts', `STUDIO_WINDOWS_PACKAGE_VERSION = '${expected.windowsPrepared}'`],
@@ -197,8 +197,8 @@ for (const locale of ['en','hu','de']) {
   const root = locale === 'en' ? 'docs' : `i18n/${locale}/docusaurus-plugin-content-docs/current`;
   const file = `${root}/studio/releases/${expected.sourceStudio}.md`;
   const body = contents.get(file);
-  for (const marker of [expected.sourceStudio, expected.stagedStudio, expected.studio, expected.windowsPrepared, expected.windowsStore, expected.ojs, expected.omp, '1044']) {
-    if (!body?.includes(marker)) failures.push(`${file}: missing RC4 provenance marker ${marker}`);
+  for (const marker of [expected.sourceStudio, expected.stagedStudio, expected.studio, expected.windowsPrepared, expected.windowsStore, expected.ojs, expected.omp, '1089', '1091', '1.9.2.0']) {
+    if (!body?.includes(marker)) failures.push(`${file}: missing RC5 provenance marker ${marker}`);
   }
 }
 for (const path of stagedReleaseNotesFiles) {

@@ -4,12 +4,34 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const copy = {
   "en": [
-    "Studio development update — 25 November 2026",
-    "The merged source now includes expanded Word interoperability, direct note insertion, formatted note previews and adaptive memory management. Complete planned OJS issue import and reviewed article export/writeback are now merged. RC5 and OJS plugin 1.9.1 preparation are under review; distribution and live acceptance remain separate.",
+    "Studio development update — 27 November 2026",
+    "RC5 is merged in the Studio source. Complete planned OJS issue import, per-study author editing, multilingual title-matter fields and study-aware running headers are integrated. OJS plugin source 1.9.2.0 includes the compact OMI launcher and subsequent native imprint/masthead changes. Public distribution and live acceptance remain separate.",
     [
-      ["Adaptive memory management","A shared, bounded derived-cache budget, three performance modes, diagnostics and background cache clearing. Android samples available system RAM; actual device and WebView memory measurements remain pending.","performance-and-memory"],
-      ["Direct note insertion and formatted previews","Insert a note at the cursor or attach it to a selection from the persistent toolbar action. Hover or focus a note anchor to read its formatted contents; click to edit.","notes-and-formatting"],
-      ["Expanded Word interoperability","Native DrawingML picture geometry and crops, OMML equations, semantic REF fields, private Word comments and reversible review changes, and consistent content-language tags. Verify complex documents after exchange.","updates/2026-11-25"],
+      [
+        "Complete journal issue workflow",
+        "Import ordered planned OJS issues, edit per-study authors and notes, review PDF ranges and transfer approved PDF/HTML/JATS Article Authoring files and printed page labels.",
+        "publication-editor"
+      ],
+      [
+        "Multilingual publication templates",
+        "Reusable imprint and editorial board shortcodes, per-field language selection, article DOI, title, authors and printed page counter in running heads.",
+        "publication-editor"
+      ],
+      [
+        "Adaptive memory management",
+        "A shared, bounded derived-cache budget, three performance modes, diagnostics and background cache clearing. Android samples available system RAM; actual device and WebView memory measurements remain pending.",
+        "performance-and-memory"
+      ],
+      [
+        "Direct note insertion and formatted previews",
+        "Insert a note at the cursor or attach it to a selection from the persistent toolbar action. Hover or focus a note anchor to read its formatted contents; click to edit.",
+        "notes-and-formatting"
+      ],
+      [
+        "Expanded Word interoperability",
+        "Native DrawingML picture geometry and crops, OMML equations, semantic REF fields, private Word comments and reversible review changes, and consistent content-language tags. Verify complex documents after exchange.",
+        "updates/2026-11-25"
+      ],
       [
         "Office editing is an independent service",
         "The embedded EuroOffice editor and Studio API coupling have been removed. DOCX import/export remains available in Studio; a separate Office service is operated and updated independently.",
@@ -38,12 +60,34 @@ const copy = {
     ]
   ],
   "hu": [
-    "Stúdió-fejlesztések — 2026. november 25.",
-    "A beolvasztott forráskód kibővített Word-kompatibilitást, közvetlen jegyzetbeszúrást, formázott jegyzet-előnézetet és adaptív memóriakezelést tartalmaz. A teljes tervezett OJS-lapszám importja és az ellenőrzött tanulmányexport/visszaírás is beolvadt. Az RC5 és az OJS-plugin 1.9.1 előkészítése folyamatban van; a terjesztés és az éles próba külön igazolandó.",
+    "Stúdió-fejlesztések — 2026. november 27.",
+    "Az RC5 a Stúdió forráskódjába beolvadt. A teljes tervezett OJS-lapszám importja, a tanulmányonkénti szerzőkezelés, a többnyelvű címnegyed-adatmezők és a tanulmányfüggő futó fejlécek beépültek. Az OJS-plugin 1.9.2.0 forrása tartalmazza a rövid OMI indítót és a későbbi natív impresszum- és szerkesztőbizottsági változtatásokat. A terjesztés és az éles elfogadás külön igazolandó.",
     [
-      ["Adaptív memóriakezelés","Közös, korlátozott származtatott gyorsítótár, három teljesítményüzemmód, diagnosztika és háttérbe kerüléskor ürítés. Androidon a rendszer elérhető RAM-ja is mérhető; a tényleges eszköz- és WebView-mérések még hátravannak.","performance-and-memory"],
-      ["Közvetlen jegyzetbeszúrás és formázott előnézet","Az állandó eszköztárikon a kurzornál vagy kijelölt szöveghez szúr be jegyzetet. A hivatkozás fölé vitt egér vagy billentyűzetfókusz megjeleníti a formázott tartalmat; kattintással szerkeszthető.","notes-and-formatting"],
-      ["Bővített Word-kompatibilitás","Natív DrawingML képgeometria és vágás, OMML képletek, szemantikus REF mezők, privát Word-megjegyzések és visszafordítható változtatások, egységes tartalmi nyelvkódok. Az összetett dokumentumok eredményét ellenőrizni kell.","updates/2026-11-25"],
+      [
+        "Teljes folyóiratszám munkafolyamata",
+        "Tervezett OJS-lapszám importja, tanulmányonkénti szerzők és jegyzetek, PDF-oldaltartományok ellenőrzése, jóváhagyott PDF/HTML/JATS Article Authoring fájlok és nyomtatott oldalszámok átadása.",
+        "publication-editor"
+      ],
+      [
+        "Többnyelvű kiadványsablonok",
+        "Újrafelhasználható impresszum és szerkesztőbizottsági shortcode-ok, mezőnkénti nyelvválasztás, tanulmány-DOI, cím, szerzők és nyomtatott oldalszám az élőfejben.",
+        "publication-editor"
+      ],
+      [
+        "Adaptív memóriakezelés",
+        "Közös, korlátozott származtatott gyorsítótár, három teljesítményüzemmód, diagnosztika és háttérbe kerüléskor ürítés. Androidon a rendszer elérhető RAM-ja is mérhető; a tényleges eszköz- és WebView-mérések még hátravannak.",
+        "performance-and-memory"
+      ],
+      [
+        "Közvetlen jegyzetbeszúrás és formázott előnézet",
+        "Az állandó eszköztárikon a kurzornál vagy kijelölt szöveghez szúr be jegyzetet. A hivatkozás fölé vitt egér vagy billentyűzetfókusz megjeleníti a formázott tartalmat; kattintással szerkeszthető.",
+        "notes-and-formatting"
+      ],
+      [
+        "Bővített Word-kompatibilitás",
+        "Natív DrawingML képgeometria és vágás, OMML képletek, szemantikus REF mezők, privát Word-megjegyzések és visszafordítható változtatások, egységes tartalmi nyelvkódok. Az összetett dokumentumok eredményét ellenőrizni kell.",
+        "updates/2026-11-25"
+      ],
       [
         "EuroOffice: különálló szolgáltatás",
         "Megszűnt az EuroOffice beágyazása és API-kapcsolata a Stúdióban. A DOCX-import és -export megmarad; az általános Office-szerkesztő külön üzemel és frissül.",
@@ -72,12 +116,34 @@ const copy = {
     ]
   ],
   "de": [
-    "Studio-Entwicklungsupdate — 25. November 2026",
-    "Der integrierte Quellcode enthält erweiterte Word-Interoperabilität, direktes Einfügen von Anmerkungen, formatierte Vorschauen und adaptive Speicherverwaltung. Der vollständige Import geplanter OJS-Ausgaben und die geprüfte Artikelübertragung sind integriert. RC5 und OJS-Plugin 1.9.1 sind in Vorbereitung; Vertrieb und Praxisabnahme bleiben getrennt.",
+    "Studio-Entwicklungsupdate — 27. November 2026",
+    "RC5 ist im Studio-Quellcode integriert. Vollständiger Import geplanter OJS-Ausgaben, beitragsbezogene Autorenbearbeitung, mehrsprachige Titelei-Felder und beitragsabhängige Kolumnentitel sind integriert. OJS-Plugin-Quellstand 1.9.2.0 umfasst den kompakten OMI-Start und spätere native Impressums-/Redaktionsänderungen. Vertrieb und Praxisabnahme bleiben getrennt.",
     [
-      ["Adaptive Speicherverwaltung","Gemeinsames begrenztes Cache-Budget, drei Leistungsmodi, Diagnose und Cache-Leerung im Hintergrund. Android ermittelt verfügbaren Systemspeicher; Geräte- und WebView-Messungen stehen aus.","performance-and-memory"],
-      ["Direkte Anmerkungen und formatierte Vorschau","Anmerkungen über die dauerhaft verfügbare Werkzeugleistenaktion am Cursor oder an ausgewähltem Text einfügen. Mauszeiger oder Tastaturfokus zeigen formatierte Inhalte; Klick öffnet die Bearbeitung.","notes-and-formatting"],
-      ["Erweiterte Word-Interoperabilität","Native DrawingML-Bildgeometrie und Zuschnitt, OMML-Formeln, semantische REF-Felder, private Word-Kommentare und reversible Änderungen sowie konsistente Inhaltssprachcodes. Komplexe Dokumente nach dem Austausch prüfen.","updates/2026-11-25"],
+      [
+        "Vollständiger Zeitschriftenworkflow",
+        "Geplante OJS-Ausgaben importieren, Autoren und Anmerkungen je Beitrag bearbeiten, PDF-Seitenbereiche prüfen und bestätigte PDF/HTML/JATS Article Authoring-Dateien und Seitenzahlen übertragen.",
+        "publication-editor"
+      ],
+      [
+        "Mehrsprachige Publikationsvorlagen",
+        "Wiederverwendbare Impressums- und Redaktionsfelder, Sprachwahl je Feld, Beitrags-DOI, Titel, Autoren und gedruckte Seitenzahl im Kolumnentitel.",
+        "publication-editor"
+      ],
+      [
+        "Adaptive Speicherverwaltung",
+        "Gemeinsames begrenztes Cache-Budget, drei Leistungsmodi, Diagnose und Cache-Leerung im Hintergrund. Android ermittelt verfügbaren Systemspeicher; Geräte- und WebView-Messungen stehen aus.",
+        "performance-and-memory"
+      ],
+      [
+        "Direkte Anmerkungen und formatierte Vorschau",
+        "Anmerkungen über die dauerhaft verfügbare Werkzeugleistenaktion am Cursor oder an ausgewähltem Text einfügen. Mauszeiger oder Tastaturfokus zeigen formatierte Inhalte; Klick öffnet die Bearbeitung.",
+        "notes-and-formatting"
+      ],
+      [
+        "Erweiterte Word-Interoperabilität",
+        "Native DrawingML-Bildgeometrie und Zuschnitt, OMML-Formeln, semantische REF-Felder, private Word-Kommentare und reversible Änderungen sowie konsistente Inhaltssprachcodes. Komplexe Dokumente nach dem Austausch prüfen.",
+        "updates/2026-11-25"
+      ],
       [
         "EuroOffice als eigenständiger Dienst",
         "Der eingebettete EuroOffice-Editor und seine Studio-API-Anbindung wurden entfernt. DOCX-Import und -Export bleiben erhalten; Office wird unabhängig betrieben und aktualisiert.",
@@ -118,6 +184,6 @@ export default function RecentStudioDevelopments() {
         <h3><Link to={'/docs/studio/' + slug}>{heading}</Link></h3>
         <p>{description}</p>
       </article>)}</div>
-    <Link to="/docs/studio/updates/2026-11-25">{title}</Link>
+    <Link to="/docs/studio/updates/2026-11-27">{title}</Link>
   </section>;
 }

@@ -312,7 +312,7 @@ export default function StudioDownloads() {
             </div>
             <p className={styles.sectionLead}>{update.maturity}</p>
             <p className={styles.sectionLead}>
-              <Link to="/docs/studio/updates/2026-11-25">{developmentUpdateLabel(i18n.currentLocale)}</Link>
+              <Link to="/docs/studio/updates/2026-11-27">{developmentUpdateLabel(i18n.currentLocale)}</Link>
             </p>
           </div>
         </section>

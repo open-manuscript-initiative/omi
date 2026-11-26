@@ -26,7 +26,7 @@ Die Abnahmeanforderungen für die stabile OJS-Unterstützung gelten weiterhin. D
 
 ## Aktuelle Version
 
-**Stabile Version:** `v1.8.7`
+**Zuletzt bestätigte Version:** `v1.8.7`
 **Zielplattform:** OJS 3.5.x  
 **Lizenz:** GNU GPL v3.0
 
@@ -128,3 +128,11 @@ OJS 3.5.0-4, 3.5.0-5 und 3.5.0-6 benötigen jeweils automatisierte E02-Nachweise
 ## Geplante Ausgaben — Vorbereitung 1.9.1
 
 Der integrierte Quellcode unterstützt den Import vollständiger geplanter Ausgaben, ausgabengebundene Dateiübertragung, Artikel-DOI und geprüfte Rückschreibung gedruckter Seitenzahlen. [Plugin 1.9.1](https://github.com/open-manuscript-initiative/omi-ojs-plugin/pull/50) ist noch kein bestätigter Download. Siehe [RC5-Bereitstellung](/docs/studio/releases/1.0.0-rc.5). Praxisabnahme steht aus; keine automatische Veröffentlichung.
+
+## Aktueller Quellstand – 27. November 2026
+
+RC5 ist integriert: vollständiger Import geplanter OJS-Ausgaben, beitragsbezogene Autorenbearbeitung, mehrsprachige Titelei-Felder und beitragsabhängige Kolumnentitel. Studio #1090 und #1091 sowie OJS #52 und #53 sind integriert. OJS main enthält 1.9.2.0; ein früheres Archiv derselben Version kann vor #53 erstellt worden sein. Paketprovenienz und Praxisabnahme prüfen.
+
+Zuletzt bestätigte Referenzen: Web/Android 1.0.0-rc.2, Desktop 0.3.0-beta.13, Store 1.0.0.0; historische OJS v1.8.7 und OMP v1.5.1. Keine neu geprüften Live-Versionen.
+
+[Studio #1091](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1091) · [OJS #53](https://github.com/open-manuscript-initiative/omi-ojs-plugin/pull/53) · [RC5 #1089](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1089) · [Update](/docs/studio/updates/2026-11-27)

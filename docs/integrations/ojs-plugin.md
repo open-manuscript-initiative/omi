@@ -24,9 +24,9 @@ The compatibility matrix includes OJS **3.5.0-4, 3.5.0-5 and 3.5.0-6**. Each ver
 
 OJS retains its Stable acceptance requirements. The -6 update includes API anonymity and access-control fixes, ORCID/ROR improvements and publication-version corrections. Read the [source review and test details](https://github.com/open-manuscript-initiative/open-manuscript-studio/blob/main/docs/pkp-3.5.0-6-review.md). A matrix extension requires passing CI evidence and does not imply PKP certification or publish a new plugin archive.
 
-## Current release
+## Last verified release reference
 
-**Stable release:** `v1.8.7`
+**Previously verified release:** `v1.8.7`
 **Target platform:** OJS 3.5.x  
 **License:** GNU GPL v3.0
 
@@ -128,3 +128,11 @@ OJS 3.5.0-4, 3.5.0-5 and 3.5.0-6 each require a version-specific automated E02 r
 ## Planned issues — 1.9.1 preparation
 
 Merged source supports manager-scoped complete planned issue import, exact-target publication artifact transfer, article DOI metadata and reviewed printed page writeback. [Plugin 1.9.1 preparation](https://github.com/open-manuscript-initiative/omi-ojs-plugin/pull/50) is not a verified downloadable release. See [RC5 rollout](/docs/studio/releases/1.0.0-rc.5). Live editorial acceptance is pending; no automatic publication.
+
+## Current source status — 27 November 2026
+
+RC5 is merged, including complete planned OJS issue import, study-specific author editing, multilingual title-matter shortcodes and study-aware running headers. Studio #1090 and #1091, OJS #52 and #53 are merged. OJS main declares 1.9.2.0; an earlier package at the same version may predate #53. Check archive provenance and live editorial acceptance.
+
+Last verified references: web/Android 1.0.0-rc.2, desktop 0.3.0-beta.13, Store 1.0.0.0; historical OJS v1.8.7 and OMP v1.5.1. Not newly verified live versions.
+
+[Studio #1091](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1091) · [OJS #53](https://github.com/open-manuscript-initiative/omi-ojs-plugin/pull/53) · [RC5 #1089](https://github.com/open-manuscript-initiative/open-manuscript-studio/pull/1089) · [Update](/docs/studio/updates/2026-11-27)
